@@ -51,8 +51,8 @@ create table empresas(
   status boolean not null default 1,
   is_deleted boolean not null default 0,
   licenciaMRC int not null,
-  id_pais int not null,
-  id_ciudad int not null,
+  pais int not null,
+  ciudad int not null,
   tipo_negocio int not null,
   name varchar(255) not null,
   password varchar(100) not null,
@@ -61,8 +61,8 @@ create table empresas(
   skin int not null,
   created_at datetime not null,
   foreign key(skin) references skins(id),
-  foreign key(id_pais) references pais(id),
-  foreign key(id_ciudad) references ciudad(id),
+  foreign key(pais) references pais(id),
+  foreign key(ciudad) references ciudad(id),
   foreign key(tipo_negocio) references tipo_negocios(id)
 );
 
@@ -85,9 +85,10 @@ create table user(
   foreign key(empresa) references empresas(id)
 );
 
-/*Seccion de gastos*/
-create table gastos(
+/*Seccion de tipos de gastos/ingreso*/
+create table tipos(
 	id int not null auto_increment primary key,
+	tipo varchar(20) not null,
 	name varchar(100) not null unique,
 	entidad varchar(100) not null unique
 );
@@ -99,16 +100,18 @@ create table category_expence (
 	name varchar(255) not null,
 	user_id int not null,
 	created_at datetime not null,
-	gasto int not null,
+	tipo int not null,
 	foreign key(user_id) references user(id),
-	foreign key(gasto) references gastos(id)
+	foreign key(tipo) references tipos(id)
 );
 
 create table category_income (
 	id int not null auto_increment primary key,
 	name varchar(255) not null,
 	user_id int not null,
+	tipo int not null,
 	created_at datetime not null,
+	foreign key(tipo) references tipos(id),
 	foreign key(user_id) references user(id)
 );
 
@@ -120,10 +123,10 @@ create table entidades (
 	name varchar(255) not null,
 	user_id int not null,
 	created_at datetime not null,
-	gasto int not null,
+	tipo int not null,
 	category_id int not null,
 	foreign key(user_id) references user(id),
-	foreign key(gasto) references gastos(id),
+	foreign key(tipo) references tipos(id),
 	foreign key(category_id) references category_expence(id)
 );
 
@@ -139,6 +142,10 @@ create table entidades (
   	category_id int not null,
   	entidad int not null,
   	created_at date not null,
+  	fecha date not null,
+	pagado boolean not null default 1,
+	documento MEDIUMBLOB,
+	pago MEDIUMBLOB,
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_expence(id),
   	foreign key(entidad) references entidades(id)
@@ -150,7 +157,29 @@ create table entidades (
   	amount double not null,
   	user_id int not null,
   	category_id int not null,
+  	entidad int not null,
   	created_at date not null,
+	fecha date not null,
+	pagado boolean not null default 1,
+	documento MEDIUMBLOB,
+	pago MEDIUMBLOB,
   	foreign key(user_id) references user(id),
-  	foreign key(category_id) references category_income(id)
+  	foreign key(category_id) references category_income(id),
+  	foreign key(entidad) references entidades(id)
+
+  );
+  create table resultado (
+  	id int not null auto_increment primary key,
+  	description text ,
+  	amount double not null,
+  	user_id int not null,
+  	entidad int not null,
+  	created_at date not null,
+	fecha date not null,
+	pagado boolean not null default 1,
+	documento MEDIUMBLOB,
+	pago MEDIUMBLOB,
+  	foreign key(user_id) references user(id),
+  	foreign key(entidad) references entidades(id)
+
   );
