@@ -23469,21 +23469,29 @@ insert into configuration(label,name,val) values ("Logotipo","logo","logo.png");
 
 /*Prueba de empresa*/
 
-INSERT INTO empresas (id, status, is_deleted, licenciaMRC, id_pais, id_ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
+INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
 VALUES ('1', '1', '0', '123', '2', '34', '2', 'empresa de prueba', 'qwer', 'cagv1992@gmail.com', 'default.jpg', '3', '2019-09-17 00:00:00');
 
 /*Prueba de usuario*/
 INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
 (1, 0, 'Amner Saucedo Sosa', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin@admin.com', 'default.png',5 , 1, 1, NOW());
 
-/*Datos de seccion de Gastos*/
-INSERT INTO gastos (name,entidad)
-VALUES ('Compras infraestructura', 'Proveedor infraestructura'),
-        ('Compras insumos', 'Proveedor insumos'),
-        ('Personal', 'Persona'),
-        ('Honorarios', 'Profesional'),
-        ('Servicios', 'Servicio'),
-        ('Alquileres', 'Arrendatario'),
-        ('Impuestos', 'Impuesto'),
-        ('Socios', 'Socio'),
-        ('Otros', 'Entidad');
+/*Datos de seccion de tipos de gastos/ingresos*/
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Compras infraestructura', 'Proveedor infraestructura' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Compras insumos', 'Proveedor insumos' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Personal', 'Persona' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Honorarios', 'Profesional' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Servicios', 'Servicio' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Alquileres', 'Arrendatario' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Impuestos', 'Impuesto' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Publicidad y promoción', 'Medio' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Otros', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Ventas', 'Punto de Venta' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Clientes', 'Cliente' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Publicidad', 'Marca' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Otros', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Socio', 'Socios', 'Socio' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Socio', 'Otros', 'Entidad' );
+
+
+
