@@ -1,0 +1,36 @@
+Hola muchisimas gracias por adquirir este sistema, 
+te mando un saludo desde Guatemala/Guatemala
+
+# Gastos, Ingresos
+Sistema de contabilidad de gastos e ingresos de proposito general desarrollado con PHP y MySQL.
+
+
+#Usuario demo:
+usuario: admin@admin.com
+contraseña: admin
+
+## Mas informacion
+Encuentra mas informacion, instrucciones y demos en el siguiente link.
+Link: http://abisoftgt.net/portfolio
+
+Correo Electrónico: waptoing7@gmail.com
+
+
+Si deseas contratar el servicio de soporte técnico para el sistema de Contabilidad debes enviar un 
+E-mail a: waptoing7@gmail.com, con el asunto “Soporte Sistema de Gastos e Ingresos”, 
+en donde se detalle el tipo de ayuda que se desea recibir. 
+Luego se responderá mediante una cotización con el costo del servicio, 
+forma de pago y tiempo de entrega.
+
+INSTALACION:
+para instalar el sistema solo ejecuta el archivo instalar.bat 
+para poder instalar el sistema correctamente tienes que tener el sistema en la siguiente ruta:
+C:\xampp\htdocs\expense-manager
+y si tu no tienes ubicado el sistema en esa ruta abre el archivo INSTALAR.BAT 
+con cualquier editor de texto, modifica la ruta y listo EJECUTA el archivo.
+si tienes problemas al instalar el sistema no dudes escribirme a mi correo electronico:
+waptoing7@gmail.com
+
+saludos.
+Att: Amner Saucedo Sosa
+Sitio web: http://abisoftgt.net/
