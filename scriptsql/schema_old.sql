@@ -1,9 +1,5 @@
-/**
-@author Amner Saucedo Sosa
-@Abisoft Modelo de base de datos
-**/
-create database expense_manager;
-use expense_manager;
+create database old_expense_manager;
+use old_expense_manager;
 
 
 CREATE TABLE skins (
