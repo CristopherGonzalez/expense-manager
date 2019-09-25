@@ -59,7 +59,15 @@ if(isset($_SESSION["user_id"])):
                                         <label for="gasto" class="col-sm-2 control-label">Gasto: </label>
                                         <div class="col-sm-10">
                                             <select class="form-control" style="width: 100%" name="gasto" id="gasto" >
-                                              <option value=""></option>
+                                                <option >---SELECCIONA---</option>
+                                                <?php
+                                                    $gasto=TypeData::getAllExpense();
+                                                    foreach($gasto as $cat){
+                                                ?>
+                                                    <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+                                                <?php 
+                                                    }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -178,6 +186,7 @@ if(isset($_SESSION["user_id"])):
     $( "#add_register" ).submit(function( event ) {
         $('#save_data').attr("disabled", true);
         var parametros = $(this).serialize();
+        debugger;
         $.ajax({
             type: "POST",
             url: "./?action=addcategory_expense",

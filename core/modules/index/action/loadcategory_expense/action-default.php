@@ -65,6 +65,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 <table class="table table-bordered table-hover">
 	<thead>
 		<th>Nombre</th>
+		<th>Tipo Gasto</th>
 		<th>Fecha</th>
 		<th></th>
 	</thead>
@@ -82,6 +83,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		?>
 		<tr>
 			<td><?php echo $cat->name; ?></td>
+			<td><?php echo $cat->tipo; ?></td>
 			<td><?php echo $date." ".$time; ?></td>
 			<td class="text-right">
                 <a href="./?view=editcategory_expense&id=<?php echo $cat->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>

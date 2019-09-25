@@ -1,18 +1,17 @@
 <?php
-class CategoryExpenseData {
+class CountryData {
 	public static $tablename = "category_expence";
 
 
-	public function CategoryExpenseData(){
+	public function CountryData(){
 		$this->name = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";
-		$this->tipo = "";
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (name,user_id,created_at,tipo) ";
-		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo)";
+		$sql = "insert into category_expence (name,user_id,created_at) ";
+		$sql .= "value (\"$this->name\",\"$this->user_id\",$this->created_at)";
 		return Executor::doit($sql);
 	}
 
@@ -31,7 +30,7 @@ class CategoryExpenseData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",tipo=\"$this->tipo\", where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
 		if (Executor::doit($sql)){
 			return true;
 		}else{
@@ -42,32 +41,32 @@ class CategoryExpenseData {
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new CategoryExpenseData());
+		return Model::one($query[0],new CountryData());
 	}
 
 	public static function getAll($u){
 		$sql = "select * from ".self::$tablename." where user_id=$u";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new CategoryExpenseData());
+		return Model::many($query[0],new CountryData());
 
 	}
 
 	public static function getLike($q,$u){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' and user_id=$u" ;
+		$sql = "select * from ".self::$tablename." where name like '%$q%' and user_id=$u";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new CategoryExpenseData());
+		return Model::many($query[0],new CountryData());
 	}
 
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new CategoryExpenseData());
+		return Model::one($query[0],new CountryData());
 	}
 
 	public static function query($sWhere, $offset,$per_page){
 		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." LIMIT $offset,$per_page";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new CategoryExpenseData());
+		return Model::many($query[0],new CountryData());
 	}
 
 }

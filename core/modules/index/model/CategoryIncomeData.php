@@ -6,12 +6,13 @@ class CategoryIncomeData {
 	public function CategoryIncomeData(){
 		$this->name = "";
 		$this->user_id = "";
+		$this->tipo = "";
 		$this->created_at = "NOW()";
 	}
 
 	public function add(){
-		$sql = "insert into category_income (name,user_id,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->user_id\",$this->created_at)";
+		$sql = "insert into ".self::$tablename." (name,user_id,tipo,created_at) ";
+		$sql .= "value (\"$this->name\",\"$this->user_id\",$this->tipo\",\"$this->user_id\")";
 		return Executor::doit($sql);
 	}
 
@@ -30,7 +31,7 @@ class CategoryIncomeData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\" and tipo=\"$this->tipo\" where id=$this->id";
 		if (Executor::doit($sql)){
 			return true;
 		}else{
