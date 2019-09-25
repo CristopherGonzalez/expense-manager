@@ -18,10 +18,20 @@ if(isset($_SESSION["user_id"])):
     <section class="content">
         <div class="row">
             <div class="form-group">
+
+                <!--  Se agrega opcion para buscar por gastos-->
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Gastos" name="" id='' onkeyup="#">
+                </div>
+                <div class="col-md-1">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick='#'><i class='fa fa-search'></i></button>
+                    </span>
+                </div>
                 <div class="col-md-3">
                     <input type="text" class="form-control" placeholder="Nombre" name="q" id='q' onkeyup="load(1);">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-1">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                     </span>
@@ -32,35 +42,44 @@ if(isset($_SESSION["user_id"])):
                 </div>
                 <!-- <div class="col-md-offset-10"> -->
                 <div class=" pull-right">
-<button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
-<!-- Form Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <!-- form  -->
-        <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel"> Nueva Categoria</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="name" class="col-sm-2 control-label">Nombre: </label>
-                    <div class="col-sm-10">
-                        <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: ">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
+                    <!-- Form Modal -->
+                    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <!-- form  -->
+                            <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel"> Nueva Categoria Gasto</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Se agrega desplegable para seleccionar el tipo de gasto -->
+                                    <div class="form-group">
+                                        <label for="gasto" class="col-sm-2 control-label">Gasto: </label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" style="width: 100%" name="gasto" id="gasto" >
+                                              <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-2 control-label">Nombre: </label>
+                                        <div class="col-sm-10">
+                                            <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: ">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
+                                </div>
+                            </form>
+                            <!-- /end form  -->
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
-            </div>
-        </form>
-        <!-- /end form  -->
-        </div>
-    </div>
-</div>
-<!-- End Form Modal -->
+                    <!-- End Form Modal -->
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Mostrar <span class="caret"></span>

@@ -87,6 +87,7 @@
                         </div>
                     </div>
                     <ul class="sidebar-menu">
+                        <!-- Se agregan las opciones socios, entidades e informes-->
                         <li class="header">NAVEGACIÓN</li>
 
                         <li class="<?php if(isset($_GET['view']) and $_GET['view']=='home' ){echo "active";}?>">
@@ -101,6 +102,12 @@
                             <a href="?view=expenses"><i class="fa fa-credit-card"></i> <span>Gastos</span></a>
                         </li>
 
+                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='socios' ){echo "active";}?>">
+                            <!--a href="?view=socios"><i class="fa fa-home"></i> <span>Informes</span></a>-->
+                            <a href="#"><i class="fa fa-users"></i> <span>Socios</span></a>
+                        </li>
+
+
                         <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_income' or $_GET['view']=='editcategory_income'){echo "active";}?>">
                             <a href="?view=category_income"><i class="fa fa-th-list"></i> <span>Categoria de ingresos</span></a>
                         </li>
@@ -109,9 +116,23 @@
                             <a href="?view=category_expense"><i class="fa fa-th"></i> <span>Categoria de gastos</span></a>
                         </li>
 
+                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='entidades' ){echo "active";}?>">
+                            <!--a href="?view=entidades"><i class="fa fa-home"></i> <span>Informes</span></a>-->
+                            <a href="#"><i class="fa fa-building-o"></i> <span>Entidades</span></a>
+
+                        </li>
+
+                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='informes' ){echo "active";}?>">
+                            <!--a href="?view=informes"><i class="fa fa-home"></i> <span>Informes</span></a>-->
+                            <a href="#"><i class="fa fa-folder-open"></i> <span>Informes</span></a>
+
+                        </li>
+
+
                         <li class="<?php if(isset($_GET['view']) and $_GET['view']=='profile' ){echo "active";}?>">
                             <a href="?view=profile"><i class="fa fa-user"></i> <span>Mi cuenta</span></a>
                         </li>
+                        
 
                     </ul>
                 </section>
