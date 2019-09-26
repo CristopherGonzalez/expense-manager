@@ -31,8 +31,9 @@ class CategoryExpenseData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",tipo=\"$this->tipo\", where id=$this->id";
-		if (Executor::doit($sql)){
+		$sql = "update ".self::$tablename." set name=\"$this->name\",tipo= $this->tipo where id=$this->id";
+		$query = Executor::doit($sql);
+		if (isset($query)){
 			return true;
 		}else{
 			return false;

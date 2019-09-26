@@ -3,19 +3,23 @@ if (!isset($_SESSION['user_id'])){
 	Core::redir("./");//Redirecciona 
 	exit;
 }
+//Se agregan validacion para nuevo campo de gasto
 	if (empty($_POST['mod_id'])) {
            $errors[] = "ID vacío";
-        }else if (empty($_POST['name'])) {
-           $errors[] = "Nombre vacío";
+        }else if (empty($_POST['name']) || empty($_POST['gasto']) ) {
+           $errors[] = "Todos los campos son requeridos";
         }else if (
         	!empty($_POST['mod_id'])
-			&& !empty($_POST['name'])
+			&& !empty($_POST['name']
+			&& !empty($_POST['gasto']))
 		){
 
     	$con = Database::getCon(); 
 		$id=intval($_POST['mod_id']);
 		$category_expense = CategoryExpenseData::getById($id);
 		$category_expense->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
+		//Se agrega tipo para corregir update
+		$category_expense->tipo = $_POST['gasto'];
 		$query_update=$category_expense->update();
 
 		if ($query_update){
