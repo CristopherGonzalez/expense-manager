@@ -43,14 +43,18 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		$result_types=TypeData::getLike($gasto, 'Gasto');
 		$count=count($result_types);
 		//Se crea query dependiendo de los resultados
+		$sWhere.=" and  ( ";
 		if($count>0){
-			$sWhere.=" and  ( ";
 			foreach($result_types as $index => $type){
 				$sWhere.=" tipo = $type->id or";
 			}
 			$sWhere=substr($sWhere,0,-2);
-			$sWhere.= " ) ";
+		}else{
+			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de gastos
+			$sWhere.= " tipo = 0 ";
 		}
+		$sWhere.= " ) ";
+
 	}
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
