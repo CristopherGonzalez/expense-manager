@@ -9,7 +9,12 @@ class ExpensesData {
 		$this->upload_receipt = "";
 		$this->user_id = "";
 		$this->category_id = "";
+		$this->entidad = "";
 		$this->created_at = "";
+		$this->fecha = "";
+		$this->pagado = "";
+		$this->documento = "";
+		$this->pago = "";
 	}
 
 	public function getCategory(){ return CategoryExpenseData::getById($this->category_id);}

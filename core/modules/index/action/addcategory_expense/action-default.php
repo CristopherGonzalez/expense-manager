@@ -3,10 +3,10 @@ if (!isset($_SESSION['user_id'])){
 	Core::redir("./");//Redirecciona 
 	exit;
 }
-	if (empty($_POST['name'])){
-			$errors[] = "Nombre está vacío.";
+	if (empty($_POST['name']) && empty($_POST['gasto'])){
+			$errors[] = "Todos lo campos son requeridos";
 		}  elseif (
-        	!empty($_POST['name'])
+        	!empty($_POST['name']) && !empty($_POST['gasto'])
         ){
         	$con = Database::getCon(); 
 			$expense = new CategoryExpenseData();
