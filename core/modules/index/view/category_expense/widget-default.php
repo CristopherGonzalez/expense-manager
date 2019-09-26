@@ -21,11 +21,11 @@ if(isset($_SESSION["user_id"])):
 
                 <!--  Se agrega opcion para buscar por gastos-->
                 <div class="col-md-3">
-                    <input type="text" class="form-control" placeholder="Gastos" name="" id='' onkeyup="#">
+                    <input type="text" class="form-control" placeholder="Gastos" name="g" id='g' onkeyup="load(1);">
                 </div>
                 <div class="col-md-1">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick='#'><i class='fa fa-search'></i></button>
+                        <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                     </span>
                 </div>
                 <div class="col-md-3">
@@ -131,9 +131,11 @@ if(isset($_SESSION["user_id"])):
         load(1);
     });
     function load(page){
-            var query=$("#q").val();
+            //Se cambia para hacer busqueda por gasto y/o nombre
+            var gasto = $("#g").val();
+            var nombre = $("#q").val();
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,'query':query,'per_page':per_page};
+            var parametros = {"page":page,'gasto':gasto,'nombre':nombre,'per_page':per_page};
             //$.get("./?action=loadexpenses",parametros,function(data){
             $.get({
                 url:"./?action=loadcategory_expense",

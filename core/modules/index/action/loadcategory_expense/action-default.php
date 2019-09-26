@@ -28,20 +28,34 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <?php
 	$con = Database::getCon();
-	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
+	$nombre = mysqli_real_escape_string($con,(strip_tags($_REQUEST['nombre'], ENT_QUOTES)));
+	$gasto = mysqli_real_escape_string($con,(strip_tags($_REQUEST['gasto'], ENT_QUOTES)));
 	$user_id=$_SESSION["user_id"];
 	//$sWhere=" user_id>0 ";
 	$sWhere=" user_id=$user_id ";
-	if($query!=""){
-		$sWhere.=" and name LIKE '%".$query."%' ";
+	//Creacion de query por nombre y/o gasto
+	if($nombre!=""){
+		$sWhere.=" and name LIKE '%".$nombre."%' ";
 	}
-
+	if($gasto!=""){
+		//Se busca en tabla tipos para obtener por nombre
+		$result_types=TypeData::getLike($gasto, 'Gasto');
+		$count=count($result_types);
+		//Se crea query dependiendo de los resultados
+		if($count>0){
+			$sWhere.=" and  ( ";
+			foreach($result_types as $index => $type){
+				$sWhere.=" tipo = $type->id or";
+			}
+			$sWhere=substr($sWhere,0,-2);
+			$sWhere.= " ) ";
+		}
+	}
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	$per_page = intval($_REQUEST['per_page']); //how much records you want to show
 	$adjacents  = 4; //gap between pages after number of adjacents
 	$offset = ($page - 1) * $per_page;
-
 	$count_query=CategoryExpenseData::countQuery($sWhere);
 	$numrows = $count_query->numrows;
 	$total_pages = ceil($numrows/$per_page);
@@ -83,7 +97,10 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		?>
 		<tr>
 			<td><?php echo $cat->name; ?></td>
-			<td><?php echo $cat->tipo; ?></td>
+			<td><?php 
+			//Se muestra el nombre po id en el grid del historial
+			$tipo= TypeData::GetById($cat->tipo);
+			echo $tipo->name; ?></td>
 			<td><?php echo $date." ".$time; ?></td>
 			<td class="text-right">
                 <a href="./?view=editcategory_expense&id=<?php echo $cat->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>

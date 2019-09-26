@@ -37,11 +37,17 @@ class TypeData {
 			return false;
 		}
 	}
-
+	
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new TypeData());
+	}
+
+	public static function getLike($q,$u){
+		$sql = "select * from ".self::$tablename." where name like '%$q%' and tipo='$u'";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new TypeData());
 	}
 
 	public static function getAllIncome(){
