@@ -20,8 +20,8 @@ class ExpensesData {
 	public function getCategory(){ return CategoryExpenseData::getById($this->category_id);}
 
 	public function add(){
-		$sql = "insert into expenses (description,amount,user_id,category_id,created_at) ";
-		$sql .= "value (\"$this->description\",\"$this->amount\",\"$this->user_id\",\"$this->category_id\",\"$this->created_at\")";
+		$sql = "insert into expenses (description, amount, upload_receipt, user_id, category_id, entidad, created_at, fecha, pagado, documento, pago) ";
+		$sql .= "value (\"$this->description\",\"$this->amount\",\"$this->upload_receipt\",\"$this->user_id\",\"$this->category_id\",\"$this->entidad\",\"$this->created_at\",\"$this->fecha\",\"$this->pagado\",\"$this->documento\",\"$this->pago\")";
 		return Executor::doit($sql);
 	}
 

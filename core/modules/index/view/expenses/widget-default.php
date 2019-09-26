@@ -21,21 +21,43 @@ if(isset($_SESSION["user_id"])):
                 <div class="form-group">
                     <!-- Se agregan nuevos filtros de mes, año, tipo de gasto y cambio en categoria del gasto -->
                     <div class="col-md-3 form-group">
-                        <select name="mes" id="mes" class="form-control" style="width: 100%;">
-                            <option >Mes</option>
-                            <option value=""></option>
+                        <select name="month" id="month" class="form-control" style="width: 100%;">
+                            <?php
+                                //Se crean opciones de meses y se selecciona el actual por defecto
+                                $months=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+                                foreach($months as $index => $month){
+                            ?>
+                                <option value="<?php echo $index; ?>"  <?php if(($index+1) == date("n")) echo "selected"; ?> ><?php echo $month; ?></option>
+                            <?php 
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="col-md-2 form-group">
                         <select name="year" id="year" class="form-control" style="width: 100%;">
-                            <option >Año</option>
-                            <option value=""></option>
+                            <?php
+                                //Se crean opciones de años y se selecciona el actual por defecto
+                                $years=[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+                                foreach($years as $year){
+                            ?>
+                                <option value="<?php echo $year; ?>"  <?php if($year == date("Y")) echo "selected"; ?> ><?php echo $year; ?></option>
+                            <?php 
+                                }
+                            ?>
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
                         <select name="tipo_gasto" id="tipo_gasto" class="form-control" style="width: 100%;">
                             <option >Buscar por Tipo de Gasto</option>
-                            <option value=""></option>
+                            <?php
+                                //Se carga con tipos de gastos
+                                $tipos=TypeData::getAllExpense();
+                                foreach($tipos as $tipo){
+                            ?>
+                                <option value="<?php echo $tipo->id; ?>"><?php echo $tipo->name; ?></option>
+                            <?php 
+                                }
+                            ?>
                         </select>
                     </div>
 
@@ -54,8 +76,8 @@ if(isset($_SESSION["user_id"])):
                         <input type="text"  class="form-control" name="buscar-texto" id="buscar-texto" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda">
                     </div>
                     <div class="col-md-5 form-group">
-                        <label for="impagos">
-                        <input type="checkbox" id="impagos" name="impagos"> Solo Impagos</label>
+                        <input type="checkbox" id="impagos" name="impagos"> 
+                        <label for="impagos">Solo Impagos</label>
                     </div>
                 </div>
             </div>
@@ -96,6 +118,16 @@ if(isset($_SESSION["user_id"])):
                                             <div class="col-sm-10">
                                                 <select class="form-control select2" style="width: 100%" name="tipo-gasto" id="tipo-gasto" >
                                                     <option >---SELECCIONA---</option>
+                                                <?php
+                                                    //Se carga datos de tipos de gasto en modal
+                                                    $tipos=TypeData::getAllExpense();
+                                                    foreach($tipos as $tipo){
+                                                ?>
+                                                    <option value="<?php echo $tipo->id; ?>"><?php echo $tipo->name; ?></option>
+                                                <?php 
+                                                    }
+                                                ?>
+                                                </select>
                                                 </select>
                                             </div>
                                         </div>
@@ -105,6 +137,7 @@ if(isset($_SESSION["user_id"])):
                                                 <select class="form-control select2" style="width: 100%" name="category" id="category" >
                                                     <option >---SELECCIONA---</option>
                                                 <?php
+                                                    //Se carga datos de tipos de categoria en modal
                                                     $category=CategoryExpenseData::getAll($_SESSION["user_id"]);
                                                     foreach($category as $cat){
                                                 ?>
@@ -145,7 +178,7 @@ if(isset($_SESSION["user_id"])):
                                     <div class="modal-footer">
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label class="col-md-6 col-sm-6" style="color:#999; font-weight:normal;">Registrado por Juan Prueba el 01/01/2020</label>
+                                            <label class="col-md-6 col-sm-6" style="color:#999; font-weight:normal;">Registrado por </label>
                                             <span class="col-md-4 col-sm-4 col-xs-12">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                                 <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
@@ -208,6 +241,9 @@ if(isset($_SESSION["user_id"])):
 <script>
     $(function() {
         load(1);
+        var date = new Date();
+        date.getMonth()
+        date.getFullYear()
     });
     function load(page){
             var query=$("#q").val();
