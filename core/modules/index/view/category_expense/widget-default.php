@@ -162,9 +162,11 @@ if(isset($_SESSION["user_id"])):
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente la categoria \n\n Desea continuar?')){
             var page=1;
-            var query=$("#q").val();
+            //Se cambia para mantener estandar de envio de parametros
+            var gasto = $("#g").val();
+            var nombre = $("#q").val();
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,"query":query,"per_page":per_page,"id":id};
+            var parametros = {"page":page,'gasto':gasto,'nombre':nombre,"per_page":per_page,"id":id};
             
             $.get({
                 // method: "GET",

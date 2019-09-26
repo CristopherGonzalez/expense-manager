@@ -4,7 +4,8 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$id=intval($id);
 
 	$query_validate=ExpensesData::getByCategoryId($id);
-	$count=count($query_validate);
+	//TODO $count = count($query_validate) Se debe reestablecer pero necesita cambiar antes Expense y todo el MCV relacionado
+	$count=0;
 	if ($count==0){
 		$delete=CategoryExpenseData::delete($id);
 		if($delete==1){
