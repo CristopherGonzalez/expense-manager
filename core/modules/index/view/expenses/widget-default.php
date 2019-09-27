@@ -95,7 +95,7 @@ if(isset($_SESSION["user_id"])):
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 <!-- form  -->
-                                <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register">
+                                <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register" enctype="multipart/form-data"> 
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                         <h4 class="modal-title" id="myModalLabel"> Nuevo Gasto</h4>
@@ -110,20 +110,20 @@ if(isset($_SESSION["user_id"])):
                                         <div class="form-group">
                                             <label for="amount" class="col-sm-2 control-label">Cantidad: </label>
                                             <div class="col-sm-10">
-                                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Cantidad: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Cantidad: " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="tipo-gasto" class="col-sm-2 control-label">Tipo: </label>
+                                            <label for="type_expense" class="col-sm-2 control-label">Tipo: </label>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%" name="tipo-gasto" id="tipo-gasto" >
+                                                <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
                                                     <option >---SELECCIONA---</option>
                                                 <?php
                                                     //Se carga datos de tipos de gasto en modal
-                                                    $tipos=TypeData::getAllExpense();
-                                                    foreach($tipos as $tipo){
+                                                    $types=TypeData::getAllExpense();
+                                                    foreach($types as $type){
                                                 ?>
-                                                    <option value="<?php echo $tipo->id; ?>"><?php echo $tipo->name; ?></option>
+                                                    <option value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
                                                 <?php 
                                                     }
                                                 ?>
@@ -136,24 +136,33 @@ if(isset($_SESSION["user_id"])):
                                             <div class="col-sm-10">
                                                 <select class="form-control select2" style="width: 100%" name="category" id="category" >
                                                     <option >---SELECCIONA---</option>
-                                                <?php
-                                                    //Se carga datos de tipos de categoria en modal
-                                                    $category=CategoryExpenseData::getAll($_SESSION["user_id"]);
-                                                    foreach($category as $cat){
-                                                ?>
-                                                    <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
-                                                <?php 
-                                                    }
-                                                ?>
+                                                    <?php
+                                                        //Se carga datos de tipos de categoria en modal
+                                                        $category=CategoryExpenseData::getAll($_SESSION["user_id"]);
+                                                        foreach($category as $cat){
+                                                    ?>
+                                                        <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+                                                    <?php 
+                                                        }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%" name="entidad" id="entidad" >
+                                                <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
                                                     <option >---SELECCIONA---</option>
-                                                </select>
+                                                    <?php
+                                                        //Se carga datos de entidades en modal
+                                                        $entities=EntityData::getAll($_SESSION["user_id"]);
+                                                        foreach($entities as $ent){
+                                                    ?>
+                                                        <option value="<?php echo $ent->id; ?>"><?php echo $ent->name; ?></option>
+                                                    <?php 
+                                                        }
+                                                    ?>
+                                                    </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -164,21 +173,21 @@ if(isset($_SESSION["user_id"])):
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label for="documento" class="col-sm-4">Documento:
-                                                <input type="file" required class="form-control" accept="image/*" id="documento" name="documento">
+                                            <label for="document" class="col-sm-4">Documento:
+                                                <input type="file" class="form-control" accept="image/*" id="document" name="document">
                                             </label>
-                                            <label for="pago" class="col-sm-4">Pago:
-                                                <input type="file" required class="form-control" accept="image/*" id="pago" name="pago">
+                                            <label for="payment" class="col-sm-4">Pago:
+                                                <input type="file" class="form-control" accept="image/*" id="payment" name="payment">
                                             </label>
-                                            <label for="chk-pagado" class="col-sm-2">
-                                                <input type="checkbox" id="chk-pagado" name="chk-pagado"> Pagado
+                                            <label for="paid_out" class="col-sm-2">
+                                                <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
                                             </label>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label class="col-md-6 col-sm-6" style="color:#999; font-weight:normal;">Registrado por </label>
+                                            <label class="col-md-6 col-sm-6" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?></label>
                                             <span class="col-md-4 col-sm-4 col-xs-12">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                                 <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
@@ -298,25 +307,60 @@ if(isset($_SESSION["user_id"])):
     }
 </script>
 <script>
+    //Cambio en formato de envio al controlador para poder enviar imagenes
+
+
+    /*function upload_files(src_file){
+    var fd = new FormData();
+    var files = src_file[0].files[0];
+    var name = $.trim($('#txt_name').val()) == "" ? "test_image":$.trim($('#txt_name').val());
+    fd.append('file',files);
+    fd.append('category',src_file[0].name);
+    fd.append('name',name);
+    $.ajax({
+        type: 'POST',
+        url: '/upload_files',
+        dataType: "json",
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            console.log(response.file_path);
+        },
+        error: function(response) {
+            console.log(response.responseText);
+        }
+    });
+}*/
+
+
+
     $( "#add_register" ).submit(function( event ) {
+        debugger;
         $('#save_data').attr("disabled", true);
-        var parametros = $(this).serialize();
+        //Se cambia forma de envio de formulario para soportar envio de imagenes
+        var fd = new FormData($(this)[0]);
+        var pay_out = $('#paid_out').is(":checked");
+        fd.append("pay_out",pay_out);
+   
         $.ajax({
             type: "POST",
             url: "./?action=addexpense",
-            data: parametros,
+            data: fd,
+            contentType: false,
+            processData: false,
                 beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
                 },
-            success: function(datos){
-            $("#resultados_ajax").html(datos);
-            $('#save_data').attr("disabled", false);
-            load(1);
-            window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();});}, 5000);
-            $('#formModal').modal('hide');
-          }
+                success: function(datos){
+                    $("#resultados_ajax").html(datos);
+                    $('#save_data').attr("disabled", false);
+                    load(1);
+                    window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove();});}, 5000);
+                    $('#formModal').modal('hide');
+                }
         });
         event.preventDefault();
     })

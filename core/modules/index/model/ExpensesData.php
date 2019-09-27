@@ -10,9 +10,9 @@ class ExpensesData {
 		$this->user_id = "";
 		$this->category_id = "";
 		$this->entidad = "";
-		$this->created_at = "";
+		$this->created_at = "NOW()";
 		$this->fecha = "";
-		$this->pagado = "";
+		$this->pagado = "0";
 		$this->documento = "";
 		$this->pago = "";
 	}
@@ -21,7 +21,7 @@ class ExpensesData {
 
 	public function add(){
 		$sql = "insert into expenses (description, amount, upload_receipt, user_id, category_id, entidad, created_at, fecha, pagado, documento, pago) ";
-		$sql .= "value (\"$this->description\",\"$this->amount\",\"$this->upload_receipt\",\"$this->user_id\",\"$this->category_id\",\"$this->entidad\",\"$this->created_at\",\"$this->fecha\",\"$this->pagado\",\"$this->documento\",\"$this->pago\")";
+		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->category_id,$this->entidad,$this->created_at,\"$this->fecha\",$this->pagado,'','')";
 		return Executor::doit($sql);
 	}
 

@@ -1,17 +1,20 @@
 <?php
 class EntityData {
-	public static $tablename = "category_expence";
+	public static $tablename = "entidades";
 
 
 	public function EntityData(){
 		$this->name = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";
+		$this->tipo = "";
+		$this->category_id = "";
+
 	}
 
 	public function add(){
-		$sql = "insert into category_expence (name,user_id,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->user_id\",$this->created_at)";
+		$sql = "insert into entidades (name,user_id,created_at,tipo,category_id) ";
+		$sql .= "value (\"$this->name\",\"$this->user_id\",$this->created_at,$this->tipo,$this->category_id)";
 		return Executor::doit($sql);
 	}
 
@@ -30,7 +33,7 @@ class EntityData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\", tipo=$this->tipo, category_id=$this->category_id where id=$this->id";
 		if (Executor::doit($sql)){
 			return true;
 		}else{
@@ -49,12 +52,6 @@ class EntityData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 
-	}
-
-	public static function getLike($q,$u){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' and user_id=$u";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new EntityData());
 	}
 
 	public static function countQuery($where){
