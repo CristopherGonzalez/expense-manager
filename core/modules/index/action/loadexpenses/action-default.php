@@ -77,10 +77,14 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <table class="table table-bordered table-hover">
 	<thead>
+		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los gastos -->
 		<th>Fecha</th>
 		<th>Descripción</th>
 		<th>Cantidad</th>
 		<th>Categoría</th>
+		<th>Entidad</th>
+		<th>Tipo de Gasto</th>
+		<th>Estado Pago</th>
 		<th></th>
 	</thead>
 	<tbody>
@@ -96,10 +100,14 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			$finales++;
 		?>
 		<tr>
+			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
 			<td><?php echo $exp->description; ?></td>
 			<td><?php echo number_format($exp->amount,2); ?></td>
 			<td><?php if($exp->category_id!=null){echo $exp->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
+			<td><?php if($exp->entidad!=null){echo $exp->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>
+			<td><?php if($exp->tipo!=null){echo $exp->getTypeExpense()->name;}else{ echo "<center>----</center>"; }  ?></td>
+			<td><?php if($exp->pagado!=null && $exp->pagado){echo "<center>Pagado</center>"; }else{ echo "<center>Impago</center>"; }  ?></td>
 			<td class="text-right">
                 <a href="./?view=editexpense&id=<?php echo $exp->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
                 <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $exp->id;?>')"><i class="fa fa-trash-o"></i></button>

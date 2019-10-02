@@ -19,6 +19,8 @@ class ExpensesData {
 	}
 
 	public function getCategory(){ return CategoryExpenseData::getById($this->category_id);}
+	public function getEntity(){ return EntityData::getById($this->entidad);}
+	public function getTypeExpense(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
 		$sql = "insert into expenses (description, amount, upload_receipt, user_id, category_id,tipo, entidad, created_at, fecha, pagado, documento, pago) ";
