@@ -6,7 +6,11 @@
 ---------------------------*/
 if(isset($_SESSION["user_id"])):
 ?> 
-
+<?php  
+    //Se obtienen datos para llenado de desplegables
+    $categories=CategoryExpenseData::getAll($_SESSION["user_id"]);
+    $types=TypeData::getAllExpense();
+ ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -21,20 +25,22 @@ if(isset($_SESSION["user_id"])):
                 <div class="form-group">
                     <!-- Se agregan nuevos filtros de mes, año, tipo de gasto y cambio en categoria del gasto -->
                     <div class="col-md-3 form-group">
-                        <select name="month" id="month" class="form-control" style="width: 100%;">
+                        <select name="month_find" id="month_find" class="form-control" style="width: 100%;"  onchange="load(1);">
+                            <option value="0">Buscar por Mes</option>
                             <?php
                                 //Se crean opciones de meses y se selecciona el actual por defecto
                                 $months=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
                                 foreach($months as $index => $month){
                             ?>
-                                <option value="<?php echo $index; ?>"  <?php if(($index+1) == date("n")) echo "selected"; ?> ><?php echo $month; ?></option>
+                                <option value="<?php echo $index+1; ?>"  <?php if(($index+1) == date("n")) echo "selected"; ?> ><?php echo $month; ?></option>
                             <?php 
                                 }
                             ?>
                         </select>
                     </div>
                     <div class="col-md-2 form-group">
-                        <select name="year" id="year" class="form-control" style="width: 100%;">
+                        <select name="year_find" id="year_find" class="form-control" style="width: 100%;"  onchange="load(1);">
+                            <option value="0">Buscar por Año</option>
                             <?php
                                 //Se crean opciones de años y se selecciona el actual por defecto
                                 $years=[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
@@ -47,14 +53,13 @@ if(isset($_SESSION["user_id"])):
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
-                        <select name="tipo_gasto" id="tipo_gasto" class="form-control" style="width: 100%;">
-                            <option >Buscar por Tipo de Gasto</option>
+                        <select name="type_expense_find" id="type_expense_find" class="form-control" style="width: 100%;" onchange="load(1);">
+                            <option value="0">Buscar por Tipo de Gasto</option>
                             <?php
                                 //Se carga con tipos de gastos
-                                $tipos=TypeData::getAllExpense();
-                                foreach($tipos as $tipo){
+                                foreach($types as $type_expense){
                             ?>
-                                <option value="<?php echo $tipo->id; ?>"><?php echo $tipo->name; ?></option>
+                                <option value="<?php echo $type_expense->id; ?>"><?php echo $type_expense->name; ?></option>
                             <?php 
                                 }
                             ?>
@@ -62,22 +67,21 @@ if(isset($_SESSION["user_id"])):
                     </div>
 
                     <div class="col-md-3 form-group">
-                        <select name="q" id="q" class="form-control" style="width: 100%;" onchange="load(1);">
-                        <option >Buscar por Categoria</option>
+                        <select name="category_find" id="category_find" class="form-control" style="width: 100%;" onchange="load(1);">
+                            <option value="0">Buscar por Categoria</option>
                             <?php
-                                $categories_expense=CategoryExpenseData::getAll($_SESSION["user_id"]);
-                                foreach($categories_expense as $row){
+                                foreach($categories as $category){
                             ?>
-                                <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+                                <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="col-md-5 form-group">
-                        <input type="text"  class="form-control" name="buscar-texto" id="buscar-texto" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda">
+                        <input type="text"  class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda"  onkeyup="load(1);">
                     </div>
                     <div class="col-md-5 form-group">
-                        <input type="checkbox" id="impagos" name="impagos"> 
-                        <label for="impagos">Solo Impagos</label>
+                        <input type="checkbox" id="not_paid" name="not_paid" onchange="load(1);"> 
+                        <label for="not_paid">Solo Impagos</label>
                     </div>
                 </div>
             </div>
@@ -120,7 +124,6 @@ if(isset($_SESSION["user_id"])):
                                                     <option >---SELECCIONA---</option>
                                                 <?php
                                                     //Se carga datos de tipos de gasto en modal
-                                                    $types=TypeData::getAllExpense();
                                                     foreach($types as $type){
                                                 ?>
                                                     <option value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
@@ -138,10 +141,9 @@ if(isset($_SESSION["user_id"])):
                                                     <option >---SELECCIONA---</option>
                                                     <?php
                                                         //Se carga datos de tipos de categoria en modal
-                                                        $category=CategoryExpenseData::getAll($_SESSION["user_id"]);
-                                                        foreach($category as $cat){
+                                                        foreach($categories as $category){
                                                     ?>
-                                                        <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+                                                        <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
                                                     <?php 
                                                         }
                                                     ?>
@@ -156,9 +158,9 @@ if(isset($_SESSION["user_id"])):
                                                     <?php
                                                         //Se carga datos de entidades en modal
                                                         $entities=EntityData::getAll($_SESSION["user_id"]);
-                                                        foreach($entities as $ent){
+                                                        foreach($entities as $entity){
                                                     ?>
-                                                        <option value="<?php echo $ent->id; ?>"><?php echo $ent->name; ?></option>
+                                                        <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
                                                     <?php 
                                                         }
                                                     ?>
@@ -255,23 +257,37 @@ if(isset($_SESSION["user_id"])):
         date.getFullYear()
     });
     function load(page){
-            var query=$("#q").val();
-            var per_page=$("#per_page").val();
-            var parametros = {"page":page,'query':query,'per_page':per_page};
-            //$.get("./?action=loadexpenses",parametros,function(data){
-            $.get({
-                url:"./?action=loadexpenses",
-                data:parametros,
-                beforeSend: function(data){
-                    $("#loader").html("<img src='res/images/ajax-loader.gif'>");
-                },
-                //console.log(data);
-                success:function(data){
-                    $(".outer_div").html(data);
-                    $("#loader").html("");
-                }
+       //Se obtienen filtros de busqueda
+        var month_find = $('#month_find option:selected').val();
+        var year_find = $('#year_find option:selected').val();
+        var type_expense_find = $('#type_expense_find option:selected').val();
+        var category_find = $('#category_find option:selected').val();
+        var find_text = $('#find_text').val();
+        var not_paid = $('#not_paid').is(":checked");
 
-            });
+        var per_page=$("#per_page").val();
+        var parametros = {
+            "page":page,
+            'month':month_find,
+            'year':year_find,
+            'type_expense':type_expense_find,
+            'category':category_find,
+            'text':find_text,
+            'payment':not_paid,
+            'per_page':per_page };
+        $.get({
+            url:"./?action=loadexpenses",
+            data:parametros,
+            beforeSend: function(data){
+                $("#loader").html("<img src='res/images/ajax-loader.gif'>");
+            },
+            //console.log(data);
+            success:function(data){
+                $(".outer_div").html(data);
+                $("#loader").html("");
+            }
+
+        });
     }
     function per_page(valor){
         $("#per_page").val(valor);
@@ -307,33 +323,6 @@ if(isset($_SESSION["user_id"])):
     }
 </script>
 <script>
-    //Cambio en formato de envio al controlador para poder enviar imagenes
-
-
-    /*function upload_files(src_file){
-    var fd = new FormData();
-    var files = src_file[0].files[0];
-    var name = $.trim($('#txt_name').val()) == "" ? "test_image":$.trim($('#txt_name').val());
-    fd.append('file',files);
-    fd.append('category',src_file[0].name);
-    fd.append('name',name);
-    $.ajax({
-        type: 'POST',
-        url: '/upload_files',
-        dataType: "json",
-        data: fd,
-        contentType: false,
-        processData: false,
-        success: function(response) {
-            console.log(response.file_path);
-        },
-        error: function(response) {
-            console.log(response.responseText);
-        }
-    });
-}*/
-
-
 
     $( "#add_register" ).submit(function( event ) {
         debugger;

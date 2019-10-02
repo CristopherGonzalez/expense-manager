@@ -19,12 +19,34 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <?php
 	$con = Database::getCon();
-	$query = intval($_REQUEST['query']);
+	//Se capturan los datos enviados por ajax
+	$month = intval($_REQUEST['month']);
+	$year = intval($_REQUEST['year']);
+	$type_expense = intval($_REQUEST['type_expense']);
+	$category = intval($_REQUEST['category']);
+	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
+	$not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
 	$user_id=$_SESSION["user_id"];
-	//$sWhere=" user_id>0 ";
 	$sWhere=" user_id=$user_id ";
-	if($query!=0){
-		$sWhere.=" and category_id=".$query;
+
+	//Se construye la consulta sql dependiendo de los filtros ingresados
+	if($category!=0){
+		$sWhere.=" and category_id=".$category;
+	}
+	if($type_expense!=0){
+		$sWhere.=" and tipo=".$type_expense;
+	}
+	if($month!=0){
+		$sWhere.=" and month(fecha) =".$month;
+	}
+	if($year!=0){
+		$sWhere.=" and year(fecha) = ".$year;
+	}
+	if($text!=""){
+		$sWhere.=" and description LIKE '%".$text."%' ";
+	}
+	if(!$not_paid){
+		$sWhere.=" and pagado = ".$not_paid;
 	}
 
 	include 'res/resources/pagination.php'; //include pagination file
