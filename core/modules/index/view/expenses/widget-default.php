@@ -299,11 +299,28 @@ if(isset($_SESSION["user_id"])):
 <script>
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente el gasto \n\n Desea continuar?')){
+            //Se obtienen filtros de busqueda para recarga y por estandar
+            var month_find = $('#month_find option:selected').val();
+            var year_find = $('#year_find option:selected').val();
+            var type_expense_find = $('#type_expense_find option:selected').val();
+            var category_find = $('#category_find option:selected').val();
+            var find_text = $('#find_text').val();
+            var not_paid = $('#not_paid').is(":checked");
             var page=1;
-            var query=$("#q").val();
+
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,"query":query,"per_page":per_page,"id":id};
-            
+            var parametros = {
+                "page":page,
+                'month':month_find,
+                'year':year_find,
+                'type_expense':type_expense_find,
+                'category':category_find,
+                'text':find_text,
+                'payment':not_paid,
+                'per_page':per_page,
+                "id":id
+             };
+
             $.get({
                 // method: "GET",
                 url:'./?action=loadexpenses',

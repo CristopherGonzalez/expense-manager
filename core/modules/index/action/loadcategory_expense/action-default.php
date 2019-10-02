@@ -102,10 +102,8 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		?>
 		<tr>
 			<td><?php echo $cat->name; ?></td>
-			<td><?php 
-			//Se muestra el nombre po id en el grid del historial
-			$tipo= TypeData::GetById($cat->tipo);
-			echo $tipo->name; ?></td>
+			<!--Se muestra el nombre po id en el grid del historial-->
+			<td><?php if($cat->tipo!=null){echo $cat->getTypeExpense()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php echo $date." ".$time; ?></td>
 			<td class="text-right">
                 <a href="./?view=editcategory_expense&id=<?php echo $cat->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>

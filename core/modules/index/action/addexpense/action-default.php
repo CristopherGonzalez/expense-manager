@@ -31,7 +31,7 @@ if (!isset($_SESSION['user_id'])){
 			$expense->entidad = intval($_POST['entity']);
 			$expense->tipo = intval($_POST['type_expense']);
 			$expense->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
-			$expense->pagado = (isset($_POST['paid_out']) && $_POST['paid_out'] == "true") ? 1 : 0;
+			$expense->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
 			//Se realiza guardado de imagenes de pago y documento
 			$doc_file = $_FILES["document"]["tmp_name"]; 
 			$doc_size = $_FILES["document"]["size"];

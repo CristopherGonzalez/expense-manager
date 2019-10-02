@@ -2,13 +2,14 @@
 class CategoryExpenseData {
 	public static $tablename = "category_expence";
 
-
 	public function CategoryExpenseData(){
 		$this->name = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";
 		$this->tipo = "";
 	}
+
+	public function getTypeExpense(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
 		$sql = "insert into ".self::$tablename." (name,user_id,created_at,tipo) ";
