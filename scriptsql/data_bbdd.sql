@@ -23493,5 +23493,5 @@ INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Otros', 'Entidad' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Socio', 'Socios', 'Socio' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Socio', 'Otros', 'Entidad' );
 
-
-
+INSERT INTO entidades(name, user_id, created_at, tipo, category_id) VALUES ('entidad 1',1,NOW(),2,1);
+INSERT INTO entidades(name, user_id, created_at, tipo, category_id) VALUES ('entidad 2',1,NOW(),9,1);
