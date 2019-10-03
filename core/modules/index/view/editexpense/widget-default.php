@@ -13,8 +13,12 @@ if(isset($_SESSION["user_id"])):
 
     //query
     $expense=ExpensesData::getById($id);
+    //Se obtienen datos para llenado de desplegables
+    $types=TypeData::getAllExpense();
+    $category=CategoryExpenseData::getAll($_SESSION["user_id"]);
+    $entities=EntityData::getAll($_SESSION["user_id"]);
 
-    if(!count($expense)>0){
+    if(!isset($expense)){
         Core::redir("./?view=expenses");
     }
 
@@ -51,7 +55,6 @@ if(isset($_SESSION["user_id"])):
                                 <label for="category" class="control-label">Categoria: </label>
                                 <select class="form-control select2" style="width: 100%" name="category" id="category" >
                                 <?php
-                                    $category=CategoryExpenseData::getAll($_SESSION["user_id"]);
                                     foreach($category as $cat){
                                 ?>
                                     <option <?php if($expense->category_id==$cat->id){echo"selected";} ?> value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
@@ -59,6 +62,45 @@ if(isset($_SESSION["user_id"])):
                                     }
                                 ?>
                                 </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="type_expense" class="col-sm-2 control-label">Tipo: </label>
+                                <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
+                                <?php
+                                    //Se carga datos de tipos de gasto en modal
+                                    foreach($types as $type){
+                                ?>
+                                    <option <?php if($expense->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
+                                <?php 
+                                    }
+                                ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
+                                <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
+                                <?php
+                                    //Se carga datos de entidades en modal
+                                    foreach($entities as $entity){
+                                ?>
+                                    <option <?php if($expense->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
+                                <?php 
+                                    }
+                                ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <span class="col-md-2 col-sm-2 col-xs-12"></span>
+                                <label for="document" class="col-sm-4">Documento:
+                                    <input type="file" class="form-control" accept="image/*" id="document" name="document">
+                                </label>
+                                <label for="payment" class="col-sm-4">Pago:
+                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment">
+                                </label>
+                                <label for="paid_out" class="col-sm-2">
+                                    <input type="checkbox" id="paid_out" name="paid_out" <?php if($expense->pagado){echo "checked";} ?> > Pagado
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label for="date" class="control-label">Fecha: </label>
