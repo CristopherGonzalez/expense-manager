@@ -112,9 +112,9 @@ if(isset($_SESSION["user_id"])):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="amount" class="col-sm-2 control-label">Cantidad: </label>
+                                            <label for="amount" class="col-sm-2 control-label">Importe: </label>
                                             <div class="col-sm-10">
-                                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Cantidad: " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
                                             </div>
                                         </div>
                                         <div class="form-group">

@@ -21,7 +21,12 @@ if(isset($_SESSION["user_id"])):
     if(!isset($expense)){
         Core::redir("./?view=expenses");
     }
-
+    if(isset($expense->pago) && !empty($expense->pago)){ 
+        $img_pago = "data:image/jpeg;base64,".base64_encode($expense->pago);
+    }
+    if(isset($expense->documento) && !empty($expense->documento)){ 
+        $img_doc = "data:image/jpeg;base64,".base64_encode($expense->documento);
+    }
 ?> 
 
 <!-- Content Wrapper. Contains page content -->
@@ -95,17 +100,29 @@ if(isset($_SESSION["user_id"])):
                                 <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $expense->created_at; ?>">
                             </div>
                             <div class="form-group">
+                                <a href="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" id="doc_download" download="documento">
+                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "display:none;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento">
+                                </a>
                                 <label for="document">Documento:
-                                    <input type="file" class="form-control" accept="image/*" id="document" name="document">
+                                    <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
                                 </label>
+                            </div>
+                            <div class="form-group">
+                                <?php if(isset($expense->pago) && !empty($expense->pago)){ ?>
+                                    <a href="data:image/jpeg;base64,<?php echo base64_encode($expense->pago); ?>" id="pago_download" download="pago">
+                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($expense->pago); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del pago">
+                                    </a>
+                                <?php } ?>
                                 <label for="payment">Pago:
-                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment">
+                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
                                 </label>
+                            </div>
+                            <div class="form-group">
                                 <label for="paid_out">
                                     <input type="checkbox" id="paid_out" name="paid_out" <?php if($expense->pagado){echo "checked";} ?> > Pagado
                                 </label>
                             </div>
-                            <!-- mod id -->
+                             <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $expense->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
@@ -124,13 +141,16 @@ if(isset($_SESSION["user_id"])):
 <?php include "res/resources/js.php"; ?>
 <script>
     $( "#upd" ).submit(function( event ) {
-      $('#upd_data').attr("disabled", true);
-      
-     var parametros = $(this).serialize();
+        fd = new FormData($(this)[0]);
+        var pay_out = $('#paid_out').is(":checked");
+        fd.append("pay_out",pay_out);
+
         $.ajax({
             type: "POST",
             url: "./?action=updexpense",
-            data: parametros,
+            data: fd,
+            contentType: false,
+            processData: false,
              beforeSend: function(objeto){
                 $("#result").html("Mensaje: Cargando...");
               },
@@ -144,5 +164,31 @@ if(isset($_SESSION["user_id"])):
         });
       event.preventDefault();
     })
+    //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
+    function load_image(input){
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                if(input.name == "document"){
+                    $('#doc_image').attr('style', 'display:block');
+                    $('#doc_image').attr('src', e.target.result);
+                    $('#doc_download').attr('href', e.target.result);
+                }
+                if(input.name == "payment"){
+                    $('#pago_image').attr('style', 'display:block');
+                    $('#pago_image').attr('src', e.target.result);
+                    $('#pago_download').attr('href', e.target.result);
+                }
+            }
+            reader.readAsDataURL(input.files[0]);
+        }else{
+            if(input.name == "document"){
+                $('#doc_image').attr('style', 'display:none');
+            }
+            if(input.name == "payment"){
+                $('#pago_image').attr('style', 'display:none');
+            }
+        }
+    }
 </script>
 <?php else: Core::redir("./"); endif;?> 

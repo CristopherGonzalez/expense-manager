@@ -145,8 +145,8 @@ create table entidades (
   	created_at date not null,
   	fecha date not null,
 	pagado boolean not null default 1,
-	documento MEDIUMBLOB,
-	pago MEDIUMBLOB,
+	documento LONGBLOB,
+	pago LONGBLOB,
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_expence(id),
   	foreign key(entidad) references entidades(id),
@@ -163,8 +163,8 @@ create table entidades (
   	created_at date not null,
 	fecha date not null,
 	pagado boolean not null default 1,
-	documento MEDIUMBLOB,
-	pago MEDIUMBLOB,
+	documento LONGBLOB,
+	pago LONGBLOB,
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_income(id),
   	foreign key(entidad) references entidades(id)
@@ -179,8 +179,8 @@ create table entidades (
   	created_at date not null,
 	fecha date not null,
 	pagado boolean not null default 1,
-	documento MEDIUMBLOB,
-	pago MEDIUMBLOB,
+	documento LONGBLOB,
+	pago LONGBLOB,
   	foreign key(user_id) references user(id),
   	foreign key(entidad) references entidades(id)
 

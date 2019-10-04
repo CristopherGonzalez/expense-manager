@@ -33,23 +33,17 @@ if (!isset($_SESSION['user_id'])){
 			$expense->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
 			$expense->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
 			//Se realiza guardado de imagenes de pago y documento
-			$doc_file = $_FILES["document"]["tmp_name"]; 
-			$doc_size = $_FILES["document"]["size"];
-			$pay_file = $_FILES['payment']["tmp_name"];
-			$pay_size = $_FILES["payment"]["size"];
-			if(isset($doc_file) && !empty($doc_file)){
-				$fp = fopen($doc_file, "r+b");
-				$content = fread($fp, $doc_size);
-				$content = addslashes($content);
-				fclose($fp);
-				$expense->documento = $content;
+			if(isset($_FILES["document"]) && !empty($_FILES["document"])){
+				$doc_file = addslashes(file_get_contents($_FILES["document"]["tmp_name"])); 
+				if(isset($doc_file) && !empty($doc_file)){
+					$expense->documento = $doc_file;
+				}
 			}
-			if(isset($pay_file) && !empty($pay_file)){
-				$fp = fopen($pay_file, "r+b");
-				$content = fread($fp, $pay_size);
-				$content = addslashes($content);
-				fclose($fp);
-				$expense->pago = $content;
+			if(isset($_FILES["payment"]) && !empty($_FILES["payment"])){
+				$pay_file = addslashes(file_get_contents($_FILES["payment"]["tmp_name"])); 
+				if(isset($pay_file) && !empty($pay_file)){
+					$expense->pago = $pay_file;
+				}
 			}
 			$query_new=$expense->add();
             if ($query_new) {

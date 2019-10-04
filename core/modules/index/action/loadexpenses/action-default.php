@@ -80,7 +80,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los gastos -->
 		<th>Fecha</th>
 		<th>Descripción</th>
-		<th>Cantidad</th>
+		<th>Importe</th>
 		<th>Categoría</th>
 		<th>Entidad</th>
 		<th>Tipo de Gasto</th>
