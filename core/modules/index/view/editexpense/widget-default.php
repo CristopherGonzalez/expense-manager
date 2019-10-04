@@ -47,8 +47,8 @@ if(isset($_SESSION["user_id"])):
                                 <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $expense->description ?></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="amount" class="control-label">Cantidad: </label>
-                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Cantidad: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $expense->amount ?>">
+                                <label for="amount" class="control-label">Importe: </label>
+                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $expense->amount ?>">
 
                             </div>
                             <div class="form-group">
@@ -65,7 +65,7 @@ if(isset($_SESSION["user_id"])):
                             </div>
 
                             <div class="form-group">
-                                <label for="type_expense" class="col-sm-2 control-label">Tipo: </label>
+                                <label for="type_expense" class="control-label">Tipo: </label>
                                 <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
                                 <?php
                                     //Se carga datos de tipos de gasto en modal
@@ -78,7 +78,7 @@ if(isset($_SESSION["user_id"])):
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
+                                <label for="entidad" class="control-label">Entidad: </label>
                                 <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
                                 <?php
                                     //Se carga datos de entidades en modal
@@ -91,26 +91,28 @@ if(isset($_SESSION["user_id"])):
                                 </select>
                             </div>
                             <div class="form-group">
-                                <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                <label for="document" class="col-sm-4">Documento:
-                                    <input type="file" class="form-control" accept="image/*" id="document" name="document">
-                                </label>
-                                <label for="payment" class="col-sm-4">Pago:
-                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment">
-                                </label>
-                                <label for="paid_out" class="col-sm-2">
-                                    <input type="checkbox" id="paid_out" name="paid_out" <?php if($expense->pagado){echo "checked";} ?> > Pagado
-                                </label>
+                                <label for="date">Fecha: </label>
+                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $expense->created_at; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="date" class="control-label">Fecha: </label>
-                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $expense->created_at; ?>">
+                                <label for="document">Documento:
+                                    <input type="file" class="form-control" accept="image/*" id="document" name="document">
+                                </label>
+                                <label for="payment">Pago:
+                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment">
+                                </label>
+                                <label for="paid_out">
+                                    <input type="checkbox" id="paid_out" name="paid_out" <?php if($expense->pagado){echo "checked";} ?> > Pagado
+                                </label>
                             </div>
                             <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $expense->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
-                            <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
+                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($expense->user_id); echo $creator_user->name  ?></label>
+                            <span style="margin-left:10px;">
+                                <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
+                            </span>
                         </div>
                     </form>
                 </div> <!-- /.box -->

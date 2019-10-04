@@ -24,7 +24,7 @@ class ExpensesData {
 
 	public function add(){
 		$sql = "insert into expenses (description, amount, upload_receipt, user_id, category_id,tipo, entidad, created_at, fecha, pagado, documento, pago) ";
-		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,\"$this->fecha\",$this->pagado,'','')";
+		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,\"$this->fecha\",$this->pagado,'$this->documento','$this->pago')";
 		return Executor::doit($sql);
 	}
 
