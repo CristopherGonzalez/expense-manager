@@ -21,7 +21,7 @@ if(isset($_SESSION["user_id"])):
 
                 <!--  Se agrega opcion para buscar por gastos-->
                 <div class="col-md-3">
-                    <input type="text" class="form-control" placeholder="Gastos" name="g" id='g' onkeyup="load(1);">
+                    <input type="text" class="form-control" placeholder="Gastos" name="f_type_expense" id='f_type_expense' onkeyup="load(1);">
                 </div>
                 <div class="col-md-1">
                     <span class="input-group-btn">
@@ -29,7 +29,7 @@ if(isset($_SESSION["user_id"])):
                     </span>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" class="form-control" placeholder="Nombre" name="q" id='q' onkeyup="load(1);">
+                    <input type="text" class="form-control" placeholder="Nombre" name="f_name" id='f_name' onkeyup="load(1);">
                 </div>
                 <div class="col-md-1">
                     <span class="input-group-btn">
