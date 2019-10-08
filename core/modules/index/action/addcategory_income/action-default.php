@@ -3,15 +3,16 @@ if (!isset($_SESSION['user_id'])){
 	Core::redir("./");//Redirecciona 
 	exit;
 }
-	if (empty($_POST['name'])){
-			$errors[] = "Nombre está vacío.";
+	if (empty($_POST['name']) && empty($_POST['type_income'])){
+			$errors[] = "Todos lo campos son requeridos";
 		}  elseif (
-        	!empty($_POST['name'])
+        	!empty($_POST['name']) && !empty($_POST['type_income'])
         ){
         	$con = Database::getCon(); 
 			$income = new CategoryIncomeData();
 			$income->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
 			$income->user_id = $_SESSION['user_id'];
+			$income->tipo = $_POST['type_income'];
 			$query_new=$income->add();
             if ($query_new) {
                 $messages[] = "La categoria ha sido agregada con éxito.";

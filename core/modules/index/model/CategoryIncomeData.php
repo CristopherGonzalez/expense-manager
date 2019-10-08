@@ -12,7 +12,7 @@ class CategoryIncomeData {
 
 	public function add(){
 		$sql = "insert into ".self::$tablename." (name,user_id,tipo,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->user_id\",$this->tipo\",\"$this->user_id\")";
+		$sql .= "values (\"$this->name\",\"$this->user_id\",$this->tipo,$this->created_at)";
 		return Executor::doit($sql);
 	}
 
@@ -32,7 +32,8 @@ class CategoryIncomeData {
 
 	public function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\" and tipo=\"$this->tipo\" where id=$this->id";
-		if (Executor::doit($sql)){
+		$query = Executor::doit($sql);
+		if (isset($query)){
 			return true;
 		}else{
 			return false;
