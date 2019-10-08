@@ -56,9 +56,9 @@ if(isset($_SESSION["user_id"])):
                                 <div class="modal-body">
                                     <!-- Se agrega desplegable para seleccionar el tipo de gasto -->
                                     <div class="form-group">
-                                        <label for="gasto" class="col-sm-2 control-label">Gasto: </label>
+                                        <label for="type_expense" class="col-sm-2 control-label">Gasto: </label>
                                         <div class="col-sm-10">
-                                            <select class="form-control" style="width: 100%" name="gasto" id="gasto" >
+                                            <select class="form-control" style="width: 100%" name="type_expense" id="type_expense" >
                                                 <option >---SELECCIONA---</option>
                                                 <?php
                                                     $gasto=TypeData::getAllExpense();
@@ -132,10 +132,10 @@ if(isset($_SESSION["user_id"])):
     });
     function load(page){
             //Se cambia para hacer busqueda por gasto y/o nombre
-            var gasto = $("#g").val();
-            var nombre = $("#q").val();
+            var type_expense = $("#f_type_expense").val();
+            var name = $("#f_name").val();
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,'gasto':gasto,'nombre':nombre,'per_page':per_page};
+            var parametros = {"page":page,'f_type_expense':type_expense,'f_name':name,'per_page':per_page};
             //$.get("./?action=loadexpenses",parametros,function(data){
             $.get({
                 url:"./?action=loadcategory_expense",
@@ -163,10 +163,10 @@ if(isset($_SESSION["user_id"])):
         if(confirm('Esta acción  eliminará de forma permanente la categoria \n\n Desea continuar?')){
             var page=1;
             //Se cambia para mantener estandar de envio de parametros
-            var gasto = $("#g").val();
-            var nombre = $("#q").val();
+            var type_expense = $("#f_type_expense").val();
+            var name = $("#f_name").val();
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,'gasto':gasto,'nombre':nombre,"per_page":per_page,"id":id};
+            var parametros = {"page":page,'f_type_expense':type_expense,'f_name':name,'per_page':per_page, 'id':id};
             
             $.get({
                 // method: "GET",
@@ -190,7 +190,6 @@ if(isset($_SESSION["user_id"])):
     $( "#add_register" ).submit(function( event ) {
         $('#save_data').attr("disabled", true);
         var parametros = $(this).serialize();
-        debugger;
         $.ajax({
             type: "POST",
             url: "./?action=addcategory_expense",

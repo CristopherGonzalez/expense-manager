@@ -28,14 +28,33 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <?php
 	$con = Database::getCon();
-	$query = mysqli_real_escape_string($con,(strip_tags($_REQUEST['query'], ENT_QUOTES)));
+	$name = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_name'], ENT_QUOTES)));
+	$type_income = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_type_income'], ENT_QUOTES)));
 	$user_id=$_SESSION["user_id"];
 	//$sWhere=" user_id>0 ";
 	$sWhere=" user_id=$user_id ";
-	if($query!=""){
-		$sWhere.=" and name LIKE '%".$query."%' ";
+	//Creacion de query por nombre y/o gasto
+	if($name!=""){
+		$sWhere.=" and name LIKE '%".$name."%' ";
 	}
+	if($type_income!=""){
+		//Se busca en tabla tipos para obtener por nombre
+		$result_types=TypeData::getLike($type_income, 'Ingreso');
+		$count=count($result_types);
+		//Se crea query dependiendo de los resultados
+		$sWhere.=" and  ( ";
+		if($count>0){
+			foreach($result_types as $index => $type){
+				$sWhere.=" tipo = $type->id or";
+			}
+			$sWhere=substr($sWhere,0,-2);
+		}else{
+			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de gastos
+			$sWhere.= " tipo = 0 ";
+		}
+		$sWhere.= " ) ";
 
+	}
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	$per_page = intval($_REQUEST['per_page']); //how much records you want to show
@@ -45,7 +64,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$count_query=CategoryIncomeData::countQuery($sWhere);
 	$numrows = $count_query->numrows;
 	$total_pages = ceil($numrows/$per_page);
-	$reload = './?view=expenses';
+	$reload = './?view=income';
 
 	$query=CategoryIncomeData::query($sWhere, $offset,$per_page);
 ?>
@@ -65,6 +84,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 <table class="table table-bordered table-hover">
 	<thead>
 		<th>Nombre</th>
+		<th>Tipo Ingreso</th>
 		<th>Fecha</th>
 		<th></th>
 	</thead>
@@ -82,6 +102,8 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		?>
 		<tr>
 			<td><?php echo $cat->name; ?></td>
+			<!--Se muestra el nombre po id en el grid del historial-->
+			<td><?php if($cat->tipo!=null){echo $cat->getTypeIncome()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php echo $date." ".$time; ?></td>
 			<td class="text-right">
                 <a href="./?view=editcategory_income&id=<?php echo $cat->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>

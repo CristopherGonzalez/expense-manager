@@ -101,18 +101,16 @@ if(isset($_SESSION["user_id"])):
                             </div>
                             <div class="form-group">
                                 <a href="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" id="doc_download" download="documento">
-                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "display:none;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento">
+                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento">
                                 </a>
                                 <label for="document">Documento:
                                     <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
                                 </label>
                             </div>
                             <div class="form-group">
-                                <?php if(isset($expense->pago) && !empty($expense->pago)){ ?>
-                                    <a href="data:image/jpeg;base64,<?php echo base64_encode($expense->pago); ?>" id="pago_download" download="pago">
-                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($expense->pago); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del pago">
-                                    </a>
-                                <?php } ?>
+                                <a href="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" id="pago_download" download="pago">
+                                    <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago">
+                                </a>
                                 <label for="payment">Pago:
                                     <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
                                 </label>
@@ -170,12 +168,12 @@ if(isset($_SESSION["user_id"])):
             var reader = new FileReader();
             reader.onload = function(e) {
                 if(input.name == "document"){
-                    $('#doc_image').attr('style', 'display:block');
+                    $('#doc_image').attr('style', 'visibility:visible');
                     $('#doc_image').attr('src', e.target.result);
                     $('#doc_download').attr('href', e.target.result);
                 }
                 if(input.name == "payment"){
-                    $('#pago_image').attr('style', 'display:block');
+                    $('#pago_image').attr('style', 'visibility:visible');
                     $('#pago_image').attr('src', e.target.result);
                     $('#pago_download').attr('href', e.target.result);
                 }
@@ -183,10 +181,10 @@ if(isset($_SESSION["user_id"])):
             reader.readAsDataURL(input.files[0]);
         }else{
             if(input.name == "document"){
-                $('#doc_image').attr('style', 'display:none');
+                $('#doc_image').attr('style', 'visibility:hidden');
             }
             if(input.name == "payment"){
-                $('#pago_image').attr('style', 'display:none');
+                $('#pago_image').attr('style', 'visibility:hidden');
             }
         }
     }

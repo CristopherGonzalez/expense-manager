@@ -18,14 +18,34 @@ if(isset($_SESSION["user_id"])):
     <section class="content">
         <div class="row">
             <div class="form-group">
-                <div class="col-md-3">
+                <!--<div class="col-md-3">
                     <input type="text" class="form-control" placeholder="Nombre" name="q" id='q' onkeyup="load(1);">
                 </div>
                 <div class="col-md-3">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                     </span>
+                </div>-->
+
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Ingresos" name="f_type_income" id='f_type_income' onkeyup="load(1);">
                 </div>
+                <div class="col-md-1">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
+                    </span>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Nombre" name="f_name" id='f_name' onkeyup="load(1);">
+                </div>
+                <div class="col-md-1">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
+                    </span>
+                </div>
+
+
+
 
                 <div class="col-xs-1">
                     <div id="loader" class="text-center"></div>
@@ -41,9 +61,26 @@ if(isset($_SESSION["user_id"])):
         <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel"> Nueva Categoria</h4>
+                <h4 class="modal-title" id="myModalLabel"> Nueva Categoria de Ingreso</h4>
             </div>
             <div class="modal-body">
+                                    <!-- Se agrega desplegable para seleccionar el tipo de gasto -->
+                                    <div class="form-group">
+                                        <label for="type_income" class="col-sm-2 control-label">Ingreso: </label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" style="width: 100%" name="type_income" id="type_income" >
+                                                <option >---SELECCIONA---</option>
+                                                <?php
+                                                    $gasto=TypeData::getAllIncome();
+                                                    foreach($gasto as $cat){
+                                                ?>
+                                                    <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+                                                <?php 
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">Nombre: </label>
                     <div class="col-sm-10">
@@ -104,10 +141,11 @@ if(isset($_SESSION["user_id"])):
         load(1);
     });
     function load(page){
-            var query=$("#q").val();
+            //Se cambia para hacer busqueda por gasto y/o nombre
+            var type_income = $("#f_type_income").val();
+            var name = $("#f_name").val();
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,'query':query,'per_page':per_page};
-            //$.get("./?action=loadexpenses",parametros,function(data){
+            var parametros = {"page":page,'f_type_income':type_income,'f_name':name,'per_page':per_page};
             $.get({
                 url:"./?action=loadcategory_income",
                 data:parametros,
@@ -133,9 +171,11 @@ if(isset($_SESSION["user_id"])):
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente la categoria \n\n Desea continuar?')){
             var page=1;
-            var query=$("#q").val();
+            //Se cambia para mantener estandar de envio de parametros
+            var type_income = $("#f_type_income").val();
+            var name = $("#f_name").val();
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,"query":query,"per_page":per_page,"id":id};
+            var parametros = {"page":page,'f_type_income':type_income,'f_name':name,'per_page':per_page, 'id':id};
             
             $.get({
                 // method: "GET",

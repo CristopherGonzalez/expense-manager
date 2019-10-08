@@ -3,16 +3,16 @@ if (!isset($_SESSION['user_id'])){
 	Core::redir("./");//Redirecciona 
 	exit;
 }
-	if (empty($_POST['name']) && empty($_POST['gasto'])){
+	if (empty($_POST['name']) && empty($_POST['type_expense'])){
 			$errors[] = "Todos lo campos son requeridos";
 		}  elseif (
-        	!empty($_POST['name']) && !empty($_POST['gasto'])
+        	!empty($_POST['name']) && !empty($_POST['type_expense'])
         ){
         	$con = Database::getCon(); 
 			$expense = new CategoryExpenseData();
 			$expense->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
 			$expense->user_id = $_SESSION['user_id'];
-			$expense->tipo = $_POST['gasto'];
+			$expense->tipo = $_POST['type_expense'];
 			$query_new=$expense->add();
             if ($query_new) {
                 $messages[] = "La categoria ha sido agregada con éxito.";

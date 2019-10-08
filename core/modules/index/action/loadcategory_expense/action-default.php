@@ -29,18 +29,18 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <?php
 	$con = Database::getCon();
-	$nombre = mysqli_real_escape_string($con,(strip_tags($_REQUEST['nombre'], ENT_QUOTES)));
-	$gasto = mysqli_real_escape_string($con,(strip_tags($_REQUEST['gasto'], ENT_QUOTES)));
+	$name = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_name'], ENT_QUOTES)));
+	$type_expense = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_type_expense'], ENT_QUOTES)));
 	$user_id=$_SESSION["user_id"];
 	//$sWhere=" user_id>0 ";
 	$sWhere=" user_id=$user_id ";
 	//Creacion de query por nombre y/o gasto
-	if($nombre!=""){
-		$sWhere.=" and name LIKE '%".$nombre."%' ";
+	if($name!=""){
+		$sWhere.=" and name LIKE '%".$name."%' ";
 	}
-	if($gasto!=""){
+	if($type_expense!=""){
 		//Se busca en tabla tipos para obtener por nombre
-		$result_types=TypeData::getLike($gasto, 'Gasto');
+		$result_types=TypeData::getLike($type_expense, 'Gasto');
 		$count=count($result_types);
 		//Se crea query dependiendo de los resultados
 		$sWhere.=" and  ( ";

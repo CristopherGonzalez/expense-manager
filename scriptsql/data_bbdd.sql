@@ -23484,7 +23484,7 @@ INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Honorarios', 'Profesio
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Servicios', 'Servicio' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Alquileres', 'Arrendatario' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Impuestos', 'Impuesto' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Publicidad y promoción', 'Medio' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Publicidad y promociÃ³n', 'Medio' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Otros', 'Entidad' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Ventas', 'Punto de Venta' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Clientes', 'Cliente' );
