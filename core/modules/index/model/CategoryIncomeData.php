@@ -9,6 +9,7 @@ class CategoryIncomeData {
 		$this->tipo = "";
 		$this->created_at = "NOW()";
 	}
+	public function getTypeIncome(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
 		$sql = "insert into ".self::$tablename." (name,user_id,tipo,created_at) ";
