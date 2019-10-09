@@ -33,6 +33,8 @@ if (!isset($_SESSION['user_id'])){
 			$income->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
 			$income->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
 			//Se realiza guardado de imagenes de pago y documento
+			$income->documento = "";
+			$income->pago = "";
 			if(isset($_FILES["document"]) && !empty($_FILES["document"])){
 				if(isset($_FILES["document"]["tmp_name"]) && !empty($_FILES["document"]["tmp_name"])){
 					$doc_file = addslashes(file_get_contents($_FILES["document"]["tmp_name"])); 

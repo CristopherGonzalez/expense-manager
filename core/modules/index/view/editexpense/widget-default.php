@@ -98,20 +98,20 @@ if(!isset($expense) && empty($expense)){
                                 <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $expense->fecha; ?>">
                             </div>
                             <div class="form-group">
-                                <a href="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" id="doc_download" download="documento">
-                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento">
-                                </a>
                                 <label for="document">Documento:
                                     <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
                                 </label>
+                                <a href="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" id="doc_download" download="documento">
+                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento">
+                                </a>
                             </div>
                             <div class="form-group">
-                                <a href="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" id="pago_download" download="pago">
-                                    <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago">
-                                </a>
                                 <label for="payment">Pago:
                                     <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
                                 </label>
+                                <a href="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" id="pago_download" download="pago">
+                                    <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago">
+                                </a>
                             </div>
                             <div class="form-group">
                                 <label for="paid_out">

@@ -43,7 +43,14 @@ class ExpensesData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\", tipo=$this->tipo, entidad=$this->entidad, pagado='$this->pagado', documento='$this->documento', pago='$this->pago' where id=$this->id";
+		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\", tipo=$this->tipo, entidad=$this->entidad, pagado='$this->pagado'";
+		if(isset($this->documento) && !empty($this->documento)){
+			$sql.=", documento = '$this->documento' ";
+		}
+		if(isset($this->pago) && !empty($this->pago)){
+			$sql.=", pago = '$this->pago' ";
+		}
+		$sql.=" where id=$this->id";
 		if (Executor::doit($sql)){
 			return true;
 		}else{
