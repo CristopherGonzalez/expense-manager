@@ -8,16 +8,24 @@ if(isset($_SESSION["user_id"])):
     if (isset($_GET['id']) && !empty($_GET['id'])){
         $id=$_GET["id"];
     }else{
-        Core::redir("./?view=expenses");
+        Core::redir("./?view=income");
     }
 
     //query
     $income=IncomeData::getById($id);
-
-    if(!count($income)>0){
-        Core::redir("./?view=expenses");
+//Se obtienen datos para llenado de desplegables
+    $types=TypeData::getAllIncome();
+    $category=CategoryIncomeData::getAll($_SESSION["user_id"]);
+    $entities=EntityData::getAll($_SESSION["user_id"]);
+    if(!isset($income) && empty($income)){
+        Core::redir("./?view=income");
     }
-
+    if(isset($income->pago) && !empty($income->pago)){ 
+        $img_pago = "data:image/jpeg;base64,".base64_encode($income->pago);
+    }
+    if(isset($income->documento) && !empty($income->documento)){ 
+        $img_doc = "data:image/jpeg;base64,".base64_encode($income->documento);
+    }
 ?> 
 
 <!-- Content Wrapper. Contains page content -->
@@ -43,15 +51,14 @@ if(isset($_SESSION["user_id"])):
                                 <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $income->description ?></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="amount" class="control-label">Cantidad: </label>
-                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Cantidad: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $income->amount ?>">
+                                <label for="amount" class="control-label">Importe: </label>
+                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $income->amount ?>">
 
                             </div>
                             <div class="form-group">
                                 <label for="category" class="control-label">Categoria: </label>
                                 <select class="form-control select2" style="width: 100%" name="category" id="category" >
                                 <?php
-                                    $category=CategoryIncomeData::getAll($_SESSION["user_id"]);
                                     foreach($category as $cat){
                                 ?>
                                     <option <?php if($income->category_id==$cat->id){echo"selected";} ?> value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
@@ -60,15 +67,66 @@ if(isset($_SESSION["user_id"])):
                                 ?>
                                 </select>
                             </div>
+
                             <div class="form-group">
-                                <label for="date" class="control-label">Fecha: </label>
+                                <label for="type_income" class="control-label">Tipo: </label>
+                                <select class="form-control select2" style="width: 100%" name="type_income" id="type_income" >
+                                <?php
+                                    //Se carga datos de tipos de gasto en modal
+                                    foreach($types as $type){
+                                ?>
+                                    <option <?php if($income->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
+                                <?php 
+                                    }
+                                ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="entidad" class="control-label">Entidad: </label>
+                                <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
+                                <?php
+                                    //Se carga datos de entidades en modal
+                                    foreach($entities as $entity){
+                                ?>
+                                    <option <?php if($income->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
+                                <?php 
+                                    }
+                                ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Fecha: </label>
                                 <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $income->created_at; ?>">
+                            </div>
+                            <div class="form-group">
+                                <a href="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" id="doc_download" download="documento">
+                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento">
+                                </a>
+                                <label for="document">Documento:
+                                    <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <a href="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" id="pago_download" download="pago">
+                                    <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago">
+                                </a>
+                                <label for="payment">Pago:
+                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="paid_out">
+                                    <input type="checkbox" id="paid_out" name="paid_out" <?php if($income->pagado){echo "checked";} ?> > Pagado
+                                </label>
                             </div>
                             <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $income->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
+                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($income->user_id); echo $creator_user->name  ?></label>
+                            <span style="margin-left:10px;">
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
+                            </span>
                         </div>
                     </form>
                 </div> <!-- /.box -->
@@ -80,13 +138,16 @@ if(isset($_SESSION["user_id"])):
 <?php include "res/resources/js.php"; ?>
 <script>
     $( "#upd" ).submit(function( event ) {
-      $('#upd_data').attr("disabled", true);
+        fd = new FormData($(this)[0]);
+        var pay_out = $('#paid_out').is(":checked");
+        fd.append("pay_out",pay_out);
       
-     var parametros = $(this).serialize();
         $.ajax({
             type: "POST",
             url: "./?action=updincome",
-            data: parametros,
+            data: fd,
+            contentType: false,
+            processData: false,
              beforeSend: function(objeto){
                 $("#result").html("Mensaje: Cargando...");
               },
@@ -100,5 +161,31 @@ if(isset($_SESSION["user_id"])):
         });
       event.preventDefault();
     })
+    //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
+    function load_image(input){
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                if(input.name == "document"){
+                    $('#doc_image').attr('style', 'visibility:visible');
+                    $('#doc_image').attr('src', e.target.result);
+                    $('#doc_download').attr('href', e.target.result);
+                }
+                if(input.name == "payment"){
+                    $('#pago_image').attr('style', 'visibility:visible');
+                    $('#pago_image').attr('src', e.target.result);
+                    $('#pago_download').attr('href', e.target.result);
+                }
+            }
+            reader.readAsDataURL(input.files[0]);
+        }else{
+            if(input.name == "document"){
+                $('#doc_image').attr('style', 'visibility:hidden');
+            }
+            if(input.name == "payment"){
+                $('#pago_image').attr('style', 'visibility:hidden');
+            }
+        }
+    }
 </script>
 <?php else: Core::redir("./"); endif;?> 

@@ -1,12 +1,11 @@
 <?php 
-/*-------------------------
-    Autor: Amner Saucedo Sosa
-    Web: www.abisoftgt.net
-    E-Mail: waptoing7@gmail.com
----------------------------*/
 if(isset($_SESSION["user_id"])):
 ?> 
-
+<?php  
+    //Se obtienen datos para llenado de desplegables
+    $categories=CategoryIncomeData::getAll($_SESSION["user_id"]);
+    $types=TypeData::getAllIncome();
+ ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -17,36 +16,85 @@ if(isset($_SESSION["user_id"])):
     <!-- Main content -->
     <section class="content">
         <div class="row">
+            <div class="col-md-8">
             <div class="form-group">
-                <div class="col-md-3">
-                    <select name="q" id="q" class="form-control select2" style="width: 100%;" onchange="load(1);">
-                    <option >Buscar por Categoria</option>
+                    <!-- Se agregan nuevos filtros de mes, año, tipo de gasto y cambio en categoria del gasto -->
+                    <div class="col-md-3 form-group">
+                        <select name="month_find" id="month_find" class="form-control" style="width: 100%;"  onchange="load(1);">
+                            <option value="0">Buscar por Mes</option>
                         <?php
-                            $categories_expense=CategoryIncomeData::getAll($_SESSION["user_id"]);
-                            foreach($categories_expense as $row){
+                                //Se crean opciones de meses y se selecciona el actual por defecto
+                                $months=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+                                foreach($months as $index => $month){
+                            ?>
+                                <option value="<?php echo $index+1; ?>"  <?php if(($index+1) == date("n")) echo "selected"; ?> ><?php echo $month; ?></option>
+                            <?php 
+                                }
                         ?>
-                            <option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
-                        <?php } ?>
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
-                    </span>
+                    <div class="col-md-2 form-group">
+                        <select name="year_find" id="year_find" class="form-control" style="width: 100%;"  onchange="load(1);">
+                            <option value="0">Buscar por Año</option>
+                            <?php
+                                //Se crean opciones de años y se selecciona el actual por defecto
+                                $years=[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+                                foreach($years as $year){
+                            ?>
+                                <option value="<?php echo $year; ?>"  <?php if($year == date("Y")) echo "selected"; ?> ><?php echo $year; ?></option>
+                            <?php 
+                                }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <select name="type_income_find" id="type_income_find" class="form-control" style="width: 100%;" onchange="load(1);">
+                            <option value="0">Buscar por Tipo de Ingreso</option>
+                            <?php
+                                //Se carga con tipos de gastos
+                                foreach($types as $type_income){
+                            ?>
+                                <option value="<?php echo $type_income->id; ?>"><?php echo $type_income->name; ?></option>
+                            <?php 
+                                }
+                            ?>
+                        </select>
                 </div>
 
+                    <div class="col-md-3 form-group">
+                        <select name="category_find" id="category_find" class="form-control" style="width: 100%;" onchange="load(1);">
+                            <option value="0">Buscar por Categoria</option>
+                            <?php
+                                foreach($categories as $category){
+                            ?>
+                                <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-md-5 form-group">
+                        <input type="text"  class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda"  onkeyup="load(1);">
+                    </div>
+                    <div class="col-md-5 form-group">
+                        <input type="checkbox" id="not_paid" name="not_paid" onchange="load(1);"> 
+                        <label for="not_paid">Solo Impagos</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
                 <div class="col-xs-1">
                     <div id="loader" class="text-center"></div>
                 </div>
                 <!-- <div class="col-md-offset-10"> -->
                 <div class=" pull-right">
+                        <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
 <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
     <!-- Form Modal -->
 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <!-- form  -->
-        <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register">
+                                <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register" enctype="multipart/form-data"> 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel"> Nuevo Ingreso</h4>
@@ -59,9 +107,26 @@ if(isset($_SESSION["user_id"])):
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="amount" class="col-sm-2 control-label">Cantidad: </label>
+                                            <label for="amount" class="col-sm-2 control-label">Importe: </label>
                     <div class="col-sm-10">
-                        <input type="text" required class="form-control" id="amount" name="amount" placeholder="Cantidad: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="type_income" class="col-sm-2 control-label">Tipo: </label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control select2" style="width: 100%" name="type_income" id="type_income" >
+                                                    <option >---SELECCIONA---</option>
+                                                <?php
+                                                    //Se carga datos de tipos de gasto en modal
+                                                    foreach($types as $type){
+                                                ?>
+                                                    <option value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
+                                                <?php 
+                                                    }
+                                                ?>
+                                                </select>
+                                                </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -70,10 +135,27 @@ if(isset($_SESSION["user_id"])):
                         <select class="form-control select2" style="width: 100%" name="category" id="category" >
                             <option >---SELECCIONA---</option>
                         <?php
-                            $category=CategoryIncomeData::getAll($_SESSION["user_id"]);
-                            foreach($category as $cat){
+                                                        //Se carga datos de tipos de categoria en modal
+                                                        foreach($categories as $category){
                         ?>
-                            <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+                                                        <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
+                                                    <?php 
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
+                                                    <option >---SELECCIONA---</option>
+                                                    <?php
+                                                        //Se carga datos de entidades en modal
+                                                        $entities=EntityData::getAll($_SESSION["user_id"]);
+                                                        foreach($entities as $entity){
+                                                    ?>
+                                                        <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
                         <?php 
                             }
                         ?>
@@ -86,10 +168,28 @@ if(isset($_SESSION["user_id"])):
                         <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: ">
                     </div>
                 </div>
+                                        <div class="form-group">
+                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
+                                            <label for="document" class="col-sm-4">Documento:
+                                                <input type="file" class="form-control" accept="image/*" id="document" name="document">
+                                            </label>
+                                            <label for="payment" class="col-sm-4">Pago:
+                                                <input type="file" class="form-control" accept="image/*" id="payment" name="payment">
+                                            </label>
+                                            <label for="paid_out" class="col-sm-2">
+                                                <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
+                                            </label>
+                                        </div>
             </div>
             <div class="modal-footer">
+                                        <div class="form-group">
+                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
+                                            <label class="col-md-6 col-sm-6" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?></label>
+                                            <span class="col-md-4 col-sm-4 col-xs-12">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
+                                            </span>
+                                        </div>
             </div>
         </form>
         <!-- /end form  -->
@@ -118,7 +218,8 @@ if(isset($_SESSION["user_id"])):
                             <span class="fa fa-file-excel-o"></span> Descargar
                         </a>
                     </div> 
-                    <?php endif ?>   
+                        <?php endif; ?> 
+                    </div>
                 </div>
             </div>
             <!-- <div class="col-xs-3"></div> -->
@@ -147,12 +248,29 @@ if(isset($_SESSION["user_id"])):
 <script>
     $(function() {
         load(1);
+        var date = new Date();
+        date.getMonth();
+        date.getFullYear();
     });
     function load(page){
-            var query=$("#q").val();
+       //Se obtienen filtros de busqueda
+        var month_find = $('#month_find option:selected').val();
+        var year_find = $('#year_find option:selected').val();
+        var type_income_find = $('#type_income_find option:selected').val();
+        var category_find = $('#category_find option:selected').val();
+        var find_text = $('#find_text').val();
+        var not_paid = $('#not_paid').is(":checked");
+
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,'query':query,'per_page':per_page};
-            //$.get("./?action=loadexpenses",parametros,function(data){
+        var parametros = {
+            "page":page,
+            'month':month_find,
+            'year':year_find,
+            'type_income':type_income_find,
+            'category':category_find,
+            'text':find_text,
+            'payment':not_paid,
+            'per_page':per_page };
             $.get({
                 url:"./?action=loadincome",
                 data:parametros,
@@ -177,10 +295,27 @@ if(isset($_SESSION["user_id"])):
 <script>
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente el ingreso \n\n Desea continuar?')){
+//Se obtienen filtros de busqueda para recarga y por estandar
+            var month_find = $('#month_find option:selected').val();
+            var year_find = $('#year_find option:selected').val();
+            var type_income_find = $('#type_income_find option:selected').val();
+            var category_find = $('#category_find option:selected').val();
+            var find_text = $('#find_text').val();
+            var not_paid = $('#not_paid').is(":checked");
             var page=1;
-            var query=$("#q").val();
+
             var per_page=$("#per_page").val();
-            var parametros = {"page":page,"query":query,"per_page":per_page,"id":id};
+            var parametros = {
+                "page":page,
+                'month':month_find,
+                'year':year_find,
+                'type_income':type_income_find,
+                'category':category_find,
+                'text':find_text,
+                'payment':not_paid,
+                'per_page':per_page,
+                "id":id
+             };
             
             $.get({
                 // method: "GET",
@@ -201,13 +336,21 @@ if(isset($_SESSION["user_id"])):
     }
 </script>
 <script>
+
     $( "#add_register" ).submit(function( event ) {
+     
         $('#save_data').attr("disabled", true);
-        var parametros = $(this).serialize();
+        //Se cambia forma de envio de formulario para soportar envio de imagenes
+        var fd = new FormData($(this)[0]);
+        var pay_out = $('#paid_out').is(":checked");
+        fd.append("pay_out",pay_out);
+   
         $.ajax({
             type: "POST",
             url: "./?action=addincome",
-            data: parametros,
+            data: fd,
+            contentType: false,
+            processData: false,
                 beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
                 },

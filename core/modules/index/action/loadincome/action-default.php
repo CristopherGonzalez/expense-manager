@@ -19,12 +19,35 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <?php
 	$con = Database::getCon();
-	$query = intval($_REQUEST['query']);
+	//Se capturan los datos enviados por ajax
+	$month = intval($_REQUEST['month']);
+	$year = intval($_REQUEST['year']);
+	$type_income = intval($_REQUEST['type_income']);
+	$category = intval($_REQUEST['category']);
+	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
+	$not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
 	$user_id=$_SESSION["user_id"];
 	//$sWhere=" user_id>0 ";
 	$sWhere=" user_id=$user_id ";
-	if($query!=0){
-		$sWhere.=" and category_id=".$query;
+
+	//Se construye la consulta sql dependiendo de los filtros ingresados
+	if($category!=0){
+		$sWhere.=" and category_id=".$category;
+	}
+	if($type_income!=0){
+		$sWhere.=" and tipo=".$type_income;
+	}
+	if($month!=0){
+		$sWhere.=" and month(fecha) =".$month;
+	}
+	if($year!=0){
+		$sWhere.=" and year(fecha) = ".$year;
+	}
+	if($text!=""){
+		$sWhere.=" and description LIKE '%".$text."%' ";
+	}
+	if(!$not_paid){
+		$sWhere.=" and pagado = ".$not_paid;
 	}
 
 	include 'res/resources/pagination.php'; //include pagination file
@@ -55,10 +78,14 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <table class="table table-bordered table-hover">
 	<thead>
+		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los gastos -->
 		<th>Fecha</th>
 		<th>Descripción</th>
-		<th>Cantidad</th>
+		<th>Importe</th>
 		<th>Categoría</th>
+		<th>Entidad</th>
+		<th>Tipo de Gasto</th>
+		<th>Estado Pago</th>
 		<th></th>
 	</thead>
 	<tbody>
@@ -74,15 +101,14 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			$finales++;
 		?>
 		<tr>
+			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
 			<td><?php echo $inc->description; ?></td>
 			<td><?php echo number_format($inc->amount,2); ?></td>
-			<td>
-				<?php  
-					$name_category=CategoryIncomeData::getById($inc->category_id);
-					echo $name_category->name;
-				?>
-			</td>
+			<td><?php if($inc->category_id!=null){echo $inc->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
+			<td><?php if($inc->entidad!=null){echo $inc->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>
+			<td><?php if($inc->tipo!=null){echo $inc->getTypeIncome()->name;}else{ echo "<center>----</center>"; }  ?></td>
+			<td><?php if($inc->pagado!=null && $inc->pagado){echo "<center>Pagado</center>"; }else{ echo "<center>Impago</center>"; }  ?></td>
 			<td class="text-right">
                 <a href="./?view=editincome&id=<?php echo $inc->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
                 <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $inc->id;?>')"><i class="fa fa-trash-o"></i></button>

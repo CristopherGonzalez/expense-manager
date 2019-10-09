@@ -34,15 +34,19 @@ if (!isset($_SESSION['user_id'])){
 			$expense->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
 			//Se realiza guardado de imagenes de pago y documento
 			if(isset($_FILES["document"]) && !empty($_FILES["document"])){
-				$doc_file = addslashes(file_get_contents($_FILES["document"]["tmp_name"])); 
-				if(isset($doc_file) && !empty($doc_file)){
-					$expense->documento = $doc_file;
+				if(isset($_FILES["document"]["tmp_name"]) && !empty($_FILES["document"]["tmp_name"])){
+					$doc_file = addslashes(file_get_contents($_FILES["document"]["tmp_name"])); 
+					if(isset($doc_file) && !empty($doc_file)){
+						$expense->documento = $doc_file;
+					}
 				}
 			}
 			if(isset($_FILES["payment"]) && !empty($_FILES["payment"])){
-				$pay_file = addslashes(file_get_contents($_FILES["payment"]["tmp_name"])); 
-				if(isset($pay_file) && !empty($pay_file)){
-					$expense->pago = $pay_file;
+				if(isset($_FILES["payment"]["tmp_name"]) && !empty($_FILES["payment"]["tmp_name"])){
+					$pay_file = addslashes(file_get_contents($_FILES["payment"]["tmp_name"])); 
+					if(isset($pay_file) && !empty($pay_file)){
+						$expense->pago = $pay_file;
+					}
 				}
 			}
 			$query_new=$expense->add();

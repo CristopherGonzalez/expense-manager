@@ -8,20 +8,33 @@ class IncomeData {
 		$this->amount = "";
 		$this->user_id = "";
 		$this->category_id = "";
-		$this->created_at = "";
+		$this->tipo = "";
+		$this->entidad = "";
+		$this->created_at = "NOW()";
+		$this->fecha = "";
+		$this->pagado = "0";
+		$this->documento = "";
+		$this->pago = "";
 	}
 
 	public function getCategory(){ return CategoryIncomeData::getById($this->category_id);}
+	public function getEntity(){ return EntityData::getById($this->entidad);}
+	public function getTypeIncome(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
-		$sql = "insert into income (description,amount,user_id,category_id,created_at) ";
-		$sql .= "value (\"$this->description\",\"$this->amount\",\"$this->user_id\",\"$this->category_id\",\"$this->created_at\")";
+		$sql = "insert into ".self::$tablename." (description, amount, user_id, category_id,tipo, entidad, created_at, fecha, pagado) ";
+		$sql .= "value (\"$this->description\",$this->amount,$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,'$this->fecha',$this->pagado)";
 		return Executor::doit($sql);
 	}
 
 	public static function delete($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
-		Executor::doit($sql);
+		if (Executor::doit($sql)){
+			return true;
+		}else{
+			return false;
+		}
+
 	}
 	public function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
@@ -29,7 +42,7 @@ class IncomeData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",created_at=\"$this->created_at\" where id=$this->id";
+		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\", tipo=$this->tipo, entidad=$this->entidad, pagado='$this->pagado', documento='$this->documento', pago='$this->pago' where id=$this->id";
 		if (Executor::doit($sql)){
 			return true;
 		}else{
@@ -46,7 +59,7 @@ class IncomeData {
 	public static function getByCategoryId($id){
 		$sql = "select * from ".self::$tablename." where category_id=$id";
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new ExpensesData());
+		return Model::one($query[0],new IncomeData());
 	}
 
 	public static function getAll($u){
@@ -80,13 +93,13 @@ class IncomeData {
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new ExpensesData());
+		return Model::one($query[0],new IncomeData());
 	}
 
 	public static function query($sWhere, $offset,$per_page){
 		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." order by created_at desc LIMIT $offset,$per_page ";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new ExpensesData());
+		return Model::many($query[0],new IncomeData());
 	}
 }
 

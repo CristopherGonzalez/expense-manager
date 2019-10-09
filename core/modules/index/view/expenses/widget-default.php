@@ -1,9 +1,4 @@
 <?php 
-/*-------------------------
-    Autor: Amner Saucedo Sosa
-    Web: www.abisoftgt.net
-    E-Mail: waptoing7@gmail.com
----------------------------*/
 if(isset($_SESSION["user_id"])):
 ?> 
 <?php  
@@ -342,7 +337,7 @@ if(isset($_SESSION["user_id"])):
 <script>
 
     $( "#add_register" ).submit(function( event ) {
-        debugger;
+     
         $('#save_data').attr("disabled", true);
         //Se cambia forma de envio de formulario para soportar envio de imagenes
         var fd = new FormData($(this)[0]);

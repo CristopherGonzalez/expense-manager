@@ -159,6 +159,7 @@ create table entidades (
   	amount double not null,
   	user_id int not null,
   	category_id int not null,
+	tipo int not null,
   	entidad int not null,
   	created_at date not null,
 	fecha date not null,
@@ -167,8 +168,8 @@ create table entidades (
 	pago LONGBLOB,
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_income(id),
-  	foreign key(entidad) references entidades(id)
-
+  	foreign key(entidad) references entidades(id),
+	foreign key(tipo) references tipos(id)
   );
   create table resultado (
   	id int not null auto_increment primary key,

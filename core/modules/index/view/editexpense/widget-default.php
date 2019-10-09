@@ -17,8 +17,7 @@ if(isset($_SESSION["user_id"])):
     $types=TypeData::getAllExpense();
     $category=CategoryExpenseData::getAll($_SESSION["user_id"]);
     $entities=EntityData::getAll($_SESSION["user_id"]);
-
-    if(!isset($expense)){
+if(!isset($expense) && empty($expense)){
         Core::redir("./?view=expenses");
     }
     if(isset($expense->pago) && !empty($expense->pago)){ 

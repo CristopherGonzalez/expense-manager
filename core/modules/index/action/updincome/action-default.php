@@ -25,6 +25,28 @@ if (!isset($_SESSION['user_id'])){
 		$income->amount = mysqli_real_escape_string($con,(strip_tags($_POST["amount"],ENT_QUOTES)));
 		$income->category_id = intval($_POST['category']);
 		$income->created_at = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
+		//Se capturan los nuevos datos de los gastos
+		$income->entidad = intval($_POST['entity']);
+		$income->tipo = intval($_POST['type_income']);
+		$income->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
+		$income->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
+		//Se realiza guardado de imagenes de pago y documento
+		if(isset($_FILES["document"]) && !empty($_FILES["document"])){
+			if(isset($_FILES["document"]["tmp_name"]) && !empty($_FILES["document"]["tmp_name"])){
+				$doc_file = addslashes(file_get_contents($_FILES["document"]["tmp_name"])); 
+				if(isset($doc_file) && !empty($doc_file)){
+					$income->documento = $doc_file;
+				}
+			}
+		}
+		if(isset($_FILES["payment"]) && !empty($_FILES["payment"])){
+			if(isset($_FILES["payment"]["tmp_name"]) && !empty($_FILES["payment"]["tmp_name"])){
+				$pay_file = addslashes(file_get_contents($_FILES["payment"]["tmp_name"])); 
+				if(isset($pay_file) && !empty($pay_file)){
+					$income->pago = $pay_file;
+				}
+			}
+		}
 		$query_update=$income->update();
 
 		if ($query_update){
