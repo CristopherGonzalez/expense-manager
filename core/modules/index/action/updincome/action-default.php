@@ -11,11 +11,17 @@ if (!isset($_SESSION['user_id'])){
            $errors[] = "Categoria vacío";
         }else if (empty($_POST['date'])) {
            $errors[] = "Fecha vacío";
-        }else if (
+        }else if (empty($_POST['type_income'])) {
+			$errors[] = "No ha seleccionado el tipo de ingreso";
+		 }else if (empty($_POST['entity'])) {
+			$errors[] = "No ha seleccionado una entidad vacГ­o.";
+		 }else if (
         	!empty($_POST['mod_id'])
 			&& !empty($_POST['amount'])
         	&& !empty($_POST['category'])
-        	&& !empty($_POST['date'])
+			&& !empty($_POST['date'])
+			&& !empty($_POST['type_income'])
+			&& !empty($_POST['entity'])
 		){
 
     	$con = Database::getCon(); 
@@ -84,4 +90,5 @@ if (!isset($_SESSION['user_id'])){
 	</div>
 <?php
 	}
+	
 ?>

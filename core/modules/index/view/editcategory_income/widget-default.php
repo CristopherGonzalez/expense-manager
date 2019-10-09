@@ -31,7 +31,6 @@ if(isset($_SESSION["user_id"])):
     <section class="content">
         <div class="row">
             <div class="col-md-6"><!-- left column -->
-                <div id="result"></div>
                 <div class="box box-primary"> <!-- general form elements -->
                     <div class="box-header with-border">
                         <h3 class="box-title">Editar Categoria de Ingreso</h3>
@@ -64,6 +63,7 @@ if(isset($_SESSION["user_id"])):
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                         </div>
                     </form>
+                    <div id="result"></div>
                 </div> <!-- /.box -->
             </div>
         </div>
@@ -73,9 +73,9 @@ if(isset($_SESSION["user_id"])):
 <?php include "res/resources/js.php"; ?>
 <script>
     $( "#upd" ).submit(function( event ) {
-      $('#upd_data').attr("disabled", true);
-      
-     var parametros = $(this).serialize();
+        $('#upd_data').attr("disabled", true);
+        var result = false; 
+        var parametros = $(this).serialize();
         $.ajax({
             type: "POST",
             url: "./?action=updcategory_income",
@@ -89,9 +89,15 @@ if(isset($_SESSION["user_id"])):
             window.setTimeout(function() {
             $(".alert").fadeTo(500, 0).slideUp(500, function(){
             $(this).remove();});}, 2000);
+            result = true;
             }
         });
-      event.preventDefault();
+        event.preventDefault();
+        window.setTimeout(function(){
+            if (result){
+                window.location.href="./?view=category_income";
+            }
+        }, 2000);
     })
 </script>
 <?php else: Core::redir("./"); endif;?> 

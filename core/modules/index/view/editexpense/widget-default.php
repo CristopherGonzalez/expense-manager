@@ -39,7 +39,6 @@ if(!isset($expense) && empty($expense)){
     <section class="content">
         <div class="row">
             <div class="col-md-6"><!-- left column -->
-                <div id="result"></div>
                 <div class="box box-primary"> <!-- general form elements -->
                     <div class="box-header with-border">
                         <h3 class="box-title">Editar Gasto</h3>
@@ -130,6 +129,7 @@ if(!isset($expense) && empty($expense)){
                         </div>
                     </form>
                 </div> <!-- /.box -->
+                <div id="result"></div>
             </div>
         </div>
     </section>     
@@ -141,7 +141,7 @@ if(!isset($expense) && empty($expense)){
         fd = new FormData($(this)[0]);
         var pay_out = $('#paid_out').is(":checked");
         fd.append("pay_out",pay_out);
-
+        var result = false;
         $.ajax({
             type: "POST",
             url: "./?action=updexpense",
@@ -157,9 +157,15 @@ if(!isset($expense) && empty($expense)){
             window.setTimeout(function() {
             $(".alert").fadeTo(500, 0).slideUp(500, function(){
             $(this).remove();});}, 2000);
+            result = true;
             }
         });
-      event.preventDefault();
+        event.preventDefault();
+        window.setTimeout(function(){
+            if (result){
+                window.location.href="./?view=expenses";
+            }
+        }, 2000);                                                                                                               
     })
     //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
     function load_image(input){
