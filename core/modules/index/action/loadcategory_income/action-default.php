@@ -4,7 +4,10 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$id=intval($id);
 
 	$query_validate=IncomeData::getByCategoryId($id);
-	$count=count($query_validate);
+	$count=0;
+	if(is_array($query_validate)){
+		$count=count($query_validate);
+	}
 	if ($count==0){
 		$delete=CategoryIncomeData::delete($id);
 		if($delete==1){

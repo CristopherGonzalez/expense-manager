@@ -32,7 +32,7 @@ class CategoryIncomeData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\" and tipo=\"$this->tipo\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\", tipo=$this->tipo where id=$this->id";
 		$query = Executor::doit($sql);
 		if (isset($query)){
 			return true;

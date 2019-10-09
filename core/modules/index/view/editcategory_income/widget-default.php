@@ -14,7 +14,7 @@ if(isset($_SESSION["user_id"])):
     //query
     $category_income=CategoryIncomeData::getById($id);
 
-    if(!count($category_income)>0){
+    if(!isset($category_income) && !empty($category_income)>0){
         Core::redir("./?view=category_income");
     }
 
@@ -42,7 +42,22 @@ if(isset($_SESSION["user_id"])):
                                 <label for="name" class="control-label">Nombre: </label>
                                 <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: " value="<?php echo $category_income->name; ?>">
                             </div>
-                            <!-- mod id -->
+                             <!-- Se agrega nueva opcion de gasto-->
+                            <div class="form-group">
+                                <label for="gasto" class="control-label">Gasto: </label>
+                                    <select class="form-control" name="type_income" id="type_income" >
+                                        <?php
+                                            $gasto=TypeData::getAllIncome();
+                                            foreach($gasto as $cat){
+                                        ?>
+                                            <option value="<?php echo $cat->id; ?>" <?php if($cat->id == $category_income->tipo) echo "selected"; ?>  ><?php echo $cat->name; ?></option>
+                                        <?php 
+                                            }
+                                        ?>
+                                    </select>
+                                        </div>
+                                    </div>
+                            <!-- mod id --><!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $category_income->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
