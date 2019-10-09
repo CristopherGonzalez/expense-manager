@@ -95,7 +95,7 @@ if(isset($_SESSION["user_id"])):
                             </div>
                             <div class="form-group">
                                 <label for="date">Fecha: </label>
-                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $income->created_at; ?>">
+                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $income->date; ?>">
                             </div>
                             <div class="form-group">
                                 <a href="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" id="doc_download" download="documento">
@@ -122,7 +122,7 @@ if(isset($_SESSION["user_id"])):
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $income->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
-                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($income->user_id); echo $creator_user->name  ?></label>
+                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($income->user_id); echo $creator_user->name  ?> el <?php echo $income->created_at;  ?></label>
                             <span style="margin-left:10px;">
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>

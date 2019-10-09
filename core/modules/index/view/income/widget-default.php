@@ -88,27 +88,27 @@ if(isset($_SESSION["user_id"])):
                 <!-- <div class="col-md-offset-10"> -->
                 <div class=" pull-right">
                         <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
-<button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
-    <!-- Form Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <!-- form  -->
-                                <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register" enctype="multipart/form-data"> 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel"> Nuevo Ingreso</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="description" class="col-sm-2 control-label">Descripción: </label>
-                    <div class="col-sm-10">
-                        <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
+                            <!-- Form Modal -->
+                        <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <!-- form  -->
+                                                        <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register" enctype="multipart/form-data"> 
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="myModalLabel"> Nuevo Ingreso</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="description" class="col-sm-2 control-label">Descripción: </label>
+                                            <div class="col-sm-10">
+                                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="amount" class="col-sm-2 control-label">Importe: </label>
-                    <div class="col-sm-10">
+                                            <div class="col-sm-10">
                                                 <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
                                             </div>
                                         </div>
@@ -127,17 +127,17 @@ if(isset($_SESSION["user_id"])):
                                                 ?>
                                                 </select>
                                                 </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="category" class="col-sm-2 control-label">Categoria: </label>
-                    <div class="col-sm-10">
-                        <select class="form-control select2" style="width: 100%" name="category" id="category" >
-                            <option >---SELECCIONA---</option>
-                        <?php
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="category" class="col-sm-2 control-label">Categoria: </label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control select2" style="width: 100%" name="category" id="category" >
+                                                        <option >---SELECCIONA---</option>
+                                                    <?php
                                                         //Se carga datos de tipos de categoria en modal
                                                         foreach($categories as $category){
-                        ?>
+                                                    ?>
                                                         <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
                                                     <?php 
                                                         }
@@ -156,18 +156,18 @@ if(isset($_SESSION["user_id"])):
                                                         foreach($entities as $entity){
                                                     ?>
                                                         <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
-                        <?php 
-                            }
-                        ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="date" class="col-sm-2 control-label">Fecha: </label>
-                    <div class="col-sm-10">
-                        <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: ">
-                    </div>
-                </div>
+                                                    <?php 
+                                                        }
+                                                    ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="date" class="col-sm-2 control-label">Fecha: </label>
+                                                <div class="col-sm-10">
+                                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: ">
+                                                </div>
+                                            </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="document" class="col-sm-4">Documento:
@@ -180,23 +180,23 @@ if(isset($_SESSION["user_id"])):
                                                 <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
                                             </label>
                                         </div>
-            </div>
-            <div class="modal-footer">
+                                    </div>
+                                    <div class="modal-footer">
                                         <div class="form-group">
-                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label class="col-md-6 col-sm-6" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?></label>
+                                        <span class="col-md-1 col-sm-1 col-xs-12"></span>
+                                            <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
                                             <span class="col-md-4 col-sm-4 col-xs-12">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
                                             </span>
                                         </div>
-            </div>
-        </form>
-        <!-- /end form  -->
-        </div>
-    </div>
-</div>
-<!-- End Form Modal -->
+                                    </div>
+                                </form>
+                                <!-- /end form  -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Form Modal -->
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             Mostrar <span class="caret"></span>

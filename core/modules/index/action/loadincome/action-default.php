@@ -93,7 +93,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		 	$finales=0;
 		 	foreach($query_sql as $inc){
 
-		 	$created_at=$inc->created_at;
+		 	$created_at=$inc->fecha;
             list($date)=explode(" ",$created_at);
             list($Y,$m,$d)=explode("-",$date);
             $date=$d."-".$m."-".$Y;

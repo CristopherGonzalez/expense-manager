@@ -92,7 +92,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		 	$finales=0;
 		 	foreach($query as $exp){
 
-		 	$created_at=$exp->created_at;
+		 	$created_at=$exp->fecha;
             list($date)=explode(" ",$created_at);
             list($Y,$m,$d)=explode("-",$date);
             $date=$d."-".$m."-".$Y;

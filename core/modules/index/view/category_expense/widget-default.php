@@ -79,8 +79,14 @@ if(isset($_SESSION["user_id"])):
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
+                                    <div class="form-group">
+                                        <span class="col-md-1 col-sm-1 col-xs-12"></span>
+                                        <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
+                                        <span class="col-md-4 col-sm-4 col-xs-12">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
+                                        </span>
+                                    </div>
                                 </div>
                             </form>
                             <!-- /end form  -->
