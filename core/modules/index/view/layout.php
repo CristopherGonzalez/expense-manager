@@ -107,7 +107,6 @@
                             <a href="#"><i class="fa fa-users"></i> <span>Socios</span></a>
                         </li>
 
-
                         <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_income' or $_GET['view']=='editcategory_income'){echo "active";}?>">
                             <a href="?view=category_income"><i class="fa fa-th-list"></i> <span>Categoria de ingresos</span></a>
                         </li>
@@ -118,7 +117,7 @@
 
                         <li class="<?php if(isset($_GET['view']) and $_GET['view']=='entidades' ){echo "active";}?>">
                             <!--a href="?view=entidades"><i class="fa fa-home"></i> <span>Informes</span></a>-->
-                            <a href="#"><i class="fa fa-building-o"></i> <span>Entidades</span></a>
+                            <a href="?view=entities"><i class="fa fa-building-o"></i> <span>Entidades</span></a>
 
                         </li>
 

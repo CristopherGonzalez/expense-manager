@@ -126,8 +126,7 @@ create table entidades (
 	tipo int not null,
 	category_id int not null,
 	foreign key(user_id) references user(id),
-	foreign key(tipo) references tipos(id),
-	foreign key(category_id) references category_expence(id)
+	foreign key(tipo) references tipos(id)
 );
 
 

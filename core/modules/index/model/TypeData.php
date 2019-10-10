@@ -56,7 +56,12 @@ class TypeData {
 		return Model::many($query[0],new TypeData());
 
 	}
+	public static function getAllType(){
+		$sql = "select * from ".self::$tablename;
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new TypeData());
 
+	}
 	public static function getAllExpense(){
 		$sql = "select * from ".self::$tablename." where tipo='Gasto'";
 		$query = Executor::doit($sql);

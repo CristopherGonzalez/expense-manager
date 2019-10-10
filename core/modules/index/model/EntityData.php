@@ -7,14 +7,17 @@ class EntityData {
 		$this->name = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";
-		$this->tipo = "";
+		$this->tipo = "0";
 		$this->category_id = "";
 
 	}
+	public function getCategoryExpense(){ return CategoryExpenseData::getById($this->category_id);}
+	public function getCategoryIncome(){ return CategoryIncomeData::getById($this->category_id);}
+	public function getType(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
 		$sql = "insert into entidades (name,user_id,created_at,tipo,category_id) ";
-		$sql .= "value (\"$this->name\",\"$this->user_id\",$this->created_at,$this->tipo,$this->category_id)";
+		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo,$this->category_id)";
 		return Executor::doit($sql);
 	}
 
