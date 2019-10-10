@@ -60,6 +60,7 @@ if(isset($_SESSION["user_id"])):
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $category_income->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
+                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($category_income->user_id); echo $creator_user->name  ?> el  <?php echo date("Y-d-m",strtotime($category_expense->created_at));  ?></label>
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                         </div>
                     </form>
