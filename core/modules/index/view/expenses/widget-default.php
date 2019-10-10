@@ -171,14 +171,23 @@ if(isset($_SESSION["user_id"])):
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="document" class="col-sm-4">Documento:
-                                                <input type="file" class="form-control" accept="image/*" id="document" name="document">
+                                                <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
                                             </label>
                                             <label for="payment" class="col-sm-4">Pago:
-                                                <input type="file" class="form-control" accept="image/*" id="payment" name="payment">
+                                                <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
                                             </label>
                                             <label for="paid_out" class="col-sm-2">
                                                 <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
                                             </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
+                                            <div class="col-sm-4 col-sm-4 col-xs-6">
+                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="doc_image" height="100%" width="100%">
+                                            </div>
+                                            <div class="col-sm-4 col-sm-4 col-xs-6">
+                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="pay_image" height="100%" width="100%">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -365,5 +374,30 @@ if(isset($_SESSION["user_id"])):
         });
         event.preventDefault();
     })
+
+    //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
+    function load_image(input){
+        debugger;
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                if(input.name == "document"){
+                    $('#doc_image').attr('src', e.target.result);
+                }
+                if(input.name == "payment"){
+                    $('#pay_image').attr('src', e.target.result);
+                }
+            }
+            reader.readAsDataURL(input.files[0]);
+        }else{
+            if(input.name == "document"){
+                $('#doc_image').attr('src', 'res/images/default_image.jpg');
+            }
+            if(input.name == "payment"){
+                $('#pay_image').attr('src', 'res/images/default_image.jpg');
+            }
+        }
+    }
+
 </script>
 <?php else: Core::redir("./"); endif;?> 
