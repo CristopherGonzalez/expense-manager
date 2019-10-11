@@ -108,25 +108,25 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
 			<td><?php echo $ent->name; ?></td>
-			<td><?php echo $ent->getType()->tipo ?></td>
+			<td><?php echo $ent->getType($ent->tipo)->tipo ?></td>
 			<td>
 				<?php 
 					if($ent->category_id!=null){
-						if(!strcmp($ent->getType()->tipo,"Gasto")){
+						if(!strcmp($ent->getType($ent->tipo)->tipo,"Gasto")){
 							echo $ent->getCategoryExpense()->name;
 						}
-						if(!strcmp($ent->getType()->tipo,"Ingreso")){
+						if(!strcmp($ent->getType($ent->tipo)->tipo,"Ingreso")){
 							echo $ent->getCategoryIncome()->name;
 						}
-						if(!strcmp($ent->getType()->tipo,"Socio")){
-							echo $ent->getType()->name;
+						if(!strcmp($ent->getType($ent->tipo)->tipo,"Socio")){
+							echo $ent->getType($ent->tipo)->name;
 						}
 					}else{
 						 echo "<center>----</center>"; 
 					}  
 				?>
 			</td>
-			<td><?php if($ent->tipo!=null){echo $ent->getType()->name;}else{ echo "<center>----</center>"; }  ?></td>
+			<td><?php if($ent->tipo!=null){echo $ent->getType($ent->tipo)->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td class="text-right">
                 <a href="./?view=editentity&id=<?php echo $ent->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
                 <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $ent->id;?>')"><i class="fa fa-trash-o"></i></button>

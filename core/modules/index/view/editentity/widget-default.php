@@ -141,9 +141,16 @@ if(isset($_SESSION["user_id"])):
         }, 2000);                                                                                                               
     })
     function load(){
-        var origin_type = <?php echo $type_entity->tipo;?>;
-
-        debugger;
+        var origin_type = "<?php echo $type_entity->tipo;?>";
+        if (origin_type == null || origin_type == undefined || origin_type.length == 0) { window.location='./?view=entities';};
+        if (origin_type == "Gasto"){ $('#origin option[value=origin_expense]').attr("selected","selected"); }
+        if (origin_type == "Ingreso"){ $('#origin option[value=origin_income]').attr("selected","selected"); }
+        if (origin_type == "Socio"){ $('#origin option[value=origin_partner]').attr("selected","selected"); }
+        change_origin($('#origin')[0]);
+        if (origin_type == "Gasto"){ $('#category_expense option[value=<?php echo $entity->category_id ?>]').attr("selected","selected"); }
+        if (origin_type == "Ingreso"){ $('#category_income option[value=<?php echo $entity->category_id ?>]').attr("selected","selected"); }
+        if (origin_type == "Socio") {$('#category_partner option[value=1]').attr("selected","selected");}
+        $('#type option[value=<?php echo $entity->tipo ?>]').attr("selected","selected"); 
     }
     //Funcion para cambiar visibilidad dependiendo de la opcion de origin
     function change_origin(event){
@@ -156,11 +163,16 @@ if(isset($_SESSION["user_id"])):
             $('#category_expense').prop('disabled', 'disabled');
             $('#category_income').prop('disabled', 'disabled');
             $('#category_partner').prop('disabled', 'disabled');
+            $('#category_expense option[value=0]').attr("selected","selected");
+            $('#category_income option[value=0]').attr("selected","selected");
+            $('#category_partner option[value=0]').attr("selected","selected");
          }
         if (origin_type === "origin_expense"){
             $('#category_expense').prop('disabled', false);
             $('#category_income').prop('disabled', 'disabled');
             $('#category_partner').prop('disabled', 'disabled');
+            $('#category_income option[value=0]').attr("selected","selected");
+            $('#category_partner option[value=0]').attr("selected","selected");
             $('#type').prop('disabled', false);
             <?php 
             foreach($types as $type){ 
@@ -175,6 +187,8 @@ if(isset($_SESSION["user_id"])):
             $('#category_expense').prop('disabled', 'disabled');
             $('#category_income').prop('disabled', false);
             $('#category_partner').prop('disabled', 'disabled');
+            $('#category_expense option[value=0]').attr("selected","selected");
+            $('#category_partner option[value=0]').attr("selected","selected");
             $('#type').prop('disabled', false);
             <?php 
             foreach($types as $type){ 
@@ -188,6 +202,8 @@ if(isset($_SESSION["user_id"])):
         if (origin_type === "origin_partner"){
             $('#category_expense').prop('disabled', 'disabled');
             $('#category_income').prop('disabled', 'disabled');
+            $('#category_expense option[value=0]').attr("selected","selected");
+            $('#category_income option[value=0]').attr("selected","selected");
             $('#category_partner').prop('disabled', false);
             $('#type').prop('disabled', false);
             <?php 
