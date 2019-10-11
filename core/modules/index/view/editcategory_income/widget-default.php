@@ -54,8 +54,8 @@ if(isset($_SESSION["user_id"])):
                                             }
                                         ?>
                                     </select>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
                             <!-- mod id --><!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $category_income->id; ?>">
                         </div><!-- /.box-body -->

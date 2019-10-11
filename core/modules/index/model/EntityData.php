@@ -7,7 +7,7 @@ class EntityData {
 		$this->name = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";
-		$this->tipo = "0";
+		$this->tipo = "";
 		$this->category_id = "";
 
 	}
@@ -16,7 +16,7 @@ class EntityData {
 	public function getExpensesByIdEntity($id){ return ExpensesData::getByEntityId($id);}
 	public function getIncomeByIdEntity($id){ return IncomeData::getByEntityId($id);}
 	public function getPartnerByIdEntity($id){ return ResultData::getByEntityId($id);}
-	public function getType(){ return TypeData::getById($this->tipo);}
+	public function getType($id){ return TypeData::getById($id);}
 
 	public function add(){
 		$sql = "insert into entidades (name,user_id,created_at,tipo,category_id) ";
