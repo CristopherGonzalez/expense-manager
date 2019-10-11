@@ -68,7 +68,11 @@ class ResultData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ResultData());
 	}
-
+	public static function getByEntityId($id){
+		$sql = "select * from ".self::$tablename." where entidad=$id";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new ResultData());
+	}
 }
 
 ?>

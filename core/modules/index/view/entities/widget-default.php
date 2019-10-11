@@ -242,9 +242,9 @@ if(isset($_SESSION["user_id"])):
 </script>
 <script>
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente el gasto \n\n Desea continuar?')){
+        if(confirm('Esta acción  eliminará de forma permanente la entidad \n\n Desea continuar?')){
             //Se obtienen filtros de busqueda para recarga y por estandar
-            var category_find = $('#category_find option:selected').val(0);
+            var category_find = $('#category_find option:selected').val();
             var type_find = $('#type_find option:selected').val();
             var find_text = $('#find_text').val();
             var page=1;

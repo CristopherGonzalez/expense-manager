@@ -13,6 +13,9 @@ class EntityData {
 	}
 	public function getCategoryExpense(){ return CategoryExpenseData::getById($this->category_id);}
 	public function getCategoryIncome(){ return CategoryIncomeData::getById($this->category_id);}
+	public function getExpensesByIdEntity($id){ return ExpensesData::getByEntityId($id);}
+	public function getIncomeByIdEntity($id){ return IncomeData::getByEntityId($id);}
+	public function getPartnerByIdEntity($id){ return ResultData::getByEntityId($id);}
 	public function getType(){ return TypeData::getById($this->tipo);}
 
 	public function add(){

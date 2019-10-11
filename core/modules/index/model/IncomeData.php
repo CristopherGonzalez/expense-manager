@@ -82,7 +82,11 @@ class IncomeData {
 		return Model::one($query[0],new IncomeData());
 
 	}
-
+	public static function getByEntityId($id){
+		$sql = "select * from ".self::$tablename." where entidad=$id";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new IncomeData());
+	}
 	public static function sumIncome_Month($month,$u){
 		$year=date('Y');
 		$sql = "select SUM(amount) as total from ".self::$tablename." where year(created_at) = '$year' and month(created_at)= '$month' and user_id=$u ";

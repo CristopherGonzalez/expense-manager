@@ -70,6 +70,11 @@ class ExpensesData {
 		return Model::one($query[0],new ExpensesData());
 	}
 
+	public static function getByEntityId($id){
+		$sql = "select * from ".self::$tablename." where entidad=$id";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new ExpensesData());
+	}
 	public static function getAll($u){
 		$sql = "select * from ".self::$tablename." where user_id=$u";
 		$query = Executor::doit($sql);

@@ -2,20 +2,39 @@
 if (isset($_REQUEST["id"])){//codigo para eliminar 
 	$id=$_REQUEST["id"];
 	$id=intval($id);
+	$ocuped_entity = false;
+	$delete=0;
+	if(is_array(EntityData::getExpensesByIdEntity($id)) && count(EntityData::getExpensesByIdEntity($id))>0){
+		$ocuped_entity = true;
+	}
+	elseif(is_array(EntityData::getIncomeByIdEntity($id)) && count(EntityData::getIncomeByIdEntity($id))>0){
+		$ocuped_entity = true;
+	}
+	elseif(is_array(EntityData::getPartnerByIdEntity($id)) && count(EntityData::getPartnerByIdEntity($id))>0){
+		$ocuped_entity = true;
+	}
 
-	$delete=EntityData::delete($id);
-	if($delete==1){
-		$aviso="Bien hecho!";
-		$msj="Datos eliminados satisfactoriamente.";
-		$classM="alert alert-success";
-		$times="&times;";	
+	if(!$ocuped_entity){
+		$delete=EntityData::delete($id);
+		if($delete==1){
+			$aviso="Bien hecho!";
+			$msj="Datos eliminados satisfactoriamente.";
+			$classM="alert alert-success";
+			$times="&times;";	
+		}else{
+			$aviso="Aviso!";
+			$msj="Error al eliminar los datos ";
+			$classM="alert alert-danger";
+			$times="&times;";					
+		}
 	}else{
 		$aviso="Aviso!";
-		$msj="Error al eliminar los datos ";
+		$msj="Error al eliminar los datos. la materia se encuentra vinculada.";
 		$classM="alert alert-danger";
-		$times="&times;";					
+		$times="&times;";
 	}
 }
+
 ?>
 <?php
 	$con = Database::getCon();
@@ -46,7 +65,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$count_query=EntityData::countQuery($sWhere);
 	$numrows = $count_query->numrows;
 	$total_pages = ceil($numrows/$per_page);
-	$reload = './?view=entity';
+	$reload = './?view=entities';
 
 	$query=EntityData::query($sWhere, $offset,$per_page);
 ?>
