@@ -85,12 +85,12 @@ if(isset($_SESSION["user_id"])):
                 $("#result").html("Mensaje: Cargando...");
               },
             success: function(datos){
-            $("#result").html(datos);
-            $('#upd_data').attr("disabled", false);
-            window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();});}, 2000);
-            result = true;
+                $("#result").html(datos);
+                $('#upd_data').attr("disabled", false);
+                window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove();});}, 2000);
+                result = true;
             }
         });
         event.preventDefault();

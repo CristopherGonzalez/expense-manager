@@ -119,7 +119,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 							echo $ent->getCategoryIncome()->name;
 						}
 						if(!strcmp($ent->getType($ent->tipo)->tipo,"Socio")){
-							echo $ent->getType($ent->tipo)->name;
+							echo $ent->getType($ent->tipo)->tipo;
 						}
 					}else{
 						 echo "<center>----</center>"; 

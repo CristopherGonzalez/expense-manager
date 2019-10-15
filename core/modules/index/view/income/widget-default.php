@@ -24,7 +24,7 @@ if(isset($_SESSION["user_id"])):
                             <option value="0">Buscar por Mes</option>
                         <?php
                                 //Se crean opciones de meses y se selecciona el actual por defecto
-                                $months=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+                                $months=array8"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
                                 foreach($months as $index => $month){
                             ?>
                                 <option value="<?php echo $index+1; ?>"  <?php if(($index+1) == date("n")) echo "selected"; ?> ><?php echo $month; ?></option>
@@ -38,7 +38,7 @@ if(isset($_SESSION["user_id"])):
                             <option value="0">Buscar por Año</option>
                             <?php
                                 //Se crean opciones de años y se selecciona el actual por defecto
-                                $years=[2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+                                $years=array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025);
                                 foreach($years as $year){
                             ?>
                                 <option value="<?php echo $year; ?>"  <?php if($year == date("Y")) echo "selected"; ?> ><?php echo $year; ?></option>

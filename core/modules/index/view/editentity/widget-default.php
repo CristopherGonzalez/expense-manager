@@ -44,7 +44,7 @@ if(isset($_SESSION["user_id"])):
                             </div>
                             <div class="form-group">
                                 <label for="category_expense" class="control-label">Categoria de gastos: </label>
-                                <select class="form-control " name="category_expense" id="category_expense" disabled>
+                                <select class="form-control " name="category_expense" id="category_expense" disabled onchange="change_category(this)">
                                     <option value=0>---SELECCIONA---</option>
                                     <?php
                                         //Se carga datos de tipos de categoria por gasto en modal
@@ -58,7 +58,7 @@ if(isset($_SESSION["user_id"])):
                             </div>
                             <div class="form-group">
                                 <label for="category_income" class="control-label">Categoria de ingreso: </label>
-                                <select class="form-control " name="category_income" id="category_income" disabled>
+                                <select class="form-control " name="category_income" id="category_income" disabled onchange="change_category(this)">
                                     <option value=0>---SELECCIONA---</option>
                                     <?php
                                         //Se carga datos de tipos de categoria por ingreso en modal
@@ -73,7 +73,7 @@ if(isset($_SESSION["user_id"])):
 
                             <div class="form-group">
                                 <label for="category_partner" class="control-label">Categoria socio: </label>
-                                <select class="form-control" name="category_partner" id="category_partner" disabled>
+                                <select class="form-control" name="category_partner" id="category_partner" disabled onchange="change_category(this)">
                                     <option value=0>---SELECCIONA---</option>
                                     <option value=1>Socio</option>
                                 </select>
@@ -89,6 +89,7 @@ if(isset($_SESSION["user_id"])):
                                 <input type="text" class="form-control" id="name_entity" name="name_entity" placeholder="Nombre: " value="<?php echo $entity->name; ?>">
                             </div>
                              <!-- mod id -->
+                            <input type="hidden" required class="form-control" id="category_id" name="category_id" value="<?php echo $entity->category_id; ?>">
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $entity->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
@@ -111,26 +112,22 @@ if(isset($_SESSION["user_id"])):
         load();
     });
     $( "#upd" ).submit(function( event ) {
-        fd = new FormData($(this)[0]);
-        var pay_out = $('#paid_out').is(":checked");
-        fd.append("pay_out",pay_out);
         var result = false;
+        var parametros = $(this).serialize();
         $.ajax({
             type: "POST",
-            url: "./?action=updexpense",
-            data: fd,
-            contentType: false,
-            processData: false,
+            url: "./?action=updentity",
+            data: parametros,
              beforeSend: function(objeto){
                 $("#result").html("Mensaje: Cargando...");
               },
             success: function(datos){
-            $("#result").html(datos);
-            $('#upd_data').attr("disabled", false);
-            window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();});}, 2000);
-            result = true;
+                $("#result").html(datos);
+                $('#upd_data').attr("disabled", false);
+                window.setTimeout(function() {
+                $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove();});}, 2000);
+                result = true;
             }
         });
         event.preventDefault();
@@ -174,14 +171,16 @@ if(isset($_SESSION["user_id"])):
             $('#category_income option[value=0]').attr("selected","selected");
             $('#category_partner option[value=0]').attr("selected","selected");
             $('#type').prop('disabled', false);
+            
             <?php 
-            foreach($types as $type){ 
-                if(!strcmp($type->tipo,"Gasto")){
-            ?>
-                $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
-            <?php 
-                }
+                foreach($types as $type){ 
+                    if(!strcmp($type->tipo,"Gasto")){
+                ?>
+                    $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
+                <?php 
+                    }
             }?>
+
         }
         if (origin_type === "origin_income"){
             $('#category_expense').prop('disabled', 'disabled');
@@ -190,13 +189,14 @@ if(isset($_SESSION["user_id"])):
             $('#category_expense option[value=0]').attr("selected","selected");
             $('#category_partner option[value=0]').attr("selected","selected");
             $('#type').prop('disabled', false);
+            
             <?php 
-            foreach($types as $type){ 
-                if(!strcmp($type->tipo,"Ingreso")){
-            ?>
-                $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
-            <?php 
-                }
+                foreach($types as $type){ 
+                    if(!strcmp($type->tipo,"Ingreso")){
+                ?>
+                    $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
+                <?php 
+                    }
             }?>
         }
         if (origin_type === "origin_partner"){
@@ -206,15 +206,22 @@ if(isset($_SESSION["user_id"])):
             $('#category_income option[value=0]').attr("selected","selected");
             $('#category_partner').prop('disabled', false);
             $('#type').prop('disabled', false);
+            
             <?php 
-            foreach($types as $type){ 
-                if(!strcmp($type->tipo,"Socio")){
-            ?>
-                $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
-            <?php 
-                }
+                foreach($types as $type){ 
+                    if(!strcmp($type->tipo,"Socio")){
+                ?>
+                    $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
+                <?php 
+                    }
             }?>
         }
+
+    }
+    function change_category(event){
+        debugger;
+        var category_value = event.value;
+        $('#category_id').val(category_value);
     }
 
 </script>

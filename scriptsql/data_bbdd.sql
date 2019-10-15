@@ -1,5 +1,4 @@
 /*Datos de Paises*/
-use expense_manager;
 INSERT INTO pais (name) VALUES ('AFGHANISTAN');
 INSERT INTO pais (name) VALUES ('ALAND ISLANDS');
 INSERT INTO pais (name) VALUES ('ALBANIA');
@@ -23484,7 +23483,7 @@ INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Honorarios', 'Profesio
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Servicios', 'Servicio' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Alquileres', 'Arrendatario' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Impuestos', 'Impuesto' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Publicidad y promociÃ³n', 'Medio' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Publicidad y promocion', 'Medio' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Otros', 'Entidad' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Ventas', 'Punto de Venta' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Clientes', 'Cliente' );
@@ -23492,6 +23491,3 @@ INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Publicidad', 'Marca'
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Otros', 'Entidad' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Socio', 'Socios', 'Socio' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Socio', 'Otros', 'Entidad' );
-
-INSERT INTO entidades(name, user_id, created_at, tipo, category_id) VALUES ('entidad 1',1,NOW(),2,1);
-INSERT INTO entidades(name, user_id, created_at, tipo, category_id) VALUES ('entidad 2',1,NOW(),9,1);
