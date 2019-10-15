@@ -24,7 +24,7 @@ if(isset($_SESSION["user_id"])):
                             <option value="0">Buscar por Mes</option>
                         <?php
                                 //Se crean opciones de meses y se selecciona el actual por defecto
-                                $months=array8"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                                $months=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
                                 foreach($months as $index => $month){
                             ?>
                                 <option value="<?php echo $index+1; ?>"  <?php if(($index+1) == date("n")) echo "selected"; ?> ><?php echo $month; ?></option>
@@ -162,32 +162,37 @@ if(isset($_SESSION["user_id"])):
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="date" class="col-sm-2 control-label">Fecha: </label>
-                                                <div class="col-sm-10">
-                                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: ">
-                                                </div>
-                                            </div>
+                                        </div>
                                         <div class="form-group">
-                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label for="document" class="col-sm-4">Documento:
-                                                <input type="file" class="form-control" accept="image/*" id="document" name="document">
-                                            </label>
-                                            <label for="payment" class="col-sm-4">Pago:
-                                                <input type="file" class="form-control" accept="image/*" id="payment" name="payment">
-                                            </label>
-                                            <label for="paid_out" class="col-sm-2">
-                                                <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
-                                            </label>
+                                            <label for="date" class="col-sm-2 control-label">Fecha: </label>
+                                            <div class="col-sm-10">
+                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: ">
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <div class="col-sm-4 col-sm-4 col-xs-6">
-                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="doc_image" height="100%" width="100%">
+                                            <label for="document" class="col-sm-6">Documento:
+                                                <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
+                                            </label>
+                                            <div class="col-sm-4">
+                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="doc_image" height="60" width="75" >
                                             </div>
-                                            <div class="col-sm-4 col-sm-4 col-xs-6">
-                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="pay_image" height="100%" width="100%">
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
+                                            <label for="payment" class="col-sm-6">Pago:
+                                                <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
+                                            </label>
+                                            <div class="col-sm-4">
+                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="pay_image"  height="60" width="75" >
                                             </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
+                                            <label for="paid_out" class="col-sm-2">
+                                                <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -378,7 +383,6 @@ if(isset($_SESSION["user_id"])):
 
     //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
     function load_image(input){
-        debugger;
         if(input.files && input.files[0]){
             var reader = new FileReader();
             reader.onload = function(e) {

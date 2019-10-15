@@ -10,8 +10,8 @@ if (!isset($_SESSION['user_id'])){
            $errors[] = "Todos los campos son requeridos";
         }else if (
         	!empty($_POST['mod_id'])
-			&& !empty($_POST['name']
-			&& !empty($_POST['type_income']))
+			&& !empty($_POST['name'])
+			&& !empty($_POST['type_income'])
 		){
 
     	$con = Database::getCon(); 

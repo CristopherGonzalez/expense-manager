@@ -43,6 +43,12 @@ if(isset($_SESSION["user_id"])):
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="type" class="control-label">Tipo: </label>
+                                <select class="form-control" name="type" id="type" required disabled>
+                                    <option value=0>---SELECCIONA---</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="category_expense" class="control-label">Categoria de gastos: </label>
                                 <select class="form-control " name="category_expense" id="category_expense" disabled onchange="change_category(this)">
                                     <option value=0>---SELECCIONA---</option>
@@ -76,12 +82,6 @@ if(isset($_SESSION["user_id"])):
                                 <select class="form-control" name="category_partner" id="category_partner" disabled onchange="change_category(this)">
                                     <option value=0>---SELECCIONA---</option>
                                     <option value=1>Socio</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="type" class="control-label">Tipo: </label>
-                                <select class="form-control" name="type" id="type" required disabled>
-                                    <option value=0>---SELECCIONA---</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -219,7 +219,6 @@ if(isset($_SESSION["user_id"])):
 
     }
     function change_category(event){
-        debugger;
         var category_value = event.value;
         $('#category_id').val(category_value);
     }

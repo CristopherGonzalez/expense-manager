@@ -108,7 +108,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<td><?php if($inc->category_id!=null){echo $inc->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($inc->entidad!=null){echo $inc->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($inc->tipo!=null){echo $inc->getTypeIncome()->name;}else{ echo "<center>----</center>"; }  ?></td>
-			<td><?php if($inc->pagado!=null && $inc->pagado){echo "<center>Pagado</center>"; }else{ echo "<center>Impago</center>"; }  ?></td>
+			<td><?php if($inc->pagado!=null && $inc->pagado){echo "<center style='color: #00a65a;'>Pagado</center>"; }else{ echo "<center>Impago</center>"; }  ?></td>
 			<td class="text-right">
                 <a href="./?view=editincome&id=<?php echo $inc->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
                 <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $inc->id;?>')"><i class="fa fa-trash-o"></i></button>
