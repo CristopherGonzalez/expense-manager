@@ -50,7 +50,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		$sWhere.=" and category_id=".$category;
 	}
 	if($type!=0){
-		$sWhere.=" and tipo=".$type_expense;
+		$sWhere.=" and tipo=".$type;
 	}
 	if($text!=""){
 		$sWhere.=" and name LIKE '%".$text."%' ";

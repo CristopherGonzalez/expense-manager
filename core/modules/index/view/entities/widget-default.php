@@ -79,14 +79,7 @@ if(isset($_SESSION["user_id"])):
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="type" class="col-sm-4 control-label">Tipo: </label>
-                                            <div class="col-sm-8">
-                                                <select class="form-control select2" style="width: 100%" name="type" id="type" required disabled>
-                                                    <option value=0>---SELECCIONA---</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <label for="category_expense" class="col-sm-4 control-label">Categoria de gastos: </label>
                                             <div class="col-sm-8">
@@ -125,6 +118,14 @@ if(isset($_SESSION["user_id"])):
                                                 <select class="form-control select2" style="width: 100%" name="category_partner" id="category_partner" disabled>
                                                     <option value=0>---SELECCIONA---</option>
                                                     <option value=1>Socio</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="type" class="col-sm-4 control-label">Tipo: </label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control select2" style="width: 100%" name="type" id="type" required disabled>
+                                                    <option value=0>---SELECCIONA---</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -318,17 +319,17 @@ if(isset($_SESSION["user_id"])):
         $('#type').append($('<option></option>').text("---SELECCIONA---").attr("value",0));
         //Se carga datos dependiendo de la opcion de origen de la modal
         if (origin_type === "origin_default"){
-            $('#category_expense option[value=0]').prop("selected",true);
-            $('#category_income option[value=0]').prop("selected",true);
-            $('#category_partner option[value=0]').prop("selected",true);
+            $('#category_expense option[value=0]').attr("selected","selected");
+            $('#category_income option[value=0]').attr("selected","selected");
+            $('#category_partner option[value=0]').attr("selected","selected");
             $('#category_expense').prop('disabled', 'disabled');
             $('#category_income').prop('disabled', 'disabled');
             $('#category_partner').prop('disabled', 'disabled');
          }
         if (origin_type === "origin_expense"){
             $('#category_expense').prop('disabled', false);
-            $('#category_income option[value=0]').prop("selected",true);
-            $('#category_partner option[value=0]').prop("selected",true);
+            $('#category_income option[value=0]').attr("selected","selected");
+            $('#category_partner option[value=0]').attr("selected","selected");
             $('#type').prop('disabled', false);
             
             <?php 
@@ -344,8 +345,8 @@ if(isset($_SESSION["user_id"])):
         }
         if (origin_type === "origin_income"){
             $('#category_income').prop('disabled', false);
-            $('#category_expense option[value=0]').prop("selected",true);
-            $('#category_partner option[value=0]').prop("selected",true);
+            $('#category_expense option[value=0]').attr("selected","selected");
+            $('#category_partner option[value=0]').attr("selected","selected");
             $('#type').prop('disabled', false);
             
             <?php 
@@ -360,8 +361,8 @@ if(isset($_SESSION["user_id"])):
             $('#category_expense').prop('disabled', 'disabled');
         }
         if (origin_type === "origin_partner"){
-            $('#category_expense option[value=0]').prop("selected",true);
-            $('#category_income option[value=0]').prop("selected",true);
+            $('#category_expense option[value=0]').prop("selected","selected");
+            $('#category_income option[value=0]').prop("selected","selected");
             $('#category_partner').prop('disabled', false);
             $('#type').prop('disabled', false);
             
