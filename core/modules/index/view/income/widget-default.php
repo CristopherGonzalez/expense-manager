@@ -207,7 +207,6 @@ if(isset($_SESSION["user_id"])):
                                     </div>
                                 </form>
                                 <!-- /end form  -->
-                                </div>
                             </div>
                         </div>
                         <!-- End Form Modal -->

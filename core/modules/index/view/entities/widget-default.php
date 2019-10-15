@@ -5,6 +5,7 @@ if(isset($_SESSION["user_id"])):
     //Se obtienen datos para llenado de desplegables
     $categories_expense=CategoryExpenseData::getAll($_SESSION["user_id"]);
     $categories_income=CategoryIncomeData::getAll($_SESSION["user_id"]);
+    $categories_partner=array('Socios','Otros');
     $types=TypeData::getAllType();
  ?>
 <!-- Content Wrapper. Contains page content -->
@@ -23,24 +24,51 @@ if(isset($_SESSION["user_id"])):
                     <div class="col-md-4 form-group">
                         <select name="type_find" id="type_find" class="form-control" style="width: 100%;" onchange="load(1);">
                             <option value="0">Buscar por Tipo</option>
-                            <?php
-                                //Se carga con tipos de gastos
-                                foreach($types as $type){
-                            ?>
-                                <option value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
-                            <?php 
-                                }
-                            ?>
+                            <optgroup label="Gasto">
+                                <?php 
+                                $type_category="Gasto";
+                                foreach($types as $type){ 
+                                    if(strcmp($type->tipo,$type_category)){?>
+                                        </optgroup>
+                                        <optgroup label="<?php echo $type->tipo ?>">
+                                    <?php }?>
+                                    <option value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
+                                <?php 
+                                    $type_category = $type->tipo;
+                                }?>
+                            </optgroup>
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
                         <select name="category_find" id="category_find" class="form-control" style="width: 100%;" onchange="load(1);">
                             <option value="0">Buscar por Categoria</option>
-                            <?php
-                                foreach($categories_expense as $category){
-                            ?>
-                                <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
-                            <?php } ?>
+                            <optgroup label="Gasto"> 
+                                <?php
+                                    foreach($categories_expense as $category){
+                                        ?>
+                                            <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
+                                        <?php 
+                                    }
+                                ?>
+                            </optgroup>
+                            <optgroup label="Ingreso"> 
+                                <?php
+                                    foreach($categories_income as $category){
+                                        ?>
+                                            <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
+                                        <?php 
+                                    }
+                                ?>
+                            </optgroup>
+                            <optgroup label="Socio"> 
+                                <?php
+                                    foreach($categories_partner as $index=>$category){
+                                        ?>
+                                            <option value="<?php echo $index+1; ?>"><?php echo $category; ?></option>
+                                        <?php 
+                                    }
+                                ?>
+                            </optgroup>
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
@@ -79,7 +107,14 @@ if(isset($_SESSION["user_id"])):
                                                 </select>
                                             </div>
                                         </div>
-                                        
+                                        <div class="form-group">
+                                            <label for="type" class="col-sm-4 control-label">Tipo: </label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control select2" style="width: 100%" name="type" id="type" required disabled>
+                                                    <option value=0>---SELECCIONA---</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label for="category_expense" class="col-sm-4 control-label">Categoria de gastos: </label>
                                             <div class="col-sm-8">
@@ -121,14 +156,7 @@ if(isset($_SESSION["user_id"])):
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="type" class="col-sm-4 control-label">Tipo: </label>
-                                            <div class="col-sm-8">
-                                                <select class="form-control select2" style="width: 100%" name="type" id="type" required disabled>
-                                                    <option value=0>---SELECCIONA---</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <label for="name_entity" class="col-sm-4 control-label">Nombre: </label>
                                             <div class="col-sm-8">
@@ -208,7 +236,8 @@ if(isset($_SESSION["user_id"])):
     });
     function load(page){
        //Se obtienen filtros de busqueda
-        var category_find = $('#category_find option:selected').val();
+        var category_find = $('#category_find option:selected');
+        var category_type = category_find.closest('optgroup').attr('label');
         var type_find = $('#type_find option:selected').val();
         var find_text = $('#find_text').val();
 
@@ -216,7 +245,8 @@ if(isset($_SESSION["user_id"])):
         var parametros = {
             "page":page,
             'type':type_find,
-            'category':category_find,
+            'category_type': (category_type==undefined? "" : category_type),
+            'category':category_find[0].value,
             'text':find_text,
             'per_page':per_page };
         $.get({

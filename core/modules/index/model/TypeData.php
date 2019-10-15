@@ -74,7 +74,12 @@ class TypeData {
 		return Model::many($query[0],new TypeData());
 
 	}
-	
+	public static function getByType($u){
+		$sql = "select * from ".self::$tablename." where tipo='$u'";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new TypeData());
+
+	}
 
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;

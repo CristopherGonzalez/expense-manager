@@ -41,16 +41,35 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	//Se capturan los datos enviados por ajax
 	$type = intval($_REQUEST['type']);
 	$category = intval($_REQUEST['category']);
+	$category_type = mysqli_real_escape_string($con,(strip_tags($_REQUEST['category_type'], ENT_QUOTES)));
 	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
 	$user_id=$_SESSION["user_id"];
 	$sWhere=" user_id=$user_id ";
 
 	//Se construye la consulta sql dependiendo de los filtros ingresados
-	if($category!=0){
-		$sWhere.=" and category_id=".$category;
-	}
 	if($type!=0){
 		$sWhere.=" and tipo=".$type;
+	}
+	if($category_type!=""){
+		//Se busca en tabla tipos para obtener por nombre
+		$result_types=TypeData::getByType($category_type);
+		$count=count($result_types);
+		//Se crea query dependiendo de los resultados
+		$sWhere.=" and  ( ";
+		if($count>0){
+			foreach($result_types as $index => $type){
+				$sWhere.=" tipo = $type->id or";
+			}
+			$sWhere=substr($sWhere,0,-2);
+		}else{
+			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de gastos
+			$sWhere.= " tipo = 0 ";
+		}
+		$sWhere.= " ) ";
+
+	}
+	if($category!=0){
+		$sWhere.=" and category_id=".$category;
 	}
 	if($text!=""){
 		$sWhere.=" and name LIKE '%".$text."%' ";
