@@ -82,11 +82,11 @@ if(isset($_SESSION["user_id"])):
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                <div class="col-xs-1">
-                    <div id="loader" class="text-center"></div>
-                </div>
-                <!-- <div class="col-md-offset-10"> -->
-                <div class=" pull-right">
+                    <div class="col-xs-1">
+                        <div id="loader" class="text-center"></div>
+                    </div>
+                    <!-- <div class="col-md-offset-10"> -->
+                    <div class=" pull-right">
                         <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                         <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
                             <!-- Form Modal -->
@@ -94,7 +94,7 @@ if(isset($_SESSION["user_id"])):
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 <!-- form  -->
-                                                        <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register" enctype="multipart/form-data"> 
+                                <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register" enctype="multipart/form-data"> 
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                         <h4 class="modal-title" id="myModalLabel"> Nuevo Ingreso</h4>
@@ -194,15 +194,16 @@ if(isset($_SESSION["user_id"])):
                                                 <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
                                             </label>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="form-group">
-                                        <span class="col-md-1 col-sm-1 col-xs-12"></span>
-                                            <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
-                                            <span class="col-md-4 col-sm-4 col-xs-12">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                                <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
-                                            </span>
+                                    
+                                        <div class="modal-footer">
+                                            <div class="form-group">
+                                            <span class="col-md-1 col-sm-1 col-xs-12"></span>
+                                                <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
+                                                <span class="col-md-4 col-sm-4 col-xs-12">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -210,28 +211,29 @@ if(isset($_SESSION["user_id"])):
                             </div>
                         </div>
                         <!-- End Form Modal -->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            Mostrar <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu pull-right" role="menu">
-                            <li class='active' onclick='per_page(15);' id='15'><a href="#">15</a></li>
-                            <li  onclick='per_page(25);' id='25'><a href="#">25</a></li>
-                            <li onclick='per_page(50);' id='50'><a href="#">50</a></li>
-                            <li onclick='per_page(100);' id='100'><a href="#">100</a></li>
-                            <li onclick='per_page(1000000);' id='1000000'><a href="#">Todos</a></li>
-                        </ul>
-                    </div>
-                    <input type='hidden' id='per_page' value='15'>
-                    <?php $income_data=IncomeData::getAllCount($_SESSION['user_id']);
-                        if($income_data->count!=0):
-                    ?>
-                    <div class="btn-group">
-                        <a style="margin-right: 3px" target="_blank" href="reports/reportIncome.php" class="btn btn-default pull-right">
-                            <span class="fa fa-file-excel-o"></span> Descargar
-                        </a>
-                    </div> 
-                        <?php endif; ?> 
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Mostrar <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li class='active' onclick='per_page(15);' id='15'><a href="#">15</a></li>
+                                <li  onclick='per_page(25);' id='25'><a href="#">25</a></li>
+                                <li onclick='per_page(50);' id='50'><a href="#">50</a></li>
+                                <li onclick='per_page(100);' id='100'><a href="#">100</a></li>
+                                <li onclick='per_page(1000000);' id='1000000'><a href="#">Todos</a></li>
+                            </ul>
+                        </div>
+                        <input type='hidden' id='per_page' value='15'>
+                        <?php $income_data=IncomeData::getAllCount($_SESSION['user_id']);
+                            if($income_data->count!=0):
+                        ?>
+                        <div class="btn-group">
+                            <a style="margin-right: 3px" target="_blank" href="reports/reportIncome.php" class="btn btn-default pull-right">
+                                <span class="fa fa-file-excel-o"></span> Descargar
+                            </a>
+                        </div> 
+                            <?php endif; ?> 
                     </div>
                 </div>
             </div>

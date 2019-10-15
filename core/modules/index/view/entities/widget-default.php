@@ -345,67 +345,45 @@ if(isset($_SESSION["user_id"])):
    function change_origin(event){
         var origin_type = event.value;
         $('#type option').each(function(){ $(this).remove()});
-        $('#type').prop('disabled', 'disabled');
+        $('#type').prop('disabled', false);
         $('#type').append($('<option></option>').text("---SELECCIONA---").attr("value",0));
+        $('#category_expense').val("0").change();
+        $('#category_income').val("0").change();
+        $('#category_partner').val("0").change();
+        $type_category = "";
         //Se carga datos dependiendo de la opcion de origen de la modal
         if (origin_type === "origin_default"){
-            $('#category_expense option[value=0]').attr("selected","selected");
-            $('#category_income option[value=0]').attr("selected","selected");
-            $('#category_partner option[value=0]').attr("selected","selected");
+            $('#type').prop('disabled', 'disabled');
             $('#category_expense').prop('disabled', 'disabled');
             $('#category_income').prop('disabled', 'disabled');
             $('#category_partner').prop('disabled', 'disabled');
+            $type_category = "";
          }
         if (origin_type === "origin_expense"){
             $('#category_expense').prop('disabled', false);
-            $('#category_income option[value=0]').attr("selected","selected");
-            $('#category_partner option[value=0]').attr("selected","selected");
-            $('#type').prop('disabled', false);
-            
-            <?php 
-                foreach($types as $type){ 
-                    if(!strcmp($type->tipo,"Gasto")){
-                ?>
-                    $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
-                <?php 
-                    }
-            }?>
             $('#category_income').prop('disabled', 'disabled');
             $('#category_partner').prop('disabled', 'disabled');
+            $type_category = "Gasto";
         }
         if (origin_type === "origin_income"){
             $('#category_income').prop('disabled', false);
-            $('#category_expense option[value=0]').attr("selected","selected");
-            $('#category_partner option[value=0]').attr("selected","selected");
-            $('#type').prop('disabled', false);
-            
-            <?php 
-                foreach($types as $type){ 
-                    if(!strcmp($type->tipo,"Ingreso")){
-                ?>
-                    $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
-                <?php 
-                    }
-            }?>
             $('#category_partner').prop('disabled', 'disabled');
             $('#category_expense').prop('disabled', 'disabled');
+            $type_category = "Ingreso";
         }
         if (origin_type === "origin_partner"){
-            $('#category_expense option[value=0]').prop("selected","selected");
-            $('#category_income option[value=0]').prop("selected","selected");
             $('#category_partner').prop('disabled', false);
-            $('#type').prop('disabled', false);
-            
-            <?php 
-                foreach($types as $type){ 
-                    if(!strcmp($type->tipo,"Socio")){
-                ?>
-                    $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
-                <?php 
-                    }
-            }?>
             $('#category_expense').prop('disabled', 'disabled');
             $('#category_income').prop('disabled', 'disabled');
+            $type_category = "Socio";
+        }
+
+        if($type_category!=""){
+            <?php foreach($types as $type){ ?>
+                if("<?php echo $type->tipo; ?>" == $type_category){
+                    $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
+                }
+            <?php }?>
         }
 
     }
