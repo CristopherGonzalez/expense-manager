@@ -101,18 +101,39 @@ if(!isset($expense) && empty($expense)){
                                 <label for="document">Documento:
                                     <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
                                 </label>
-                                <a href="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" id="doc_download" download="documento">
-                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento">
-                                </a>
+                                <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;display:none;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento"  data-toggle="modal" data-target="#formModalImage" onclick="load_image(this);">
                             </div>
                             <div class="form-group">
                                 <label for="payment">Pago:
                                     <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
                                 </label>
-                                <a href="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" id="pago_download" download="pago">
-                                    <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago">
-                                </a>
+                                <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;display:none;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago" data-toggle="modal" data-target="#formModalImage" onclick="load_image(this);">
                             </div>
+                            <div class="modal fade" id="formModalImage" tabindex="-1" role="dialog" aria-labelledby="ModalImage" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="ModalImage"> Imagen</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="col-md-2 col-sm-2 col-xs-12"></div>
+                                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                                <img id="image_modal" class="img-thumbnail" alt="Imagen del documento">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <div class="form-group">
+                                                <label class="col-md-8 col-sm-8 col-xs-12" style="color:#999; font-weight:normal;">Registrado por <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");?></label>
+                                                <span class="col-md-4 col-sm-4 col-xs-12">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="paid_out">
                                     <input type="checkbox" id="paid_out" name="paid_out" <?php if($expense->pagado){echo "checked";} ?> > Pagado
@@ -175,12 +196,14 @@ if(!isset($expense) && empty($expense)){
                 if(input.name == "document"){
                     $('#doc_image').attr('style', 'visibility:visible');
                     $('#doc_image').attr('src', e.target.result);
-                    $('#doc_download').attr('href', e.target.result);
+                    $('#doc_image_modal').attr('style', 'visibility:visible');
+                    $('#doc_image_modal').attr('src', e.target.result);
                 }
                 if(input.name == "payment"){
                     $('#pago_image').attr('style', 'visibility:visible');
                     $('#pago_image').attr('src', e.target.result);
-                    $('#pago_download').attr('href', e.target.result);
+                    $('#doc_image_modal').attr('style', 'visibility:visible');
+                    $('#doc_image_modal').attr('src', e.target.result);
                 }
             }
             reader.readAsDataURL(input.files[0]);

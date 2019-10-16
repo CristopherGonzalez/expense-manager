@@ -102,9 +102,8 @@
                             <a href="?view=expenses"><i class="fa fa-credit-card"></i> <span>Gastos</span></a>
                         </li>
 
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='socios' ){echo "active";}?>">
-                            <!--a href="?view=socios"><i class="fa fa-home"></i> <span>Informes</span></a>-->
-                            <a href="#"><i class="fa fa-users"></i> <span>Socios</span></a>
+                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='partners' ){echo "active";}?>">
+                            <a href="?view=partners"><i class="fa fa-users"></i> <span>Socios</span></a>
                         </li>
 
                         <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_income' or $_GET['view']=='editcategory_income'){echo "active";}?>">
@@ -115,7 +114,7 @@
                             <a href="?view=category_expense"><i class="fa fa-th"></i> <span>Categoria de gastos</span></a>
                         </li>
 
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='entidades' ){echo "active";}?>">
+                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='entities' ){echo "active";}?>">
                             <!--a href="?view=entidades"><i class="fa fa-home"></i> <span>Informes</span></a>-->
                             <a href="?view=entities"><i class="fa fa-building-o"></i> <span>Entidades</span></a>
 

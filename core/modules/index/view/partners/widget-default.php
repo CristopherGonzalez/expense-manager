@@ -2,8 +2,8 @@
 if(isset($_SESSION["user_id"])):
 ?> 
 <?php  
-    //Se obtienen datos para llenado de desplegables
-    $categories=CategoryExpenseData::getAll($_SESSION["user_id"]);
+    //Se obticategoriesenen datos para llenado de desplegables
+    $=CategoryExpenseData::getAll($_SESSION["user_id"]);
     $types=TypeData::getAllExpense();
  ?>
 <!-- Content Wrapper. Contains page content -->
@@ -172,7 +172,6 @@ if(isset($_SESSION["user_id"])):
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="document" class="col-sm-6">Documento:
                                                 <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
-                                                <input type="file" class="form-control" accept="image/*" capture="camera" id="document_cam" name="document_cam" onchange="load_image(this);">
                                             </label>
                                             <div class="col-sm-4">
                                                 <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="doc_image" height="60" width="75" >
@@ -182,7 +181,6 @@ if(isset($_SESSION["user_id"])):
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="payment" class="col-sm-6">Pago:
                                                 <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
-                                                <input type="file" class="form-control" accept="image/*;capture=camera" id="payment_cam" name="payment_cam" onchange="load_image(this);">
                                             </label>
                                             <div class="col-sm-4">
                                                 <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="pay_image"  height="60" width="75" >
