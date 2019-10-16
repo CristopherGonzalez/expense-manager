@@ -134,10 +134,12 @@ if(!isset($expense) && empty($expense)){
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             <h4 class="modal-title" id="ModalImage"> Imagen</h4>
                                         </div>
-                                        <div class="modal-body">
-                                            <div class="col-md-2 col-sm-2 col-xs-12"></div>
-                                            <div class="col-md-8 col-sm-8 col-xs-12">
-                                                <img id="image_modal" class="img-thumbnail" alt="Imagen del documento">
+                                        <div class="modal-body" style="display: inline-block;">
+                                            <div class="form-group">
+                                                <div class="col-md-2 col-sm-2 col-xs-12"></div>
+                                                <div class="col-md-8 col-sm-8 col-xs-12"  style="display: inline-block;">
+                                                    <img id="image_modal"  style="width: min-content;height: min-content;" class="img-thumbnail" alt="Imagen del documento">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -221,8 +223,8 @@ if(!isset($expense) && empty($expense)){
                     type_image = "pago_image";
                 }
                 if(type_image!=""){
-                    $('#'+type_image).attr('style', 'display:block');
-                    $('#'+type_image).attr('style', 'visibility:visible');
+                    $('#'+type_image).attr('style', 'display:block;');
+                    $('#'+type_image).attr('style', 'visibility:visible;');
                     $('#'+type_image).attr('src', e.target.result);
                 }
             }
@@ -236,15 +238,15 @@ if(!isset($expense) && empty($expense)){
                 type_image = "pago_image";
             }
             if(type_image!="" && input.src==""){
-                $('#'+type_image).attr('style', 'display:none');
-                $('#'+type_image).attr('style', 'visibility:hidden');
+                $('#'+type_image).attr('style', 'display:none;');
+                $('#'+type_image).attr('style', 'visibility:hidden;');
                 $('#'+type_image).attr('src', "");
-                $('#image_modal').attr('style', 'visibility:hidden');
-                $('#image_modal').attr('style', 'display:none');
+                $('#image_modal').attr('style', 'visibility:hidden;');
+                $('#image_modal').attr('style', 'display:none;');
                 $('#image_modal').attr('src', "");
             }else{
-                $('#image_modal').attr('style', 'visibility:visible');
-                $('#image_modal').attr('style', 'display:block');
+                $('#image_modal').attr('style', 'visibility:visible;');
+                $('#image_modal').attr('style', 'display:block;');
                 $('#image_modal').attr('src', input.src);
             }
         }
