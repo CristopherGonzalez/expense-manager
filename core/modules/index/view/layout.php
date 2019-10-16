@@ -1,9 +1,5 @@
 <?php  
-    /*-------------------------
-    Autor: Amner Saucedo Sosa
-    Web: www.abisoftgt.net
-    E-Mail: waptoing7@gmail.com
-    ---------------------------*/
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,9 +28,9 @@
     <body class="hold-transition <?php echo $user_session->getSkin()->value; ?> sidebar-mini"><!-- Site wrapper -->
         <div class="wrapper">
             <header class="main-header">
-                <a href="#" class="logo"><!-- Logo -->
-                    <span class="logo-mini"><b>Abi</b>SOFT</span>
-                    <span class="logo-lg"><b>Abisoft</b>GT</span>
+                <a href="?view=home" class="logo"><!-- Logo -->
+                    <span class="logo-mini"><b>MRC</b>Mi Negocio</span>
+                    <span class="logo-lg">MRC <b>Mi Negocio</b></span>
                 </a>
                 <nav class="navbar navbar-static-top">
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">

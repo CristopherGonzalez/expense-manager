@@ -1,9 +1,5 @@
 <?php 
-/*-------------------------
-    Autor: Amner Saucedo Sosa
-    Web: www.abisoftgt.net
-    E-Mail: waptoing7@gmail.com
----------------------------*/
+
 if(isset($_SESSION["user_id"])):
     Core::redir("./?view=home");
 endif;

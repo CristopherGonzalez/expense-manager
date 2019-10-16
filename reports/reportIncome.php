@@ -1,10 +1,6 @@
 <?php
 session_start();
-/*-------------------------
-Autor: Amner Saucedo Sosa
-Web: www.abisoftgt.net
-E-Mail: waptoing7@gmail.com
----------------------------*/
+
 if (PHP_SAPI == 'cli')
 	die('Este reporte sólo se puede ejecutar desde un navegador Web');
 

@@ -4,7 +4,7 @@
             <div class="pull-right hidden-xs">
               <b>Version</b> 2.3.8
             </div>
-            <strong> 2014-<?php echo date("Y") ?> <a href="http://abisoftgt.net">Abisoft Studio</a>.</strong>
+            <strong> <?php echo date("Y") ?> <a href="#"></a>.</strong>
         </footer>
     </div>
     <!-- ./wrapper -->
