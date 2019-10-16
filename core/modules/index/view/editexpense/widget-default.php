@@ -46,68 +46,86 @@ if(!isset($expense) && empty($expense)){
                     <form role="form" method="post" name="upd" id="upd"><!-- form start -->
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="description" class="control-label">Descripción: </label>
-                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $expense->description ?></textarea>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="description" class="control-label">Descripción: </label>
+                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $expense->description ?></textarea>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="amount" class="control-label">Importe: </label>
-                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $expense->amount ?>">
-
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="amount" class="control-label">Importe: </label>
+                                    <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $expense->amount ?>">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="category" class="control-label">Categoria: </label>
-                                <select class="form-control select2" style="width: 100%" name="category" id="category" >
-                                <?php
-                                    foreach($category as $cat){
-                                ?>
-                                    <option <?php if($expense->category_id==$cat->id){echo"selected";} ?> value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
-                                <?php 
-                                    }
-                                ?>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="type_expense" class="control-label">Tipo: </label>
-                                <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
-                                <?php
-                                    //Se carga datos de tipos de gasto en modal
-                                    foreach($types as $type){
-                                ?>
-                                    <option <?php if($expense->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
-                                <?php 
-                                    }
-                                ?>
-                                </select>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="category" class="control-label">Categoria: </label>
+                                    <select class="form-control select2" style="width: 100%" name="category" id="category" >
+                                    <?php
+                                        foreach($category as $cat){
+                                    ?>
+                                        <option <?php if($expense->category_id==$cat->id){echo"selected";} ?> value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
+                                    <?php 
+                                        }
+                                    ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="entidad" class="control-label">Entidad: </label>
-                                <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
-                                <?php
-                                    //Se carga datos de entidades en modal
-                                    foreach($entities as $entity){
-                                ?>
-                                    <option <?php if($expense->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
-                                <?php 
-                                    }
-                                ?>
-                                </select>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="type_expense" class="control-label">Tipo: </label>
+                                    <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
+                                    <?php
+                                        //Se carga datos de tipos de gasto en modal
+                                        foreach($types as $type){
+                                    ?>
+                                        <option <?php if($expense->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
+                                    <?php 
+                                        }
+                                    ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="date">Fecha: </label>
-                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $expense->fecha; ?>">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="entidad" class="control-label">Entidad: </label>
+                                    <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
+                                    <?php
+                                        //Se carga datos de entidades en modal
+                                        foreach($entities as $entity){
+                                    ?>
+                                        <option <?php if($expense->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
+                                    <?php 
+                                        }
+                                    ?>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="document">Documento:
-                                    <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
-                                </label>
-                                <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;display:none;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento"  data-toggle="modal" data-target="#formModalImage" onclick="load_image(this);">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="date">Fecha: </label>
+                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $expense->fecha; ?>">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="payment">Pago:
-                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
-                                </label>
-                                <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;display:none;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago" data-toggle="modal" data-target="#formModalImage" onclick="load_image(this);">
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label for="document">Documento:
+                                        <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;display:none;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento"  data-toggle="modal" data-target="#formModalImage" onclick="load_image(this);">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label for="payment">Pago:
+                                        <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
+                                    </label>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;display:none;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago" data-toggle="modal" data-target="#formModalImage" onclick="load_image(this);">
+                                </div>
                             </div>
                             <div class="modal fade" id="formModalImage" tabindex="-1" role="dialog" aria-labelledby="ModalImage" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -135,9 +153,11 @@ if(!isset($expense) && empty($expense)){
                             </div>
 
                             <div class="form-group">
-                                <label for="paid_out">
-                                    <input type="checkbox" id="paid_out" name="paid_out" <?php if($expense->pagado){echo "checked";} ?> > Pagado
-                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <label for="paid_out">
+                                        <input type="checkbox" id="paid_out" name="paid_out" <?php if($expense->pagado){echo "checked";} ?> > Pagado
+                                    </label>
+                                </div>
                             </div>
                              <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $expense->id; ?>">
@@ -190,29 +210,42 @@ if(!isset($expense) && empty($expense)){
     })
     //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
     function load_image(input){
-        if(input.files && input.files[0]){
+        if((input.files && input.files[0])){
             var reader = new FileReader();
             reader.onload = function(e) {
-                if(input.name == "document"){
-                    $('#doc_image').attr('style', 'visibility:visible');
-                    $('#doc_image').attr('src', e.target.result);
-                    $('#doc_image_modal').attr('style', 'visibility:visible');
-                    $('#doc_image_modal').attr('src', e.target.result);
+                var type_image = "";
+                if(input.name == "document" || input.name == "doc_image"){
+                    type_image = "doc_image";
                 }
-                if(input.name == "payment"){
-                    $('#pago_image').attr('style', 'visibility:visible');
-                    $('#pago_image').attr('src', e.target.result);
-                    $('#doc_image_modal').attr('style', 'visibility:visible');
-                    $('#doc_image_modal').attr('src', e.target.result);
+                if(input.name == "payment" || input.name == "pago_image"){
+                    type_image = "pago_image";
+                }
+                if(type_image!=""){
+                    $('#'+type_image).attr('style', 'display:block');
+                    $('#'+type_image).attr('style', 'visibility:visible');
+                    $('#'+type_image).attr('src', e.target.result);
                 }
             }
             reader.readAsDataURL(input.files[0]);
         }else{
-            if(input.name == "document"){
-                $('#doc_image').attr('style', 'visibility:hidden');
+            var type_image = "";
+            if(input.name == "document" || input.name == "doc_image"){
+                type_image = "doc_image";
             }
-            if(input.name == "payment"){
-                $('#pago_image').attr('style', 'visibility:hidden');
+            if(input.name == "payment" || input.name == "pago_image"){
+                type_image = "pago_image";
+            }
+            if(type_image!="" && input.src==""){
+                $('#'+type_image).attr('style', 'display:none');
+                $('#'+type_image).attr('style', 'visibility:hidden');
+                $('#'+type_image).attr('src', "");
+                $('#image_modal').attr('style', 'visibility:hidden');
+                $('#image_modal').attr('style', 'display:none');
+                $('#image_modal').attr('src', "");
+            }else{
+                $('#image_modal').attr('style', 'visibility:visible');
+                $('#image_modal').attr('style', 'display:block');
+                $('#image_modal').attr('src', input.src);
             }
         }
     }

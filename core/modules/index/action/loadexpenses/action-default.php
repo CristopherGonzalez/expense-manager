@@ -107,7 +107,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<td><?php if($exp->category_id!=null){echo $exp->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($exp->entidad!=null){echo $exp->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($exp->tipo!=null){echo $exp->getTypeExpense()->name;}else{ echo "<center>----</center>"; }  ?></td>
-			<td><?php if($exp->pagado!=null && $exp->pagado){echo "<center style='color: #00a65a;'>Pagado</center>"; }else{ echo "<center>Impago</center>"; }  ?></td>
+			<td><?php if($exp->pagado!=null && $exp->pagado){echo "<span style='color: #00a65a;'>Pagado</span>"; }else{ echo "<span>Impago</span>"; }  ?></td>
 			<td class="text-right">
                 <a href="./?view=editexpense&id=<?php echo $exp->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
                 <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $exp->id;?>')"><i class="fa fa-trash-o"></i></button>
