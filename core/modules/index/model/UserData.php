@@ -11,6 +11,7 @@ class UserData {
 		$this->email = "";
 		$this->profile_pic = "default.png";
 		$this->skin = 7;
+		$this->empresa = "";
 		$this->is_admin = "";
 		$this->created_at = "NOW()";
 	}

@@ -1,10 +1,13 @@
 
-<?php if(isset($_SESSION["user_id"])): //si no hay session ?>
+<?php 
+    $user_session=UserData::getById($_SESSION["user_id"]);
+    $company = CompanyData::getById($user_session->empresa);
+    if(isset($_SESSION["user_id"])): //si no hay session ?>
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
               <b>Version</b> 2.3.8
             </div>
-            <strong> <?php echo date("Y") ?> <a href="#"></a>.</strong>
+            <strong> <?php echo $company->name." - ".$company->licenciaMRC; ?> <a href="#"></a>.</strong>
         </footer>
     </div>
     <!-- ./wrapper -->
