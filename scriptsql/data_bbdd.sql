@@ -1,3 +1,5 @@
+
+use expense_manager;
 /*Datos de Paises*/
 INSERT INTO pais (name) VALUES ('AFGHANISTAN');
 INSERT INTO pais (name) VALUES ('ALAND ISLANDS');
@@ -23469,7 +23471,7 @@ insert into configuration(label,name,val) values ("Logotipo","logo","logo.png");
 /*Prueba de empresa*/
 
 INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('1', '1', '0', '123', '2', '34', '2', 'empresa de prueba', 'qwer', 'cagv1992@gmail.com', 'default.jpg', '3', '2019-09-17 00:00:00');
+VALUES ('1', '1', '0', '1234567', '2', '34', '2', 'Empresa Prueba', 'qwer', 'mrcminegocio@gmail.com', 'default.jpg', '3', NOW());
 
 /*Prueba de usuario*/
 INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES

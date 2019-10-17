@@ -5,7 +5,7 @@
     if(isset($_SESSION["user_id"])): //si no hay session ?>
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-              <b>Version</b> 2.3.8
+              <b>Version</b> 1.1.1
             </div>
             <strong> <?php echo $company->name." - ".$company->licenciaMRC; ?> <a href="#"></a>.</strong>
         </footer>

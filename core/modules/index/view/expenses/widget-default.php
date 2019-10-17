@@ -3,6 +3,7 @@ if(isset($_SESSION["user_id"])):
 ?> 
 <?php  
     //Se obtienen datos para llenado de desplegables
+    include 'core/controller/forms/SelectList.php';
     $categories=CategoryExpenseData::getAll($_SESSION["user_id"]);
     $types=TypeData::getAllExpense();
  ?>
@@ -126,40 +127,25 @@ if(isset($_SESSION["user_id"])):
                                                     }
                                                 ?>
                                                 </select>
-                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="category" class="col-sm-2 control-label">Categoria: </label>
+                                            <?php 
+                                                $category_select = new SelectList("category","Categoria:",$categories);
+                                                echo $category_select->renderLabel('col-sm-2');
+                                            ?>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%" name="category" id="category" >
-                                                    <option >---SELECCIONA---</option>
-                                                    <?php
-                                                        //Se carga datos de tipos de categoria en modal
-                                                        foreach($categories as $category){
-                                                    ?>
-                                                        <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
-                                                    <?php 
-                                                        }
-                                                    ?>
-                                                </select>
+                                                <?php echo $category_select->render(); ?>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="entidad" class="col-sm-2 control-label">Entidad: </label>
+                                            <?php 
+                                                $entities=EntityData::getAll($_SESSION["user_id"]);
+                                                $entity_select = new SelectList("entidad","Entidad:",$entities);
+                                                echo $entity_select->renderLabel('col-sm-2');
+                                            ?>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
-                                                    <option >---SELECCIONA---</option>
-                                                    <?php
-                                                        //Se carga datos de entidades en modal
-                                                        $entities=EntityData::getAll($_SESSION["user_id"]);
-                                                        foreach($entities as $entity){
-                                                    ?>
-                                                        <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
-                                                    <?php 
-                                                        }
-                                                    ?>
-                                                    </select>
+                                                <?php echo $entity_select->render(); ?>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -199,7 +185,7 @@ if(isset($_SESSION["user_id"])):
                                     <div class="modal-footer">
                                         <div class="form-group">
                                             <span class="col-md-1 col-sm-1 col-xs-12"></span>
-                                            <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
+                                            <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php  $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
                                             <span class="col-md-4 col-sm-4 col-xs-12">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                                 <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
@@ -307,6 +293,7 @@ if(isset($_SESSION["user_id"])):
     }
 </script>
 <script>
+    
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente el gasto \n\n Desea continuar?')){
             //Se obtienen filtros de busqueda para recarga y por estandar

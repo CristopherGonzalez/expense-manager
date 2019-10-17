@@ -1,22 +1,37 @@
 <?php
+/**
+ * Clase de categoria de gasto
+ */
 class CategoryExpenseData {
-	public static $tablename = "category_expence";
-
+	public static $tablename = "category_expence";	/** Nombre de la tabla category_expence para conexion con base de datos */
+	/**
+	 * Constructor de la clase, con parametros por defecto
+	 */
 	public function CategoryExpenseData(){
 		$this->name = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";
 		$this->tipo = "";
+		$this->empresa = "";
 	}
-
+	/** Funcion para que obtiene el tipo de la categoria de gasto  
+	 * @return TypeData Tipo de categoria de gasto
+	 */
 	public function getTypeExpense(){ return TypeData::getById($this->tipo);}
-
+	/**
+	 * @brief Funcion para agregar una nueva categoria de gasto
+	 * @return response Respuesta de la insercion
+	 */
 	public function add(){
-		$sql = "insert into ".self::$tablename." (name,user_id,created_at,tipo) ";
-		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo)";
+		$sql = "insert into ".self::$tablename." (name,user_id,created_at,tipo,empresa) ";
+		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo,$this->empresa)";
 		return Executor::doit($sql);
 	}
-
+	/**
+	 * @brief Funcion para eliminar una  categoria de gasto
+	 * @param $id int id de la categoria que se quiere eliminar
+	 * @return response Respuesta de la eliminacion
+	 */
 	public static function delete($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
 		if (Executor::doit($sql)){
@@ -26,13 +41,20 @@ class CategoryExpenseData {
 		}
 
 	}
+	/**
+	 * @brief Funcion para eliminar una  categoria de gasto
+	 * @return response Respuesta de la eliminacion
+	 */
 	public function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
 		Executor::doit($sql);
 	}
-
+	/**
+	 * @brief Funcion para actualizar una  categoria de gasto
+	 * @return response Respuesta de la actualizacion
+	 */
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",tipo= $this->tipo where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\",tipo= $this->tipo,empresa= $this->empresa where id=$this->id";
 		$query = Executor::doit($sql);
 		if (isset($query)){
 			return true;
@@ -40,15 +62,23 @@ class CategoryExpenseData {
 			return false;
 		}
 	}
-
+	/**
+	 * @brief Funcion para obtener una  categoria de gasto por id
+	 * @param $id int id de la categoria que se quiere obtener
+	 * @return CategoryExpenseData Categoria de gasto del id consultado
+	 */
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new CategoryExpenseData());
 	}
-
+	/**
+	 * @brief Funcion para obtener las categorias de gasto por empresa
+	 * @param $u int id de la empresa 
+	 * @return array(CategoryExpenseData) Array con Categorias de gasto de la empresa
+	 */
 	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where user_id=$u";
+		$sql = "select * from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CategoryExpenseData());
 

@@ -1,4 +1,4 @@
-<?php
+	<?php
 class CompanyData {
 	public static $tablename = "empresas";
 

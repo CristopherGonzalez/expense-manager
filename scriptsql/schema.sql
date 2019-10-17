@@ -101,6 +101,8 @@ create table category_expence (
 	user_id int not null,
 	created_at datetime not null,
 	tipo int not null,
+	empresa int not null,
+	foreign key(empresa) references empresas(id), 
 	foreign key(user_id) references user(id),
 	foreign key(tipo) references tipos(id)
 );
@@ -109,8 +111,10 @@ create table category_income (
 	id int not null auto_increment primary key,
 	name varchar(255) not null,
 	user_id int not null,
-	tipo int not null,
 	created_at datetime not null,
+	tipo int not null,
+	empresa int not null,
+	foreign key(empresa) references empresas(id), 
 	foreign key(tipo) references tipos(id),
 	foreign key(user_id) references user(id)
 );
@@ -125,6 +129,8 @@ create table entidades (
 	created_at datetime not null,
 	tipo int not null,
 	category_id int not null,
+	empresa int not null,
+	foreign key(empresa) references empresas(id), 
 	foreign key(user_id) references user(id),
 	foreign key(tipo) references tipos(id)
 );
@@ -146,6 +152,8 @@ create table entidades (
 	pagado boolean not null default 1,
 	documento LONGBLOB,
 	pago LONGBLOB,
+	empresa int not null,
+	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_expence(id),
   	foreign key(entidad) references entidades(id),
@@ -165,6 +173,8 @@ create table entidades (
 	pagado boolean not null default 1,
 	documento LONGBLOB,
 	pago LONGBLOB,
+	empresa int not null,
+	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_income(id),
   	foreign key(entidad) references entidades(id),
@@ -181,7 +191,24 @@ create table entidades (
 	pagado boolean not null default 1,
 	documento LONGBLOB,
 	pago LONGBLOB,
+	empresa int not null,
+	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(entidad) references entidades(id)
 
   );
+
+	create table logcambios (
+		id int not null auto_increment primary key,
+		tabla varchar(50) not null,
+		registro_id int not null,
+		description text ,
+		amount double not null,
+		entidad int not null,
+		fecha date not null,
+		pagado boolean not null default 1,
+		created_at date not null,
+		user_id int not null,
+		foreign key(user_id) references user(id),
+		foreign key(entidad) references entidades(id)
+	);
