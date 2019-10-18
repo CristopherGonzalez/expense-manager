@@ -12,6 +12,7 @@
 			$user = UserData::getLogin($email,$password);
 			if($user!=null){
 				$_SESSION["user_id"]=$user->id;
+				$_SESSION["company_id"]=$user->empresa;
 				Core::redir("./?view=home");
 			}else{
 				Core::redir("./?view=index&alert=1");

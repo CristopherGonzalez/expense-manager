@@ -13,6 +13,7 @@ if (!isset($_SESSION['user_id'])){
 			$expense->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
 			$expense->user_id = $_SESSION['user_id'];
 			$expense->tipo = $_POST['type_expense'];
+			$expense->empresa = $_SESSION['company_id'];
 			$query_new=$expense->add();
             if ($query_new) {
                 $messages[] = "La categoria ha sido agregada con éxito.";

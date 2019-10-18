@@ -33,9 +33,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$con = Database::getCon();
 	$name = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_name'], ENT_QUOTES)));
 	$type_expense = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_type_expense'], ENT_QUOTES)));
-	$user_id=$_SESSION["user_id"];
+	$company_id=$_SESSION["company_id"];
 	//$sWhere=" user_id>0 ";
-	$sWhere=" user_id=$user_id ";
+	$sWhere=" empresa=$company_id ";
 	//Creacion de query por nombre y/o gasto
 	if($name!=""){
 		$sWhere.=" and name LIKE '%".$name."%' ";
@@ -104,7 +104,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		?>
 		<tr>
 			<td><?php echo $cat->name; ?></td>
-			<!--Se muestra el nombre po id en el grid del historial-->
+			<!--Se muestra el nombre por id en el grid del historial-->
 			<td><?php if($cat->tipo!=null){echo $cat->getTypeExpense()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php echo $date." ".$time; ?></td>
 			<td class="text-right">

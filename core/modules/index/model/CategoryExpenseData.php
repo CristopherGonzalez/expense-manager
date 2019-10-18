@@ -29,8 +29,8 @@ class CategoryExpenseData {
 	}
 	/**
 	 * @brief Funcion para eliminar una  categoria de gasto
-	 * @param $id int id de la categoria que se quiere eliminar
-	 * @return response Respuesta de la eliminacion
+	 * @param mixed $id int id de la categoria que se quiere eliminar
+	 * @return response Resultado de la eliminacion
 	 */
 	public static function delete($id){
 		$sql = "delete from ".self::$tablename." where id=$id";
@@ -43,7 +43,7 @@ class CategoryExpenseData {
 	}
 	/**
 	 * @brief Funcion para eliminar una  categoria de gasto
-	 * @return response Respuesta de la eliminacion
+	 * @return response Resultado de la eliminacion
 	 */
 	public function del(){
 		$sql = "delete from ".self::$tablename." where id=$this->id";
@@ -51,7 +51,7 @@ class CategoryExpenseData {
 	}
 	/**
 	 * @brief Funcion para actualizar una  categoria de gasto
-	 * @return response Respuesta de la actualizacion
+	 * @return response Resultado de la actualizacion
 	 */
 	public function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\",tipo= $this->tipo,empresa= $this->empresa where id=$this->id";
@@ -64,7 +64,7 @@ class CategoryExpenseData {
 	}
 	/**
 	 * @brief Funcion para obtener una  categoria de gasto por id
-	 * @param $id int id de la categoria que se quiere obtener
+	 * @param mixed $id int id de la categoria que se quiere obtener
 	 * @return CategoryExpenseData Categoria de gasto del id consultado
 	 */
 	public static function getById($id){
@@ -73,23 +73,27 @@ class CategoryExpenseData {
 		return Model::one($query[0],new CategoryExpenseData());
 	}
 	/**
-	 * @brief Funcion para obtener las categorias de gasto por empresa
-	 * @param $u int id de la empresa 
+	 * @brief Funcion para obtener todas las categorias de gasto por empresa
+	 * @param mixed $id int id de la empresa 
 	 * @return array(CategoryExpenseData) Array con Categorias de gasto de la empresa
 	 */
-	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where empresa=$u";
+	public static function getAll($id){
+		$sql = "select * from ".self::$tablename." where empresa=$id";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CategoryExpenseData());
 
 	}
-
-	public static function getLike($q,$u){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' and user_id=$u" ;
+	/**
+	 * @brief Funcion para obtener las categorias de gasto por empresa y nombre
+	 * @param mixed $id int id de la empresa 
+	 * @param mixed $name nombre de la categoria dde gasto 
+	 * @return array(CategoryExpenseData) Array con Categorias de gasto de la empresa
+	 */
+	public static function getLike($name,$id){
+		$sql = "select * from ".self::$tablename." where name like '%$name%' and empresa=$id" ;
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CategoryExpenseData());
 	}
-
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);
