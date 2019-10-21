@@ -6,6 +6,9 @@
 	include "controller/Executor.php";
 	include "controller/forms/lbForm.php";
 	include "controller/forms/lbInputText.php";
+	include "controller/forms/InputText.php";
+	include "controller/forms/SelectList.php";
+	include "controller/forms/ModalCategory.php";
 	include "controller/forms/lbInputPassword.php";
 	include "controller/forms/lbValidator.php";
 	include "controller/Model.php";

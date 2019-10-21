@@ -38,57 +38,29 @@ if(isset($_SESSION["user_id"])):
                 </div>
                 <!-- <div class="col-md-offset-10"> -->
                 <div class=" pull-right">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#formModal"><i class='fa fa-plus'></i> Nuevo</button>
-                    <!-- Form Modal -->
-                    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <!-- form  -->
-                            <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="myModalLabel"> Nueva Categoria Gasto</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- Se agrega desplegable para seleccionar el tipo de gasto -->
-                                    <div class="form-group">
-                                        <label for="type_expense" class="col-sm-2 control-label">Gasto: </label>
-                                        <div class="col-sm-10">
-                                            <select class="form-control" style="width: 100%" name="type_expense" id="type_expense" >
-                                                <option >---SELECCIONA---</option>
-                                                <?php
-                                                    $gasto=TypeData::getAllExpense();
-                                                    foreach($gasto as $cat){
-                                                ?>
-                                                    <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
-                                                <?php 
-                                                    }
-                                                ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name" class="col-sm-2 control-label">Nombre: </label>
-                                        <div class="col-sm-10">
-                                            <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: ">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="form-group">
-                                        <span class="col-md-1 col-sm-1 col-xs-12"></span>
-                                        <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
-                                        <span class="col-md-4 col-sm-4 col-xs-12">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                            <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- /end form  -->
+                <button class='btn btn-primary' data-toggle='modal' data-target='#formModal'><i class='fa fa-plus'></i> Nuevo</button>   
+                    <?php $modal_content = new ModalCategory("Ingreso de Gastos","formModal",UserData::getById($_SESSION['user_id']));
+                        echo $modal_content->renderInit();?>
+                        <div class="form-group">
+                            <?php 
+                                $type_expense_select = new SelectList("type_expense","Gastos:",TypeData::getAllExpense());
+                                echo $type_expense_select->renderLabel('col-sm-2');
+                            ?>
+                            <div class="col-sm-10">
+                                <?php echo $type_expense_select->render(); ?>
                             </div>
                         </div>
-                    </div>
+                        
+                        <div class="form-group">
+                            <?php 
+                                $input_text = new InputText("name","Nombre");
+                                echo $input_text->renderLabel('col-sm-2');
+                            ?>
+                            <div class="col-sm-10">
+                                <?php echo $input_text->render(); ?>
+                            </div>
+                        </div>
+                    <?php echo $modal_content->renderEnd();?>  
                     <!-- End Form Modal -->
                     <div class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

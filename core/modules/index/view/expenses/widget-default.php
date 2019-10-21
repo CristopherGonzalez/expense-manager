@@ -4,7 +4,7 @@ if(isset($_SESSION["user_id"])):
 <?php  
     //Se obtienen datos para llenado de desplegables
     include 'core/controller/forms/SelectList.php';
-    $categories=CategoryExpenseData::getAll($_SESSION["user_id"]);
+    $categories=CategoryExpenseData::getAll($_SESSION["company_id"]);
     $types=TypeData::getAllExpense();
  ?>
 <!-- Content Wrapper. Contains page content -->

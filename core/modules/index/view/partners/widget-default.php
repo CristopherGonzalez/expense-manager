@@ -3,7 +3,7 @@ if(isset($_SESSION["user_id"])):
 ?> 
 <?php  
     //Se obticategoriesenen datos para llenado de desplegables
-    $=CategoryExpenseData::getAll($_SESSION["user_id"]);
+    $=CategoryExpenseData::getAll($_SESSION["company_id"]);
     $types=TypeData::getAllExpense();
  ?>
 <!-- Content Wrapper. Contains page content -->

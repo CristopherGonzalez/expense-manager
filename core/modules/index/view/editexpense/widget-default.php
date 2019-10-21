@@ -11,7 +11,7 @@ if(isset($_SESSION["user_id"])):
     $expense=ExpensesData::getById($id);
     //Se obtienen datos para llenado de desplegables
     $types=TypeData::getAllExpense();
-    $category=CategoryExpenseData::getAll($_SESSION["user_id"]);
+    $category=CategoryExpenseData::getAll($_SESSION["company_id"]);
     $entities=EntityData::getAll($_SESSION["user_id"]);
 if(!isset($expense) && empty($expense)){
         Core::redir("./?view=expenses");

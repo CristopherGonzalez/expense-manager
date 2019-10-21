@@ -1,5 +1,8 @@
 <?php
 class SelectList{
+	/**
+	 * 
+	 */
 	public function SelectList($name,$value,$options){
 		$this->name = $name;
 		$this->value = $value;
@@ -10,7 +13,7 @@ class SelectList{
 	 * @return $select  string select con el control creado
 	 */
 	public function render($class_css=""){
-		$select =  "<select class='form-control select2' style='width: 100%' id='$this->name' name='$this->name' >";
+		$select =  "<select class='form-control $class_css' style='width: 100%' id='$this->name' name='$this->name' >";
 		$select.= "<option >---SELECCIONA---</option>";
 		foreach($this->options as $option){
 			$select.="<option value=".$option->id.">".$option->name."</option>";

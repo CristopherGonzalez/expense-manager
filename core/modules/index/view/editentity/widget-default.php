@@ -8,7 +8,7 @@ if(isset($_SESSION["user_id"])):
 
     $entity=EntityData::getById($id);
     //Se obtienen datos para llenado de desplegables
-    $categories_expense=CategoryExpenseData::getAll($_SESSION["user_id"]);
+    $categories_expense=CategoryExpenseData::getAll($_SESSION["company_id"]);
     $categories_income=CategoryIncomeData::getAll($_SESSION["user_id"]);
     $types=TypeData::getAllType();
     if(!isset($entity) && empty($entity)){
