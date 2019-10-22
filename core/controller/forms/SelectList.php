@@ -3,7 +3,7 @@ class SelectList{
 	/**
 	 * 
 	 */
-	public function SelectList($name,$value,$options){
+	public function __construct($name,$value,$options){
 		$this->name = $name;
 		$this->value = $value;
 		$this->options = $options;

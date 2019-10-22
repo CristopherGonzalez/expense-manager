@@ -8,7 +8,11 @@
 		if($_POST["email"]!=""&&$_POST["password"]!=""){
 			$con = Database::getCon();
 			$email=mysqli_real_escape_string($con,(strip_tags($_POST["email"],ENT_QUOTES)));
+			$license=mysqli_real_escape_string($con,(strip_tags($_POST["license"],ENT_QUOTES)));
 			$password=sha1(md5(mysqli_real_escape_string($con,(strip_tags($_POST["password"],ENT_QUOTES)))));
+
+			$company =  CompanyData::getByLicense($license);
+			if($company==null && isset($company) && !empty($company)){ Core::redir("./?view=index&alert=1"); }
 			$user = UserData::getLogin($email,$password);
 			if($user!=null){
 				$_SESSION["user_id"]=$user->id;

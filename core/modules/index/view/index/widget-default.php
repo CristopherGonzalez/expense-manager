@@ -19,7 +19,7 @@ endif;
             echo "<div class='alert alert-danger alert-dismissable'>
                     <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                     <h4>  <i class='icon fa fa-times-circle'></i> Login Falló!</h4>
-                    Nombre de usuario o contraseña incorrectos, vuelva a comprobar su nombre de usuario o contraseña.
+                    Nombre de usuario, Licencia de la empresa o contraseña incorrectos, vuelva a comprobar su nombre de usuario, licencia o contraseña.
                   </div>";
             }
             elseif ($_GET['alert'] == 2) {
@@ -40,6 +40,10 @@ endif;
         <p class="login-box-msg">Inicia Sesion</p>
 
         <form method="post" action="./?action=processlogin" >
+        <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="Licencia" name="license" required>
+                <span class="glyphicon glyphicon-briefcase glyphicon-envelope form-control-feedback"></span>
+            </div>
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Correo Electrónico" name="email" required>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

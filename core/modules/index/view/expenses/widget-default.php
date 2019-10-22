@@ -3,8 +3,8 @@ if(isset($_SESSION["user_id"])):
 ?> 
 <?php  
     //Se obtienen datos para llenado de desplegables
-    include 'core/controller/forms/SelectList.php';
     $categories=CategoryExpenseData::getAll($_SESSION["company_id"]);
+    $entities=EntityData::getAll($_SESSION["company_id"]);
     $types=TypeData::getAllExpense();
  ?>
 <!-- Content Wrapper. Contains page content -->
@@ -140,7 +140,6 @@ if(isset($_SESSION["user_id"])):
                                         </div>
                                         <div class="form-group">
                                             <?php 
-                                                $entities=EntityData::getAll($_SESSION["company_id"]);
                                                 $entity_select = new SelectList("entidad","Entidad:",$entities);
                                                 echo $entity_select->renderLabel('col-sm-2');
                                             ?>
@@ -185,7 +184,6 @@ if(isset($_SESSION["user_id"])):
                                     <div class="modal-footer">
                                         <div class="form-group">
                                             <span class="col-md-1 col-sm-1 col-xs-12"></span>
-                                            <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php  $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
                                             <span class="col-md-4 col-sm-4 col-xs-12">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                                 <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>

@@ -23471,17 +23471,17 @@ insert into configuration(label,name,val) values ("Logotipo","logo","logo.png");
 /*Prueba de empresa*/
 
 INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('1', '1', '0', 'MRC00001', '2', '34', '2', 'Empresa Prueba 1', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '1', NOW());
+VALUES ('1', '1', '0', '100001', '2', '34', '2', 'Empresa Prueba 1', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '1', NOW());
 INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('2', '1', '0', 'MRC00002', '2', '34', '3', 'Empresa Prueba 2', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '2', NOW());
+VALUES ('2', '1', '0', '100002', '2', '34', '3', 'Empresa Prueba 2', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '2', NOW());
 INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('3', '1', '0', 'MRC00003', '2', '34', '4', 'Empresa Prueba 3', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '3', NOW());
+VALUES ('3', '1', '0', '100003', '2', '34', '4', 'Empresa Prueba 3', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '3', NOW());
 INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('4', '1', '0', 'MRC00004', '2', '34', '6', 'Empresa Prueba 4', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '4', NOW());
+VALUES ('4', '1', '0', '100004', '2', '34', '6', 'Empresa Prueba 4', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '4', NOW());
 INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('5', '1', '0', 'MRC00005', '2', '34', '7', 'Empresa Prueba 5', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '5', NOW());
+VALUES ('5', '1', '0', '100005', '2', '34', '7', 'Empresa Prueba 5', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '5', NOW());
 INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('6', '1', '0', 'MRC00006', '2', '34', '8', 'Empresa Prueba 6', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '6', NOW());
+VALUES ('6', '1', '0', '100006', '2', '34', '8', 'Empresa Prueba 6', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '6', NOW());
 
 /*Prueba de usuario*/
 INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES

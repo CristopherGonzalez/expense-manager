@@ -77,14 +77,14 @@ class ExpensesData {
 		return Model::many($query[0],new ExpensesData());
 	}
 	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where empresa_id=$u";
+		$sql = "select * from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 
 	}
 
 	public static function getAllCount($u){
-		$sql = "select COUNT(id) as count from ".self::$tablename." where empresa_id=$u";
+		$sql = "select COUNT(id) as count from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 
