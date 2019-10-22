@@ -4,7 +4,7 @@ if(isset($_SESSION["user_id"])):
 <?php  
     //Se obtienen datos para llenado de desplegables
     $categories_expense=CategoryExpenseData::getAll($_SESSION["company_id"]);
-    $categories_income=CategoryIncomeData::getAll($_SESSION["user_id"]);
+    $categories_income=CategoryIncomeData::getAll($_SESSION["company_id"]);
     $categories_partner=array('Socios','Otros');
     $types=TypeData::getAllType();
  ?>
@@ -193,7 +193,7 @@ if(isset($_SESSION["user_id"])):
                             </ul>
                         </div>
                         <input type='hidden' id='per_page' value='15'>
-                        <?php $entity_data=EntityData::getAll($_SESSION['user_id']);
+                        <?php $entity_data=EntityData::getAll($_SESSION['company_id']);
                             if(count($entity_data)!=0):
                         ?>
                         <div class="btn-group">

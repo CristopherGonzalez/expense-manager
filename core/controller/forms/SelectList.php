@@ -29,25 +29,3 @@ class SelectList{
 
 
 ?>
-<?php 
-	/*include 'core/controller/forms/lbInputText2.php';
-	$prueba = new lbInputText2("txt_name_prueba","prueba");
-	echo $prueba->render();
-		ok<label for="entidad" class="col-sm-2 control-label">Entidad: </label>
-		<div class="col-sm-10">
-			<select class="form-control select2" style="width: 100%" name="entity" id="entity" >
-				<option >---SELECCIONA---</option>
-				<?php
-					//Se carga datos de entidades en modal
-					$entities=EntityData::getAll($_SESSION["user_id"]);
-					foreach($entities as $entity){
-				?>
-					<option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
-				<?php 
-					}
-				?>
-			</select>
-		</div>
-	
-	*/
-?>

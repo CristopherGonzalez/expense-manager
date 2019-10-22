@@ -16,6 +16,7 @@ class ExpensesData {
 		$this->pagado = "0";
 		$this->documento = "";
 		$this->pago = "";
+		$this->empresa = "";
 	}
 
 	public function getCategory(){ return CategoryExpenseData::getById($this->category_id);}
@@ -23,8 +24,8 @@ class ExpensesData {
 	public function getTypeExpense(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
-		$sql = "insert into expenses (description, amount, upload_receipt, user_id, category_id,tipo, entidad, created_at, fecha, pagado, documento, pago) ";
-		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,\"$this->fecha\",$this->pagado,'$this->documento','$this->pago')";
+		$sql = "insert into expenses (description, amount, upload_receipt, user_id, category_id,tipo, entidad, created_at, fecha, pagado, documento, pago, empresa) ";
+		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,\"$this->fecha\",$this->pagado,'$this->documento','$this->pago',$this->empresa)";
 		return Executor::doit($sql);
 	}
 
@@ -76,14 +77,14 @@ class ExpensesData {
 		return Model::many($query[0],new ExpensesData());
 	}
 	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where user_id=$u";
+		$sql = "select * from ".self::$tablename." where empresa_id=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 
 	}
 
 	public static function getAllCount($u){
-		$sql = "select COUNT(id) as count from ".self::$tablename." where user_id=$u";
+		$sql = "select COUNT(id) as count from ".self::$tablename." where empresa_id=$u";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 

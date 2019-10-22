@@ -9,6 +9,7 @@ class EntityData {
 		$this->created_at = "NOW()";
 		$this->tipo = "";
 		$this->category_id = "";
+		$this->empresa = "";
 
 	}
 	public function getCategoryExpense(){ return CategoryExpenseData::getById($this->category_id);}
@@ -19,8 +20,8 @@ class EntityData {
 	public function getType($id){ return TypeData::getById($id);}
 
 	public function add(){
-		$sql = "insert into entidades (name,user_id,created_at,tipo,category_id) ";
-		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo,$this->category_id)";
+		$sql = "insert into entidades (name,user_id,created_at,tipo,category_id,empresa) ";
+		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo,$this->category_id,$this->empresa)";
 		return Executor::doit($sql);
 	}
 
@@ -54,7 +55,7 @@ class EntityData {
 	}
 
 	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where user_id=$u";
+		$sql = "select * from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 

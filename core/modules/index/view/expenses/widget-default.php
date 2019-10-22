@@ -140,7 +140,7 @@ if(isset($_SESSION["user_id"])):
                                         </div>
                                         <div class="form-group">
                                             <?php 
-                                                $entities=EntityData::getAll($_SESSION["user_id"]);
+                                                $entities=EntityData::getAll($_SESSION["company_id"]);
                                                 $entity_select = new SelectList("entidad","Entidad:",$entities);
                                                 echo $entity_select->renderLabel('col-sm-2');
                                             ?>
@@ -211,7 +211,7 @@ if(isset($_SESSION["user_id"])):
                             </ul>
                         </div>
                         <input type='hidden' id='per_page' value='15'>
-                        <?php $expenses_data=ExpensesData::getAllCount($_SESSION['user_id']);
+                        <?php $expenses_data=ExpensesData::getAllCount($_SESSION['company_id']);
                             if($expenses_data->count!=0):
                         ?>
                         <div class="btn-group">

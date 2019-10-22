@@ -33,9 +33,12 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$con = Database::getCon();
 	$name = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_name'], ENT_QUOTES)));
 	$type_income = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_type_income'], ENT_QUOTES)));
-	$user_id=$_SESSION["user_id"];
+	$company_id=$_SESSION["company_id"];
 	//$sWhere=" user_id>0 ";
-	$sWhere=" user_id=$user_id ";
+	$sWhere=" empresa=$company_id ";
+	//$user_id=$_SESSION["user_id"];
+	//$sWhere=" user_id>0 ";
+	//$sWhere=" user_id=$user_id ";
 	//Creacion de query por nombre y/o gasto
 	if($name!=""){
 		$sWhere.=" and name LIKE '%".$name."%' ";

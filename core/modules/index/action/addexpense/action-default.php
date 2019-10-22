@@ -26,6 +26,7 @@ if (!isset($_SESSION['user_id'])){
 			$expense->description = mysqli_real_escape_string($con,(strip_tags($_POST["description"],ENT_QUOTES)));
 			$expense->amount = mysqli_real_escape_string($con,(strip_tags($_POST["amount"],ENT_QUOTES)));
 			$expense->user_id = $_SESSION['user_id'];
+			$expense->empresa = $_SESSION['company_id'];
 			$expense->category_id = intval($_POST['category']);
 			//Se capturan los nuevos datos de los gastos
 			$expense->entidad = intval($_POST['entity']);

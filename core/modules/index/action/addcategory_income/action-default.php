@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_id'])){
 			$income = new CategoryIncomeData();
 			$income->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
 			$income->user_id = $_SESSION['user_id'];
+			$income->empresa = $_SESSION['company_id'];
 			$income->tipo = $_POST['type_income'];
 			$query_new=$income->add();
             if ($query_new) {

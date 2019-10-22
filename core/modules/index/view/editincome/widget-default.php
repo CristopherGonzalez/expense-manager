@@ -11,8 +11,8 @@ if(isset($_SESSION["user_id"])):
     $income=IncomeData::getById($id);
 //Se obtienen datos para llenado de desplegables
     $types=TypeData::getAllIncome();
-    $category=CategoryIncomeData::getAll($_SESSION["user_id"]);
-    $entities=EntityData::getAll($_SESSION["user_id"]);
+    $category=CategoryIncomeData::getAll($_SESSION["company_id"]);
+    $entities=EntityData::getAll($_SESSION["company_id"]);
     if(!isset($income) && empty($income)){
         Core::redir("./?view=income");
     }

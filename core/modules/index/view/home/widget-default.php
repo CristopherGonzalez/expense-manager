@@ -3,16 +3,16 @@
 if(isset($_SESSION["user_id"])):
     //$user = UserData::getById($_SESSION["user_id"]);
     
-    $sumIncome=IncomeData::sumIncome($_SESSION["user_id"]);
-    $sumExpenses= ExpensesData::sumExpenses($_SESSION["user_id"]);
+    $sumIncome=IncomeData::sumIncome($_SESSION["company_id"]);
+    $sumExpenses= ExpensesData::sumExpenses($_SESSION["company_id"]);
 ?>  
 <?php 
     function sum_incomes_month($month){
-    $income=IncomeData::sumIncome_Month($month,$_SESSION["user_id"]);
+    $income=IncomeData::sumIncome_Month($month,$_SESSION["company_id"]);
     echo $total=number_format($income->total,2,'.','');
     }
     function sum_expenses_month($month){
-        $expenses = ExpensesData::sumExpenses_Month($month,$_SESSION["user_id"]);
+        $expenses = ExpensesData::sumExpenses_Month($month,$_SESSION["company_id"]);
         echo $total=number_format($expenses->total,2,'.','');
     } 
 ?>

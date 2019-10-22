@@ -43,9 +43,10 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$category = intval($_REQUEST['category']);
 	$category_type = mysqli_real_escape_string($con,(strip_tags($_REQUEST['category_type'], ENT_QUOTES)));
 	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
-	$user_id=$_SESSION["user_id"];
-	$sWhere=" user_id=$user_id ";
-
+	//$user_id=$_SESSION["user_id"];
+	//$sWhere=" user_id=$user_id ";
+	$company_id=$_SESSION["company_id"];
+	$sWhere=" empresa=$company_id ";
 	//Se construye la consulta sql dependiendo de los filtros ingresados
 	if($type!=0){
 		$sWhere.=" and tipo=".$type;

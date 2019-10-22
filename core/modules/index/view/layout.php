@@ -129,6 +129,10 @@
                         
 
                     </ul>
+                    <div class="">
+                        <img src="res/images/logo_MRC.jpg" class="img-circle" alt="MRC Image">
+                       
+                    </div>
                 </section>
             </aside>
     <?php endif; ?>

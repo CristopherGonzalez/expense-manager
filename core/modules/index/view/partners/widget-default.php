@@ -152,7 +152,7 @@ if(isset($_SESSION["user_id"])):
                                                     <option >---SELECCIONA---</option>
                                                     <?php
                                                         //Se carga datos de entidades en modal
-                                                        $entities=EntityData::getAll($_SESSION["user_id"]);
+                                                        $entities=EntityData::getAll($_SESSION["company_id"]);
                                                         foreach($entities as $entity){
                                                     ?>
                                                         <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
@@ -223,7 +223,7 @@ if(isset($_SESSION["user_id"])):
                             </ul>
                         </div>
                         <input type='hidden' id='per_page' value='15'>
-                        <?php $expenses_data=ExpensesData::getAllCount($_SESSION['user_id']);
+                        <?php $expenses_data=ExpensesData::getAllCount($_SESSION['company_id']);
                             if($expenses_data->count!=0):
                         ?>
                         <div class="btn-group">

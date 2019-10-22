@@ -8,12 +8,13 @@ class CategoryIncomeData {
 		$this->user_id = "";
 		$this->tipo = "";
 		$this->created_at = "NOW()";
+		$this->empresa = "";
 	}
 	public function getTypeIncome(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (name,user_id,tipo,created_at) ";
-		$sql .= "values (\"$this->name\",\"$this->user_id\",$this->tipo,$this->created_at)";
+		$sql = "insert into ".self::$tablename." (name,user_id,tipo,created_at,empresa) ";
+		$sql .= "values (\"$this->name\",\"$this->user_id\",$this->tipo,$this->created_at,$this->empresa)";
 		return Executor::doit($sql);
 	}
 
@@ -48,14 +49,14 @@ class CategoryIncomeData {
 	}
 
 	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where user_id=$u";
+		$sql = "select * from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CategoryIncomeData());
 
 	}
 	
 	public static function getLike($q,$u){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' and user_id=$u";
+		$sql = "select * from ".self::$tablename." where name like '%$q%' and empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CategoryIncomeData());
 	}

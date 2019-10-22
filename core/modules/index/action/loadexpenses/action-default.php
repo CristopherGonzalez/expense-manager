@@ -26,9 +26,10 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$category = intval($_REQUEST['category']);
 	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
 	$not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
-	$user_id=$_SESSION["user_id"];
-	$sWhere=" user_id=$user_id ";
-
+	//$user_id=$_SESSION["user_id"];
+	//$sWhere=" user_id=$user_id ";
+	$company_id=$_SESSION["company_id"];
+	$sWhere=" empresa=$company_id ";
 	//Se construye la consulta sql dependiendo de los filtros ingresados
 	if($category!=0){
 		$sWhere.=" and category_id=".$category;

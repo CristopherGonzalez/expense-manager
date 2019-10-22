@@ -3,7 +3,7 @@ if(isset($_SESSION["user_id"])):
 ?> 
 <?php  
     //Se obtienen datos para llenado de desplegables
-    $categories=CategoryIncomeData::getAll($_SESSION["user_id"]);
+    $categories=CategoryIncomeData::getAll($_SESSION["company_id"]);
     $types=TypeData::getAllIncome();
  ?>
 <!-- Content Wrapper. Contains page content -->
@@ -152,7 +152,7 @@ if(isset($_SESSION["user_id"])):
                                                     <option >---SELECCIONA---</option>
                                                     <?php
                                                         //Se carga datos de entidades en modal
-                                                        $entities=EntityData::getAll($_SESSION["user_id"]);
+                                                        $entities=EntityData::getAll($_SESSION["company_id"]);
                                                         foreach($entities as $entity){
                                                     ?>
                                                         <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
@@ -225,7 +225,7 @@ if(isset($_SESSION["user_id"])):
                             </ul>
                         </div>
                         <input type='hidden' id='per_page' value='15'>
-                        <?php $income_data=IncomeData::getAllCount($_SESSION['user_id']);
+                        <?php $income_data=IncomeData::getAllCount($_SESSION['company_id']);
                             if($income_data->count!=0):
                         ?>
                         <div class="btn-group">

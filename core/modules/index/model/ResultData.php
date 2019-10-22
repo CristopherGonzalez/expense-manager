@@ -13,11 +13,12 @@ class ResultData {
 		$this->pagado = "";
 		$this->documento = "";
 		$this->pago = "";
+		$this->empresa = "";
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (description, amount, user_id, entidad, created_at, fecha, pagado, documento, pago) ";
-		$sql .= "value (\"$this->description\",\"$this->amount\",\"$this->user_id\",\"$this->entidad\",\"$this->created_at\",\"$this->fecha\",\"$this->pagado\",\"$this->documento\",\"$this->pago\")";
+		$sql = "insert into ".self::$tablename." (description, amount, user_id, entidad, created_at, fecha, pagado, documento, pago, empresa) ";
+		$sql .= "value (\"$this->description\",\"$this->amount\",\"$this->user_id\",\"$this->entidad\",\"$this->created_at\",\"$this->fecha\",\"$this->pagado\",\"$this->documento\",\"$this->pago\",$this->empresa)";
 		return Executor::doit($sql);
 	}
 
@@ -51,7 +52,7 @@ class ResultData {
 	}
 
 	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where user_id=$u";
+		$sql = "select * from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ResultData());
 

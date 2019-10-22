@@ -20,6 +20,7 @@ if (!isset($_SESSION['user_id'])){
 			$entity->name = mysqli_real_escape_string($con,(strip_tags($_POST["name_entity"],ENT_QUOTES)));
 			$entity->tipo = intval($_POST['type']);
 			$entity->user_id = $_SESSION['user_id'];
+			$entity->empresa = $_SESSION['company_id'];
 			$entity->category_id = intval($_POST['category']);
 			//Se capturan los nuevos datos de los gastos
 			$query_new=$entity->add();

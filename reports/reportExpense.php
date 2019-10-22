@@ -49,7 +49,7 @@ $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
 
 $con=Database::getCon();
 
-	$query=ExpensesData::getAll($_SESSION['user_id']);
+	$query=ExpensesData::getAll($_SESSION['company_id']);
 	$cel=3;//Numero de fila donde empezara a crear  el reporte
 	//while ($row=mysqli_fetch_array($query)){
 	foreach($query as $exp){

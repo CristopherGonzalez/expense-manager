@@ -43,7 +43,7 @@ class BusinessTypeData {
 	}
 
 	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where user_id=$u";
+		$sql = "select * from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new BusinessTypeData());
 
