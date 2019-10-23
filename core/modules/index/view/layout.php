@@ -151,7 +151,7 @@
     <script>
     $( "#add" ).submit(function( event ) {
         $('#save_data').attr("disabled", true);
-      
+        var result = false;
         var parametros = $(this).serialize();
          $.ajax({
             type: "POST",
@@ -164,9 +164,15 @@
                 $("#result").html(datos);
                 $('#save_data').attr("disabled", false);
                 //load(1);
+                result = true;
             }
         });
         event.preventDefault();
+        window.setTimeout(function(){
+            if (result){
+                window.location.href="./?view=index";
+            }
+        }, 2000);
     })
     </script>
 <?php endif; ?>

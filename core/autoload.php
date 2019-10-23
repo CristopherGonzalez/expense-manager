@@ -4,11 +4,11 @@
 	include "controller/Module.php";
 	include "controller/Database.php";
 	include "controller/Executor.php";
-	include "controller/forms/lbForm.php";
-	include "controller/forms/lbInputText.php";
-	include "controller/forms/InputText.php";
+	include "controller/forms/lbForm.php";//
+	include "controller/forms/lbInputText.php";//
+	include "controller/forms/InputText.php";//
 	include "controller/forms/SelectList.php";
-	include "controller/forms/ModalCategory.php";
+	include "controller/forms/ModalCategory.php";//
 	include "controller/forms/lbInputPassword.php";
 	include "controller/forms/lbValidator.php";
 	include "controller/Model.php";
@@ -19,6 +19,6 @@
 	include "controller/Post.php";
 	include "controller/Cookie.php";
 	include "controller/Session.php";
-	include "controller/Lb.php";
+	include "controller/Lb.php";//
 	include "controller/Form.php";
 ?>

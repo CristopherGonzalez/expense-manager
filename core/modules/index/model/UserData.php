@@ -5,22 +5,22 @@ class UserData {
 
 	public function Userdata(){
 		$this->status = 1;
-		$this->is_deleted = "";
+		$this->is_deleted = 0;
 		$this->name = "";
 		$this->password = "";
 		$this->email = "";
 		$this->profile_pic = "default.png";
 		$this->skin = 7;
 		$this->empresa = "";
-		$this->is_admin = "";
+		$this->is_admin = 0;
 		$this->created_at = "NOW()";
 	}
 
 	public function getSkin(){ return SkinsData::getById($this->skin);}
 
 	public function add(){
-		$sql = "insert into user (name,password,email,profile_pic,skin,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->password\",\"$this->email\",\"$this->profile_pic\",\"$this->skin\",$this->created_at)";
+		$sql = "insert into user (status,is_deleted,name,password,email,profile_pic,skin,empresa,is_admin,created_at) ";
+		$sql .= "value ($this->status,$this->is_deleted,'$this->name','$this->password','$this->email','$this->profile_pic',$this->skin,$this->empresa,$this->is_admin,$this->created_at)";
 		return Executor::doit($sql);
 	}
 

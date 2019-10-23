@@ -6,7 +6,7 @@
 //
 class Lb {
 
-	public function Lb(){
+	public function __construct(){
 		$this->get = new Get();
 		$this->post = new Post();
 		$this->request = new Request();

@@ -7,7 +7,9 @@ endif;
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="?view=index"><b>Abi</b>SOFT</a>
+        <a href="?view=index">
+        <img src="res/images/logo_MRC.jpg" class="img-rounded img-responsive center-block" alt="MRC Image">
+        </a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -40,8 +42,8 @@ endif;
         <p class="login-box-msg">Inicia Sesion</p>
 
         <form method="post" action="./?action=processlogin" >
-        <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Licencia" name="license" required>
+            <div class="form-group has-feedback">
+                <input type="number" class="form-control" placeholder="Licencia" name="license" required>
                 <span class="glyphicon glyphicon-briefcase glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">

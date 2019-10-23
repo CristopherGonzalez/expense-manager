@@ -1,7 +1,7 @@
 <?php
 
 class InputText{
-	public function InputText($name,$value){
+	public function __construct($name,$value){
 		$this->name = $name;
 		$this->value = $value;
 	}

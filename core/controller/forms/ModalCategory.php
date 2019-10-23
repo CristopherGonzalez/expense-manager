@@ -6,7 +6,7 @@ class ModalCategory{
 	 * @param mixed $id Identificado de la modal
 	 * @param mixed $user Usuario de la modal
 	 */
-	public function ModalCategory($title,$id,$user){
+	public function __construct($title,$id,$user){
 		$this->title = $title;
 		$this->id = $id;
 		$this->user = $user->name;

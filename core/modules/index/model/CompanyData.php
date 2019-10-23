@@ -54,7 +54,7 @@ class CompanyData {
 		return Model::one($query[0],new CompanyData());
 	}
 	public static function getByLicense($license){
-		$sql = "select * from ".self::$tablename." where licenciaMRC=$license";
+		$sql = "select * from ".self::$tablename." where licenciaMRC='$license'";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new CompanyData());
 	}

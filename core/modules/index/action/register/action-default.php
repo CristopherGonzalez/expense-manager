@@ -5,9 +5,12 @@
             $errors[] = "Correo Electrónico está vacío.";
         }  elseif (empty($_POST['password'])) {
             $errors[] = "Contraseña está vacío.";
+        }  elseif (empty($_POST['license'])) {
+            $errors[] = "La licencia de la empresa está vacío.";
         }  elseif (
         	!empty($_POST['name'])
         	&& !empty($_POST['email'])
+        	&& !empty($_POST['license'])
         	&& !empty($_POST['password'])
         ){
         	$con = Database::getCon(); 
@@ -15,12 +18,20 @@
 			$user->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
 			$user->password = sha1(md5(mysqli_real_escape_string($con,(strip_tags($_POST["password"],ENT_QUOTES)))));
 			$user->email = mysqli_real_escape_string($con,(strip_tags($_POST["email"],ENT_QUOTES)));
-			$query_new=$user->add();
-            if ($query_new) {
-                $messages[] = "registro con éxito! procede a iniciar sesión.";
-            } else {
-                $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
-            }
+			$license = intval($_POST["license"]);
+			$company =  CompanyData::getByLicense($license);
+			$query_new = "";
+			if($company==null || empty($company)){ 
+				$errors[] = "Lo sentimos, la licencia no es valida o no esta registrada a ninguna empresa";
+			}else{
+				$user->empresa = $company->id;
+				$query_new=$user->add();
+				if (!empty($query_new) && is_array($query_new) && $query_new[0] ) {
+					$messages[] = "registro con éxito! procede a iniciar sesión.";
+				} else {
+					$errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
+				}
+			}
 		} else {
 			$errors[] = "desconocido.";	
 		}
