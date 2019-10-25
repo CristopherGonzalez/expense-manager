@@ -28,10 +28,18 @@
 				$query_new=$user->add();
 				if (!empty($query_new) && is_array($query_new) && $query_new[0] ) {
 					$messages[] = "registro con éxito! procede a iniciar sesión.";
+					//$mail = new Mail($company->email,1);
+					//$mail->send();
+					$arreglo = array(
+						'user_id'=>$query_new[1],
+						'step'=>1
+					);
+					$codigo = Core::encrypt_decrypt('encrypt', serialize($arreglo));
 				} else {
 					$errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
 				}
 			}
+
 		} else {
 			$errors[] = "desconocido.";	
 		}

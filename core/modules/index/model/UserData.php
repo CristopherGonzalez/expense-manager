@@ -55,7 +55,10 @@ class UserData {
 		$sql = "update ".self::$tablename." set password=\"$this->password\" where id=$this->id";	
 		Executor::doit($sql);
 	}
-
+	public function update_status(){
+		$sql = "update ".self::$tablename." set status=".$this->status." where id=".$this->id;	
+		Executor::doit($sql);
+	}
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);

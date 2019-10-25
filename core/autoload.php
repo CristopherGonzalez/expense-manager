@@ -1,5 +1,6 @@
 <?php
 	include "controller/Core.php";
+	include "controller/Mail.php";
 	include "controller/View.php";
 	include "controller/Module.php";
 	include "controller/Database.php";
