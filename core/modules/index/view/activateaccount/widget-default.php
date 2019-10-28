@@ -1,5 +1,5 @@
 <?php 
-if(isset($_GET['id'])){
+if(isset($_GET['id']) && !isset($_SESSION["user_id"])){
 ?>
 <body class="hold-transition login-page">
     <div class="login-box">
@@ -21,23 +21,36 @@ if(isset($_GET['id'])){
                     $codes = unserialize($decrypted_id);
                     if(isset($codes) && !empty($codes) && is_array($codes)){
                         $step = $codes['step'];
+                        $is_admin = (isset($codes['is_admin']) && !empty($codes['is_admin']) && $codes['is_admin']==true)? true : false;
                         $user = UserData::getById($codes['user_id']);
                         if(isset($user) && !empty($user) ){
                             if ($step == 1) {
                                 $type_alert = "warning";
                                 $title = "Verificación de empresa!";
-                                $description = " Has verificado la cuenta del usuario, pero MRComanda debe verificar el nuevo perfil para acceder a Mi Negocio.";
+                                $description = " Has verificado la cuenta de usuario, pero MRComanda debe verificar el nuevo perfil para acceder a Mi Negocio.";
                                 $company= CompanyData::getById($user->empresa);
                                 $codes = array(
                                     'user_id'=>$user->id,
-                                    'step'=>2
+                                    'step'=>2,
+                                    'is_admin'=>false
                                 );
                                 $code = Core::encrypt_decrypt('encrypt', serialize($codes));
-                                $mail = new Mail('info@mrcomanda.com',2);
+                                $mail = new Mail('cagv1992@gmail.com',2);
                                 $mail->message= "\r\n"."Licencia : ".$company->licenciaMRC;
                                 $mail->message.= "\r\n"."Nombre de Empresa : ".$company->name;
+
                                 $mail->message.=  "\r\n"."Link para activacion de nueva cuenta.";
                                 $mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
+                                
+                                $codes = array(
+                                    'user_id'=>$user->id,
+                                    'step'=>2,
+                                    'is_admin'=>true
+                                );
+                                $code = Core::encrypt_decrypt('encrypt', serialize($codes));
+                                $mail->message.=  "\r\n"."Link para activacion de nueva cuenta y convertir en administrador.";
+                                $mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
+                                
                                 $codes = array(
                                     'user_id'=>$user->id,
                                     'step'=>3
@@ -45,6 +58,7 @@ if(isset($_GET['id'])){
                                 $code = Core::encrypt_decrypt('encrypt', serialize($codes));
                                 $mail->message.=  "\r\n"."Link para desactivacion de cuenta.";
                                 $mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
+                               
                                 $resp_send = $mail->send();
                                 if($resp_send){
                                     $description.= " Se envía correo exitosamente";
@@ -56,7 +70,8 @@ if(isset($_GET['id'])){
                             elseif ($step == 2) {
                                 $type_alert = "success";
                                 $title = "Verificación de MRComanda!";
-                                $description = "Has verificado la cuenta de usuario, ya puedes ingresar a Mi Negocio.";
+                                $description = "Has verificado la cuenta de usuario, ya puede ingresar a Mi Negocio.";
+                                $user->is_admin = $is_admin ? 1 : 0;
                              }
                             elseif ($step == 3) {
                                 $title = "Deshabilitación de cuenta!";
@@ -81,4 +96,8 @@ if(isset($_GET['id'])){
         </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 </body>
-<?php }?>
+<?php }
+else{
+    Core::alert("Debe cerrar su sesión actual.");
+    Core::redir("./?view=home");
+}?>

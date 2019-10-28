@@ -56,7 +56,7 @@ class UserData {
 		Executor::doit($sql);
 	}
 	public function update_status(){
-		$sql = "update ".self::$tablename." set status=".$this->status." where id=".$this->id;	
+		$sql = "update ".self::$tablename." set status=".$this->status.", is_admin=".$this->is_admin." where id=".$this->id;	
 		Executor::doit($sql);
 	}
 	public static function getById($id){

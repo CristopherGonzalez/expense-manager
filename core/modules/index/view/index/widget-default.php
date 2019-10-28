@@ -13,31 +13,49 @@ endif;
     <!-- /.login-logo -->
     <div class="login-box-body">
         <?php  
+            $type_alert = "danger";
+            $title = "Error!";
+            $description = "Datos invalidos o sin identificador.";
             if (empty($_GET['alert'])) {
             echo "";
-            } 
-            elseif ($_GET['alert'] == 1) {
-            echo "<div class='alert alert-danger alert-dismissable'>
-                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                    <h4>  <i class='icon fa fa-times-circle'></i> Login Falló!</h4>
-                    Nombre de usuario, Licencia de la empresa o contraseña incorrectos, vuelva a comprobar su nombre de usuario, licencia o contraseña.
-                  </div>";
-            }
-            elseif ($_GET['alert'] == 2) {
-            echo "<div class='alert alert-success alert-dismissable'>
-                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                    <h4>  <i class='icon fa fa-check-circle'></i> Bien hecho!</h4>
-                    Ha cerrado la sesión con éxito.
-                  </div>";
-            }
-            elseif ($_GET['alert'] == 3) {
-            echo "<div class='alert alert-warning alert-dismissable'>
-                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                    <h4>  <i class='icon fa fa-check-circle'></i> Error!</h4>
-                    Datos Vacios.
-                  </div>";
+            }else{
+                if ($_GET['alert'] == 1) {
+                    $title = "Login Falló!";
+                    $description = "Nombre de usuario, Licencia de la empresa o contraseña incorrectos, vuelva a comprobar su nombre de usuario, licencia o contraseña.";
+                }
+                elseif ($_GET['alert'] == 2) {
+                    $type_alert = "success";
+                    $title = "Bien hecho!";
+                    $description = " Ha cerrado la sesión con éxito.";
+                }
+                elseif ($_GET['alert'] == 3) {
+                    $type_alert = "warning";
+                    $title = "Error!";
+                    $description = "Datos Vacios.";
+                }
+                elseif ($_GET['alert'] == 4) {
+                    $type_alert = "warning";
+                    $title = "Error!";
+                    $description = " Usuario pendiente de activación por la empresa.";
+                }
+                elseif ($_GET['alert'] == 5) {
+                    $type_alert = "warning";
+                    $title = "Error!";
+                    $description = " Usuario pendiente de activación por MRC.";
+                }
+                elseif ($_GET['alert'] == 6) {
+                    $title = "Error!";
+                    $description = " Usuario inhabilitado.";
+                }
+            
+                echo "<div class='alert alert-".$type_alert." alert-dismissable'>
+                <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                <h4>  <i class='icon fa fa-flag'></i> ".$title."</h4>
+                ".$description."
+                </div>";
             }
         ?>
+       
         <p class="login-box-msg">Inicia Sesion</p>
 
         <form method="post" action="./?action=processlogin" >
