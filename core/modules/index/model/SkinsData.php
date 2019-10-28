@@ -3,7 +3,7 @@ class SkinsData {
 	public static $tablename = "skins";
 
 
-	public function SkinsData(){
+	public function __construct(){
 		$this->name = "";
 		$this->value = "";
 	}

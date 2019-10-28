@@ -3,7 +3,7 @@ class CompanyData {
 	public static $tablename = "empresas";
 
 
-	public function CompanyData(){
+	public function __construct(){
 		$this->status = "";
 		$this->is_deleted = "";
 		$this->licenciaMRC = "";
