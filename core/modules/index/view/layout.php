@@ -151,6 +151,7 @@
     <script>
     $( "#add" ).submit(function( event ) {
         $('#save_data').attr("disabled", true);
+        debugger;
         var result = false;
         var parametros = $(this).serialize();
          $.ajax({
@@ -168,11 +169,7 @@
             }
         });
         event.preventDefault();
-        window.setTimeout(function(){
-            if (result){
-                window.location.href="./?view=index";
-            }
-        }, 2000);
+        
     })
     </script>
 <?php endif; ?>

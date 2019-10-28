@@ -13,7 +13,7 @@
         	&& !empty($_POST['license'])
         	&& !empty($_POST['password'])
         ){
-        	$con = Database::getCon(); 
+			$con = Database::getCon(); 
 			$user = new UserData();
 			$user->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
 			$user->password = sha1(md5(mysqli_real_escape_string($con,(strip_tags($_POST["password"],ENT_QUOTES)))));
@@ -27,19 +27,26 @@
 				$user->empresa = $company->id;
 				$query_new=$user->add();
 				if (!empty($query_new) && is_array($query_new) && $query_new[0] ) {
-					$messages[] = "registro con éxito! procede a iniciar sesión.";
-					//$mail = new Mail($company->email,1);
-					//$mail->send();
-					$arreglo = array(
+					$messages[] = "Registro con éxito! Pero debes esperar la activacion por parte de la empresa.";
+					$codes = array(
 						'user_id'=>$query_new[1],
 						'step'=>1
 					);
-					$codigo = Core::encrypt_decrypt('encrypt', serialize($arreglo));
+					$code = Core::encrypt_decrypt('encrypt', serialize($codes));
+					$mail = new Mail($company->email,1);
+					$mail->message=  "\r\n"."Link para activacion de nueva cuenta.";
+					$mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
+					$resp_send = $mail->send();
+					if($resp_send){
+						$messages[] = " Se envía correo exitosamente";
+					}else{
+						$error[] = $resp_send;
+					}
+					//$messages[] = $mail->message;
 				} else {
 					$errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
 				}
 			}
-
 		} else {
 			$errors[] = "desconocido.";	
 		}

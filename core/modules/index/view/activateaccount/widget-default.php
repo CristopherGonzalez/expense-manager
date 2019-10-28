@@ -27,14 +27,37 @@ if(isset($_GET['id'])){
                                 $type_alert = "warning";
                                 $title = "Verificación de empresa!";
                                 $description = " Has verificado la cuenta del usuario, pero MRComanda debe verificar el nuevo perfil para acceder a Mi Negocio.";
+                                $company= CompanyData::getById($user->empresa);
+                                $codes = array(
+                                    'user_id'=>$user->id,
+                                    'step'=>2
+                                );
+                                $code = Core::encrypt_decrypt('encrypt', serialize($codes));
+                                $mail = new Mail('info@mrcomanda.com',2);
+                                $mail->message= "\r\n"."Licencia : ".$company->licenciaMRC;
+                                $mail->message.= "\r\n"."Nombre de Empresa : ".$company->name;
+                                $mail->message.=  "\r\n"."Link para activacion de nueva cuenta.";
+                                $mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
+                                $codes = array(
+                                    'user_id'=>$user->id,
+                                    'step'=>3
+                                );
+                                $code = Core::encrypt_decrypt('encrypt', serialize($codes));
+                                $mail->message.=  "\r\n"."Link para desactivacion de cuenta.";
+                                $mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
+                                $resp_send = $mail->send();
+                                if($resp_send){
+                                    $description.= " Se envía correo exitosamente";
+                                }else{
+                                    $description.= $resp_send;
+                                }
+                                
                             }
                             elseif ($step == 2) {
                                 $type_alert = "success";
                                 $title = "Verificación de MRComanda!";
                                 $description = "Has verificado la cuenta de usuario, ya puedes ingresar a Mi Negocio.";
-                                //$mail = new Mail();
-                                //$mail->send();
-                            }
+                             }
                             elseif ($step == 3) {
                                 $title = "Deshabilitación de cuenta!";
                                 $description = "Has deshabilitado la cuenta del usuario.";
@@ -46,7 +69,7 @@ if(isset($_GET['id'])){
                 } 
                 echo "<div class='alert alert-".$type_alert." alert-dismissable'>
                     <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-                    <h4>  <i class='icon fa fa-times-circle'></i> ".$title."</h4>
+                    <h4>  <i class='icon fa fa-flag'></i> ".$title."</h4>
                     ".$description."
                     </div>";
             ?>
