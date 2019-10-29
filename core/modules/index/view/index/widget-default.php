@@ -51,7 +51,10 @@ endif;
                     $title = "Error!";
                     $description = " Usuario inhabilitado.";
                 }
-            
+                elseif ($_GET['alert'] == 7) {
+                    $title = "Error!";
+                    $description = " Empresa eliminada o inhabilitada.";
+                }
                 echo "<div class='alert alert-".$type_alert." alert-dismissable'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                 <h4>  <i class='icon fa fa-flag'></i> ".$title."</h4>

@@ -47,7 +47,14 @@ class CompanyData {
 			return false;
 		}
 	}
-
+	public static function changeStatus($is_deleted, $status, $id){
+		$sql = "update ".self::$tablename." set is_deleted=".$is_deleted.", status=".$status." where id=".$id;
+		if (Executor::doit($sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);

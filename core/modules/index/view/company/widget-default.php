@@ -204,7 +204,7 @@ if(isset($_SESSION["user_id"])):
 <script>
     
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente el gasto \n\n Desea continuar?')){
+        if(confirm('Esta acción  eliminará de forma permanente la empresa. \n\n Desea continuar?')){
             //Se obtienen filtros de busqueda para recarga y por estandar
             var type_bussiness = $('#type_bussiness_find option:selected').val();
             var find_text = $('#find_name').val();

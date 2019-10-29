@@ -3,7 +3,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$id=$_REQUEST["id"];
 	$id=intval($id);
 
-	$delete=ExpensesData::delete($id);
+	$delete=CompanyData::changeStatus(true,2,$id);
 	if($delete==1){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
@@ -11,7 +11,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		$times="&times;";	
 	}else{
 		$aviso="Aviso!";
-		$msj="Error al eliminar los datos ";
+		$msj="Error al eliminar los datos.";
 		$classM="alert alert-danger";
 		$times="&times;";					
 	}

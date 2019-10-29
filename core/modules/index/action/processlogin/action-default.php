@@ -19,6 +19,9 @@
 						$_SESSION["company_id"]=$user->empresa;
 						Core::redir("./?view=company");
 					}else{
+						if($company->status == 2 || $company->is_deleted == 1){
+							Core::redir("./?view=index&alert=7");
+						}
 						if($user->status == 1){
 							Core::redir("./?view=index&alert=4");
 						}else if($user->status == 2){
