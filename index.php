@@ -1,10 +1,5 @@
 <?php
 
-/**
-* @author Abisoft - GT
-* http://abisoftgt.net
-**/
-
 session_start();
 
 include "core/autoload.php";

@@ -28,7 +28,8 @@ if(isset($_SESSION["user_id"])):
                     </div>
                     <div class="col-md-4 form-group">
                         <?php 
-                            $type_bussiness_find = new SelectList("type_bussiness_find","Tipo de Negocio",$types,);
+                            $type_bussiness_find = new SelectList("type_bussiness_find","Tipo de Negocio",$types);
+                            $type_bussiness_find->funjs = "onchange='load(1);'";
                             echo $type_bussiness_find->render(); 
                         ?>
                     </div>
@@ -68,6 +69,7 @@ if(isset($_SESSION["user_id"])):
                                 <?php 
                                     $country_select = new SelectList("country_company","Pais",$countries);
                                     $country_select->funjs = "onchange=load_cities(this.value,'city_company','cities_response','modal')";
+                                    $country_select->tag="required";
                                     echo $country_select->renderLabel('col-sm-2');
                                 ?>
                                 <div class="col-sm-10">
@@ -78,6 +80,7 @@ if(isset($_SESSION["user_id"])):
                             <div class="form-group">
                                 <?php 
                                     $types_bussiness = new SelectList("types_bussiness","Tipo de Negocio",$types);
+                                    $types_bussiness->tag="required";
                                     echo $types_bussiness->renderLabel('col-sm-2');
                                 ?>
                                 <div class="col-sm-10">
@@ -85,17 +88,15 @@ if(isset($_SESSION["user_id"])):
                                 </div>
                             </div>
                             <div class="form-group">
-                                <?php 
-                                    $mail_text = new InputText("email","Correo");
-                                    echo $mail_text->renderLabel('col-sm-2');
-                                ?>
+                                <label for="email" class="col-sm-2 control-label">Correo</label>
                                 <div class="col-sm-10">
-                                    <?php echo $mail_text->render(); ?>
+                                    <input type="email" required class="form-control " name="email" id="email" placeholder="Correo">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <?php 
                                     $license_text = new InputText("license","Licencia MRC");
+                                    $license_text->tag="required";
                                     echo $license_text->renderLabel('col-sm-2');
                                 ?>
                                 <div class="col-sm-10">
@@ -125,8 +126,8 @@ if(isset($_SESSION["user_id"])):
                             </ul>
                         </div>
                         <input type='hidden' id='per_page' value='15'>
-                        <?php $expenses_data=ExpensesData::getAllCount($_SESSION['company_id']);
-                            if($expenses_data->count!=0):
+                        <?php $companies=CompanyData::getAllCount();
+                            if($companies->count!=0):
                         ?>
                         <div class="btn-group">
                             <a style="margin-right: 3px" target="_blank" href="reports/reportExpense.php" class="btn btn-default pull-right">
@@ -205,19 +206,16 @@ if(isset($_SESSION["user_id"])):
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente el gasto \n\n Desea continuar?')){
             //Se obtienen filtros de busqueda para recarga y por estandar
-            var type_bussiness_find = $('#type_bussiness_find option:selected').val();
-            var country_find = $('#country_find option:selected').val();
-            var city_find = $('#city_find option:selected').val();
-            var find_text = $('#find_text').val();
+            var type_bussiness = $('#type_bussiness_find option:selected').val();
+            var find_text = $('#find_name').val();
+            var license_text = $('#find_license').val();
             var page=1;
-
             var per_page=$("#per_page").val();
             var parametros = {
                 "page":page,
-                'type_bussiness':month_find,
-                'country':country_find,
-                'city':city_find,
+                'type_bussiness':type_bussiness,
                 'text':find_text,
+                'license':license_text,
                 'per_page':per_page,
                 "id":id
              };
@@ -243,16 +241,23 @@ if(isset($_SESSION["user_id"])):
 <script>
 
     $( "#add_register" ).submit(function( input ) {
-     
+        debugger;
         $('#save_data').attr("disabled", true);
         //Se cambia forma de envio de formulario para soportar envio de imagenes
-        var fd = new FormData($(this)[0]);
+        var parametros = {
+                'name':$('#name').val(),
+                'password':$('#password').val(),
+                'country':$('#country_company option:selected').val(),
+                'city':$('#city_company option:selected').val(),
+                'types_bussiness':$('#types_bussiness option:selected').val(),
+                'email':$('#email').val(),
+                'license':$('#license').val()
+            };
+        parametros;
         $.ajax({
             type: "POST",
             url: "./?action=addcompany",
-            data: fd,
-            contentType: false,
-            processData: false,
+            data: parametros,
                 beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
                 },

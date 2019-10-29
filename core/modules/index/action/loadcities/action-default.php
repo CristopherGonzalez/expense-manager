@@ -11,7 +11,7 @@
 	if(isset($cities) && !empty($cities)){
 		
 		$city_select = new SelectList($city_id_name,"Ciudad",$cities);
-		
+		$city_select->tag="required";
 		if(strcmp($mode,"modal")==0){ ?>
 			<?php 
 				echo $city_select->renderLabel('col-sm-2');

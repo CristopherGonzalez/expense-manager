@@ -1,6 +1,10 @@
 <?php 
 if(isset($_SESSION["user_id"])):
-    Core::redir("./?view=home");
+    if($_SESSION["user_id"]=="1"){
+        Core::redir("./?view=company");
+    }else{
+        Core::redir("./?view=home");
+    }
 endif;
 ?>
 <body class="hold-transition login-page">

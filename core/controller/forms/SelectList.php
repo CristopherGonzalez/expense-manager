@@ -15,8 +15,8 @@ class SelectList{
 	 * @return $select  string select con el control creado
 	 */
 	public function render($class_css=""){
-		$select =  "<select class='form-control $class_css' style='width: 100%' id='$this->name' name='$this->name' ".$this->funjs."  ".$this->tag.">";
-		$select.= "<option >Selecciona un ". $this->value ." </option>";
+		$select =  "<select ".$this->tag." class='form-control $class_css' style='width: 100%' id='$this->name' name='$this->name' ".$this->funjs.">";
+		$select.= "<option value=\"\">Selecciona un ". $this->value ." </option>";
 		foreach($this->options as $option){
 			$select.="<option value=".$option->id.">".$option->name."</option>";
 		}

@@ -24,7 +24,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
 	$licenseMRC = mysqli_real_escape_string($con,(strip_tags($_REQUEST['license'], ENT_QUOTES)));
 	//$sWhere=" user_id=$user_id ";
-	$sWhere=" is_deleted = false ";
+	$sWhere=" is_deleted = false and id <> 1 ";
 	//Se construye la consulta sql dependiendo de los filtros ingresados
 	if($type_bussiness!=0){
 		$sWhere.=" and tipo_negocio=".$type_bussiness;
@@ -79,7 +79,6 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		 	foreach($query as $com){
 			$users = " empresa = $com->id";
 			$count_users = UserData::countQuery($users);
-
 			$finales++;
 		?>
 		<tr>

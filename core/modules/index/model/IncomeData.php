@@ -3,7 +3,7 @@ class IncomeData {
 	public static $tablename = "income";
 
 
-	public function IncomeData(){
+	public function __construct(){
 		$this->description = "";
 		$this->amount = "";
 		$this->user_id = "";

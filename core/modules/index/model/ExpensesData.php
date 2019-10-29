@@ -3,7 +3,7 @@ class ExpensesData {
 	public static $tablename = "expenses";
 
 
-	public function ExpensesData(){
+	public function __construct(){
 		$this->description = "";
 		$this->amount = "";
 		$this->upload_receipt = "";

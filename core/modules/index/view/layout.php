@@ -85,7 +85,7 @@
                     <ul class="sidebar-menu">
                         <!-- Se agregan las opciones socios, entidades e informes-->
                         <li class="header">NAVEGACIÓN</li>
-                        <?php if(isset($_GET['view']) and $_GET['view']!='company'):?>
+                        <?php if(isset($_GET['view']) and $_GET['view']!='company' and $user_session->id<>1):?>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='home' ){echo "active";}?>">
                                 <a href="?view=home"><i class="fa fa-home"></i> <span>Dashboard</span></a>
                             </li>
