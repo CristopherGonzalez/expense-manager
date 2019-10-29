@@ -1,17 +1,15 @@
 <?php
 class CountryData {
-	public static $tablename = "category_expence";
+	public static $tablename = "pais";
 
 
-	public function CountryData(){
+	public function __construct(){
 		$this->name = "";
-		$this->user_id = "";
-		$this->created_at = "NOW()";
 	}
 
 	public function add(){
-		$sql = "insert into category_expence (name,user_id,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->user_id\",$this->created_at)";
+		$sql = "insert into  ".self::$tablename."  (name) ";
+		$sql .= "value (\"$this->name\")";
 		return Executor::doit($sql);
 	}
 
@@ -44,25 +42,17 @@ class CountryData {
 		return Model::one($query[0],new CountryData());
 	}
 
-	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where user_id=$u";
+	public static function getAll(){
+		$sql = "select * from ".self::$tablename;
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CountryData());
 
 	}
-
-	public static function getLike($q,$u){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' and user_id=$u";
-		$query = Executor::doit($sql);
-		return Model::many($query[0],new CountryData());
-	}
-
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new CountryData());
 	}
-
 	public static function query($sWhere, $offset,$per_page){
 		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." LIMIT $offset,$per_page";
 		$query = Executor::doit($sql);

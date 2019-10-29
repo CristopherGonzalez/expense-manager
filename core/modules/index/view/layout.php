@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="res/images/favicon.png" />
     <?php if(isset($_SESSION["user_id"])): //si hay session ?>
-        <title>Gastos Ingresos</title>
+        <title>MRC Mi Negocio</title>
     <?php else: ?>
         <title>Iniciar Sesión</title><!-- si no hay session -->
     <?php endif; ?>    
@@ -85,49 +85,54 @@
                     <ul class="sidebar-menu">
                         <!-- Se agregan las opciones socios, entidades e informes-->
                         <li class="header">NAVEGACIÓN</li>
-
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='home' ){echo "active";}?>">
-                            <a href="?view=home"><i class="fa fa-home"></i> <span>Dashboard</span></a>
-                        </li>
-
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='income' or $_GET['view']=='editincome'){echo "active";}?>">
-                            <a href="?view=income"><i class="fa fa-usd"></i> <span>Ingresos</span></a>
-                        </li>
-
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='expenses' or $_GET['view']=='editexpense'){echo "active";}?>">
-                            <a href="?view=expenses"><i class="fa fa-credit-card"></i> <span>Gastos</span></a>
-                        </li>
-
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='partners' ){echo "active";}?>">
-                            <a href="?view=partners"><i class="fa fa-users"></i> <span>Socios</span></a>
-                        </li>
-
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_income' or $_GET['view']=='editcategory_income'){echo "active";}?>">
-                            <a href="?view=category_income"><i class="fa fa-th-list"></i> <span>Categoria de ingresos</span></a>
-                        </li>
-
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_expense' or $_GET['view']=='editcategory_expense'){echo "active";}?>">
-                            <a href="?view=category_expense"><i class="fa fa-th"></i> <span>Categoria de gastos</span></a>
-                        </li>
-
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='entities' ){echo "active";}?>">
-                            <!--a href="?view=entidades"><i class="fa fa-home"></i> <span>Informes</span></a>-->
-                            <a href="?view=entities"><i class="fa fa-building-o"></i> <span>Entidades</span></a>
-
-                        </li>
-
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='informes' ){echo "active";}?>">
-                            <!--a href="?view=informes"><i class="fa fa-home"></i> <span>Informes</span></a>-->
-                            <a href="#"><i class="fa fa-folder-open"></i> <span>Informes</span></a>
-                        </li>
-                        <li class="<?php if(isset($_GET['view']) and $_GET['view']=='profile' ){echo "active";}?>">
-                            <a href="?view=profile"><i class="fa fa-user"></i> <span>Mi cuenta</span></a>
-                        </li>
-                        <?php if($user_session->is_admin == "1"): //si hay session ?>
-                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='users' ){echo "active";}?>">
-                                <a href="?view=users"><i class="fa fa-users"></i> <span>Usuarios</span></a>
+                        <?php if(isset($_GET['view']) and $_GET['view']!='company'):?>
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='home' ){echo "active";}?>">
+                                <a href="?view=home"><i class="fa fa-home"></i> <span>Dashboard</span></a>
                             </li>
-                        <?php endif; ?>    
+
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='income' or $_GET['view']=='editincome'){echo "active";}?>">
+                                <a href="?view=income"><i class="fa fa-usd"></i> <span>Ingresos</span></a>
+                            </li>
+
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='expenses' or $_GET['view']=='editexpense'){echo "active";}?>">
+                                <a href="?view=expenses"><i class="fa fa-credit-card"></i> <span>Gastos</span></a>
+                            </li>
+
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='partners' ){echo "active";}?>">
+                                <a href="?view=partners"><i class="fa fa-users"></i> <span>Socios</span></a>
+                            </li>
+
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_income' or $_GET['view']=='editcategory_income'){echo "active";}?>">
+                                <a href="?view=category_income"><i class="fa fa-th-list"></i> <span>Categoria de ingresos</span></a>
+                            </li>
+
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_expense' or $_GET['view']=='editcategory_expense'){echo "active";}?>">
+                                <a href="?view=category_expense"><i class="fa fa-th"></i> <span>Categoria de gastos</span></a>
+                            </li>
+
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='entities' ){echo "active";}?>">
+                                <!--a href="?view=entidades"><i class="fa fa-home"></i> <span>Informes</span></a>-->
+                                <a href="?view=entities"><i class="fa fa-building-o"></i> <span>Entidades</span></a>
+
+                            </li>
+
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='informes' ){echo "active";}?>">
+                                <!--a href="?view=informes"><i class="fa fa-home"></i> <span>Informes</span></a>-->
+                                <a href="#"><i class="fa fa-folder-open"></i> <span>Informes</span></a>
+                            </li>
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='profile' ){echo "active";}?>">
+                                <a href="?view=profile"><i class="fa fa-user"></i> <span>Mi cuenta</span></a>
+                            </li>
+                            <?php if($user_session->is_admin == "1"): //si hay session ?>
+                                <li class="<?php if(isset($_GET['view']) and $_GET['view']=='users' ){echo "active";}?>">
+                                    <a href="?view=users"><i class="fa fa-users"></i> <span>Usuarios</span></a>
+                                </li>
+                            <?php endif; ?>    
+                        <?php else:?>
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='company' ){echo "active";}?>">
+                                <a href="?view=company"><i class="fa fa-user"></i> <span>Crear Compañia</span></a>
+                            </li>
+                       <?php endif; ?>    
                     </ul>
                 </section>
                 <div class="image center-block" style="bottom:0;">

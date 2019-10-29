@@ -1,7 +1,7 @@
 /*Creacion de base de datos*/
-DROP DATABASE IF EXISTS expense_manager;
-create database expense_manager;
-use expense_manager;
+DROP DATABASE IF EXISTS dm000397_Negocio;
+create database dm000397_Negocio;
+use dm000397_Negocio;
 /**Seccion de ciudades y paises**/
 create table pais (
  id int not null auto_increment primary key,
@@ -50,7 +50,7 @@ create table empresas(
   id int not null auto_increment primary key,
   status boolean not null default 1,
   is_deleted boolean not null default 0,
-  licenciaMRC int not null UNIQUE,
+  licenciaMRC varchar(10) not null UNIQUE,
   pais int not null,
   ciudad int not null,
   tipo_negocio int not null,

@@ -60,7 +60,7 @@ endif;
 
         <form method="post" action="./?action=processlogin" >
             <div class="form-group has-feedback">
-                <input type="number" class="form-control" placeholder="Licencia" name="license" required>
+                <input type="text" class="form-control" placeholder="Licencia" name="license" required>
                 <span class="glyphicon glyphicon-briefcase glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">

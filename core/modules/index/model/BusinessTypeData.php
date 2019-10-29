@@ -3,7 +3,7 @@ class BusinessTypeData {
 	public static $tablename = "tipo_negocios";
 
 
-	public function BusinessTypeData(){
+	public function __construct(){
 		$this->name = "";
 	}
 
@@ -42,8 +42,8 @@ class BusinessTypeData {
 		return Model::one($query[0],new BusinessTypeData());
 	}
 
-	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where empresa=$u";
+	public static function getAll(){
+		$sql = "select * from ".self::$tablename;
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new BusinessTypeData());
 

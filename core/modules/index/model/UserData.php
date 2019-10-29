@@ -96,6 +96,12 @@ class UserData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new UserData());
 	}
+
+	public static function getByCompany($id_company){
+		$sql = "select * from ".self::$tablename." where empresa=".$id_company;
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new UserData());
+	}
 	public static function getAll(){
 		$sql = "select * from ".self::$tablename;
 		$query = Executor::doit($sql);
@@ -117,7 +123,7 @@ class UserData {
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new CategoryExpenseData());
+		return Model::one($query[0],new UserData());
 	}
 
 	public static function query($sWhere, $offset,$per_page){

@@ -57,7 +57,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 <table class="table table-bordered table-hover">
 	<thead>
 		<th>Nombre</th>
-		<th>Tipo Gasto</th>
+		<th>Estado/Tipo</th>
 		<th>Fecha</th>
 		<th></th>
 	</thead>

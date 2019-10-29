@@ -3,7 +3,7 @@ class CityData {
 	public static $tablename = "ciudad";
 
 
-	public function CityData(){
+	public function __construct(){
 		$this->name = "";
 		$this->id_pais = "";
 	}
@@ -43,8 +43,8 @@ class CityData {
 		return Model::one($query[0],new CityData());
 	}
 
-	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where user_id=$u";
+	public static function getByIdCountry($id_country){
+		$sql = "select * from ".self::$tablename." where id_pais=$id_country";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CityData());
 

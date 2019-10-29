@@ -1,5 +1,5 @@
 
-use expense_manager;
+use dm000397_Negocio;
 /*Datos de Paises*/
 INSERT INTO pais (name) VALUES ('AFGHANISTAN');
 INSERT INTO pais (name) VALUES ('ALAND ISLANDS');
@@ -23470,40 +23470,13 @@ insert into configuration(label,name,val) values ("Logotipo","logo","logo.png");
 
 /*Prueba de empresa*/
 
-INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('1', '1', '0', '100001', '2', '34', '2', 'Empresa Prueba 1', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '1', NOW());
-INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('2', '1', '0', '100002', '2', '34', '3', 'Empresa Prueba 2', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '2', NOW());
-INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('3', '1', '0', '100003', '2', '34', '4', 'Empresa Prueba 3', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '3', NOW());
-INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('4', '1', '0', '100004', '2', '34', '6', 'Empresa Prueba 4', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '4', NOW());
-INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('5', '1', '0', '100005', '2', '34', '7', 'Empresa Prueba 5', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '5', NOW());
-INSERT INTO empresas (id, status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
-VALUES ('6', '1', '0', '100006', '2', '34', '8', 'Empresa Prueba 6', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'mrcminegocio@gmail.com', 'default.jpg', '6', NOW());
+INSERT INTO empresas (status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
+VALUES ('1', '0', 'minegocio', '2', '34', '2', 'MRComanda', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.jpg', '1', NOW());
 
 /*Prueba de usuario*/
 INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 1', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin1@admin.com', 'default.png',1 , 1, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 2', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin2@admin.com', 'default.png',2 , 1, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 3', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin3@admin.com', 'default.png',3 , 2, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 4', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin4@admin.com', 'default.png',4 , 3, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 5', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin5@admin.com', 'default.png',5 , 3, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 6', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin6@admin.com', 'default.png',6 , 4, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 7', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin7@admin.com', 'default.png',7 , 5, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 8', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin8@admin.com', 'default.png',8 , 6, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 9', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin9@admin.com', 'default.png',9 , 6, 1, NOW());
-INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at) VALUES
-(1, 0, 'Usuario de prueba 10', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin10@admin.com', 'default.png',10 , 6, 1, NOW());
+(1, 0, 'MRC Administrador', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.png',1 , 1, 1, NOW());
+
 
 /*Datos de seccion de tipos de gastos/ingresos*/
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Compras infraestructura', 'Proveedor infraestructura' );

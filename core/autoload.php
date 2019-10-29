@@ -8,6 +8,7 @@
 	include "controller/forms/lbForm.php";//
 	include "controller/forms/lbInputText.php";//
 	include "controller/forms/InputText.php";//
+	include "controller/forms/InputFile.php";//
 	include "controller/forms/SelectList.php";
 	include "controller/forms/ModalCategory.php";//
 	include "controller/forms/lbInputPassword.php";
