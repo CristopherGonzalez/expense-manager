@@ -21,7 +21,7 @@ class ModalCategory{
 		$htmlinit.="<div class='modal-content'>";
 		$htmlinit.="<form class='form-horizontal' role='form' method='post' id='add_register' name='add_register'>";
 		$htmlinit.= $this->renderHeader();
-		$htmlinit.="<div class='modal-body'>";
+		$htmlinit.="<div class='modal-body' style='display:inline-block;'>";
 		return $htmlinit;
 	}
 	public function renderHeader(){
@@ -32,21 +32,23 @@ class ModalCategory{
 		return $htmlheader;
 	}
 
-	public function renderFooter(){
+	public function renderFooter($with_add_button=true){
 		$htmlfooter="<div class='modal-footer'>";
 		$htmlfooter.="<div class='form-group'>";
 		$htmlfooter.="<span class='col-md-1 col-sm-1 col-xs-12'></span>";
 		$htmlfooter.="<label class='col-md-7 col-sm-7' style='color:#999; font-weight:normal;'>Registrado por ".$this->user." el ".date('Y-m-d')." </label>";
 		$htmlfooter.="<span class='col-md-4 col-sm-4 col-xs-12'>";
 		$htmlfooter.="<button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>";
-		$htmlfooter.="<button type='submit' id='save_data' class='btn btn-primary'>Agregar</button>";
+		if($with_add_button){$htmlfooter.=$this->renderButtonAdd();}
 		$htmlfooter.="</span></div></div>";
 		return $htmlfooter;
 	}
-
-	public function renderEnd(){
+	public function renderButtonAdd(){
+		return "<button type='submit' id='save_data' class='btn btn-primary'>Agregar</button>";
+	}
+	public function renderEnd($with_add_button=true){
 		$htmlend="</div>";
-		$htmlend.=$this->renderFooter();
+		$htmlend.=$this->renderFooter($with_add_button);
 		$htmlend.="</form></div></div></div>";
 		return $htmlend;
 	}

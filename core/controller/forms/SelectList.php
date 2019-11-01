@@ -9,6 +9,7 @@ class SelectList{
 		$this->options = $options;
 		$this->funjs = "";
 		$this->tag = "";
+		$this->default_value = "";
 	}
 	/**
 	 * @param $class_css string Parametro css por si quiere incluir una clase css
@@ -18,7 +19,7 @@ class SelectList{
 		$select =  "<select ".$this->tag." class='form-control $class_css' style='width: 100%' id='$this->name' name='$this->name' ".$this->funjs.">";
 		$select.= "<option value=\"\">Selecciona un ". $this->value ." </option>";
 		foreach($this->options as $option){
-			$select.="<option value=".$option->id.">".$option->name."</option>";
+			$select.="<option ".($this->default_value == $option->id ? "selected" : "")." value=".$option->id.">".$option->name."</option>";
 		}
 		$select.="</select>";
 		return $select;

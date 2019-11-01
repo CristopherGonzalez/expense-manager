@@ -107,7 +107,8 @@ if(isset($_SESSION["user_id"])):
                                 <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                 <?php $file_profile = new InputFile('profile_pic','Foto','image/*');
                                 $file_profile->funjs =  "onchange='load_image(this);'";
-                                echo $file_profile->render('col-sm-6',true);
+                                $file_profile->file = "res/images/companies/default.jpg";
+                                echo $file_profile->render('col-sm-6');
                                 echo $file_profile->renderImage('col-sm-4');?>
                             </div>
                            
@@ -143,7 +144,7 @@ if(isset($_SESSION["user_id"])):
         <div id="resultados_ajax"></div><!-- Resultados Ajax -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Historial Gastos</h3>
+                <h3 class="box-title">Empresas</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
@@ -200,8 +201,6 @@ if(isset($_SESSION["user_id"])):
         $('.dropdown-menu li' ).removeClass( "active" );
         $("#"+valor).addClass( "active" );
     }
-</script>
-<script>
     
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente la empresa. \n\n Desea continuar?')){
@@ -237,28 +236,21 @@ if(isset($_SESSION["user_id"])):
             })
         }
     }
-</script>
-<script>
-
     $( "#add_register" ).submit(function( input ) {
-        debugger;
         $('#save_data').attr("disabled", true);
         //Se cambia forma de envio de formulario para soportar envio de imagenes
-        var parametros = {
-                'name':$('#name').val(),
-                'password':$('#password').val(),
-                'country':$('#country_company option:selected').val(),
-                'city':$('#city_company option:selected').val(),
-                'types_bussiness':$('#types_bussiness option:selected').val(),
-                'email':$('#email').val(),
-                'license':$('#license').val()
-            };
-        parametros;
+        var data = new FormData($(this)[0]);
+        var file = $('#profile_pic').prop('file');
+        debugger;
+        data.append("profile_pic", file);
         $.ajax({
             type: "POST",
             url: "./?action=addcompany",
-            data: parametros,
-                beforeSend: function(objeto){
+            data: data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
                 },
                 success: function(datos){
@@ -274,28 +266,6 @@ if(isset($_SESSION["user_id"])):
         input.preventDefault();
     })
 
-    //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
-    function load_image(input){
-        if(input.files && input.files[0]){
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                if(input.name == "document"){
-                    $('#doc_image').attr('src', e.target.result);
-                }
-                if(input.name == "payment"){
-                    $('#pay_image').attr('src', e.target.result);
-                }
-            }
-            reader.readAsDataURL(input.files[0]);
-        }else{
-            if(input.name == "document"){
-                $('#doc_image').attr('src', 'res/images/default_image.jpg');
-            }
-            if(input.name == "payment"){
-                $('#pay_image').attr('src', 'res/images/default_image.jpg');
-            }
-        }
-    }
 //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
     function load_cities(value,name,result,mode_view=""){
         if(value!=null && value!=undefined && name!=null && name!=undefined && result!=null && result!=undefined){

@@ -18,7 +18,7 @@
 			$user->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
 			$user->password = sha1(md5(mysqli_real_escape_string($con,(strip_tags($_POST["password"],ENT_QUOTES)))));
 			$user->email = mysqli_real_escape_string($con,(strip_tags($_POST["email"],ENT_QUOTES)));
-			$license = intval($_POST["license"]);
+			$license = mysqli_real_escape_string($con,(strip_tags($_POST["license"],ENT_QUOTES)));
 			$company =  CompanyData::getByLicense($license);
 			$query_new = "";
 			if($company==null || empty($company)){ 

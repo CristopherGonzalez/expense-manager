@@ -130,7 +130,7 @@
                             <?php endif; ?>    
                         <?php else:?>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='company' ){echo "active";}?>">
-                                <a href="?view=company"><i class="fa fa-user"></i> <span>Crear Compañia</span></a>
+                                <a href="?view=company"><i class="fa fa-user"></i> <span>Empresas</span></a>
                             </li>
                        <?php endif; ?>    
                     </ul>
@@ -156,7 +156,6 @@
     <script>
     $( "#add" ).submit(function( event ) {
         $('#save_data').attr("disabled", true);
-        debugger;
         var result = false;
         var parametros = $(this).serialize();
          $.ajax({

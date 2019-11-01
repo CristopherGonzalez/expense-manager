@@ -7,7 +7,7 @@
             <div class="pull-right hidden-xs">
               <b>Version</b> 1.1.1
             </div>
-            <strong> <?php echo $company->name." - ".$company->licenciaMRC; ?> <a href="#"></a>.</strong>
+            <strong> <?php if($company->id==1 and $user_session->id=1){ echo "Mr.Comanda | MiNegocio"; }else{echo $company->name." | ".$company->licenciaMRC;} ?> <a href="#"></a>.</strong>
         </footer>
     </div>
     <!-- ./wrapper -->
@@ -23,6 +23,7 @@
     <script src="res/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="res/dist/js/demo.js"></script>
+    <script src="res/plugins/common/image_processing.js"></script>
     
     <!-- Select2 -->
     <script src="res/plugins/select2/select2.min.js" type="text/javascript"></script>
