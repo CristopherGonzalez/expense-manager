@@ -1,6 +1,7 @@
 <?php
 
 if(isset($_SESSION["user_id"])):
+    if($_SESSION['user_id']== "1"){ Core::redir('?view=company');}
     //$user = UserData::getById($_SESSION["user_id"]);
     
     $sumIncome=IncomeData::sumIncome($_SESSION["company_id"]);

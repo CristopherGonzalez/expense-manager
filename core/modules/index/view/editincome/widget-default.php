@@ -1,6 +1,6 @@
 <?php 
 
-if(isset($_SESSION["user_id"])):
+if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     if (isset($_GET['id']) && !empty($_GET['id'])){
         $id=$_GET["id"];
     }else{

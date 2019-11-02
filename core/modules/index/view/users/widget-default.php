@@ -1,6 +1,6 @@
 <?php 
 
-if(isset($_SESSION["user_id"])):
+if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     $user_session = UserData::getById($_SESSION["user_id"]);
     if($user_session->is_admin == "1"):
 ?> 

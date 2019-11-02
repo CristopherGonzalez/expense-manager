@@ -57,7 +57,7 @@ create table empresas(
   name varchar(255) not null,
   password varchar(100) not null,
   email varchar(255) not null,
-  profile_pic varchar(250) not null,
+  profile_pic LONGBLOB,
   skin int not null,
   created_at datetime not null,
   foreign key(skin) references skins(id),
@@ -75,7 +75,7 @@ create table user(
   is_deleted boolean not null default 0,
   name varchar(255) not null,
   password varchar(100) not null,
-  email varchar(255) not null UNIQUE,
+  email varchar(255) not null,
   profile_pic varchar(250) not null,
   skin int not null,
   empresa int,
@@ -84,6 +84,7 @@ create table user(
   foreign key(skin) references skins(id),
   foreign key(empresa) references empresas(id)
 );
+  ALTER TABLE `user` ADD UNIQUE( `email`, `empresa`);
 
 /*Seccion de tipos de gastos/ingreso*/
 create table tipos(
