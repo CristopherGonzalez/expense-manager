@@ -7,7 +7,7 @@ class CategoryExpenseData {
 	/**
 	 * Constructor de la clase, con parametros por defecto
 	 */
-	public function CategoryExpenseData(){
+	public function __construct(){
 		$this->name = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";

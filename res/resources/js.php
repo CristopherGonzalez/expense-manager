@@ -23,7 +23,7 @@
     <script src="res/dist/js/app.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="res/dist/js/demo.js"></script>
-    <script src="res/plugins/common/image_processing.js"></script>
+    <script src="res/plugins/common/common.js"></script>
     
     <!-- Select2 -->
     <script src="res/plugins/select2/select2.min.js" type="text/javascript"></script>

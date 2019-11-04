@@ -65,3 +65,27 @@ function load_cities(value, name, result, mode_view = "") {
         });
     }
 }
+//Funcion para cargar el log de errores dependiendo del id de registro y la tabla
+function load_change_log(id_registro, table_name, result) {
+    debugger;
+    if (id_registro != null && id_registro != undefined && table_name != null && table_name != undefined && result != null && result != undefined) {
+        var parametros = {
+            id_registro: id_registro,
+            table: table_name
+        };
+        $.ajax({
+            type: "GET",
+            url: "./?action=loadchange_log",
+            data: parametros,
+            beforeSend: function(objeto) {
+                $("#" + result).html("Procesando por favor espere...");
+            },
+            success: function(datos) {
+                if (result != "") {
+                    $("#" + result).html("");
+                    $("#" + result).html(datos);
+                }
+            }
+        });
+    }
+}

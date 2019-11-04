@@ -3,7 +3,7 @@ class EntityData {
 	public static $tablename = "entidades";
 
 
-	public function EntityData(){
+	public function __construct(){
 		$this->name = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";

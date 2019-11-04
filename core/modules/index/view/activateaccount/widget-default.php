@@ -35,7 +35,7 @@ if(isset($_GET['id']) && !isset($_SESSION["user_id"])){
                                     'is_admin'=>false
                                 );
                                 $code = Core::encrypt_decrypt('encrypt', serialize($codes));
-                                $mail = new Mail('cagv1992@gmail.com',2);
+                                $mail = new Mail('info@mrcomanda.com',2);
                                 $mail->message= "\r\n"."Licencia : ".$company->licenciaMRC;
                                 $mail->message.= "\r\n"."Nombre de Empresa : ".$company->name;
 

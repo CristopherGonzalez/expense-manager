@@ -3,7 +3,7 @@ class ResultData {
 	public static $tablename = "resultado";
 
 
-	public function ResultData(){
+	public function __construct(){
 		$this->description = "";
 		$this->amount = "";
 		$this->user_id = "";

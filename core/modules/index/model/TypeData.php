@@ -3,7 +3,7 @@ class TypeData {
 	public static $tablename = "tipos";
 
 
-	public function TypeData(){
+	public function __construct(){
 		$this->tipo = "";
 		$this->name = "";
 		$this->entidad = "";
