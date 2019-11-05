@@ -35,11 +35,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     <section class="content">
         <div class="row">
             <div class="col-md-6"><!-- left column -->
-                <div class="box box-primary"> <!-- general form elements -->
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Editar Ingreso</h3>
-                    </div><!-- /.box-header -->
-                    <form role="form" method="post" name="upd" id="upd"><!-- form start -->
+                <form role="form" method="post" name="upd" id="upd">
+                    <div class="box box-primary"> <!-- general form elements -->
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Editar Ingreso</h3>
+                        </div><!-- /.box-header -->
+                    <!-- form start -->
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="description" class="control-label">Descripción: </label>
@@ -47,7 +48,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             </div>
                             <div class="form-group">
                                 <label for="amount" class="control-label">Importe: </label>
-                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $income->amount ?>">
+                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,10}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="10" value="<?php echo $income->amount ?>">
 
                             </div>
                             <div class="form-group">
@@ -113,6 +114,18 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <label for="paid_out">
                                     <input type="checkbox" id="paid_out" name="paid_out" <?php if($income->pagado){echo "checked";} ?> > Pagado
                                 </label>
+                                <span style="float:right;">
+                                    <?php 
+                                        $lblchange_log = new lblChangeLog($income->id, "income");
+                                        echo $lblchange_log->renderLabel();
+                                        $modal_content = new ModalCategory("Listado de Cambios","frmincome",UserData::getById($_SESSION['user_id']));
+                                        echo $modal_content->renderInit();
+                                    ?>
+                                        <div class="form-group">
+                                            <div id="chn_log"></div>
+                                        </div>
+                                    <?php echo $modal_content->renderEnd(false);?>  
+                                </span>
                             </div>
                             <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $income->id; ?>">
@@ -123,17 +136,21 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>
                         </div>
-                    </form>
-                </div> <!-- /.box -->
-                <div id="result"></div>
-            </div>
+                        <div id="result"></div>
+                    </div> <!-- /.box -->
+                </div>
+            </form>
         </div>
     </section>     
 </div>
 <!-- /.content-wrapper -->
 <?php include "res/resources/js.php"; ?>
 <script>
+    $(function(){
+        load_change_log(<?php echo $income->id; ?>, "income", "chn_log");
+    });
     $( "#upd" ).submit(function( event ) {
+        $('#upd_data').attr("disabled", true);
         var fd = new FormData($(this)[0]);
         var pay_out = $('#paid_out').is(":checked");
         fd.append("pay_out",pay_out);

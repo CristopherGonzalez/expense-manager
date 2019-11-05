@@ -35,11 +35,11 @@ if(!isset($expense) && empty($expense)){
     <section class="content">
         <div class="row">
             <div class="col-md-6"><!-- left column -->
-                <div class="box box-primary"> <!-- general form elements -->
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Editar Gasto</h3>
-                    </div><!-- /.box-header -->
-                    <form role="form" method="post" name="upd" id="upd"><!-- form start -->
+                <form role="form" method="post" name="upd" id="upd"><!-- form start -->
+                    <div class="box box-primary"> <!-- general form elements -->
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Editar Gasto</h3>
+                        </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -50,7 +50,7 @@ if(!isset($expense) && empty($expense)){
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="amount" class="control-label">Importe: </label>
-                                    <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $expense->amount ?>">
+                                    <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,10}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $expense->amount ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -149,15 +149,26 @@ if(!isset($expense) && empty($expense)){
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="paid_out">
                                         <input type="checkbox" id="paid_out" name="paid_out" <?php if($expense->pagado){echo "checked";} ?> > Pagado
                                     </label>
+                                    <span style="float:right;">
+                                        <?php 
+                                            $lblchange_log = new lblChangeLog($expense->id, "expenses");
+                                            echo $lblchange_log->renderLabel();
+                                            $modal_content = new ModalCategory("Listado de Cambios","frmexpenses",UserData::getById($_SESSION['user_id']));
+                                            echo $modal_content->renderInit();
+                                        ?>
+                                            <div class="form-group">
+                                                <div id="chn_log"></div>
+                                            </div>
+                                        <?php echo $modal_content->renderEnd(false);?>  
+                                    </span>
                                 </div>
                             </div>
-                             <!-- mod id -->
+                            <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $expense->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
@@ -166,9 +177,9 @@ if(!isset($expense) && empty($expense)){
                                 <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>
                         </div>
-                    </form>
-                </div> <!-- /.box -->
-                <div id="result"></div>
+                    </div> <!-- /.box -->
+                    <div id="result"></div>
+                </form>
             </div>
         </div>
     </section>     
@@ -176,6 +187,9 @@ if(!isset($expense) && empty($expense)){
 <!-- /.content-wrapper -->
 <?php include "res/resources/js.php"; ?>
 <script>
+    $(function(){
+        load_change_log(<?php echo $expense->id; ?>, "expenses", "chn_log");
+    });
     $( "#upd" ).submit(function( event ) {
         fd = new FormData($(this)[0]);
         var pay_out = $('#paid_out').is(":checked");

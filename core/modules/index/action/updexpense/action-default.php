@@ -57,6 +57,22 @@ if (!isset($_SESSION['user_id'])){
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";
 		}
+		$change_log = new ChangeLogData();
+		$change_log->tabla = "expenses";
+		$change_log->registro_id = $expense->id;
+		$change_log->description = $expense->description;
+		$change_log->amount = $expense->amount;
+		$change_log->entidad = $expense->entidad;
+		$change_log->fecha = $expense->fecha;
+		$change_log->pagado = $expense->pagado;
+		$change_log->user_id = $expense->user_id;
+		$result = $change_log->add();
+		if (isset($result) && !empty($result) && $result[0]){
+			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
+		} else{
+			$errors []= " Lo siento algo ha salido mal en el registro de errores.";
+		}
+
 	} else {
 		$errors []= "Error desconocido.";
 	}

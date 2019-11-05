@@ -102,19 +102,19 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="description" class="col-sm-2 control-label">Descripción: </label>
+                                            <label for="description" class="col-sm-2 control-label">Descripción </label>
                                             <div class="col-sm-10">
-                                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "></textarea>
+                                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción "></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="amount" class="col-sm-2 control-label">Importe: </label>
+                                            <label for="amount" class="col-sm-2 control-label">Importe </label>
                                             <div class="col-sm-10">
-                                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="type_expense" class="col-sm-2 control-label">Tipo: </label>
+                                            <label for="type_expense" class="col-sm-2 control-label">Tipo </label>
                                             <div class="col-sm-10">
                                                 <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
                                                     <option >---SELECCIONA---</option>
@@ -131,7 +131,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                         <div class="form-group">
                                             <?php 
-                                                $category_select = new SelectList("category","Categoria:",$categories);
+                                                $category_select = new SelectList("category","Categoria",$categories);
                                                 echo $category_select->renderLabel('col-sm-2');
                                             ?>
                                             <div class="col-sm-10">
@@ -140,7 +140,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                         <div class="form-group">
                                             <?php 
-                                                $entity_select = new SelectList("entidad","Entidad:",$entities);
+                                                $entity_select = new SelectList("entity","Entidad",$entities);
                                                 echo $entity_select->renderLabel('col-sm-2');
                                             ?>
                                             <div class="col-sm-10">
@@ -148,14 +148,14 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="date" class="col-sm-2 control-label">Fecha: </label>
+                                            <label for="date" class="col-sm-2 control-label">Fecha</label>
                                             <div class="col-sm-10">
-                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: ">
+                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha ">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label for="document" class="col-sm-6">Documento:
+                                            <label for="document" class="col-sm-6">Documento
                                                 <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
                                                 <input type="file" class="form-control" accept="image/*" capture="camera" id="document_cam" name="document_cam" onchange="load_image(this);">
                                             </label>
@@ -165,7 +165,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label for="payment" class="col-sm-6">Pago:
+                                            <label for="payment" class="col-sm-6">Pago
                                                 <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
                                                 <input type="file" class="form-control" accept="image/*;capture=camera" id="payment_cam" name="payment_cam" onchange="load_image(this);">
                                             </label>
@@ -182,14 +182,15 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <div class="form-group">
+                                            <div class="form-group">
                                             <span class="col-md-1 col-sm-1 col-xs-12"></span>
-                                            <span class="col-md-4 col-sm-4 col-xs-12">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                                <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
-                                            </span>
+                                                <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
+                                                <span class="col-md-4 col-sm-4 col-xs-12">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
                                 </form>
                                 <!-- /end form  -->
                                 </div>

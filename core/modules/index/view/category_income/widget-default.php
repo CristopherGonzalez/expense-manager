@@ -62,7 +62,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             <div class="modal-body">
                                     <!-- Se agrega desplegable para seleccionar el tipo de gasto -->
                                     <div class="form-group">
-                                        <label for="type_income" class="col-sm-2 control-label">Ingreso: </label>
+                                        <label for="type_income" class="col-sm-2 control-label">Ingreso </label>
                                         <div class="col-sm-10">
                                             <select class="form-control" style="width: 100%" name="type_income" id="type_income" >
                                                 <option >---SELECCIONA---</option>
@@ -78,7 +78,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                     </div>
                 <div class="form-group">
-                    <label for="name" class="col-sm-2 control-label">Nombre: </label>
+                    <label for="name" class="col-sm-2 control-label">Nombre </label>
                     <div class="col-sm-10">
                         <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: ">
                     </div>

@@ -21,7 +21,7 @@ class ModalCategory{
 		$htmlinit.="<div class='modal-content'>";
 		$htmlinit.="<form class='form-horizontal' role='form' method='post' id='add_register' name='add_register'>";
 		$htmlinit.= $this->renderHeader();
-		$htmlinit.="<div class='modal-body' style='display:inline-block;'>";
+		$htmlinit.="<div class='modal-body table-responsive'>";
 		return $htmlinit;
 	}
 	public function renderHeader(){

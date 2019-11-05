@@ -43,7 +43,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         echo $modal_content->renderInit();?>
                         <div class="form-group">
                             <?php 
-                                $type_expense_select = new SelectList("type_expense","Gastos:",TypeData::getAllExpense());
+                                $type_expense_select = new SelectList("type_expense","Gastos",TypeData::getAllExpense());
                                 echo $type_expense_select->renderLabel('col-sm-2');
                             ?>
                             <div class="col-sm-10">

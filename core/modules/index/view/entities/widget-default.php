@@ -97,7 +97,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="type" class="col-sm-4 control-label">Origen: </label>
+                                            <label for="type" class="col-sm-4 control-label">Origen </label>
                                             <div class="col-sm-8">
                                                 <select class="form-control select2" style="width: 100%" name="origin" id="origin" onchange="change_origin(this);" required>
                                                     <option value="origin_default">---SELECCIONA---</option>
@@ -108,7 +108,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="type" class="col-sm-4 control-label">Tipo: </label>
+                                            <label for="type" class="col-sm-4 control-label">Tipo </label>
                                             <div class="col-sm-8">
                                                 <select class="form-control select2" style="width: 100%" name="type" id="type" required disabled>
                                                     <option value=0>---SELECCIONA---</option>
@@ -116,7 +116,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="category_expense" class="col-sm-4 control-label">Categoria de gastos: </label>
+                                            <label for="category_expense" class="col-sm-4 control-label">Categoria de gastos </label>
                                             <div class="col-sm-8">
                                                 <select class="form-control select2" style="width: 100%" name="category_expense" id="category_expense" disabled>
                                                     <option value=0>---SELECCIONA---</option>
@@ -132,7 +132,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="category_income" class="col-sm-4 control-label">Categoria de ingreso: </label>
+                                            <label for="category_income" class="col-sm-4 control-label">Categoria de ingreso </label>
                                             <div class="col-sm-8">
                                                 <select class="form-control select2" style="width: 100%" name="category_income" id="category_income" disabled>
                                                     <option value=0>---SELECCIONA---</option>
@@ -148,7 +148,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="category_partner" class="col-sm-4 control-label">Categoria socio: </label>
+                                            <label for="category_partner" class="col-sm-4 control-label">Categoria socio </label>
                                             <div class="col-sm-8">
                                                 <select class="form-control select2" style="width: 100%" name="category_partner" id="category_partner" disabled>
                                                     <option value=0>---SELECCIONA---</option>
@@ -158,9 +158,9 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label for="name_entity" class="col-sm-4 control-label">Nombre: </label>
+                                            <label for="name_entity" class="col-sm-4 control-label">Nombre </label>
                                             <div class="col-sm-8">
-                                                <textarea type="text" class="form-control" id="name_entity" name="name_entity" placeholder="Nombre: "></textarea>
+                                                <textarea type="text" class="form-control" id="name_entity" name="name_entity" placeholder="Nombre"></textarea>
                                             </div>
                                         </div>
                                     </div>
