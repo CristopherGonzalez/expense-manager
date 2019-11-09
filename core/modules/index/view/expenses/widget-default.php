@@ -157,20 +157,20 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="document" class="col-sm-6">Documento
                                                 <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
-                                                <input type="file" class="form-control" accept="image/*" capture="camera" id="document_cam" name="document_cam" onchange="load_image(this);">
+                                                <input type="button" class="btn btn-default" id="btn_webcam_document" name="btn_webcam_document" value="Sacar Foto" data-toggle="modal" href="#frmwebcamdocument" onclick="add_parameters_from_webcam('document')">
                                             </label>
                                             <div class="col-sm-4">
-                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="doc_image" height="60" width="75" >
+                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image" height="60" width="75" >
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="payment" class="col-sm-6">Pago
                                                 <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
-                                                <input type="file" class="form-control" accept="image/*;capture=camera" id="payment_cam" name="payment_cam" onchange="load_image(this);">
+                                                <input type="button" class="btn btn-default" id="btn_webcam_payment" name="btn_webcam_payment" value="Sacar Foto" data-toggle="modal" href="#frmwebcampayment" onclick="add_parameters_from_webcam('payment')">
                                             </label>
                                             <div class="col-sm-4">
-                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="pay_image"  height="60" width="75" >
+                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image"  height="60" width="75" >
                                             </div>
                                             
                                         </div>
@@ -196,6 +196,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 </div>
                             </div>
                         </div>
+                        <?php 
+                            $webcamdocument = new Webcam('document');
+                            echo $webcamdocument->renderModalImageCam();
+                            $webcampayment = new Webcam('payment');
+                            echo $webcampayment->renderModalImageCam();
+                        ?>
                         <!-- End Form Modal -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -217,6 +223,74 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             <a style="margin-right: 3px" target="_blank" href="reports/reportExpense.php" class="btn btn-default pull-right">
                                 <span class="fa fa-file-excel-o"></span> Descargar
                             </a>
+                        </div> 
+                        <div class="btn-group">
+                            <a style="margin-right: 3px; margin-top: 3px;"  data-toggle="modal" data-target="#frmfixedscost" class="btn btn-default pull-right">
+                                <span class="fa fa-list"></span> Generar gastos fijos del mes
+                            </a>
+                            <div id="md_fixed_cost">
+                                <?php 
+                                    $modal_content = new ModalCategory("Generar gastos fijos del mes","frmfixedscost",UserData::getById($_SESSION['user_id']));
+                                    echo $modal_content->renderInit($is_small=true);
+                                ?>
+                                <div class="form-group">
+                                    <label class="col-md-12 col-sm-12 col-xs-12">Copia del mes</label>
+                                </div>   
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <select name="month_fixed_cost" id="month_fixed_cost" class="form-control" onchange="load_select_fixed_cost();">
+                                            <?php foreach($months as $index => $month){ ?>
+                                                <option value="<?php echo $index+1; ?>"  <?php if(($index+1) == date("n")) echo "selected"; ?> ><?php echo $month; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <select name="year_fixed_cost" id="year_fixed_cost" class="form-control" onchange="load_select_fixed_cost();">
+                                            <?php foreach($years as $year){ ?>
+                                                <option value="<?php echo $year; ?>"  <?php if($year == date("Y")) echo "selected"; ?> ><?php echo $year; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 col-sm-12 col-xs-12">Generar en mes</label>
+                                </div>   
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <select name="month_from_cost" id="month_from_cost" class="form-control">
+                                            <?php foreach($months as $index => $month){ ?>
+                                                <option value="<?php echo $index+1; ?>"  <?php if(($index+1) == date("n")) echo "selected"; ?> ><?php echo $month; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <select name="year_from_cost" id="year_from_cost" class="form-control">
+                                            <?php foreach($years as $year){ ?>
+                                                <option value="<?php echo $year; ?>"  <?php if($year == date("Y")) echo "selected"; ?> ><?php echo $year; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12 col-sm-12 col-xs-12">Seleccione los Tipos de Gasto a generar</label>
+                                </div>   
+                                <div class="form-group">
+                                    <?php foreach($types as $type){ ?>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="checkbox" id="<?php echo $type->id; ?>" name="<?php echo $type->id; ?>" onchange="load_select_fixed_cost();">
+                                            <label for="<?php echo $type->id; ?>"><?php echo $type->name; ?></label>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="result_fixed_cost">
+                                    <select name="slc_fixed_cost" id="slc_fixed_cost" class="form-control" disabled style="width:100%;">
+                                        <option value="0" selected>Selecciona antes Mes, Año y Tipo</option>
+                                    </select>
+                                </div>
+                                <?php echo $modal_content->renderEnd(false,true);?>  
+                            </div>
                         </div> 
                         <?php endif; ?> 
                     </div>
@@ -243,6 +317,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 </div>
 <!-- /.content-wrapper -->
 <?php   include "res/resources/js.php"; ?>
+<script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
+<script type="text/javascript" src="res/plugins/multimodal/multimodal.js"></script>
 
 <script>
     $(function() {
@@ -372,23 +448,17 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         if(input.files && input.files[0]){
             var reader = new FileReader();
             reader.onload = function(e) {
-                if(input.name == "document"){
-                    $('#doc_image').attr('src', e.target.result);
-                }
-                if(input.name == "payment"){
-                    $('#pay_image').attr('src', e.target.result);
-                }
+                $('#'+input.name+'_image').attr('src', e.target.result);
             }
             reader.readAsDataURL(input.files[0]);
         }else{
-            if(input.name == "document"){
-                $('#doc_image').attr('src', 'res/images/default_image.jpg');
-            }
-            if(input.name == "payment"){
-                $('#pay_image').attr('src', 'res/images/default_image.jpg');
-            }
+            $('#'+input.name+'_image').attr('src', 'res/images/default_image.jpg');
         }
     }
-
+    function add_parameters_from_webcam(value){
+        var video = document.getElementById('video_'+value);
+        var canvas = document.getElementById('canvas_'+value);
+        init_webcam(video,canvas);
+    }
 </script>
 <?php else: Core::redir("./"); endif;?> 

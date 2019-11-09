@@ -114,6 +114,11 @@ class ExpensesData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 	}
+	public static function query_dinamyc($sWhere){
+		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." order by created_at ";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new ExpensesData());
+	}
 
 }
 
