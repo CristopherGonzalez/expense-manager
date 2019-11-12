@@ -114,19 +114,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="type_expense" class="col-sm-2 control-label">Tipo </label>
+                                            <?php 
+                                                $type_expense_select = new SelectList("type_expense","Tipo",$types);
+                                                echo $type_expense_select->renderLabel('col-sm-2');
+                                            ?>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
-                                                    <option >---SELECCIONA---</option>
-                                                <?php
-                                                    //Se carga datos de tipos de gasto en modal
-                                                    foreach($types as $type){
-                                                ?>
-                                                    <option value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
-                                                <?php 
-                                                    }
-                                                ?>
-                                                </select>
+                                                <?php echo $type_expense_select->render(); ?>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -172,7 +165,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             <div class="col-sm-4">
                                                 <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image"  height="60" width="75" >
                                             </div>
-                                            
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
@@ -323,9 +315,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <script>
     $(function() {
         load(1);
-        var date = new Date();
-        date.getMonth()
-        date.getFullYear()
     });
     function load(page){
        //Se obtienen filtros de busqueda
@@ -366,9 +355,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         $('.dropdown-menu li' ).removeClass( "active" );
         $("#"+valor).addClass( "active" );
     }
-</script>
-<script>
-    
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente el gasto \n\n Desea continuar?')){
             //Se obtienen filtros de busqueda para recarga y por estandar
@@ -410,16 +396,14 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             })
         }
     }
-</script>
-<script>
-
     $( "#add_register" ).submit(function( event ) {
-     
         $('#save_data').attr("disabled", true);
         //Se cambia forma de envio de formulario para soportar envio de imagenes
         var fd = new FormData($(this)[0]);
         var pay_out = $('#paid_out').is(":checked");
         fd.append("pay_out",pay_out);
+        fd.append("document_image", $('#document_image').attr('src'));
+        fd.append("payment_image",$('#payment_image').attr('src'));
    
         $.ajax({
             type: "POST",
@@ -443,22 +427,5 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         event.preventDefault();
     })
 
-    //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
-    function load_image(input){
-        if(input.files && input.files[0]){
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#'+input.name+'_image').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }else{
-            $('#'+input.name+'_image').attr('src', 'res/images/default_image.jpg');
-        }
-    }
-    function add_parameters_from_webcam(value){
-        var video = document.getElementById('video_'+value);
-        var canvas = document.getElementById('canvas_'+value);
-        init_webcam(video,canvas);
-    }
 </script>
 <?php else: Core::redir("./"); endif;?> 

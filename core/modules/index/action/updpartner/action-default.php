@@ -7,61 +7,53 @@ if (!isset($_SESSION['user_id'])){
            $errors[] = "ID vacío";
         }else if (empty($_POST['amount'])) {
            $errors[] = "Cantidad vacío";
-        }else if (empty($_POST['category'])) {
-           $errors[] = "Categoria vacío";
         }else if (empty($_POST['date'])) {
            $errors[] = "Fecha vacío";
-        }else if (empty($_POST['type_income'])) {
-			$errors[] = "No ha seleccionado el tipo de ingreso";
 		 }else if (empty($_POST['entity'])) {
 			$errors[] = "No ha seleccionado una entidad vacГ­o.";
 		 }else if (
         	!empty($_POST['mod_id'])
 			&& !empty($_POST['amount'])
-        	&& !empty($_POST['category'])
 			&& !empty($_POST['date'])
-			&& !empty($_POST['type_income'])
 			&& !empty($_POST['entity'])
 		){
 
     	$con = Database::getCon(); 
 		$id=intval($_POST['mod_id']);
-		$income = IncomeData::getById($id);
-		$income->description = mysqli_real_escape_string($con,(strip_tags($_POST["description"],ENT_QUOTES)));
-		$income->amount = mysqli_real_escape_string($con,(strip_tags($_POST["amount"],ENT_QUOTES)));
-		$income->category_id = intval($_POST['category']);
-		$income->created_at = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
+		$partner = ResultData::getById($id);
+		$partner->description = mysqli_real_escape_string($con,(strip_tags($_POST["description"],ENT_QUOTES)));
+		$partner->amount = mysqli_real_escape_string($con,(strip_tags($_POST["amount"],ENT_QUOTES)));
+		$partner->created_at = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
 		//Se capturan los nuevos datos de los gastos
-		$income->entidad = intval($_POST['entity']);
-		$income->tipo = intval($_POST['type_income']);
-		$income->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
-		$income->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
+		$partner->entidad = intval($_POST['entity']);
+		$partner->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
+		$partner->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
 		//Se realiza guardado de imagenes de pago y documento
-		$income->documento = "";
-		$income->pago = "";
+		$partner->documento = "";
+		$partner->pago = "";
 		if(isset($_POST["document_image"]) && !empty($_POST["document_image"])){
-			$income->documento = $_POST["document_image"];
+			$partner->documento = $_POST["document_image"];
 		}
 		
 		if(isset($_POST["payment_image"]) && !empty($_POST["payment_image"])){
-			$income->pago = $_POST["payment_image"];
+			$partner->pago = $_POST["payment_image"];
 		}
-		$query_update=$income->update();
+		$query_update=$partner->update();
 
 		if ($query_update){
-			$messages[] = "El ingreso ha sido actualizado satisfactoriamente.";
+			$messages[] = "El registro ha sido actualizado satisfactoriamente.";
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";
 		}
 		$change_log = new ChangeLogData();
-		$change_log->tabla = "income";
-		$change_log->registro_id = $income->id;
-		$change_log->description = $income->description;
-		$change_log->amount = $income->amount;
-		$change_log->entidad = $income->entidad;
-		$change_log->fecha = $income->fecha;
-		$change_log->pagado = $income->pagado;
-		$change_log->user_id = $income->user_id;
+		$change_log->tabla = "partner";
+		$change_log->registro_id = $partner->id;
+		$change_log->description = $partner->description;
+		$change_log->amount = $partner->amount;
+		$change_log->entidad = $partner->entidad;
+		$change_log->fecha = $partner->fecha;
+		$change_log->pagado = $partner->pagado;
+		$change_log->user_id = $partner->user_id;
 		$result = $change_log->add();
 		if (isset($result) && !empty($result) && $result[0]){
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";

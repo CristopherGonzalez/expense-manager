@@ -4,23 +4,21 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     if (isset($_GET['id']) && !empty($_GET['id'])){
         $id=$_GET["id"];
     }else{
-        Core::redir("./?view=income");
+        Core::redir("./?view=partners");
     }
 
     //query
-    $income=IncomeData::getById($id);
+    $partner=ResultData::getById($id);
 //Se obtienen datos para llenado de desplegables
-    $types=TypeData::getAllIncome();
-    $category=CategoryIncomeData::getAll($_SESSION["company_id"]);
     $entities=EntityData::getAll($_SESSION["company_id"]);
-    if(!isset($income) && empty($income)){
-        Core::redir("./?view=income");
+    if(!isset($partner) && empty($partner)){
+        Core::redir("./?view=partners");
     }
-    if(isset($income->pago) && !empty($income->pago)){ 
-        $img_pago = $income->pago;
+    if(isset($partner->pago) && !empty($partner->pago)){ 
+        $img_pago = $partner->pago;
     }
-    if(isset($income->documento) && !empty($income->documento)){ 
-        $img_doc = $income->documento;
+    if(isset($partner->documento) && !empty($partner->documento)){ 
+        $img_doc = $partner->documento;
     }
 ?> 
 
@@ -45,44 +43,16 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="description" class="control-label">Descripción: </label>
-                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $income->description ?></textarea>
+                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $partner->description ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="amount" class="control-label">Importe: </label>
-                                    <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,10}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="10" value="<?php echo $income->amount ?>">
+                                    <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,10}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="10" value="<?php echo $partner->amount ?>">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label for="category" class="control-label">Categoria: </label>
-                                    <select class="form-control select2" style="width: 100%" name="category" id="category" >
-                                    <?php
-                                        foreach($category as $cat){
-                                    ?>
-                                        <option <?php if($income->category_id==$cat->id){echo"selected";} ?> value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
-                                    <?php 
-                                        }
-                                    ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label for="type_income" class="control-label">Tipo: </label>
-                                    <select class="form-control select2" style="width: 100%" name="type_income" id="type_income" >
-                                    <?php
-                                        //Se carga datos de tipos de gasto en modal
-                                        foreach($types as $type){
-                                    ?>
-                                        <option <?php if($income->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
-                                    <?php 
-                                        }
-                                    ?>
-                                    </select>
-                                </div>
-                            </div>
+                            
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="entidad" class="control-label">Entidad: </label>
@@ -91,7 +61,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         //Se carga datos de entidades en modal
                                         foreach($entities as $entity){
                                     ?>
-                                        <option <?php if($income->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
+                                        <option <?php if($partner->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
                                     <?php 
                                         }
                                     ?>
@@ -101,7 +71,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="date">Fecha: </label>
-                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $income->fecha; ?>">
+                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $partner->fecha; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -154,13 +124,13 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <div class="col-md-12 col-sm-12 col-xs-12">
 
                                     <label for="paid_out">
-                                        <input type="checkbox" id="paid_out" name="paid_out" <?php if($income->pagado){echo "checked";} ?> > Pagado
+                                        <input type="checkbox" id="paid_out" name="paid_out" <?php if($partner->pagado){echo "checked";} ?> > Pagado
                                     </label>
                                     <span style="float:right;">
                                         <?php 
-                                            $lblchange_log = new lblChangeLog($income->id, "income");
+                                            $lblchange_log = new lblChangeLog($partner->id, "partner");
                                             echo $lblchange_log->renderLabel();
-                                            $modal_content = new ModalCategory("Listado de Cambios","frmincome",UserData::getById($_SESSION['user_id']));
+                                            $modal_content = new ModalCategory("Listado de Cambios","frmpartner",UserData::getById($_SESSION['user_id']));
                                             echo $modal_content->renderInit();
                                         ?>
                                             <div class="form-group">
@@ -171,10 +141,10 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 </div>
                             </div>
                             <!-- mod id -->
-                            <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $income->id; ?>">
+                            <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $partner->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
-                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($income->user_id); echo $creator_user->name  ?> el <?php echo $income->created_at;  ?></label>
+                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($partner->user_id); echo $creator_user->name  ?> el <?php echo $partner->created_at;  ?></label>
                             <span style="margin-left:10px;">
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>
@@ -197,7 +167,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
 <script>
     $(function(){
-        load_change_log(<?php echo $income->id; ?>, "income", "chn_log");
+        load_change_log(<?php echo $partner->id; ?>, "partner", "chn_log");
     });
     $( "#upd" ).submit(function( event ) {
         $('#upd_data').attr("disabled", true);
@@ -210,7 +180,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var result = false;
         $.ajax({
             type: "POST",
-            url: "./?action=updincome",
+            url: "./?action=updpartner",
             data: fd,
             contentType: false,
             processData: false,
@@ -229,7 +199,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         event.preventDefault();
         window.setTimeout(function(){
             if (result){
-                window.location.href="./?view=income";
+                window.location.href="./?view=partners";
             }
         }, 2000);
     })

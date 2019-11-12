@@ -126,7 +126,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                                     }
                                                 ?>
                                                 </select>
-                                                </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -173,18 +172,20 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="document" class="col-sm-6">Documento
                                                 <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
+                                                <input type="button" class="btn btn-default" id="btn_webcam_document" name="btn_webcam_document" value="Sacar Foto" data-toggle="modal" href="#frmwebcamdocument" onclick="add_parameters_from_webcam('document')">
                                             </label>
                                             <div class="col-sm-4">
-                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="doc_image" height="60" width="75" >
+                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image" height="60" width="75" >
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="payment" class="col-sm-6">Pago
                                                 <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
+                                                <input type="button" class="btn btn-default" id="btn_webcam_payment" name="btn_webcam_payment" value="Sacar Foto" data-toggle="modal" href="#frmwebcampayment" onclick="add_parameters_from_webcam('payment')">
                                             </label>
                                             <div class="col-sm-4">
-                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="pay_image"  height="60" width="75" >
+                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image"  height="60" width="75" >
                                             </div>
                                             
                                         </div>
@@ -211,7 +212,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             </div>
                         </div>
                         <!-- End Form Modal -->
-
+                        <?php 
+                            $webcamdocument = new Webcam('document');
+                            echo $webcamdocument->renderModalImageCam();
+                            $webcampayment = new Webcam('payment');
+                            echo $webcampayment->renderModalImageCam();
+                        ?>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                 Mostrar <span class="caret"></span>
@@ -233,7 +239,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <span class="fa fa-file-excel-o"></span> Descargar
                             </a>
                         </div> 
-                            <?php endif; ?> 
+
+                        <?php endif; ?> 
                     </div>
                 </div>
             </div>
@@ -259,13 +266,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 </div>
 <!-- /.content-wrapper -->
 <?php   include "res/resources/js.php"; ?>
+<script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
+<script type="text/javascript" src="res/plugins/multimodal/multimodal.js"></script>
 
 <script>
     $(function() {
         load(1);
-        var date = new Date();
-        date.getMonth();
-        date.getFullYear();
     });
     function load(page){
        //Se obtienen filtros de busqueda
@@ -359,7 +365,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var fd = new FormData($(this)[0]);
         var pay_out = $('#paid_out').is(":checked");
         fd.append("pay_out",pay_out);
-   
+        fd.append("document_image", $('#document_image').attr('src'));
+        fd.append("payment_image",$('#payment_image').attr('src'));
         $.ajax({
             type: "POST",
             url: "./?action=addincome",
@@ -381,29 +388,5 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         });
         event.preventDefault();
     })
-
-    //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
-    function load_image(input){
-        if(input.files && input.files[0]){
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                if(input.name == "document"){
-                    $('#doc_image').attr('src', e.target.result);
-                }
-                if(input.name == "payment"){
-                    $('#pay_image').attr('src', e.target.result);
-                }
-            }
-            reader.readAsDataURL(input.files[0]);
-        }else{
-            if(input.name == "document"){
-                $('#doc_image').attr('src', 'res/images/default_image.jpg');
-            }
-            if(input.name == "payment"){
-                $('#pay_image').attr('src', 'res/images/default_image.jpg');
-            }
-        }
-    }
-
 </script>
 <?php else: Core::redir("./"); endif;?> 

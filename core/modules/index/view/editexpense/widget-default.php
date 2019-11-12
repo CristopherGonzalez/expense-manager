@@ -17,10 +17,10 @@ if(!isset($expense) && empty($expense)){
         Core::redir("./?view=expenses");
     }
     if(isset($expense->pago) && !empty($expense->pago)){ 
-        $img_pago = "data:image/jpeg;base64,".base64_encode($expense->pago);
+        $img_pago = $expense->pago;
     }
     if(isset($expense->documento) && !empty($expense->documento)){ 
-        $img_doc = "data:image/jpeg;base64,".base64_encode($expense->documento);
+        $img_doc = $expense->documento;
     }
 ?> 
 
@@ -104,23 +104,21 @@ if(!isset($expense) && empty($expense)){
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <label for="document">Documento:
-                                        <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this)">
-                                    </label>
-                                </div>
+                                <label for="document" class="col-md-8 col-sm-8 col-xs-12">Documento
+                                    <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
+                                    <input type="button" class="btn btn-default" id="btn_webcam_document" name="btn_webcam_document" value="Sacar Foto" data-toggle="modal" href="#frmwebcamdocument" onclick="add_parameters_from_webcam('document')">
+                                </label>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <img src="<?php echo(isset($img_doc)? $img_doc : "#"); ?>" style="<?php echo(!isset($img_doc)? "visibility:hidden;display:none;" : "#"); ?>" id="doc_image" height="60" width="75" class="img-thumbnail" alt="Imagen del documento"  data-toggle="modal" data-target="#formModalImage" onclick="load_image(this);">
+                                    <img src="<?php echo(isset($img_doc)? $img_doc : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image"  height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <label for="payment">Pago:
-                                        <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this)">
-                                    </label>
-                                </div>
+                                <label for="payment" class="col-md-8 col-sm-8 col-xs-12">Pago
+                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
+                                    <input type="button" class="btn btn-default" id="btn_webcam_payment" name="btn_webcam_payment" value="Sacar Foto" data-toggle="modal" href="#frmwebcampayment" onclick="add_parameters_from_webcam('payment')">
+                                </label>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <img src="<?php echo(isset($img_pago)? $img_pago : "#"); ?>" style="<?php echo(!isset($img_pago)? "visibility:hidden;display:none;" : "#"); ?>" id="pago_image" height="60" width="75" class="img-thumbnail" alt="Imagen del Pago" data-toggle="modal" data-target="#formModalImage" onclick="load_image(this);">
+                                    <img src="<?php echo(isset($img_pago)? $img_pago : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image"  height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
                                 </div>
                             </div>
                             <div class="modal fade" id="formModalImage" tabindex="-1" role="dialog" aria-labelledby="ModalImage" aria-hidden="true">
@@ -178,6 +176,12 @@ if(!isset($expense) && empty($expense)){
                             </span>
                         </div>
                     </div> <!-- /.box -->
+                    <?php 
+                        $webcamdocument = new Webcam('document');
+                        echo $webcamdocument->renderModalImageCam();
+                        $webcampayment = new Webcam('payment');
+                        echo $webcampayment->renderModalImageCam();
+                    ?>
                     <div id="result"></div>
                 </form>
             </div>
@@ -186,6 +190,8 @@ if(!isset($expense) && empty($expense)){
 </div>
 <!-- /.content-wrapper -->
 <?php include "res/resources/js.php"; ?>
+<script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
+
 <script>
     $(function(){
         load_change_log(<?php echo $expense->id; ?>, "expenses", "chn_log");
@@ -194,6 +200,8 @@ if(!isset($expense) && empty($expense)){
         fd = new FormData($(this)[0]);
         var pay_out = $('#paid_out').is(":checked");
         fd.append("pay_out",pay_out);
+        fd.append("document_image", $('#document_image').attr('src'));
+        fd.append("payment_image",$('#payment_image').attr('src'));
         var result = false;
         $.ajax({
             type: "POST",
@@ -221,7 +229,7 @@ if(!isset($expense) && empty($expense)){
         }, 2000);                                                                                                               
     })
     //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
-    function load_image(input){
+    function image_load(input){
         if((input.files && input.files[0])){
             var reader = new FileReader();
             reader.onload = function(e) {

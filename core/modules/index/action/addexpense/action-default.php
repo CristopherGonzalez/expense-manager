@@ -36,24 +36,16 @@ if (!isset($_SESSION['user_id'])){
 			//Se realiza guardado de imagenes de pago y documento
 			$expense->documento = "";
 			$expense->pago = "";
-			if(isset($_FILES["document"]) && !empty($_FILES["document"])){
-				if(isset($_FILES["document"]["tmp_name"]) && !empty($_FILES["document"]["tmp_name"])){
-					$doc_file = addslashes(file_get_contents($_FILES["document"]["tmp_name"])); 
-					if(isset($doc_file) && !empty($doc_file)){
-						$expense->documento = $doc_file;
-					}
-				}
+			if(isset($_POST["document_image"]) && !empty($_POST["document_image"])){
+				$expense->documento = $_POST["document_image"];
 			}
-			if(isset($_FILES["payment"]) && !empty($_FILES["payment"])){
-				if(isset($_FILES["payment"]["tmp_name"]) && !empty($_FILES["payment"]["tmp_name"])){
-					$pay_file = addslashes(file_get_contents($_FILES["payment"]["tmp_name"])); 
-					if(isset($pay_file) && !empty($pay_file)){
-						$expense->pago = $pay_file;
-					}
-				}
+			
+			if(isset($_POST["payment_image"]) && !empty($_POST["payment_image"])){
+				$expense->pago = $_POST["payment_image"];
 			}
+			
 			$query_new=$expense->add();
-            if ($query_new) {
+            if (isset($query_new) && is_array($query_new) && $query_new[0]) {
                 $messages[] = "El gasto ha sido agregado con éxito.";
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";

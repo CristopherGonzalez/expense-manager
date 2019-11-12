@@ -23,24 +23,17 @@ function upload_image_generic(input) {
 }
 //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
 function load_image(input) {
-    if (input != "" && input != null && input != undefined) {
-        var inputFileImage = input.files;
-        if (inputFileImage != undefined && inputFileImage != null && inputFileImage != "") {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#' + input.name + '_image').attr('src', e.target.result);
-                    $('#' + input.name + '_modal').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                $('#' + input.name + '_image').attr('src', 'res/images/default_image.jpg');
-                $('#' + input.name + '_modal').attr('src', 'res/images/default_image.jpg');
-
-            }
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#' + input.name + '_image').attr('src', e.target.result);
         }
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        $('#' + input.name + '_image').attr('src', 'res/images/default_image.jpg');
     }
 }
+
 //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
 function load_cities(value, name, result, mode_view = "") {
     if (value != null && value != undefined && name != null && name != undefined && result != null && result != undefined) {
@@ -180,3 +173,9 @@ $('#btn_generate').on("click", function() {
     }
 
 });
+
+function add_parameters_from_webcam(value) {
+    var video = document.getElementById('video_' + value);
+    var canvas = document.getElementById('canvas_' + value);
+    init_webcam(video, canvas);
+}

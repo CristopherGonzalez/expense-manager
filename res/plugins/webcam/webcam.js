@@ -19,7 +19,7 @@ async function init_webcam(ivideo, icanvas) {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         handle_success(stream);
     } catch (e) {
-        alert('Si quieres cargar una imagen desde la camara, debes activar los permisos. Si usas un telefono, puedes usar tu camara al cargar una imagen.');
+        alert('Si quieres cargar una imagen desde la camara, debes activar los permisos y recargar, si usas un telefono, puedes usar tu camara al cargar una imagen desde galeria.');
     }
 }
 
