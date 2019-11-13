@@ -143,7 +143,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="date" class="col-sm-2 control-label">Fecha</label>
                                             <div class="col-sm-10">
-                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha ">
+                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha "  value="<?php echo date("Y-m-d");?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -419,9 +419,10 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $('#save_data').attr("disabled", false);
                     load(1);
                     window.setTimeout(function() {
-                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                    $(this).remove();});}, 5000);
+                        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                        $(this).remove();});}, 5000);
                     $('#formModal').modal('hide');
+                    clear_modal('add_register');
                 }
         });
         event.preventDefault();

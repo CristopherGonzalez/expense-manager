@@ -1,5 +1,7 @@
 <?php 
 if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
+    $entities=EntityData::getAll($_SESSION["company_id"]);
+
 ?> 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -86,27 +88,18 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                         
                                         <div class="form-group">
-                                            <label for="entidad" class="col-sm-2 control-label">Entidad </label>
+                                            <?php 
+                                                $entity_select = new SelectList("entity","Entidad",$entities);
+                                                echo $entity_select->renderLabel('col-sm-2');
+                                            ?>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
-                                                    <option >---SELECCIONA---</option>
-                                                    <?php
-                                                        //Se carga datos de entidades en modal
-                                                        $entities=EntityData::getAll($_SESSION["company_id"]);
-                                                        foreach($entities as $entity){
-                                                    ?>
-                                                        <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
-                                                    <?php 
-                                                        }
-                                                    ?>
-                                                    </select>
-                                                </div>
+                                                <?php echo $entity_select->render(); ?>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="date" class="col-sm-2 control-label">Fecha </label>
                                             <div class="col-sm-10">
-                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: ">
+                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha" value="<?php echo date("Y-m-d");?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -135,6 +128,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             <label for="paid_out" class="col-sm-2">
                                                 <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
                                             </label>
+                                        </div>
                                         </div>
                                     
                                         <div class="modal-footer">
@@ -309,14 +303,15 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $("#resultados_ajax").html("Enviando...");
                 },
             success: function(datos){
-            $("#resultados_ajax").html(datos);
-            $('#save_data').attr("disabled", false);
-            load(1);
-            window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();});}, 5000);
-            $('#formModal').modal('hide');
-          }
+                $("#resultados_ajax").html(datos);
+                $('#save_data').attr("disabled", false);
+                load(1);
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove();});}, 5000);
+                $('#formModal').modal('hide');
+                clear_modal('add_register');
+            }
         });
         event.preventDefault();
     })

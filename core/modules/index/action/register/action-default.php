@@ -34,7 +34,11 @@
 					);
 					$code = Core::encrypt_decrypt('encrypt', serialize($codes));
 					$mail = new Mail($company->email,1);
-					$mail->message=  "\r\n"."Link para activacion de nueva cuenta.";
+					
+					$mail->message= "\r\n"."Licencia : ".$company->licenciaMRC;
+					$mail->message.= "\r\n"."Nombre de Empresa : ".$company->name;
+					$mail->message.= "\r\n"."Nombre de Usuario : ".$user->name;
+					$mail->message.=  "\r\n"."Link para activacion de nueva cuenta.";
 					$mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
 					$resp_send = $mail->send();
 					if($resp_send){

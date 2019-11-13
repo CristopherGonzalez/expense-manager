@@ -172,14 +172,15 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $("#resultados_ajax").html("Enviando...");
                 },
             success: function(datos){
-            $("#resultados_ajax").html(datos);
-            $('#save_data').attr("disabled", false);
-            load(1);
-            window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();});}, 5000);
-            $('#formModal').modal('hide');
-          }
+                $("#resultados_ajax").html(datos);
+                $('#save_data').attr("disabled", false);
+                load(1);
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove();});}, 5000);
+                $('#formModal').modal('hide');
+                clear_modal('add_register');
+            }
         });
         event.preventDefault();
     })

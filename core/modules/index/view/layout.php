@@ -62,7 +62,7 @@
                                           <a href="./?view=profile" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-user"></i> Mi Cuenta</a>
                                         </div>
                                         <div class="pull-right">
-                                          <a href="./?action=logout" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-off"></i> Salir</a>
+                                          <a href="./?action=logout" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-off"></i> Cerrar Sesión</a>
                                         </div>
                                     </li>
                                 </ul>

@@ -179,3 +179,10 @@ function add_parameters_from_webcam(value) {
     var canvas = document.getElementById('canvas_' + value);
     init_webcam(video, canvas);
 }
+
+function clear_modal(name_form) {
+    $('#' + name_form).trigger("reset");
+    $('#' + name_form + ' img').each(function(index) {
+        $(this).attr('src', 'res/images/default_image.jpg');
+    });
+}

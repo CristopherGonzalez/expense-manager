@@ -5,6 +5,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     //Se obtienen datos para llenado de desplegables
     $categories=CategoryIncomeData::getAll($_SESSION["company_id"]);
     $types=TypeData::getAllIncome();
+    $entities=EntityData::getAll($_SESSION["company_id"]);
+
  ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -113,59 +115,37 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="type_income" class="col-sm-2 control-label">Tipo </label>
+                                            <?php 
+                                                $type_income_select = new SelectList("type_income","Tipo",$types);
+                                                echo $type_income_select->renderLabel('col-sm-2');
+                                            ?>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%" name="type_income" id="type_income" >
-                                                    <option >---SELECCIONA---</option>
-                                                <?php
-                                                    //Se carga datos de tipos de gasto en modal
-                                                    foreach($types as $type){
-                                                ?>
-                                                    <option value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
-                                                <?php 
-                                                    }
-                                                ?>
-                                                </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="category" class="col-sm-2 control-label">Categoria </label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control select2" style="width: 100%" name="category" id="category" >
-                                                        <option >---SELECCIONA---</option>
-                                                    <?php
-                                                        //Se carga datos de tipos de categoria en modal
-                                                        foreach($categories as $category){
-                                                    ?>
-                                                        <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
-                                                    <?php 
-                                                        }
-                                                    ?>
-                                                </select>
+                                                <?php echo $type_income_select->render(); ?>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="entidad" class="col-sm-2 control-label">Entidad </label>
+                                            <?php 
+                                                $category_select = new SelectList("category","Categoria",$categories);
+                                                echo $category_select->renderLabel('col-sm-2');
+                                            ?>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
-                                                    <option >---SELECCIONA---</option>
-                                                    <?php
-                                                        //Se carga datos de entidades en modal
-                                                        $entities=EntityData::getAll($_SESSION["company_id"]);
-                                                        foreach($entities as $entity){
-                                                    ?>
-                                                        <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
-                                                    <?php 
-                                                        }
-                                                    ?>
-                                                    </select>
-                                                </div>
+                                                <?php echo $category_select->render(); ?>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <?php 
+                                                $entity_select = new SelectList("entity","Entidad",$entities);
+                                                echo $entity_select->renderLabel('col-sm-2');
+                                            ?>
+                                            <div class="col-sm-10">
+                                                <?php echo $entity_select->render(); ?>
+                                            </div>
+                                        </div>
+                                       
                                         <div class="form-group">
                                             <label for="date" class="col-sm-2 control-label">Fecha </label>
                                             <div class="col-sm-10">
-                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: ">
+                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha" value="<?php echo date("Y-m-d");?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -187,7 +167,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             <div class="col-sm-4">
                                                 <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image"  height="60" width="75" >
                                             </div>
-                                            
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
@@ -195,17 +174,17 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                                 <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
                                             </label>
                                         </div>
-                                    
-                                        <div class="modal-footer">
-                                            <div class="form-group">
-                                            <span class="col-md-1 col-sm-1 col-xs-12"></span>
-                                                <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
-                                                <span class="col-md-4 col-sm-4 col-xs-12">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
-                                                </span>
-                                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="form-group">
+                                        <span class="col-md-1 col-sm-1 col-xs-12"></span>
+                                            <label class="col-md-7 col-sm-7" style="color:#999; font-weight:normal;">Registrado por  <?php $user_session=UserData::getById($_SESSION["user_id"]); echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
+                                            <span class="col-md-4 col-sm-4 col-xs-12">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
+                                            </span>
                                         </div>
+                                    </div>
                                     </div>
                                 </form>
                                 <!-- /end form  -->
@@ -377,14 +356,15 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $("#resultados_ajax").html("Enviando...");
                 },
             success: function(datos){
-            $("#resultados_ajax").html(datos);
-            $('#save_data').attr("disabled", false);
-            load(1);
-            window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();});}, 5000);
-            $('#formModal').modal('hide');
-          }
+                $("#resultados_ajax").html(datos);
+                $('#save_data').attr("disabled", false);
+                load(1);
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove();});}, 5000);
+                $('#formModal').modal('hide');
+                clear_modal('add_register');
+            }
         });
         event.preventDefault();
     })

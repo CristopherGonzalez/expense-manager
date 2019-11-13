@@ -99,7 +99,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="type" class="col-sm-4 control-label">Origen </label>
                                             <div class="col-sm-8">
-                                                <select class="form-control select2" style="width: 100%" name="origin" id="origin" onchange="change_origin(this);" required>
+                                                <select class="form-control" style="width: 100%" name="origin" id="origin" onchange="change_origin(this);" required>
                                                     <option value="origin_default">---SELECCIONA---</option>
                                                     <option value="origin_expense">Egresos</option>
                                                     <option value="origin_income">Ingresos</option>
@@ -110,7 +110,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="type" class="col-sm-4 control-label">Tipo </label>
                                             <div class="col-sm-8">
-                                                <select class="form-control select2" style="width: 100%" name="type" id="type" required disabled>
+                                                <select class="form-control" style="width: 100%" name="type" id="type" required disabled>
                                                     <option value=0>---SELECCIONA---</option>
                                                 </select>
                                             </div>
@@ -118,7 +118,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="category_expense" class="col-sm-4 control-label">Categoria de gastos </label>
                                             <div class="col-sm-8">
-                                                <select class="form-control select2" style="width: 100%" name="category_expense" id="category_expense" disabled>
+                                                <select class="form-control" style="width: 100%" name="category_expense" id="category_expense" disabled>
                                                     <option value=0>---SELECCIONA---</option>
                                                     <?php
                                                         //Se carga datos de tipos de categoria por gasto en modal
@@ -134,7 +134,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="category_income" class="col-sm-4 control-label">Categoria de ingreso </label>
                                             <div class="col-sm-8">
-                                                <select class="form-control select2" style="width: 100%" name="category_income" id="category_income" disabled>
+                                                <select class="form-control" style="width: 100%" name="category_income" id="category_income" disabled>
                                                     <option value=0>---SELECCIONA---</option>
                                                     <?php
                                                         //Se carga datos de tipos de categoria por ingreso en modal
@@ -150,7 +150,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="category_partner" class="col-sm-4 control-label">Categoria socio </label>
                                             <div class="col-sm-8">
-                                                <select class="form-control select2" style="width: 100%" name="category_partner" id="category_partner" disabled>
+                                                <select class="form-control" style="width: 100%" name="category_partner" id="category_partner" disabled>
                                                     <option value=0>---SELECCIONA---</option>
                                                     <option value=1>Socio</option>
                                                 </select>
@@ -333,9 +333,14 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $('#save_data').attr("disabled", false);
                     load(1);
                     window.setTimeout(function() {
-                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                    $(this).remove();});}, 5000);
+                        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                        $(this).remove();});}, 5000);
                     $('#formModal').modal('hide');
+                    clear_modal('add_register');
+                    $('#type').prop('disabled', 'disabled');
+                    $('#category_expense').prop('disabled', 'disabled');
+                    $('#category_income').prop('disabled', 'disabled');
+                    $('#category_partner').prop('disabled', 'disabled');
                 }
         });
         event.preventDefault();
