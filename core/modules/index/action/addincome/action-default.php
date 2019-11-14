@@ -46,7 +46,22 @@ if (!isset($_SESSION['user_id'])){
 			
 			$query_new=$income->add();
             if ($query_new) {
-                $messages[] = "El ingreso ha sido agregado con éxito.";
+				$messages[] = "El ingreso ha sido agregado con éxito.";
+				$change_log = new ChangeLogData();
+				$change_log->tabla = "income";
+				$change_log->registro_id = $income->id;
+				$change_log->description = $income->description;
+				$change_log->amount = $income->amount;
+				$change_log->entidad = $income->entidad;
+				$change_log->fecha = $income->fecha;
+				$change_log->pagado = $income->pagado;
+				$change_log->user_id = $income->user_id;
+				$result = $change_log->add();
+				if (isset($result) && !empty($result) && $result[0]){
+					$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
+				} else{
+					$errors []= " Lo siento algo ha salido mal en el registro de errores.";
+				}										
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
             }

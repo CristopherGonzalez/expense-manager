@@ -1,13 +1,15 @@
 <?php 
-if(isset($_GET['id']) && !isset($_SESSION["user_id"])){
+if(isset($_GET['id'])){
 ?>
 <body class="hold-transition login-page">
     <div class="login-box">
-        <div class="login-logo">
-            <a href="?view=index">
-                <img src="res/images/logo_MRC.jpg" class="img-rounded img-responsive center-block" alt="MRC Image">
-            </a>
-        </div>
+        <?php if(!isset($_SESSION["user_id"]) && empty($_SESSION["user_id"])){?>
+            <div class="login-logo">
+                <a href="?view=index">
+                    <img src="res/images/logo_MRC.jpg" class="img-rounded img-responsive center-block" alt="MRC Image">
+                </a>
+            </div>
+        <?php } ?>
         <!-- /.login-logo -->
         <div class="login-box-body">
             <?php  
@@ -89,15 +91,19 @@ if(isset($_GET['id']) && !isset($_SESSION["user_id"])){
                     </div>";
             ?>
             <div class="row">
-                <div class="col-xs-12">
-                    <a href="./?view=index" class="btn btn-default btn-block btn-flat"> Ir a Login</a>
-                </div><!-- /.col -->
+                <div class="col-xs-12"> 
+                    <?php if(!isset($_SESSION["user_id"]) && empty($_SESSION["user_id"])){?>
+                        <a href="./?view=index" class="btn btn-default btn-block btn-flat"> Ir a Login</a>
+                    <?php }else{?>
+                        <a href="./?view=home" class="btn btn-default btn-block btn-flat"> Ir a Home</a>
+                    <?php } ?>
+                </div>
             </div>
+            
         </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 </body>
 <?php }
 else{
-    Core::alert("Debe cerrar su sesión actual.");
     Core::redir("./?view=home");
 }?>

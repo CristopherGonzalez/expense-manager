@@ -128,7 +128,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     </label>
                                     <span style="float:right;">
                                         <?php 
-                                            $lblchange_log = new lblChangeLog($partner->id, "partner");
+                                            $lblchange_log = new lblChangeLog($partner->id, "result");
                                             echo $lblchange_log->renderLabel();
                                             $modal_content = new ModalCategory("Listado de Cambios","frmpartner",UserData::getById($_SESSION['user_id']));
                                             echo $modal_content->renderInit();
@@ -167,7 +167,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
 <script>
     $(function(){
-        load_change_log(<?php echo $partner->id; ?>, "partner", "chn_log");
+        load_change_log(<?php echo $partner->id; ?>, "result", "chn_log");
     });
     $( "#upd" ).submit(function( event ) {
         $('#upd_data').attr("disabled", true);

@@ -1,0 +1,6 @@
+13 11 2019 18:11:00 El Archivo logs.txt se ha creado
+El Archivo logs.txt se ha modificado
+El Archivo logs.txt se ha modificado
+El Archivo logs.txt se ha modificadoinsert into expenses (description, amount, upload_receipt, user_id, category_id,tipo, entidad, created_at, fecha, pagado, documento, pago, empresa) value ("nuevo gasto",10000,"",8,2,1,1,NOW(),"",0,'','',2)
+El Archivo logs.txt se ha modificadoinsert into expenses (description, amount, upload_receipt, user_id, category_id,tipo, entidad, created_at, fecha, pagado, documento, pago, empresa) value ("nuevo gasto",10000,"",8,2,1,1,NOW(),"",0,'','',2)
+El Archivo logs.txt se ha modificadoinsert into expenses (description, amount, upload_receipt, user_id, category_id,tipo, entidad, created_at, fecha, pagado, documento, pago, empresa) value ("nuevo gasto",10000,"",8,2,1,1,NOW(),"2019-12-13",0,'','',2)

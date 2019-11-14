@@ -15,7 +15,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] == "1"):
         Core::redir("./?view=company");
     }
     if(isset($company->profile_pic) && !empty($company->profile_pic)){ 
-        $img = "data:image/jpeg;base64,".base64_encode($company->profile_pic);
+        $img = $company->profile_pic;
     }
 ?> 
 
@@ -122,23 +122,26 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] == "1"):
 <script>
     $( "#upd" ).submit(function( event ) {
         debugger;
-      $('#upd_data').attr("disabled", true);
-     var parametros = $(this).serialize();
-     var result = false;
+        $('#upd_data').attr("disabled", true);
+        var fd = new FormData($(this)[0]);
+        fd.append("profile_pic", $('#profile_pic_image').attr('src'));
+        var result = false;
         $.ajax({
             type: "POST",
             url: "./?action=updatecompany",
-            data: parametros,
+            data: fd,
+            contentType: false,
+            processData: false,
              beforeSend: function(objeto){
                 $("#result").html("Mensaje: Cargando...");
               },
             success: function(datos){
-            $("#result").html(datos);
-            $('#upd_data').attr("disabled", false);
-            window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-            $(this).remove();});}, 2000);
-            result = true;
+                $("#result").html(datos);
+                $('#upd_data').attr("disabled", false);
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove();});}, 2000);
+                result = true;
             }
         });
         event.preventDefault();

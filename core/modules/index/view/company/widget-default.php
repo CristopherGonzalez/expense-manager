@@ -239,16 +239,13 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']== "1"):
     $( "#add_register" ).submit(function( input ) {
         $('#save_data').attr("disabled", true);
         //Se cambia forma de envio de formulario para soportar envio de imagenes
-        var data = new FormData($(this)[0]);
-        var file = $('#profile_pic').prop('file');
-        debugger;
-        data.append("profile_pic", file);
+        var fd = new FormData($(this)[0]);
+        fd.append("profile_pic", $('#profile_pic_image').attr('src'));
         $.ajax({
             type: "POST",
             url: "./?action=addcompany",
-            data: data,
+            data: fd,
             contentType: false,
-            cache: false,
             processData: false,
             beforeSend: function(objeto){
                     $("#resultados_ajax").html("Enviando...");
@@ -258,9 +255,11 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']== "1"):
                     $('#save_data').attr("disabled", false);
                     load(1);
                     window.setTimeout(function() {
-                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                    $(this).remove();});}, 5000);
+                        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                        $(this).remove();});}, 5000);
                     $('#formModal').modal('hide');
+                    clear_modal('add_register');
+                    $('#profile_pic_image').attr("src","res/images/companies/default.jpg");
                 }
         });
         input.preventDefault();

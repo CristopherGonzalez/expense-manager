@@ -37,7 +37,22 @@ if (!isset($_SESSION['user_id'])){
 			
 			$query_new=$partner->add();
             if ($query_new) {
-                $messages[] = "El ingreso ha sido agregado con éxito.";
+				$messages[] = "El socio ha sido agregado con éxito.";
+				$change_log = new ChangeLogData();
+				$change_log->tabla = "result";
+				$change_log->registro_id = $partner->id;
+				$change_log->description = $partner->description;
+				$change_log->amount = $partner->amount;
+				$change_log->entidad = $partner->entidad;
+				$change_log->fecha = $partner->fecha;
+				$change_log->pagado = $partner->pagado;
+				$change_log->user_id = $partner->user_id;
+				$result = $change_log->add();
+				if (isset($result) && !empty($result) && $result[0]){
+					$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
+				} else{
+					$errors []= " Lo siento algo ha salido mal en el registro de errores.";
+				}										
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
             }

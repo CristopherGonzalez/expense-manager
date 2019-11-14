@@ -57,6 +57,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		<th>Entidad</th>
 		<th>Usuario</th>
 		<th>Estado Pago</th>
+		<th>Fecha modificacion</th>
 	</thead>
 	<tbody>
 		<?php
@@ -78,6 +79,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<td><?php if($log->entidad!=null){echo  EntityData::getById($log->entidad)->name; }else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($log->user_id!=null){echo UserData::getById($log->user_id)->name; }else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($log->pagado!=null && $log->pagado){echo "<span style='color: #00a65a;'>Pagado</span>"; }else{ echo "<span>Impago</span>"; }  ?></td>
+			<td><?php if($log->created_at!=null && isset($log->created_at)){echo $log->created_at; }else{ echo "<center>----</center>"; }  ?></td>
 		</tr>
 		<?php } ?>
 	</tbody>

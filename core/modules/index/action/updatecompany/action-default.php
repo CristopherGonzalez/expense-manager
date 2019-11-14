@@ -43,13 +43,8 @@ if (!isset($_SESSION['user_id'])){
 			$company->pais = intval($_POST['country_company']);
 			$company->ciudad = intval($_POST['city_company']);
 			$company->tipo_negocio = intval($_POST['types_bussiness']);
-			if(isset($_FILES["profile_pic"]) && !empty($_FILES["profile_pic"])){
-				if(isset($_FILES["profile_pic"]["tmp_name"]) && !empty($_FILES["profile_pic"]["tmp_name"])){
-					$file = addslashes(file_get_contents($_FILES["profile_pic"]["tmp_name"])); 
-					if(isset($file) && !empty($file)){
-						$company->profile_pic = $file;
-					}
-				}
+			if(isset($_POST["profile_pic"]) && !empty($_POST["profile_pic"])){
+				$company->profile_pic = $_POST["profile_pic"];
 			}
 			$query_new=$company->update();
 			if (isset($query_new) && !empty($query_new) && $query_new) {

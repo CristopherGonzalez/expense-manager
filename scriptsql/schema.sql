@@ -57,7 +57,7 @@ create table empresas(
   name varchar(255) not null,
   password varchar(100) not null,
   email varchar(255) not null,
-  profile_pic LONGBLOB,
+  profile_pic LONGTEXT,
   skin int not null,
   created_at datetime not null,
   foreign key(skin) references skins(id),

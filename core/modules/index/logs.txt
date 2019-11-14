@@ -1,0 +1,1 @@
+El Archivo logs.txt se ha creadoupdate empresas set name='Empresa prueba con cambios', status=2, is_deleted=0, licenciaMRC='00003', pais=4, ciudad=2269, tipo_negocio=6, password='R2dWSUNkTGROZjI1TlhTM3dOOStYUT09',email='ayseninformaticayseguridad@gmail.com' where id=3

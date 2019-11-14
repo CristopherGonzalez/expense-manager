@@ -26,10 +26,9 @@ if (!isset($_SESSION['user_id'])){
 				$day="";
 				$day = date("d",strtotime($expense->fecha));
 				if(intval($day)>28){$day='28';};
-				$date="";
-				$date = $_REQUEST['year']."-".$_REQUEST['month']."-".$day;
-				$date = date_create_from_format('Y-m-d',$date);
-				$expense->fecha = $date->date;
+				$date= new DateTime();
+				$date->setDate($_REQUEST['year'], $_REQUEST['month'], $day);
+				$expense->fecha = $date->format('Y-m-d');
 				$expense->pagado = 0;
 				$expense->created_at = "NOW()";
 				//Se realiza guardado de imagenes de pago y documento

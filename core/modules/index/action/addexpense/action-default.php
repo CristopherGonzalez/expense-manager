@@ -46,10 +46,25 @@ if (!isset($_SESSION['user_id'])){
 			
 			$query_new=$expense->add();
             if (isset($query_new) && is_array($query_new) && $query_new[0]) {
-                $messages[] = "El gasto ha sido agregado con éxito.";
+				$messages[] = "El gasto ha sido agregado con éxito.";
+				$change_log = new ChangeLogData();
+				$change_log->tabla = "expenses";
+				$change_log->registro_id = $expense->id;
+				$change_log->description = $expense->description;
+				$change_log->amount = $expense->amount;
+				$change_log->entidad = $expense->entidad;
+				$change_log->fecha = $expense->fecha;
+				$change_log->pagado = $expense->pagado;
+				$change_log->user_id = $expense->user_id;
+				$result = $change_log->add();
+				if (isset($result) && !empty($result) && $result[0]){
+					$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
+				} else{
+					$errors []= " Lo siento algo ha salido mal en el registro de errores.";
+				}
             } else {
                 $errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
-            }
+			}
 		} else {
 			$errors[] = "desconocido.";	
 		}
