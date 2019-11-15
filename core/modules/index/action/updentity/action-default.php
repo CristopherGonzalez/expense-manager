@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id'])){
 		$query_update=$entity->update();
 
 		if ($query_update){
-			$messages[] = "El gasto ha sido actualizado satisfactoriamente.";
+			$messages[] = "El egreso ha sido actualizado satisfactoriamente.";
 			//print("<script>window.location='./?view=expenses'</script>");
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";

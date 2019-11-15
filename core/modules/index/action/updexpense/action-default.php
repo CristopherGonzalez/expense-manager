@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_id'])){
 		$expense->amount = mysqli_real_escape_string($con,(strip_tags($_POST["amount"],ENT_QUOTES)));
 		$expense->category_id = intval($_POST['category']);
 		//$expense->created_at = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
-		//Se capturan los nuevos datos de los gastos
+		//Se capturan los nuevos datos de los egresos
 		$expense->entidad = intval($_POST['entity']);
 		$expense->tipo = intval($_POST['type_expense']);
 		$expense->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
@@ -43,7 +43,7 @@ if (!isset($_SESSION['user_id'])){
 		$query_update=$expense->update();
 
 		if ($query_update){
-			$messages[] = "El gasto ha sido actualizado satisfactoriamente.";
+			$messages[] = "El egreso ha sido actualizado satisfactoriamente.";
 			//print("<script>window.location='./?view=expenses'</script>");
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";

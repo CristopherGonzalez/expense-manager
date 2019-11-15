@@ -24,7 +24,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	//$sWhere=" user_id>0 ";
 	$sWhere=" empresa=$company_id ";
 	$sWhere=" status in (3,4) ";
-	//Creacion de query por nombre y/o gasto
+	//Creacion de query por nombre y/o egreso
 	if($name!=""){
 		$sWhere.=" and name LIKE '%".$name."%' ";
 	}

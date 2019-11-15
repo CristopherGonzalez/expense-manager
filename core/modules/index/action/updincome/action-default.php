@@ -31,7 +31,7 @@ if (!isset($_SESSION['user_id'])){
 		$income->amount = mysqli_real_escape_string($con,(strip_tags($_POST["amount"],ENT_QUOTES)));
 		$income->category_id = intval($_POST['category']);
 		$income->created_at = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
-		//Se capturan los nuevos datos de los gastos
+		//Se capturan los nuevos datos de los egresos
 		$income->entidad = intval($_POST['entity']);
 		$income->tipo = intval($_POST['type_income']);
 		$income->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));

@@ -3,7 +3,7 @@ if (!isset($_SESSION['user_id'])){
 	Core::redir("./");//Redirecciona 
 	exit;
 }
-//Se agregan validacion para nuevo campo de gasto
+//Se agregan validacion para nuevo campo de egreso
 	if (empty($_POST['mod_id'])) {
            $errors[] = "ID vacío";
         }else if (empty($_POST['name']) || empty($_POST['type_income']) ) {

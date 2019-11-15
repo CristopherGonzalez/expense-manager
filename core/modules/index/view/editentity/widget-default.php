@@ -49,11 +49,11 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="category_expense" class="control-label">Categoria de gastos: </label>
+                                <label for="category_expense" class="control-label">Categoria de egresos: </label>
                                 <select class="form-control " name="category_expense" id="category_expense" disabled onchange="change_category(this)">
                                     <option value=0>---SELECCIONA---</option>
                                     <?php
-                                        //Se carga datos de tipos de categoria por gasto en modal
+                                        //Se carga datos de tipos de categoria por egreso en modal
                                         foreach($categories_expense as $category){
                                             ?>
                                                 <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
@@ -140,11 +140,11 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     function load(){
         var origin_type = "<?php echo $type_entity->tipo;?>";
         if (origin_type == null || origin_type == undefined || origin_type.length == 0) { window.location='./?view=entities';};
-        if (origin_type == "Gasto"){ $('#origin option[value=origin_expense]').attr("selected","selected"); }
+        if (origin_type == "Egreso"){ $('#origin option[value=origin_expense]').attr("selected","selected"); }
         if (origin_type == "Ingreso"){ $('#origin option[value=origin_income]').attr("selected","selected"); }
         if (origin_type == "Socio"){ $('#origin option[value=origin_partner]').attr("selected","selected"); }
         change_origin($('#origin')[0]);
-        if (origin_type == "Gasto"){ $('#category_expense option[value=<?php echo $entity->category_id ?>]').attr("selected","selected"); }
+        if (origin_type == "Egreso"){ $('#category_expense option[value=<?php echo $entity->category_id ?>]').attr("selected","selected"); }
         if (origin_type == "Ingreso"){ $('#category_income option[value=<?php echo $entity->category_id ?>]').attr("selected","selected"); }
         if (origin_type == "Socio") {$('#category_partner option[value=1]').attr("selected","selected");}
         $('#type option[value=<?php echo $entity->tipo ?>]').attr("selected","selected"); 
@@ -174,7 +174,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             
             <?php 
                 foreach($types as $type){ 
-                    if(!strcmp($type->tipo,"Gasto")){
+                    if(!strcmp($type->tipo,"Egreso")){
                 ?>
                     $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
                 <?php 

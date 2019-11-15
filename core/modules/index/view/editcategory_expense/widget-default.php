@@ -20,7 +20,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1><i class="fa fa-edit"></i>Editar Categoria de Gasto</h1>
+        <h1><i class="fa fa-edit"></i>Editar Categoria de Egreso</h1>
     </section>
 
     <!-- Main content -->
@@ -29,7 +29,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             <div class="col-md-6"><!-- left column -->
                 <div class="box box-primary"> <!-- general form elements -->
                     <div class="box-header with-border">
-                        <h3 class="box-title">Editar Categoria de Gasto</h3>
+                        <h3 class="box-title">Editar Categoria de Egreso</h3>
                     </div><!-- /.box-header -->
                     <form role="form" method="post" name="upd" id="upd"><!-- form start -->
                         <div class="box-body">
@@ -37,13 +37,13 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <label for="name" class="control-label">Nombre: </label>
                                 <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: " value="<?php echo $category_expense->name; ?>">
                             </div>
-                            <!-- Se agrega nueva opcion de gasto-->
+                            <!-- Se agrega nueva opcion de egreso-->
                             <div class="form-group">
-                                <label for="gasto" class="control-label">Gasto: </label>
-                                    <select class="form-control" name="gasto" id="gasto" >
+                                <label for="egreso" class="control-label">Egreso: </label>
+                                    <select class="form-control" name="egreso" id="egreso" >
                                         <?php
-                                            $gasto=TypeData::getAllExpense();
-                                            foreach($gasto as $cat){
+                                            $egreso=TypeData::getAllExpense();
+                                            foreach($egreso as $cat){
                                         ?>
                                             <option value="<?php echo $cat->id; ?>" <?php if($cat->id == $category_expense->tipo) echo "selected"; ?>  ><?php echo $cat->name; ?></option>
                                         <?php 

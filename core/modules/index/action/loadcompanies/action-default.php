@@ -65,7 +65,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <table class="table table-bordered table-hover">
 	<thead>
-		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los gastos -->
+		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los egresos -->
 		<th>Nombre</th>
 		<th>Licencia MRC</th>
 		<th>Estado</th>

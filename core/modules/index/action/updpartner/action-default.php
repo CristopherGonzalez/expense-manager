@@ -24,7 +24,7 @@ if (!isset($_SESSION['user_id'])){
 		$partner->description = mysqli_real_escape_string($con,(strip_tags($_POST["description"],ENT_QUOTES)));
 		$partner->amount = mysqli_real_escape_string($con,(strip_tags($_POST["amount"],ENT_QUOTES)));
 		$partner->created_at = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
-		//Se capturan los nuevos datos de los gastos
+		//Se capturan los nuevos datos de los egresos
 		$partner->entidad = intval($_POST['entity']);
 		$partner->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
 		$partner->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;

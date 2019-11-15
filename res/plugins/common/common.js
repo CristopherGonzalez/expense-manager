@@ -81,7 +81,7 @@ function load_change_log(id_registro, table_name, result) {
         });
     }
 }
-//Funcion para cargar select de gasto fijo  
+//Funcion para cargar select de egreso fijo  
 function load_select_fixed_cost() {
     var month_fixed_cost = $('#month_fixed_cost option:selected').val();
     var year_fixed_cost = $('#year_fixed_cost option:selected').val();
@@ -120,7 +120,7 @@ function load_select_fixed_cost() {
         });
     } else {
         $("#result_fixed_cost").html("");
-        $("#result_fixed_cost").html("<div class='alert alert-info alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Debes seleccionar al menos un tipo de gasto.</strong></div>");
+        $("#result_fixed_cost").html("<div class='alert alert-info alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Debes seleccionar al menos un tipo de egreso.</strong></div>");
     }
 }
 $('#btn_generate').on("click", function() {

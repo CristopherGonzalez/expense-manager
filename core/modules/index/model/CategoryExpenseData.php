@@ -1,6 +1,6 @@
 <?php
 /**
- * Clase de categoria de gasto
+ * Clase de categoria de egreso
  */
 class CategoryExpenseData {
 	public static $tablename = "category_expence";	/** Nombre de la tabla category_expence para conexion con base de datos */
@@ -14,12 +14,12 @@ class CategoryExpenseData {
 		$this->tipo = "";
 		$this->empresa = "";
 	}
-	/** Funcion para que obtiene el tipo de la categoria de gasto  
-	 * @return TypeData Tipo de categoria de gasto
+	/** Funcion para que obtiene el tipo de la categoria de egreso  
+	 * @return TypeData Tipo de categoria de egreso
 	 */
 	public function getTypeExpense(){ return TypeData::getById($this->tipo);}
 	/**
-	 * @brief Funcion para agregar una nueva categoria de gasto
+	 * @brief Funcion para agregar una nueva categoria de egreso
 	 * @return response Respuesta de la insercion
 	 */
 	public function add(){
@@ -28,7 +28,7 @@ class CategoryExpenseData {
 		return Executor::doit($sql);
 	}
 	/**
-	 * @brief Funcion para eliminar una  categoria de gasto
+	 * @brief Funcion para eliminar una  categoria de egreso
 	 * @param mixed $id int id de la categoria que se quiere eliminar
 	 * @return response Resultado de la eliminacion
 	 */
@@ -42,7 +42,7 @@ class CategoryExpenseData {
 
 	}
 	/**
-	 * @brief Funcion para eliminar una  categoria de gasto
+	 * @brief Funcion para eliminar una  categoria de egreso
 	 * @return response Resultado de la eliminacion
 	 */
 	public function del(){
@@ -50,7 +50,7 @@ class CategoryExpenseData {
 		Executor::doit($sql);
 	}
 	/**
-	 * @brief Funcion para actualizar una  categoria de gasto
+	 * @brief Funcion para actualizar una  categoria de egreso
 	 * @return response Resultado de la actualizacion
 	 */
 	public function update(){
@@ -63,9 +63,9 @@ class CategoryExpenseData {
 		}
 	}
 	/**
-	 * @brief Funcion para obtener una  categoria de gasto por id
+	 * @brief Funcion para obtener una  categoria de egreso por id
 	 * @param mixed $id int id de la categoria que se quiere obtener
-	 * @return CategoryExpenseData Categoria de gasto del id consultado
+	 * @return CategoryExpenseData Categoria de egreso del id consultado
 	 */
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
@@ -73,9 +73,9 @@ class CategoryExpenseData {
 		return Model::one($query[0],new CategoryExpenseData());
 	}
 	/**
-	 * @brief Funcion para obtener todas las categorias de gasto por empresa
+	 * @brief Funcion para obtener todas las categorias de egreso por empresa
 	 * @param mixed $id int id de la empresa 
-	 * @return array(CategoryExpenseData) Array con Categorias de gasto de la empresa
+	 * @return array(CategoryExpenseData) Array con Categorias de egreso de la empresa
 	 */
 	public static function getAll($id){
 		$sql = "select * from ".self::$tablename." where empresa=$id";
@@ -84,10 +84,10 @@ class CategoryExpenseData {
 
 	}
 	/**
-	 * @brief Funcion para obtener las categorias de gasto por empresa y nombre
+	 * @brief Funcion para obtener las categorias de egreso por empresa y nombre
 	 * @param mixed $id int id de la empresa 
-	 * @param mixed $name nombre de la categoria dde gasto 
-	 * @return array(CategoryExpenseData) Array con Categorias de gasto de la empresa
+	 * @param mixed $name nombre de la categoria dde egreso 
+	 * @return array(CategoryExpenseData) Array con Categorias de egreso de la empresa
 	 */
 	public static function getLike($name,$id){
 		$sql = "select * from ".self::$tablename." where name like '%$name%' and empresa=$id" ;

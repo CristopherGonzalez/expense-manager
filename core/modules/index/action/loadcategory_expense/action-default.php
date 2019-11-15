@@ -36,13 +36,13 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$company_id=$_SESSION["company_id"];
 	//$sWhere=" user_id>0 ";
 	$sWhere=" empresa=$company_id ";
-	//Creacion de query por nombre y/o gasto
+	//Creacion de query por nombre y/o egreso
 	if($name!=""){
 		$sWhere.=" and name LIKE '%".$name."%' ";
 	}
 	if($type_expense!=""){
 		//Se busca en tabla tipos para obtener por nombre
-		$result_types=TypeData::getLike($type_expense, 'Gasto');
+		$result_types=TypeData::getLike($type_expense, 'Egreso');
 		$count=count($result_types);
 		//Se crea query dependiendo de los resultados
 		$sWhere.=" and  ( ";
@@ -52,7 +52,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			}
 			$sWhere=substr($sWhere,0,-2);
 		}else{
-			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de gastos
+			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de egresos
 			$sWhere.= " tipo = 0 ";
 		}
 		$sWhere.= " ) ";
@@ -86,7 +86,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 <table class="table table-bordered table-hover">
 	<thead>
 		<th>Nombre</th>
-		<th>Tipo Gasto</th>
+		<th>Tipo Egreso</th>
 		<th>Fecha</th>
 		<th></th>
 	</thead>

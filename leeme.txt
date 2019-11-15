@@ -1,25 +1,25 @@
 Hola muchisimas gracias por adquirir este sistema, 
 te mando un saludo desde Guatemala/Guatemala
 
-# Gastos, Ingresos
-Sistema de contabilidad de gastos e ingresos de proposito general desarrollado con PHP y MySQL.
+# Egresos, Ingresos
+Sistema de contabilidad de egresos e ingresos de proposito general desarrollado con PHP y MySQL.
 
 
 #Usuario demo:
 usuario: admin@admin.com
-contraseña: admin
+contraseï¿½a: admin
 
 ## Mas informacion
 Encuentra mas informacion, instrucciones y demos en el siguiente link.
 Link: http://abisoftgt.net/portfolio
 
-Correo Electrónico: waptoing7@gmail.com
+Correo Electrï¿½nico: waptoing7@gmail.com
 
 
-Si deseas contratar el servicio de soporte técnico para el sistema de Contabilidad debes enviar un 
-E-mail a: waptoing7@gmail.com, con el asunto “Soporte Sistema de Gastos e Ingresos”, 
+Si deseas contratar el servicio de soporte tï¿½cnico para el sistema de Contabilidad debes enviar un 
+E-mail a: waptoing7@gmail.com, con el asunto ï¿½Soporte Sistema de Gastos e Ingresosï¿½, 
 en donde se detalle el tipo de ayuda que se desea recibir. 
-Luego se responderá mediante una cotización con el costo del servicio, 
+Luego se responderï¿½ mediante una cotizaciï¿½n con el costo del servicio, 
 forma de pago y tiempo de entrega.
 
 INSTALACION:

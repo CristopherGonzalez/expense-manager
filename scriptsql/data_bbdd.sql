@@ -56,16 +56,16 @@ INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, 
 (1, 0, 'MRC Administrador', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.png',1 , 1, 1, NOW());
 
 
-/*Datos de seccion de tipos de gastos/ingresos*/
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Compras infraestructura', 'Proveedor infraestructura' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Compras insumos', 'Proveedor insumos' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Personal', 'Persona' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Honorarios', 'Profesional' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Servicios', 'Servicio' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Alquileres', 'Arrendatario' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Impuestos', 'Impuesto' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Publicidad y promocion', 'Medio' );
-INSERT INTO tipos (tipo, name, entidad) VALUES ('Gasto', 'Otros', 'Entidad' );
+/*Datos de seccion de tipos de egresos/ingresos*/
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Compras infraestructura', 'Proveedor infraestructura' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Compras insumos', 'Proveedor insumos' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Personal', 'Persona' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Honorarios', 'Profesional' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Servicios', 'Servicio' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Alquileres', 'Arrendatario' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Impuestos', 'Impuesto' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Publicidad y promocion', 'Medio' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Egreso', 'Otros', 'Entidad' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Ventas', 'Punto de Venta' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Clientes', 'Cliente' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Publicidad', 'Marca' );

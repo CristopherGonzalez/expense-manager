@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id'])){
 			$income->user_id = $_SESSION['user_id'];
 			$income->empresa = $_SESSION['company_id'];
 			$income->category_id = intval($_POST['category']);
-			//Se capturan los nuevos datos de los gastos
+			//Se capturan los nuevos datos de los egresos
 			$income->entidad = intval($_POST['entity']);
 			$income->tipo = intval($_POST['type_income']);
 			$income->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
@@ -49,7 +49,7 @@ if (!isset($_SESSION['user_id'])){
 				$messages[] = "El ingreso ha sido agregado con éxito.";
 				$change_log = new ChangeLogData();
 				$change_log->tabla = "income";
-				$change_log->registro_id = $income->id;
+				$change_log->registro_id = $query_new[1];
 				$change_log->description = $income->description;
 				$change_log->amount = $income->amount;
 				$change_log->entidad = $income->entidad;

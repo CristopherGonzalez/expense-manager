@@ -24,9 +24,9 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <div class="col-md-4 form-group">
                         <select name="type_find" id="type_find" class="form-control" style="width: 100%;" onchange="load(1);">
                             <option value="0">Buscar por Tipo</option>
-                            <optgroup label="Gasto">
+                            <optgroup label="Egreso">
                                 <?php 
-                                $type_category="Gasto";
+                                $type_category="Egreso";
                                 foreach($types as $type){ 
                                     if(strcmp($type->tipo,$type_category)){?>
                                         </optgroup>
@@ -42,7 +42,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <div class="col-md-4 form-group">
                         <select name="category_find" id="category_find" class="form-control" style="width: 100%;" onchange="load(1);">
                             <option value="0">Buscar por Categoria</option>
-                            <optgroup label="Gasto"> 
+                            <optgroup label="Egreso"> 
                                 <?php
                                     foreach($categories_expense as $category){
                                         ?>
@@ -116,12 +116,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="category_expense" class="col-sm-4 control-label">Categoria de gastos </label>
+                                            <label for="category_expense" class="col-sm-4 control-label">Categoria de egresos </label>
                                             <div class="col-sm-8">
                                                 <select class="form-control" style="width: 100%" name="category_expense" id="category_expense" disabled>
                                                     <option value=0>---SELECCIONA---</option>
                                                     <?php
-                                                        //Se carga datos de tipos de categoria por gasto en modal
+                                                        //Se carga datos de tipos de categoria por egreso en modal
                                                         foreach($categories_expense as $category){
                                                             ?>
                                                                 <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
@@ -368,7 +368,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             $('#category_expense').prop('disabled', false);
             $('#category_income').prop('disabled', 'disabled');
             $('#category_partner').prop('disabled', 'disabled');
-            $type_category = "Gasto";
+            $type_category = "Egreso";
         }
         if (origin_type === "origin_income"){
             $('#category_income').prop('disabled', false);

@@ -60,15 +60,15 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 <h4 class="modal-title" id="myModalLabel"> Nueva Categoria de Ingreso</h4>
             </div>
             <div class="modal-body">
-                                    <!-- Se agrega desplegable para seleccionar el tipo de gasto -->
+                                    <!-- Se agrega desplegable para seleccionar el tipo de egreso -->
                                     <div class="form-group">
                                         <label for="type_income" class="col-sm-2 control-label">Ingreso </label>
                                         <div class="col-sm-10">
                                             <select class="form-control" style="width: 100%" name="type_income" id="type_income" >
                                                 <option >---SELECCIONA---</option>
                                                 <?php
-                                                    $gasto=TypeData::getAllIncome();
-                                                    foreach($gasto as $cat){
+                                                    $egreso=TypeData::getAllIncome();
+                                                    foreach($egreso as $cat){
                                                 ?>
                                                     <option value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
                                                 <?php 
@@ -143,7 +143,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         load(1);
     });
     function load(page){
-            //Se cambia para hacer busqueda por gasto y/o nombre
+            //Se cambia para hacer busqueda por egreso y/o nombre
             var type_income = $("#f_type_income").val();
             var name = $("#f_name").val();
             var per_page=$("#per_page").val();

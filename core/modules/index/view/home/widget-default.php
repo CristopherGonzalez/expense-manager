@@ -44,7 +44,7 @@ if(isset($_SESSION["user_id"])):
                   <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-credit-card"></i></span>
                     <div class="info-box-content">
-                      <span class="info-box-text">Mis Gastos totales</span>
+                      <span class="info-box-text">Mis Egresos totales</span>
                       <span class="info-box-number"><?php echo number_format($sumExpenses->amount,2);  ?></span>
                     </div>
                   </div>
@@ -62,7 +62,7 @@ if(isset($_SESSION["user_id"])):
                   <div class="info-box">
                     <span class="info-box-icon bg-red"><i class="fa fa-credit-card"></i></span>
                     <div class="info-box-content">
-                      <span class="info-box-text">Mis Gastos este mes</span>
+                      <span class="info-box-text">Mis Egresos este mes</span>
                       <span class="info-box-number"><?php echo sum_expenses_month(date('m'));?></span>
                     </div>
                   </div>
@@ -70,7 +70,7 @@ if(isset($_SESSION["user_id"])):
             </div>
             <div class="box">
                 <div class="box-header  with-border">
-                    <h4>Ingresos vrs Gastos <small>Reporte mensual</small></h4>
+                    <h4>Ingresos vrs Egresos <small>Reporte mensual</small></h4>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
                           <i class="fa fa-minus"></i></button>
@@ -102,7 +102,7 @@ if(isset($_SESSION["user_id"])):
                     }
                     ,
                     {
-                        label: "Gastos", backgroundColor: "#03586A", data: [<?php echo sum_expenses_month(1);?>, <?php echo sum_expenses_month(2);?>, <?php echo sum_expenses_month(3);?>, <?php echo sum_expenses_month(4);?>, <?php echo sum_expenses_month(5);?>, <?php echo sum_expenses_month(6);?>, <?php echo sum_expenses_month(7);?>,<?php echo sum_expenses_month(8);?>,<?php echo sum_expenses_month(9);?>,<?php echo sum_expenses_month(10);?>,<?php echo sum_expenses_month(11);?>,<?php echo sum_expenses_month(12);?>]
+                        label: "Egresos", backgroundColor: "#03586A", data: [<?php echo sum_expenses_month(1);?>, <?php echo sum_expenses_month(2);?>, <?php echo sum_expenses_month(3);?>, <?php echo sum_expenses_month(4);?>, <?php echo sum_expenses_month(5);?>, <?php echo sum_expenses_month(6);?>, <?php echo sum_expenses_month(7);?>,<?php echo sum_expenses_month(8);?>,<?php echo sum_expenses_month(9);?>,<?php echo sum_expenses_month(10);?>,<?php echo sum_expenses_month(11);?>,<?php echo sum_expenses_month(12);?>]
                     }
                     ]
                 }

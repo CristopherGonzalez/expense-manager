@@ -73,7 +73,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     <label for="type_income" class="control-label">Tipo: </label>
                                     <select class="form-control select2" style="width: 100%" name="type_income" id="type_income" >
                                     <?php
-                                        //Se carga datos de tipos de gasto en modal
+                                        //Se carga datos de tipos de egreso en modal
                                         foreach($types as $type){
                                     ?>
                                         <option <?php if($income->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>

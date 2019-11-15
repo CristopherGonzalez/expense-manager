@@ -95,7 +95,7 @@
                             </li>
 
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='expenses' or $_GET['view']=='editexpense'){echo "active";}?>">
-                                <a href="?view=expenses"><i class="fa fa-credit-card"></i> <span>Gastos</span></a>
+                                <a href="?view=expenses"><i class="fa fa-credit-card"></i> <span>Egresos</span></a>
                             </li>
 
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='partners' ){echo "active";}?>">
@@ -107,7 +107,7 @@
                             </li>
 
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_expense' or $_GET['view']=='editcategory_expense'){echo "active";}?>">
-                                <a href="?view=category_expense"><i class="fa fa-th"></i> <span>Categoria de gastos</span></a>
+                                <a href="?view=category_expense"><i class="fa fa-th"></i> <span>Categoria de egresos</span></a>
                             </li>
 
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='entities' ){echo "active";}?>">

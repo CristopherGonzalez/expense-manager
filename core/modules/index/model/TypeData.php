@@ -63,7 +63,7 @@ class TypeData {
 
 	}
 	public static function getAllExpense(){
-		$sql = "select * from ".self::$tablename." where tipo='Gasto'";
+		$sql = "select * from ".self::$tablename." where tipo='Egreso'";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new TypeData());
 

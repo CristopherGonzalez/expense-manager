@@ -39,7 +39,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	//$user_id=$_SESSION["user_id"];
 	//$sWhere=" user_id>0 ";
 	//$sWhere=" user_id=$user_id ";
-	//Creacion de query por nombre y/o gasto
+	//Creacion de query por nombre y/o egreso
 	if($name!=""){
 		$sWhere.=" and name LIKE '%".$name."%' ";
 	}
@@ -55,7 +55,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			}
 			$sWhere=substr($sWhere,0,-2);
 		}else{
-			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de gastos
+			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de egresos
 			$sWhere.= " tipo = 0 ";
 		}
 		$sWhere.= " ) ";

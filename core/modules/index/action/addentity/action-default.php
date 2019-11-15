@@ -3,7 +3,7 @@ if (!isset($_SESSION['user_id'])){
 	Core::redir("./");//Redirecciona 
 	exit;
 }
-//Se validan nuevos parametros de los gastos
+//Se validan nuevos parametros de los egresos
 	if (empty($_POST['name_entity'])){
 			$errors[] = "No se ha ingresado nombre.";
 		}  elseif (empty($_POST['type'])) {
@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id'])){
 			$entity->user_id = $_SESSION['user_id'];
 			$entity->empresa = $_SESSION['company_id'];
 			$entity->category_id = intval($_POST['category']);
-			//Se capturan los nuevos datos de los gastos
+			//Se capturan los nuevos datos de los egresos
 			$query_new=$entity->add();
             if ($query_new) {
                 $messages[] = "La entidad ha sido agregada con éxito.";

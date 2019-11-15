@@ -3,13 +3,13 @@ if (!isset($_SESSION['user_id'])){
 	Core::redir("./");//Redirecciona 
 	exit;
 }
-//Se validan nuevos parametros de los gastos
+//Se validan nuevos parametros de los egresos
 	if (empty($_REQUEST['year'])){
 			$errors[] = "No ha seleccionado el año.";
 		}  elseif (empty($_REQUEST['month'])) {
             $errors[] = "No ha seleccionado el mes.";
         }  elseif (empty($_REQUEST['expenses'] || !is_array($_REQUEST['expenses']))) {
-            $errors[] = "No se han cargado los gastos.";
+            $errors[] = "No se han cargado los Egresos.";
         }	elseif (
         	!empty($_REQUEST['year'])
         	&& !empty($_REQUEST['month'])
@@ -37,7 +37,7 @@ if (!isset($_SESSION['user_id'])){
 			
 				$query_new=$expense->add();
 				if ($query_new) {
-					$messages[] = "El gasto ".$expense->description." ha sido agregado con éxito."."\r\n";
+					$messages[] = "El egreso ".$expense->description." ha sido agregado con éxito."."\r\n";
 				} else {
 					$errors[] = "Lo sentimos, el registro ".$expense->description." falló. Por favor, regrese y vuelva a intentarlo."."\r\n";
 				}

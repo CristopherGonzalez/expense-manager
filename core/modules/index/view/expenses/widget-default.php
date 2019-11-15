@@ -11,7 +11,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Gastos</h1>
+        <h1>Egresos</h1>
     </section>
 
     <!-- Main content -->
@@ -19,7 +19,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         <div class="row">
             <div class="col-md-8">
                 <div class="form-group">
-                    <!-- Se agregan nuevos filtros de mes, año, tipo de gasto y cambio en categoria del gasto -->
+                    <!-- Se agregan nuevos filtros de mes, año, tipo de egreso y cambio en categoria del egreso -->
                     <div class="col-md-3 form-group">
                         <select name="month_find" id="month_find" class="form-control" style="width: 100%;"  onchange="load(1);">
                             <option value="0">Buscar por Mes</option>
@@ -50,9 +50,9 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     </div>
                     <div class="col-md-4 form-group">
                         <select name="type_expense_find" id="type_expense_find" class="form-control" style="width: 100%;" onchange="load(1);">
-                            <option value="0">Buscar por Tipo de Gasto</option>
+                            <option value="0">Buscar por Tipo de Egreso</option>
                             <?php
-                                //Se carga con tipos de gastos
+                                //Se carga con tipos de egresos
                                 foreach($types as $type_expense){
                             ?>
                                 <option value="<?php echo $type_expense->id; ?>"><?php echo $type_expense->name; ?></option>
@@ -98,7 +98,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register" enctype="multipart/form-data"> 
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title" id="myModalLabel"> Nuevo Gasto</h4>
+                                        <h4 class="modal-title" id="myModalLabel"> Nuevo Egreso</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
@@ -218,11 +218,11 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         </div> 
                         <div class="btn-group">
                             <a style="margin-right: 3px; margin-top: 3px;"  data-toggle="modal" data-target="#frmfixedscost" class="btn btn-default pull-right">
-                                <span class="fa fa-list"></span> Generar gastos fijos del mes
+                                <span class="fa fa-list"></span> Generar egresos fijos del mes
                             </a>
                             <div id="md_fixed_cost">
                                 <?php 
-                                    $modal_content = new ModalCategory("Generar gastos fijos del mes","frmfixedscost",UserData::getById($_SESSION['user_id']));
+                                    $modal_content = new ModalCategory("Generar egresos fijos del mes","frmfixedscost",UserData::getById($_SESSION['user_id']));
                                     echo $modal_content->renderInit($is_small=true);
                                 ?>
                                 <div class="form-group">
@@ -266,7 +266,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12 col-sm-12 col-xs-12">Seleccione los Tipos de Gasto a generar</label>
+                                    <label class="col-md-12 col-sm-12 col-xs-12">Seleccione los Tipos de Egreso a generar</label>
                                 </div>   
                                 <div class="form-group">
                                     <?php foreach($types as $type){ ?>
@@ -293,7 +293,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         <div id="resultados_ajax"></div><!-- Resultados Ajax -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Historial Gastos</h3>
+                <h3 class="box-title">Historial Egresos</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
@@ -356,7 +356,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         $("#"+valor).addClass( "active" );
     }
     function eliminar(id){
-        if(confirm('Esta acción  eliminará de forma permanente el gasto \n\n Desea continuar?')){
+        if(confirm('Esta acción  eliminará de forma permanente el egreso \n\n Desea continuar?')){
             //Se obtienen filtros de busqueda para recarga y por estandar
             var month_find = $('#month_find option:selected').val();
             var year_find = $('#year_find option:selected').val();

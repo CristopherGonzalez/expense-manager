@@ -28,7 +28,7 @@ if(!isset($expense) && empty($expense)){
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1><i class="fa fa-edit"></i>Editar Gasto</h1>
+        <h1><i class="fa fa-edit"></i>Editar Egreso</h1>
     </section>
 
     <!-- Main content -->
@@ -38,7 +38,7 @@ if(!isset($expense) && empty($expense)){
                 <form role="form" method="post" name="upd" id="upd"><!-- form start -->
                     <div class="box box-primary"> <!-- general form elements -->
                         <div class="box-header with-border">
-                            <h3 class="box-title">Editar Gasto</h3>
+                            <h3 class="box-title">Editar Egreso</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group">
@@ -72,7 +72,7 @@ if(!isset($expense) && empty($expense)){
                                     <label for="type_expense" class="control-label">Tipo: </label>
                                     <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
                                     <?php
-                                        //Se carga datos de tipos de gasto en modal
+                                        //Se carga datos de tipos de egreso en modal
                                         foreach($types as $type){
                                     ?>
                                         <option <?php if($expense->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>

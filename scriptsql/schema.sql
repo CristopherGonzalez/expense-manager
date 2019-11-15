@@ -86,7 +86,7 @@ create table user(
 );
   ALTER TABLE `user` ADD UNIQUE( `email`, `empresa`);
 
-/*Seccion de tipos de gastos/ingreso*/
+/*Seccion de tipos de egresos/ingreso*/
 create table tipos(
 	id int not null auto_increment primary key,
 	tipo varchar(20) not null,

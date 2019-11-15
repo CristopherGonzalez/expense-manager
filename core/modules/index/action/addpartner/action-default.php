@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_id'])){
 				$messages[] = "El socio ha sido agregado con éxito.";
 				$change_log = new ChangeLogData();
 				$change_log->tabla = "result";
-				$change_log->registro_id = $partner->id;
+				$change_log->registro_id = $query_new[1];
 				$change_log->description = $partner->description;
 				$change_log->amount = $partner->amount;
 				$change_log->entidad = $partner->entidad;

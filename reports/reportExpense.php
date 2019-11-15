@@ -15,11 +15,11 @@ include "../core/modules/index/model/CategoryExpenseData.php";
 // Propiedades del documento
 $objPHPExcel->getProperties()->setCreator("Abisoft")
 							 ->setLastModifiedBy("Abisoft")
-							 ->setTitle("Office 2010 XLSX Documento de gastos")
-							 ->setSubject("Office 2010 XLSX Documento de gastos")
-							 ->setDescription("Documento de gastos para Office 2010 XLSX, generado usando clases de PHP.")
+							 ->setTitle("Office 2010 XLSX Documento de egresos")
+							 ->setSubject("Office 2010 XLSX Documento de egresos")
+							 ->setDescription("Documento de egresos para Office 2010 XLSX, generado usando clases de PHP.")
 							 ->setKeywords("office 2010 openxml php")
-							 ->setCategory("Archivo con resultado de gastos");
+							 ->setCategory("Archivo con resultado de egresos");
 
 
 
@@ -83,7 +83,7 @@ $styleArray = array('font' => array( 'name' => 'Arial','size' => 10),
 );
 $objPHPExcel->getActiveSheet()->getStyle($rango)->applyFromArray($styleArray);
 // Cambiar el nombre de hoja de cálculo
-$objPHPExcel->getActiveSheet()->setTitle('Reporte de gastos');
+$objPHPExcel->getActiveSheet()->setTitle('Reporte de egresos');
 
 
 // Establecer índice de hoja activa a la primera hoja , por lo que Excel abre esto como la primera hoja

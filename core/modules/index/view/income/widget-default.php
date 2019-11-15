@@ -20,7 +20,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         <div class="row">
             <div class="col-md-8">
             <div class="form-group">
-                    <!-- Se agregan nuevos filtros de mes, año, tipo de gasto y cambio en categoria del gasto -->
+                    <!-- Se agregan nuevos filtros de mes, año, tipo de egreso y cambio en categoria del egreso -->
                     <div class="col-md-3 form-group">
                         <select name="month_find" id="month_find" class="form-control" style="width: 100%;"  onchange="load(1);">
                             <option value="0">Buscar por Mes</option>
@@ -53,7 +53,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         <select name="type_income_find" id="type_income_find" class="form-control" style="width: 100%;" onchange="load(1);">
                             <option value="0">Buscar por Tipo de Ingreso</option>
                             <?php
-                                //Se carga con tipos de gastos
+                                //Se carga con tipos de egresos
                                 foreach($types as $type_income){
                             ?>
                                 <option value="<?php echo $type_income->id; ?>"><?php echo $type_income->name; ?></option>

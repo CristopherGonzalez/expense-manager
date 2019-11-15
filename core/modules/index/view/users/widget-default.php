@@ -72,7 +72,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         load(1);
     });
     function load(page){
-            //Se cambia para hacer busqueda por gasto y/o nombre
+            //Se cambia para hacer busqueda por egreso y/o nombre
             var name = $("#f_name").val();
             var per_page=$("#per_page").val();
             var parametros = {"page":page,'f_name':name,'per_page':per_page};

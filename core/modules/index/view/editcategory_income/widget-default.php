@@ -37,13 +37,13 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <label for="name" class="control-label">Nombre: </label>
                                 <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: " value="<?php echo $category_income->name; ?>">
                             </div>
-                             <!-- Se agrega nueva opcion de gasto-->
+                             <!-- Se agrega nueva opcion de egreso-->
                             <div class="form-group">
-                                <label for="gasto" class="control-label">Gasto: </label>
+                                <label for="egreso" class="control-label">Egreso: </label>
                                     <select class="form-control" name="type_income" id="type_income" >
                                         <?php
-                                            $gasto=TypeData::getAllIncome();
-                                            foreach($gasto as $cat){
+                                            $egreso=TypeData::getAllIncome();
+                                            foreach($egreso as $cat){
                                         ?>
                                             <option value="<?php echo $cat->id; ?>" <?php if($cat->id == $category_income->tipo) echo "selected"; ?>  ><?php echo $cat->name; ?></option>
                                         <?php 

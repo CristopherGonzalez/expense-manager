@@ -79,13 +79,13 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <table class="table table-bordered table-hover">
 	<thead>
-		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los gastos -->
+		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los egresos -->
 		<th>Fecha</th>
 		<th>Descripción</th>
 		<th>Importe</th>
 		<th>Categoría</th>
 		<th>Entidad</th>
-		<th>Tipo de Gasto</th>
+		<th>Tipo de Egreso</th>
 		<th>Estado Pago</th>
 		<th></th>
 	</thead>

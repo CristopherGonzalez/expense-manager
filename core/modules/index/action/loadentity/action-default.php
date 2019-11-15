@@ -63,7 +63,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			}
 			$sWhere=substr($sWhere,0,-2);
 		}else{
-			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de gastos
+			//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de egresos
 			$sWhere.= " tipo = 0 ";
 		}
 		$sWhere.= " ) ";
@@ -104,7 +104,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 ?>
 <table class="table table-bordered table-hover">
 	<thead>
-		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los gastos -->
+		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los egresos -->
 		<th>Fecha</th>
 		<th>Nombre</th>
 		<th>Origen</th>
@@ -132,7 +132,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<td>
 				<?php 
 					if($ent->category_id!=null){
-						if(!strcmp($ent->getType($ent->tipo)->tipo,"Gasto")){
+						if(!strcmp($ent->getType($ent->tipo)->tipo,"Egreso")){
 							echo $ent->getCategoryExpense()->name;
 						}
 						if(!strcmp($ent->getType($ent->tipo)->tipo,"Ingreso")){

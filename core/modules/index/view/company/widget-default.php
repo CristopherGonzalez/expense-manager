@@ -19,7 +19,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']== "1"):
         <div class="row">
             <div class="col-md-8">
                 <div class="form-group">
-                    <!-- Se agregan nuevos filtros de mes, año, tipo de gasto y cambio en categoria del gasto -->
+                    <!-- Se agregan nuevos filtros de mes, año, tipo de egreso y cambio en categoria del egreso -->
                     <div class="col-md-4 form-group">
                         <input type="text"  class="form-control" name="find_name" id="find_name" style="width: 100%;" placeholder="Buscar por Nombre" title="Ingresa algun texto para realizar la busqueda"  onkeyup="load(1);">
                     </div>
