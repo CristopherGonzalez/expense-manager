@@ -4,7 +4,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <?php  
     //Se obtienen datos para llenado de desplegables
     $categories=CategoryExpenseData::getAll($_SESSION["company_id"]);
-    $entities=EntityData::getAll($_SESSION["company_id"]);
+    $entities=EntityData::getByType('Gasto', $_SESSION["company_id"]);
     $types=TypeData::getAllExpense();
  ?>
 <!-- Content Wrapper. Contains page content -->
@@ -115,6 +115,16 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                         <div class="form-group">
                                             <?php 
+                                                $entity_select = new SelectList("entity","Entidad",$entities);
+                                                $entity_select->funjs = "onchange=\"change_entity('type_expense','category');\"";
+                                                echo $entity_select->renderLabel('col-sm-2');
+                                            ?>
+                                            <div class="col-sm-10">
+                                                <?php echo $entity_select->render(); ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <?php 
                                                 $type_expense_select = new SelectList("type_expense","Tipo",$types);
                                                 echo $type_expense_select->renderLabel('col-sm-2');
                                             ?>
@@ -129,15 +139,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             ?>
                                             <div class="col-sm-10">
                                                 <?php echo $category_select->render(); ?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <?php 
-                                                $entity_select = new SelectList("entity","Entidad",$entities);
-                                                echo $entity_select->renderLabel('col-sm-2');
-                                            ?>
-                                            <div class="col-sm-10">
-                                                <?php echo $entity_select->render(); ?>
                                             </div>
                                         </div>
                                         <div class="form-group">

@@ -186,3 +186,33 @@ function clear_modal(name_form) {
         $(this).attr('src', 'res/images/default_image.jpg');
     });
 }
+
+function change_entity(type, category) {
+    var entity = $('#entity').val();
+    if (entity != null && entity != undefined && entity != "0" && entity != "" &&
+        type != null && type != undefined && type != "" &&
+        category != null && category != undefined && category != "") {
+        var entity_json = {
+            id: entity
+        };
+        $.ajax({
+            type: "GET",
+            url: "./?action=findentity",
+            data: entity_json,
+            success: function(datos) {
+                if (datos != "" && datos != null && datos != " " && datos != undefined) {
+                    var options = datos.split(",");
+                    $("#" + type).val(options[0]);
+                    $("#" + type).attr('disabled', false);
+                    $("#" + category).val(options[1]);
+                    $("#" + category).attr('disabled', false);
+                }
+            }
+        });
+    } else {
+        $("#" + type).val(0);
+        $("#" + type).attr('disabled', true);
+        $("#" + category).val(0);
+        $("#" + category).attr('disabled', true);
+    }
+}

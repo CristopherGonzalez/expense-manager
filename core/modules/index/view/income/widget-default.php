@@ -5,7 +5,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     //Se obtienen datos para llenado de desplegables
     $categories=CategoryIncomeData::getAll($_SESSION["company_id"]);
     $types=TypeData::getAllIncome();
-    $entities=EntityData::getAll($_SESSION["company_id"]);
+    $entities=EntityData::getByType('Ingreso', $_SESSION["company_id"]);
 
  ?>
 <!-- Content Wrapper. Contains page content -->
@@ -116,7 +116,18 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                         <div class="form-group">
                                             <?php 
+                                                $entity_select = new SelectList("entity","Entidad",$entities);
+                                                $entity_select->funjs = "onchange=\"change_entity('type_income','category');\"";
+                                                echo $entity_select->renderLabel('col-sm-2');
+                                            ?>
+                                            <div class="col-sm-10">
+                                                <?php echo $entity_select->render(); ?>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <?php 
                                                 $type_income_select = new SelectList("type_income","Tipo",$types);
+                                                $type_income_select->tag = "disabled";
                                                 echo $type_income_select->renderLabel('col-sm-2');
                                             ?>
                                             <div class="col-sm-10">
@@ -126,22 +137,13 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <?php 
                                                 $category_select = new SelectList("category","Categoria",$categories);
+                                                $category_select->tag = "disabled";
                                                 echo $category_select->renderLabel('col-sm-2');
                                             ?>
                                             <div class="col-sm-10">
                                                 <?php echo $category_select->render(); ?>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <?php 
-                                                $entity_select = new SelectList("entity","Entidad",$entities);
-                                                echo $entity_select->renderLabel('col-sm-2');
-                                            ?>
-                                            <div class="col-sm-10">
-                                                <?php echo $entity_select->render(); ?>
-                                            </div>
-                                        </div>
-                                       
                                         <div class="form-group">
                                             <label for="date" class="col-sm-2 control-label">Fecha </label>
                                             <div class="col-sm-10">

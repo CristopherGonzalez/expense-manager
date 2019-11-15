@@ -1,6 +1,7 @@
 <?php 
 if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
-    $entities=EntityData::getAll($_SESSION["company_id"]);
+    $entities=EntityData::getByType('Socio', $_SESSION["company_id"]);
+
 
 ?> 
 <!-- Content Wrapper. Contains page content -->
