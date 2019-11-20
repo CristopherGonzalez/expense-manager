@@ -10,7 +10,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     //query
     $partner=ResultData::getById($id);
 //Se obtienen datos para llenado de desplegables
-    $entities=EntityData::getAll($_SESSION["company_id"]);
+    $entities=EntityData::getByType('Socio', $_SESSION["company_id"]);
+
     if(!isset($partner) && empty($partner)){
         Core::redir("./?view=partners");
     }
@@ -52,11 +53,10 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,10}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="10" value="<?php echo $partner->amount ?>">
                                 </div>
                             </div>
-                            
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="entidad" class="control-label">Entidad: </label>
-                                    <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
+                                    <select class="form-control  style="width: 100%" name="entity" id="entity" >
                                     <?php
                                         //Se carga datos de entidades en modal
                                         foreach($entities as $entity){

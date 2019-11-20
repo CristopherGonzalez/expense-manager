@@ -12,7 +12,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     //Se obtienen datos para llenado de desplegables
     $types=TypeData::getAllExpense();
     $category=CategoryExpenseData::getAll($_SESSION["company_id"]);
-    $entities=EntityData::getAll($_SESSION["company_id"]);
+    $entities=EntityData::getByType('Egreso', $_SESSION["company_id"]);
+    
 if(!isset($expense) && empty($expense)){
         Core::redir("./?view=expenses");
     }
@@ -55,8 +56,23 @@ if(!isset($expense) && empty($expense)){
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="entidad" class="control-label">Entidad: </label>
+                                    <select class="form-control  style="width: 100%" name="entity" id="entity" onchange="change_entity('type_expense','category');">
+                                    <?php
+                                        //Se carga datos de entidades en modal
+                                        foreach($entities as $entity){
+                                    ?>
+                                        <option <?php if($expense->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
+                                    <?php 
+                                        }
+                                    ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="category" class="control-label">Categoria: </label>
-                                    <select class="form-control select2" style="width: 100%" name="category" id="category" >
+                                    <select class="form-control  style="width: 100%" name="category" id="category" >
                                     <?php
                                         foreach($category as $cat){
                                     ?>
@@ -70,7 +86,7 @@ if(!isset($expense) && empty($expense)){
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="type_expense" class="control-label">Tipo: </label>
-                                    <select class="form-control select2" style="width: 100%" name="type_expense" id="type_expense" >
+                                    <select class="form-control  style="width: 100%" name="type_expense" id="type_expense" >
                                     <?php
                                         //Se carga datos de tipos de egreso en modal
                                         foreach($types as $type){
@@ -82,21 +98,7 @@ if(!isset($expense) && empty($expense)){
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label for="entidad" class="control-label">Entidad: </label>
-                                    <select class="form-control select2" style="width: 100%" name="entity" id="entity" >
-                                    <?php
-                                        //Se carga datos de entidades en modal
-                                        foreach($entities as $entity){
-                                    ?>
-                                        <option <?php if($expense->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
-                                    <?php 
-                                        }
-                                    ?>
-                                    </select>
-                                </div>
-                            </div>
+                            
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="date">Fecha: </label>

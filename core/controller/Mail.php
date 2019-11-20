@@ -31,10 +31,10 @@ class Mail{
 			$mail->FromName = $this->email_to;
 			$mail->AddAddress($this->email_to); // Esta es la dirección a donde enviamos los datos del formulario
 
-			$mail->Subject = "DonWeb - Ejemplo de formulario de contacto"; // Este es el titulo del email.
+			//$mail->Subject = "DonWeb - Ejemplo de formulario de contacto"; // Este es el titulo del email.
 			$mensajeHtml = nl2br($this->message);
-			$mail->Body = "{$mensajeHtml} <br /><br />Formulario de ejemplo. By DonWeb<br />"; // Texto del email en formato HTML
-			$mail->AltBody = "{$this->message} \n\n Formulario de ejemplo By DonWeb"; // Texto sin formato HTML
+			$mail->Body = "{$mensajeHtml} <br /><br />Copyright © 2019 mrcomanda.com - Todos los derechos reservados.<br />"; // Texto del email en formato HTML
+			$mail->AltBody = "{$this->message} \n\n Copyright © 2019 mrcomanda.com - Todos los derechos reservados."; // Texto sin formato HTML
 			// FIN - VALORES A MODIFICAR //
 
 			if(isset($this->step) && !empty($this->step)){
@@ -62,45 +62,6 @@ class Mail{
 		}
 		
 	}
-
-	/*// Datos de la cuenta de correo utilizada para enviar vía SMTP
-$smtpHost = "dm000397.ferozo.com";  // Dominio alternativo brindado en el email de alta 
-$smtpUsuario = "no-reply@dm000397.ferozo.com";  // Mi cuenta de correo
-$smtpClave = "A@zf29MeKVfa";  // Mi contraseña
-
-// Email donde se enviaran los datos cargados en el formulario de contacto
-$emailDestino = "correo_destinatario@suDominio.com";
-
-$mail = new PHPMailer();
-$mail->IsSMTP();
-$mail->SMTPAuth = true;
-$mail->Port = 465; 
-$mail->SMTPSecure = 'ssl';
-$mail->IsHTML(true); 
-$mail->CharSet = "utf-8";
-
-
-// VALORES A MODIFICAR //
-$mail->Host = $smtpHost; 
-$mail->Username = $smtpUsuario; 
-$mail->Password = $smtpClave;
-
-$mail->From = $email; // Email desde donde envío el correo.
-$mail->FromName = $nombre;
-$mail->AddAddress($email); // Esta es la dirección a donde enviamos los datos del formulario
-
-$mail->Subject = "DonWeb - Ejemplo de formulario de contacto"; // Este es el titulo del email.
-$mensajeHtml = nl2br($mensaje);
-$mail->Body = "{$mensajeHtml} <br /><br />Formulario de ejemplo. By DonWeb<br />"; // Texto del email en formato HTML
-$mail->AltBody = "{$mensaje} \n\n Formulario de ejemplo By DonWeb"; // Texto sin formato HTML
-// FIN - VALORES A MODIFICAR //
-
-$estadoEnvio = $mail->Send(); 
-if($estadoEnvio){
-    echo "El correo fue enviado correctamente.";
-} else {
-    echo "Ocurrió un error inesperado.";
-}*/
 
 }
 

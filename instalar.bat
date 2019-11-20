@@ -14,5 +14,5 @@ echo Insertar Datos de ciudades
 echo -----------------------------
 echo Insertar Datos de faltantes
 \xampp\mysql\bin\mysql.exe -uroot < \xampp\htdocs\MiNegocio\scriptsql\data_bbdd.sql
-echo Instalacion exitosa
+echo Instalacion terminada
 pause

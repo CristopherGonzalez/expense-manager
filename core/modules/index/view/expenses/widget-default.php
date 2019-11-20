@@ -4,7 +4,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <?php  
     //Se obtienen datos para llenado de desplegables
     $categories=CategoryExpenseData::getAll($_SESSION["company_id"]);
-    $entities=EntityData::getByType('Gasto', $_SESSION["company_id"]);
+    $entities=EntityData::getByType('Egreso', $_SESSION["company_id"]);
     $types=TypeData::getAllExpense();
  ?>
 <!-- Content Wrapper. Contains page content -->
