@@ -95,7 +95,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] == "1"):
                                 echo $file_profile->render('col-md-8 col-sm-8 col-xs-12');
                                 echo $file_profile->renderImage('col-md-4 col-sm-4 col-xs-12','Imagen del logo de la empresa',"data-toggle='modal' data-target='#formModal'");?>
                             </div>
-                            <?php $modal_content = new ModalCategory("Imagen de perfil de Empresa","formModal",UserData::getById($_SESSION['user_id']));
+                            <?php $modal_content = new Modal("Imagen de perfil de Empresa","formModal",UserData::getById($_SESSION['user_id']));
                                 echo $modal_content->renderInit();?>
                                 <div class="form-group">
                                     <div class="col-md-2 col-sm-2 col-xs-12"></div>
@@ -108,6 +108,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] == "1"):
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
                             <label style="color:#999; font-weight:normal;">Registrado por <?php $creator_user=UserData::getById(1); echo $creator_user->name  ?> el <?php echo date("Y-d-m",strtotime($company->created_at));  ?></label>
+                            <a href="./?view=company" class="btn btn-default" >Volver</a>
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                         </div>
                         <div id="result"></div>

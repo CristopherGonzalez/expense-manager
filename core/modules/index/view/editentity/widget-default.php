@@ -95,6 +95,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         <div class="box-footer text-right">
                             <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($entity->user_id); echo $creator_user->name  ?> el <?php echo $entity->created_at;  ?></label>
                             <span style="margin-left:10px;">
+                                <a href="./?view=entities" class="btn btn-default" >Volver</a>
                                 <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>
                         </div>

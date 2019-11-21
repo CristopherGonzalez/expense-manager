@@ -106,6 +106,12 @@ if(!isset($expense) && empty($expense)){
                                 </div>
                             </div>
                             <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="date">Numero Documento: </label>
+                                    <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero Documento" value="<?php echo $expense->document_number; ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="document" class="col-md-8 col-sm-8 col-xs-12">Documento
                                     <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
                                     <input type="button" class="btn btn-default" id="btn_webcam_document" name="btn_webcam_document" value="Sacar Foto" data-toggle="modal" href="#frmwebcamdocument" onclick="add_parameters_from_webcam('document')">
@@ -158,10 +164,10 @@ if(!isset($expense) && empty($expense)){
                                         <?php 
                                             $lblchange_log = new lblChangeLog($expense->id, "expenses");
                                             echo $lblchange_log->renderLabel();
-                                            $modal_content = new ModalCategory("Listado de Cambios","frmexpenses",UserData::getById($_SESSION['user_id']));
+                                            $modal_content = new Modal("Listado de Cambios","frmexpenses",UserData::getById($_SESSION['user_id']));
                                             echo $modal_content->renderInit();
                                         ?>
-                                            <div class="form-group">
+                                            <div class="form-group table-responsive">
                                                 <div id="chn_log"></div>
                                             </div>
                                         <?php echo $modal_content->renderEnd(false);?>  
@@ -174,6 +180,7 @@ if(!isset($expense) && empty($expense)){
                         <div class="box-footer text-right">
                             <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($expense->user_id); echo $creator_user->name  ?> el <?php echo $expense->created_at;  ?></label>
                             <span style="margin-left:10px;">
+                                <a href="./?view=expenses" class="btn btn-default" >Volver</a>
                                 <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>
                         </div>

@@ -7,7 +7,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Categorias </h1>
+        <h1>Categorias de Egreso</h1>
     </section>
 
     <!-- Main content -->
@@ -39,7 +39,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 <!-- <div class="col-md-offset-10"> -->
                 <div class=" pull-right">
                 <button class='btn btn-primary' data-toggle='modal' data-target='#formModal'><i class='fa fa-plus'></i> Nuevo</button>   
-                    <?php $modal_content = new ModalCategory("Ingreso de Egresos","formModal",UserData::getById($_SESSION['user_id']));
+                    <?php $modal_content = new Modal("Ingreso de Egresos","formModal",UserData::getById($_SESSION['user_id']));
                         echo $modal_content->renderInit();?>
                         <div class="form-group">
                             <?php 

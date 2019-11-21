@@ -45,7 +45,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']== "1"):
                     <div class=" pull-right">
                         <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
                         <button class='btn btn-primary' data-toggle='modal' data-target='#formModal'><i class='fa fa-plus'></i> Nuevo</button>   
-                        <?php $modal_content = new ModalCategory("Ingreso de Empresa","formModal",UserData::getById($_SESSION['user_id']));
+                        <?php $modal_content = new Modal("Ingreso de Empresa","formModal",UserData::getById($_SESSION['user_id']));
                             echo $modal_content->renderInit();?>
                              <div class="form-group">
                                 <?php 

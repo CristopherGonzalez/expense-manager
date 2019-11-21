@@ -35,6 +35,7 @@ if (!isset($_SESSION['user_id'])){
 		$income->entidad = intval($_POST['entity']);
 		$income->tipo = intval($_POST['type_income']);
 		$income->fecha = mysqli_real_escape_string($con,(strip_tags($_POST["date"],ENT_QUOTES)));
+		$income->document_number = mysqli_real_escape_string($con,(strip_tags($_POST["document_number"],ENT_QUOTES)));
 		$income->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
 		//Se realiza guardado de imagenes de pago y documento
 		$income->documento = "";
@@ -57,6 +58,7 @@ if (!isset($_SESSION['user_id'])){
 		$change_log->tabla = "income";
 		$change_log->registro_id = $income->id;
 		$change_log->description = $income->description;
+		$change_log->document_number = $income->document_number;
 		$change_log->amount = $income->amount;
 		$change_log->entidad = $income->entidad;
 		$change_log->fecha = $income->fecha;

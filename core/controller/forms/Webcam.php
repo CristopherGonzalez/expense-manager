@@ -8,7 +8,7 @@ class Webcam{
 	}
 	
 	public function renderModalImageCam(){
-		$modal_content = new ModalCategory("Generar Imagen","frmwebcam".$this->name,UserData::getById($_SESSION['user_id']));
+		$modal_content = new Modal("Generar Imagen","frmwebcam".$this->name,UserData::getById($_SESSION['user_id']));
 		$html= $modal_content->renderInit();
 		$html.="<div class='row justify-content-md-center'>";
 		$html.="<span class='col-md-12 col-sm-12 col-xs-12' style='margin:3px;'><center>";

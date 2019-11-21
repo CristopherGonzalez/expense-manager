@@ -11,12 +11,13 @@ class ChangeLogData {
 		$this->entidad = "";
 		$this->fecha = "";
 		$this->pagado = "0";
+		$this->document_number = "";
 		$this->created_at = "NOW()";
 		$this->user_id = "";
 	}
 	public function add(){
-		$sql = "insert into ".self::$tablename." ( tabla, registro_id, description, amount, entidad, fecha, pagado, created_at, user_id) ";
-		$sql .= "VALUES ('".$this->tabla."', ".$this->registro_id.", '".$this->description."', ".$this->amount.", ".$this->entidad.", '".$this->fecha."', ".$this->pagado.", ".$this->created_at.", ".$this->user_id.")";
+		$sql = "insert into ".self::$tablename." ( tabla, registro_id, description, amount, entidad, fecha, pagado,document_number, created_at, user_id) ";
+		$sql .= "VALUES ('".$this->tabla."', ".$this->registro_id.", '".$this->description."', ".$this->amount.", ".$this->entidad.", '".$this->fecha."', ".$this->pagado.",'$this->document_number', ".$this->created_at.", ".$this->user_id.")";
 		return Executor::doit($sql);
 	}
 	public static function delete($id){

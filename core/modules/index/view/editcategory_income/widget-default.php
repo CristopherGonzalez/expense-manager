@@ -57,6 +57,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
                             <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($category_income->user_id); echo $creator_user->name  ?> el  <?php echo date("Y-d-m",strtotime($category_income->created_at));  ?></label>
+                            <a href="./?view=category_income" class="btn btn-default" >Volver</a>
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                         </div>
                     </form>

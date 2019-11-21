@@ -85,6 +85,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		<th>Categoría</th>
 		<th>Entidad</th>
 		<th>Tipo de Egreso</th>
+		<th>Documento</th>
 		<th>Estado Pago</th>
 		<th></th>
 	</thead>
@@ -108,6 +109,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<td><?php if($exp->category_id!=null){echo $exp->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($exp->entidad!=null){echo $exp->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($exp->tipo!=null){echo $exp->getTypeExpense()->name;}else{ echo "<center>----</center>"; }  ?></td>
+			<td><?php if($exp->document_number!=null){echo $exp->document_number;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($exp->pagado!=null && $exp->pagado){echo "<span style='color: #00a65a;'>Pagado</span>"; }else{ echo "<span>Impago</span>"; }  ?></td>
 			<td class="text-right">
                 <a href="./?view=editexpense&id=<?php echo $exp->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>

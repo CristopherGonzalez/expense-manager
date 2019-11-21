@@ -1,5 +1,5 @@
 <?php
-class ModalCategory{
+class Modal{
 	/**
 	 * @brief Constructor de la clase, con parametros por defecto
 	 * @param mixed $title Titulo de la modal

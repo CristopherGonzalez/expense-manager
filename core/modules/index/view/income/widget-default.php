@@ -151,6 +151,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label for="document_number" class="col-sm-2 control-label">Numero de Documento </label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                             <label for="document" class="col-sm-6">Documento
                                                 <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">

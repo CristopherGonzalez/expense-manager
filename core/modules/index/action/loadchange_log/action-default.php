@@ -1,23 +1,4 @@
 <?php
-if (isset($_REQUEST["id"])){//codigo para eliminar 
-	$id=$_REQUEST["id"];
-	$id=intval($id);
-
-	$delete=ExpensesData::delete($id);
-	if($delete==1){
-		$aviso="Bien hecho!";
-		$msj="Datos eliminados satisfactoriamente.";
-		$classM="alert alert-success";
-		$times="&times;";	
-	}else{
-		$aviso="Aviso!";
-		$msj="Error al eliminar los datos ";
-		$classM="alert alert-danger";
-		$times="&times;";					
-	}
-}
-?>
-<?php
 	$con = Database::getCon();
 	//Se capturan los datos enviados por ajax
 	
@@ -57,6 +38,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		<th>Entidad</th>
 		<th>Usuario</th>
 		<th>Estado Pago</th>
+		<?php if($table_name !="result"){echo"<th>Documento</th>";} ?>
 		<th>Fecha modificacion</th>
 	</thead>
 	<tbody>
@@ -79,6 +61,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<td><?php if($log->entidad!=null){echo  EntityData::getById($log->entidad)->name; }else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($log->user_id!=null){echo UserData::getById($log->user_id)->name; }else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($log->pagado!=null && $log->pagado){echo "<span style='color: #00a65a;'>Pagado</span>"; }else{ echo "<span>Impago</span>"; }  ?></td>
+			<?php if($table_name !="result"){ ?>
+				<td><?php if(isset($log->document_number) && !empty($log->document_number)){echo $log->document_number; }else{ echo "<center>----</center>"; }  ?></td>
+			<?php } ?>
 			<td><?php if($log->created_at!=null && isset($log->created_at)){echo $log->created_at; }else{ echo "<center>----</center>"; }  ?></td>
 		</tr>
 		<?php } ?>

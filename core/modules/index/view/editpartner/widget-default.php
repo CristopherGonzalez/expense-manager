@@ -27,7 +27,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1><i class="fa fa-edit"></i>Editar Ingreso</h1>
+        <h1><i class="fa fa-edit"></i>Editar Socio</h1>
     </section>
 
     <!-- Main content -->
@@ -37,7 +37,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 <form role="form" method="post" name="upd" id="upd">
                     <div class="box box-primary"> <!-- general form elements -->
                         <div class="box-header with-border">
-                            <h3 class="box-title">Editar Ingreso</h3>
+                            <h3 class="box-title">Editar Socio</h3>
                         </div><!-- /.box-header -->
                     <!-- form start -->
                         <div class="box-body">
@@ -130,10 +130,10 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <?php 
                                             $lblchange_log = new lblChangeLog($partner->id, "result");
                                             echo $lblchange_log->renderLabel();
-                                            $modal_content = new ModalCategory("Listado de Cambios","frmpartner",UserData::getById($_SESSION['user_id']));
+                                            $modal_content = new Modal("Listado de Cambios","frmresult",UserData::getById($_SESSION['user_id']));
                                             echo $modal_content->renderInit();
                                         ?>
-                                            <div class="form-group">
+                                            <div class="form-group table-responsive">
                                                 <div id="chn_log"></div>
                                             </div>
                                         <?php echo $modal_content->renderEnd(false);?>  
@@ -146,6 +146,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         <div class="box-footer text-right">
                             <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($partner->user_id); echo $creator_user->name  ?> el <?php echo $partner->created_at;  ?></label>
                             <span style="margin-left:10px;">
+                                <a href="./?view=partners" class="btn btn-default" >Volver</a>
                             <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>
                         </div>

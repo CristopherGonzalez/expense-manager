@@ -13,6 +13,7 @@ class IncomeData {
 		$this->created_at = "NOW()";
 		$this->fecha = "";
 		$this->pagado = "0";
+		$this->document_number = "";
 		$this->documento = "";
 		$this->pago = "";
 		$this->empresa = "";
@@ -23,8 +24,8 @@ class IncomeData {
 	public function getTypeIncome(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (description, amount, user_id, category_id,tipo, entidad, created_at, fecha, pagado, documento, pago,empresa) ";
-		$sql .= "value (\"$this->description\",$this->amount,$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,'$this->fecha',$this->pagado,'$this->documento','$this->pago',$this->empresa)";
+		$sql = "insert into ".self::$tablename." (description, amount, user_id, category_id,tipo, entidad, created_at, fecha, pagado,document_number, documento, pago,empresa) ";
+		$sql .= "value (\"$this->description\",$this->amount,$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,'$this->fecha',$this->pagado,'$this->document_number','$this->documento','$this->pago',$this->empresa)";
 		return Executor::doit($sql);
 	}
 
@@ -43,7 +44,7 @@ class IncomeData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\", tipo=$this->tipo, entidad=$this->entidad, pagado='$this->pagado'";
+		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\", tipo=$this->tipo, entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number'";
 		if(isset($this->documento) && !empty($this->documento)){
 			$sql.=", documento = '$this->documento' ";
 		}
