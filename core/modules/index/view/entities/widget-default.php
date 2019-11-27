@@ -100,7 +100,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             <label for="type" class="col-sm-4 control-label">Origen </label>
                                             <div class="col-sm-8">
                                                 <select class="form-control" style="width: 100%" name="origin" id="origin" onchange="change_origin(this);" required>
-                                                    <option value="origin_default">---SELECCIONA---</option>
+                                                    <option value="">---SELECCIONA---</option>
                                                     <option value="origin_expense">Egresos</option>
                                                     <option value="origin_income">Ingresos</option>
                                                     <option value="origin_partner">Socio</option>
@@ -110,7 +110,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="type" class="col-sm-4 control-label">Tipo </label>
                                             <div class="col-sm-8">
-                                                <select class="form-control" style="width: 100%" name="type" id="type" required disabled>
+                                                <select class="form-control" style="width: 100%" name="type" id="type" required  onchange="change_categories(this);" disabled>
                                                     <option value=0>---SELECCIONA---</option>
                                                 </select>
                                             </div>
@@ -160,8 +160,11 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="name_entity" class="col-sm-4 control-label">Nombre </label>
                                             <div class="col-sm-8">
-                                                <textarea type="text" class="form-control" id="name_entity" name="name_entity" placeholder="Nombre"></textarea>
+                                                <input type="text" class="form-control" id="name_entity" name="name_entity" placeholder="Nombre" required>
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12 col-sm-12 col-xs-12" id="alert_add" style="border:5px;"></div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -315,7 +318,16 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var category_expense = $('#category_expense option:selected').val();
         var category_income = $('#category_income option:selected').val();
         var category_partner = $('#category_partner option:selected').val();
-        var category= (category_expense>0)? category_expense : (category_income>0)? category_income : category_partner ; ;
+        var category= (category_expense>0 || category_expense>"")? category_expense : (category_income>0 || category_income>"")? category_income : category_partner ; ;
+        if(category=="" || category == null || category == undefined || category == 0){
+            $('#alert_add').html("");
+            $('#alert_add').html(
+                "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>"+
+                    "No se ha seleccionado ninguna categoría, si no tiene ninguna para seleccionar asegúrese de haber creado al menos una en la categoría correspondiente.</div>"
+            );
+            $('#save_data').attr("disabled", false);
+            return false;
+        }
         //Se cambia forma de envio de formulario para soportar envio de imagenes
         var fd = new FormData($(this)[0]);
         fd.append('category',category);
@@ -341,45 +353,86 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $('#category_expense').prop('disabled', 'disabled');
                     $('#category_income').prop('disabled', 'disabled');
                     $('#category_partner').prop('disabled', 'disabled');
+                    $('#alert_add').html("");
                 }
         });
         event.preventDefault();
     })
-
+    function change_categories(event){
+        var type_value = event.value;
+        var origin_type = $('#origin').val();
+        var categories = '';
+        $('#category_expense option').each(function(){ $(this).remove()});
+        $('#category_income option').each(function(){ $(this).remove()});
+        $('#category_partner option').each(function(){ $(this).remove()});
+        $('#category_expense').append($('<option></option>').text("---SELECCIONA---").attr("value",""));
+        $('#category_income').append($('<option></option>').text("---SELECCIONA---").attr("value",""));
+        $('#category_partner').append($('<option></option>').text("---SELECCIONA---").attr("value",""));
+        $('#category_partner').prop('disabled', true);
+        $('#category_income').prop('disabled', true);
+        $('#category_expense').prop('disabled', true);
+        $('#category_partner').prop('required', false);
+        $('#category_income').prop('required', false);
+        $('#category_expense').prop('required', false);
+        var exists_category = 0;
+        if (origin_type === "origin_expense"){
+            categories = 'category_expense';
+            <?php foreach($categories_expense as $cat){ ?>
+                if("<?php echo $cat->tipo; ?>" == type_value){
+                    $('#'+categories).prop('disabled', false);
+                    $('#'+categories).append($('<option></option>').attr("value",<?php echo $cat->id; ?>).text("<?php echo $cat->name; ?>"));
+                }
+            <?php }?>
+            $('#'+categories).prop('required', true);
+        }
+        if (origin_type === "origin_income"){
+            categories = 'category_income';
+            $('#'+categories).prop('required', true);
+            <?php foreach($categories_income as $cat){ ?>
+                if("<?php echo $cat->tipo; ?>" == type_value){
+                    $('#'+categories).prop('disabled', false);
+                    $('#'+categories).append($('<option></option>').attr("value",<?php echo $cat->id; ?>).text("<?php echo $cat->name; ?>"));
+                }
+            <?php }?>
+        }
+        if (origin_type === "origin_partner"){
+            categories = 'category_partner';
+            $('#'+categories).prop('required', true);
+            $('#'+categories).prop('disabled', false);
+            $('#'+categories).append($('<option></option>').attr("value",1).text("Socio"));
+        }
+    }
    //Funcion para cambiar visibilidad dependiendo de la opcion de origin
    function change_origin(event){
         var origin_type = event.value;
         $('#type option').each(function(){ $(this).remove()});
-        $('#type').prop('disabled', false);
-        $('#type').append($('<option></option>').text("---SELECCIONA---").attr("value",0));
-        $('#category_expense').val("0").change();
-        $('#category_income').val("0").change();
-        $('#category_partner').val("0").change();
+        $('#type').append($('<option></option>').text("---SELECCIONA---").attr("value",""));
+        $('#category_expense option').each(function(){ $(this).remove()});
+        $('#category_expense').append($('<option></option>').text("---SELECCIONA---").attr("value",""));
+        $('#category_income option').each(function(){ $(this).remove()});
+        $('#category_income').append($('<option></option>').text("---SELECCIONA---").attr("value",""));
+        $('#category_partner option').each(function(){ $(this).remove()});
+        $('#category_partner').append($('<option></option>').text("---SELECCIONA---").attr("value",""));
+        $('#category_partner').prop('disabled', true);
+        $('#category_income').prop('disabled', true);
+        $('#category_expense').prop('disabled', true);
+        $('#type').prop('disabled', true);
+        $('#type').prop('required', true);
         $type_category = "";
         //Se carga datos dependiendo de la opcion de origen de la modal
         if (origin_type === "origin_default"){
-            $('#type').prop('disabled', 'disabled');
-            $('#category_expense').prop('disabled', 'disabled');
-            $('#category_income').prop('disabled', 'disabled');
-            $('#category_partner').prop('disabled', 'disabled');
             $type_category = "";
          }
         if (origin_type === "origin_expense"){
-            $('#category_expense').prop('disabled', false);
-            $('#category_income').prop('disabled', 'disabled');
-            $('#category_partner').prop('disabled', 'disabled');
+            $('#type').prop('disabled', false);
             $type_category = "Egreso";
         }
         if (origin_type === "origin_income"){
-            $('#category_income').prop('disabled', false);
-            $('#category_partner').prop('disabled', 'disabled');
-            $('#category_expense').prop('disabled', 'disabled');
+            $('#type').prop('disabled', false);
             $type_category = "Ingreso";
         }
         if (origin_type === "origin_partner"){
-            $('#category_partner').prop('disabled', false);
-            $('#category_expense').prop('disabled', 'disabled');
-            $('#category_income').prop('disabled', 'disabled');
+            $('#type').prop('disabled', false);
             $type_category = "Socio";
         }
 

@@ -103,6 +103,18 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
+                                            <label for="date" class="col-sm-2 control-label">Fecha </label>
+                                            <div class="col-sm-10">
+                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha" value="<?php echo date("Y-m-d");?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="document_number" class="col-sm-2 control-label">Numero de Documento </label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="description" class="col-sm-2 control-label">Descripción </label>
                                             <div class="col-sm-10">
                                                 <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción "></textarea>
@@ -142,18 +154,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             ?>
                                             <div class="col-sm-10">
                                                 <?php echo $category_select->render(); ?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="date" class="col-sm-2 control-label">Fecha </label>
-                                            <div class="col-sm-10">
-                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha" value="<?php echo date("Y-m-d");?>">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="document_number" class="col-sm-2 control-label">Numero de Documento </label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento">
                                             </div>
                                         </div>
                                         <div class="form-group">

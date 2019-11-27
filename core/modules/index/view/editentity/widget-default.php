@@ -44,7 +44,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             </div>
                             <div class="form-group">
                                 <label for="type" class="control-label">Tipo: </label>
-                                <select class="form-control" name="type" id="type" required disabled>
+                                <select class="form-control" name="type" id="type" onchange="change_categories(this);" required disabled>
                                     <option value=0>---SELECCIONA---</option>
                                 </select>
                             </div>
@@ -219,7 +219,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         }
 
     }
-    function change_category(event){
+    function change_categories(event){
         var category_value = event.value;
         $('#category_id').val(category_value);
     }

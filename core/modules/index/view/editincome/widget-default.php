@@ -45,6 +45,18 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="date">Fecha: </label>
+                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $income->fecha; ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="date">Numero Documento: </label>
+                                    <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero Documento" value="<?php echo $income->document_number; ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="description" class="control-label">Descripción: </label>
                                     <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $income->description ?></textarea>
                                 </div>
@@ -97,19 +109,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         }
                                     ?>
                                     </select>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label for="date">Fecha: </label>
-                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $income->fecha; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label for="date">Numero Documento: </label>
-                                    <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero Documento" value="<?php echo $income->document_number; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
