@@ -1,0 +1,41 @@
+//Para consulta de entidades
+//Recibe Api Rest
+{
+    "id_company": "2"
+}
+//Responde Api Rest
+{
+    "entity_1": {
+        "id_entity": "2",
+        "name": "Nombre de la entidad 1",
+        "type": "Egreso",
+        "id_type": "3",
+        "id_category": "4"
+    },
+    "entity_2": {
+        "id_entity": "3",
+        "name": "Nombre de la entidad 2",
+        "type": "Ingreso",
+        "id_type": "11",
+        "id_category": "8"
+    },
+
+    ....
+}
+
+//Agregar nuevo Ingreso/Egreso
+//Recibe Api Rest
+{
+    "id_company": "2",
+    "id_entity": "5",
+    "fecha": "31-01-2010",
+    "número de documento": "988980000122",
+    "descripción": "Descripcion del nuevo ingreso/egreso",
+    "importe": "1000000",
+    "pagado": true
+}
+//Responde Api Rest
+{
+    "id_transaction": "3",
+    "status_transaction": "Mensaje de respuesta de la insercion"
+}

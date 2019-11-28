@@ -69,6 +69,20 @@ class Core {
 		}
 	   return $output;
 	}
+	//TODO crear validacion 
+	public static function getQuantityLinkageElements($element){
+		switch (get_class($element)) {
+			case 'CategoryIncomeData':
+				$count = 0;
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+
+	}
+	
 }
 
 

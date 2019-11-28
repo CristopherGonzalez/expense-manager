@@ -5,6 +5,16 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 
 	$query_validate=IncomeData::getByCategoryId($id);
 	$count=0;
+	if(isset($query_validate) && !empty($query_validate)){
+		$count=1;	
+	}
+	if(is_array($query_validate)){
+		$count=count($query_validate);
+	}
+	$query_validate=Core::getQuantityLinkageElements(CategoryIncomeData::getById($id));
+	if(isset($query_validate) && !empty($query_validate)){
+		$count=1;	
+	}
 	if(is_array($query_validate)){
 		$count=count($query_validate);
 	}
@@ -23,7 +33,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		}
 	}else{
 		$aviso="Aviso!";
-		$msj="Error al eliminar los datos. la materia se encuentra vinculada con la tabla calificaciones.";
+		$msj="Error al eliminar los datos. la materia se encuentra vinculada.";
 		$classM="alert alert-danger";
 		$times="&times;";
 	}	

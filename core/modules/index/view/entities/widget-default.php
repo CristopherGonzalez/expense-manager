@@ -272,8 +272,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         $('.dropdown-menu li' ).removeClass( "active" );
         $("#"+valor).addClass( "active" );
     }
-</script>
-<script>
     function eliminar(id){
         if(confirm('Esta acción  eliminará de forma permanente la entidad \n\n Desea continuar?')){
             //Se obtienen filtros de busqueda para recarga y por estandar
@@ -287,6 +285,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 "page":page,
                 'type':type_find,
                 'category':category_find,
+                'category_type': "",
                 'text':find_text,
                 'per_page':per_page,
                 "id":id

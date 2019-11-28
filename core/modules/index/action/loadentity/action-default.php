@@ -29,7 +29,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		}
 	}else{
 		$aviso="Aviso!";
-		$msj="Error al eliminar los datos. la materia se encuentra vinculada.";
+		$msj="Error al eliminar los datos. La materia se encuentra vinculada.";
 		$classM="alert alert-danger";
 		$times="&times;";
 	}
