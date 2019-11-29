@@ -26,6 +26,7 @@
 //Agregar nuevo Ingreso/Egreso
 //Recibe Api Rest
 {
+    "type": "expense", // puede ser "expense" o "income"
     "id_company": "2",
     "id_entity": "5",
     "fecha": "31-01-2010",
