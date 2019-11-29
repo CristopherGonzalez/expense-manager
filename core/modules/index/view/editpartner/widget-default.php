@@ -118,28 +118,39 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-
-                                    <label for="paid_out">
-                                        <input type="checkbox" id="paid_out" name="paid_out" <?php if($partner->pagado){echo "checked";} ?> > Pagado
-                                    </label>
-                                    <span style="float:right;">
-                                        <?php 
-                                            $lblchange_log = new lblChangeLog($partner->id, "result");
-                                            echo $lblchange_log->renderLabel();
-                                            $modal_content = new Modal("Listado de Cambios","frmresult",UserData::getById($_SESSION['user_id']));
-                                            echo $modal_content->renderInit();
-                                        ?>
-                                            <div class="form-group table-responsive">
-                                                <div id="chn_log"></div>
+                                    <div class="form-group justify-content-between">
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <div class="form-group">
+                                                <input type="checkbox" id="paid_out" name="paid_out" class="col-md-1 col-sm-1 col-xs-1" <?php if($partner->pagado){echo "checked";} ?> onchange="change_payment_status(this.checked)"> 
+                                                <label for="paid_out" class="col-md-2 col-sm-4 col-xs-4">Pagado</label>
+                                                <div class="col-md-9 col-sm-7 col-xs-7">
+                                                    <div id="div_pay_with" style="display:none;" class="row">
+                                                        <label for="pay_with"  class="col-md-1 col-sm-1 col-xs-1">con</label>
+                                                        <input type="text" class="col-md-9 col-sm-9 col-xs-9" style="float:right;" name="pay_with" id="pay_with" placeholder="Tipo de Pago" value="<?php echo $partner->pagado_con; ?>">
+                                                    </div>
+                                                </div>
                                             </div>
-                                        <?php echo $modal_content->renderEnd(false);?>  
-                                    </span>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <span style="float:right;">
+                                                <?php 
+                                                    $lblchange_log = new lblChangeLog($partner->id, "result");
+                                                    echo $lblchange_log->renderLabel();
+                                                    $modal_content = new Modal("Listado de Cambios","frmresult",UserData::getById($_SESSION['user_id']));
+                                                    echo $modal_content->renderInit();
+                                                ?>
+                                                    <div class="form-group table-responsive">
+                                                        <div id="chn_log"></div>
+                                                    </div>
+                                                <?php echo $modal_content->renderEnd(false);?>  
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                           
                             <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $partner->id; ?>">
                         </div><!-- /.box-body -->
@@ -169,6 +180,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <script>
     $(function(){
         load_change_log(<?php echo $partner->id; ?>, "result", "chn_log");
+        change_payment_status($('#paid_out').is(":checked"));
     });
     $( "#upd" ).submit(function( event ) {
         $('#upd_data').attr("disabled", true);

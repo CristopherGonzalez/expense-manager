@@ -216,3 +216,11 @@ function change_entity(type, category) {
         $("#" + category).attr('disabled', true);
     }
 }
+
+function change_payment_status(status) {
+    if (status) {
+        $('#div_pay_with').attr('style', 'display:block');
+    } else {
+        $('#div_pay_with').attr('style', 'display:none');
+    }
+}

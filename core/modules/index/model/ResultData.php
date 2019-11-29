@@ -13,12 +13,13 @@ class ResultData {
 		$this->pagado = "";
 		$this->documento = "";
 		$this->pago = "";
+		$this->pagado_con = "";
 		$this->empresa = "";
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (description, amount, user_id, entidad, created_at, fecha, pagado, documento, pago, empresa) ";
-		$sql .= "value (\"$this->description\",\"$this->amount\",\"$this->user_id\",\"$this->entidad\",$this->created_at,\"$this->fecha\",\"$this->pagado\",\"$this->documento\",\"$this->pago\",$this->empresa)";
+		$sql = "insert into ".self::$tablename." (description, amount, user_id, entidad, created_at, fecha, pagado, documento, pago, pagado_con, empresa) ";
+		$sql .= "value (\"$this->description\",\"$this->amount\",\"$this->user_id\",\"$this->entidad\",$this->created_at,\"$this->fecha\",\"$this->pagado\",\"$this->documento\",\"$this->pago\",\"$this->pagado_con\",$this->empresa)";
 		return Executor::doit($sql);
 	}
 
@@ -37,7 +38,7 @@ class ResultData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",entidad=\"$this->entidad\",created_at=\"$this->created_at\",fecha=\"$this->fecha\",pagado=\"$this->pagado\",documento=\"$this->documento\",pago=\"$this->pago\" where id=$this->id";
+		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",entidad=\"$this->entidad\",created_at=\"$this->created_at\",fecha=\"$this->fecha\",pagado=\"$this->pagado\",pagado_con=\"$this->pagado_con\",documento=\"$this->documento\",pago=\"$this->pago\" where id=$this->id";
 		if (Executor::doit($sql)){
 			return true;
 		}else{

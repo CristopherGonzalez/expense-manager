@@ -43,7 +43,12 @@ if (!isset($_SESSION['user_id'])){
 		if(isset($_POST["document_image"]) && !empty($_POST["document_image"])){
 			$income->documento = $_POST["document_image"];
 		}
-		
+		if($income->pagado){
+			$income->pagado_con = mysqli_real_escape_string($con,(strip_tags($_POST["pay_with"],ENT_QUOTES)));
+
+		}else{
+			$income->pagado_con = "";
+		}
 		if(isset($_POST["payment_image"]) && !empty($_POST["payment_image"])){
 			$income->pago = $_POST["payment_image"];
 		}

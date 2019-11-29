@@ -178,9 +178,17 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         </div>
                                         <div class="form-group">
                                             <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label for="paid_out" class="col-sm-2">
-                                                <input type="checkbox" id="paid_out" name="paid_out" value="paid_out"> Pagado
+                                            <label for="paid_out" class="col-md-2 col-sm-2 col-xs-2">
+                                                <input type="checkbox" id="paid_out" name="paid_out" value="paid_out" onchange="change_payment_status(this.checked)"> Pagado
                                             </label>
+                                            <div id="div_pay_with" style="display:none;">
+                                                <span class="col-md-1 col-sm-1 col-xs-1">
+                                                    <label for="pay_with"> con </label>
+                                                </span>
+                                                <span class="col-md-5 col-sm-5 col-xs-5">
+                                                    <input type="text"  class="form-control"  name="pay_with" id="pay_with" placeholder="Tipo de Pago">
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -372,6 +380,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $(this).remove();});}, 5000);
                 $('#formModal').modal('hide');
                 clear_modal('add_register');
+                change_payment_status(false);
             }
         });
         event.preventDefault();

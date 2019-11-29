@@ -32,6 +32,12 @@ if (!isset($_SESSION['user_id'])){
 		$expense->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
 		//Se realiza guardado de imagenes de pago y documento
 		$expense->document_number = mysqli_real_escape_string($con,(strip_tags($_POST["document_number"],ENT_QUOTES)));
+		if($expense->pagado){
+			$expense->pagado_con = mysqli_real_escape_string($con,(strip_tags($_POST["pay_with"],ENT_QUOTES)));
+
+		}else{
+			$expense->pagado_con = "";
+		}
 		$expense->documento = "";
 		$expense->pago = "";
 		if(isset($_POST["document_image"]) && !empty($_POST["document_image"])){

@@ -34,6 +34,12 @@ if (!isset($_SESSION['user_id'])){
 				//Se realiza guardado de imagenes de pago y documento
 				$expense->document_number = "";
 				$expense->documento = "";
+				if($expense->pagado){
+					$expense->pagado_con = mysqli_real_escape_string($con,(strip_tags($_POST["pay_with"],ENT_QUOTES)));
+		
+				}else{
+					$expense->pagado_con = "";
+				}
 				$expense->pago = "";
 			
 				$query_new=$expense->add();

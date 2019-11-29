@@ -27,6 +27,12 @@ if (!isset($_SESSION['user_id'])){
 			//Se realiza guardado de imagenes de pago y documento
 			$partner->documento = "";
 			$partner->pago = "";
+			if($partner->pagado){
+				$partner->pagado_con = mysqli_real_escape_string($con,(strip_tags($_POST["pay_with"],ENT_QUOTES)));
+	
+			}else{
+				$partner->pagado_con = "";
+			}
 			if(isset($_POST["document_image"]) && !empty($_POST["document_image"])){
 				$partner->documento = $_POST["document_image"];
 			}
