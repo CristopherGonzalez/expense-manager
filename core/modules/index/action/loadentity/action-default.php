@@ -4,15 +4,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$id=intval($id);
 	$ocuped_entity = false;
 	$delete=0;
-	if(is_array(EntityData::getExpensesByIdEntity($id)) && count(EntityData::getExpensesByIdEntity($id))>0){
-		$ocuped_entity = true;
-	}
-	elseif(is_array(EntityData::getIncomeByIdEntity($id)) && count(EntityData::getIncomeByIdEntity($id))>0){
-		$ocuped_entity = true;
-	}
-	elseif(is_array(EntityData::getPartnerByIdEntity($id)) && count(EntityData::getPartnerByIdEntity($id))>0){
-		$ocuped_entity = true;
-	}
+	$ocuped_entity=Core::getQuantityLinkageElements(EntityData::getById($id));
 
 	if(!$ocuped_entity){
 		$delete=EntityData::delete($id);

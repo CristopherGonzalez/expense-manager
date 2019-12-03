@@ -2,12 +2,13 @@
 if (isset($_REQUEST["id"])){//codigo para eliminar 
 	$id=$_REQUEST["id"];
 	$id=intval($id);
-	$query_validate=ExpensesData::getByCategoryId($id);
-	//TODO $count = count($query_validate) Se debe reestablecer pero necesita cambiar antes Expense y todo el MCV relacionado
+	
 	$count=0;
-	if(is_array($query_validate)){
-		$count=count($query_validate);
+	$query_validate=Core::getQuantityLinkageElements(CategoryExpenseData::getById($id));
+	if(isset($query_validate) && !empty($query_validate) && $query_validate){
+		$count=1;	
 	}
+	
 	if ($count==0){
 		$delete=CategoryExpenseData::delete($id);
 		if($delete==1){

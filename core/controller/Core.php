@@ -71,16 +71,31 @@ class Core {
 	}
 	//TODO crear validacion 
 	public static function getQuantityLinkageElements($element){
+		$elements_linkage = array();
 		switch (get_class($element)) {
 			case 'CategoryIncomeData':
-				$count = 0;
+				$elements_linkage[] = IncomeData::getByCategoryId($element->id);
+				$elements_linkage[] = EntityData::getByCategoryId($element->id,'Ingreso',$element->empresa);
 				break;
-			
+			case 'CategoryExpenseData':
+				$elements_linkage[] = EntityData::getByCategoryId($element->id,'Egreso',$element->empresa);
+				$elements_linkage[] = ExpensesData::getByCategoryId($element->id);
+				break;
+			case 'EntityData':
+				$elements_linkage[] = ExpensesData::getByEntityId($element->id);
+				$elements_linkage[] = IncomeData::getByEntityId($element->id);
+				$elements_linkage[] = ResultData::getByEntityId($element->id);
 			default:
-				# code...
 				break;
 		}
-
+		if(is_array($elements_linkage) && count($elements_linkage)>0){
+			foreach($elements_linkage as $element_linkage){
+				if((isset($element_linkage) && !empty($element_linkage)) || (is_array($element_linkage) && count($element_linkage)>0)){
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 }

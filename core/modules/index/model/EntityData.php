@@ -53,7 +53,12 @@ class EntityData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new EntityData());
 	}
-
+	
+	public static function getByCategoryId($id, $type, $company){
+		$sql = "SELECT * FROM ".self::$tablename." WHERE tipo in (SELECT id FROM tipos where tipo = '".$type."') and empresa = ".$company." and category_id=$id";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new EntityData());
+	}
 	public static function getAll($u){
 		$sql = "select * from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);
