@@ -23,7 +23,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <!-- Se agregan nuevos filtros de mes, año, tipo de egreso y cambio en categoria del egreso -->
                     <div class="col-md-3 form-group">
                         <select name="month_find" id="month_find" class="form-control" style="width: 100%;"  onchange="load(1);">
-                            <option value="0">Buscar por Mes</option>
+                            <option value="0">Mes</option>
                         <?php
                                 //Se crean opciones de meses y se selecciona el actual por defecto
                                 $months=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
@@ -37,7 +37,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 </div>
                     <div class="col-md-2 form-group">
                         <select name="year_find" id="year_find" class="form-control" style="width: 100%;"  onchange="load(1);">
-                            <option value="0">Buscar por Año</option>
+                            <option value="0">Año</option>
                             <?php
                                 //Se crean opciones de años y se selecciona el actual por defecto
                                 $years=array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025);
@@ -49,9 +49,9 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <select name="type_income_find" id="type_income_find" class="form-control" style="width: 100%;" onchange="load(1);">
-                            <option value="0">Buscar por Tipo de Ingreso</option>
+                            <option value="0">Tipo de Ingreso</option>
                             <?php
                                 //Se carga con tipos de egresos
                                 foreach($types as $type_income){
@@ -63,9 +63,9 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         </select>
                 </div>
 
-                    <div class="col-md-3 form-group">
+                    <div class="col-md-4 form-group">
                         <select name="category_find" id="category_find" class="form-control" style="width: 100%;" onchange="load(1);">
-                            <option value="0">Buscar por Categoria</option>
+                            <option value="0">Categoria</option>
                             <?php
                                 foreach($categories as $category){
                             ?>
@@ -109,7 +109,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="document_number" class="col-sm-2 control-label">Numero de Documento </label>
+                                            <label for="document_number" class="col-sm-2 control-label" style="padding-top:0px !important;">Numero de Documento </label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento">
                                             </div>

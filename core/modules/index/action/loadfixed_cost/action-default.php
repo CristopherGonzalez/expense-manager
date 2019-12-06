@@ -29,7 +29,7 @@ if(isset($_SESSION["user_id"]) && isset($_SESSION["company_id"])){
 		$sWhere.=" and year(fecha) = ".$year;
 	}
 
-	$query=ExpensesData::query_dinamyc($sWhere);
+	$query=ExpensesData::dinamycQuery($sWhere);
 ?>
 <?php
 	if(isset($_SESSION["user_id"]) && isset($_SESSION["company_id"])){

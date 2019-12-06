@@ -29,8 +29,8 @@
         <div class="wrapper">
             <header class="main-header">
                 <a href="?view=home" class="logo"><!-- Logo -->
-                    <span class="logo-mini"><b>MRC</b>Mi Negocio</span>
-                    <span class="logo-lg">MRC <b>Mi Negocio</b></span>
+                    <span class="logo-mini"><b>MRC</b>MiNegocio</span>
+                    <span class="logo-lg">MRC <b>MiNegocio</b></span>
                 </a>
                 <nav class="navbar navbar-static-top">
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -116,9 +116,9 @@
 
                             </li>
 
-                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='informes' ){echo "active";}?>">
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='reports' ){echo "active";}?>">
                                 <!--a href="?view=informes"><i class="fa fa-home"></i> <span>Informes</span></a>-->
-                                <a href="#"><i class="fa fa-folder-open"></i> <span>Informes</span></a>
+                                <a href="?view=reports"><i class="fa fa-folder-open"></i> <span>Informes</span></a>
                             </li>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='profile' ){echo "active";}?>">
                                 <a href="?view=profile"><i class="fa fa-user"></i> <span>Mi cuenta</span></a>

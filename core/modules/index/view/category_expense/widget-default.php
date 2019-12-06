@@ -39,7 +39,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 <!-- <div class="col-md-offset-10"> -->
                 <div class=" pull-right">
                 <button class='btn btn-primary' data-toggle='modal' data-target='#formModal'><i class='fa fa-plus'></i> Nuevo</button>   
-                    <?php $modal_content = new Modal("Ingreso de Egresos","formModal",UserData::getById($_SESSION['user_id']));
+                    <?php $modal_content = new Modal("Nueva Categoria","formModal",UserData::getById($_SESSION['user_id']));
                         echo $modal_content->renderInit();?>
                         <div class="form-group">
                             <?php 

@@ -19,7 +19,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <!-- Se agregan nuevos filtros de mes, año, tipo de egreso y cambio en categoria del egreso -->
                     <div class="col-md-3 form-group">
                         <select name="month_find" id="month_find" class="form-control" style="width: 100%;"  onchange="load(1);">
-                            <option value="0">Buscar por Mes</option>
+                            <option value="0">Mes</option>
                         <?php
                                 //Se crean opciones de meses y se selecciona el actual por defecto
                                 $months=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
@@ -33,7 +33,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 </div>
                     <div class="col-md-2 form-group">
                         <select name="year_find" id="year_find" class="form-control" style="width: 100%;"  onchange="load(1);">
-                            <option value="0">Buscar por Año</option>
+                            <option value="0">Año</option>
                             <?php
                                 //Se crean opciones de años y se selecciona el actual por defecto
                                 $years=array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025);

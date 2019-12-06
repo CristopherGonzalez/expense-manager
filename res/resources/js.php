@@ -7,7 +7,7 @@
             <div class="pull-right hidden-xs">
               <b>Version</b> 1.1.1
             </div>
-            <strong> <?php if($company->id==1 and $user_session->id=1){ echo "Mr.Comanda | MiNegocio"; }else{echo $company->name." | ".$company->licenciaMRC;} ?> <a href="#"></a>.</strong>
+            <strong> <?php if($company->id==1 and $user_session->id=1){ echo "Mr.Comanda | MiNegocio"; }else{echo $company->name." | Licencia MRC ".$company->licenciaMRC;} ?> <a href="#"></a></strong>
         </footer>
     </div>
     <!-- ./wrapper -->

@@ -57,7 +57,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel"> Nueva Categoria de Ingreso</h4>
+                <h4 class="modal-title" id="myModalLabel"> Nueva Categoria</h4>
             </div>
             <div class="modal-body">
                                     <!-- Se agrega desplegable para seleccionar el tipo de egreso -->
@@ -80,7 +80,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">Nombre </label>
                     <div class="col-sm-10">
-                        <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: ">
+                        <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre ">
                     </div>
                 </div>
             </div>

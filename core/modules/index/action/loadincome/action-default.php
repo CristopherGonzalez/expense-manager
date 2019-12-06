@@ -81,13 +81,11 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	<thead>
 		<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los egresos -->
 		<th>Fecha</th>
+		<th>Entidad</th>
 		<th>Descripción</th>
 		<th>Importe</th>
-		<th>Categoría</th>
-		<th>Entidad</th>
-		<th>Tipo de Egreso</th>
 		<th>Documento</th>
-		<th>Estado Pago</th>
+		<th>Pago</th>
 		<th></th>
 	</thead>
 	<tbody>
@@ -105,11 +103,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		<tr>
 			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
+			<td><?php if($inc->entidad!=null){echo $inc->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php echo $inc->description; ?></td>
 			<td><?php echo number_format($inc->amount,2); ?></td>
-			<td><?php if($inc->category_id!=null){echo $inc->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
-			<td><?php if($inc->entidad!=null){echo $inc->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>
-			<td><?php if($inc->tipo!=null){echo $inc->getTypeIncome()->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($inc->document_number!=null){echo $inc->document_number;}else{ echo "<center>----</center>"; }  ?></td>
 			<td><?php if($inc->pagado!=null && $inc->pagado){echo "<center style='color: #00a65a;'>Pagado</center>"; }else{ echo "<center>Impago</center>"; }  ?></td>
 			<td class="text-right">

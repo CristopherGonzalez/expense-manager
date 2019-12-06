@@ -115,6 +115,11 @@ class IncomeData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new IncomeData());
 	}
+	public static function dinamycQuery($sWhere){
+		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." order by created_at desc";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new IncomeData());
+	}
 }
 
 ?>
