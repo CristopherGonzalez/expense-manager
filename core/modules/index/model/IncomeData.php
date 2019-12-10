@@ -90,9 +90,9 @@ class IncomeData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new IncomeData());
 	}
-	public static function sumIncome_Month($month,$u){
-		$year=date('Y');
-		$sql = "select SUM(amount) as total from ".self::$tablename." where year(created_at) = '$year' and month(created_at)= '$month' and empresa=$u ";
+	public static function sumIncome_Month($month,$u,$year=null){
+		if(!isset($year) || $year==null) { $year = date('Y');}
+		$sql = "select SUM(amount) as total from ".self::$tablename." where year(fecha) = '$year' and month(fecha)= '$month' and empresa=$u ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
@@ -103,7 +103,26 @@ class IncomeData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
-
+	public static function sumIncomeByPaymentStatusByDate($id_company, $paid_out,$month,$year){
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month'";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new IncomeData());
+	}
+	public static function sumIncomeByType($u, $type,$month,$year){
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month'";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new IncomeData());
+	}
+	public static function sumIncomeByTypeAndPayment($u, $type,$month,$year, $paid_out){
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month' and pagado=$paid_out ";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new IncomeData());
+	}
+	public static function IncomesByTypeAndDate($u, $type,$month,$year){
+		$sql = "select * from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month'";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new IncomeData());
+	}
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);
