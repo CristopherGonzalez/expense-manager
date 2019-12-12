@@ -13,13 +13,13 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 		$sWhere .= " and year(fecha) = " . $year;
 	}
 	$colors = [
+		"#28a745",
+		"#6c757d",
+		"#dc3545",
 		"#0069d9",
 		"#ffc107",
-		"#28a745",
-		"#dc3545",
-		"#6c757d",
 		"#17a2b8",
-		"#f60",
+		"#ff6600",
 		"#7952b3",
 		"#e83e8c"
 	];
@@ -28,18 +28,20 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 	$partners = ResultData::dinamycQuery($sWhere);
 	$sumIncomeMonth = IncomeData::sumIncome_Month($month, $_SESSION['company_id'], $year);
 	$sumExpenseMonth = ExpensesData::sumExpenses_Month($month, $_SESSION['company_id'], $year);
+	$sumPartnerMonth = ResultData::sumPartner_Month($month, $_SESSION['company_id'], $year);
 	$sumIncomePayment = IncomeData::sumIncomeByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
 	$sumExpensesPayment = ExpensesData::sumExpensesByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
+	$sumPartnersPayment = ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
 	$resultSumMonth = (isset($sumIncomeMonth->total) ? $sumIncomeMonth->total : 0) - (isset($sumExpenseMonth->total) ? $sumExpenseMonth->total : 0);
 	$result = array();
 	$types = TypeData::getAllType();
 	$dataIncomeResponse = array();
-	$dataExpenseResponse = array();
+	$dataExpensesResponse = array();
 	?>
 	<script>
 		var response = {
 			totalSumMonthYear: "<?php echo $resultSumMonth; ?>",
-			percentageSumMonthYear: "<?php echo ($resultSumMonth / (isset($sumExpenseMonth->total) ? $sumExpenseMonth->total : 1)) * 100; ?>"
+			percentageSumMonthYear: "<?php echo round(($resultSumMonth / (isset($sumIncomeMonth->total) ? $sumIncomeMonth->total : 1)) * 100,2); ?>"
 		}
 	</script>
 
@@ -68,7 +70,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 										$<?php echo $sumIncomePayment->amount; ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										<?php echo round(($sumIncomePayment->amount*100)/$sumIncomeMonth->total); ?>%
+										<?php echo round(($sumIncomePayment->amount*100)/$sumIncomeMonth->total,2); ?>%
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -306,6 +308,88 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 		<?php } else { ?>
 			<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 				<strong>Sin Resultados de Egresos!</strong> No se encontraron resultados en la base de datos!.
+			</div>
+		<?php }
+		if (isset($partners) && is_array($partners) && count($partners) > 0 ) { ?>
+			<div class="box" style="background:#f5f5f5 !important;" id="reportPartner">
+				<div class="box-header  with-border">
+				</div>
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-12">
+						</div>
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="row panel-title">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+									</div>	
+									<div class="col-md-5 col-sm-5 col-xs-5">
+											Socios $<?php echo $sumPartnerMonth->total; ?>
+										</div>
+										
+										<div class="col-md-2 col-sm-2 col-xs-2">
+											<span style="float:right;">Impagos</span>
+										</div>
+										<div class="col-md-1 col-sm-1 col-xs-1">
+											$<?php echo $sumPartnersPayment->amount; ?>
+										</div>
+										<div class="col-md-1 col-sm-1 col-xs-1">
+											<?php echo round(($sumPartnersPayment->amount*100)/$sumPartnerMonth->total); ?>%
+										</div>
+										<div class="col-md-1 col-sm-1 col-xs-1">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="panel-group" id="accordion">
+										<?php 
+											$i = 0;
+											foreach ($partners as $partner) {
+												?>
+												<div class="panel panel-default" style="border:0px !important;">
+													<div class="panel-heading">
+														<div class="row panel-title">
+															<div class="col-md-2 col-sm-2 col-xs-2">
+															</div>
+															<div class="col-md-4 col-sm-4 col-xs-4">
+																<?php echo $partner->description; ?>
+															</div>
+															<div class="col-md-1 col-sm-1 col-xs-1">
+																$<?php echo $partner->amount; ?>
+															</div>
+															<div class="col-md-1 col-sm-1 col-xs-1">
+															</div>
+															<div class="col-md-1 col-sm-1 col-xs-1">
+															</div>
+																<?php 
+																	$sumPartnerPayment =  isset(ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'],0,$month,$year)->amount) ?? 0;
+																?>
+															<div class="col-md-1 col-sm-1 col-xs-1">
+																$<?php echo $sumPartnerPayment; ?>
+															</div>
+															<div class="col-md-1 col-sm-1 col-xs-1">
+																<?php 
+																//$sumIncomeType = $sumIncomeType==0?1:$sumIncomeType;
+																//echo round(($sumIncomeTypePayment*100)/$sumIncomeType,2); ?>%
+															</div>
+															<div class="col-md-1 col-sm-1 col-xs-1">
+															</div>
+														</div>
+													</div>
+	
+												</div>
+										<?php	} ?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php } else { ?>
+			<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<strong>Sin Resultados de Ingresos!</strong> No se encontraron resultados en la base de datos!.
 			</div>
 		<?php }
 	} else { ?>

@@ -83,7 +83,24 @@ class ResultData {
 	public static function dinamycQuery($sWhere){
 		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." order by created_at desc";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new IncomeData());
+		return Model::many($query[0],new ResultData());
+	}
+	public static function sumPartner_Month($month,$u,$year=null){
+		if(!isset($year) || $year==null) { $year = date('Y');}
+		$sql = "select SUM(amount) as total from ".self::$tablename." where year(fecha) = '$year' and month(fecha)= '$month' and empresa=$u ";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new ResultData());
+	}
+	public static function sumPartnerByIdAndDate($id,$id_company,$month,$year=null){
+		if(!isset($year) || $year==null) { $year = date('Y');}
+		$sql = "select SUM(amount) as total from ".self::$tablename." where  year(fecha) = '$year' and month(fecha)= '$month' and empresa=$id_company ";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new ResultData());
+	}
+	public static function sumPartnerByPaymentStatusByDate($id_company, $paid_out,$month,$year){
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month'";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new ResultData());
 	}
 }
 
