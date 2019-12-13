@@ -102,6 +102,16 @@ class ResultData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ResultData());
 	}
+	public static function sumPartnerByPaymenStatusAndEntity($id_company, $paid_out,$id_entity, $month,$year){
+		$sql = "select sum(amount) as amount from ".self::$tablename." where entidad = $id_entity and empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month'";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new ResultData());
+	}
+	public static function partnersByEntityGroup($id_company, $month,$year){
+		$sql = "select entidad, sum(amount)as amount, (select name from entidades where id = entidad) as description, entidad from resultado WHERE empresa=$id_company and  year(fecha) = '".$year."' and month(fecha) = '".$month."' group by entidad";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new ExpensesData());
+	}
 }
 
 ?>

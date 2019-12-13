@@ -96,7 +96,7 @@ create table tipos(
 
 
 /*Seccion de Categorias de egresos e ingresos*/
-create table category_expence (
+create table category_expense (
 	id int not null auto_increment primary key,
 	name varchar(255) not null,
 	user_id int not null,
@@ -158,7 +158,7 @@ create table entidades (
 	empresa int not null,
 	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
-  	foreign key(category_id) references category_expence(id),
+  	foreign key(category_id) references category_expense(id),
   	foreign key(entidad) references entidades(id),
 	foreign key(tipo) references tipos(id)
   );

@@ -37,7 +37,7 @@ create table user(
 INSERT INTO user (status, is_deleted, name, password, email, profile_pic, skin, is_admin, created_at) VALUES
 (1, 0, 'Amner Saucedo Sosa', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin@admin.com', 'default.png',5 , 1, NOW());
 
-create table category_expence (
+create table category_expense (
 	id int not null auto_increment primary key,
 	name varchar(255) not null,
 	user_id int not null,
@@ -62,7 +62,7 @@ create table expenses (
 	category_id int not null,
 	created_at date not null,
 	foreign key(user_id) references user(id),
-	foreign key(category_id) references category_expence(id)
+	foreign key(category_id) references category_expense(id)
 );
 
 create table income (

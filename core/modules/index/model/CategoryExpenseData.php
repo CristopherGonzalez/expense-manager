@@ -3,7 +3,7 @@
  * Clase de categoria de egreso
  */
 class CategoryExpenseData {
-	public static $tablename = "category_expence";	/** Nombre de la tabla category_expence para conexion con base de datos */
+	public static $tablename = "category_expense";	/** Nombre de la tabla category_expence para conexion con base de datos */
 	/**
 	 * Constructor de la clase, con parametros por defecto
 	 */

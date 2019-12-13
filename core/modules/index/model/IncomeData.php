@@ -118,10 +118,15 @@ class IncomeData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
-	public static function IncomesByTypeAndDate($u, $type,$month,$year){
-		$sql = "select * from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month'";
+	public static function IncomesByCategoryTypeAndDate($id_company, $type,$month,$year){
+		$sql = "select category_id, sum(amount)as amount, (select name from category_income where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and tipo=$type and year(fecha) = '".$year."' and month(fecha) = '".$month."' group by category_id";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new IncomeData());
+	}
+	public static function sumIncomeCategoryByTypeAndPayment($id_company, $type,$category_id,$month,$year, $paid_out){
+		$sql = "select category_id, sum(amount)as amount, (select name from category_income where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and tipo=$type and year(fecha) = '".$year."' and month(fecha) = '".$month."' and pagado=$paid_out and category_id=$category_id group by category_id";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new IncomeData());
 	}
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
