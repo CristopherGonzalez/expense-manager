@@ -74,6 +74,10 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <div class="col-md-4 form-group">
                         <input type="text"  class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda"  onkeyup="load(1);">
                     </div>
+                    <div class="col-md-5 form-group">
+                        <input type="checkbox" id="inactive" name="inactive" onchange="load(1);"> 
+                        <label for="inactive">Ver inactivos</label>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -243,6 +247,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var category_type = category_find.closest('optgroup').attr('label');
         var type_find = $('#type_find option:selected').val();
         var find_text = $('#find_text').val();
+        var inactive = $('#inactive').is(":checked");
+
 
         var per_page=$("#per_page").val();
         var parametros = {
@@ -251,8 +257,10 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             'category_type': (category_type==undefined? "" : category_type),
             'category':category_find[0].value,
             'text':find_text,
+            'inactive':inactive,
             'per_page':per_page };
         $.get({
+            method:"POST",
             url:"./?action=loadentity",
             data:parametros,
             beforeSend: function(data){
@@ -279,6 +287,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             var type_find = $('#type_find option:selected').val();
             var find_text = $('#find_text').val();
             var page=1;
+            var inactive = $('#inactive').is(":checked");
 
             var per_page=$("#per_page").val();
             var parametros = {
@@ -287,12 +296,14 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 'category':category_find,
                 'category_type': "",
                 'text':find_text,
+                'inactive':inactive,
                 'per_page':per_page,
                 "id":id
              };
 
             $.get({
                 // method: "GET",
+                method:"POST",
                 url:'./?action=loadentity',
                 data: parametros,
                 beforeSend: function(objeto){

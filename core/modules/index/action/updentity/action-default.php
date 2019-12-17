@@ -24,10 +24,11 @@ if (!isset($_SESSION['user_id'])){
 		$entity->name = mysqli_real_escape_string($con,(strip_tags($_POST["name_entity"],ENT_QUOTES)));
 		$entity->tipo = intval($_POST['type']);
 		$entity->category_id = intval($_POST['category_id']);
+		$entity->active = (isset($_POST['active']) && $_POST['active']=='on')? 1 : 0 ;
 		$query_update=$entity->update();
-
+		
 		if ($query_update){
-			$messages[] = "El egreso ha sido actualizado satisfactoriamente.";
+			$messages[] = "La entidad ha sido actualizada satisfactoriamente.";
 			//print("<script>window.location='./?view=expenses'</script>");
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";

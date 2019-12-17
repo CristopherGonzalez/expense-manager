@@ -131,6 +131,7 @@ create table entidades (
 	tipo int not null,
 	category_id int not null,
 	empresa int not null,
+	active boolean not null,
 	foreign key(empresa) references empresas(id), 
 	foreign key(user_id) references user(id),
 	foreign key(tipo) references tipos(id)
@@ -156,6 +157,8 @@ create table entidades (
 	pago LONGTEXT,
   	pagado_con text ,
 	empresa int not null,
+	active boolean not null,
+	payment_date date null,
 	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_expense(id),
@@ -179,6 +182,8 @@ create table entidades (
 	pago LONGTEXT,
   	pagado_con text ,
 	empresa int not null,
+	active boolean not null,
+	payment_date date null,
 	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_income(id),
@@ -198,6 +203,8 @@ create table entidades (
 	pago LONGTEXT,
   	pagado_con text ,
 	empresa int not null,
+	active boolean not null,
+	payment_date date null,
 	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(entidad) references entidades(id)
@@ -216,6 +223,8 @@ create table entidades (
   		document_number text ,
 		created_at date not null,
 		user_id int not null,
+		active boolean not null,
+		payment_date date null,
 		foreign key(user_id) references user(id),
 		foreign key(entidad) references entidades(id)
 	);

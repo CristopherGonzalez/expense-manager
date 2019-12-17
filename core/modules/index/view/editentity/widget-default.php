@@ -74,6 +74,10 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <label for="name_entity" class="control-label">Nombre: </label>
                                 <input type="text" class="form-control" id="name_entity" name="name_entity" placeholder="Nombre: " value="<?php echo $entity->name; ?>">
                             </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="active" name="active" <?php echo isset($entity->active) && $entity->active == 1? "checked" : ""; ?>> 
+                                <label for="active">Activo</label>
+                            </div>
                              <!-- mod id -->
                             <input type="hidden" required class="form-control" id="category_id" name="category_id" value="<?php echo $entity->category_id; ?>">
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $entity->id; ?>">
@@ -104,6 +108,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var category_expense = $('#category_expense option:selected').val();
         var category_income = $('#category_income option:selected').val();
         var category_partner = $('#category_partner option:selected').val();
+        var active = $('#active').is(":checked");
         var category= (category_expense>0 || category_expense>"")? category_expense : (category_income>0 || category_income>"")? category_income : category_partner ; ;
         if(category=="" || category == null || category == undefined || category == 0){
             $('#result').html("Mensaje: Cargando...");

@@ -10,6 +10,7 @@ class EntityData {
 		$this->tipo = "";
 		$this->category_id = "";
 		$this->empresa = "";
+		$this->active = 1;
 
 	}
 	public function getCategoryExpense(){ return CategoryExpenseData::getById($this->category_id);}
@@ -20,8 +21,8 @@ class EntityData {
 	public function getType($id){ return TypeData::getById($id);}
 
 	public function add(){
-		$sql = "insert into entidades (name,user_id,created_at,tipo,category_id,empresa) ";
-		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo,$this->category_id,$this->empresa)";
+		$sql = "insert into entidades (name,user_id,created_at,tipo,category_id,empresa, active) ";
+		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo,$this->category_id,$this->empresa, $this->active)";
 		return Executor::doit($sql);
 	}
 
@@ -40,7 +41,7 @@ class EntityData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\", tipo=$this->tipo, category_id=$this->category_id where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\", tipo=$this->tipo, category_id=$this->category_id, active=$this->active where id=$this->id";
 		if (Executor::doit($sql)){
 			return true;
 		}else{

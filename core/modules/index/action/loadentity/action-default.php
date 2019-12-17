@@ -1,6 +1,6 @@
 <?php
-if (isset($_REQUEST["id"])){//codigo para eliminar 
-	$id=$_REQUEST["id"];
+if (isset($_POST["id"])){//codigo para eliminar 
+	$id=$_POST["id"];
 	$id=intval($id);
 	$ocuped_entity = false;
 	$delete=0;
@@ -31,10 +31,11 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 <?php
 	$con = Database::getCon();
 	//Se capturan los datos enviados por ajax
-	$type = intval($_REQUEST['type']);
-	$category = intval($_REQUEST['category']);
-	$category_type = mysqli_real_escape_string($con,(strip_tags($_REQUEST['category_type'], ENT_QUOTES)));
-	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
+	$type = intval($_POST['type']);
+	$category = intval($_POST['category']);
+	$inactive = $_POST['inactive'];
+	$category_type = mysqli_real_escape_string($con,(strip_tags($_POST['category_type'], ENT_QUOTES)));
+	$text = mysqli_real_escape_string($con,(strip_tags($_POST['text'], ENT_QUOTES)));
 	//$user_id=$_SESSION["user_id"];
 	//$sWhere=" user_id=$user_id ";
 	$company_id=$_SESSION["company_id"];
@@ -67,10 +68,14 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	if($text!=""){
 		$sWhere.=" and name LIKE '%".$text."%' ";
 	}
-
+	if($inactive=="true"){
+		$sWhere.=" and active=0";
+	}else{
+		$sWhere.=" and active=1";
+	}
 	include 'res/resources/pagination.php'; //include pagination file
-	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
-	$per_page = intval($_REQUEST['per_page']); //how much records you want to show
+	$page = (isset($_POST['page']) && !empty($_POST['page']))?$_POST['page']:1;
+	$per_page = intval($_POST['per_page']); //how much records you want to show
 	$adjacents  = 4; //gap between pages after number of adjacents
 	$offset = ($page - 1) * $per_page;
 
@@ -82,7 +87,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$query=EntityData::query($sWhere, $offset,$per_page);
 ?>
 <?php 
-	if (isset($_REQUEST["id"])){
+	if (isset($_POST["id"])){
 ?>
 	<div class="<?php echo $classM;?>">
 		<button type="button" class="close" data-dismiss="alert"><?php echo $times;?></button>
