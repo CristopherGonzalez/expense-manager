@@ -18,6 +18,8 @@ class IncomeData {
 		$this->pago = "";
 		$this->pagado_con = "";
 		$this->empresa = "";
+		$this->active = 1;
+		$this->payment_date = "00/00/0000";
 	}
 
 	public function getCategory(){ return CategoryIncomeData::getById($this->category_id);}
@@ -25,8 +27,8 @@ class IncomeData {
 	public function getTypeIncome(){ return TypeData::getById($this->tipo);}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (description, amount, user_id, category_id,tipo, entidad, created_at, fecha, pagado,document_number, documento, pago, pagado_con, empresa) ";
-		$sql .= "value (\"$this->description\",$this->amount,$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,'$this->fecha',$this->pagado,'$this->document_number','$this->documento','$this->pago','$this->pagado_con',$this->empresa)";
+		$sql = "insert into ".self::$tablename." (description, amount, user_id, category_id,tipo, entidad, created_at, fecha, pagado,document_number, documento, pago, pagado_con, empresa, active, payment_date) ";
+		$sql .= "value (\"$this->description\",$this->amount,$this->user_id,$this->category_id,$this->tipo,$this->entidad,$this->created_at,'$this->fecha',$this->pagado,'$this->document_number','$this->documento','$this->pago','$this->pagado_con',$this->empresa,$this->active,'$this->payment_date')";
 		return Executor::doit($sql);
 	}
 
@@ -45,7 +47,7 @@ class IncomeData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\", tipo=$this->tipo, entidad=$this->entidad, pagado='$this->pagado', pagado_con='$this->pagado_con', document_number='$this->document_number'";
+		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\", tipo=$this->tipo, entidad=$this->entidad, pagado='$this->pagado', pagado_con='$this->pagado_con', document_number='$this->document_number', payment_date='$this->payment_date'";
 		if(isset($this->documento) && !empty($this->documento)){
 			$sql.=", documento = '$this->documento' ";
 		}
@@ -78,7 +80,14 @@ class IncomeData {
 		return Model::many($query[0],new IncomeData());
 
 	}
-
+	public function updateStatusByEntity($status,$entity){
+		$sql = "update ".self::$tablename." set active= ".$status." where id=$this->id and entidad=$entity";
+		if (Executor::doit($sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public static function getAllCount($u){
 		$sql = "select COUNT(id) as count from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);

@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_id'])){
 			$expense->pagado_con = mysqli_real_escape_string($con,(strip_tags($_POST["pay_with"],ENT_QUOTES)));
 			if($expense->pagado){
 				$expense->pagado_con = mysqli_real_escape_string($con,(strip_tags($_POST["pay_with"],ENT_QUOTES)));
-	
+				$expense->payment_date = mysqli_real_escape_string($con,(strip_tags($_POST["payment_date"],ENT_QUOTES)));
 			}else{
 				$expense->pagado_con = "";
 			}
@@ -63,6 +63,8 @@ if (!isset($_SESSION['user_id'])){
 				$change_log->entidad = $expense->entidad;
 				$change_log->fecha = $expense->fecha;
 				$change_log->pagado = $expense->pagado;
+				$change_log->active = $expense->active;
+				$change_log->payment_date = $expense->payment_date;
 				$change_log->document_number = $expense->document_number;
 				$change_log->user_id = $expense->user_id;
 				$result = $change_log->add();

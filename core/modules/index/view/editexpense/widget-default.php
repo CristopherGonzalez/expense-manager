@@ -155,6 +155,12 @@ if(!isset($expense) && empty($expense)){
                                 </div>
                             </div>
                             <div class="form-group">
+                                <div id="div_pay_date" style="display:none;" class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="payment_date">Fecha de Pago</label>
+                                    <input type="date" class="form-control" id="payment_date" style="width:100%; margin-bottom:5px;" name="payment_date" value="<?php echo isset($expense->payment_date) && !empty($expense->payment_date) && strtotime($expense->payment_date) > 0 ? $expense->payment_date : date('Y-m-d') ;?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group justify-content-between">
                                         <div class="col-md-9 col-sm-9 col-xs-12">
@@ -164,10 +170,11 @@ if(!isset($expense) && empty($expense)){
                                                 <div class="col-md-9 col-sm-7 col-xs-7">
                                                     <div id="div_pay_with" style="display:none;" class="row">
                                                         <label for="pay_with"  class="col-md-1 col-sm-1 col-xs-1">con</label>
-                                                        <input type="text" class="col-md-9 col-sm-9 col-xs-9" style="float:right;" name="pay_with" id="pay_with" placeholder="Tipo de Pago" value="<?php echo $expense->pagado_con; ?>">
+                                                        <input type="text" class="col-md-9 col-sm-9 col-xs-9"  style="float:right;" name="pay_with" id="pay_with" placeholder="Tipo de Pago" value="<?php echo $expense->pagado_con; ?>">
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <div class="col-md-3 col-sm-3 col-xs-12">
                                             <span style="float:right;">

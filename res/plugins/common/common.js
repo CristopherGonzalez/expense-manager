@@ -220,7 +220,9 @@ function change_entity(type, category) {
 function change_payment_status(status) {
     if (status) {
         $('#div_pay_with').attr('style', 'display:block');
+        $('#div_pay_date').attr('style', 'display:block');
     } else {
         $('#div_pay_with').attr('style', 'display:none');
+        $('#div_pay_date').attr('style', 'display:none');
     }
 }

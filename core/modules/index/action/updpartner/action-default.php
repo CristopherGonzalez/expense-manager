@@ -33,8 +33,9 @@ if (!isset($_SESSION['user_id'])){
 		$partner->pago = "";
 		if($partner->pagado){
 			$partner->pagado_con = mysqli_real_escape_string($con,(strip_tags($_POST["pay_with"],ENT_QUOTES)));
-
+			$partner->payment_date = mysqli_real_escape_string($con,(strip_tags($_POST["payment_date"],ENT_QUOTES)));
 		}else{
+			$partner->payment_date = "00/00/0000";
 			$partner->pagado_con = "";
 		}
 		if(isset($_POST["document_image"]) && !empty($_POST["document_image"])){
@@ -60,6 +61,8 @@ if (!isset($_SESSION['user_id'])){
 		$change_log->fecha = $partner->fecha;
 		$change_log->pagado = $partner->pagado;
 		$change_log->user_id = $partner->user_id;
+		$change_log->active = $partner->active;
+		$change_log->payment_date = $partner->payment_date;
 		$result = $change_log->add();
 		if (isset($result) && !empty($result) && $result[0]){
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";

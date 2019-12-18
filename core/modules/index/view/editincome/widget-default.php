@@ -156,6 +156,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 </div>
                             </div>
                             <div class="form-group">
+                                <div id="div_pay_date" style="display:none;" class="col-md-12 col-sm-12 col-xs-12">
+                                    <label for="payment_date">Fecha de Pago</label>
+                                    <input type="date" class="form-control" id="payment_date" style="width:100%; margin-bottom:5px;" name="payment_date" value="<?php echo isset($income->payment_date) && !empty($income->payment_date) && strtotime($income->payment_date) > 0 ? $income->payment_date : date('Y-m-d') ;?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group justify-content-between">
                                         <div class="col-md-9 col-sm-9 col-xs-12">

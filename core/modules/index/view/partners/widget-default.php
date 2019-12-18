@@ -138,7 +138,17 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                                 </span>
                                             </div>
                                         </div>
-
+                                        <div class="form-group">
+                                            <div id="div_pay_date" style="display:none;">
+                                                <span class="col-md-2 col-sm-2 col-xs-12"></span>
+                                                <span class="col-md-3 col-sm-3 col-xs-12">
+                                                    <label for="payment_date">Fecha de Pago</label>
+                                                </span>
+                                                <span class="col-md-4 col-sm-4 col-xs-6">
+                                                    <input type="date" class="form-control" id="payment_date" name="payment_date" value="<?php echo date("Y-m-d");?>">
+                                                </span>
+                                            </div>
+                                        </div>
                                         </div>
                                     
                                         <div class="modal-footer">
