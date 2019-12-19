@@ -49,9 +49,13 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <div class="col-md-5 form-group">
                         <input type="text"  class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda"  onkeyup="load(1);">
                     </div>
-                    <div class="col-md-5 form-group">
+                    <div class="col-md-3 form-group">
                         <input type="checkbox" id="not_paid" name="not_paid" onchange="load(1);"> 
                         <label for="not_paid">Solo Impagos</label>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <input type="checkbox" id="inactive" name="inactive" onchange="load(1);"> 
+                        <label for="inactive">Ver inactivos</label>
                     </div>
                 </div>
             </div>
@@ -235,11 +239,14 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var find_text = $('#find_text').val();
         var not_paid = $('#not_paid').is(":checked");
         var per_page=$("#per_page").val();
+        var inactive = $('#inactive').is(":checked");
+
         var parametros = {
             "page":page,
             'month':month_find,
             'year':year_find,
             'text':find_text,
+            'inactive':inactive,
             'payment':not_paid,
             'per_page':per_page };
             $.get({
@@ -270,6 +277,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             var month_find = $('#month_find option:selected').val();
             var year_find = $('#year_find option:selected').val();
             var find_text = $('#find_text').val();
+            var inactive = $('#inactive').is(":checked");
             var not_paid = $('#not_paid').is(":checked");
             var page=1;
 
@@ -279,6 +287,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 'month':month_find,
                 'year':year_find,
                 'text':find_text,
+                'inactive':inactive,
                 'payment':not_paid,
                 'per_page':per_page,
                 "id":id
@@ -331,6 +340,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $(this).remove();});}, 5000);
                 $('#formModal').modal('hide');
                 clear_modal('add_register');
+                clear_modal('add_register_modal');
                 change_payment_status(false);
             }
         });

@@ -26,10 +26,11 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$category = intval($_REQUEST['category']);
 	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
 	$not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
+	$inactive = (isset($_REQUEST['inactive']) && $_REQUEST['inactive'] == "true") ? 0 : 1;
 	//$user_id=$_SESSION["user_id"];
 	//$sWhere=" user_id=$user_id ";
 	$company_id=$_SESSION["company_id"];
-	$sWhere=" empresa=$company_id and active=1 ";
+	$sWhere=" empresa=$company_id";
 	//Se construye la consulta sql dependiendo de los filtros ingresados
 	if($category!=0){
 		$sWhere.=" and category_id=".$category;
@@ -49,7 +50,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	if(!$not_paid){
 		$sWhere.=" and pagado = ".$not_paid;
 	}
-
+	$sWhere.=" and active = $inactive ";
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	$per_page = intval($_REQUEST['per_page']); //how much records you want to show

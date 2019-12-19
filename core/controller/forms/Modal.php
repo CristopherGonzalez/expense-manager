@@ -23,7 +23,7 @@ class Modal{
 			$htmlinit.="<div class='modal-dialog' role='document'>";
 		 }
 		$htmlinit.="<div class='modal-content'>";
-		$htmlinit.="<form class='form-horizontal' role='form' method='post' id='add_register' name='add_register'>";
+		$htmlinit.="<form class='form-horizontal' role='form' method='post' id='add_register_".$this->id."' name='add_register_".$this->id."'>";
 		$htmlinit.= $this->renderHeader();
 		$htmlinit.="<div class='modal-body table-responsive'>";
 		return $htmlinit;

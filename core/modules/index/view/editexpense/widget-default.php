@@ -222,7 +222,7 @@ if(!isset($expense) && empty($expense)){
 
 <script>
     $(function(){
-        load_change_log(<?php echo $expense->id; ?>, "expenses", "chn_log");
+        load_change_log('<?php echo $expense->id; ?>', "expenses", "chn_log");
         change_payment_status($('#paid_out').is(":checked"));
     });
     $( "#upd" ).submit(function( event ) {

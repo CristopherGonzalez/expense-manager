@@ -185,7 +185,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
 <script>
     $(function(){
-        load_change_log(<?php echo $partner->id; ?>, "result", "chn_log");
+        load_change_log('<?php echo $partner->id; ?>', "result", "chn_log");
         change_payment_status($('#paid_out').is(":checked"));
     });
     $( "#upd" ).submit(function( event ) {

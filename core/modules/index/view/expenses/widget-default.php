@@ -75,9 +75,13 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <div class="col-md-5 form-group">
                         <input type="text"  class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda"  onkeyup="load(1);">
                     </div>
-                    <div class="col-md-5 form-group">
+                    <div class="col-md-3 form-group">
                         <input type="checkbox" id="not_paid" name="not_paid" onchange="load(1);"> 
                         <label for="not_paid">Solo Impagos</label>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <input type="checkbox" id="inactive" name="inactive" onchange="load(1);"> 
+                        <label for="inactive">Ver inactivos</label>
                     </div>
                 </div>
             </div>
@@ -350,6 +354,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var category_find = $('#category_find option:selected').val();
         var find_text = $('#find_text').val();
         var not_paid = $('#not_paid').is(":checked");
+        var inactive = $('#inactive').is(":checked");
 
         var per_page=$("#per_page").val();
         var parametros = {
@@ -360,6 +365,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             'category':category_find,
             'text':find_text,
             'payment':not_paid,
+            'inactive':inactive,
             'per_page':per_page };
         $.get({
             url:"./?action=loadexpenses",
@@ -390,6 +396,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             var category_find = $('#category_find option:selected').val();
             var find_text = $('#find_text').val();
             var not_paid = $('#not_paid').is(":checked");
+            var inactive = $('#inactive').is(":checked");
+
             var page=1;
 
             var per_page=$("#per_page").val();
@@ -401,6 +409,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 'category':category_find,
                 'text':find_text,
                 'payment':not_paid,
+                'inactive':inactive,
                 'per_page':per_page,
                 "id":id
              };
