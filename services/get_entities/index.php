@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     if(isset($_POST['id_company']) && !empty($_POST['id_company'])){
         $id_company = $_POST['id_company'];
-        $entities = EntityData::getAll($id_company);
+        $entities = EntityData::getAll($id_company,true);
         header("HTTP/1.1 200 OK");
         $response = array();
         foreach($entities as $index=>$entity){

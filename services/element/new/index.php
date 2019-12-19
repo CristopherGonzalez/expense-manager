@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         if($_POST['type']=="income"){
             $element = new IncomeData();
         }
-        if(isset($element) || !empty(!element)){
+        if(isset($element) || !empty(!$element)){
             $element->description = $_POST["description"];
             $element->amount = $_POST["amount"];
             $element->user_id = "1";
@@ -56,6 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $element->documento = "";
             $element->pagado_con ="";
             $element->pago = "";
+			//Se realiza guardado de imagenes de pago y documento
+			if($element->pagado){
+				$element->payment_date = $_POST['date'];
+	
+			}
             $element->category_id = $entity->category_id;
             $element->tipo = $entity->tipo;
 
@@ -73,6 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $change_log->amount = $element->amount;
                 $change_log->document_number = $element->document_number;
                 $change_log->entidad = $element->entidad;
+				$change_log->active = $element->active;
+				$change_log->payment_date = $element->payment_date;
                 $change_log->fecha = $element->fecha;
                 $change_log->pagado = $element->pagado;
                 $change_log->user_id = $element->user_id;

@@ -27,16 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $element = IncomeData::getById($id);;
         }
         
-        if(isset($element) || !empty(!element)){
+        if(isset($element) || !empty(!$element)){
             $element->amount = 0;
             $element->document = "";
             $element->pago="";
+            $element->active=0;
             $query_new=$element->update();
             if (isset($query_new) && !empty($query_new) && $query_new) {
                 $response[] = [
                     "id_transaction"=> $element->id,
                     "status_transaction"=> "El registro se ha anulado satisfactoriamente."
                 ];
+
                 $change_log = new ChangeLogData();
                 $change_log->tabla = $_POST['type'];
                 $change_log->registro_id =  $element->id;
@@ -44,6 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $change_log->amount = $element->amount;
                 $change_log->document_number = $element->document_number;
                 $change_log->entidad = $element->entidad;
+				$change_log->active = $element->active;
+				$change_log->payment_date = $element->payment_date;
                 $change_log->fecha = $element->fecha;
                 $change_log->pagado = $element->pagado;
                 $change_log->user_id = $element->user_id;

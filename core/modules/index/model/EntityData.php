@@ -60,8 +60,9 @@ class EntityData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 	}
-	public static function getAll($u){
+	public static function getAll($u,$active=false){
 		$sql = "select * from ".self::$tablename." where empresa=$u";
+		if($active){ $sql.=" active=1 "; }
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 	}
