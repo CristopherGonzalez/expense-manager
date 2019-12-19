@@ -29,6 +29,15 @@ if (!isset($_SESSION['user_id'])){
 		
 		if ($query_update){
 			$messages[] = "La entidad ha sido actualizada satisfactoriamente.";
+			if(boolval($entity->active)){
+				$status = 1;
+			}else{
+				$status = 0;
+			}
+			ExpensesData::updateStatusByEntity($status,$entity->id);
+			IncomeData::updateStatusByEntity($status,$entity->id);
+			ResultData::updateStatusByEntity($status,$entity->id);
+
 			//print("<script>window.location='./?view=expenses'</script>");
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";

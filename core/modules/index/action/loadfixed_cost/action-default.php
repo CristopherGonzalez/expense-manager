@@ -11,7 +11,7 @@ if(isset($_SESSION["user_id"]) && isset($_SESSION["company_id"])){
 	}
 	
 	$sWhere=" id <> 0";
-	$sWhere.=" and empresa=".$_SESSION["company_id"];
+	$sWhere.=" and empresa=".$_SESSION["company_id"]." and active=1 ";
 
 	if(isset($opts_type) && !empty($opts_type) && is_array($opts_type)){
 		$sWhere.=" and  ( ";

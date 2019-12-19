@@ -26,7 +26,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
 	//$user_id=$_SESSION["user_id"];
 	$company_id=$_SESSION["company_id"];
-	$sWhere=" empresa=$company_id ";
+	$sWhere=" empresa=$company_id and active = 1 ";
 	//Se construye la consulta sql dependiendo de los filtros ingresados
 	if($month!=0){
 		$sWhere.=" and month(fecha) =".$month;

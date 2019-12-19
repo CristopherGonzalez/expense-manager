@@ -29,7 +29,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	//$user_id=$_SESSION["user_id"];
 	//$sWhere=" user_id=$user_id ";
 	$company_id=$_SESSION["company_id"];
-	$sWhere=" empresa=$company_id ";
+	$sWhere=" empresa=$company_id and active=1 ";
 	//Se construye la consulta sql dependiendo de los filtros ingresados
 	if($category!=0){
 		$sWhere.=" and category_id=".$category;

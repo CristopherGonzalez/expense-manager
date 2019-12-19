@@ -66,7 +66,7 @@ class EntityData {
 		return Model::many($query[0],new EntityData());
 	}
 	public static function getByType($type, $company){
-		$sql = "SELECT * FROM ".self::$tablename." WHERE tipo in (SELECT id FROM tipos where tipo = '".$type."') and empresa = ".$company;
+		$sql = "SELECT * FROM ".self::$tablename." WHERE tipo in (SELECT id FROM tipos where tipo = '".$type."') and empresa = ".$company." and active = 1";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 	}

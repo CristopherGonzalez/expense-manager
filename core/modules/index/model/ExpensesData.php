@@ -86,8 +86,8 @@ class ExpensesData {
 		return Model::many($query[0],new ExpensesData());
 
 	}
-	public function updateStatusByEntity($status,$entity){
-		$sql = "update ".self::$tablename." set active= ".$status." where id=$this->id and entidad=$entity";
+	public static function updateStatusByEntity($status,$entity){
+		$sql = "update ".self::$tablename." set active= ".$status." where entidad=$entity";
 		if (Executor::doit($sql)){
 			return true;
 		}else{
@@ -109,7 +109,7 @@ class ExpensesData {
 
 	public static function sumExpenses($u){
 		$year=date('Y');
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and year(fecha)='$year'";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 	}

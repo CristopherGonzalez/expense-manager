@@ -47,8 +47,8 @@ class ResultData {
 			return false;
 		}
 	}
-	public function updateStatusByEntity($status,$entity){
-		$sql = "update ".self::$tablename." set active= ".$status." where id=$this->id and entidad=$entity";
+	public static function updateStatusByEntity($status,$entity){
+		$sql = "update ".self::$tablename." set active= ".$status." where entidad=$entity";
 		if (Executor::doit($sql)){
 			return true;
 		}else{

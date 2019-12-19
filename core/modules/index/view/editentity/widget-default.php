@@ -75,7 +75,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <input type="text" class="form-control" id="name_entity" name="name_entity" placeholder="Nombre: " value="<?php echo $entity->name; ?>">
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" id="active" name="active" <?php echo isset($entity->active) && $entity->active == 1? "checked" : ""; ?>> 
+                                     <input type="checkbox" id="active" name="active" <?php echo isset($entity->active) && $entity->active == 1? "checked" : ""; ?>> 
                                 <label for="active">Activo</label>
                             </div>
                              <!-- mod id -->
