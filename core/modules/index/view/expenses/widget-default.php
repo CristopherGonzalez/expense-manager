@@ -142,6 +142,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <?php 
                                                 $type_expense_select = new SelectList("type_expense","Tipo",$types);
+                                                $type_expense_select->tag = "disabled";
                                                 echo $type_expense_select->renderLabel('col-sm-2');
                                             ?>
                                             <div class="col-sm-10">
@@ -151,6 +152,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <?php 
                                                 $category_select = new SelectList("category","Categoria",$categories);
+                                                $category_select->tag = "disabled";
                                                 echo $category_select->renderLabel('col-sm-2');
                                             ?>
                                             <div class="col-sm-10">
