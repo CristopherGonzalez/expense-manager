@@ -6,14 +6,14 @@ use dm000397_Negocio;
 create table pais (
  id int not null auto_increment primary key,
  name varchar(100) NOT NULL
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 create table ciudad(
  id int not null auto_increment primary key,
  name varchar(100) NOT NULL,
  id_pais int NOT NULL,
  foreign key(id_pais) references pais(id)
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
 
@@ -21,7 +21,7 @@ create table ciudad(
 create table tipo_negocios(
  id int not null auto_increment primary key,
  name varchar(100) not null unique
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
 /**Seccion de Skins**/
@@ -41,7 +41,7 @@ create table configuration(
 	name varchar(100) not null unique,
 	val text,
 	cfg_id int default 1
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
 /*Seccion de empresas*/
@@ -64,7 +64,7 @@ create table empresas(
   foreign key(pais) references pais(id),
   foreign key(ciudad) references ciudad(id),
   foreign key(tipo_negocio) references tipo_negocios(id)
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
 
@@ -83,7 +83,7 @@ create table user(
   created_at datetime not null,
   foreign key(skin) references skins(id),
   foreign key(empresa) references empresas(id)
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
   ALTER TABLE `user` ADD UNIQUE( `email`, `empresa`);
 
 /*Seccion de tipos de egresos/ingreso*/
@@ -92,7 +92,7 @@ create table tipos(
 	tipo varchar(20) not null,
 	name varchar(100) not null ,
 	entidad varchar(100) not null 
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
 /*Seccion de Categorias de egresos e ingresos*/
@@ -106,7 +106,7 @@ create table category_expense (
 	foreign key(empresa) references empresas(id), 
 	foreign key(user_id) references user(id),
 	foreign key(tipo) references tipos(id)
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 create table category_income (
 	id int not null auto_increment primary key,
@@ -118,7 +118,7 @@ create table category_income (
 	foreign key(empresa) references empresas(id), 
 	foreign key(tipo) references tipos(id),
 	foreign key(user_id) references user(id)
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
 
@@ -135,7 +135,7 @@ create table entidades (
 	foreign key(empresa) references empresas(id), 
 	foreign key(user_id) references user(id),
 	foreign key(tipo) references tipos(id)
-);
+) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
 /*Seccion de Egresos e Ingresos*/
@@ -164,7 +164,7 @@ create table entidades (
   	foreign key(category_id) references category_expense(id),
   	foreign key(entidad) references entidades(id),
 	foreign key(tipo) references tipos(id)
-  );
+  ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
   create table income (
   	id int not null auto_increment primary key,
@@ -189,7 +189,7 @@ create table entidades (
   	foreign key(category_id) references category_income(id),
   	foreign key(entidad) references entidades(id),
 	foreign key(tipo) references tipos(id)
-  );
+  ) CHARACTER SET = utf8 COLLATE = utf8_bin;
   create table resultado (
   	id int not null auto_increment primary key,
   	description text ,
@@ -209,7 +209,7 @@ create table entidades (
   	foreign key(user_id) references user(id),
   	foreign key(entidad) references entidades(id)
 
-  );
+  ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 	create table logcambios (
 		id int not null auto_increment primary key,
@@ -227,4 +227,4 @@ create table entidades (
 		payment_date datetime null,
 		foreign key(user_id) references user(id),
 		foreign key(entidad) references entidades(id)
-	);
+	) CHARACTER SET = utf8 COLLATE = utf8_bin;

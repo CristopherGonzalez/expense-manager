@@ -30,7 +30,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             <div class="col-md-6"><!-- left column -->
                 <div class="box box-primary"> <!-- general form elements -->
                     <div class="box-header with-border">
-                        <h3 class="box-title">Editar Editar Entidad</h3>
+                        <h3 class="box-title">Editar Entidad</h3>
                     </div><!-- /.box-header -->
                     <form role="form" method="post" name="upd" id="upd"><!-- form start -->
                         <div class="box-body">
@@ -67,7 +67,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <label for="category_partner" class="control-label">Categoria socio: </label>
                                 <select class="form-control" name="category_partner" id="category_partner" disabled onchange="change_category(this)">
                                     <option value=0>---SELECCIONA---</option>
-                                    <option value=1>Socio</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -226,6 +225,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <?php }
                 }
             ?>
+            
+            $('#category_partner').append($('<option></option>').attr("value",1).text("Socio"));
         }
 
     }
