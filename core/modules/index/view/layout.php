@@ -119,7 +119,7 @@
                             </li>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='reports' ){echo "active";}?>">
                                 <!--a href="?view=informes"><i class="fa fa-home"></i> <span>Informes</span></a>-->
-                                <a href="?view=reports"><i class="fa fa-folder-open"></i> <span>Informes</span></a>
+                                <a href="?view=reports"><i class="fa fa-pie-chart"></i> <span>Informes</span></a>
                             </li>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='profile' ){echo "active";}?>">
                                 <a href="?view=profile"><i class="fa fa-user"></i> <span>Mi cuenta</span></a>

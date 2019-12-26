@@ -108,6 +108,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                                     <option value="origin_expense">Egresos</option>
                                                     <option value="origin_income">Ingresos</option>
                                                     <option value="origin_partner">Socio</option>
+                                                    <option value="origin_debt">Deudas</option>
+                                                    <option value="origin_stock">Valores</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -329,14 +331,19 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var category_income = $('#category_income option:selected').val();
         var category_partner = $('#category_partner option:selected').val();
         var category= (category_expense>0 || category_expense>"")? category_expense : (category_income>0 || category_income>"")? category_income : category_partner ; ;
-        if(category=="" || category == null || category == undefined || category == 0){
-            $('#alert_add').html("");
-            $('#alert_add').html(
-                "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>"+
-                    "No se ha seleccionado ninguna categoría, si no tiene ninguna para seleccionar asegúrese de haber creado al menos una en la categoría correspondiente.</div>"
-            );
-            $('#save_data').attr("disabled", false);
-            return false;
+        var origin_type = $('#origin option:selected').val();
+        if (origin_type != "origin_debt" && origin_type != "origin_stock"){
+            if((category=="" || category == null || category == undefined || category == 0) ){
+                $('#alert_add').html("");
+                $('#alert_add').html(
+                    "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>"+
+                        "No se ha seleccionado ninguna categoría, si no tiene ninguna para seleccionar asegúrese de haber creado al menos una en la categoría correspondiente.</div>"
+                );
+                $('#save_data').attr("disabled", false);
+                return false;
+            }
+        }else{
+            category = 0;
         }
         //Se cambia forma de envio de formulario para soportar envio de imagenes
         var fd = new FormData($(this)[0]);
@@ -428,27 +435,37 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         $('#category_expense').prop('disabled', true);
         $('#type').prop('disabled', true);
         $('#type').prop('required', true);
-        $type_category = "";
+        type_category = "";
         //Se carga datos dependiendo de la opcion de origen de la modal
-        if (origin_type === "origin_default"){
-            $type_category = "";
-         }
-        if (origin_type === "origin_expense"){
-            $('#type').prop('disabled', false);
-            $type_category = "Egreso";
-        }
-        if (origin_type === "origin_income"){
-            $('#type').prop('disabled', false);
-            $type_category = "Ingreso";
-        }
-        if (origin_type === "origin_partner"){
-            $('#type').prop('disabled', false);
-            $type_category = "Socio";
+        switch(origin_type){
+            case "origin_default":
+                type_category = "";
+                break;
+            case "origin_expense":
+                $('#type').prop('disabled', false);
+                type_category = "Egreso";
+                break;
+            case "origin_income":
+                $('#type').prop('disabled', false);
+                type_category = "Ingreso";
+                break;
+            case "origin_partner":
+                $('#type').prop('disabled', false);
+                type_category = "Socio";
+                break;
+            case "origin_debt":
+                $('#type').prop('disabled', false);
+                type_category = "Deudas";
+                break;
+            case "origin_stock":
+                $('#type').prop('disabled', false);
+                type_category = "Valores";
+                break;
         }
 
-        if($type_category!=""){
+        if(type_category!=""){
             <?php foreach($types as $type){ ?>
-                if("<?php echo $type->tipo; ?>" == $type_category){
+                if("<?php echo $type->tipo; ?>" == type_category){
                     $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
                 }
             <?php }?>

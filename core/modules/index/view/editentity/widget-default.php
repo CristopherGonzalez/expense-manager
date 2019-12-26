@@ -40,6 +40,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                     <option value="origin_expense">Egresos</option>
                                     <option value="origin_income">Ingresos</option>
                                     <option value="origin_partner">Socio</option>
+                                    <option value="origin_debt">Deudas</option>
+                                    <option value="origin_stock">Valores</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -50,14 +52,14 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             </div>
                             <div class="form-group">
                                 <label for="category_expense" class="control-label">Categoria de egresos: </label>
-                                <select class="form-control " name="category_expense" id="category_expense" disabled onchange="change_category(this)">
+                                <select class="form-control " name="category_expense" id="category_expense" disabled >
                                     <option value="">---SELECCIONA---</option>
                                     
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="category_income" class="control-label">Categoria de ingreso: </label>
-                                <select class="form-control " name="category_income" id="category_income" disabled onchange="change_category(this)">
+                                <select class="form-control " name="category_income" id="category_income" disabled>
                                     <option value="">---SELECCIONA---</option>
                                    
                                 </select>
@@ -65,7 +67,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 
                             <div class="form-group">
                                 <label for="category_partner" class="control-label">Categoria socio: </label>
-                                <select class="form-control" name="category_partner" id="category_partner" disabled onchange="change_category(this)">
+                                <select class="form-control" name="category_partner" id="category_partner" disabled>
                                     <option value=0>---SELECCIONA---</option>
                                 </select>
                             </div>
@@ -103,25 +105,33 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     });
     $( "#upd" ).submit(function( event ) {
         var result = false;
-        var parametros = $(this).serialize();
         var category_expense = $('#category_expense option:selected').val();
         var category_income = $('#category_income option:selected').val();
         var category_partner = $('#category_partner option:selected').val();
         var active = $('#active').is(":checked");
+        var origin_type = $('#origin option:selected').val();
         var category= (category_expense>0 || category_expense>"")? category_expense : (category_income>0 || category_income>"")? category_income : category_partner ; ;
-        if(category=="" || category == null || category == undefined || category == 0){
-            $('#result').html("Mensaje: Cargando...");
-            $('#result').html(
-                "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>"+
-                    "No se ha seleccionado ninguna categoría, si no tiene ninguna para seleccionar asegúrese de haber creado al menos una en la categoría correspondiente.</div>"
-            );
-            $('#save_data').attr("disabled", false);
-            return false;
+        if (origin_type != "origin_debt" && origin_type != "origin_stock"){
+            if(category=="" || category == null || category == undefined || category == 0){
+                $('#result').html("Mensaje: Cargando...");
+                $('#result').html(
+                    "<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>"+
+                        "No se ha seleccionado ninguna categoría, si no tiene ninguna para seleccionar asegúrese de haber creado al menos una en la categoría correspondiente.</div>"
+                );
+                $('#save_data').attr("disabled", false);
+                return false;
+            }
+        }else{
+            category = 0;
         }
+        var parametros = new FormData($(this)[0]);
+        parametros.append('category_id',category);
         $.ajax({
             type: "POST",
             url: "./?action=updentity",
             data: parametros,
+            contentType: false,
+            processData: false,
              beforeSend: function(objeto){
                 $("#result").html("Mensaje: Cargando...");
               },
@@ -147,6 +157,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         if (origin_type == "Egreso"){ $('#origin option[value=origin_expense]').attr("selected","selected"); }
         if (origin_type == "Ingreso"){ $('#origin option[value=origin_income]').attr("selected","selected"); }
         if (origin_type == "Socio"){ $('#origin option[value=origin_partner]').attr("selected","selected"); }
+        if (origin_type == "Deudas"){ $('#origin option[value=origin_debt]').attr("selected","selected"); }
+        if (origin_type == "Valores"){ $('#origin option[value=origin_stock]').attr("selected","selected"); }
         change_origin($('#origin')[0]);
         if (origin_type == "Egreso"){ $('#category_expense').prop('disabled', false);$('#category_expense option[value=<?php echo $entity->category_id ?>]').attr("selected","selected"); }
         if (origin_type == "Ingreso"){ $('#category_income').prop('disabled', false);$('#category_income option[value=<?php echo $entity->category_id ?>]').attr("selected","selected"); }
@@ -228,7 +240,26 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             
             $('#category_partner').append($('<option></option>').attr("value",1).text("Socio"));
         }
-
+        if (origin_type === "origin_debt"){
+            $('#type').prop('disabled', false);
+            <?php 
+                foreach($types as $type){ 
+                    if(!strcmp($type->tipo,"Deudas")){?>
+                        $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
+                    <?php }
+                }
+            ?>
+        }
+        if (origin_type === "origin_stock"){
+            $('#type').prop('disabled', false);
+            <?php 
+                foreach($types as $type){ 
+                    if(!strcmp($type->tipo,"Valores")){?>
+                        $('#type').append($('<option></option>').attr("value",<?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
+                    <?php }
+                }
+            ?>
+        }
     }
     function change_categories(event){
         var type_value = event.value;

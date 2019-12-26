@@ -161,7 +161,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     }
 </script>
 <script>
-    $( "#add_register" ).submit(function( event ) {
+    $( "#add_register_formModal" ).submit(function( event ) {
         $('#save_data').attr("disabled", true);
         var parametros = $(this).serialize();
         $.ajax({

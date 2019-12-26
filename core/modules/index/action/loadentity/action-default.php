@@ -128,7 +128,7 @@ if (isset($_POST["id"])){//codigo para eliminar
 			<td><?php echo $ent->getType($ent->tipo)->tipo ?></td>
 			<td>
 				<?php 
-					if($ent->category_id!=null){
+					if($ent->category_id!=null && $ent->category_id!=0){
 						if(!strcmp($ent->getType($ent->tipo)->tipo,"Egreso")){
 							echo $ent->getCategoryExpense()->name;
 						}

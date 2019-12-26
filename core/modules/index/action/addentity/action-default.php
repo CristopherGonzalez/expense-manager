@@ -8,12 +8,9 @@ if (!isset($_SESSION['user_id'])){
 			$errors[] = "No se ha ingresado nombre.";
 		}  elseif (empty($_POST['type'])) {
             $errors[] = "No ha seleccionado el tipo";
-        }  elseif (empty($_POST['category'])) {
-            $errors[] = "No se ha seleccionado la categoria";
         }  elseif (
         	!empty($_POST['name_entity'])
         	&& !empty($_POST['type'])
-			&& !empty($_POST['category'])
         ){
         	$con = Database::getCon(); 
 			$entity = new EntityData();
