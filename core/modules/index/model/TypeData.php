@@ -68,6 +68,18 @@ class TypeData {
 		return Model::many($query[0],new TypeData());
 
 	}
+	public static function getAllDebts(){
+		$sql = "select * from ".self::$tablename." where tipo='Deudas'";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new TypeData());
+
+	}
+	public static function getAllStocks(){
+		$sql = "select * from ".self::$tablename." where tipo='Valores'";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new TypeData());
+
+	}
 	public static function getAllPartner($u){
 		$sql = "select * from ".self::$tablename." where tipo='Socio'";
 		$query = Executor::doit($sql);

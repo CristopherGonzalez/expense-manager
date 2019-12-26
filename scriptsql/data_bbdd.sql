@@ -72,3 +72,12 @@ INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Publicidad', 'Marca'
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Ingreso', 'Otros', 'Entidad' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Socio', 'Socios', 'Socio' );
 INSERT INTO tipos (tipo, name, entidad) VALUES ('Socio', 'Otros', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Valores', 'Caja', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Valores', 'Banco', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Valores', 'Tarjeta', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Valores', 'Clientes', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Valores', 'Otros', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Deudas', 'Cheques', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Deudas', 'Impuestos', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Deudas', 'Creditos', 'Entidad' );
+INSERT INTO tipos (tipo, name, entidad) VALUES ('Deudas', 'Otros', 'Entidad' );

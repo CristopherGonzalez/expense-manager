@@ -101,21 +101,22 @@
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='partners' ){echo "active";}?>">
                                 <a href="?view=partners"><i class="fa fa-users"></i> <span>Socios</span></a>
                             </li>
-
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='stock' ){echo "active";}?>">
+                                <a href="?view=stock"><i class="fa fa-bank"></i> <span>Valores</span></a>
+                            </li>
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='debt' ){echo "active";}?>">
+                                <a href="?view=debt"><i class="fa fa-money"></i> <span>Deudas</span></a>
+                            </li>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_income' or $_GET['view']=='editcategory_income'){echo "active";}?>">
                                 <a href="?view=category_income"><i class="fa fa-th-list"></i> <span>Categoria de ingresos</span></a>
                             </li>
-
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='category_expense' or $_GET['view']=='editcategory_expense'){echo "active";}?>">
                                 <a href="?view=category_expense"><i class="fa fa-th"></i> <span>Categoria de egresos</span></a>
                             </li>
-
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='entities' ){echo "active";}?>">
                                 <!--a href="?view=entidades"><i class="fa fa-home"></i> <span>Informes</span></a>-->
                                 <a href="?view=entities"><i class="fa fa-building-o"></i> <span>Entidades</span></a>
-
                             </li>
-
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='reports' ){echo "active";}?>">
                                 <!--a href="?view=informes"><i class="fa fa-home"></i> <span>Informes</span></a>-->
                                 <a href="?view=reports"><i class="fa fa-folder-open"></i> <span>Informes</span></a>

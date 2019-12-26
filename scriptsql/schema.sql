@@ -210,7 +210,38 @@ create table entidades (
   	foreign key(entidad) references entidades(id)
 
   ) CHARACTER SET = utf8 COLLATE = utf8_bin;
-
+	create table deudas (
+		id int not null auto_increment primary key,
+		description text ,
+		amount double not null,
+		upload_receipt varchar(255),		
+		user_id int not null,
+		entidad int not null,
+		created_at date not null,
+		fecha date not null,
+		fechapago date not null,
+		pagado boolean not null default 1,
+		documento LONGTEXT,
+		pago LONGTEXT,
+		foreign key(user_id) references user(id),
+		foreign key(entidad) references entidades(id)
+	);
+	create table valores (
+		id int not null auto_increment primary key,
+		description text ,
+		amount double not null,
+		upload_receipt varchar(255),		
+		user_id int not null,
+		entidad int not null,
+		created_at date not null,
+		fecha date not null,
+		fechapago date not null,
+		pagado boolean not null default 1,
+		documento LONGTEXT,
+		pago LONGTEXT,
+		foreign key(user_id) references user(id),
+		foreign key(entidad) references entidades(id)
+	);
 	create table logcambios (
 		id int not null auto_increment primary key,
 		tabla varchar(50) not null,

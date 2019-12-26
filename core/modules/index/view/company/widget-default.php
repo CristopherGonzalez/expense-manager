@@ -236,7 +236,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']== "1"):
             })
         }
     }
-    $( "#add_register" ).submit(function( input ) {
+    $( "#add_register_formModal" ).submit(function( input ) {
         $('#save_data').attr("disabled", true);
         //Se cambia forma de envio de formulario para soportar envio de imagenes
         var fd = new FormData($(this)[0]);
