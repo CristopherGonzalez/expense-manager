@@ -1,5 +1,5 @@
 <?php
-if (isset($_REQUEST["id"])){//codigo para eliminar 
+if (isset($_REQUEST["id"])){
 	$id=$_REQUEST["id"];
 	$id=intval($id);
 	$con = Database::getCon();

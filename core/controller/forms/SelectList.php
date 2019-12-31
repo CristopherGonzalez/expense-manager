@@ -8,7 +8,7 @@ class SelectList{
 		$this->value = $value;
 		$this->options = $options;
 		$this->funjs = "";
-		$this->tag = "";
+		$this->tag = "";  
 		$this->default_value = "";
 	}
 	/**
@@ -16,7 +16,7 @@ class SelectList{
 	 * @return $select  string select con el control creado
 	 */
 	public function render($class_css=""){
-		$select =  "<select ".$this->tag." required class='form-control $class_css' style='width: 100%' id='$this->name' name='$this->name' ".$this->funjs.">";
+		$select =  "<select ".$this->tag." required='required' class='form-control $class_css' style='width: 100%' id='$this->name' name='$this->name' ".$this->funjs.">";
 		$select.= "<option value=\"0\">Selecciona un ". $this->value ." </option>";
 		foreach($this->options as $option){
 			$select.="<option ".($this->default_value == $option->id ? "selected" : "")." value=".$option->id.">".$option->name."</option>";

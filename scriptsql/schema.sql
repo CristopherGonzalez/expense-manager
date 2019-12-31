@@ -219,10 +219,14 @@ create table entidades (
 		entidad int not null,
 		created_at date not null,
 		fecha date not null,
-		fechapago date not null,
+		fecha_pago date not null,
 		pagado boolean not null default 1,
+  		document_number text ,
 		documento LONGTEXT,
 		pago LONGTEXT,
+		empresa int not null,
+		active boolean not null,
+		foreign key(empresa) references empresas(id), 
 		foreign key(user_id) references user(id),
 		foreign key(entidad) references entidades(id)
 	);
@@ -235,10 +239,14 @@ create table entidades (
 		entidad int not null,
 		created_at date not null,
 		fecha date not null,
-		fechapago date not null,
+		fecha_pago date not null,
 		pagado boolean not null default 1,
+  		document_number text ,
 		documento LONGTEXT,
 		pago LONGTEXT,
+		empresa int not null,
+		active boolean not null,
+		foreign key(empresa) references empresas(id), 
 		foreign key(user_id) references user(id),
 		foreign key(entidad) references entidades(id)
 	);
