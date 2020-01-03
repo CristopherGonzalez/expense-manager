@@ -1,0 +1,96 @@
+\hypertarget{class_p_h_p_excel___shared___file}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Shared\+\_\+\+File}
+\label{class_p_h_p_excel___shared___file}\index{PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___file_a4ec3bae154bc0dbc45e0f952ae3caf0b}{set\+Use\+Upload\+Temp\+Directory}} (\$use\+Upload\+Temp\+Dir=false)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___file_a8d2fa2f493122747924339df5500c235}{get\+Use\+Upload\+Temp\+Directory}} ()
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___file_a065720635f19b64912db08f72cb13c4a}{file\+\_\+exists}} (\$p\+Filename)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___file_a548c451387ddad2e2a9d304e976ee122}{realpath}} (\$p\+Filename)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___file_ace631d4bfe98296fe65c34b0bf50f2e3}{sys\+\_\+get\+\_\+temp\+\_\+dir}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___shared___file_ab84001854b3443c40b6fccd714997b6a}\label{class_p_h_p_excel___shared___file_ab84001854b3443c40b6fccd714997b6a}} 
+static {\bfseries \$use\+Upload\+Temp\+Directory} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___file_a065720635f19b64912db08f72cb13c4a}\label{class_p_h_p_excel___shared___file_a065720635f19b64912db08f72cb13c4a}} 
+\index{PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}!file\_exists@{file\_exists}}
+\index{file\_exists@{file\_exists}!PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}}
+\doxysubsubsection{\texorpdfstring{file\_exists()}{file\_exists()}}
+{\footnotesize\ttfamily static file\+\_\+exists (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Verify if a file exists
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & Filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___file_a8d2fa2f493122747924339df5500c235}\label{class_p_h_p_excel___shared___file_a8d2fa2f493122747924339df5500c235}} 
+\index{PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}!getUseUploadTempDirectory@{getUseUploadTempDirectory}}
+\index{getUseUploadTempDirectory@{getUseUploadTempDirectory}!PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}}
+\doxysubsubsection{\texorpdfstring{getUseUploadTempDirectory()}{getUseUploadTempDirectory()}}
+{\footnotesize\ttfamily static get\+Use\+Upload\+Temp\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\hyperlink{class_get}{Get}} the flag indicating whether the File Upload Temp directory should be used for temporary files
+
+\begin{DoxyReturn}{Devuelve}
+boolean Use File Upload Temporary directory (true or false) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___file_a548c451387ddad2e2a9d304e976ee122}\label{class_p_h_p_excel___shared___file_a548c451387ddad2e2a9d304e976ee122}} 
+\index{PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}!realpath@{realpath}}
+\index{realpath@{realpath}!PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}}
+\doxysubsubsection{\texorpdfstring{realpath()}{realpath()}}
+{\footnotesize\ttfamily static realpath (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns canonicalized absolute pathname, also for Z\+IP archives
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___file_a4ec3bae154bc0dbc45e0f952ae3caf0b}\label{class_p_h_p_excel___shared___file_a4ec3bae154bc0dbc45e0f952ae3caf0b}} 
+\index{PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}!setUseUploadTempDirectory@{setUseUploadTempDirectory}}
+\index{setUseUploadTempDirectory@{setUseUploadTempDirectory}!PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}}
+\doxysubsubsection{\texorpdfstring{setUseUploadTempDirectory()}{setUseUploadTempDirectory()}}
+{\footnotesize\ttfamily static set\+Use\+Upload\+Temp\+Directory (\begin{DoxyParamCaption}\item[{}]{\$use\+Upload\+Temp\+Dir = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set the flag indicating whether the File Upload Temp directory should be used for temporary files
+
+
+\begin{DoxyParams}[1]{Parámetros}
+boolean & {\em \$use\+Upload\+Temp\+Dir} & Use File Upload Temporary directory (true or false) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___file_ace631d4bfe98296fe65c34b0bf50f2e3}\label{class_p_h_p_excel___shared___file_ace631d4bfe98296fe65c34b0bf50f2e3}} 
+\index{PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}!sys\_get\_temp\_dir@{sys\_get\_temp\_dir}}
+\index{sys\_get\_temp\_dir@{sys\_get\_temp\_dir}!PHPExcel\_Shared\_File@{PHPExcel\_Shared\_File}}
+\doxysubsubsection{\texorpdfstring{sys\_get\_temp\_dir()}{sys\_get\_temp\_dir()}}
+{\footnotesize\ttfamily static sys\+\_\+get\+\_\+temp\+\_\+dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\hyperlink{class_get}{Get}} the systems temporary directory.
+
+\begin{DoxyReturn}{Devuelve}
+string 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/File.\+php\end{DoxyCompactItemize}

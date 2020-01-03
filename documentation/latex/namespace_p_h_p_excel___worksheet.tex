@@ -1,0 +1,37 @@
+\hypertarget{namespace_p_h_p_excel___worksheet}{}\doxysection{Referencia del Namespace P\+H\+P\+Excel\+\_\+\+Worksheet}
+\label{namespace_p_h_p_excel___worksheet}\index{PHPExcel\_Worksheet@{PHPExcel\_Worksheet}}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2006 -\/ 2015 \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} (\href{http://www.codeplex.com/PHPExcel}{\texttt{ http\+://www.\+codeplex.\+com/\+P\+H\+P\+Excel}}) @license \href{http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt}{\texttt{ http\+://www.\+gnu.\+org/licenses/old-\/licenses/lgpl-\/2.\+1.\+txt}} L\+G\+PL 
+\end{DoxyCopyright}
+\begin{DoxyVersion}{Versión}
+\#\#\+V\+E\+R\+S\+I\+ON\#\#, \#\#\+D\+A\+TE\#\#
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2006 -\/ 2015 \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} (\href{http://www.codeplex.com/PHPExcel}{\texttt{ http\+://www.\+codeplex.\+com/\+P\+H\+P\+Excel}}) @license \href{http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt}{\texttt{ http\+://www.\+gnu.\+org/licenses/old-\/licenses/lgpl-\/2.\+1.\+txt}} L\+G\+PL 
+\end{DoxyCopyright}
+\begin{DoxyVersion}{Versión}
+\#\#\+V\+E\+R\+S\+I\+ON\#\#, \#\#\+D\+A\+TE\#\#
+\end{DoxyVersion}
+{\ttfamily  Header/\+Footer Formatting Syntax taken from Office Open X\+ML Part 4 -\/ Markup Language Reference, page 1970\+:}
+
+{\ttfamily There are a number of formatting codes that can be written inline with the actual header / footer text, which affect the formatting in the header or footer.}
+
+{\ttfamily Example\+: This example shows the text \char`\"{}\+Center Bold Header\char`\"{} on the first line (center section), and the date on the second line (center section). \&C\+Center \&\char`\"{}-\/,\+Bold\char`\"{}Bold\&\char`\"{}-\/,\+Regular\char`\"{}Header\+\_\+x000\+A\+\_\+\&D}
+
+{\ttfamily General Rules\+: There is no required order in which these codes must appear.}
+
+{\ttfamily The first occurrence of the following codes turns the formatting ON, the second occurrence turns it O\+FF again\+:
+\begin{DoxyItemize}
+\item strikethrough
+\item superscript
+\item subscript Superscript and subscript cannot both be ON at same time. Whichever comes first wins and the other is ignored, while the first is ON. \&L -\/ code for \char`\"{}left section\char`\"{} (there are three header / footer locations, \char`\"{}left\char`\"{}, \char`\"{}center\char`\"{}, and \char`\"{}right\char`\"{}). When two or more occurrences of this section marker exist, the contents from all markers are concatenated, in the order of appearance, and placed into the left section. \&P -\/ code for \char`\"{}current page \#\char`\"{} \&N -\/ code for \char`\"{}total pages\char`\"{} \&font size -\/ code for \char`\"{}text font size\char`\"{}, where font size is a font size in points. \&K -\/ code for \char`\"{}text font color\char`\"{} R\+GB Color is specified as R\+R\+G\+G\+BB Theme Color is specifed as T\+T\+S\+NN where TT is the theme color Id, S is either \char`\"{}+\char`\"{} or \char`\"{}-\/\char`\"{} of the tint/shade value, NN is the tint/shade value. \&S -\/ code for \char`\"{}text strikethrough\char`\"{} on / off \&X -\/ code for \char`\"{}text super script\char`\"{} on / off \&Y -\/ code for \char`\"{}text subscript\char`\"{} on / off \&C -\/ code for \char`\"{}center section\char`\"{}. When two or more occurrences of this section marker exist, the contents from all markers are concatenated, in the order of appearance, and placed into the center section.
+\end{DoxyItemize}}
+
+{\ttfamily \&D -\/ code for \char`\"{}date\char`\"{} \&T -\/ code for \char`\"{}time\char`\"{} \&G -\/ code for \char`\"{}picture as background\char`\"{} \&U -\/ code for \char`\"{}text single underline\char`\"{} \&E -\/ code for \char`\"{}double underline\char`\"{} \&R -\/ code for \char`\"{}right section\char`\"{}. When two or more occurrences of this section marker exist, the contents from all markers are concatenated, in the order of appearance, and placed into the right section. \&Z -\/ code for \char`\"{}this workbook\textquotesingle{}s file path\char`\"{} \&F -\/ code for \char`\"{}this workbook\textquotesingle{}s file name\char`\"{} \&A -\/ code for \char`\"{}sheet tab name\char`\"{} \&+ -\/ code for add to page \#. \&-\/ -\/ code for subtract from page \#. \&\char`\"{}font name,font type\char`\"{} -\/ code for \char`\"{}text font name\char`\"{} and \char`\"{}text font type\char`\"{}, where font name and font type are strings specifying the name and type of the font, separated by a comma. When a hyphen appears in font name, it means \char`\"{}none specified\char`\"{}. Both of font name and font type can be localized values. \&\char`\"{}-\/,\+Bold\char`\"{} -\/ code for \char`\"{}bold font style\char`\"{} \&B -\/ also means \char`\"{}bold font style\char`\"{}. \&\char`\"{}-\/,\+Regular\char`\"{} -\/ code for \char`\"{}regular font style\char`\"{} \&\char`\"{}-\/,\+Italic\char`\"{} -\/ code for \char`\"{}italic font style\char`\"{} \&I -\/ also means \char`\"{}italic font style\char`\"{} \&\char`\"{}-\/,\+Bold Italic\char`\"{} code for \char`\"{}bold italic font style\char`\"{} \&O -\/ code for \char`\"{}outline style\char`\"{} \&H -\/ code for \char`\"{}shadow style\char`\"{} }
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2006 -\/ 2015 \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} (\href{http://www.codeplex.com/PHPExcel}{\texttt{ http\+://www.\+codeplex.\+com/\+P\+H\+P\+Excel}}) 
+\end{DoxyCopyright}

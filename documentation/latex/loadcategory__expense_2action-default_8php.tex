@@ -1,0 +1,143 @@
+\hypertarget{loadcategory__expense_2action-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/action/loadcategory\+\_\+expense/action-\/default.php}
+\label{loadcategory__expense_2action-default_8php}\index{core/modules/index/action/loadcategory\_expense/action-\/default.php@{core/modules/index/action/loadcategory\_expense/action-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) \mbox{\hyperlink{loadcategory__expense_2action-default_8php_aae1e6d95a31506605af4485a9af49efb}{\$con}} = \mbox{\hyperlink{class_database_af39707ed2dd9bcec95f3ddf84c3a908a}{Database\+::get\+Con}}()
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_ab2fc40d43824ea3e1ce5d86dee0d763b}{\$name}} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$con,(strip\+\_\+tags(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}f\+\_\+name\textquotesingle{}\mbox{]}, E\+N\+T\+\_\+\+Q\+U\+O\+T\+ES)))
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_af13f7217debbe25c1eac321a79d13eaa}{\$type\+\_\+expense}} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$con,(strip\+\_\+tags(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}f\+\_\+type\+\_\+expense\textquotesingle{}\mbox{]}, E\+N\+T\+\_\+\+Q\+U\+O\+T\+ES)))
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_a2ff28ba485eb7add2ac530c4dc37edd7}{\$company\+\_\+id}} =\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_afbc4dbdfefce79582e7ddd9a3a04ecde}{\$s\+Where}} =\char`\"{} empresa=\$company\+\_\+id \char`\"{}
+\item 
+if(\$name!=\char`\"{}\char`\"{}) \mbox{\hyperlink{loadcategory__expense_2action-default_8php_a3e880a8b3a3a092da6fb0ff26fa53f48}{if}} ( \$type\+\_\+expense!=\char`\"{}\char`\"{}) =\char`\"{} and active = \$inactive \char`\"{}
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_a0a44e6760141442bb439b1ab1395d8ff}{\$page}} = (isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}) \&\& !empty(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}))?\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}\+:1
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_abece0f3099457a037f8f339811dc6e20}{\$per\+\_\+page}} = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}per\+\_\+page\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_ab58a37db0fa85921378d753074ac2dfa}{\$adjacents}} = 4
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_aec4de82415d7f05cb9748d12d3a95a87}{\$offset}} = (\$page -\/ 1) $\ast$ \$per\+\_\+page
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_a23e63d032e7d0022393823c056ba4c16}{\$count\+\_\+query}} =\mbox{\hyperlink{class_category_expense_data_a5eaeabb36980f2ae9856879ca3bb3165}{Category\+Expense\+Data\+::count\+Query}}(\$s\+Where)
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_ac7aafb7f78a391e3910ec2e58f2b5229}{\$numrows}} = \$count\+\_\+query-\/$>$numrows
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_a75dd972125f47d333492e70523d1aa6a}{\$total\+\_\+pages}} = ceil(\$numrows/\$per\+\_\+page)
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_ada769ee11a81c6cae5d104fcbfba5512}{\$reload}} = \textquotesingle{}./?view=expenses\textquotesingle{}
+\item 
+\mbox{\hyperlink{loadcategory__expense_2action-default_8php_af59a5f7cd609e592c41dc3643efd3c98}{\$query}} =\mbox{\hyperlink{class_category_expense_data_a92bec53441aa280c34dc947f46792100}{Category\+Expense\+Data\+::query}}(\$s\+Where, \$offset,\$per\+\_\+page)
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) if(count(\$query)$>$0) \mbox{\hyperlink{loadcategory__expense_2action-default_8php_a8eafb74ac3995ea8381977be32979519}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_ab58a37db0fa85921378d753074ac2dfa}\label{loadcategory__expense_2action-default_8php_ab58a37db0fa85921378d753074ac2dfa}} 
+\index{action-\/default.php@{action-\/default.php}!\$adjacents@{\$adjacents}}
+\index{\$adjacents@{\$adjacents}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$adjacents}{$adjacents}}
+{\footnotesize\ttfamily \$adjacents = 4}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_a2ff28ba485eb7add2ac530c4dc37edd7}\label{loadcategory__expense_2action-default_8php_a2ff28ba485eb7add2ac530c4dc37edd7}} 
+\index{action-\/default.php@{action-\/default.php}!\$company\_id@{\$company\_id}}
+\index{\$company\_id@{\$company\_id}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$company\_id}{$company\_id}}
+{\footnotesize\ttfamily \$company\+\_\+id =\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]}}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_aae1e6d95a31506605af4485a9af49efb}\label{loadcategory__expense_2action-default_8php_aae1e6d95a31506605af4485a9af49efb}} 
+\index{action-\/default.php@{action-\/default.php}!\$con@{\$con}}
+\index{\$con@{\$con}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$con}{$con}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset( \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) \$con = \mbox{\hyperlink{class_database_af39707ed2dd9bcec95f3ddf84c3a908a}{Database\+::get\+Con}}()}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_a23e63d032e7d0022393823c056ba4c16}\label{loadcategory__expense_2action-default_8php_a23e63d032e7d0022393823c056ba4c16}} 
+\index{action-\/default.php@{action-\/default.php}!\$count\_query@{\$count\_query}}
+\index{\$count\_query@{\$count\_query}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$count\_query}{$count\_query}}
+{\footnotesize\ttfamily \$count\+\_\+query =\mbox{\hyperlink{class_category_expense_data_a5eaeabb36980f2ae9856879ca3bb3165}{Category\+Expense\+Data\+::count\+Query}}(\$s\+Where)}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_ab2fc40d43824ea3e1ce5d86dee0d763b}\label{loadcategory__expense_2action-default_8php_ab2fc40d43824ea3e1ce5d86dee0d763b}} 
+\index{action-\/default.php@{action-\/default.php}!\$name@{\$name}}
+\index{\$name@{\$name}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$name}{$name}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a27faaa1741f55e74787db9fa3956f587}{name}} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$con,(strip\+\_\+tags(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}f\+\_\+name\textquotesingle{}\mbox{]}, E\+N\+T\+\_\+\+Q\+U\+O\+T\+ES)))}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_ac7aafb7f78a391e3910ec2e58f2b5229}\label{loadcategory__expense_2action-default_8php_ac7aafb7f78a391e3910ec2e58f2b5229}} 
+\index{action-\/default.php@{action-\/default.php}!\$numrows@{\$numrows}}
+\index{\$numrows@{\$numrows}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$numrows}{$numrows}}
+{\footnotesize\ttfamily \$numrows = \$count\+\_\+query-\/$>$numrows}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_aec4de82415d7f05cb9748d12d3a95a87}\label{loadcategory__expense_2action-default_8php_aec4de82415d7f05cb9748d12d3a95a87}} 
+\index{action-\/default.php@{action-\/default.php}!\$offset@{\$offset}}
+\index{\$offset@{\$offset}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$offset}{$offset}}
+{\footnotesize\ttfamily \$offset = (\$page -\/ 1) $\ast$ \$per\+\_\+page}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_a0a44e6760141442bb439b1ab1395d8ff}\label{loadcategory__expense_2action-default_8php_a0a44e6760141442bb439b1ab1395d8ff}} 
+\index{action-\/default.php@{action-\/default.php}!\$page@{\$page}}
+\index{\$page@{\$page}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$page}{$page}}
+{\footnotesize\ttfamily \$page = (isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}) \&\& !empty(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}))?\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}\+:1}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_abece0f3099457a037f8f339811dc6e20}\label{loadcategory__expense_2action-default_8php_abece0f3099457a037f8f339811dc6e20}} 
+\index{action-\/default.php@{action-\/default.php}!\$per\_page@{\$per\_page}}
+\index{\$per\_page@{\$per\_page}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$per\_page}{$per\_page}}
+{\footnotesize\ttfamily \$per\+\_\+page = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}per\+\_\+page\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_af59a5f7cd609e592c41dc3643efd3c98}\label{loadcategory__expense_2action-default_8php_af59a5f7cd609e592c41dc3643efd3c98}} 
+\index{action-\/default.php@{action-\/default.php}!\$query@{\$query}}
+\index{\$query@{\$query}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$query}{$query}}
+{\footnotesize\ttfamily \$query =\mbox{\hyperlink{class_category_expense_data_a92bec53441aa280c34dc947f46792100}{Category\+Expense\+Data\+::query}}(\$s\+Where, \$offset,\$per\+\_\+page)}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_ada769ee11a81c6cae5d104fcbfba5512}\label{loadcategory__expense_2action-default_8php_ada769ee11a81c6cae5d104fcbfba5512}} 
+\index{action-\/default.php@{action-\/default.php}!\$reload@{\$reload}}
+\index{\$reload@{\$reload}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$reload}{$reload}}
+{\footnotesize\ttfamily \$reload = \textquotesingle{}./?view=expenses\textquotesingle{}}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_afbc4dbdfefce79582e7ddd9a3a04ecde}\label{loadcategory__expense_2action-default_8php_afbc4dbdfefce79582e7ddd9a3a04ecde}} 
+\index{action-\/default.php@{action-\/default.php}!\$sWhere@{\$sWhere}}
+\index{\$sWhere@{\$sWhere}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$sWhere}{$sWhere}}
+{\footnotesize\ttfamily \$s\+Where =\char`\"{} empresa=\$company\+\_\+id \char`\"{}}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_a75dd972125f47d333492e70523d1aa6a}\label{loadcategory__expense_2action-default_8php_a75dd972125f47d333492e70523d1aa6a}} 
+\index{action-\/default.php@{action-\/default.php}!\$total\_pages@{\$total\_pages}}
+\index{\$total\_pages@{\$total\_pages}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$total\_pages}{$total\_pages}}
+{\footnotesize\ttfamily \$total\+\_\+pages = ceil(\$numrows/\$per\+\_\+page)}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_af13f7217debbe25c1eac321a79d13eaa}\label{loadcategory__expense_2action-default_8php_af13f7217debbe25c1eac321a79d13eaa}} 
+\index{action-\/default.php@{action-\/default.php}!\$type\_expense@{\$type\_expense}}
+\index{\$type\_expense@{\$type\_expense}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$type\_expense}{$type\_expense}}
+{\footnotesize\ttfamily \$type\+\_\+expense = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$con,(strip\+\_\+tags(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}f\+\_\+type\+\_\+expense\textquotesingle{}\mbox{]}, E\+N\+T\+\_\+\+Q\+U\+O\+T\+ES)))}
+
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_a8eafb74ac3995ea8381977be32979519}\label{loadcategory__expense_2action-default_8php_a8eafb74ac3995ea8381977be32979519}} 
+\index{action-\/default.php@{action-\/default.php}!else@{else}}
+\index{else@{else}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset( \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) if (count( \$query)$>$0) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    echo \textcolor{stringliteral}{'<div class="alert alert-\/info alert-\/dismissable"><button type="button" class="close" data-\/dismiss="alert" aria-\/hidden="true">×</button>}}
+\DoxyCodeLine{\textcolor{stringliteral}{        <strong>Sin Resultados!</strong> No se encontraron resultados en la base de datos!.</div>'}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{loadcategory__expense_2action-default_8php_a3e880a8b3a3a092da6fb0ff26fa53f48}\label{loadcategory__expense_2action-default_8php_a3e880a8b3a3a092da6fb0ff26fa53f48}} 
+\index{action-\/default.php@{action-\/default.php}!if@{if}}
+\index{if@{if}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if =\char`\"{} and active = \$inactive \char`\"{}}
+

@@ -1,0 +1,96 @@
+\hypertarget{partners_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/partners/widget-\/default.php}
+\label{partners_2widget-default_8php}\index{core/modules/index/view/partners/widget-\/default.php@{core/modules/index/view/partners/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_a88a8980708982166840708b055e335b8}{\$months}} =array(\char`\"{}Enero\char`\"{},\char`\"{}Febrero\char`\"{},\char`\"{}Marzo\char`\"{},\char`\"{}Abril\char`\"{},\char`\"{}Mayo\char`\"{},\char`\"{}Junio\char`\"{},\char`\"{}Julio\char`\"{},\char`\"{}Agosto\char`\"{},\char`\"{}Septiembre\char`\"{},\char`\"{}Octubre\char`\"{},\char`\"{}Noviembre\char`\"{},\char`\"{}Diciembre\char`\"{})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$months as \$index=$>$ \$month) \mbox{\hyperlink{partners_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}{\$years}} =array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025)
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_a8d7e5a4447305037cf45bf681c39969c}{foreach}} ( \$years as \$year)
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}{\$entity\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}entity\char`\"{},\char`\"{}Entidad\char`\"{},\$entities)
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}{\$user\+\_\+session}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}{\$webcamdocument}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}{\$webcampayment}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_abb7731b2d271e9b6c8aa0d4659343431}{\$result\+\_\+data}} =\mbox{\hyperlink{class_result_data_a107c4341048d6283b12f2fafe3f7ddba}{Result\+Data\+::get\+All\+Count}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_a75ae1f089a411bca34dafc11e2585b4f}{if}} ( \$result\+\_\+data-\/$>$count!=0)
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{partners_2widget-default_8php_a8e1f2a9654b47813f5171f9aa1bd62e4}{\+\_\+\+\_\+pad17\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{partners_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{partners_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}\label{partners_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entity\_select@{\$entity\_select}}
+\index{\$entity\_select@{\$entity\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entity\_select}{$entity\_select}}
+{\footnotesize\ttfamily \$entity\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}entity\char`\"{},\char`\"{}Entidad\char`\"{},\$entities)}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a88a8980708982166840708b055e335b8}\label{partners_2widget-default_8php_a88a8980708982166840708b055e335b8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$months@{\$months}}
+\index{\$months@{\$months}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$months}{$months}}
+{\footnotesize\ttfamily \$months =array(\char`\"{}Enero\char`\"{},\char`\"{}Febrero\char`\"{},\char`\"{}Marzo\char`\"{},\char`\"{}Abril\char`\"{},\char`\"{}Mayo\char`\"{},\char`\"{}Junio\char`\"{},\char`\"{}Julio\char`\"{},\char`\"{}Agosto\char`\"{},\char`\"{}Septiembre\char`\"{},\char`\"{}Octubre\char`\"{},\char`\"{}Noviembre\char`\"{},\char`\"{}Diciembre\char`\"{})}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_abb7731b2d271e9b6c8aa0d4659343431}\label{partners_2widget-default_8php_abb7731b2d271e9b6c8aa0d4659343431}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$result\_data@{\$result\_data}}
+\index{\$result\_data@{\$result\_data}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$result\_data}{$result\_data}}
+{\footnotesize\ttfamily \$result\+\_\+data =\mbox{\hyperlink{class_result_data_a107c4341048d6283b12f2fafe3f7ddba}{Result\+Data\+::get\+All\+Count}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}\label{partners_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$user\_session@{\$user\_session}}
+\index{\$user\_session@{\$user\_session}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$user\_session}{$user\_session}}
+{\footnotesize\ttfamily \$user\+\_\+session =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}\label{partners_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcamdocument@{\$webcamdocument}}
+\index{\$webcamdocument@{\$webcamdocument}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcamdocument}{$webcamdocument}}
+{\footnotesize\ttfamily \$webcamdocument = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}\label{partners_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcampayment@{\$webcampayment}}
+\index{\$webcampayment@{\$webcampayment}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcampayment}{$webcampayment}}
+{\footnotesize\ttfamily \$webcampayment = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}\label{partners_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$years@{\$years}}
+\index{\$years@{\$years}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$years}{$years}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$months as \$index=$>$ \$month) \$years =array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025)}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a8e1f2a9654b47813f5171f9aa1bd62e4}\label{partners_2widget-default_8php_a8e1f2a9654b47813f5171f9aa1bd62e4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad17\_\_@{\_\_pad17\_\_}}
+\index{\_\_pad17\_\_@{\_\_pad17\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad17\_\_}{\_\_pad17\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad17\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{partners_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a8d7e5a4447305037cf45bf681c39969c}\label{partners_2widget-default_8php_a8d7e5a4447305037cf45bf681c39969c}} 
+\index{widget-\/default.php@{widget-\/default.php}!foreach@{foreach}}
+\index{foreach@{foreach}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily foreach(\$years as \$year)}
+
+\mbox{\Hypertarget{partners_2widget-default_8php_a75ae1f089a411bca34dafc11e2585b4f}\label{partners_2widget-default_8php_a75ae1f089a411bca34dafc11e2585b4f}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(\$result\+\_\+data-\/$>$count!=0)}
+

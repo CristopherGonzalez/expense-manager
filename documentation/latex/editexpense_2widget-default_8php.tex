@@ -1,0 +1,134 @@
+\hypertarget{editexpense_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/editexpense/widget-\/default.php}
+\label{editexpense_2widget-default_8php}\index{core/modules/index/view/editexpense/widget-\/default.php@{core/modules/index/view/editexpense/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset( \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}) \&\&\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[} \textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}!=\char`\"{}1\char`\"{})(isset(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]})) \mbox{\hyperlink{editexpense_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}{else}}
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_ad819007f4f43376bad7f3ea53c891464}{\$expense}} =\mbox{\hyperlink{class_expenses_data_a562ec7062ca1b44ba97dee052b9b63cb}{Expenses\+Data\+::get\+By\+Id}}(\$id)
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} =\mbox{\hyperlink{class_type_data_a94ba07e8f8c1471ef353a8ad2700a569}{Type\+Data\+::get\+All\+Expense}}()
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a18b2a8d133fa7733bf34abcc6ca2ef5b}{\$category}} =\mbox{\hyperlink{class_category_expense_data_ae85c8b624170a13731f6210c180089a9}{Category\+Expense\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}{\$entities}} =\mbox{\hyperlink{class_entity_data_a6c9baae792d7589c6a035d9c8fbd763e}{Entity\+Data\+::get\+By\+Type}}(\textquotesingle{}Egreso\textquotesingle{}, \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+if(!isset(\$expense) \&\&empty(\$expense)) if(isset(\$expense-\/$>$\mbox{\hyperlink{logs_8txt_a4bc15cbed0dc9174cb2e8f524178d4cb}{pago}}) \&\&!empty(\$expense-\/$>$\mbox{\hyperlink{logs_8txt_a4bc15cbed0dc9174cb2e8f524178d4cb}{pago}})) \mbox{\hyperlink{editexpense_2widget-default_8php_a28949220faaf07ea9a1365d4ca83bf0c}{if}} (isset( \$expense-\/$>$\mbox{\hyperlink{logs_8txt_a34cca3e72851e2b2f8ca5fafa6bad8c2}{documento}}) \&\&!empty( \$expense-\/$>$\mbox{\hyperlink{logs_8txt_a34cca3e72851e2b2f8ca5fafa6bad8c2}{documento}}))
+\item 
+foreach(\$entities as \$entity) foreach(\$category as \$cat) \mbox{\hyperlink{editexpense_2widget-default_8php_aa71359fe0048dfd30b33b886aede5ad6}{foreach}} ( \$types as \$type)
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}{\$user\+\_\+session}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a4d44179e4ddbdb4ef58cb6cc50cf5966}{\$lblchange\+\_\+log}} = new \mbox{\hyperlink{classlbl_change_log}{lbl\+Change\+Log}}(\$expense-\/$>$id, \char`\"{}expenses\char`\"{})
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}{\$modal\+\_\+content}} = new \mbox{\hyperlink{class_modal}{Modal}}(\char`\"{}Listado de Cambios\char`\"{},\char`\"{}frmexpenses\char`\"{},User\+Data\+::get\+By\+Id(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}))
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}{\$creator\+\_\+user}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$expense-\/$>$\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}})
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}{\$webcamdocument}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}{\$webcampayment}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{editexpense_2widget-default_8php_ac895fd7ff64d9aa2f1c2099f863a198e}{\+\_\+\+\_\+pad9\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{editexpense_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a18b2a8d133fa7733bf34abcc6ca2ef5b}\label{editexpense_2widget-default_8php_a18b2a8d133fa7733bf34abcc6ca2ef5b}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$category@{\$category}}
+\index{\$category@{\$category}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$category}{$category}}
+{\footnotesize\ttfamily \$category =\mbox{\hyperlink{class_category_expense_data_ae85c8b624170a13731f6210c180089a9}{Category\+Expense\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}\label{editexpense_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$creator\_user@{\$creator\_user}}
+\index{\$creator\_user@{\$creator\_user}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$creator\_user}{$creator\_user}}
+{\footnotesize\ttfamily \$creator\+\_\+user =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$expense-\/$>$\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}})}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}\label{editexpense_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entities@{\$entities}}
+\index{\$entities@{\$entities}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entities}{$entities}}
+{\footnotesize\ttfamily \$entities =\mbox{\hyperlink{class_entity_data_a6c9baae792d7589c6a035d9c8fbd763e}{Entity\+Data\+::get\+By\+Type}}(\textquotesingle{}Egreso\textquotesingle{}, \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_ad819007f4f43376bad7f3ea53c891464}\label{editexpense_2widget-default_8php_ad819007f4f43376bad7f3ea53c891464}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$expense@{\$expense}}
+\index{\$expense@{\$expense}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$expense}{$expense}}
+{\footnotesize\ttfamily \$expense =\mbox{\hyperlink{class_expenses_data_a562ec7062ca1b44ba97dee052b9b63cb}{Expenses\+Data\+::get\+By\+Id}}(\$id)}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a4d44179e4ddbdb4ef58cb6cc50cf5966}\label{editexpense_2widget-default_8php_a4d44179e4ddbdb4ef58cb6cc50cf5966}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$lblchange\_log@{\$lblchange\_log}}
+\index{\$lblchange\_log@{\$lblchange\_log}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$lblchange\_log}{$lblchange\_log}}
+{\footnotesize\ttfamily \$lblchange\+\_\+log = new \mbox{\hyperlink{classlbl_change_log}{lbl\+Change\+Log}}(\$expense-\/$>$id, \char`\"{}expenses\char`\"{})}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}\label{editexpense_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$modal\_content@{\$modal\_content}}
+\index{\$modal\_content@{\$modal\_content}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$modal\_content}{$modal\_content}}
+{\footnotesize\ttfamily \$modal\+\_\+content = new \mbox{\hyperlink{class_modal}{Modal}}(\char`\"{}Listado de Cambios\char`\"{},\char`\"{}frmexpenses\char`\"{},User\+Data\+::get\+By\+Id(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}))}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{editexpense_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types@{\$types}}
+\index{\$types@{\$types}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{$types}}
+{\footnotesize\ttfamily \$types =\mbox{\hyperlink{class_type_data_a94ba07e8f8c1471ef353a8ad2700a569}{Type\+Data\+::get\+All\+Expense}}()}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}\label{editexpense_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$user\_session@{\$user\_session}}
+\index{\$user\_session@{\$user\_session}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$user\_session}{$user\_session}}
+{\footnotesize\ttfamily \$user\+\_\+session =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}\label{editexpense_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcamdocument@{\$webcamdocument}}
+\index{\$webcamdocument@{\$webcamdocument}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcamdocument}{$webcamdocument}}
+{\footnotesize\ttfamily \$webcamdocument = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}\label{editexpense_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcampayment@{\$webcampayment}}
+\index{\$webcampayment@{\$webcampayment}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcampayment}{$webcampayment}}
+{\footnotesize\ttfamily \$webcampayment = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_ac895fd7ff64d9aa2f1c2099f863a198e}\label{editexpense_2widget-default_8php_ac895fd7ff64d9aa2f1c2099f863a198e}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad9\_\_@{\_\_pad9\_\_}}
+\index{\_\_pad9\_\_@{\_\_pad9\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad9\_\_}{\_\_pad9\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad9\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}\label{editexpense_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}} 
+\index{widget-\/default.php@{widget-\/default.php}!else@{else}}
+\index{else@{else}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}) \&\& \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}!= \char`\"{}1\char`\"{}) (isset( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]})) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        \mbox{\hyperlink{class_core_a9001bc4a0dfb55dfb4e574f60a35ea71}{Core::redir}}(\textcolor{stringliteral}{"./?view=expenses"})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{editexpense_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_aa71359fe0048dfd30b33b886aede5ad6}\label{editexpense_2widget-default_8php_aa71359fe0048dfd30b33b886aede5ad6}} 
+\index{widget-\/default.php@{widget-\/default.php}!foreach@{foreach}}
+\index{foreach@{foreach}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily foreach ( \$entities as \$entity) foreach ( \$category as \$cat) foreach(\$types as \$type)}
+
+\mbox{\Hypertarget{editexpense_2widget-default_8php_a28949220faaf07ea9a1365d4ca83bf0c}\label{editexpense_2widget-default_8php_a28949220faaf07ea9a1365d4ca83bf0c}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(\$expense-\/$>$\mbox{\hyperlink{logs_8txt_a2f4fa9e78cf41b2abe71da21fc48e6c9}{pagado}})}
+

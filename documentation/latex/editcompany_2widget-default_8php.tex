@@ -1,0 +1,158 @@
+\hypertarget{editcompany_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/editcompany/widget-\/default.php}
+\label{editcompany_2widget-default_8php}\index{core/modules/index/view/editcompany/widget-\/default.php@{core/modules/index/view/editcompany/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset( \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}) \&\&\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}==\char`\"{}1\char`\"{})(isset(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]})) \mbox{\hyperlink{editcompany_2widget-default_8php_afc233ee77ed49c7985e6e90c9b900247}{else}}
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_a3306bb3d7f99fc57bee9e96f928769d4}{\$company}} =\mbox{\hyperlink{class_company_data_a562ec7062ca1b44ba97dee052b9b63cb}{Company\+Data\+::get\+By\+Id}}(\$id)
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} =\mbox{\hyperlink{class_business_type_data_aca7ae46d923aa798f1e29657bb767a22}{Business\+Type\+Data\+::get\+All}}()
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_ad364aeb0b3108c3b63292d8276a4995a}{\$countries}} = \mbox{\hyperlink{class_country_data_aca7ae46d923aa798f1e29657bb767a22}{Country\+Data\+::get\+All}}()
+\item 
+if(!isset(\$company)$\vert$$\vert$empty(\$company)$\vert$$\vert$ \$company-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a7bad9eb8ebcf30eb4398b4332a67a127}{is\+\_\+deleted}}==1) \mbox{\hyperlink{editcompany_2widget-default_8php_ac82ae3ba1fd66a3df9656dd17408bb04}{if}} (isset( \$company-\/$>$profile\+\_\+pic) \&\&!empty( \$company-\/$>$profile\+\_\+pic))
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_ab955adf4ec9f73f1253e9d28ff197661}{\$country\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}country\+\_\+company\char`\"{},\char`\"{}Pais\char`\"{},\$countries)
+\item 
+\$country\+\_\+select \mbox{\hyperlink{editcompany_2widget-default_8php_abab0b121d8fd8937b768564888d5f22e}{funjs}} = \char`\"{}onchange=load\+\_\+cities(\mbox{\hyperlink{logs_8txt_aff9812ad3cab87b135122a1923adb9fe}{this.\+value}},\textquotesingle{}city\+\_\+company\textquotesingle{},\textquotesingle{}cities\+\_\+response\textquotesingle{})\char`\"{}
+\item 
+\$country\+\_\+select \mbox{\hyperlink{editcompany_2widget-default_8php_a850478c1c8e34f11b2f739fd2b1e78c7}{tag}} =\char`\"{}required\char`\"{}
+\item 
+\$country\+\_\+select \mbox{\hyperlink{editcompany_2widget-default_8php_a0ce716cb2cdc650cb54b04923b76417b}{default\+\_\+value}} = \$company-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a2ed73d7d9d2d2390daaff467b6401cae}{pais}}
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_a5250bd3d112eebd88c609d04a2040dc5}{\$cities}} = \mbox{\hyperlink{class_city_data_a1f3731f3601cc9882c006bcde8a09ef8}{City\+Data\+::get\+By\+Id\+Country}}(\$company-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a2ed73d7d9d2d2390daaff467b6401cae}{pais}})
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_ac6e431a60600dfe288987f8cb19f4298}{\$city\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}city\+\_\+company\char`\"{},\char`\"{}Ciudad\char`\"{},\$cities)
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_a412f63443bbf04e1c3662fbf246bbc64}{\$types\+\_\+bussiness}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}types\+\_\+bussiness\char`\"{},\char`\"{}Tipo de Negocio\char`\"{},\$types)
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(\$company-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a875ce0886bd3c1881364ef722a7f3fe4}{status}}==2) \mbox{\hyperlink{editcompany_2widget-default_8php_a7aeb698a93f8bbdd968e0c61db168ef1}{\$file\+\_\+profile}} = new \mbox{\hyperlink{class_input_file}{Input\+File}}(\textquotesingle{}profile\+\_\+pic\textquotesingle{},\textquotesingle{}Foto\textquotesingle{},\textquotesingle{}image/$\ast$\textquotesingle{})
+\item 
+\$file\+\_\+profile \mbox{\hyperlink{editcompany_2widget-default_8php_add930c1df8fa6bc1b640d02255297eab}{file}} = (isset(\$img) \&\& !empty(\$img))? \$img \+: \char`\"{}res/images/companies/default.\+jpg\char`\"{}
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}{\$modal\+\_\+content}} = new \mbox{\hyperlink{class_modal}{Modal}}(\char`\"{}Imagen de perfil de Empresa\char`\"{},\char`\"{}form\+Modal\char`\"{},User\+Data\+::get\+By\+Id(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}))
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}{\$creator\+\_\+user}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(1)
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{editcompany_2widget-default_8php_ac918e4a96bc0681a6e442f5ce718d99e}{\+\_\+\+\_\+pad6\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{editcompany_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a5250bd3d112eebd88c609d04a2040dc5}\label{editcompany_2widget-default_8php_a5250bd3d112eebd88c609d04a2040dc5}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$cities@{\$cities}}
+\index{\$cities@{\$cities}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$cities}{$cities}}
+{\footnotesize\ttfamily \$cities = \mbox{\hyperlink{class_city_data_a1f3731f3601cc9882c006bcde8a09ef8}{City\+Data\+::get\+By\+Id\+Country}}(\$company-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a2ed73d7d9d2d2390daaff467b6401cae}{pais}})}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_ac6e431a60600dfe288987f8cb19f4298}\label{editcompany_2widget-default_8php_ac6e431a60600dfe288987f8cb19f4298}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$city\_select@{\$city\_select}}
+\index{\$city\_select@{\$city\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$city\_select}{$city\_select}}
+{\footnotesize\ttfamily \$city\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}city\+\_\+company\char`\"{},\char`\"{}Ciudad\char`\"{},\$cities)}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a3306bb3d7f99fc57bee9e96f928769d4}\label{editcompany_2widget-default_8php_a3306bb3d7f99fc57bee9e96f928769d4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$company@{\$company}}
+\index{\$company@{\$company}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$company}{$company}}
+{\footnotesize\ttfamily \$company =\mbox{\hyperlink{class_company_data_a562ec7062ca1b44ba97dee052b9b63cb}{Company\+Data\+::get\+By\+Id}}(\$id)}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_ad364aeb0b3108c3b63292d8276a4995a}\label{editcompany_2widget-default_8php_ad364aeb0b3108c3b63292d8276a4995a}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$countries@{\$countries}}
+\index{\$countries@{\$countries}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$countries}{$countries}}
+{\footnotesize\ttfamily \$countries = \mbox{\hyperlink{class_country_data_aca7ae46d923aa798f1e29657bb767a22}{Country\+Data\+::get\+All}}()}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_ab955adf4ec9f73f1253e9d28ff197661}\label{editcompany_2widget-default_8php_ab955adf4ec9f73f1253e9d28ff197661}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$country\_select@{\$country\_select}}
+\index{\$country\_select@{\$country\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$country\_select}{$country\_select}}
+{\footnotesize\ttfamily \$country\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}country\+\_\+company\char`\"{},\char`\"{}Pais\char`\"{},\$countries)}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}\label{editcompany_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$creator\_user@{\$creator\_user}}
+\index{\$creator\_user@{\$creator\_user}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$creator\_user}{$creator\_user}}
+{\footnotesize\ttfamily \$creator\+\_\+user =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(1)}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a7aeb698a93f8bbdd968e0c61db168ef1}\label{editcompany_2widget-default_8php_a7aeb698a93f8bbdd968e0c61db168ef1}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$file\_profile@{\$file\_profile}}
+\index{\$file\_profile@{\$file\_profile}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$file\_profile}{$file\_profile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} ( \$company-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a875ce0886bd3c1881364ef722a7f3fe4}{status}}==2) \$file\+\_\+profile = new \mbox{\hyperlink{class_input_file}{Input\+File}}(\textquotesingle{}profile\+\_\+pic\textquotesingle{},\textquotesingle{}Foto\textquotesingle{},\textquotesingle{}image/$\ast$\textquotesingle{})}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}\label{editcompany_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$modal\_content@{\$modal\_content}}
+\index{\$modal\_content@{\$modal\_content}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$modal\_content}{$modal\_content}}
+{\footnotesize\ttfamily \$modal\+\_\+content = new \mbox{\hyperlink{class_modal}{Modal}}(\char`\"{}Imagen de perfil de Empresa\char`\"{},\char`\"{}form\+Modal\char`\"{},User\+Data\+::get\+By\+Id(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}))}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{editcompany_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types@{\$types}}
+\index{\$types@{\$types}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{$types}}
+{\footnotesize\ttfamily \$types =\mbox{\hyperlink{class_business_type_data_aca7ae46d923aa798f1e29657bb767a22}{Business\+Type\+Data\+::get\+All}}()}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a412f63443bbf04e1c3662fbf246bbc64}\label{editcompany_2widget-default_8php_a412f63443bbf04e1c3662fbf246bbc64}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types\_bussiness@{\$types\_bussiness}}
+\index{\$types\_bussiness@{\$types\_bussiness}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types\_bussiness}{$types\_bussiness}}
+{\footnotesize\ttfamily \$types\+\_\+bussiness = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}types\+\_\+bussiness\char`\"{},\char`\"{}Tipo de Negocio\char`\"{},\$types)}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_ac918e4a96bc0681a6e442f5ce718d99e}\label{editcompany_2widget-default_8php_ac918e4a96bc0681a6e442f5ce718d99e}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad6\_\_@{\_\_pad6\_\_}}
+\index{\_\_pad6\_\_@{\_\_pad6\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad6\_\_}{\_\_pad6\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad6\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a0ce716cb2cdc650cb54b04923b76417b}\label{editcompany_2widget-default_8php_a0ce716cb2cdc650cb54b04923b76417b}} 
+\index{widget-\/default.php@{widget-\/default.php}!default\_value@{default\_value}}
+\index{default\_value@{default\_value}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{default\_value}{default\_value}}
+{\footnotesize\ttfamily \$types\+\_\+bussiness default\+\_\+value = \$company-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a2ed73d7d9d2d2390daaff467b6401cae}{pais}}}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_afc233ee77ed49c7985e6e90c9b900247}\label{editcompany_2widget-default_8php_afc233ee77ed49c7985e6e90c9b900247}} 
+\index{widget-\/default.php@{widget-\/default.php}!else@{else}}
+\index{else@{else}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}) \&\& \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]} == \char`\"{}1\char`\"{}) (isset( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]})) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        \mbox{\hyperlink{class_core_a9001bc4a0dfb55dfb4e574f60a35ea71}{Core::redir}}(\textcolor{stringliteral}{"./?view=company"})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{editcompany_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_add930c1df8fa6bc1b640d02255297eab}\label{editcompany_2widget-default_8php_add930c1df8fa6bc1b640d02255297eab}} 
+\index{widget-\/default.php@{widget-\/default.php}!file@{file}}
+\index{file@{file}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily \$file\+\_\+profile file = (isset(\$img) \&\& !empty(\$img))? \$img \+: \char`\"{}res/images/companies/default.\+jpg\char`\"{}}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_abab0b121d8fd8937b768564888d5f22e}\label{editcompany_2widget-default_8php_abab0b121d8fd8937b768564888d5f22e}} 
+\index{widget-\/default.php@{widget-\/default.php}!funjs@{funjs}}
+\index{funjs@{funjs}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{funjs}{funjs}}
+{\footnotesize\ttfamily \$file\+\_\+profile funjs = \char`\"{}onchange=load\+\_\+cities(\mbox{\hyperlink{logs_8txt_aff9812ad3cab87b135122a1923adb9fe}{this.\+value}},\textquotesingle{}city\+\_\+company\textquotesingle{},\textquotesingle{}cities\+\_\+response\textquotesingle{})\char`\"{}}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_ac82ae3ba1fd66a3df9656dd17408bb04}\label{editcompany_2widget-default_8php_ac82ae3ba1fd66a3df9656dd17408bb04}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if (!isset( \$company)$\vert$$\vert$empty( \$company)$\vert$$\vert$\$company-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a7bad9eb8ebcf30eb4398b4332a67a127}{is\+\_\+deleted}}==1) if(isset(\$company-\/$>$profile\+\_\+pic) \&\&!empty(\$company-\/$>$profile\+\_\+pic))}
+
+\mbox{\Hypertarget{editcompany_2widget-default_8php_a850478c1c8e34f11b2f739fd2b1e78c7}\label{editcompany_2widget-default_8php_a850478c1c8e34f11b2f739fd2b1e78c7}} 
+\index{widget-\/default.php@{widget-\/default.php}!tag@{tag}}
+\index{tag@{tag}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{tag}{tag}}
+{\footnotesize\ttfamily \$types\+\_\+bussiness tag =\char`\"{}required\char`\"{}}
+

@@ -1,0 +1,110 @@
+\hypertarget{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Shared\+\_\+\+J\+A\+M\+A\+\_\+\+Q\+R\+Decomposition}
+\label{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition}\index{PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a27ac1dba7207e8cb7d783fcb4cccd500}{\+\_\+\+\_\+construct}} (\$A)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a2ad76f1f3372e997657780b7c9f31f5f}{is\+Full\+Rank}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a23dabb5d0820ea24068e2123db5c7a30}{getH}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_ae4958049717c0d0ae305a9fc8161b446}{getR}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a53c6e9fd4632a848486d1a38f1b035cc}{getQ}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a5a4256f98c419479eebe38f2ad232793}{solve}} (\$B)
+\end{DoxyCompactItemize}
+\doxysubsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a8f524dba515cf8eb45cf32fefa4e9afd}\label{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a8f524dba515cf8eb45cf32fefa4e9afd}} 
+const {\bfseries M\+A\+T\+R\+I\+X\+\_\+\+R\+A\+N\+K\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON} = \char`\"{}Can only perform operation on full-\/rank matrix.\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a27ac1dba7207e8cb7d783fcb4cccd500}\label{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a27ac1dba7207e8cb7d783fcb4cccd500}} 
+\index{PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$A }\end{DoxyParamCaption})}
+
+QR Decomposition computed by Householder reflections.
+
+
+\begin{DoxyParams}[1]{Parámetros}
+matrix & {\em \$A} & Rectangular matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Structure to access R and the Householder vectors and compute Q. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a23dabb5d0820ea24068e2123db5c7a30}\label{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a23dabb5d0820ea24068e2123db5c7a30}} 
+\index{PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}!getH@{getH}}
+\index{getH@{getH}!PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}}
+\doxysubsubsection{\texorpdfstring{getH()}{getH()}}
+{\footnotesize\ttfamily getH (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the Householder vectors
+
+\begin{DoxyReturn}{Devuelve}
+Matrix Lower trapezoidal matrix whose columns define the reflections 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a53c6e9fd4632a848486d1a38f1b035cc}\label{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a53c6e9fd4632a848486d1a38f1b035cc}} 
+\index{PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}!getQ@{getQ}}
+\index{getQ@{getQ}!PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}}
+\doxysubsubsection{\texorpdfstring{getQ()}{getQ()}}
+{\footnotesize\ttfamily getQ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Generate and return the (economy-\/sized) orthogonal factor
+
+\begin{DoxyReturn}{Devuelve}
+Matrix orthogonal factor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_ae4958049717c0d0ae305a9fc8161b446}\label{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_ae4958049717c0d0ae305a9fc8161b446}} 
+\index{PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}!getR@{getR}}
+\index{getR@{getR}!PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}}
+\doxysubsubsection{\texorpdfstring{getR()}{getR()}}
+{\footnotesize\ttfamily getR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the upper triangular factor
+
+\begin{DoxyReturn}{Devuelve}
+Matrix upper triangular factor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a2ad76f1f3372e997657780b7c9f31f5f}\label{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a2ad76f1f3372e997657780b7c9f31f5f}} 
+\index{PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}!isFullRank@{isFullRank}}
+\index{isFullRank@{isFullRank}!PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}}
+\doxysubsubsection{\texorpdfstring{isFullRank()}{isFullRank()}}
+{\footnotesize\ttfamily is\+Full\+Rank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is the matrix full rank?
+
+\begin{DoxyReturn}{Devuelve}
+boolean true if R, and hence A, has full rank, else false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a5a4256f98c419479eebe38f2ad232793}\label{class_p_h_p_excel___shared___j_a_m_a___q_r_decomposition_a5a4256f98c419479eebe38f2ad232793}} 
+\index{PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}!solve@{solve}}
+\index{solve@{solve}!PHPExcel\_Shared\_JAMA\_QRDecomposition@{PHPExcel\_Shared\_JAMA\_QRDecomposition}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily solve (\begin{DoxyParamCaption}\item[{}]{\$B }\end{DoxyParamCaption})}
+
+Least squares solution of A$\ast$X = B
+
+
+\begin{DoxyParams}[1]{Parámetros}
+Matrix & {\em \$B} & A Matrix with as many rows as A and any number of columns. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Matrix Matrix that minimizes the two norm of Q$\ast$\+R$\ast$\+X-\/B. 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/\+J\+A\+M\+A/Q\+R\+Decomposition.\+php\end{DoxyCompactItemize}

@@ -1,0 +1,54 @@
+\hypertarget{edituser_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/edituser/widget-\/default.php}
+\label{edituser_2widget-default_8php}\index{core/modules/index/view/edituser/widget-\/default.php@{core/modules/index/view/edituser/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset( \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}))(isset(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]})) \mbox{\hyperlink{edituser_2widget-default_8php_a35f52bf7ea2e3726434fe3117b367d40}{else}}
+\item 
+\mbox{\hyperlink{edituser_2widget-default_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$id)
+\item 
+\mbox{\hyperlink{edituser_2widget-default_8php_a3d717b1e4657f891026d9ac6338c06be}{if}} (!isset( \$user))
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{edituser_2widget-default_8php_aab122903ebcd878813bfe0ece1fd431a}{\+\_\+\+\_\+pad12\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{edituser_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{edituser_2widget-default_8php_a598ca4e71b15a1313ec95f0df1027ca5}\label{edituser_2widget-default_8php_a598ca4e71b15a1313ec95f0df1027ca5}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$user@{\$user}}
+\index{\$user@{\$user}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$user}{$user}}
+{\footnotesize\ttfamily \$user =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$id)}
+
+\mbox{\Hypertarget{edituser_2widget-default_8php_aab122903ebcd878813bfe0ece1fd431a}\label{edituser_2widget-default_8php_aab122903ebcd878813bfe0ece1fd431a}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad12\_\_@{\_\_pad12\_\_}}
+\index{\_\_pad12\_\_@{\_\_pad12\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad12\_\_}{\_\_pad12\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad12\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{edituser_2widget-default_8php_a35f52bf7ea2e3726434fe3117b367d40}\label{edituser_2widget-default_8php_a35f52bf7ea2e3726434fe3117b367d40}} 
+\index{widget-\/default.php@{widget-\/default.php}!else@{else}}
+\index{else@{else}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})) (isset( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]})) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        \mbox{\hyperlink{class_core_a9001bc4a0dfb55dfb4e574f60a35ea71}{Core::redir}}(\textcolor{stringliteral}{"./?view=users"})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{edituser_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{edituser_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{edituser_2widget-default_8php_a3d717b1e4657f891026d9ac6338c06be}\label{edituser_2widget-default_8php_a3d717b1e4657f891026d9ac6338c06be}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if ( \$user-\/$>$\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a875ce0886bd3c1881364ef722a7f3fe4}{status}} !=3) if(\$user-\/$>$is\+\_\+admin==\char`\"{}1\char`\"{})}
+

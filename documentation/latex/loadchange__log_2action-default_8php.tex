@@ -1,0 +1,63 @@
+\hypertarget{loadchange__log_2action-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/action/loadchange\+\_\+log/action-\/default.php}
+\label{loadchange__log_2action-default_8php}\index{core/modules/index/action/loadchange\_log/action-\/default.php@{core/modules/index/action/loadchange\_log/action-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{loadchange__log_2action-default_8php_a0debe10448ec56a57b5509648408a549}{\$con}} = \mbox{\hyperlink{class_database_af39707ed2dd9bcec95f3ddf84c3a908a}{Database\+::get\+Con}}()
+\item 
+\mbox{\hyperlink{loadchange__log_2action-default_8php_ade67a87208db87b5b9dfe769b1ed9c9b}{\$id\+\_\+registro}} = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}id\+\_\+registro\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{loadchange__log_2action-default_8php_a63f4748915d2fdad2f2503705a7dbb59}{\$table\+\_\+name}} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$con,(strip\+\_\+tags(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}\mbox{\hyperlink{datatables_2extensions_2_scroller_2_readme_8txt_ae8f1aae0f321b881aa7f93476a6b90ed}{table}}\textquotesingle{}\mbox{]}, E\+N\+T\+\_\+\+Q\+U\+O\+T\+ES)))
+\item 
+\mbox{\hyperlink{loadchange__log_2action-default_8php_afbc4dbdfefce79582e7ddd9a3a04ecde}{\$s\+Where}} =\char`\"{} id $<$$>$ 0\char`\"{}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset(\$id\+\_\+registro) \&\&!empty(\$id\+\_\+registro)!=0) \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset(\$table\+\_\+name) \&\&!empty(\$table\+\_\+name)!=0) \mbox{\hyperlink{loadchange__log_2action-default_8php_a667cdd81c9aa4ef25c47c2782f3294cc}{\$query}} =\mbox{\hyperlink{class_change_log_data_a6f1d1393a1e1b7529eeb47b402ff7be3}{Change\+Log\+Data\+::query}}(\$s\+Where)
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) if(count(\$query)$>$0) \mbox{\hyperlink{loadchange__log_2action-default_8php_a8eafb74ac3995ea8381977be32979519}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{loadchange__log_2action-default_8php_a0debe10448ec56a57b5509648408a549}\label{loadchange__log_2action-default_8php_a0debe10448ec56a57b5509648408a549}} 
+\index{action-\/default.php@{action-\/default.php}!\$con@{\$con}}
+\index{\$con@{\$con}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$con}{$con}}
+{\footnotesize\ttfamily \$con = \mbox{\hyperlink{class_database_af39707ed2dd9bcec95f3ddf84c3a908a}{Database\+::get\+Con}}()}
+
+\mbox{\Hypertarget{loadchange__log_2action-default_8php_ade67a87208db87b5b9dfe769b1ed9c9b}\label{loadchange__log_2action-default_8php_ade67a87208db87b5b9dfe769b1ed9c9b}} 
+\index{action-\/default.php@{action-\/default.php}!\$id\_registro@{\$id\_registro}}
+\index{\$id\_registro@{\$id\_registro}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$id\_registro}{$id\_registro}}
+{\footnotesize\ttfamily \$id\+\_\+registro = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}id\+\_\+registro\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{loadchange__log_2action-default_8php_a667cdd81c9aa4ef25c47c2782f3294cc}\label{loadchange__log_2action-default_8php_a667cdd81c9aa4ef25c47c2782f3294cc}} 
+\index{action-\/default.php@{action-\/default.php}!\$query@{\$query}}
+\index{\$query@{\$query}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$query}{$query}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset( \$id\+\_\+registro) \&\&!empty( \$id\+\_\+registro)!=0) \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset( \$table\+\_\+name) \&\&!empty( \$table\+\_\+name)!=0) \$query =\mbox{\hyperlink{class_change_log_data_a6f1d1393a1e1b7529eeb47b402ff7be3}{Change\+Log\+Data\+::query}}(\$s\+Where)}
+
+\mbox{\Hypertarget{loadchange__log_2action-default_8php_afbc4dbdfefce79582e7ddd9a3a04ecde}\label{loadchange__log_2action-default_8php_afbc4dbdfefce79582e7ddd9a3a04ecde}} 
+\index{action-\/default.php@{action-\/default.php}!\$sWhere@{\$sWhere}}
+\index{\$sWhere@{\$sWhere}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$sWhere}{$sWhere}}
+{\footnotesize\ttfamily \$s\+Where =\char`\"{} id $<$$>$ 0\char`\"{}}
+
+\mbox{\Hypertarget{loadchange__log_2action-default_8php_a63f4748915d2fdad2f2503705a7dbb59}\label{loadchange__log_2action-default_8php_a63f4748915d2fdad2f2503705a7dbb59}} 
+\index{action-\/default.php@{action-\/default.php}!\$table\_name@{\$table\_name}}
+\index{\$table\_name@{\$table\_name}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$table\_name}{$table\_name}}
+{\footnotesize\ttfamily \$table\+\_\+name = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$con,(strip\+\_\+tags(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}\mbox{\hyperlink{datatables_2extensions_2_scroller_2_readme_8txt_ae8f1aae0f321b881aa7f93476a6b90ed}{table}}\textquotesingle{}\mbox{]}, E\+N\+T\+\_\+\+Q\+U\+O\+T\+ES)))}
+
+\mbox{\Hypertarget{loadchange__log_2action-default_8php_a8eafb74ac3995ea8381977be32979519}\label{loadchange__log_2action-default_8php_a8eafb74ac3995ea8381977be32979519}} 
+\index{action-\/default.php@{action-\/default.php}!else@{else}}
+\index{else@{else}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset( \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) if (count( \$query)$>$0) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    echo \textcolor{stringliteral}{'<div class="alert alert-\/info alert-\/dismissable"><button type="button" class="close" data-\/dismiss="alert" aria-\/hidden="true">×</button>}}
+\DoxyCodeLine{\textcolor{stringliteral}{        <strong>Sin Resultados!</strong> No se encontraron resultados en la base de datos!.</div>'}}
+
+\end{DoxyCode}

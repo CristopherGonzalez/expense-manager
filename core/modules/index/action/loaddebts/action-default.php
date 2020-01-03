@@ -28,9 +28,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$inactive = (isset($_REQUEST['inactive']) && $_REQUEST['inactive'] == "true") ? 0 : 1;
 	$company_id=$_SESSION["company_id"];
 	$sWhere=" empresa=$company_id";
-		if($type_debt!=""){
+	if($type_debt!="" || $type_debt!=0){
 		//Se busca en tabla entidades para obtener por tipo
-		$result_entities=EntityData::getByType($type_debt,$company_id);
+		$result_entities=EntityData::getByIdType($type_debt,$company_id);
 		$count=count($result_entities);
 		//Se crea query dependiendo de los resultados
 		$sWhere.=" and  ( ";
@@ -69,7 +69,6 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$numrows = $count_query->numrows;
 	$total_pages = ceil($numrows/$per_page);
 	$reload = './?view=debts';
-
 	$query=DebtsData::query($sWhere, $offset,$per_page);
 ?>
 <?php 

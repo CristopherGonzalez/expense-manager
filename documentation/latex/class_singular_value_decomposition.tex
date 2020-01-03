@@ -1,0 +1,127 @@
+\hypertarget{class_singular_value_decomposition}{}\doxysection{Referencia de la Clase Singular\+Value\+Decomposition}
+\label{class_singular_value_decomposition}\index{SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_singular_value_decomposition_aad04401937c318eb9bce0ecb35b4a4ce}{\+\_\+\+\_\+construct}} (\$Arg)
+\item 
+\mbox{\hyperlink{class_singular_value_decomposition_af5b33ffee151d0d6282bb01fdf46faa4}{getU}} ()
+\item 
+\mbox{\hyperlink{class_singular_value_decomposition_abcf26f3d1d95ad9c3b8a78eba1cb3030}{getV}} ()
+\item 
+\mbox{\hyperlink{class_singular_value_decomposition_ac418d919aa83c7ee6f5f40fe9ff46a74}{get\+Singular\+Values}} ()
+\item 
+\mbox{\hyperlink{class_singular_value_decomposition_a3041929ba693140726780ff0ea2b2e40}{getS}} ()
+\item 
+\mbox{\hyperlink{class_singular_value_decomposition_aff88f7d651897d866d16c7310f80e3e4}{norm2}} ()
+\item 
+\mbox{\hyperlink{class_singular_value_decomposition_afb2b26a097a098f724c1ea7ebd406d88}{cond}} ()
+\item 
+\mbox{\hyperlink{class_singular_value_decomposition_a2823cc781ced2770efb8801798a09dfd}{rank}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_singular_value_decomposition_aad04401937c318eb9bce0ecb35b4a4ce}\label{class_singular_value_decomposition_aad04401937c318eb9bce0ecb35b4a4ce}} 
+\index{SingularValueDecomposition@{SingularValueDecomposition}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$\+Arg }\end{DoxyParamCaption})}
+
+Construct the singular value decomposition
+
+Derived from L\+I\+N\+P\+A\+CK code.
+
+
+\begin{DoxyParams}{Parámetros}
+{\em \$A} & Rectangular matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Structure to access U, S and V. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_singular_value_decomposition_afb2b26a097a098f724c1ea7ebd406d88}\label{class_singular_value_decomposition_afb2b26a097a098f724c1ea7ebd406d88}} 
+\index{SingularValueDecomposition@{SingularValueDecomposition}!cond@{cond}}
+\index{cond@{cond}!SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsubsection{\texorpdfstring{cond()}{cond()}}
+{\footnotesize\ttfamily cond (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Two norm condition number
+
+@access public \begin{DoxyReturn}{Devuelve}
+max(\+S)/min(S) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_singular_value_decomposition_a3041929ba693140726780ff0ea2b2e40}\label{class_singular_value_decomposition_a3041929ba693140726780ff0ea2b2e40}} 
+\index{SingularValueDecomposition@{SingularValueDecomposition}!getS@{getS}}
+\index{getS@{getS}!SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsubsection{\texorpdfstring{getS()}{getS()}}
+{\footnotesize\ttfamily getS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the diagonal matrix of singular values
+
+@access public \begin{DoxyReturn}{Devuelve}
+S 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_singular_value_decomposition_ac418d919aa83c7ee6f5f40fe9ff46a74}\label{class_singular_value_decomposition_ac418d919aa83c7ee6f5f40fe9ff46a74}} 
+\index{SingularValueDecomposition@{SingularValueDecomposition}!getSingularValues@{getSingularValues}}
+\index{getSingularValues@{getSingularValues}!SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsubsection{\texorpdfstring{getSingularValues()}{getSingularValues()}}
+{\footnotesize\ttfamily get\+Singular\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the one-\/dimensional array of singular values
+
+@access public \begin{DoxyReturn}{Devuelve}
+diagonal of S. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_singular_value_decomposition_af5b33ffee151d0d6282bb01fdf46faa4}\label{class_singular_value_decomposition_af5b33ffee151d0d6282bb01fdf46faa4}} 
+\index{SingularValueDecomposition@{SingularValueDecomposition}!getU@{getU}}
+\index{getU@{getU}!SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsubsection{\texorpdfstring{getU()}{getU()}}
+{\footnotesize\ttfamily getU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the left singular vectors
+
+@access public \begin{DoxyReturn}{Devuelve}
+U 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_singular_value_decomposition_abcf26f3d1d95ad9c3b8a78eba1cb3030}\label{class_singular_value_decomposition_abcf26f3d1d95ad9c3b8a78eba1cb3030}} 
+\index{SingularValueDecomposition@{SingularValueDecomposition}!getV@{getV}}
+\index{getV@{getV}!SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily getV (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the right singular vectors
+
+@access public \begin{DoxyReturn}{Devuelve}
+V 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_singular_value_decomposition_aff88f7d651897d866d16c7310f80e3e4}\label{class_singular_value_decomposition_aff88f7d651897d866d16c7310f80e3e4}} 
+\index{SingularValueDecomposition@{SingularValueDecomposition}!norm2@{norm2}}
+\index{norm2@{norm2}!SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsubsection{\texorpdfstring{norm2()}{norm2()}}
+{\footnotesize\ttfamily norm2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Two norm
+
+@access public \begin{DoxyReturn}{Devuelve}
+max(\+S) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_singular_value_decomposition_a2823cc781ced2770efb8801798a09dfd}\label{class_singular_value_decomposition_a2823cc781ced2770efb8801798a09dfd}} 
+\index{SingularValueDecomposition@{SingularValueDecomposition}!rank@{rank}}
+\index{rank@{rank}!SingularValueDecomposition@{SingularValueDecomposition}}
+\doxysubsubsection{\texorpdfstring{rank()}{rank()}}
+{\footnotesize\ttfamily rank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Effective numerical matrix rank
+
+@access public \begin{DoxyReturn}{Devuelve}
+Number of nonnegligible singular values. 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/\+J\+A\+M\+A/Singular\+Value\+Decomposition.\+php\end{DoxyCompactItemize}

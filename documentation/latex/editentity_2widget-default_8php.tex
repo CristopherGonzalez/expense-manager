@@ -1,0 +1,108 @@
+\hypertarget{editentity_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/editentity/widget-\/default.php}
+\label{editentity_2widget-default_8php}\index{core/modules/index/view/editentity/widget-\/default.php@{core/modules/index/view/editentity/widget-\/default.php}}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{editentity_2widget-default_8php_ad4cc26f6b21f24e1cbf5f53c30de2a10}{change\+\_\+origin}} (event)
+\item 
+\mbox{\hyperlink{editentity_2widget-default_8php_aad50b76cb1f4b3c309c806b44ef01794}{change\+\_\+categories}} (event)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset( \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}) \&\&\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[} \textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}!=\char`\"{}1\char`\"{})(isset(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]})) \mbox{\hyperlink{editentity_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}{else}}
+\item 
+\mbox{\hyperlink{editentity_2widget-default_8php_a74ed34e6d7bc9f3f8c4fb58a12247ee2}{\$entity}} =\mbox{\hyperlink{class_entity_data_a562ec7062ca1b44ba97dee052b9b63cb}{Entity\+Data\+::get\+By\+Id}}(\$id)
+\item 
+\mbox{\hyperlink{editentity_2widget-default_8php_a9b3acea4ae0b0de791cb2354bbc84904}{\$categories\+\_\+expense}} =\mbox{\hyperlink{class_category_expense_data_ae85c8b624170a13731f6210c180089a9}{Category\+Expense\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{editentity_2widget-default_8php_a3718b671e95c2ae50c2f6e81821dd51b}{\$categories\+\_\+income}} =\mbox{\hyperlink{class_category_income_data_ab5b24edd2c18c96c6e4a3292ad5d9062}{Category\+Income\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{editentity_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} =\mbox{\hyperlink{class_type_data_a4fe2f98be649842175f3d7301b080dd4}{Type\+Data\+::get\+All\+Type}}()
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(!isset(\$entity) \&\&empty(\$entity)) \mbox{\hyperlink{editentity_2widget-default_8php_a606c8ea41f8b07afbfc08b95cad02f19}{\$type\+\_\+entity}} = \mbox{\hyperlink{class_entity_data_ac3af7df348924c983ae99f391058568b}{Entity\+Data\+::get\+Type}}(\$entity-\/$>$\mbox{\hyperlink{logs_8txt_ae9d207539020de3d30b08999f12fb0bd}{tipo}})
+\item 
+\mbox{\hyperlink{editentity_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}{\$creator\+\_\+user}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$entity-\/$>$\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}})
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{editentity_2widget-default_8php_a96372b257106ca1ec31e80ddf59467bc}{\+\_\+\+\_\+pad8\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{editentity_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{editentity_2widget-default_8php_aad50b76cb1f4b3c309c806b44ef01794}\label{editentity_2widget-default_8php_aad50b76cb1f4b3c309c806b44ef01794}} 
+\index{widget-\/default.php@{widget-\/default.php}!change\_categories@{change\_categories}}
+\index{change\_categories@{change\_categories}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{change\_categories()}{change\_categories()}}
+{\footnotesize\ttfamily change\+\_\+categories (\begin{DoxyParamCaption}\item[{event}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{editentity_2widget-default_8php_ad4cc26f6b21f24e1cbf5f53c30de2a10}\label{editentity_2widget-default_8php_ad4cc26f6b21f24e1cbf5f53c30de2a10}} 
+\index{widget-\/default.php@{widget-\/default.php}!change\_origin@{change\_origin}}
+\index{change\_origin@{change\_origin}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{change\_origin()}{change\_origin()}}
+{\footnotesize\ttfamily change\+\_\+origin (\begin{DoxyParamCaption}\item[{event}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{editentity_2widget-default_8php_a9b3acea4ae0b0de791cb2354bbc84904}\label{editentity_2widget-default_8php_a9b3acea4ae0b0de791cb2354bbc84904}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$categories\_expense@{\$categories\_expense}}
+\index{\$categories\_expense@{\$categories\_expense}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$categories\_expense}{$categories\_expense}}
+{\footnotesize\ttfamily \$categories\+\_\+expense =\mbox{\hyperlink{class_category_expense_data_ae85c8b624170a13731f6210c180089a9}{Category\+Expense\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{editentity_2widget-default_8php_a3718b671e95c2ae50c2f6e81821dd51b}\label{editentity_2widget-default_8php_a3718b671e95c2ae50c2f6e81821dd51b}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$categories\_income@{\$categories\_income}}
+\index{\$categories\_income@{\$categories\_income}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$categories\_income}{$categories\_income}}
+{\footnotesize\ttfamily \$categories\+\_\+income =\mbox{\hyperlink{class_category_income_data_ab5b24edd2c18c96c6e4a3292ad5d9062}{Category\+Income\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{editentity_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}\label{editentity_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$creator\_user@{\$creator\_user}}
+\index{\$creator\_user@{\$creator\_user}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$creator\_user}{$creator\_user}}
+{\footnotesize\ttfamily \$creator\+\_\+user =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$entity-\/$>$\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}})}
+
+\mbox{\Hypertarget{editentity_2widget-default_8php_a74ed34e6d7bc9f3f8c4fb58a12247ee2}\label{editentity_2widget-default_8php_a74ed34e6d7bc9f3f8c4fb58a12247ee2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entity@{\$entity}}
+\index{\$entity@{\$entity}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entity}{$entity}}
+{\footnotesize\ttfamily \$entity =\mbox{\hyperlink{class_entity_data_a562ec7062ca1b44ba97dee052b9b63cb}{Entity\+Data\+::get\+By\+Id}}(\$id)}
+
+\mbox{\Hypertarget{editentity_2widget-default_8php_a606c8ea41f8b07afbfc08b95cad02f19}\label{editentity_2widget-default_8php_a606c8ea41f8b07afbfc08b95cad02f19}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$type\_entity@{\$type\_entity}}
+\index{\$type\_entity@{\$type\_entity}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$type\_entity}{$type\_entity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (!isset( \$entity) \&\&empty( \$entity)) \$type\+\_\+entity = \mbox{\hyperlink{class_entity_data_ac3af7df348924c983ae99f391058568b}{Entity\+Data\+::get\+Type}}(\$entity-\/$>$\mbox{\hyperlink{logs_8txt_ae9d207539020de3d30b08999f12fb0bd}{tipo}})}
+
+\mbox{\Hypertarget{editentity_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{editentity_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types@{\$types}}
+\index{\$types@{\$types}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{$types}}
+{\footnotesize\ttfamily \$types =\mbox{\hyperlink{class_type_data_a4fe2f98be649842175f3d7301b080dd4}{Type\+Data\+::get\+All\+Type}}()}
+
+\mbox{\Hypertarget{editentity_2widget-default_8php_a96372b257106ca1ec31e80ddf59467bc}\label{editentity_2widget-default_8php_a96372b257106ca1ec31e80ddf59467bc}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad8\_\_@{\_\_pad8\_\_}}
+\index{\_\_pad8\_\_@{\_\_pad8\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad8\_\_}{\_\_pad8\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad8\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{editentity_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}\label{editentity_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}} 
+\index{widget-\/default.php@{widget-\/default.php}!else@{else}}
+\index{else@{else}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}) \&\& \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}!= \char`\"{}1\char`\"{}) (isset( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]})) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        \mbox{\hyperlink{class_core_a9001bc4a0dfb55dfb4e574f60a35ea71}{Core::redir}}(\textcolor{stringliteral}{"./?view=entities"})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{editentity_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{editentity_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+

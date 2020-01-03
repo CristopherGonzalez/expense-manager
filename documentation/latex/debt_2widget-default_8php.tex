@@ -1,0 +1,128 @@
+\hypertarget{debt_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/debt/widget-\/default.php}
+\label{debt_2widget-default_8php}\index{core/modules/index/view/debt/widget-\/default.php@{core/modules/index/view/debt/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} =\mbox{\hyperlink{class_type_data_a9397fa978a7b3d51362dcbae1a4e55a1}{Type\+Data\+::get\+All\+Debts}}()
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_a88a8980708982166840708b055e335b8}{\$months}} = array(\char`\"{}Enero\char`\"{},\char`\"{}Febrero\char`\"{},\char`\"{}Marzo\char`\"{},\char`\"{}Abril\char`\"{},\char`\"{}Mayo\char`\"{},\char`\"{}Junio\char`\"{},\char`\"{}Julio\char`\"{},\char`\"{}Agosto\char`\"{},\char`\"{}Septiembre\char`\"{},\char`\"{}Octubre\char`\"{},\char`\"{}Noviembre\char`\"{},\char`\"{}Diciembre\char`\"{})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$months as \$index=$>$ \$month) \mbox{\hyperlink{debt_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}{\$years}} =array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025)
+\item 
+foreach(\$years as \$year) \mbox{\hyperlink{debt_2widget-default_8php_a76299c50b3b2fc7d9796018f44830dfd}{foreach}} ( \$types as \$type\+\_\+debt)
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}{\$entity\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}entity\char`\"{},\char`\"{}Entidad\char`\"{},\$entities)
+\item 
+\$entity\+\_\+select \mbox{\hyperlink{debt_2widget-default_8php_a77370889261edeb05edc648c6ba782fb}{funjs}} = \char`\"{}onchange=\textbackslash{}\char`\"{}change\+\_\+entity(\textquotesingle{}type\+\_\+debt\textquotesingle{},\textquotesingle{}category\textquotesingle{});\textbackslash{}\char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_a80fdf536e315070b2353b5763099a2e8}{\$type\+\_\+debt\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}type\+\_\+debt\char`\"{},\char`\"{}Tipo\char`\"{},\$types)
+\item 
+\$type\+\_\+debt\+\_\+select \mbox{\hyperlink{debt_2widget-default_8php_a109dfb81eb1e7fb970c910e9b6cfbde9}{tag}} = \char`\"{}disabled\char`\"{}
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}{\$user\+\_\+session}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}{\$webcamdocument}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}{\$webcampayment}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_afb4acd168eeb2dfdf2e3dd35244ffbc5}{\$debts\+\_\+data}} =\mbox{\hyperlink{class_expenses_data_a107c4341048d6283b12f2fafe3f7ddba}{Expenses\+Data\+::get\+All\+Count}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_aa12a29e4b6530ceb5512508fac311dfe}{if}} ( \$debts\+\_\+data-\/$>$count!=0)
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{debt_2widget-default_8php_ad3aa1069376b85bd4e503b216d54b18d}{\+\_\+\+\_\+pad3\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{debt_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{debt_2widget-default_8php_afb4acd168eeb2dfdf2e3dd35244ffbc5}\label{debt_2widget-default_8php_afb4acd168eeb2dfdf2e3dd35244ffbc5}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$debts\_data@{\$debts\_data}}
+\index{\$debts\_data@{\$debts\_data}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$debts\_data}{$debts\_data}}
+{\footnotesize\ttfamily \$debts\+\_\+data =\mbox{\hyperlink{class_expenses_data_a107c4341048d6283b12f2fafe3f7ddba}{Expenses\+Data\+::get\+All\+Count}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}\label{debt_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entity\_select@{\$entity\_select}}
+\index{\$entity\_select@{\$entity\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entity\_select}{$entity\_select}}
+{\footnotesize\ttfamily \$entity\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}entity\char`\"{},\char`\"{}Entidad\char`\"{},\$entities)}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a88a8980708982166840708b055e335b8}\label{debt_2widget-default_8php_a88a8980708982166840708b055e335b8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$months@{\$months}}
+\index{\$months@{\$months}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$months}{$months}}
+{\footnotesize\ttfamily \$months = array(\char`\"{}Enero\char`\"{},\char`\"{}Febrero\char`\"{},\char`\"{}Marzo\char`\"{},\char`\"{}Abril\char`\"{},\char`\"{}Mayo\char`\"{},\char`\"{}Junio\char`\"{},\char`\"{}Julio\char`\"{},\char`\"{}Agosto\char`\"{},\char`\"{}Septiembre\char`\"{},\char`\"{}Octubre\char`\"{},\char`\"{}Noviembre\char`\"{},\char`\"{}Diciembre\char`\"{})}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a80fdf536e315070b2353b5763099a2e8}\label{debt_2widget-default_8php_a80fdf536e315070b2353b5763099a2e8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$type\_debt\_select@{\$type\_debt\_select}}
+\index{\$type\_debt\_select@{\$type\_debt\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$type\_debt\_select}{$type\_debt\_select}}
+{\footnotesize\ttfamily \$type\+\_\+debt\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}type\+\_\+debt\char`\"{},\char`\"{}Tipo\char`\"{},\$types)}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{debt_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types@{\$types}}
+\index{\$types@{\$types}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{$types}}
+{\footnotesize\ttfamily \$types =\mbox{\hyperlink{class_type_data_a9397fa978a7b3d51362dcbae1a4e55a1}{Type\+Data\+::get\+All\+Debts}}()}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}\label{debt_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$user\_session@{\$user\_session}}
+\index{\$user\_session@{\$user\_session}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$user\_session}{$user\_session}}
+{\footnotesize\ttfamily \$user\+\_\+session =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}\label{debt_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcamdocument@{\$webcamdocument}}
+\index{\$webcamdocument@{\$webcamdocument}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcamdocument}{$webcamdocument}}
+{\footnotesize\ttfamily \$webcamdocument = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}\label{debt_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcampayment@{\$webcampayment}}
+\index{\$webcampayment@{\$webcampayment}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcampayment}{$webcampayment}}
+{\footnotesize\ttfamily \$webcampayment = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}\label{debt_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$years@{\$years}}
+\index{\$years@{\$years}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$years}{$years}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$months as \$index=$>$ \$month) \$years =array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025)}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_ad3aa1069376b85bd4e503b216d54b18d}\label{debt_2widget-default_8php_ad3aa1069376b85bd4e503b216d54b18d}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad3\_\_@{\_\_pad3\_\_}}
+\index{\_\_pad3\_\_@{\_\_pad3\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad3\_\_}{\_\_pad3\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad3\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{debt_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a76299c50b3b2fc7d9796018f44830dfd}\label{debt_2widget-default_8php_a76299c50b3b2fc7d9796018f44830dfd}} 
+\index{widget-\/default.php@{widget-\/default.php}!foreach@{foreach}}
+\index{foreach@{foreach}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily foreach}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a77370889261edeb05edc648c6ba782fb}\label{debt_2widget-default_8php_a77370889261edeb05edc648c6ba782fb}} 
+\index{widget-\/default.php@{widget-\/default.php}!funjs@{funjs}}
+\index{funjs@{funjs}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{funjs}{funjs}}
+{\footnotesize\ttfamily \$entity\+\_\+select funjs = \char`\"{}onchange=\textbackslash{}\char`\"{}change\+\_\+entity(\textquotesingle{}type\+\_\+debt\textquotesingle{},\textquotesingle{}category\textquotesingle{});\textbackslash{}\char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_aa12a29e4b6530ceb5512508fac311dfe}\label{debt_2widget-default_8php_aa12a29e4b6530ceb5512508fac311dfe}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(\$debts\+\_\+data-\/$>$count!=0)}
+
+\mbox{\Hypertarget{debt_2widget-default_8php_a109dfb81eb1e7fb970c910e9b6cfbde9}\label{debt_2widget-default_8php_a109dfb81eb1e7fb970c910e9b6cfbde9}} 
+\index{widget-\/default.php@{widget-\/default.php}!tag@{tag}}
+\index{tag@{tag}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{tag}{tag}}
+{\footnotesize\ttfamily \$type\+\_\+debt\+\_\+select tag = \char`\"{}disabled\char`\"{}}
+

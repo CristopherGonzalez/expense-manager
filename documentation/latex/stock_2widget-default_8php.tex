@@ -1,0 +1,120 @@
+\hypertarget{stock_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/stock/widget-\/default.php}
+\label{stock_2widget-default_8php}\index{core/modules/index/view/stock/widget-\/default.php@{core/modules/index/view/stock/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} =\mbox{\hyperlink{class_type_data_a1acd46083149eabcd00c243147b11aa9}{Type\+Data\+::get\+All\+Stocks}}()
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a88a8980708982166840708b055e335b8}{\$months}} = array(\char`\"{}Enero\char`\"{},\char`\"{}Febrero\char`\"{},\char`\"{}Marzo\char`\"{},\char`\"{}Abril\char`\"{},\char`\"{}Mayo\char`\"{},\char`\"{}Junio\char`\"{},\char`\"{}Julio\char`\"{},\char`\"{}Agosto\char`\"{},\char`\"{}Septiembre\char`\"{},\char`\"{}Octubre\char`\"{},\char`\"{}Noviembre\char`\"{},\char`\"{}Diciembre\char`\"{})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$months as \$index=$>$ \$month) \mbox{\hyperlink{stock_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}{\$years}} =array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025)
+\item 
+foreach(\$years as \$year) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$types as \$type\+\_\+stock)
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}{\$entity\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}entity\char`\"{},\char`\"{}Entidad\char`\"{},\$entities)
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_ab0771a3d998d676e5fa0a86aab651326}{\$type\+\_\+stock\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}type\+\_\+stock\char`\"{},\char`\"{}Tipo\char`\"{},\$types)
+\item 
+\$type\+\_\+stock\+\_\+select \mbox{\hyperlink{stock_2widget-default_8php_af80b2a85084ec3120d5a0cb6b8cf7b5d}{tag}} = \char`\"{}disabled\char`\"{}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}{\$user\+\_\+session}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}{\$webcamdocument}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}{\$webcampayment}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_af8c5d2be14af334d2db5d07e583122df}{\$stocks\+\_\+data}} =\mbox{\hyperlink{class_expenses_data_a107c4341048d6283b12f2fafe3f7ddba}{Expenses\+Data\+::get\+All\+Count}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} ( \$stocks\+\_\+data-\/$>$count!=0)
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{stock_2widget-default_8php_a09d23bf84c81d96dfce326b9a23aa349}{\+\_\+\+\_\+pad19\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{stock_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}\label{stock_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entity\_select@{\$entity\_select}}
+\index{\$entity\_select@{\$entity\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entity\_select}{$entity\_select}}
+{\footnotesize\ttfamily \$entity\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}entity\char`\"{},\char`\"{}Entidad\char`\"{},\$entities)}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a88a8980708982166840708b055e335b8}\label{stock_2widget-default_8php_a88a8980708982166840708b055e335b8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$months@{\$months}}
+\index{\$months@{\$months}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$months}{$months}}
+{\footnotesize\ttfamily \$months = array(\char`\"{}Enero\char`\"{},\char`\"{}Febrero\char`\"{},\char`\"{}Marzo\char`\"{},\char`\"{}Abril\char`\"{},\char`\"{}Mayo\char`\"{},\char`\"{}Junio\char`\"{},\char`\"{}Julio\char`\"{},\char`\"{}Agosto\char`\"{},\char`\"{}Septiembre\char`\"{},\char`\"{}Octubre\char`\"{},\char`\"{}Noviembre\char`\"{},\char`\"{}Diciembre\char`\"{})}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_af8c5d2be14af334d2db5d07e583122df}\label{stock_2widget-default_8php_af8c5d2be14af334d2db5d07e583122df}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$stocks\_data@{\$stocks\_data}}
+\index{\$stocks\_data@{\$stocks\_data}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$stocks\_data}{$stocks\_data}}
+{\footnotesize\ttfamily \$stocks\+\_\+data =\mbox{\hyperlink{class_expenses_data_a107c4341048d6283b12f2fafe3f7ddba}{Expenses\+Data\+::get\+All\+Count}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_ab0771a3d998d676e5fa0a86aab651326}\label{stock_2widget-default_8php_ab0771a3d998d676e5fa0a86aab651326}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$type\_stock\_select@{\$type\_stock\_select}}
+\index{\$type\_stock\_select@{\$type\_stock\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$type\_stock\_select}{$type\_stock\_select}}
+{\footnotesize\ttfamily \$type\+\_\+stock\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}type\+\_\+stock\char`\"{},\char`\"{}Tipo\char`\"{},\$types)}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{stock_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types@{\$types}}
+\index{\$types@{\$types}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{$types}}
+{\footnotesize\ttfamily \$types =\mbox{\hyperlink{class_type_data_a1acd46083149eabcd00c243147b11aa9}{Type\+Data\+::get\+All\+Stocks}}()}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}\label{stock_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$user\_session@{\$user\_session}}
+\index{\$user\_session@{\$user\_session}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$user\_session}{$user\_session}}
+{\footnotesize\ttfamily \$user\+\_\+session =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}\label{stock_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcamdocument@{\$webcamdocument}}
+\index{\$webcamdocument@{\$webcamdocument}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcamdocument}{$webcamdocument}}
+{\footnotesize\ttfamily \$webcamdocument = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}\label{stock_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcampayment@{\$webcampayment}}
+\index{\$webcampayment@{\$webcampayment}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcampayment}{$webcampayment}}
+{\footnotesize\ttfamily \$webcampayment = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}\label{stock_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$years@{\$years}}
+\index{\$years@{\$years}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$years}{$years}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$months as \$index=$>$ \$month) \$years =array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025)}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a09d23bf84c81d96dfce326b9a23aa349}\label{stock_2widget-default_8php_a09d23bf84c81d96dfce326b9a23aa349}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad19\_\_@{\_\_pad19\_\_}}
+\index{\_\_pad19\_\_@{\_\_pad19\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad19\_\_}{\_\_pad19\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad19\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{stock_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}\label{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}} 
+\index{widget-\/default.php@{widget-\/default.php}!foreach@{foreach}}
+\index{foreach@{foreach}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily foreach ( \$years as \$year) foreach(\$types as \$type\+\_\+stock)}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}\label{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(\$stocks\+\_\+data-\/$>$count!=0)}
+
+\mbox{\Hypertarget{stock_2widget-default_8php_af80b2a85084ec3120d5a0cb6b8cf7b5d}\label{stock_2widget-default_8php_af80b2a85084ec3120d5a0cb6b8cf7b5d}} 
+\index{widget-\/default.php@{widget-\/default.php}!tag@{tag}}
+\index{tag@{tag}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{tag}{tag}}
+{\footnotesize\ttfamily \$type\+\_\+stock\+\_\+select tag = \char`\"{}disabled\char`\"{}}
+

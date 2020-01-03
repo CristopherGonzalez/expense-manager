@@ -1,0 +1,147 @@
+\hypertarget{class_p_h_p_excel___writer___abstract}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\+Abstract}
+\label{class_p_h_p_excel___writer___abstract}\index{PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}}
+Diagrama de herencias de P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\+Abstract\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.654028cm]{class_p_h_p_excel___writer___abstract}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___writer___abstract_a93df2187f1b0056fb304340bee88d8aa}{get\+Include\+Charts}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___writer___abstract_af716c7d55832a61d22f4a7636d591871}{set\+Include\+Charts}} (\$p\+Value=false)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___writer___abstract_abadd293247bbcacf5dea0f69abb7ef6e}{get\+Pre\+Calculate\+Formulas}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___writer___abstract_aff6377133a5b5ee1d477c4345486821d}{set\+Pre\+Calculate\+Formulas}} (\$p\+Value=true)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___writer___abstract_a4a458bfd3cb86b531534cb77663ad008}{get\+Use\+Disk\+Caching}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___writer___abstract_a9bccac8b47028cdbf5b4f334784741e9}{set\+Use\+Disk\+Caching}} (\$p\+Value=false, \$p\+Directory=null)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___writer___abstract_a41826c4f44ebc1fa9c0edcf22c94ef03}{get\+Disk\+Caching\+Directory}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_a43fbe8daf3d2fb7b1eb7e8ce72496ac3}\label{class_p_h_p_excel___writer___abstract_a43fbe8daf3d2fb7b1eb7e8ce72496ac3}} 
+{\bfseries \$include\+Charts} = false
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_ae454a348d3dfb9161fb47c5641c5069a}\label{class_p_h_p_excel___writer___abstract_ae454a348d3dfb9161fb47c5641c5069a}} 
+{\bfseries \$pre\+Calculate\+Formulas} = true
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_a720fd1b9c9805b39ea133914fec0654a}\label{class_p_h_p_excel___writer___abstract_a720fd1b9c9805b39ea133914fec0654a}} 
+{\bfseries \$\+\_\+use\+Disk\+Caching} = false
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_adf42bfa5f30c4b819fa39b63d2b86c15}\label{class_p_h_p_excel___writer___abstract_adf42bfa5f30c4b819fa39b63d2b86c15}} 
+{\bfseries \$\+\_\+disk\+Caching\+Directory} = \textquotesingle{}./\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_a41826c4f44ebc1fa9c0edcf22c94ef03}\label{class_p_h_p_excel___writer___abstract_a41826c4f44ebc1fa9c0edcf22c94ef03}} 
+\index{PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}!getDiskCachingDirectory@{getDiskCachingDirectory}}
+\index{getDiskCachingDirectory@{getDiskCachingDirectory}!PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}}
+\doxysubsubsection{\texorpdfstring{getDiskCachingDirectory()}{getDiskCachingDirectory()}}
+{\footnotesize\ttfamily get\+Disk\+Caching\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} disk caching directory
+
+\begin{DoxyReturn}{Devuelve}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_a93df2187f1b0056fb304340bee88d8aa}\label{class_p_h_p_excel___writer___abstract_a93df2187f1b0056fb304340bee88d8aa}} 
+\index{PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}!getIncludeCharts@{getIncludeCharts}}
+\index{getIncludeCharts@{getIncludeCharts}!PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}}
+\doxysubsubsection{\texorpdfstring{getIncludeCharts()}{getIncludeCharts()}}
+{\footnotesize\ttfamily get\+Include\+Charts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Write charts in workbook? If this is true, then the Writer will write definitions for any charts that exist in the \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} object. If false (the default) it will ignore any charts defined in the \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} object.
+
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_abadd293247bbcacf5dea0f69abb7ef6e}\label{class_p_h_p_excel___writer___abstract_abadd293247bbcacf5dea0f69abb7ef6e}} 
+\index{PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}!getPreCalculateFormulas@{getPreCalculateFormulas}}
+\index{getPreCalculateFormulas@{getPreCalculateFormulas}!PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}}
+\doxysubsubsection{\texorpdfstring{getPreCalculateFormulas()}{getPreCalculateFormulas()}}
+{\footnotesize\ttfamily get\+Pre\+Calculate\+Formulas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} Pre-\/\+Calculate Formulas flag If this is true (the default), then the writer will recalculate all formulae in a workbook when saving, so that the pre-\/calculated values are immediately available to MS Excel or other office spreadsheet viewer when opening the file If false, then formulae are not calculated on save. This is faster for saving in \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}}, but slower when opening the resulting file in MS Excel, because Excel has to recalculate the formulae itself
+
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_a4a458bfd3cb86b531534cb77663ad008}\label{class_p_h_p_excel___writer___abstract_a4a458bfd3cb86b531534cb77663ad008}} 
+\index{PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}!getUseDiskCaching@{getUseDiskCaching}}
+\index{getUseDiskCaching@{getUseDiskCaching}!PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}}
+\doxysubsubsection{\texorpdfstring{getUseDiskCaching()}{getUseDiskCaching()}}
+{\footnotesize\ttfamily get\+Use\+Disk\+Caching (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} use disk caching where possible?
+
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_af716c7d55832a61d22f4a7636d591871}\label{class_p_h_p_excel___writer___abstract_af716c7d55832a61d22f4a7636d591871}} 
+\index{PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}!setIncludeCharts@{setIncludeCharts}}
+\index{setIncludeCharts@{setIncludeCharts}!PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}}
+\doxysubsubsection{\texorpdfstring{setIncludeCharts()}{setIncludeCharts()}}
+{\footnotesize\ttfamily set\+Include\+Charts (\begin{DoxyParamCaption}\item[{}]{\$p\+Value = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Set write charts in workbook Set to true, to advise the Writer to include any charts that exist in the \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} object. Set to false (the default) to ignore charts.
+
+
+\begin{DoxyParams}[1]{Parámetros}
+boolean & {\em \$p\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{interface_p_h_p_excel___writer___i_writer}{P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\+I\+Writer}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_aff6377133a5b5ee1d477c4345486821d}\label{class_p_h_p_excel___writer___abstract_aff6377133a5b5ee1d477c4345486821d}} 
+\index{PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}!setPreCalculateFormulas@{setPreCalculateFormulas}}
+\index{setPreCalculateFormulas@{setPreCalculateFormulas}!PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}}
+\doxysubsubsection{\texorpdfstring{setPreCalculateFormulas()}{setPreCalculateFormulas()}}
+{\footnotesize\ttfamily set\+Pre\+Calculate\+Formulas (\begin{DoxyParamCaption}\item[{}]{\$p\+Value = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Set Pre-\/\+Calculate Formulas Set to true (the default) to advise the Writer to calculate all formulae on save Set to false to prevent precalculation of formulae on save.
+
+
+\begin{DoxyParams}[1]{Parámetros}
+boolean & {\em \$p\+Value} & Pre-\/\+Calculate Formulas? \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{interface_p_h_p_excel___writer___i_writer}{P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\+I\+Writer}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___writer___abstract_a9bccac8b47028cdbf5b4f334784741e9}\label{class_p_h_p_excel___writer___abstract_a9bccac8b47028cdbf5b4f334784741e9}} 
+\index{PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}!setUseDiskCaching@{setUseDiskCaching}}
+\index{setUseDiskCaching@{setUseDiskCaching}!PHPExcel\_Writer\_Abstract@{PHPExcel\_Writer\_Abstract}}
+\doxysubsubsection{\texorpdfstring{setUseDiskCaching()}{setUseDiskCaching()}}
+{\footnotesize\ttfamily set\+Use\+Disk\+Caching (\begin{DoxyParamCaption}\item[{}]{\$p\+Value = {\ttfamily false},  }\item[{}]{\$p\+Directory = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Set use disk caching where possible?
+
+
+\begin{DoxyParams}[1]{Parámetros}
+boolean & {\em \$p\+Value} & \\
+\hline
+string & {\em \$p\+Directory} & Disk caching directory \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___writer___exception}{P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\+Exception}}} & when directory does not exist \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel___writer___excel2007}{P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\+Excel2007}} 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Writer/Abstract.\+php\end{DoxyCompactItemize}

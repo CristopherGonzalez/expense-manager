@@ -1,0 +1,86 @@
+\hypertarget{class_eigenvalue_decomposition}{}\doxysection{Referencia de la Clase Eigenvalue\+Decomposition}
+\label{class_eigenvalue_decomposition}\index{EigenvalueDecomposition@{EigenvalueDecomposition}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_eigenvalue_decomposition_aad04401937c318eb9bce0ecb35b4a4ce}{\+\_\+\+\_\+construct}} (\$Arg)
+\item 
+\mbox{\hyperlink{class_eigenvalue_decomposition_abcf26f3d1d95ad9c3b8a78eba1cb3030}{getV}} ()
+\item 
+\mbox{\hyperlink{class_eigenvalue_decomposition_a5947fbbbd85356529c94091f3ab8cc09}{get\+Real\+Eigenvalues}} ()
+\item 
+\mbox{\hyperlink{class_eigenvalue_decomposition_a8bf955b764985c3234c1308a7e3965ff}{get\+Imag\+Eigenvalues}} ()
+\item 
+\mbox{\hyperlink{class_eigenvalue_decomposition_a2ab5850d0dd2f9cb68ec4cfffe0af769}{getD}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_eigenvalue_decomposition_aad04401937c318eb9bce0ecb35b4a4ce}\label{class_eigenvalue_decomposition_aad04401937c318eb9bce0ecb35b4a4ce}} 
+\index{EigenvalueDecomposition@{EigenvalueDecomposition}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!EigenvalueDecomposition@{EigenvalueDecomposition}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$\+Arg }\end{DoxyParamCaption})}
+
+Constructor\+: Check for symmetry, then construct the eigenvalue decomposition
+
+@access public 
+\begin{DoxyParams}{Parámetros}
+{\em A} & Square matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Structure to access D and V. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_eigenvalue_decomposition_a2ab5850d0dd2f9cb68ec4cfffe0af769}\label{class_eigenvalue_decomposition_a2ab5850d0dd2f9cb68ec4cfffe0af769}} 
+\index{EigenvalueDecomposition@{EigenvalueDecomposition}!getD@{getD}}
+\index{getD@{getD}!EigenvalueDecomposition@{EigenvalueDecomposition}}
+\doxysubsubsection{\texorpdfstring{getD()}{getD()}}
+{\footnotesize\ttfamily getD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the block diagonal eigenvalue matrix
+
+@access public \begin{DoxyReturn}{Devuelve}
+D 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_eigenvalue_decomposition_a8bf955b764985c3234c1308a7e3965ff}\label{class_eigenvalue_decomposition_a8bf955b764985c3234c1308a7e3965ff}} 
+\index{EigenvalueDecomposition@{EigenvalueDecomposition}!getImagEigenvalues@{getImagEigenvalues}}
+\index{getImagEigenvalues@{getImagEigenvalues}!EigenvalueDecomposition@{EigenvalueDecomposition}}
+\doxysubsubsection{\texorpdfstring{getImagEigenvalues()}{getImagEigenvalues()}}
+{\footnotesize\ttfamily get\+Imag\+Eigenvalues (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the imaginary parts of the eigenvalues
+
+@access public \begin{DoxyReturn}{Devuelve}
+imag(diag(\+D)) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_eigenvalue_decomposition_a5947fbbbd85356529c94091f3ab8cc09}\label{class_eigenvalue_decomposition_a5947fbbbd85356529c94091f3ab8cc09}} 
+\index{EigenvalueDecomposition@{EigenvalueDecomposition}!getRealEigenvalues@{getRealEigenvalues}}
+\index{getRealEigenvalues@{getRealEigenvalues}!EigenvalueDecomposition@{EigenvalueDecomposition}}
+\doxysubsubsection{\texorpdfstring{getRealEigenvalues()}{getRealEigenvalues()}}
+{\footnotesize\ttfamily get\+Real\+Eigenvalues (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the real parts of the eigenvalues
+
+@access public \begin{DoxyReturn}{Devuelve}
+real(diag(\+D)) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_eigenvalue_decomposition_abcf26f3d1d95ad9c3b8a78eba1cb3030}\label{class_eigenvalue_decomposition_abcf26f3d1d95ad9c3b8a78eba1cb3030}} 
+\index{EigenvalueDecomposition@{EigenvalueDecomposition}!getV@{getV}}
+\index{getV@{getV}!EigenvalueDecomposition@{EigenvalueDecomposition}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily getV (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the eigenvector matrix
+
+@access public \begin{DoxyReturn}{Devuelve}
+V 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/\+J\+A\+M\+A/Eigenvalue\+Decomposition.\+php\end{DoxyCompactItemize}

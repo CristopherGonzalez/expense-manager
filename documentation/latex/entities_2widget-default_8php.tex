@@ -1,0 +1,80 @@
+\hypertarget{entities_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/entities/widget-\/default.php}
+\label{entities_2widget-default_8php}\index{core/modules/index/view/entities/widget-\/default.php@{core/modules/index/view/entities/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{entities_2widget-default_8php_a3718b671e95c2ae50c2f6e81821dd51b}{\$categories\+\_\+income}} =\mbox{\hyperlink{class_category_income_data_ab5b24edd2c18c96c6e4a3292ad5d9062}{Category\+Income\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{entities_2widget-default_8php_a0037da727b88ba5d327e5ea31d4d3d7e}{\$categories\+\_\+partner}} =array(\textquotesingle{}Socios\textquotesingle{},\textquotesingle{}Otros\textquotesingle{})
+\item 
+\mbox{\hyperlink{entities_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} =\mbox{\hyperlink{class_type_data_a4fe2f98be649842175f3d7301b080dd4}{Type\+Data\+::get\+All\+Type}}()
+\item 
+\mbox{\hyperlink{entities_2widget-default_8php_aafdbca8f3e88b432734c6b785b40d68f}{\$type\+\_\+category}} =\char`\"{}Egreso\char`\"{}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$types as \$type) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$categories\+\_\+expense as \$category) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$categories\+\_\+income as \$category) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$categories\+\_\+partner as \$index=$>$ \$category) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$categories\+\_\+expense as \$category) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$categories\+\_\+income as \$category) \mbox{\hyperlink{entities_2widget-default_8php_a636cc5a8c2afcffc67dea7a857e14ca2}{\$user\+\_\+session}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{entities_2widget-default_8php_a294d6537e267ac090cacc958c43929ca}{\$entity\+\_\+data}} =\mbox{\hyperlink{class_entity_data_ae5e17a97880516389aa134f92b09d756}{Entity\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{entities_2widget-default_8php_a1f8306681ebfb07cde96583b5ad18d26}{if}} (count( \$entity\+\_\+data)!=0)
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$categories\+\_\+expense as \$cat) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$categories\+\_\+income as \$cat) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$types as \$type) \mbox{\hyperlink{entities_2widget-default_8php_ac608ff2ec83a69e68a12445b69f999c1}{else}}
+\item 
+\mbox{\hyperlink{entities_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{entities_2widget-default_8php_a3718b671e95c2ae50c2f6e81821dd51b}\label{entities_2widget-default_8php_a3718b671e95c2ae50c2f6e81821dd51b}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$categories\_income@{\$categories\_income}}
+\index{\$categories\_income@{\$categories\_income}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$categories\_income}{$categories\_income}}
+{\footnotesize\ttfamily \$categories\+\_\+income =\mbox{\hyperlink{class_category_income_data_ab5b24edd2c18c96c6e4a3292ad5d9062}{Category\+Income\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{entities_2widget-default_8php_a0037da727b88ba5d327e5ea31d4d3d7e}\label{entities_2widget-default_8php_a0037da727b88ba5d327e5ea31d4d3d7e}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$categories\_partner@{\$categories\_partner}}
+\index{\$categories\_partner@{\$categories\_partner}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$categories\_partner}{$categories\_partner}}
+{\footnotesize\ttfamily \$categories\+\_\+partner =array(\textquotesingle{}Socios\textquotesingle{},\textquotesingle{}Otros\textquotesingle{})}
+
+\mbox{\Hypertarget{entities_2widget-default_8php_a294d6537e267ac090cacc958c43929ca}\label{entities_2widget-default_8php_a294d6537e267ac090cacc958c43929ca}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entity\_data@{\$entity\_data}}
+\index{\$entity\_data@{\$entity\_data}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entity\_data}{$entity\_data}}
+{\footnotesize\ttfamily \$entity\+\_\+data =\mbox{\hyperlink{class_entity_data_ae5e17a97880516389aa134f92b09d756}{Entity\+Data\+::get\+All}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{entities_2widget-default_8php_aafdbca8f3e88b432734c6b785b40d68f}\label{entities_2widget-default_8php_aafdbca8f3e88b432734c6b785b40d68f}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$type\_category@{\$type\_category}}
+\index{\$type\_category@{\$type\_category}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$type\_category}{$type\_category}}
+{\footnotesize\ttfamily \$type\+\_\+category =\char`\"{}Egreso\char`\"{}}
+
+\mbox{\Hypertarget{entities_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{entities_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types@{\$types}}
+\index{\$types@{\$types}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{$types}}
+{\footnotesize\ttfamily \$types =\mbox{\hyperlink{class_type_data_a4fe2f98be649842175f3d7301b080dd4}{Type\+Data\+::get\+All\+Type}}()}
+
+\mbox{\Hypertarget{entities_2widget-default_8php_a636cc5a8c2afcffc67dea7a857e14ca2}\label{entities_2widget-default_8php_a636cc5a8c2afcffc67dea7a857e14ca2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$user\_session@{\$user\_session}}
+\index{\$user\_session@{\$user\_session}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$user\_session}{$user\_session}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$types as \$type) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$categories\+\_\+expense as \$category) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$categories\+\_\+income as \$category) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$categories\+\_\+partner as \$index=$>$ \$category) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$categories\+\_\+expense as \$category) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$categories\+\_\+income as \$category) \$user\+\_\+session =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{entities_2widget-default_8php_ac608ff2ec83a69e68a12445b69f999c1}\label{entities_2widget-default_8php_ac608ff2ec83a69e68a12445b69f999c1}} 
+\index{widget-\/default.php@{widget-\/default.php}!else@{else}}
+\index{else@{else}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$categories\+\_\+expense as \$cat) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$categories\+\_\+income as \$cat) \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$types as \$type) else}
+
+\mbox{\Hypertarget{entities_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{entities_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{entities_2widget-default_8php_a1f8306681ebfb07cde96583b5ad18d26}\label{entities_2widget-default_8php_a1f8306681ebfb07cde96583b5ad18d26}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(count(\$entity\+\_\+data)!=0)}
+

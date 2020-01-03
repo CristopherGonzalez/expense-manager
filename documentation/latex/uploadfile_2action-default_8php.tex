@@ -1,0 +1,76 @@
+\hypertarget{uploadfile_2action-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/action/uploadfile/action-\/default.php}
+\label{uploadfile_2action-default_8php}\index{core/modules/index/action/uploadfile/action-\/default.php@{core/modules/index/action/uploadfile/action-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(!isset(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]})) \mbox{\hyperlink{uploadfile_2action-default_8php_a08a00586f6759822a046f42a83e5c690}{\$id}} =intval(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{uploadfile_2action-default_8php_a52b70baf7228dbae970ed3a339da70ed}{\$target\+\_\+dir}} =\char`\"{}res/images/upload/\char`\"{}
+\item 
+\mbox{\hyperlink{uploadfile_2action-default_8php_aa68bc2613d613b4cb177fd155b0ea693}{\$image\+\_\+name}} = time().\char`\"{}\+\_\+\char`\"{}.basename(\$\+\_\+\+F\+I\+L\+ES\mbox{[}\char`\"{}img\+\_\+file\char`\"{}\mbox{]}\mbox{[}\char`\"{}\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a27faaa1741f55e74787db9fa3956f587}{name}}\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{uploadfile_2action-default_8php_ad134630f62b222c8ba34432fabcc48d0}{\$target\+\_\+file}} = \$target\+\_\+dir .\$image\+\_\+name
+\item 
+\mbox{\hyperlink{uploadfile_2action-default_8php_a8d80d70b09d99e7135c43cdb6042d722}{\$image\+File\+Type}} = pathinfo(\$target\+\_\+file,P\+A\+T\+H\+I\+N\+F\+O\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON)
+\item 
+\mbox{\hyperlink{uploadfile_2action-default_8php_a887c7a804f5cb75d73c7105762a382e5}{\$image\+File\+Zise}} =\$\+\_\+\+F\+I\+L\+ES\mbox{[}\char`\"{}img\+\_\+file\char`\"{}\mbox{]}\mbox{[}\char`\"{}size\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}((\$image\+File\+Type !=\char`\"{}jpg\char`\"{} \&\& \$image\+File\+Type !=\char`\"{}png\char`\"{} \&\& \$image\+File\+Type !=\char`\"{}jpeg\char`\"{} \&\& \$image\+File\+Type !=\char`\"{}gif\char`\"{}) and \$image\+File\+Zise $>$0) else \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(\$image\+File\+Zise $>$ 1048576) else \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(empty(\$id)) \mbox{\hyperlink{uploadfile_2action-default_8php_a445165f41bfb051d4fcc4eb1c4b0cadc}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{uploadfile_2action-default_8php_a08a00586f6759822a046f42a83e5c690}\label{uploadfile_2action-default_8php_a08a00586f6759822a046f42a83e5c690}} 
+\index{action-\/default.php@{action-\/default.php}!\$id@{\$id}}
+\index{\$id@{\$id}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$id}{$id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (!isset( \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[} \textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]})) \$id =intval(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{uploadfile_2action-default_8php_aa68bc2613d613b4cb177fd155b0ea693}\label{uploadfile_2action-default_8php_aa68bc2613d613b4cb177fd155b0ea693}} 
+\index{action-\/default.php@{action-\/default.php}!\$image\_name@{\$image\_name}}
+\index{\$image\_name@{\$image\_name}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$image\_name}{$image\_name}}
+{\footnotesize\ttfamily \$image\+\_\+name = time().\char`\"{}\+\_\+\char`\"{}.basename(\$\+\_\+\+F\+I\+L\+ES\mbox{[}\char`\"{}img\+\_\+file\char`\"{}\mbox{]}\mbox{[}\char`\"{}\mbox{\hyperlink{core_2modules_2index_2logs_8txt_a27faaa1741f55e74787db9fa3956f587}{name}}\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{uploadfile_2action-default_8php_a8d80d70b09d99e7135c43cdb6042d722}\label{uploadfile_2action-default_8php_a8d80d70b09d99e7135c43cdb6042d722}} 
+\index{action-\/default.php@{action-\/default.php}!\$imageFileType@{\$imageFileType}}
+\index{\$imageFileType@{\$imageFileType}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$imageFileType}{$imageFileType}}
+{\footnotesize\ttfamily \$image\+File\+Type = pathinfo(\$target\+\_\+file,P\+A\+T\+H\+I\+N\+F\+O\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON)}
+
+\mbox{\Hypertarget{uploadfile_2action-default_8php_a887c7a804f5cb75d73c7105762a382e5}\label{uploadfile_2action-default_8php_a887c7a804f5cb75d73c7105762a382e5}} 
+\index{action-\/default.php@{action-\/default.php}!\$imageFileZise@{\$imageFileZise}}
+\index{\$imageFileZise@{\$imageFileZise}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$imageFileZise}{$imageFileZise}}
+{\footnotesize\ttfamily \$image\+File\+Zise =\$\+\_\+\+F\+I\+L\+ES\mbox{[}\char`\"{}img\+\_\+file\char`\"{}\mbox{]}\mbox{[}\char`\"{}size\char`\"{}\mbox{]}}
+
+\mbox{\Hypertarget{uploadfile_2action-default_8php_a52b70baf7228dbae970ed3a339da70ed}\label{uploadfile_2action-default_8php_a52b70baf7228dbae970ed3a339da70ed}} 
+\index{action-\/default.php@{action-\/default.php}!\$target\_dir@{\$target\_dir}}
+\index{\$target\_dir@{\$target\_dir}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$target\_dir}{$target\_dir}}
+{\footnotesize\ttfamily \$target\+\_\+dir =\char`\"{}res/images/upload/\char`\"{}}
+
+\mbox{\Hypertarget{uploadfile_2action-default_8php_ad134630f62b222c8ba34432fabcc48d0}\label{uploadfile_2action-default_8php_ad134630f62b222c8ba34432fabcc48d0}} 
+\index{action-\/default.php@{action-\/default.php}!\$target\_file@{\$target\_file}}
+\index{\$target\_file@{\$target\_file}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$target\_file}{$target\_file}}
+{\footnotesize\ttfamily \$target\+\_\+file = \$target\+\_\+dir .\$image\+\_\+name}
+
+\mbox{\Hypertarget{uploadfile_2action-default_8php_a445165f41bfb051d4fcc4eb1c4b0cadc}\label{uploadfile_2action-default_8php_a445165f41bfb051d4fcc4eb1c4b0cadc}} 
+\index{action-\/default.php@{action-\/default.php}!else@{else}}
+\index{else@{else}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (( \$image\+File\+Type !=\char`\"{}jpg\char`\"{} \&\&\$image\+File\+Type !=\char`\"{}png\char`\"{} \&\&\$image\+File\+Type !=\char`\"{}jpeg\char`\"{} \&\&\$image\+File\+Type !=\char`\"{}gif\char`\"{}) and \$image\+File\+Zise $>$0) else \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} ( \$image\+File\+Zise $>$ 1048576) else \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (empty( \$id)) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        }
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (\mbox{\hyperlink{updimage_2action-default_8php_a887c7a804f5cb75d73c7105762a382e5}{\$imageFileZise}}>0)\{}
+\DoxyCodeLine{        move\_uploaded\_file(\$\_FILES[\textcolor{stringliteral}{"img\_file"}][\textcolor{stringliteral}{"tmp\_name"}], \mbox{\hyperlink{updimage_2action-default_8php_ad134630f62b222c8ba34432fabcc48d0}{\$target\_file}});}
+\DoxyCodeLine{        \$imagen=basename(\$\_FILES[\textcolor{stringliteral}{"img\_file"}][\textcolor{stringliteral}{"name"}]);}
+\DoxyCodeLine{        \$img\_update=\textcolor{stringliteral}{"profile\_pic='\$image\_name' "};}
+\DoxyCodeLine{        \}\textcolor{keywordflow}{else} \{ \$img\_update=\textcolor{stringliteral}{""};\}}
+\DoxyCodeLine{        \$message[] = \textcolor{stringliteral}{"Archivo subido al servidor con exito. "}}
+
+\end{DoxyCode}

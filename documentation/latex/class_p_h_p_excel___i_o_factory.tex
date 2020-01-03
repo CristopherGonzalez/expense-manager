@@ -1,0 +1,182 @@
+\hypertarget{class_p_h_p_excel___i_o_factory}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+I\+O\+Factory}
+\label{class_p_h_p_excel___i_o_factory}\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___i_o_factory_acc494c52f3642b1bafd66a8ab61b1af1}{get\+Search\+Locations}} ()
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___i_o_factory_a92d351781343becc52c2f958cdfc376a}{set\+Search\+Locations}} (\$value)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___i_o_factory_ad0ca57109705fad807d8899ceb414d63}{add\+Search\+Location}} (\$type=\textquotesingle{}\textquotesingle{}, \$location=\textquotesingle{}\textquotesingle{}, \$classname=\textquotesingle{}\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___i_o_factory_a969cb745837dbf2f491725af1e6595e3}{create\+Writer}} (\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} \$php\+Excel, \$writer\+Type=\textquotesingle{}\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___i_o_factory_acff1da24d66d0ab22beca3f737c4f032}{create\+Reader}} (\$reader\+Type=\textquotesingle{}\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___i_o_factory_a4fe2c07eea4976e7b5ca8a6ef0fdb2ea}{load}} (\$p\+Filename)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___i_o_factory_adad188cf49d4281abd1c11ac64e14815}{identify}} (\$p\+Filename)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___i_o_factory_a379875eae587dff9e66cb87d11d2a75e}{create\+Reader\+For\+File}} (\$p\+Filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___i_o_factory_ad0ca57109705fad807d8899ceb414d63}\label{class_p_h_p_excel___i_o_factory_ad0ca57109705fad807d8899ceb414d63}} 
+\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}!addSearchLocation@{addSearchLocation}}
+\index{addSearchLocation@{addSearchLocation}!PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsubsection{\texorpdfstring{addSearchLocation()}{addSearchLocation()}}
+{\footnotesize\ttfamily static add\+Search\+Location (\begin{DoxyParamCaption}\item[{}]{\$type = {\ttfamily \textquotesingle{}\textquotesingle{}},  }\item[{}]{\$location = {\ttfamily \textquotesingle{}\textquotesingle{}},  }\item[{}]{\$classname = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Add search location
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$type} & Example\+: I\+Writer \\
+\hline
+string & {\em \$location} & Example\+: P\+H\+P\+Excel/\+Writer/\{0\}.php \\
+\hline
+string & {\em \$classname} & Example\+: P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\{0\} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_h_p_excel___i_o_factory_acff1da24d66d0ab22beca3f737c4f032}\label{class_p_h_p_excel___i_o_factory_acff1da24d66d0ab22beca3f737c4f032}} 
+\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}!createReader@{createReader}}
+\index{createReader@{createReader}!PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsubsection{\texorpdfstring{createReader()}{createReader()}}
+{\footnotesize\ttfamily static create\+Reader (\begin{DoxyParamCaption}\item[{}]{\$reader\+Type = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create \mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}}
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$reader\+Type} & Example\+: Excel2007 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___i_o_factory_a379875eae587dff9e66cb87d11d2a75e}\label{class_p_h_p_excel___i_o_factory_a379875eae587dff9e66cb87d11d2a75e}} 
+\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}!createReaderForFile@{createReaderForFile}}
+\index{createReaderForFile@{createReaderForFile}!PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsubsection{\texorpdfstring{createReaderForFile()}{createReaderForFile()}}
+{\footnotesize\ttfamily static create\+Reader\+For\+File (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create \mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}} for file using automatic \mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}} resolution
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & The name of the spreadsheet file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___i_o_factory_a969cb745837dbf2f491725af1e6595e3}\label{class_p_h_p_excel___i_o_factory_a969cb745837dbf2f491725af1e6595e3}} 
+\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}!createWriter@{createWriter}}
+\index{createWriter@{createWriter}!PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsubsection{\texorpdfstring{createWriter()}{createWriter()}}
+{\footnotesize\ttfamily static create\+Writer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}}}]{\$php\+Excel,  }\item[{}]{\$writer\+Type = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create \mbox{\hyperlink{interface_p_h_p_excel___writer___i_writer}{P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\+I\+Writer}}
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} & {\em \$php\+Excel} & \\
+\hline
+string & {\em \$writer\+Type} & Example\+: Excel2007 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{interface_p_h_p_excel___writer___i_writer}{P\+H\+P\+Excel\+\_\+\+Writer\+\_\+\+I\+Writer}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___i_o_factory_acc494c52f3642b1bafd66a8ab61b1af1}\label{class_p_h_p_excel___i_o_factory_acc494c52f3642b1bafd66a8ab61b1af1}} 
+\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}!getSearchLocations@{getSearchLocations}}
+\index{getSearchLocations@{getSearchLocations}!PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsubsection{\texorpdfstring{getSearchLocations()}{getSearchLocations()}}
+{\footnotesize\ttfamily static get\+Search\+Locations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\hyperlink{class_get}{Get}} search locations
+
+@access public \begin{DoxyReturn}{Devuelve}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___i_o_factory_adad188cf49d4281abd1c11ac64e14815}\label{class_p_h_p_excel___i_o_factory_adad188cf49d4281abd1c11ac64e14815}} 
+\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}!identify@{identify}}
+\index{identify@{identify}!PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsubsection{\texorpdfstring{identify()}{identify()}}
+{\footnotesize\ttfamily static identify (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Identify file type using automatic \mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}} resolution
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & The name of the spreadsheet file to identify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___i_o_factory_a4fe2c07eea4976e7b5ca8a6ef0fdb2ea}\label{class_p_h_p_excel___i_o_factory_a4fe2c07eea4976e7b5ca8a6ef0fdb2ea}} 
+\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}!load@{load}}
+\index{load@{load}!PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily static load (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} from file using automatic \mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}} resolution
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & The name of the spreadsheet file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___i_o_factory_a92d351781343becc52c2f958cdfc376a}\label{class_p_h_p_excel___i_o_factory_a92d351781343becc52c2f958cdfc376a}} 
+\index{PHPExcel\_IOFactory@{PHPExcel\_IOFactory}!setSearchLocations@{setSearchLocations}}
+\index{setSearchLocations@{setSearchLocations}!PHPExcel\_IOFactory@{PHPExcel\_IOFactory}}
+\doxysubsubsection{\texorpdfstring{setSearchLocations()}{setSearchLocations()}}
+{\footnotesize\ttfamily static set\+Search\+Locations (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set search locations
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+array & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/I\+O\+Factory.\+php\end{DoxyCompactItemize}

@@ -1,4 +1,7 @@
 <?php
+/**
+ * 
+ */
 class IncomeData {
 	public static $tablename = "income";
 

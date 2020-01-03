@@ -1,0 +1,30 @@
+Table\+Tools is a plug-\/in for the Data\+Tables H\+T\+ML table enhancer, which adds a highly customisable button toolbar to a Data\+Table. Key features include\+:
+
+
+\begin{DoxyItemize}
+\item Copy to clipboard
+\item Save table data as C\+SV, X\+LS or P\+DF files
+\item Print view for clean printing
+\item Row selection options
+\item Easy use predefined buttons
+\item Simple customisation of buttons
+\item Well defined A\+PI for advanced control
+\end{DoxyItemize}\hypertarget{md_res_plugins_datatables_extensions__table_tools__readme_autotoc_md79}{}\doxysection{Installation}\label{md_res_plugins_datatables_extensions__table_tools__readme_autotoc_md79}
+To use Table\+Tools, first download Data\+Tables ( \href{http://datatables.net/download}{\texttt{ http\+://datatables.\+net/download}} ) and place the unzipped Table\+Tools package into a {\ttfamily extensions} directory in the Data\+Tables package (in Data\+Tables 1.\+9-\/ use the {\ttfamily extras} directory). This will allow the pages in the examples to operate correctly. To see the examples running, open the {\ttfamily examples} directory in your web-\/browser.\hypertarget{md_res_plugins_datatables_extensions__table_tools__readme_autotoc_md80}{}\doxysection{Basic usage}\label{md_res_plugins_datatables_extensions__table_tools__readme_autotoc_md80}
+Table\+Tools is initialised using the {\ttfamily T} option that it adds to Data\+Tables\textquotesingle{} {\ttfamily dom} option. For example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$(document).ready( function () \{}
+\DoxyCodeLine{    \$('\#example').DataTable( \{}
+\DoxyCodeLine{        dom: 'T<"clear">lfrtip'}
+\DoxyCodeLine{    \} );}
+\DoxyCodeLine{\} );}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_datatables_extensions__table_tools__readme_autotoc_md81}{}\doxysection{Documentation / support}\label{md_res_plugins_datatables_extensions__table_tools__readme_autotoc_md81}
+
+\begin{DoxyItemize}
+\item Documentation\+: \href{http://datatables.net/extensions/tabletools/}{\texttt{ http\+://datatables.\+net/extensions/tabletools/}}
+\item Data\+Tables support forums\+: \href{http://datatables.net/forums}{\texttt{ http\+://datatables.\+net/forums}}
+\end{DoxyItemize}\hypertarget{md_res_plugins_datatables_extensions__table_tools__readme_autotoc_md82}{}\doxysection{Git\+Hub}\label{md_res_plugins_datatables_extensions__table_tools__readme_autotoc_md82}
+If you fancy getting involved with the development of Table\+Tools and help make it better, please refer to its Git\+Hub repo\+: \href{https://github.com/DataTables/TableTools}{\texttt{ https\+://github.\+com/\+Data\+Tables/\+Table\+Tools}} 

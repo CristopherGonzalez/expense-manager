@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MRC MiNegocio: Referencia del Archivo core/modules/index/view/editcompany/widget-default.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">MRC MiNegocio
+   &#160;<span id="projectnumber">v1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_4270bfced15e0e73154b13468c7c9ad9.html">core</a></li><li class="navelem"><a class="el" href="dir_a92b4f1014d7c42de412a9ce4651719e.html">modules</a></li><li class="navelem"><a class="el" href="dir_ab8b72a76724e54d08fd9986b353b5eb.html">index</a></li><li class="navelem"><a class="el" href="dir_b8ffdc4700b4395a889ad2b122163572.html">view</a></li><li class="navelem"><a class="el" href="dir_426c70bd6925310c3180fd24a197581c.html">editcompany</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo widget-default.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afc233ee77ed49c7985e6e90c9b900247"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stock_2widget-default_8php.html#acffeccb328611def2b209bd4d4a842a7">if</a>(isset( $_SESSION[&quot;user_id&quot;]) &amp;&amp;$_SESSION[&quot;user_id&quot;]==&quot;1&quot;)(isset($_GET['id']) &amp;&amp;!empty($_GET['id']))&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#afc233ee77ed49c7985e6e90c9b900247">else</a></td></tr>
+<tr class="separator:afc233ee77ed49c7985e6e90c9b900247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3306bb3d7f99fc57bee9e96f928769d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a3306bb3d7f99fc57bee9e96f928769d4">$company</a> =<a class="el" href="class_company_data.html#a562ec7062ca1b44ba97dee052b9b63cb">CompanyData::getById</a>($id)</td></tr>
+<tr class="separator:a3306bb3d7f99fc57bee9e96f928769d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92d70a97331cc6fc0a79d9da50895be8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a92d70a97331cc6fc0a79d9da50895be8">$types</a> =<a class="el" href="class_business_type_data.html#aca7ae46d923aa798f1e29657bb767a22">BusinessTypeData::getAll</a>()</td></tr>
+<tr class="separator:a92d70a97331cc6fc0a79d9da50895be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad364aeb0b3108c3b63292d8276a4995a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#ad364aeb0b3108c3b63292d8276a4995a">$countries</a> = <a class="el" href="class_country_data.html#aca7ae46d923aa798f1e29657bb767a22">CountryData::getAll</a>()</td></tr>
+<tr class="separator:ad364aeb0b3108c3b63292d8276a4995a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac82ae3ba1fd66a3df9656dd17408bb04"><td class="memItemLeft" align="right" valign="top">if(!isset($company)||empty($company)|| $company-&gt;<a class="el" href="core_2modules_2index_2logs_8txt.html#a7bad9eb8ebcf30eb4398b4332a67a127">is_deleted</a>==1)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#ac82ae3ba1fd66a3df9656dd17408bb04">if</a> (isset( $company-&gt;profile_pic) &amp;&amp;!empty( $company-&gt;profile_pic))</td></tr>
+<tr class="separator:ac82ae3ba1fd66a3df9656dd17408bb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab955adf4ec9f73f1253e9d28ff197661"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#ab955adf4ec9f73f1253e9d28ff197661">$country_select</a> = new <a class="el" href="class_select_list.html">SelectList</a>(&quot;country_company&quot;,&quot;Pais&quot;,$countries)</td></tr>
+<tr class="separator:ab955adf4ec9f73f1253e9d28ff197661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abab0b121d8fd8937b768564888d5f22e"><td class="memItemLeft" align="right" valign="top">$country_select&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#abab0b121d8fd8937b768564888d5f22e">funjs</a> = &quot;onchange=load_cities(<a class="el" href="logs_8txt.html#aff9812ad3cab87b135122a1923adb9fe">this.value</a>,'city_company','cities_response')&quot;</td></tr>
+<tr class="separator:abab0b121d8fd8937b768564888d5f22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a850478c1c8e34f11b2f739fd2b1e78c7"><td class="memItemLeft" align="right" valign="top">$country_select&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a850478c1c8e34f11b2f739fd2b1e78c7">tag</a> =&quot;required&quot;</td></tr>
+<tr class="separator:a850478c1c8e34f11b2f739fd2b1e78c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ce716cb2cdc650cb54b04923b76417b"><td class="memItemLeft" align="right" valign="top">$country_select&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a0ce716cb2cdc650cb54b04923b76417b">default_value</a> = $company-&gt;<a class="el" href="core_2modules_2index_2logs_8txt.html#a2ed73d7d9d2d2390daaff467b6401cae">pais</a></td></tr>
+<tr class="separator:a0ce716cb2cdc650cb54b04923b76417b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5250bd3d112eebd88c609d04a2040dc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a5250bd3d112eebd88c609d04a2040dc5">$cities</a> = <a class="el" href="class_city_data.html#a1f3731f3601cc9882c006bcde8a09ef8">CityData::getByIdCountry</a>($company-&gt;<a class="el" href="core_2modules_2index_2logs_8txt.html#a2ed73d7d9d2d2390daaff467b6401cae">pais</a>)</td></tr>
+<tr class="separator:a5250bd3d112eebd88c609d04a2040dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e431a60600dfe288987f8cb19f4298"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#ac6e431a60600dfe288987f8cb19f4298">$city_select</a> = new <a class="el" href="class_select_list.html">SelectList</a>(&quot;city_company&quot;,&quot;Ciudad&quot;,$cities)</td></tr>
+<tr class="separator:ac6e431a60600dfe288987f8cb19f4298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a412f63443bbf04e1c3662fbf246bbc64"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a412f63443bbf04e1c3662fbf246bbc64">$types_bussiness</a> = new <a class="el" href="class_select_list.html">SelectList</a>(&quot;types_bussiness&quot;,&quot;Tipo de Negocio&quot;,$types)</td></tr>
+<tr class="separator:a412f63443bbf04e1c3662fbf246bbc64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aeb698a93f8bbdd968e0c61db168ef1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stock_2widget-default_8php.html#acffeccb328611def2b209bd4d4a842a7">if</a>($company-&gt;<a class="el" href="core_2modules_2index_2logs_8txt.html#a875ce0886bd3c1881364ef722a7f3fe4">status</a>==2)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a7aeb698a93f8bbdd968e0c61db168ef1">$file_profile</a> = new <a class="el" href="class_input_file.html">InputFile</a>('profile_pic','Foto','image/*')</td></tr>
+<tr class="separator:a7aeb698a93f8bbdd968e0c61db168ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add930c1df8fa6bc1b640d02255297eab"><td class="memItemLeft" align="right" valign="top">$file_profile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#add930c1df8fa6bc1b640d02255297eab">file</a> = (isset($img) &amp;&amp; !empty($img))? $img : &quot;res/images/companies/default.jpg&quot;</td></tr>
+<tr class="separator:add930c1df8fa6bc1b640d02255297eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55bdfd74d6f97bf7fc3a7351015d98b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a55bdfd74d6f97bf7fc3a7351015d98b0">$modal_content</a> = new <a class="el" href="class_modal.html">Modal</a>(&quot;Imagen de perfil de Empresa&quot;,&quot;formModal&quot;,UserData::getById($_SESSION['<a class="el" href="logs_8txt.html#a096cdcbe0f1dd2d5bb245e0eba60a728">user_id</a>']))</td></tr>
+<tr class="separator:a55bdfd74d6f97bf7fc3a7351015d98b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1660ac8e256763431098fa3ed82cb241"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a1660ac8e256763431098fa3ed82cb241">$creator_user</a> =<a class="el" href="class_user_data.html#a562ec7062ca1b44ba97dee052b9b63cb">UserData::getById</a>(1)</td></tr>
+<tr class="separator:a1660ac8e256763431098fa3ed82cb241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac918e4a96bc0681a6e442f5ce718d99e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="js_8php.html#a1839cc90f3f74a515b3d5704cccbe57a">else</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#ac918e4a96bc0681a6e442f5ce718d99e">__pad6__</a></td></tr>
+<tr class="separator:ac918e4a96bc0681a6e442f5ce718d99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82cd33ca97ff99f2fcc5e9c81d65251b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="editcompany_2widget-default_8php.html#a82cd33ca97ff99f2fcc5e9c81d65251b">endif</a></td></tr>
+<tr class="separator:a82cd33ca97ff99f2fcc5e9c81d65251b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a id="a5250bd3d112eebd88c609d04a2040dc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5250bd3d112eebd88c609d04a2040dc5">&#9670;&nbsp;</a></span>$cities</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$cities = <a class="el" href="class_city_data.html#a1f3731f3601cc9882c006bcde8a09ef8">CityData::getByIdCountry</a>($company-&gt;<a class="el" href="core_2modules_2index_2logs_8txt.html#a2ed73d7d9d2d2390daaff467b6401cae">pais</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac6e431a60600dfe288987f8cb19f4298"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6e431a60600dfe288987f8cb19f4298">&#9670;&nbsp;</a></span>$city_select</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$city_select = new <a class="el" href="class_select_list.html">SelectList</a>(&quot;city_company&quot;,&quot;Ciudad&quot;,$cities)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3306bb3d7f99fc57bee9e96f928769d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3306bb3d7f99fc57bee9e96f928769d4">&#9670;&nbsp;</a></span>$company</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$company =<a class="el" href="class_company_data.html#a562ec7062ca1b44ba97dee052b9b63cb">CompanyData::getById</a>($id)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad364aeb0b3108c3b63292d8276a4995a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad364aeb0b3108c3b63292d8276a4995a">&#9670;&nbsp;</a></span>$countries</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$countries = <a class="el" href="class_country_data.html#aca7ae46d923aa798f1e29657bb767a22">CountryData::getAll</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab955adf4ec9f73f1253e9d28ff197661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab955adf4ec9f73f1253e9d28ff197661">&#9670;&nbsp;</a></span>$country_select</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$country_select = new <a class="el" href="class_select_list.html">SelectList</a>(&quot;country_company&quot;,&quot;Pais&quot;,$countries)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1660ac8e256763431098fa3ed82cb241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1660ac8e256763431098fa3ed82cb241">&#9670;&nbsp;</a></span>$creator_user</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$creator_user =<a class="el" href="class_user_data.html#a562ec7062ca1b44ba97dee052b9b63cb">UserData::getById</a>(1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7aeb698a93f8bbdd968e0c61db168ef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aeb698a93f8bbdd968e0c61db168ef1">&#9670;&nbsp;</a></span>$file_profile</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stock_2widget-default_8php.html#acffeccb328611def2b209bd4d4a842a7">if</a> ( $company-&gt;<a class="el" href="core_2modules_2index_2logs_8txt.html#a875ce0886bd3c1881364ef722a7f3fe4">status</a>==2) $file_profile = new <a class="el" href="class_input_file.html">InputFile</a>('profile_pic','Foto','image/*')</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55bdfd74d6f97bf7fc3a7351015d98b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55bdfd74d6f97bf7fc3a7351015d98b0">&#9670;&nbsp;</a></span>$modal_content</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$modal_content = new <a class="el" href="class_modal.html">Modal</a>(&quot;Imagen de perfil de Empresa&quot;,&quot;formModal&quot;,UserData::getById($_SESSION['<a class="el" href="logs_8txt.html#a096cdcbe0f1dd2d5bb245e0eba60a728">user_id</a>']))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92d70a97331cc6fc0a79d9da50895be8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92d70a97331cc6fc0a79d9da50895be8">&#9670;&nbsp;</a></span>$types</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$types =<a class="el" href="class_business_type_data.html#aca7ae46d923aa798f1e29657bb767a22">BusinessTypeData::getAll</a>()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a412f63443bbf04e1c3662fbf246bbc64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a412f63443bbf04e1c3662fbf246bbc64">&#9670;&nbsp;</a></span>$types_bussiness</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$types_bussiness = new <a class="el" href="class_select_list.html">SelectList</a>(&quot;types_bussiness&quot;,&quot;Tipo de Negocio&quot;,$types)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac918e4a96bc0681a6e442f5ce718d99e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac918e4a96bc0681a6e442f5ce718d99e">&#9670;&nbsp;</a></span>__pad6__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="js_8php.html#a1839cc90f3f74a515b3d5704cccbe57a">else</a> __pad6__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ce716cb2cdc650cb54b04923b76417b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce716cb2cdc650cb54b04923b76417b">&#9670;&nbsp;</a></span>default_value</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$types_bussiness default_value = $company-&gt;<a class="el" href="core_2modules_2index_2logs_8txt.html#a2ed73d7d9d2d2390daaff467b6401cae">pais</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc233ee77ed49c7985e6e90c9b900247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc233ee77ed49c7985e6e90c9b900247">&#9670;&nbsp;</a></span>else</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stock_2widget-default_8php.html#acffeccb328611def2b209bd4d4a842a7">if</a> (isset($_SESSION[&quot;user_id&quot;]) &amp;&amp; $_SESSION[&quot;user_id&quot;] == &quot;1&quot;) (isset( $_GET[ 'id']) &amp;&amp;!empty( $_GET[ 'id'])) else</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor inicial:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        <a class="code" href="class_core.html#a9001bc4a0dfb55dfb4e574f60a35ea71">Core::redir</a>(<span class="stringliteral">&quot;./?view=company&quot;</span>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a82cd33ca97ff99f2fcc5e9c81d65251b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82cd33ca97ff99f2fcc5e9c81d65251b">&#9670;&nbsp;</a></span>endif</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">endif</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add930c1df8fa6bc1b640d02255297eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add930c1df8fa6bc1b640d02255297eab">&#9670;&nbsp;</a></span>file</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$file_profile file = (isset($img) &amp;&amp; !empty($img))? $img : &quot;res/images/companies/default.jpg&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abab0b121d8fd8937b768564888d5f22e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab0b121d8fd8937b768564888d5f22e">&#9670;&nbsp;</a></span>funjs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$file_profile funjs = &quot;onchange=load_cities(<a class="el" href="logs_8txt.html#aff9812ad3cab87b135122a1923adb9fe">this.value</a>,'city_company','cities_response')&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac82ae3ba1fd66a3df9656dd17408bb04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac82ae3ba1fd66a3df9656dd17408bb04">&#9670;&nbsp;</a></span>if</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">if (!isset( $company)||empty( $company)||$company-&gt;<a class="el" href="core_2modules_2index_2logs_8txt.html#a7bad9eb8ebcf30eb4398b4332a67a127">is_deleted</a>==1) if(isset($company-&gt;profile_pic) &amp;&amp;!empty($company-&gt;profile_pic))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a850478c1c8e34f11b2f739fd2b1e78c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a850478c1c8e34f11b2f739fd2b1e78c7">&#9670;&nbsp;</a></span>tag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$types_bussiness tag =&quot;required&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<div class="ttc" id="aclass_core_html_a9001bc4a0dfb55dfb4e574f60a35ea71"><div class="ttname"><a href="class_core.html#a9001bc4a0dfb55dfb4e574f60a35ea71">Core\redir</a></div><div class="ttdeci">static redir($url)</div><div class="ttdef"><b>Definition:</b> Core.php:26</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

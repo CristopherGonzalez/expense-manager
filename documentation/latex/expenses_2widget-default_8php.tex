@@ -1,0 +1,162 @@
+\hypertarget{expenses_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/expenses/widget-\/default.php}
+\label{expenses_2widget-default_8php}\index{core/modules/index/view/expenses/widget-\/default.php@{core/modules/index/view/expenses/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}{\$entities}} =\mbox{\hyperlink{class_entity_data_a6c9baae792d7589c6a035d9c8fbd763e}{Entity\+Data\+::get\+By\+Type}}(\textquotesingle{}Egreso\textquotesingle{}, \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} =\mbox{\hyperlink{class_type_data_a94ba07e8f8c1471ef353a8ad2700a569}{Type\+Data\+::get\+All\+Expense}}()
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_a88a8980708982166840708b055e335b8}{\$months}} = array(\char`\"{}Enero\char`\"{},\char`\"{}Febrero\char`\"{},\char`\"{}Marzo\char`\"{},\char`\"{}Abril\char`\"{},\char`\"{}Mayo\char`\"{},\char`\"{}Junio\char`\"{},\char`\"{}Julio\char`\"{},\char`\"{}Agosto\char`\"{},\char`\"{}Septiembre\char`\"{},\char`\"{}Octubre\char`\"{},\char`\"{}Noviembre\char`\"{},\char`\"{}Diciembre\char`\"{})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$months as \$index=$>$ \$month) \mbox{\hyperlink{expenses_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}{\$years}} =array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025)
+\item 
+foreach(\$years as \$year) foreach(\$types as \$type\+\_\+expense) \mbox{\hyperlink{expenses_2widget-default_8php_a317ad1b6a4a342fa57d222c86823bd01}{foreach}} ( \$categories as \$category)
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}{\$entity\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}entity\char`\"{},\char`\"{}Entidad\char`\"{},\$entities)
+\item 
+\$entity\+\_\+select \mbox{\hyperlink{expenses_2widget-default_8php_a77370889261edeb05edc648c6ba782fb}{funjs}} = \char`\"{}onchange=\textbackslash{}\char`\"{}change\+\_\+entity(\textquotesingle{}type\+\_\+expense\textquotesingle{},\textquotesingle{}category\textquotesingle{});\textbackslash{}\char`\"{}\char`\"{}
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_af3716666ee7aa00feaa2ee21810d9aa4}{\$type\+\_\+expense\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}type\+\_\+expense\char`\"{},\char`\"{}Tipo\char`\"{},\$types)
+\item 
+\$type\+\_\+expense\+\_\+select \mbox{\hyperlink{expenses_2widget-default_8php_a6dffba8d25a8ffeafb504b1014b67469}{tag}} = \char`\"{}disabled\char`\"{}
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_aa35fee0968b02e0999be9f790994a83b}{\$category\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}category\char`\"{},\char`\"{}Categoria\char`\"{},\$categories)
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}{\$user\+\_\+session}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}{\$webcamdocument}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}{\$webcampayment}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_ae4c07e094774acb621a6978067cba991}{\$expenses\+\_\+data}} =\mbox{\hyperlink{class_expenses_data_a107c4341048d6283b12f2fafe3f7ddba}{Expenses\+Data\+::get\+All\+Count}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(\$expenses\+\_\+data-\/$>$count!=0) margin \mbox{\hyperlink{expenses_2widget-default_8php_a56a393827fdb2edd7959030185d151b4}{top}}
+\item 
+\mbox{\hyperlink{profile_2widget-default_8php_a511ae0b1c13f95e5f08f1a0dd3da3d93}{data}} \mbox{\hyperlink{expenses_2widget-default_8php_a3b97687a13f798895494bfb5f2662041}{toggle}}
+\item 
+\mbox{\hyperlink{expenses_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{expenses_2widget-default_8php_a60a780fdeeab2c501ef78a66b497b4ca}{\+\_\+\+\_\+pad13\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{expenses_2widget-default_8php_aa35fee0968b02e0999be9f790994a83b}\label{expenses_2widget-default_8php_aa35fee0968b02e0999be9f790994a83b}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$category\_select@{\$category\_select}}
+\index{\$category\_select@{\$category\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$category\_select}{$category\_select}}
+{\footnotesize\ttfamily \$category\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}category\char`\"{},\char`\"{}Categoria\char`\"{},\$categories)}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}\label{expenses_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entities@{\$entities}}
+\index{\$entities@{\$entities}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entities}{$entities}}
+{\footnotesize\ttfamily \$entities =\mbox{\hyperlink{class_entity_data_a6c9baae792d7589c6a035d9c8fbd763e}{Entity\+Data\+::get\+By\+Type}}(\textquotesingle{}Egreso\textquotesingle{}, \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}\label{expenses_2widget-default_8php_a0103671b6e5295af74c397fb3bfe15fd}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entity\_select@{\$entity\_select}}
+\index{\$entity\_select@{\$entity\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entity\_select}{$entity\_select}}
+{\footnotesize\ttfamily \$entity\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}entity\char`\"{},\char`\"{}Entidad\char`\"{},\$entities)}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_ae4c07e094774acb621a6978067cba991}\label{expenses_2widget-default_8php_ae4c07e094774acb621a6978067cba991}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$expenses\_data@{\$expenses\_data}}
+\index{\$expenses\_data@{\$expenses\_data}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$expenses\_data}{$expenses\_data}}
+{\footnotesize\ttfamily \$expenses\+\_\+data =\mbox{\hyperlink{class_expenses_data_a107c4341048d6283b12f2fafe3f7ddba}{Expenses\+Data\+::get\+All\+Count}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}company\+\_\+id\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a88a8980708982166840708b055e335b8}\label{expenses_2widget-default_8php_a88a8980708982166840708b055e335b8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$months@{\$months}}
+\index{\$months@{\$months}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$months}{$months}}
+{\footnotesize\ttfamily \$months = array(\char`\"{}Enero\char`\"{},\char`\"{}Febrero\char`\"{},\char`\"{}Marzo\char`\"{},\char`\"{}Abril\char`\"{},\char`\"{}Mayo\char`\"{},\char`\"{}Junio\char`\"{},\char`\"{}Julio\char`\"{},\char`\"{}Agosto\char`\"{},\char`\"{}Septiembre\char`\"{},\char`\"{}Octubre\char`\"{},\char`\"{}Noviembre\char`\"{},\char`\"{}Diciembre\char`\"{})}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_af3716666ee7aa00feaa2ee21810d9aa4}\label{expenses_2widget-default_8php_af3716666ee7aa00feaa2ee21810d9aa4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$type\_expense\_select@{\$type\_expense\_select}}
+\index{\$type\_expense\_select@{\$type\_expense\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$type\_expense\_select}{$type\_expense\_select}}
+{\footnotesize\ttfamily \$type\+\_\+expense\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}type\+\_\+expense\char`\"{},\char`\"{}Tipo\char`\"{},\$types)}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{expenses_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types@{\$types}}
+\index{\$types@{\$types}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{$types}}
+{\footnotesize\ttfamily \$types =\mbox{\hyperlink{class_type_data_a94ba07e8f8c1471ef353a8ad2700a569}{Type\+Data\+::get\+All\+Expense}}()}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}\label{expenses_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$user\_session@{\$user\_session}}
+\index{\$user\_session@{\$user\_session}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$user\_session}{$user\_session}}
+{\footnotesize\ttfamily \$user\+\_\+session =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}\label{expenses_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcamdocument@{\$webcamdocument}}
+\index{\$webcamdocument@{\$webcamdocument}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcamdocument}{$webcamdocument}}
+{\footnotesize\ttfamily \$webcamdocument = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}\label{expenses_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcampayment@{\$webcampayment}}
+\index{\$webcampayment@{\$webcampayment}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcampayment}{$webcampayment}}
+{\footnotesize\ttfamily \$webcampayment = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}\label{expenses_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$years@{\$years}}
+\index{\$years@{\$years}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$years}{$years}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$months as \$index=$>$ \$month) \$years =array(2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025)}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a60a780fdeeab2c501ef78a66b497b4ca}\label{expenses_2widget-default_8php_a60a780fdeeab2c501ef78a66b497b4ca}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad13\_\_@{\_\_pad13\_\_}}
+\index{\_\_pad13\_\_@{\_\_pad13\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad13\_\_}{\_\_pad13\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad13\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{expenses_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a317ad1b6a4a342fa57d222c86823bd01}\label{expenses_2widget-default_8php_a317ad1b6a4a342fa57d222c86823bd01}} 
+\index{widget-\/default.php@{widget-\/default.php}!foreach@{foreach}}
+\index{foreach@{foreach}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily foreach ( \$months as \$index=$>$ \$month) foreach ( \$years as \$year) foreach ( \$months as \$index=$>$ \$month) foreach ( \$years as \$year) foreach(\$types as \$type)}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a77370889261edeb05edc648c6ba782fb}\label{expenses_2widget-default_8php_a77370889261edeb05edc648c6ba782fb}} 
+\index{widget-\/default.php@{widget-\/default.php}!funjs@{funjs}}
+\index{funjs@{funjs}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{funjs}{funjs}}
+{\footnotesize\ttfamily \$entity\+\_\+select funjs = \char`\"{}onchange=\textbackslash{}\char`\"{}change\+\_\+entity(\textquotesingle{}type\+\_\+expense\textquotesingle{},\textquotesingle{}category\textquotesingle{});\textbackslash{}\char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a6dffba8d25a8ffeafb504b1014b67469}\label{expenses_2widget-default_8php_a6dffba8d25a8ffeafb504b1014b67469}} 
+\index{widget-\/default.php@{widget-\/default.php}!tag@{tag}}
+\index{tag@{tag}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{tag}{tag}}
+{\footnotesize\ttfamily \$category\+\_\+select tag = \char`\"{}disabled\char`\"{}}
+
+\mbox{\Hypertarget{expenses_2widget-default_8php_a3b97687a13f798895494bfb5f2662041}\label{expenses_2widget-default_8php_a3b97687a13f798895494bfb5f2662041}} 
+\index{widget-\/default.php@{widget-\/default.php}!toggle@{toggle}}
+\index{toggle@{toggle}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{toggle}{toggle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{profile_2widget-default_8php_a511ae0b1c13f95e5f08f1a0dd3da3d93}{data}} toggle}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\textcolor{stringliteral}{"modal"} \mbox{\hyperlink{profile_2widget-default_8php_a511ae0b1c13f95e5f08f1a0dd3da3d93}{data}}-\/target=\textcolor{stringliteral}{"\#frmfixedscost"} \textcolor{keyword}{class}=\textcolor{stringliteral}{"btn btn-\/default pull-\/right"}>}
+\DoxyCodeLine{                                <span \textcolor{keyword}{class}=\textcolor{stringliteral}{"fa fa-\/list"}></span> Generar egresos fijos del mes}
+\DoxyCodeLine{                            </a>}
+\DoxyCodeLine{                            <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"md\_fixed\_cost"}>}
+\DoxyCodeLine{                                <?php }
+\DoxyCodeLine{                                    \mbox{\hyperlink{category__expense_2widget-default_8php_a81afbe7bfd0fdeeca0402e22ecfa5661}{\$modal\_content}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_modal}{Modal}}(\textcolor{stringliteral}{"Generar egresos fijos del mes"},\textcolor{stringliteral}{"frmfixedscost"},\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{UserData::getById}}(\$\_SESSION[\textcolor{stringliteral}{'user\_id'}]))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{expenses_2widget-default_8php_a56a393827fdb2edd7959030185d151b4}\label{expenses_2widget-default_8php_a56a393827fdb2edd7959030185d151b4}} 
+\index{widget-\/default.php@{widget-\/default.php}!top@{top}}
+\index{top@{top}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{top}{top}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} ( \$expenses\+\_\+data-\/$>$count!=0) margin top}
+

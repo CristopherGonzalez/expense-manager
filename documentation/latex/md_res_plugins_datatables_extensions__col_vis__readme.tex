@@ -1,0 +1,27 @@
+Col\+Vis adds a button to the toolbars around Data\+Tables which gives the end user of the table the ability to dynamically change the visibility of the columns in the table\+:
+
+
+\begin{DoxyItemize}
+\item Dynamically show and hide columns in a table
+\item Very easy integration with Data\+Tables
+\item Ability to exclude columns from being either hidden or shown
+\item Save saving integration with Data\+Tables
+\end{DoxyItemize}\hypertarget{md_res_plugins_datatables_extensions__col_vis__readme_autotoc_md69}{}\doxysection{Installation}\label{md_res_plugins_datatables_extensions__col_vis__readme_autotoc_md69}
+To use Col\+Vis, first download Data\+Tables ( \href{http://datatables.net/download}{\texttt{ http\+://datatables.\+net/download}} ) and place the unzipped Col\+Vis package into a {\ttfamily extensions} directory in the Data\+Tables package. This will allow the pages in the examples to operate correctly. To see the examples running, open the {\ttfamily examples} directory in your web-\/browser.\hypertarget{md_res_plugins_datatables_extensions__col_vis__readme_autotoc_md70}{}\doxysection{Basic usage}\label{md_res_plugins_datatables_extensions__col_vis__readme_autotoc_md70}
+Col\+Vis is initialised using the {\ttfamily C} option that it adds to Data\+Tables\textquotesingle{} {\ttfamily dom} option. For example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$(document).ready( function () \{}
+\DoxyCodeLine{    \$('\#example').dataTable( \{}
+\DoxyCodeLine{        "dom": 'C<"clear">lfrtip'}
+\DoxyCodeLine{    \} );}
+\DoxyCodeLine{\} );}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_datatables_extensions__col_vis__readme_autotoc_md71}{}\doxysection{Documentation / support}\label{md_res_plugins_datatables_extensions__col_vis__readme_autotoc_md71}
+
+\begin{DoxyItemize}
+\item Documentation\+: \href{http://datatables.net/extensions/colvis/}{\texttt{ http\+://datatables.\+net/extensions/colvis/}}
+\item Data\+Tables support forums\+: \href{http://datatables.net/forums}{\texttt{ http\+://datatables.\+net/forums}}
+\end{DoxyItemize}\hypertarget{md_res_plugins_datatables_extensions__col_vis__readme_autotoc_md72}{}\doxysection{Git\+Hub}\label{md_res_plugins_datatables_extensions__col_vis__readme_autotoc_md72}
+If you fancy getting involved with the development of Col\+Vis and help make it better, please refer to its Git\+Hub repo\+: \href{https://github.com/DataTables/ColVis}{\texttt{ https\+://github.\+com/\+Data\+Tables/\+Col\+Vis}} 

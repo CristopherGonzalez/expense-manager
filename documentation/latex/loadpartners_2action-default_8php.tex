@@ -1,0 +1,159 @@
+\hypertarget{loadpartners_2action-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/action/loadpartners/action-\/default.php}
+\label{loadpartners_2action-default_8php}\index{core/modules/index/action/loadpartners/action-\/default.php@{core/modules/index/action/loadpartners/action-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) \mbox{\hyperlink{loadpartners_2action-default_8php_aae1e6d95a31506605af4485a9af49efb}{\$con}} = \mbox{\hyperlink{class_database_af39707ed2dd9bcec95f3ddf84c3a908a}{Database\+::get\+Con}}()
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a6ba6e82c39e80d5d00afeb6f4383a549}{\$month}} = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}month\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a8e992d901ac2312b3be2021ddbb7d11e}{\$year}} = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}year\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_adf95f30eaafccead90ab5e2cdb55e9b9}{\$text}} = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$con,(strip\+\_\+tags(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}text\textquotesingle{}\mbox{]}, E\+N\+T\+\_\+\+Q\+U\+O\+T\+ES)))
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a27843f2692bd61c6ae4959a1972e66b5}{\$inactive}} = (isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}inactive\textquotesingle{}\mbox{]}) \&\& \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}inactive\textquotesingle{}\mbox{]} == \char`\"{}true\char`\"{}) ? 0 \+: 1
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a2f63aaf807814d432abf53c8f4e3fb29}{\$not\+\_\+paid}} = (isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}payment\textquotesingle{}\mbox{]}) \&\& \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}payment\textquotesingle{}\mbox{]} == \char`\"{}true\char`\"{}) ? 0 \+: 1
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a2ff28ba485eb7add2ac530c4dc37edd7}{\$company\+\_\+id}} =\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a3c04c5f494bfd347ec0d624485410579}{\$s\+Where}} =\char`\"{} empresa=\$company\+\_\+id\char`\"{}
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a0a44e6760141442bb439b1ab1395d8ff}{\$page}} = (isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}) \&\& !empty(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}))?\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}\+:1
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_abece0f3099457a037f8f339811dc6e20}{\$per\+\_\+page}} = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}per\+\_\+page\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_ab58a37db0fa85921378d753074ac2dfa}{\$adjacents}} = 4
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_aec4de82415d7f05cb9748d12d3a95a87}{\$offset}} = (\$page -\/ 1) $\ast$ \$per\+\_\+page
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a23e63d032e7d0022393823c056ba4c16}{\$count\+\_\+query}} =\mbox{\hyperlink{class_result_data_a5eaeabb36980f2ae9856879ca3bb3165}{Result\+Data\+::count\+Query}}(\$s\+Where)
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_ac7aafb7f78a391e3910ec2e58f2b5229}{\$numrows}} = \$count\+\_\+query-\/$>$numrows
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_a75dd972125f47d333492e70523d1aa6a}{\$total\+\_\+pages}} = ceil(\$numrows/\$per\+\_\+page)
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_ada769ee11a81c6cae5d104fcbfba5512}{\$reload}} = \textquotesingle{}./?view=partners\textquotesingle{}
+\item 
+\mbox{\hyperlink{loadpartners_2action-default_8php_ac3c8fbc3d08c22ccfb68e38ec0764f85}{\$partners}} =\mbox{\hyperlink{class_result_data_a92bec53441aa280c34dc947f46792100}{Result\+Data\+::query}}(\$s\+Where, \$offset,\$per\+\_\+page)
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) if(count(\$partners)$>$0) \mbox{\hyperlink{loadpartners_2action-default_8php_ab1837968773dfb8e367e46c81c16b043}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{loadpartners_2action-default_8php_ab58a37db0fa85921378d753074ac2dfa}\label{loadpartners_2action-default_8php_ab58a37db0fa85921378d753074ac2dfa}} 
+\index{action-\/default.php@{action-\/default.php}!\$adjacents@{\$adjacents}}
+\index{\$adjacents@{\$adjacents}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$adjacents}{$adjacents}}
+{\footnotesize\ttfamily \$adjacents = 4}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a2ff28ba485eb7add2ac530c4dc37edd7}\label{loadpartners_2action-default_8php_a2ff28ba485eb7add2ac530c4dc37edd7}} 
+\index{action-\/default.php@{action-\/default.php}!\$company\_id@{\$company\_id}}
+\index{\$company\_id@{\$company\_id}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$company\_id}{$company\_id}}
+{\footnotesize\ttfamily \$company\+\_\+id =\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]}}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_aae1e6d95a31506605af4485a9af49efb}\label{loadpartners_2action-default_8php_aae1e6d95a31506605af4485a9af49efb}} 
+\index{action-\/default.php@{action-\/default.php}!\$con@{\$con}}
+\index{\$con@{\$con}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$con}{$con}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset( \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) \$con = \mbox{\hyperlink{class_database_af39707ed2dd9bcec95f3ddf84c3a908a}{Database\+::get\+Con}}()}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a23e63d032e7d0022393823c056ba4c16}\label{loadpartners_2action-default_8php_a23e63d032e7d0022393823c056ba4c16}} 
+\index{action-\/default.php@{action-\/default.php}!\$count\_query@{\$count\_query}}
+\index{\$count\_query@{\$count\_query}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$count\_query}{$count\_query}}
+{\footnotesize\ttfamily \$count\+\_\+query =\mbox{\hyperlink{class_result_data_a5eaeabb36980f2ae9856879ca3bb3165}{Result\+Data\+::count\+Query}}(\$s\+Where)}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a27843f2692bd61c6ae4959a1972e66b5}\label{loadpartners_2action-default_8php_a27843f2692bd61c6ae4959a1972e66b5}} 
+\index{action-\/default.php@{action-\/default.php}!\$inactive@{\$inactive}}
+\index{\$inactive@{\$inactive}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$inactive}{$inactive}}
+{\footnotesize\ttfamily \$inactive = (isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}inactive\textquotesingle{}\mbox{]}) \&\& \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}inactive\textquotesingle{}\mbox{]} == \char`\"{}true\char`\"{}) ? 0 \+: 1}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a6ba6e82c39e80d5d00afeb6f4383a549}\label{loadpartners_2action-default_8php_a6ba6e82c39e80d5d00afeb6f4383a549}} 
+\index{action-\/default.php@{action-\/default.php}!\$month@{\$month}}
+\index{\$month@{\$month}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$month}{$month}}
+{\footnotesize\ttfamily \$month = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}month\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a2f63aaf807814d432abf53c8f4e3fb29}\label{loadpartners_2action-default_8php_a2f63aaf807814d432abf53c8f4e3fb29}} 
+\index{action-\/default.php@{action-\/default.php}!\$not\_paid@{\$not\_paid}}
+\index{\$not\_paid@{\$not\_paid}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$not\_paid}{$not\_paid}}
+{\footnotesize\ttfamily \$not\+\_\+paid = (isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}payment\textquotesingle{}\mbox{]}) \&\& \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}payment\textquotesingle{}\mbox{]} == \char`\"{}true\char`\"{}) ? 0 \+: 1}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_ac7aafb7f78a391e3910ec2e58f2b5229}\label{loadpartners_2action-default_8php_ac7aafb7f78a391e3910ec2e58f2b5229}} 
+\index{action-\/default.php@{action-\/default.php}!\$numrows@{\$numrows}}
+\index{\$numrows@{\$numrows}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$numrows}{$numrows}}
+{\footnotesize\ttfamily \$numrows = \$count\+\_\+query-\/$>$numrows}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_aec4de82415d7f05cb9748d12d3a95a87}\label{loadpartners_2action-default_8php_aec4de82415d7f05cb9748d12d3a95a87}} 
+\index{action-\/default.php@{action-\/default.php}!\$offset@{\$offset}}
+\index{\$offset@{\$offset}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$offset}{$offset}}
+{\footnotesize\ttfamily \$offset = (\$page -\/ 1) $\ast$ \$per\+\_\+page}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a0a44e6760141442bb439b1ab1395d8ff}\label{loadpartners_2action-default_8php_a0a44e6760141442bb439b1ab1395d8ff}} 
+\index{action-\/default.php@{action-\/default.php}!\$page@{\$page}}
+\index{\$page@{\$page}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$page}{$page}}
+{\footnotesize\ttfamily \$page = (isset(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}) \&\& !empty(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}))?\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}page\textquotesingle{}\mbox{]}\+:1}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_ac3c8fbc3d08c22ccfb68e38ec0764f85}\label{loadpartners_2action-default_8php_ac3c8fbc3d08c22ccfb68e38ec0764f85}} 
+\index{action-\/default.php@{action-\/default.php}!\$partners@{\$partners}}
+\index{\$partners@{\$partners}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$partners}{$partners}}
+{\footnotesize\ttfamily \$partners =\mbox{\hyperlink{class_result_data_a92bec53441aa280c34dc947f46792100}{Result\+Data\+::query}}(\$s\+Where, \$offset,\$per\+\_\+page)}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_abece0f3099457a037f8f339811dc6e20}\label{loadpartners_2action-default_8php_abece0f3099457a037f8f339811dc6e20}} 
+\index{action-\/default.php@{action-\/default.php}!\$per\_page@{\$per\_page}}
+\index{\$per\_page@{\$per\_page}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$per\_page}{$per\_page}}
+{\footnotesize\ttfamily \$per\+\_\+page = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}per\+\_\+page\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_ada769ee11a81c6cae5d104fcbfba5512}\label{loadpartners_2action-default_8php_ada769ee11a81c6cae5d104fcbfba5512}} 
+\index{action-\/default.php@{action-\/default.php}!\$reload@{\$reload}}
+\index{\$reload@{\$reload}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$reload}{$reload}}
+{\footnotesize\ttfamily \$reload = \textquotesingle{}./?view=partners\textquotesingle{}}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a3c04c5f494bfd347ec0d624485410579}\label{loadpartners_2action-default_8php_a3c04c5f494bfd347ec0d624485410579}} 
+\index{action-\/default.php@{action-\/default.php}!\$sWhere@{\$sWhere}}
+\index{\$sWhere@{\$sWhere}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$sWhere}{$sWhere}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} ( \$month!=0) \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} ( \$year!=0) \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} ( \$text!=\char`\"{}\char`\"{}) \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (! \$not\+\_\+paid) \$s\+Where =\char`\"{} empresa=\$company\+\_\+id\char`\"{}}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_adf95f30eaafccead90ab5e2cdb55e9b9}\label{loadpartners_2action-default_8php_adf95f30eaafccead90ab5e2cdb55e9b9}} 
+\index{action-\/default.php@{action-\/default.php}!\$text@{\$text}}
+\index{\$text@{\$text}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$text}{$text}}
+{\footnotesize\ttfamily \$text = mysqli\+\_\+real\+\_\+escape\+\_\+string(\$con,(strip\+\_\+tags(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}text\textquotesingle{}\mbox{]}, E\+N\+T\+\_\+\+Q\+U\+O\+T\+ES)))}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a75dd972125f47d333492e70523d1aa6a}\label{loadpartners_2action-default_8php_a75dd972125f47d333492e70523d1aa6a}} 
+\index{action-\/default.php@{action-\/default.php}!\$total\_pages@{\$total\_pages}}
+\index{\$total\_pages@{\$total\_pages}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$total\_pages}{$total\_pages}}
+{\footnotesize\ttfamily \$total\+\_\+pages = ceil(\$numrows/\$per\+\_\+page)}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_a8e992d901ac2312b3be2021ddbb7d11e}\label{loadpartners_2action-default_8php_a8e992d901ac2312b3be2021ddbb7d11e}} 
+\index{action-\/default.php@{action-\/default.php}!\$year@{\$year}}
+\index{\$year@{\$year}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$year}{$year}}
+{\footnotesize\ttfamily \$year = intval(\$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\textquotesingle{}year\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{loadpartners_2action-default_8php_ab1837968773dfb8e367e46c81c16b043}\label{loadpartners_2action-default_8php_ab1837968773dfb8e367e46c81c16b043}} 
+\index{action-\/default.php@{action-\/default.php}!else@{else}}
+\index{else@{else}!action-\/default.php@{action-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset( \$\+\_\+\+R\+E\+Q\+U\+E\+ST\mbox{[}\char`\"{}id\char`\"{}\mbox{]})) if (count( \$partners)$>$0) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    echo \textcolor{stringliteral}{'<div class="alert alert-\/info alert-\/dismissable"><button type="button" class="close" data-\/dismiss="alert" aria-\/hidden="true">×</button>}}
+\DoxyCodeLine{\textcolor{stringliteral}{        <strong>Sin Resultados!</strong> No se encontraron resultados en la base de datos!.</div>'}}
+
+\end{DoxyCode}

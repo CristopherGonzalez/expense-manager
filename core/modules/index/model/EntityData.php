@@ -71,6 +71,11 @@ class EntityData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 	}
+	public static function getByIdType($id, $company){
+		$sql = "SELECT * FROM ".self::$tablename." WHERE tipo = ".$id." and empresa = ".$company." and active = 1";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new EntityData());
+	}
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);

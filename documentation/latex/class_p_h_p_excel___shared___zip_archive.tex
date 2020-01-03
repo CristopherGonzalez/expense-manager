@@ -1,0 +1,112 @@
+\hypertarget{class_p_h_p_excel___shared___zip_archive}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Shared\+\_\+\+Zip\+Archive}
+\label{class_p_h_p_excel___shared___zip_archive}\index{PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___zip_archive_a8e2031e7f25050e84753f2fb178e9d8d}{open}} (\$file\+Name)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___zip_archive_aa69c8bf1f1dcf4e72552efff1fe3e87e}{close}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___zip_archive_ae67e7b10dbc8aac67330d8c795828ab2}{add\+From\+String}} (\$localname, \$contents)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___zip_archive_a92ca8e0a7608f1850ab6b7f6e75103f1}{locate\+Name}} (\$file\+Name)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___zip_archive_a328778d353cbbc2d94cc3957de875e3f}{get\+From\+Name}} (\$file\+Name)
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___shared___zip_archive_ac6558eed9696d4fcd22187c74e8b20f8}\label{class_p_h_p_excel___shared___zip_archive_ac6558eed9696d4fcd22187c74e8b20f8}} 
+{\bfseries get\+From\+Index} (\$index)
+\end{DoxyCompactItemize}
+\doxysubsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_p_h_p_excel___shared___zip_archive_aec60cb732462b447b4386e3364d1d0d1}{O\+V\+E\+R\+W\+R\+I\+TE}} = \textquotesingle{}O\+V\+E\+R\+W\+R\+I\+TE\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___shared___zip_archive_ae7d71eec207ebcef53a99536e8ca8825}\label{class_p_h_p_excel___shared___zip_archive_ae7d71eec207ebcef53a99536e8ca8825}} 
+const {\bfseries C\+R\+E\+A\+TE} = \textquotesingle{}C\+R\+E\+A\+TE\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___zip_archive_ae67e7b10dbc8aac67330d8c795828ab2}\label{class_p_h_p_excel___shared___zip_archive_ae67e7b10dbc8aac67330d8c795828ab2}} 
+\index{PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}!addFromString@{addFromString}}
+\index{addFromString@{addFromString}!PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}}
+\doxysubsubsection{\texorpdfstring{addFromString()}{addFromString()}}
+{\footnotesize\ttfamily add\+From\+String (\begin{DoxyParamCaption}\item[{}]{\$localname,  }\item[{}]{\$contents }\end{DoxyParamCaption})}
+
+Add a new file to the zip archive from a string of raw data.
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$localname} & Directory/\+Name of the file to add to the zip archive \\
+\hline
+string & {\em \$contents} & String of data to add to the zip archive \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___zip_archive_aa69c8bf1f1dcf4e72552efff1fe3e87e}\label{class_p_h_p_excel___shared___zip_archive_aa69c8bf1f1dcf4e72552efff1fe3e87e}} 
+\index{PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}!close@{close}}
+\index{close@{close}!PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Close this zip archive \mbox{\Hypertarget{class_p_h_p_excel___shared___zip_archive_a328778d353cbbc2d94cc3957de875e3f}\label{class_p_h_p_excel___shared___zip_archive_a328778d353cbbc2d94cc3957de875e3f}} 
+\index{PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}!getFromName@{getFromName}}
+\index{getFromName@{getFromName}!PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}}
+\doxysubsubsection{\texorpdfstring{getFromName()}{getFromName()}}
+{\footnotesize\ttfamily get\+From\+Name (\begin{DoxyParamCaption}\item[{}]{\$file\+Name }\end{DoxyParamCaption})}
+
+Extract file from archive by given file\+Name (Emulate Zip\+Archive \mbox{\hyperlink{class_p_h_p_excel___shared___zip_archive_a328778d353cbbc2d94cc3957de875e3f}{get\+From\+Name()}})
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$file\+Name} & Filename for the file in zip archive \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+string \$contents File string contents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___zip_archive_a92ca8e0a7608f1850ab6b7f6e75103f1}\label{class_p_h_p_excel___shared___zip_archive_a92ca8e0a7608f1850ab6b7f6e75103f1}} 
+\index{PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}!locateName@{locateName}}
+\index{locateName@{locateName}!PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}}
+\doxysubsubsection{\texorpdfstring{locateName()}{locateName()}}
+{\footnotesize\ttfamily locate\+Name (\begin{DoxyParamCaption}\item[{}]{\$file\+Name }\end{DoxyParamCaption})}
+
+Find if given file\+Name exist in archive (Emulate Zip\+Archive \mbox{\hyperlink{class_p_h_p_excel___shared___zip_archive_a92ca8e0a7608f1850ab6b7f6e75103f1}{locate\+Name()}})
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$file\+Name} & Filename for the file in zip archive \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___zip_archive_a8e2031e7f25050e84753f2fb178e9d8d}\label{class_p_h_p_excel___shared___zip_archive_a8e2031e7f25050e84753f2fb178e9d8d}} 
+\index{PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}!open@{open}}
+\index{open@{open}!PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily open (\begin{DoxyParamCaption}\item[{}]{\$file\+Name }\end{DoxyParamCaption})}
+
+Open a new zip archive
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$file\+Name} & Filename for the zip archive \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de los campos}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___zip_archive_aec60cb732462b447b4386e3364d1d0d1}\label{class_p_h_p_excel___shared___zip_archive_aec60cb732462b447b4386e3364d1d0d1}} 
+\index{PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}!OVERWRITE@{OVERWRITE}}
+\index{OVERWRITE@{OVERWRITE}!PHPExcel\_Shared\_ZipArchive@{PHPExcel\_Shared\_ZipArchive}}
+\doxysubsubsection{\texorpdfstring{OVERWRITE}{OVERWRITE}}
+{\footnotesize\ttfamily const O\+V\+E\+R\+W\+R\+I\+TE = \textquotesingle{}O\+V\+E\+R\+W\+R\+I\+TE\textquotesingle{}}
+
+constants 
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/Zip\+Archive.\+php\end{DoxyCompactItemize}

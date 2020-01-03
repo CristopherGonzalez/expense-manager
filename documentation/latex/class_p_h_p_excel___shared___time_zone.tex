@@ -1,0 +1,93 @@
+\hypertarget{class_p_h_p_excel___shared___time_zone}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Shared\+\_\+\+Time\+Zone}
+\label{class_p_h_p_excel___shared___time_zone}\index{PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___time_zone_aa8f02a03cfe2f1e5dd600f3a61ae8c5f}{\+\_\+validate\+Time\+Zone}} (\$timezone)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___time_zone_a8d56582bcc21116be925c7e8b7bf1835}{set\+Time\+Zone}} (\$timezone)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___time_zone_acbf093b095d0c21d92837a2df2479172}{get\+Time\+Zone}} ()
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___shared___time_zone_ac4469b18414ed892f016d9c9bcc38930}{get\+Time\+Zone\+Adjustment}} (\$timezone, \$timestamp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___shared___time_zone_af1cceca0f6633f202e2e3eccb72912af}\label{class_p_h_p_excel___shared___time_zone_af1cceca0f6633f202e2e3eccb72912af}} 
+static {\bfseries \$timezone} = \textquotesingle{}U\+TC\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___time_zone_aa8f02a03cfe2f1e5dd600f3a61ae8c5f}\label{class_p_h_p_excel___shared___time_zone_aa8f02a03cfe2f1e5dd600f3a61ae8c5f}} 
+\index{PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}!\_validateTimeZone@{\_validateTimeZone}}
+\index{\_validateTimeZone@{\_validateTimeZone}!PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}}
+\doxysubsubsection{\texorpdfstring{\_validateTimeZone()}{\_validateTimeZone()}}
+{\footnotesize\ttfamily static \+\_\+validate\+Time\+Zone (\begin{DoxyParamCaption}\item[{}]{\$timezone }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Validate a Timezone name
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$timezone} & Time zone (e.\+g. \textquotesingle{}Europe/\+London\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean Success or failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___time_zone_acbf093b095d0c21d92837a2df2479172}\label{class_p_h_p_excel___shared___time_zone_acbf093b095d0c21d92837a2df2479172}} 
+\index{PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}!getTimeZone@{getTimeZone}}
+\index{getTimeZone@{getTimeZone}!PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}}
+\doxysubsubsection{\texorpdfstring{getTimeZone()}{getTimeZone()}}
+{\footnotesize\ttfamily static get\+Time\+Zone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Return the Default Timezone used for date/time conversions
+
+\begin{DoxyReturn}{Devuelve}
+string Timezone (e.\+g. \textquotesingle{}Europe/\+London\textquotesingle{}) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___time_zone_ac4469b18414ed892f016d9c9bcc38930}\label{class_p_h_p_excel___shared___time_zone_ac4469b18414ed892f016d9c9bcc38930}} 
+\index{PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}!getTimeZoneAdjustment@{getTimeZoneAdjustment}}
+\index{getTimeZoneAdjustment@{getTimeZoneAdjustment}!PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}}
+\doxysubsubsection{\texorpdfstring{getTimeZoneAdjustment()}{getTimeZoneAdjustment()}}
+{\footnotesize\ttfamily static get\+Time\+Zone\+Adjustment (\begin{DoxyParamCaption}\item[{}]{\$timezone,  }\item[{}]{\$timestamp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Return the Timezone offset used for date/time conversions to/from U\+ST This requires both the timezone and the calculated date/time to allow for local D\+ST
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$timezone} & The timezone for finding the adjustment to U\+ST \\
+\hline
+integer & {\em \$timestamp} & P\+HP date/time value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+integer Number of seconds for timezone adjustment 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___exception}{P\+H\+P\+Excel\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___time_zone_a8d56582bcc21116be925c7e8b7bf1835}\label{class_p_h_p_excel___shared___time_zone_a8d56582bcc21116be925c7e8b7bf1835}} 
+\index{PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}!setTimeZone@{setTimeZone}}
+\index{setTimeZone@{setTimeZone}!PHPExcel\_Shared\_TimeZone@{PHPExcel\_Shared\_TimeZone}}
+\doxysubsubsection{\texorpdfstring{setTimeZone()}{setTimeZone()}}
+{\footnotesize\ttfamily static set\+Time\+Zone (\begin{DoxyParamCaption}\item[{}]{\$timezone }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set the Default Timezone used for date/time conversions
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$timezone} & Time zone (e.\+g. \textquotesingle{}Europe/\+London\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean Success or failure 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/Time\+Zone.\+php\end{DoxyCompactItemize}

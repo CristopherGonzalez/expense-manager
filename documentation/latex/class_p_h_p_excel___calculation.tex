@@ -1,0 +1,639 @@
+\hypertarget{class_p_h_p_excel___calculation}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Calculation}
+\label{class_p_h_p_excel___calculation}\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a2caa0c949d39c9a0706aca5bd75caad3}\label{class_p_h_p_excel___calculation_a2caa0c949d39c9a0706aca5bd75caad3}} 
+{\bfseries \+\_\+\+\_\+construct} (\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} \$workbook=null)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a421831a265621325e1fdd19aace0c758}{\+\_\+\+\_\+destruct}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a4e879d50318875eb5a506a8a16d72a15}{flush\+Instance}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a1f5f0bfffa7e348c26c7087a9af2f0d6}{get\+Debug\+Log}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_ad0cb87b388bc74d63dc884accdca8713}{\+\_\+\+\_\+clone}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a4a302f4dbd639f91dce21e06a12ed531}{get\+Calculation\+Cache\+Enabled}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_ac1d0ae10560d104d75c202e70e83d1f7}{set\+Calculation\+Cache\+Enabled}} (\$p\+Value=true)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_acc4a5c83423b7e5771167e1e8136f2c7}{enable\+Calculation\+Cache}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a31f86e8b1acc34583deeee06356c6d8e}{disable\+Calculation\+Cache}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a63a490220d1aecf2b8b6a161cb95fd64}{clear\+Calculation\+Cache}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_aaa7d10bdc76a9a581f3b832fa6eb4212}{clear\+Calculation\+Cache\+For\+Worksheet}} (\$worksheet\+Name)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a8e919920563b7fd0cf92277d7cb7447d}{rename\+Calculation\+Cache\+For\+Worksheet}} (\$from\+Worksheet\+Name, \$to\+Worksheet\+Name)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_ad532b661eb33c3e755bd3fa8ff1bd7af}{get\+Locale}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a308a41765eefafd483e0042a0092927c}{set\+Locale}} (\$locale=\textquotesingle{}en\+\_\+us\textquotesingle{})
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ad64a222a8ed0a3ae574ca54522ad5b26}\label{class_p_h_p_excel___calculation_ad64a222a8ed0a3ae574ca54522ad5b26}} 
+{\bfseries \+\_\+translate\+Formula\+To\+Locale} (\$formula)
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a2a6ab89f73d9920b0f7bc7ce3f98eac5}\label{class_p_h_p_excel___calculation_a2a6ab89f73d9920b0f7bc7ce3f98eac5}} 
+{\bfseries \+\_\+translate\+Formula\+To\+English} (\$formula)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_aebaa9815d4d23c1958b93dafa720b362}{calculate}} (\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} \$p\+Cell=null)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a99d9fd18681a10516af2c86721a39dee}{calculate\+Cell\+Value}} (\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} \$p\+Cell=null, \$reset\+Log=true)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_ab448c9d7c2479d972e503e8e8f6774ed}{parse\+Formula}} (\$formula)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_afc1160d65c63b9bffa861c57eb77fed1}{calculate\+Formula}} (\$formula, \$cell\+ID=null, \mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} \$p\+Cell=null)
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a13a5177ce6bce59d4bb1e5688ad75fb7}\label{class_p_h_p_excel___calculation_a13a5177ce6bce59d4bb1e5688ad75fb7}} 
+{\bfseries get\+Value\+From\+Cache} (\$cell\+Reference, \&\$cell\+Value)
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a2879bbb3c0da111544e91eb9b8ef88df}\label{class_p_h_p_excel___calculation_a2879bbb3c0da111544e91eb9b8ef88df}} 
+{\bfseries save\+Value\+To\+Cache} (\$cell\+Reference, \$cell\+Value)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_ad1aef41691363540e51e0a585e111eaa}{\+\_\+calculate\+Formula\+Value}} (\$formula, \$cell\+ID=null, \mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} \$p\+Cell=null)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a9d2232a783e31c75270a500346569965}{extract\+Cell\+Range}} (\&\$p\+Range=\textquotesingle{}A1\textquotesingle{}, \mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}} \$p\+Sheet=null, \$reset\+Log=true)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a25face12130e4c51ed2994a8124c3f24}{extract\+Named\+Range}} (\&\$p\+Range=\textquotesingle{}A1\textquotesingle{}, \mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}} \$p\+Sheet=null, \$reset\+Log=true)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_a7cd80d0c4918833d2be6ea1f9622f546}{is\+Implemented}} (\$p\+Function=\textquotesingle{}\textquotesingle{})
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_af8c7fa58d3585a1ca3d9830c728a716d}{list\+Functions}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_af9fab2c3d5fea754ce52dbf46b559430}{list\+All\+Function\+Names}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___calculation_adcc2c4245c8b22e91171c836e0c4f7ec}{list\+Function\+Names}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___calculation_a8bfbadeff4d146fadfef867cd1f5526d}{get\+Instance}} (\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} \$workbook=null)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___calculation_aaef7ebd13f5494224915b6a5f131c94f}{get\+T\+R\+UE}} ()
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___calculation_a6994a8f693ca683db1d52e3b96f5b1b1}{get\+F\+A\+L\+SE}} ()
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___calculation_abb388070bc402b8fb947320520dc774c}{set\+Array\+Return\+Type}} (\$return\+Type)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___calculation_a7da5ac6c3e8ce1a9cd9e9d358edab0da}{get\+Array\+Return\+Type}} ()
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a1866836ce8a020deec24f19b5be74917}\label{class_p_h_p_excel___calculation_a1866836ce8a020deec24f19b5be74917}} 
+static {\bfseries translate\+Separator} (\$from\+Separator, \$to\+Separator, \$formula, \&\$in\+Braces)
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a5979ec1ca4100fae9443c62213724d53}\label{class_p_h_p_excel___calculation_a5979ec1ca4100fae9443c62213724d53}} 
+static {\bfseries locale\+Func} (\$function)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___calculation_a0cdf7d55a4c688f39925a5c1c5d7db90}{wrap\+Result}} (\$value)
+\item 
+static \mbox{\hyperlink{class_p_h_p_excel___calculation_a9e33dcc223b699aec2d682e5692b6c0d}{unwrap\+Result}} (\$value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_p_h_p_excel___calculation_ad5a7aed1c409669f83141aea95d54089}{C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+N\+U\+M\+B\+ER}} = \textquotesingle{}\mbox{[}-\/+\mbox{]}?\textbackslash{}d$\ast$\textbackslash{}.?\textbackslash{}d+(e\mbox{[}-\/+\mbox{]}?\textbackslash{}d+)?\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a4a265da3415f3d7ffa6287835502d7b4}\label{class_p_h_p_excel___calculation_a4a265da3415f3d7ffa6287835502d7b4}} 
+const {\bfseries C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+S\+T\+R\+I\+NG} = \textquotesingle{}\char`\"{}(?\+:\mbox{[}$^\wedge$\char`\"{}\mbox{]}$\vert$\char`\"{}\char`\"{})$\ast$\char`\"{}\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a4aa5514ddcc9e0e9adcc66972972eccc}\label{class_p_h_p_excel___calculation_a4aa5514ddcc9e0e9adcc66972972eccc}} 
+const {\bfseries C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+O\+P\+E\+N\+B\+R\+A\+CE} = \textquotesingle{}\textbackslash{}(\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a2a0fc7551ba4535c9eb30ab707393df5}\label{class_p_h_p_excel___calculation_a2a0fc7551ba4535c9eb30ab707393df5}} 
+const {\bfseries C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+F\+U\+N\+C\+T\+I\+ON} = \textquotesingle{}@?(\mbox{[}A-\/Z\mbox{]}\mbox{[}A-\/Z0-\/9\textbackslash{}.\mbox{]}$\ast$)\mbox{[}\textbackslash{}s\mbox{]}$\ast$\textbackslash{}(\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a95ce09c912f0248036c2b338425f1464}\label{class_p_h_p_excel___calculation_a95ce09c912f0248036c2b338425f1464}} 
+const {\bfseries C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+C\+E\+L\+L\+R\+EF} = C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+C\+E\+L\+L\+R\+EF
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ac6a4f983aacbd7531432781b3a102ccd}\label{class_p_h_p_excel___calculation_ac6a4f983aacbd7531432781b3a102ccd}} 
+const {\bfseries C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+N\+A\+M\+E\+D\+R\+A\+N\+GE} = C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+N\+A\+M\+E\+D\+R\+A\+N\+GE
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ad0b60bc6bb21a5a73e17415af61cdb24}\label{class_p_h_p_excel___calculation_ad0b60bc6bb21a5a73e17415af61cdb24}} 
+const {\bfseries C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+E\+R\+R\+OR} = \textquotesingle{}\textbackslash{}\#\mbox{[}A-\/Z\mbox{]}\mbox{[}A-\/Z0\+\_\+\textbackslash{}/\mbox{]}$\ast$\mbox{[}!\textbackslash{}?\mbox{]}?\textquotesingle{}
+\item 
+const \mbox{\hyperlink{class_p_h_p_excel___calculation_a1b0f84f03fdc1041fdfd0e3a634d48ed}{R\+E\+T\+U\+R\+N\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+S\+\_\+\+E\+R\+R\+OR}} = \textquotesingle{}error\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a313687324c71e2556ae4ef9089e96857}\label{class_p_h_p_excel___calculation_a313687324c71e2556ae4ef9089e96857}} 
+const {\bfseries R\+E\+T\+U\+R\+N\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+S\+\_\+\+V\+A\+L\+UE} = \textquotesingle{}value\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a998999d40e33a27f8b37af5369f4603b}\label{class_p_h_p_excel___calculation_a998999d40e33a27f8b37af5369f4603b}} 
+const {\bfseries R\+E\+T\+U\+R\+N\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+S\+\_\+\+A\+R\+R\+AY} = \textquotesingle{}array\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ae8fa93be9b3291f8dbfc2f3be7804566}\label{class_p_h_p_excel___calculation_ae8fa93be9b3291f8dbfc2f3be7804566}} 
+{\bfseries \$suppress\+Formula\+Errors} = false
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a01e2a8b6faf3481833be60bbf4c5304a}\label{class_p_h_p_excel___calculation_a01e2a8b6faf3481833be60bbf4c5304a}} 
+{\bfseries \$formula\+Error} = null
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a9ccb85b61cbde1414a16cbaeb61e5be4}\label{class_p_h_p_excel___calculation_a9ccb85b61cbde1414a16cbaeb61e5be4}} 
+{\bfseries \$cyclic\+Formula\+Count} = 1
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static {\bfseries \$locale\+Boolean}
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a22c1f148dcd30624e1a333f94cd43bdd}\label{class_p_h_p_excel___calculation_a22c1f148dcd30624e1a333f94cd43bdd}} 
+{\bfseries raise\+Formula\+Error} (\$error\+Message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a421831a265621325e1fdd19aace0c758}\label{class_p_h_p_excel___calculation_a421831a265621325e1fdd19aace0c758}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!\_\_destruct@{\_\_destruct}}
+\index{\_\_destruct@{\_\_destruct}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{\_\_destruct()}{\_\_destruct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+destruct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unset an instance of this class
+
+@access public 
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ad0cb87b388bc74d63dc884accdca8713}\label{class_p_h_p_excel___calculation_ad0cb87b388bc74d63dc884accdca8713}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!\_\_clone@{\_\_clone}}
+\index{\_\_clone@{\_\_clone}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{\_\_clone()}{\_\_clone()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}}
+
+\+\_\+\+\_\+clone implementation. Cloning should not be allowed in a Singleton!
+
+@access public 
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___calculation___exception}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ad1aef41691363540e51e0a585e111eaa}\label{class_p_h_p_excel___calculation_ad1aef41691363540e51e0a585e111eaa}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!\_calculateFormulaValue@{\_calculateFormulaValue}}
+\index{\_calculateFormulaValue@{\_calculateFormulaValue}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{\_calculateFormulaValue()}{\_calculateFormulaValue()}}
+{\footnotesize\ttfamily \+\_\+calculate\+Formula\+Value (\begin{DoxyParamCaption}\item[{}]{\$formula,  }\item[{}]{\$cell\+ID = {\ttfamily null},  }\item[{\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}}}]{\$p\+Cell = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Parse a cell formula and calculate its value
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$formula} & The formula to parse and calculate \\
+\hline
+string & {\em \$cell\+ID} & The ID (e.\+g. A3) of the cell that we are calculating \\
+\hline
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} & {\em \$p\+Cell} & Cell to calculate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mixed 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___calculation___exception}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_aebaa9815d4d23c1958b93dafa720b362}\label{class_p_h_p_excel___calculation_aebaa9815d4d23c1958b93dafa720b362}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!calculate@{calculate}}
+\index{calculate@{calculate}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily calculate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}}}]{\$p\+Cell = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Calculate cell value (using formula from a cell ID) Retained for backward compatibility
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} & {\em \$p\+Cell} & Cell to calculate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mixed 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___calculation___exception}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a99d9fd18681a10516af2c86721a39dee}\label{class_p_h_p_excel___calculation_a99d9fd18681a10516af2c86721a39dee}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!calculateCellValue@{calculateCellValue}}
+\index{calculateCellValue@{calculateCellValue}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{calculateCellValue()}{calculateCellValue()}}
+{\footnotesize\ttfamily calculate\+Cell\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}}}]{\$p\+Cell = {\ttfamily null},  }\item[{}]{\$reset\+Log = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Calculate the value of a cell formula
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} & {\em \$p\+Cell} & Cell to calculate \\
+\hline
+Boolean & {\em \$reset\+Log} & Flag indicating whether the debug log should be reset or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mixed 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___calculation___exception}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_afc1160d65c63b9bffa861c57eb77fed1}\label{class_p_h_p_excel___calculation_afc1160d65c63b9bffa861c57eb77fed1}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!calculateFormula@{calculateFormula}}
+\index{calculateFormula@{calculateFormula}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{calculateFormula()}{calculateFormula()}}
+{\footnotesize\ttfamily calculate\+Formula (\begin{DoxyParamCaption}\item[{}]{\$formula,  }\item[{}]{\$cell\+ID = {\ttfamily null},  }\item[{\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}}}]{\$p\+Cell = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Calculate the value of a formula
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$formula} & Formula to parse \\
+\hline
+string & {\em \$cell\+ID} & Address of the cell to calculate \\
+\hline
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} & {\em \$p\+Cell} & Cell to calculate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mixed 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___calculation___exception}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a63a490220d1aecf2b8b6a161cb95fd64}\label{class_p_h_p_excel___calculation_a63a490220d1aecf2b8b6a161cb95fd64}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!clearCalculationCache@{clearCalculationCache}}
+\index{clearCalculationCache@{clearCalculationCache}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{clearCalculationCache()}{clearCalculationCache()}}
+{\footnotesize\ttfamily clear\+Calculation\+Cache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clear calculation cache \mbox{\Hypertarget{class_p_h_p_excel___calculation_aaa7d10bdc76a9a581f3b832fa6eb4212}\label{class_p_h_p_excel___calculation_aaa7d10bdc76a9a581f3b832fa6eb4212}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!clearCalculationCacheForWorksheet@{clearCalculationCacheForWorksheet}}
+\index{clearCalculationCacheForWorksheet@{clearCalculationCacheForWorksheet}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{clearCalculationCacheForWorksheet()}{clearCalculationCacheForWorksheet()}}
+{\footnotesize\ttfamily clear\+Calculation\+Cache\+For\+Worksheet (\begin{DoxyParamCaption}\item[{}]{\$worksheet\+Name }\end{DoxyParamCaption})}
+
+Clear calculation cache for a specified worksheet
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$worksheet\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a31f86e8b1acc34583deeee06356c6d8e}\label{class_p_h_p_excel___calculation_a31f86e8b1acc34583deeee06356c6d8e}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!disableCalculationCache@{disableCalculationCache}}
+\index{disableCalculationCache@{disableCalculationCache}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{disableCalculationCache()}{disableCalculationCache()}}
+{\footnotesize\ttfamily disable\+Calculation\+Cache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Disable calculation cache \mbox{\Hypertarget{class_p_h_p_excel___calculation_acc4a5c83423b7e5771167e1e8136f2c7}\label{class_p_h_p_excel___calculation_acc4a5c83423b7e5771167e1e8136f2c7}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!enableCalculationCache@{enableCalculationCache}}
+\index{enableCalculationCache@{enableCalculationCache}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{enableCalculationCache()}{enableCalculationCache()}}
+{\footnotesize\ttfamily enable\+Calculation\+Cache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Enable calculation cache \mbox{\Hypertarget{class_p_h_p_excel___calculation_a9d2232a783e31c75270a500346569965}\label{class_p_h_p_excel___calculation_a9d2232a783e31c75270a500346569965}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!extractCellRange@{extractCellRange}}
+\index{extractCellRange@{extractCellRange}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{extractCellRange()}{extractCellRange()}}
+{\footnotesize\ttfamily extract\+Cell\+Range (\begin{DoxyParamCaption}\item[{\&}]{\$p\+Range = {\ttfamily \textquotesingle{}A1\textquotesingle{}},  }\item[{\mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}}}]{\$p\+Sheet = {\ttfamily null},  }\item[{}]{\$reset\+Log = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Extract range values
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \&\$p\+Range} & String based range representation \\
+\hline
+\mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}} & {\em \$p\+Sheet} & Worksheet \\
+\hline
+boolean & {\em \$reset\+Log} & Flag indicating whether calculation log should be reset or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mixed Array of values in range if range contains more than one element. Otherwise, a single value is returned. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___calculation___exception}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a25face12130e4c51ed2994a8124c3f24}\label{class_p_h_p_excel___calculation_a25face12130e4c51ed2994a8124c3f24}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!extractNamedRange@{extractNamedRange}}
+\index{extractNamedRange@{extractNamedRange}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{extractNamedRange()}{extractNamedRange()}}
+{\footnotesize\ttfamily extract\+Named\+Range (\begin{DoxyParamCaption}\item[{\&}]{\$p\+Range = {\ttfamily \textquotesingle{}A1\textquotesingle{}},  }\item[{\mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}}}]{\$p\+Sheet = {\ttfamily null},  }\item[{}]{\$reset\+Log = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Extract range values
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \&\$p\+Range} & String based range representation \\
+\hline
+\mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}} & {\em \$p\+Sheet} & Worksheet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mixed Array of values in range if range contains more than one element. Otherwise, a single value is returned. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parámetros}
+boolean & {\em \$reset\+Log} & Flag indicating whether calculation log should be reset or not \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___calculation___exception}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a4e879d50318875eb5a506a8a16d72a15}\label{class_p_h_p_excel___calculation_a4e879d50318875eb5a506a8a16d72a15}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!flushInstance@{flushInstance}}
+\index{flushInstance@{flushInstance}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{flushInstance()}{flushInstance()}}
+{\footnotesize\ttfamily flush\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Flush the calculation cache for any existing instance of this class but only if a \mbox{\hyperlink{class_p_h_p_excel___calculation}{P\+H\+P\+Excel\+\_\+\+Calculation}} instance exists
+
+@access public \begin{DoxyReturn}{Devuelve}
+null 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a7da5ac6c3e8ce1a9cd9e9d358edab0da}\label{class_p_h_p_excel___calculation_a7da5ac6c3e8ce1a9cd9e9d358edab0da}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!getArrayReturnType@{getArrayReturnType}}
+\index{getArrayReturnType@{getArrayReturnType}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{getArrayReturnType()}{getArrayReturnType()}}
+{\footnotesize\ttfamily static get\+Array\+Return\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Return the Array Return Type (Array or Value of first element in the array)
+
+@access public \begin{DoxyReturn}{Devuelve}
+string \$return\+Type Array return type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a4a302f4dbd639f91dce21e06a12ed531}\label{class_p_h_p_excel___calculation_a4a302f4dbd639f91dce21e06a12ed531}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!getCalculationCacheEnabled@{getCalculationCacheEnabled}}
+\index{getCalculationCacheEnabled@{getCalculationCacheEnabled}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{getCalculationCacheEnabled()}{getCalculationCacheEnabled()}}
+{\footnotesize\ttfamily get\+Calculation\+Cache\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is calculation caching enabled?
+
+@access public \begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a1f5f0bfffa7e348c26c7087a9af2f0d6}\label{class_p_h_p_excel___calculation_a1f5f0bfffa7e348c26c7087a9af2f0d6}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!getDebugLog@{getDebugLog}}
+\index{getDebugLog@{getDebugLog}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{getDebugLog()}{getDebugLog()}}
+{\footnotesize\ttfamily get\+Debug\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} the debuglog for this claculation engine instance
+
+@access public \begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel___calc_engine___logger}{P\+H\+P\+Excel\+\_\+\+Calc\+Engine\+\_\+\+Logger}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a6994a8f693ca683db1d52e3b96f5b1b1}\label{class_p_h_p_excel___calculation_a6994a8f693ca683db1d52e3b96f5b1b1}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!getFALSE@{getFALSE}}
+\index{getFALSE@{getFALSE}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{getFALSE()}{getFALSE()}}
+{\footnotesize\ttfamily static get\+F\+A\+L\+SE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Return the locale-\/specific translation of F\+A\+L\+SE
+
+@access public \begin{DoxyReturn}{Devuelve}
+string locale-\/specific translation of F\+A\+L\+SE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a8bfbadeff4d146fadfef867cd1f5526d}\label{class_p_h_p_excel___calculation_a8bfbadeff4d146fadfef867cd1f5526d}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static get\+Instance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}}}]{\$workbook = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\hyperlink{class_get}{Get}} an instance of this class
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} & {\em \$workbook} & Injected workbook for working with a \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} object, or N\+U\+LL to create a standalone claculation engine \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel___calculation}{P\+H\+P\+Excel\+\_\+\+Calculation}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ad532b661eb33c3e755bd3fa8ff1bd7af}\label{class_p_h_p_excel___calculation_ad532b661eb33c3e755bd3fa8ff1bd7af}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!getLocale@{getLocale}}
+\index{getLocale@{getLocale}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{getLocale()}{getLocale()}}
+{\footnotesize\ttfamily get\+Locale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} the currently defined locale code
+
+\begin{DoxyReturn}{Devuelve}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_aaef7ebd13f5494224915b6a5f131c94f}\label{class_p_h_p_excel___calculation_aaef7ebd13f5494224915b6a5f131c94f}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!getTRUE@{getTRUE}}
+\index{getTRUE@{getTRUE}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{getTRUE()}{getTRUE()}}
+{\footnotesize\ttfamily static get\+T\+R\+UE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Return the locale-\/specific translation of T\+R\+UE
+
+@access public \begin{DoxyReturn}{Devuelve}
+string locale-\/specific translation of T\+R\+UE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a7cd80d0c4918833d2be6ea1f9622f546}\label{class_p_h_p_excel___calculation_a7cd80d0c4918833d2be6ea1f9622f546}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!isImplemented@{isImplemented}}
+\index{isImplemented@{isImplemented}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{isImplemented()}{isImplemented()}}
+{\footnotesize\ttfamily is\+Implemented (\begin{DoxyParamCaption}\item[{}]{\$p\+Function = {\ttfamily \textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+Is a specific function implemented?
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Function} & Function Name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_af9fab2c3d5fea754ce52dbf46b559430}\label{class_p_h_p_excel___calculation_af9fab2c3d5fea754ce52dbf46b559430}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!listAllFunctionNames@{listAllFunctionNames}}
+\index{listAllFunctionNames@{listAllFunctionNames}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{listAllFunctionNames()}{listAllFunctionNames()}}
+{\footnotesize\ttfamily list\+All\+Function\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} a list of all Excel function names
+
+\begin{DoxyReturn}{Devuelve}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_adcc2c4245c8b22e91171c836e0c4f7ec}\label{class_p_h_p_excel___calculation_adcc2c4245c8b22e91171c836e0c4f7ec}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!listFunctionNames@{listFunctionNames}}
+\index{listFunctionNames@{listFunctionNames}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{listFunctionNames()}{listFunctionNames()}}
+{\footnotesize\ttfamily list\+Function\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} a list of implemented Excel function names
+
+\begin{DoxyReturn}{Devuelve}
+array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_af8c7fa58d3585a1ca3d9830c728a716d}\label{class_p_h_p_excel___calculation_af8c7fa58d3585a1ca3d9830c728a716d}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!listFunctions@{listFunctions}}
+\index{listFunctions@{listFunctions}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{listFunctions()}{listFunctions()}}
+{\footnotesize\ttfamily list\+Functions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} a list of all implemented functions as an array of function objects
+
+\begin{DoxyReturn}{Devuelve}
+array of \mbox{\hyperlink{class_p_h_p_excel___calculation___function}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Function}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ab448c9d7c2479d972e503e8e8f6774ed}\label{class_p_h_p_excel___calculation_ab448c9d7c2479d972e503e8e8f6774ed}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!parseFormula@{parseFormula}}
+\index{parseFormula@{parseFormula}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{parseFormula()}{parseFormula()}}
+{\footnotesize\ttfamily parse\+Formula (\begin{DoxyParamCaption}\item[{}]{\$formula }\end{DoxyParamCaption})}
+
+Validate and parse a formula string
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$formula} & Formula to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___calculation___exception}{P\+H\+P\+Excel\+\_\+\+Calculation\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a8e919920563b7fd0cf92277d7cb7447d}\label{class_p_h_p_excel___calculation_a8e919920563b7fd0cf92277d7cb7447d}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!renameCalculationCacheForWorksheet@{renameCalculationCacheForWorksheet}}
+\index{renameCalculationCacheForWorksheet@{renameCalculationCacheForWorksheet}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{renameCalculationCacheForWorksheet()}{renameCalculationCacheForWorksheet()}}
+{\footnotesize\ttfamily rename\+Calculation\+Cache\+For\+Worksheet (\begin{DoxyParamCaption}\item[{}]{\$from\+Worksheet\+Name,  }\item[{}]{\$to\+Worksheet\+Name }\end{DoxyParamCaption})}
+
+Rename calculation cache for a specified worksheet
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$from\+Worksheet\+Name} & \\
+\hline
+string & {\em \$to\+Worksheet\+Name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_abb388070bc402b8fb947320520dc774c}\label{class_p_h_p_excel___calculation_abb388070bc402b8fb947320520dc774c}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!setArrayReturnType@{setArrayReturnType}}
+\index{setArrayReturnType@{setArrayReturnType}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{setArrayReturnType()}{setArrayReturnType()}}
+{\footnotesize\ttfamily static set\+Array\+Return\+Type (\begin{DoxyParamCaption}\item[{}]{\$return\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set the Array Return Type (Array or Value of first element in the array)
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$return\+Type} & Array return type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean Success or failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ac1d0ae10560d104d75c202e70e83d1f7}\label{class_p_h_p_excel___calculation_ac1d0ae10560d104d75c202e70e83d1f7}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!setCalculationCacheEnabled@{setCalculationCacheEnabled}}
+\index{setCalculationCacheEnabled@{setCalculationCacheEnabled}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{setCalculationCacheEnabled()}{setCalculationCacheEnabled()}}
+{\footnotesize\ttfamily set\+Calculation\+Cache\+Enabled (\begin{DoxyParamCaption}\item[{}]{\$p\+Value = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Enable/disable calculation cache
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+boolean & {\em \$p\+Value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a308a41765eefafd483e0042a0092927c}\label{class_p_h_p_excel___calculation_a308a41765eefafd483e0042a0092927c}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!setLocale@{setLocale}}
+\index{setLocale@{setLocale}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{setLocale()}{setLocale()}}
+{\footnotesize\ttfamily set\+Locale (\begin{DoxyParamCaption}\item[{}]{\$locale = {\ttfamily \textquotesingle{}en\+\_\+us\textquotesingle{}} }\end{DoxyParamCaption})}
+
+Set the locale code
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$locale} & The locale to use for formula translation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a9e33dcc223b699aec2d682e5692b6c0d}\label{class_p_h_p_excel___calculation_a9e33dcc223b699aec2d682e5692b6c0d}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!unwrapResult@{unwrapResult}}
+\index{unwrapResult@{unwrapResult}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{unwrapResult()}{unwrapResult()}}
+{\footnotesize\ttfamily static unwrap\+Result (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Remove quotes used as a wrapper to identify string values
+
+
+\begin{DoxyParams}[1]{Parámetros}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mixed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_a0cdf7d55a4c688f39925a5c1c5d7db90}\label{class_p_h_p_excel___calculation_a0cdf7d55a4c688f39925a5c1c5d7db90}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!wrapResult@{wrapResult}}
+\index{wrapResult@{wrapResult}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{wrapResult()}{wrapResult()}}
+{\footnotesize\ttfamily static wrap\+Result (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Wrap string values in quotes
+
+
+\begin{DoxyParams}[1]{Parámetros}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+mixed 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentación de los campos}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_aca39662d74165a225f535d0a4d945adf}\label{class_p_h_p_excel___calculation_aca39662d74165a225f535d0a4d945adf}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!\$localeBoolean@{\$localeBoolean}}
+\index{\$localeBoolean@{\$localeBoolean}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{\$localeBoolean}{$localeBoolean}}
+{\footnotesize\ttfamily \$locale\+Boolean\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= array(}
+\DoxyCodeLine{        \textcolor{stringliteral}{'TRUE'}  => \textcolor{stringliteral}{'TRUE'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'FALSE'} => \textcolor{stringliteral}{'FALSE'},}
+\DoxyCodeLine{        \textcolor{stringliteral}{'NULL'}  => \textcolor{stringliteral}{'NULL'}}
+\DoxyCodeLine{    )}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_h_p_excel___calculation_ad5a7aed1c409669f83141aea95d54089}\label{class_p_h_p_excel___calculation_ad5a7aed1c409669f83141aea95d54089}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!CALCULATION\_REGEXP\_NUMBER@{CALCULATION\_REGEXP\_NUMBER}}
+\index{CALCULATION\_REGEXP\_NUMBER@{CALCULATION\_REGEXP\_NUMBER}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{CALCULATION\_REGEXP\_NUMBER}{CALCULATION\_REGEXP\_NUMBER}}
+{\footnotesize\ttfamily const C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+E\+X\+P\+\_\+\+N\+U\+M\+B\+ER = \textquotesingle{}\mbox{[}-\/+\mbox{]}?\textbackslash{}d$\ast$\textbackslash{}.?\textbackslash{}d+(e\mbox{[}-\/+\mbox{]}?\textbackslash{}d+)?\textquotesingle{}}
+
+Constants ~\newline
+ Regular Expressions ~\newline
+ \mbox{\Hypertarget{class_p_h_p_excel___calculation_a1b0f84f03fdc1041fdfd0e3a634d48ed}\label{class_p_h_p_excel___calculation_a1b0f84f03fdc1041fdfd0e3a634d48ed}} 
+\index{PHPExcel\_Calculation@{PHPExcel\_Calculation}!RETURN\_ARRAY\_AS\_ERROR@{RETURN\_ARRAY\_AS\_ERROR}}
+\index{RETURN\_ARRAY\_AS\_ERROR@{RETURN\_ARRAY\_AS\_ERROR}!PHPExcel\_Calculation@{PHPExcel\_Calculation}}
+\doxysubsubsection{\texorpdfstring{RETURN\_ARRAY\_AS\_ERROR}{RETURN\_ARRAY\_AS\_ERROR}}
+{\footnotesize\ttfamily const R\+E\+T\+U\+R\+N\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+S\+\_\+\+E\+R\+R\+OR = \textquotesingle{}error\textquotesingle{}}
+
+constants 
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/Calculation.\+php\end{DoxyCompactItemize}

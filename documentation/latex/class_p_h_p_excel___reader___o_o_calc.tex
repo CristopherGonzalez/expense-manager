@@ -1,0 +1,150 @@
+\hypertarget{class_p_h_p_excel___reader___o_o_calc}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+O\+O\+Calc}
+\label{class_p_h_p_excel___reader___o_o_calc}\index{PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}}
+Diagrama de herencias de P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+O\+O\+Calc\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_p_h_p_excel___reader___o_o_calc}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___reader___o_o_calc_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___reader___o_o_calc_aaf37e346855968e7310a6b43eb701fff}{can\+Read}} (\$p\+Filename)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___reader___o_o_calc_afa718d59525a71d195cee8b1d54c51c5}{list\+Worksheet\+Names}} (\$p\+Filename)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___reader___o_o_calc_a7ae73ad1b0fda6cd8644f583326626aa}{list\+Worksheet\+Info}} (\$p\+Filename)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___reader___o_o_calc_a138b94503ca4c44b510190c29d4f16fe}{load}} (\$p\+Filename)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___reader___o_o_calc_af6c531fcaf9c3c83abf91d6ac048b186}{load\+Into\+Existing}} (\$p\+Filename, \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} \$obj\+P\+H\+P\+Excel)
+\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_p_h_p_excel___reader___o_o_calc_a095c5d389db211932136b53f25f39685}\label{class_p_h_p_excel___reader___o_o_calc_a095c5d389db211932136b53f25f39685}} 
+\index{PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a new \mbox{\hyperlink{class_p_h_p_excel___reader___o_o_calc}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+O\+O\+Calc}} 
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___reader___o_o_calc_aaf37e346855968e7310a6b43eb701fff}\label{class_p_h_p_excel___reader___o_o_calc_aaf37e346855968e7310a6b43eb701fff}} 
+\index{PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}!canRead@{canRead}}
+\index{canRead@{canRead}!PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}}
+\doxysubsubsection{\texorpdfstring{canRead()}{canRead()}}
+{\footnotesize\ttfamily can\+Read (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})}
+
+Can the current \mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}} read the file?
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplementado de \mbox{\hyperlink{class_p_h_p_excel___reader___abstract_aaf37e346855968e7310a6b43eb701fff}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Abstract}}.
+
+\mbox{\Hypertarget{class_p_h_p_excel___reader___o_o_calc_a7ae73ad1b0fda6cd8644f583326626aa}\label{class_p_h_p_excel___reader___o_o_calc_a7ae73ad1b0fda6cd8644f583326626aa}} 
+\index{PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}!listWorksheetInfo@{listWorksheetInfo}}
+\index{listWorksheetInfo@{listWorksheetInfo}!PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}}
+\doxysubsubsection{\texorpdfstring{listWorksheetInfo()}{listWorksheetInfo()}}
+{\footnotesize\ttfamily list\+Worksheet\+Info (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})}
+
+Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns)
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___reader___o_o_calc_afa718d59525a71d195cee8b1d54c51c5}\label{class_p_h_p_excel___reader___o_o_calc_afa718d59525a71d195cee8b1d54c51c5}} 
+\index{PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}!listWorksheetNames@{listWorksheetNames}}
+\index{listWorksheetNames@{listWorksheetNames}!PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}}
+\doxysubsubsection{\texorpdfstring{listWorksheetNames()}{listWorksheetNames()}}
+{\footnotesize\ttfamily list\+Worksheet\+Names (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})}
+
+Reads names of the worksheets from a file, without parsing the whole file to a \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} object
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_p_h_p_excel___reader___o_o_calc_a138b94503ca4c44b510190c29d4f16fe}\label{class_p_h_p_excel___reader___o_o_calc_a138b94503ca4c44b510190c29d4f16fe}} 
+\index{PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}!load@{load}}
+\index{load@{load}!PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily load (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename }\end{DoxyParamCaption})}
+
+Loads \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} from file
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementa \mbox{\hyperlink{interface_p_h_p_excel___reader___i_reader_a138b94503ca4c44b510190c29d4f16fe}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+I\+Reader}}.
+
+\mbox{\Hypertarget{class_p_h_p_excel___reader___o_o_calc_af6c531fcaf9c3c83abf91d6ac048b186}\label{class_p_h_p_excel___reader___o_o_calc_af6c531fcaf9c3c83abf91d6ac048b186}} 
+\index{PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}!loadIntoExisting@{loadIntoExisting}}
+\index{loadIntoExisting@{loadIntoExisting}!PHPExcel\_Reader\_OOCalc@{PHPExcel\_Reader\_OOCalc}}
+\doxysubsubsection{\texorpdfstring{loadIntoExisting()}{loadIntoExisting()}}
+{\footnotesize\ttfamily load\+Into\+Existing (\begin{DoxyParamCaption}\item[{}]{\$p\+Filename,  }\item[{\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}}}]{\$obj\+P\+H\+P\+Excel }\end{DoxyParamCaption})}
+
+Loads \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} from file into \mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} instance
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Filename} & \\
+\hline
+\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} & {\em \$obj\+P\+H\+P\+Excel} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel}{P\+H\+P\+Excel}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___reader___exception}{P\+H\+P\+Excel\+\_\+\+Reader\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Reader/O\+O\+Calc.\+php\end{DoxyCompactItemize}

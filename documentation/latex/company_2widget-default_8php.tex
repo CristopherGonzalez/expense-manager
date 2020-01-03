@@ -1,0 +1,144 @@
+\hypertarget{company_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/company/widget-\/default.php}
+\label{company_2widget-default_8php}\index{core/modules/index/view/company/widget-\/default.php@{core/modules/index/view/company/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} =\mbox{\hyperlink{class_business_type_data_aca7ae46d923aa798f1e29657bb767a22}{Business\+Type\+Data\+::get\+All}}()
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_ad364aeb0b3108c3b63292d8276a4995a}{\$countries}} = \mbox{\hyperlink{class_country_data_aca7ae46d923aa798f1e29657bb767a22}{Country\+Data\+::get\+All}}()
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a018b10cc112a4dd49d4117a220eac5db}{\$type\+\_\+bussiness\+\_\+find}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}type\+\_\+bussiness\+\_\+find\char`\"{},\char`\"{}Tipo de Negocio\char`\"{},\$types)
+\item 
+\$type\+\_\+bussiness\+\_\+find \mbox{\hyperlink{company_2widget-default_8php_abab0b121d8fd8937b768564888d5f22e}{funjs}} = \char`\"{}onchange=\textquotesingle{}load(1);\textquotesingle{}\char`\"{}
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}{\$modal\+\_\+content}} = new \mbox{\hyperlink{class_modal}{Modal}}(\char`\"{}Ingreso de Empresa\char`\"{},\char`\"{}form\+Modal\char`\"{},User\+Data\+::get\+By\+Id(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}))
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_acaa664c3a1cd66592c153cbfbce6e53b}{\$name\+\_\+text}} = new \mbox{\hyperlink{class_input_text}{Input\+Text}}(\char`\"{}name\char`\"{},\char`\"{}Nombre\char`\"{})
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a6800bc3d9068fc662e4a8a170bf294f0}{\$pass\+\_\+text}} = new \mbox{\hyperlink{class_input_text}{Input\+Text}}(\char`\"{}password\char`\"{},\char`\"{}Contraseña\char`\"{})
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_ab955adf4ec9f73f1253e9d28ff197661}{\$country\+\_\+select}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}country\+\_\+company\char`\"{},\char`\"{}Pais\char`\"{},\$countries)
+\item 
+\$country\+\_\+select \mbox{\hyperlink{company_2widget-default_8php_a6dffba8d25a8ffeafb504b1014b67469}{tag}} =\char`\"{}required\char`\"{}
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a412f63443bbf04e1c3662fbf246bbc64}{\$types\+\_\+bussiness}} = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}types\+\_\+bussiness\char`\"{},\char`\"{}Tipo de Negocio\char`\"{},\$types)
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a8b36caadf0f0a10e4e03ed159d467575}{\$license\+\_\+text}} = new \mbox{\hyperlink{class_input_text}{Input\+Text}}(\char`\"{}license\char`\"{},\char`\"{}Licencia M\+RC\char`\"{})
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_ad5d0c7bcf176ddb66ac7aeebeba832e2}{\$file\+\_\+profile}} = new \mbox{\hyperlink{class_input_file}{Input\+File}}(\textquotesingle{}profile\+\_\+pic\textquotesingle{},\textquotesingle{}Foto\textquotesingle{},\textquotesingle{}image/$\ast$\textquotesingle{})
+\item 
+\$file\+\_\+profile \mbox{\hyperlink{company_2widget-default_8php_add930c1df8fa6bc1b640d02255297eab}{file}} = \char`\"{}res/images/companies/default.\+jpg\char`\"{}
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a447308a1ca534a717eb19a16f270adf4}{\$companies}} =\mbox{\hyperlink{class_company_data_a2c69da9b77e5fb74daebaa1aedc67410}{Company\+Data\+::get\+All\+Count}}()
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a76a06029910701066fd59b84af6e38e1}{if}} ( \$companies-\/$>$count!=0)
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{company_2widget-default_8php_aed2d37b4e8da3f52103ae96ce9d26d82}{\+\_\+\+\_\+pad2\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{company_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{company_2widget-default_8php_a447308a1ca534a717eb19a16f270adf4}\label{company_2widget-default_8php_a447308a1ca534a717eb19a16f270adf4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$companies@{\$companies}}
+\index{\$companies@{\$companies}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$companies}{$companies}}
+{\footnotesize\ttfamily \$companies =\mbox{\hyperlink{class_company_data_a2c69da9b77e5fb74daebaa1aedc67410}{Company\+Data\+::get\+All\+Count}}()}
+
+\mbox{\Hypertarget{company_2widget-default_8php_ad364aeb0b3108c3b63292d8276a4995a}\label{company_2widget-default_8php_ad364aeb0b3108c3b63292d8276a4995a}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$countries@{\$countries}}
+\index{\$countries@{\$countries}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$countries}{$countries}}
+{\footnotesize\ttfamily \$countries = \mbox{\hyperlink{class_country_data_aca7ae46d923aa798f1e29657bb767a22}{Country\+Data\+::get\+All}}()}
+
+\mbox{\Hypertarget{company_2widget-default_8php_ab955adf4ec9f73f1253e9d28ff197661}\label{company_2widget-default_8php_ab955adf4ec9f73f1253e9d28ff197661}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$country\_select@{\$country\_select}}
+\index{\$country\_select@{\$country\_select}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$country\_select}{$country\_select}}
+{\footnotesize\ttfamily \$country\+\_\+select = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}country\+\_\+company\char`\"{},\char`\"{}Pais\char`\"{},\$countries)}
+
+\mbox{\Hypertarget{company_2widget-default_8php_ad5d0c7bcf176ddb66ac7aeebeba832e2}\label{company_2widget-default_8php_ad5d0c7bcf176ddb66ac7aeebeba832e2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$file\_profile@{\$file\_profile}}
+\index{\$file\_profile@{\$file\_profile}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$file\_profile}{$file\_profile}}
+{\footnotesize\ttfamily \$file\+\_\+profile = new \mbox{\hyperlink{class_input_file}{Input\+File}}(\textquotesingle{}profile\+\_\+pic\textquotesingle{},\textquotesingle{}Foto\textquotesingle{},\textquotesingle{}image/$\ast$\textquotesingle{})}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a8b36caadf0f0a10e4e03ed159d467575}\label{company_2widget-default_8php_a8b36caadf0f0a10e4e03ed159d467575}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$license\_text@{\$license\_text}}
+\index{\$license\_text@{\$license\_text}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$license\_text}{$license\_text}}
+{\footnotesize\ttfamily \$license\+\_\+text = new \mbox{\hyperlink{class_input_text}{Input\+Text}}(\char`\"{}license\char`\"{},\char`\"{}Licencia M\+RC\char`\"{})}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}\label{company_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$modal\_content@{\$modal\_content}}
+\index{\$modal\_content@{\$modal\_content}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$modal\_content}{$modal\_content}}
+{\footnotesize\ttfamily \$modal\+\_\+content = new \mbox{\hyperlink{class_modal}{Modal}}(\char`\"{}Ingreso de Empresa\char`\"{},\char`\"{}form\+Modal\char`\"{},User\+Data\+::get\+By\+Id(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}))}
+
+\mbox{\Hypertarget{company_2widget-default_8php_acaa664c3a1cd66592c153cbfbce6e53b}\label{company_2widget-default_8php_acaa664c3a1cd66592c153cbfbce6e53b}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$name\_text@{\$name\_text}}
+\index{\$name\_text@{\$name\_text}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$name\_text}{$name\_text}}
+{\footnotesize\ttfamily \$name\+\_\+text = new \mbox{\hyperlink{class_input_text}{Input\+Text}}(\char`\"{}name\char`\"{},\char`\"{}Nombre\char`\"{})}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a6800bc3d9068fc662e4a8a170bf294f0}\label{company_2widget-default_8php_a6800bc3d9068fc662e4a8a170bf294f0}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$pass\_text@{\$pass\_text}}
+\index{\$pass\_text@{\$pass\_text}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$pass\_text}{$pass\_text}}
+{\footnotesize\ttfamily \$pass\+\_\+text = new \mbox{\hyperlink{class_input_text}{Input\+Text}}(\char`\"{}password\char`\"{},\char`\"{}Contraseña\char`\"{})}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a018b10cc112a4dd49d4117a220eac5db}\label{company_2widget-default_8php_a018b10cc112a4dd49d4117a220eac5db}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$type\_bussiness\_find@{\$type\_bussiness\_find}}
+\index{\$type\_bussiness\_find@{\$type\_bussiness\_find}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$type\_bussiness\_find}{$type\_bussiness\_find}}
+{\footnotesize\ttfamily \$type\+\_\+bussiness\+\_\+find = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}type\+\_\+bussiness\+\_\+find\char`\"{},\char`\"{}Tipo de Negocio\char`\"{},\$types)}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{company_2widget-default_8php_a92d70a97331cc6fc0a79d9da50895be8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types@{\$types}}
+\index{\$types@{\$types}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{$types}}
+{\footnotesize\ttfamily \$types =\mbox{\hyperlink{class_business_type_data_aca7ae46d923aa798f1e29657bb767a22}{Business\+Type\+Data\+::get\+All}}()}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a412f63443bbf04e1c3662fbf246bbc64}\label{company_2widget-default_8php_a412f63443bbf04e1c3662fbf246bbc64}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$types\_bussiness@{\$types\_bussiness}}
+\index{\$types\_bussiness@{\$types\_bussiness}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$types\_bussiness}{$types\_bussiness}}
+{\footnotesize\ttfamily \$types\+\_\+bussiness = new \mbox{\hyperlink{class_select_list}{Select\+List}}(\char`\"{}types\+\_\+bussiness\char`\"{},\char`\"{}Tipo de Negocio\char`\"{},\$types)}
+
+\mbox{\Hypertarget{company_2widget-default_8php_aed2d37b4e8da3f52103ae96ce9d26d82}\label{company_2widget-default_8php_aed2d37b4e8da3f52103ae96ce9d26d82}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad2\_\_@{\_\_pad2\_\_}}
+\index{\_\_pad2\_\_@{\_\_pad2\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad2\_\_}{\_\_pad2\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad2\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{company_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{company_2widget-default_8php_add930c1df8fa6bc1b640d02255297eab}\label{company_2widget-default_8php_add930c1df8fa6bc1b640d02255297eab}} 
+\index{widget-\/default.php@{widget-\/default.php}!file@{file}}
+\index{file@{file}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily \$file\+\_\+profile file = \char`\"{}res/images/companies/default.\+jpg\char`\"{}}
+
+\mbox{\Hypertarget{company_2widget-default_8php_abab0b121d8fd8937b768564888d5f22e}\label{company_2widget-default_8php_abab0b121d8fd8937b768564888d5f22e}} 
+\index{widget-\/default.php@{widget-\/default.php}!funjs@{funjs}}
+\index{funjs@{funjs}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{funjs}{funjs}}
+{\footnotesize\ttfamily \$file\+\_\+profile funjs = \char`\"{}onchange=\textquotesingle{}load(1);\textquotesingle{}\char`\"{}}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a76a06029910701066fd59b84af6e38e1}\label{company_2widget-default_8php_a76a06029910701066fd59b84af6e38e1}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(\$companies-\/$>$count!=0)}
+
+\mbox{\Hypertarget{company_2widget-default_8php_a6dffba8d25a8ffeafb504b1014b67469}\label{company_2widget-default_8php_a6dffba8d25a8ffeafb504b1014b67469}} 
+\index{widget-\/default.php@{widget-\/default.php}!tag@{tag}}
+\index{tag@{tag}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{tag}{tag}}
+{\footnotesize\ttfamily \$category\+\_\+select tag =\char`\"{}required\char`\"{}}
+

@@ -1,0 +1,157 @@
+\hypertarget{class_p_h_p_excel___polynomial___best___fit}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Polynomial\+\_\+\+Best\+\_\+\+Fit}
+\label{class_p_h_p_excel___polynomial___best___fit}\index{PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}}
+Diagrama de herencias de P\+H\+P\+Excel\+\_\+\+Polynomial\+\_\+\+Best\+\_\+\+Fit\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_p_h_p_excel___polynomial___best___fit}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___polynomial___best___fit_a52f1787c1a4941f65bf728ff3289b626}{get\+Order}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___polynomial___best___fit_a0166e34b8a912b4ddf624660852345ec}{get\+Value\+Of\+Y\+ForX}} (\$x\+Value)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___polynomial___best___fit_ae806bb042d6c95387e82c6feb5d178a5}{get\+Value\+Of\+X\+ForY}} (\$y\+Value)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___polynomial___best___fit_a015c81d685693d7575b997328ff5930f}{get\+Equation}} (\$dp=0)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___polynomial___best___fit_acd86e793a51b30af0a2479cb2ba24c15}{get\+Slope}} (\$dp=0)
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_a10f4618687cea0c64ce7fc136ada6958}\label{class_p_h_p_excel___polynomial___best___fit_a10f4618687cea0c64ce7fc136ada6958}} 
+{\bfseries get\+Coefficients} (\$dp=0)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___polynomial___best___fit_ab1b5d04c4252f9b3ab6fa719b6ea7258}{\+\_\+\+\_\+construct}} (\$order, \$y\+Values, \$x\+Values=array(), \$const =true)
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_a47cfc60a7faa446b9ed8879412f851c2}\label{class_p_h_p_excel___polynomial___best___fit_a47cfc60a7faa446b9ed8879412f851c2}} 
+{\bfseries \$best\+Fit\+Type} = \textquotesingle{}polynomial\textquotesingle{}
+\item 
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_a20d0f3c3de8ac827c9d513b70d8f47a6}\label{class_p_h_p_excel___polynomial___best___fit_a20d0f3c3de8ac827c9d513b70d8f47a6}} 
+{\bfseries \$order} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_ab1b5d04c4252f9b3ab6fa719b6ea7258}\label{class_p_h_p_excel___polynomial___best___fit_ab1b5d04c4252f9b3ab6fa719b6ea7258}} 
+\index{PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$order,  }\item[{}]{\$y\+Values,  }\item[{}]{\$x\+Values = {\ttfamily array()},  }\item[{}]{\$const = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Define the regression and calculate the goodness of fit for a set of X and Y data values
+
+
+\begin{DoxyParams}[1]{Parámetros}
+int & {\em \$order} & Order of Polynomial for this regression \\
+\hline
+float\mbox{[}$\,$\mbox{]} & {\em \$y\+Values} & The set of Y-\/values for this regression \\
+\hline
+float\mbox{[}$\,$\mbox{]} & {\em \$x\+Values} & The set of X-\/values for this regression \\
+\hline
+boolean & {\em \$const} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_a015c81d685693d7575b997328ff5930f}\label{class_p_h_p_excel___polynomial___best___fit_a015c81d685693d7575b997328ff5930f}} 
+\index{PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}!getEquation@{getEquation}}
+\index{getEquation@{getEquation}!PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}}
+\doxysubsubsection{\texorpdfstring{getEquation()}{getEquation()}}
+{\footnotesize\ttfamily get\+Equation (\begin{DoxyParamCaption}\item[{}]{\$dp = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Return the Equation of the best-\/fit line
+
+
+\begin{DoxyParams}[1]{Parámetros}
+int & {\em \$dp} & Number of places of decimal precision to display \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+string 
+\end{DoxyReturn}
+
+
+Reimplementado de \mbox{\hyperlink{class_p_h_p_excel___best___fit_a015c81d685693d7575b997328ff5930f}{P\+H\+P\+Excel\+\_\+\+Best\+\_\+\+Fit}}.
+
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_a52f1787c1a4941f65bf728ff3289b626}\label{class_p_h_p_excel___polynomial___best___fit_a52f1787c1a4941f65bf728ff3289b626}} 
+\index{PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}!getOrder@{getOrder}}
+\index{getOrder@{getOrder}!PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}}
+\doxysubsubsection{\texorpdfstring{getOrder()}{getOrder()}}
+{\footnotesize\ttfamily get\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return the order of this polynomial
+
+\begin{DoxyReturn}{Devuelve}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_acd86e793a51b30af0a2479cb2ba24c15}\label{class_p_h_p_excel___polynomial___best___fit_acd86e793a51b30af0a2479cb2ba24c15}} 
+\index{PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}!getSlope@{getSlope}}
+\index{getSlope@{getSlope}!PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}}
+\doxysubsubsection{\texorpdfstring{getSlope()}{getSlope()}}
+{\footnotesize\ttfamily get\+Slope (\begin{DoxyParamCaption}\item[{}]{\$dp = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Return the Slope of the line
+
+
+\begin{DoxyParams}[1]{Parámetros}
+int & {\em \$dp} & Number of places of decimal precision to display \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+string 
+\end{DoxyReturn}
+
+
+Reimplementado de \mbox{\hyperlink{class_p_h_p_excel___best___fit_acd86e793a51b30af0a2479cb2ba24c15}{P\+H\+P\+Excel\+\_\+\+Best\+\_\+\+Fit}}.
+
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_ae806bb042d6c95387e82c6feb5d178a5}\label{class_p_h_p_excel___polynomial___best___fit_ae806bb042d6c95387e82c6feb5d178a5}} 
+\index{PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}!getValueOfXForY@{getValueOfXForY}}
+\index{getValueOfXForY@{getValueOfXForY}!PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}}
+\doxysubsubsection{\texorpdfstring{getValueOfXForY()}{getValueOfXForY()}}
+{\footnotesize\ttfamily get\+Value\+Of\+X\+ForY (\begin{DoxyParamCaption}\item[{}]{\$y\+Value }\end{DoxyParamCaption})}
+
+Return the X-\/\+Value for a specified value of Y
+
+
+\begin{DoxyParams}[1]{Parámetros}
+float & {\em \$y\+Value} & Y-\/\+Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+float X-\/\+Value 
+\end{DoxyReturn}
+
+
+Reimplementado de \mbox{\hyperlink{class_p_h_p_excel___best___fit_ae806bb042d6c95387e82c6feb5d178a5}{P\+H\+P\+Excel\+\_\+\+Best\+\_\+\+Fit}}.
+
+\mbox{\Hypertarget{class_p_h_p_excel___polynomial___best___fit_a0166e34b8a912b4ddf624660852345ec}\label{class_p_h_p_excel___polynomial___best___fit_a0166e34b8a912b4ddf624660852345ec}} 
+\index{PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}!getValueOfYForX@{getValueOfYForX}}
+\index{getValueOfYForX@{getValueOfYForX}!PHPExcel\_Polynomial\_Best\_Fit@{PHPExcel\_Polynomial\_Best\_Fit}}
+\doxysubsubsection{\texorpdfstring{getValueOfYForX()}{getValueOfYForX()}}
+{\footnotesize\ttfamily get\+Value\+Of\+Y\+ForX (\begin{DoxyParamCaption}\item[{}]{\$x\+Value }\end{DoxyParamCaption})}
+
+Return the Y-\/\+Value for a specified value of X
+
+
+\begin{DoxyParams}[1]{Parámetros}
+float & {\em \$x\+Value} & X-\/\+Value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+float Y-\/\+Value 
+\end{DoxyReturn}
+
+
+Reimplementado de \mbox{\hyperlink{class_p_h_p_excel___best___fit_a0166e34b8a912b4ddf624660852345ec}{P\+H\+P\+Excel\+\_\+\+Best\+\_\+\+Fit}}.
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/trend/polynomial\+Best\+Fit\+Class.\+php\end{DoxyCompactItemize}

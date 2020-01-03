@@ -1,0 +1,110 @@
+\hypertarget{editpartner_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/editpartner/widget-\/default.php}
+\label{editpartner_2widget-default_8php}\index{core/modules/index/view/editpartner/widget-\/default.php@{core/modules/index/view/editpartner/widget-\/default.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset( \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}) \&\&\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[} \textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}!=\char`\"{}1\char`\"{})(isset(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty(\$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}id\textquotesingle{}\mbox{]})) \mbox{\hyperlink{editpartner_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}{else}}
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_a59b949b6977e07083c5b6c14cc870200}{\$partner}} =\mbox{\hyperlink{class_result_data_a562ec7062ca1b44ba97dee052b9b63cb}{Result\+Data\+::get\+By\+Id}}(\$id)
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}{\$entities}} =\mbox{\hyperlink{class_entity_data_a6c9baae792d7589c6a035d9c8fbd763e}{Entity\+Data\+::get\+By\+Type}}(\textquotesingle{}Socio\textquotesingle{}, \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+if(!isset(\$partner) \&\&empty(\$partner)) if(isset(\$partner-\/$>$\mbox{\hyperlink{logs_8txt_a4bc15cbed0dc9174cb2e8f524178d4cb}{pago}}) \&\&!empty(\$partner-\/$>$\mbox{\hyperlink{logs_8txt_a4bc15cbed0dc9174cb2e8f524178d4cb}{pago}})) \mbox{\hyperlink{editpartner_2widget-default_8php_ae3fd74fbf1aa906e4a01b158603f9717}{if}} (isset( \$partner-\/$>$\mbox{\hyperlink{logs_8txt_a34cca3e72851e2b2f8ca5fafa6bad8c2}{documento}}) \&\&!empty( \$partner-\/$>$\mbox{\hyperlink{logs_8txt_a34cca3e72851e2b2f8ca5fafa6bad8c2}{documento}}))
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}{\$user\+\_\+session}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_a4d44179e4ddbdb4ef58cb6cc50cf5966}{\$lblchange\+\_\+log}} = new \mbox{\hyperlink{classlbl_change_log}{lbl\+Change\+Log}}(\$partner-\/$>$id, \char`\"{}result\char`\"{})
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}{\$modal\+\_\+content}} = new \mbox{\hyperlink{class_modal}{Modal}}(\char`\"{}Listado de Cambios\char`\"{},\char`\"{}frmresult\char`\"{},User\+Data\+::get\+By\+Id(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}))
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}{\$creator\+\_\+user}} =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$partner-\/$>$\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}})
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}{\$webcamdocument}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}{\$webcampayment}} = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})
+\item 
+\mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \mbox{\hyperlink{editpartner_2widget-default_8php_a0bb6510a4dca1fd61a109ca23bc4bdea}{\+\_\+\+\_\+pad11\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{editpartner_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}\label{editpartner_2widget-default_8php_a1660ac8e256763431098fa3ed82cb241}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$creator\_user@{\$creator\_user}}
+\index{\$creator\_user@{\$creator\_user}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$creator\_user}{$creator\_user}}
+{\footnotesize\ttfamily \$creator\+\_\+user =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$partner-\/$>$\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}})}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}\label{editpartner_2widget-default_8php_ab536a0d95f590a75a3a4e3228224e5eb}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$entities@{\$entities}}
+\index{\$entities@{\$entities}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$entities}{$entities}}
+{\footnotesize\ttfamily \$entities =\mbox{\hyperlink{class_entity_data_a6c9baae792d7589c6a035d9c8fbd763e}{Entity\+Data\+::get\+By\+Type}}(\textquotesingle{}Socio\textquotesingle{}, \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a4d44179e4ddbdb4ef58cb6cc50cf5966}\label{editpartner_2widget-default_8php_a4d44179e4ddbdb4ef58cb6cc50cf5966}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$lblchange\_log@{\$lblchange\_log}}
+\index{\$lblchange\_log@{\$lblchange\_log}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$lblchange\_log}{$lblchange\_log}}
+{\footnotesize\ttfamily \$lblchange\+\_\+log = new \mbox{\hyperlink{classlbl_change_log}{lbl\+Change\+Log}}(\$partner-\/$>$id, \char`\"{}result\char`\"{})}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}\label{editpartner_2widget-default_8php_a55bdfd74d6f97bf7fc3a7351015d98b0}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$modal\_content@{\$modal\_content}}
+\index{\$modal\_content@{\$modal\_content}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$modal\_content}{$modal\_content}}
+{\footnotesize\ttfamily \$modal\+\_\+content = new \mbox{\hyperlink{class_modal}{Modal}}(\char`\"{}Listado de Cambios\char`\"{},\char`\"{}frmresult\char`\"{},User\+Data\+::get\+By\+Id(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}))}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a59b949b6977e07083c5b6c14cc870200}\label{editpartner_2widget-default_8php_a59b949b6977e07083c5b6c14cc870200}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$partner@{\$partner}}
+\index{\$partner@{\$partner}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$partner}{$partner}}
+{\footnotesize\ttfamily \$partner =\mbox{\hyperlink{class_result_data_a562ec7062ca1b44ba97dee052b9b63cb}{Result\+Data\+::get\+By\+Id}}(\$id)}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}\label{editpartner_2widget-default_8php_a106864eef4e37f45e7f388b139d6f999}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$user\_session@{\$user\_session}}
+\index{\$user\_session@{\$user\_session}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$user\_session}{$user\_session}}
+{\footnotesize\ttfamily \$user\+\_\+session =\mbox{\hyperlink{class_user_data_a562ec7062ca1b44ba97dee052b9b63cb}{User\+Data\+::get\+By\+Id}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}\label{editpartner_2widget-default_8php_a7500b3c8e343533cba23872b0cb580a4}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcamdocument@{\$webcamdocument}}
+\index{\$webcamdocument@{\$webcamdocument}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcamdocument}{$webcamdocument}}
+{\footnotesize\ttfamily \$webcamdocument = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}document\textquotesingle{})}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}\label{editpartner_2widget-default_8php_a8306d4603f68d1e14531776ce0f1d4b2}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$webcampayment@{\$webcampayment}}
+\index{\$webcampayment@{\$webcampayment}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$webcampayment}{$webcampayment}}
+{\footnotesize\ttfamily \$webcampayment = new \mbox{\hyperlink{class_webcam}{Webcam}}(\textquotesingle{}payment\textquotesingle{})}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a0bb6510a4dca1fd61a109ca23bc4bdea}\label{editpartner_2widget-default_8php_a0bb6510a4dca1fd61a109ca23bc4bdea}} 
+\index{widget-\/default.php@{widget-\/default.php}!\_\_pad11\_\_@{\_\_pad11\_\_}}
+\index{\_\_pad11\_\_@{\_\_pad11\_\_}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\_\_pad11\_\_}{\_\_pad11\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{js_8php_a1839cc90f3f74a515b3d5704cccbe57a}{else}} \+\_\+\+\_\+pad11\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}\label{editpartner_2widget-default_8php_ad67e7aeeafa020916821fa91d7974a68}} 
+\index{widget-\/default.php@{widget-\/default.php}!else@{else}}
+\index{else@{else}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}) \&\& \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}!= \char`\"{}1\char`\"{}) (isset( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]}) \&\&!empty( \$\+\_\+\+G\+ET\mbox{[} \textquotesingle{}id\textquotesingle{}\mbox{]})) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        \mbox{\hyperlink{class_core_a9001bc4a0dfb55dfb4e574f60a35ea71}{Core::redir}}(\textcolor{stringliteral}{"./?view=partners"})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{editpartner_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{editpartner_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
+\mbox{\Hypertarget{editpartner_2widget-default_8php_ae3fd74fbf1aa906e4a01b158603f9717}\label{editpartner_2widget-default_8php_ae3fd74fbf1aa906e4a01b158603f9717}} 
+\index{widget-\/default.php@{widget-\/default.php}!if@{if}}
+\index{if@{if}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(\$partner-\/$>$\mbox{\hyperlink{logs_8txt_a2f4fa9e78cf41b2abe71da21fc48e6c9}{pagado}})}
+

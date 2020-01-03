@@ -1,0 +1,80 @@
+\hypertarget{class_p_h_p_excel___shared___o_l_e___p_p_s___file}{}\doxysection{Referencia de la Clase P\+H\+P\+Excel\+\_\+\+Shared\+\_\+\+O\+L\+E\+\_\+\+P\+P\+S\+\_\+\+File}
+\label{class_p_h_p_excel___shared___o_l_e___p_p_s___file}\index{PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}}
+Diagrama de herencias de P\+H\+P\+Excel\+\_\+\+Shared\+\_\+\+O\+L\+E\+\_\+\+P\+P\+S\+\_\+\+File\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_p_h_p_excel___shared___o_l_e___p_p_s___file}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a4717bbfc70a40a57ee741ed70766c309}{\+\_\+\+\_\+construct}} (\$name)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a4be4055f3361d4800e16bc2e2e38cda6}{init}} ()
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___o_l_e___p_p_s___file_ad117ad2ab651e4adbdced2fdae4116b8}{append}} (\$data)
+\item 
+\mbox{\hyperlink{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a3e5834ff3daeecd091712270886a16fb}{get\+Stream}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Otros miembros heredados}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a4717bbfc70a40a57ee741ed70766c309}\label{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a4717bbfc70a40a57ee741ed70766c309}} 
+\index{PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+The constructor
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$name} & The name of the file (in Unicode) \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Ver también}
+O\+L\+E\+::\+Asc2\+Ucs() 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___o_l_e___p_p_s___file_ad117ad2ab651e4adbdced2fdae4116b8}\label{class_p_h_p_excel___shared___o_l_e___p_p_s___file_ad117ad2ab651e4adbdced2fdae4116b8}} 
+\index{PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}!append@{append}}
+\index{append@{append}!PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily append (\begin{DoxyParamCaption}\item[{}]{\$data }\end{DoxyParamCaption})}
+
+Append data to P\+PS
+
+@access public 
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$data} & The data to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a3e5834ff3daeecd091712270886a16fb}\label{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a3e5834ff3daeecd091712270886a16fb}} 
+\index{PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}!getStream@{getStream}}
+\index{getStream@{getStream}!PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}}
+\doxysubsubsection{\texorpdfstring{getStream()}{getStream()}}
+{\footnotesize\ttfamily get\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a stream for reading this file using fread() etc. \begin{DoxyReturn}{Devuelve}
+resource a read-\/only stream 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a4be4055f3361d4800e16bc2e2e38cda6}\label{class_p_h_p_excel___shared___o_l_e___p_p_s___file_a4be4055f3361d4800e16bc2e2e38cda6}} 
+\index{PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}!init@{init}}
+\index{init@{init}!PHPExcel\_Shared\_OLE\_PPS\_File@{PHPExcel\_Shared\_OLE\_PPS\_File}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialization method. Has to be called right after O\+L\+E\+\_\+\+P\+P\+S\+\_\+\+File().
+
+@access public \begin{DoxyReturn}{Devuelve}
+mixed true on success 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/\+O\+L\+E/\+P\+P\+S/File.\+php\end{DoxyCompactItemize}

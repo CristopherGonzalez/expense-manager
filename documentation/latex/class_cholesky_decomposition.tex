@@ -1,0 +1,75 @@
+\hypertarget{class_cholesky_decomposition}{}\doxysection{Referencia de la Clase Cholesky\+Decomposition}
+\label{class_cholesky_decomposition}\index{CholeskyDecomposition@{CholeskyDecomposition}}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cholesky_decomposition_a98fa74f0e24b1b022f45c8045a1e37f6}{\+\_\+\+\_\+construct}} (\$A=null)
+\item 
+\mbox{\hyperlink{class_cholesky_decomposition_a3652555569db19ec6853ec67dfc90806}{is\+S\+PD}} ()
+\item 
+\mbox{\hyperlink{class_cholesky_decomposition_abc0103e71858811a94d8eeeb4b55a764}{getL}} ()
+\item 
+\mbox{\hyperlink{class_cholesky_decomposition_a4f4ddfa8c70b6072c9d52de11e62497c}{solve}} (\$B=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_cholesky_decomposition_a98fa74f0e24b1b022f45c8045a1e37f6}\label{class_cholesky_decomposition_a98fa74f0e24b1b022f45c8045a1e37f6}} 
+\index{CholeskyDecomposition@{CholeskyDecomposition}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!CholeskyDecomposition@{CholeskyDecomposition}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$A = {\ttfamily null} }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_cholesky_decomposition}{Cholesky\+Decomposition}}
+
+Class constructor -\/ decomposes symmetric positive definite matrix 
+\begin{DoxyParams}{Parámetros}
+{\em mixed} & Matrix square symmetric positive definite matrix \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_cholesky_decomposition_abc0103e71858811a94d8eeeb4b55a764}\label{class_cholesky_decomposition_abc0103e71858811a94d8eeeb4b55a764}} 
+\index{CholeskyDecomposition@{CholeskyDecomposition}!getL@{getL}}
+\index{getL@{getL}!CholeskyDecomposition@{CholeskyDecomposition}}
+\doxysubsubsection{\texorpdfstring{getL()}{getL()}}
+{\footnotesize\ttfamily getL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+getL
+
+Return triangular factor. \begin{DoxyReturn}{Devuelve}
+Matrix Lower triangular matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cholesky_decomposition_a3652555569db19ec6853ec67dfc90806}\label{class_cholesky_decomposition_a3652555569db19ec6853ec67dfc90806}} 
+\index{CholeskyDecomposition@{CholeskyDecomposition}!isSPD@{isSPD}}
+\index{isSPD@{isSPD}!CholeskyDecomposition@{CholeskyDecomposition}}
+\doxysubsubsection{\texorpdfstring{isSPD()}{isSPD()}}
+{\footnotesize\ttfamily is\+S\+PD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is the matrix symmetric and positive definite?
+
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cholesky_decomposition_a4f4ddfa8c70b6072c9d52de11e62497c}\label{class_cholesky_decomposition_a4f4ddfa8c70b6072c9d52de11e62497c}} 
+\index{CholeskyDecomposition@{CholeskyDecomposition}!solve@{solve}}
+\index{solve@{solve}!CholeskyDecomposition@{CholeskyDecomposition}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily solve (\begin{DoxyParamCaption}\item[{}]{\$B = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Solve A$\ast$X = B
+
+
+\begin{DoxyParams}{Parámetros}
+{\em \$B} & Row-\/equal matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Matrix L $\ast$ L\textquotesingle{} $\ast$ X = B 
+\end{DoxyReturn}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Shared/\+J\+A\+M\+A/Cholesky\+Decomposition.\+php\end{DoxyCompactItemize}

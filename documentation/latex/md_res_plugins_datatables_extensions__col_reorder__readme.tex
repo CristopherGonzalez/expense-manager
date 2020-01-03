@@ -1,0 +1,28 @@
+Col\+Reorder adds the ability for the end user to click and drag column headers to reorder a table as they see fit, to Data\+Tables. Key features include\+:
+
+
+\begin{DoxyItemize}
+\item Very easy integration with Data\+Tables
+\item Tight integration with all other Data\+Tables plug-\/ins
+\item The ability to exclude the first (or more) column from being movable
+\item Predefine a column order
+\item Save staving integration with Data\+Tables
+\end{DoxyItemize}\hypertarget{md_res_plugins_datatables_extensions__col_reorder__readme_autotoc_md64}{}\doxysection{Installation}\label{md_res_plugins_datatables_extensions__col_reorder__readme_autotoc_md64}
+To use Col\+Reorder, first download Data\+Tables ( \href{http://datatables.net/download}{\texttt{ http\+://datatables.\+net/download}} ) and place the unzipped Col\+Reorder package into a {\ttfamily extensions} directory in the Data\+Tables package. This will allow the pages in the examples to operate correctly. To see the examples running, open the {\ttfamily examples} directory in your web-\/browser.\hypertarget{md_res_plugins_datatables_extensions__col_reorder__readme_autotoc_md65}{}\doxysection{Basic usage}\label{md_res_plugins_datatables_extensions__col_reorder__readme_autotoc_md65}
+Col\+Reorder is initialised using the {\ttfamily \$.fn.\+data\+Table.\+Col\+Reorder} constructor. For example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$(document).ready( function () \{}
+\DoxyCodeLine{    \$('\#example').DataTable();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    new \$.fn.dataTable.ColReorder( table );}
+\DoxyCodeLine{\} );}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_datatables_extensions__col_reorder__readme_autotoc_md66}{}\doxysection{Documentation / support}\label{md_res_plugins_datatables_extensions__col_reorder__readme_autotoc_md66}
+
+\begin{DoxyItemize}
+\item Documentation\+: \href{http://datatables.net/extensions/colreorder/}{\texttt{ http\+://datatables.\+net/extensions/colreorder/}}
+\item Data\+Tables support forums\+: \href{http://datatables.net/forums}{\texttt{ http\+://datatables.\+net/forums}}
+\end{DoxyItemize}\hypertarget{md_res_plugins_datatables_extensions__col_reorder__readme_autotoc_md67}{}\doxysection{Git\+Hub}\label{md_res_plugins_datatables_extensions__col_reorder__readme_autotoc_md67}
+If you fancy getting involved with the development of Col\+Reorder and help make it better, please refer to its Git\+Hub repo\+: \href{https://github.com/DataTables/ColReorder}{\texttt{ https\+://github.\+com/\+Data\+Tables/\+Col\+Reorder}} 

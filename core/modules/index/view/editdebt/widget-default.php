@@ -10,9 +10,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     //query
     $debt=debtsData::getById($id);
     //Se obtienen datos para llenado de desplegables
-    $types=TypeData::getAlldebt();
-    $category=CategorydebtData::getAll($_SESSION["company_id"]);
-    $entities=EntityData::getByType('Egreso', $_SESSION["company_id"]);
+    $types=TypeData::getAllDebts();
+    $entities=EntityData::getByType('Deudas', $_SESSION["company_id"]);
     
 if(!isset($debt) && empty($debt)){
         Core::redir("./?view=debts");
@@ -29,7 +28,7 @@ if(!isset($debt) && empty($debt)){
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1><i class="fa fa-edit"></i>Editar Egreso</h1>
+        <h1><i class="fa fa-edit"></i>Editar Deuda</h1>
     </section>
 
     <!-- Main content -->
@@ -39,7 +38,7 @@ if(!isset($debt) && empty($debt)){
                 <form role="form" method="post" name="upd" id="upd"><!-- form start -->
                     <div class="box box-primary"> <!-- general form elements -->
                         <div class="box-header with-border">
-                            <h3 class="box-title">Editar Egreso</h3>
+                            <h3 class="box-title">Editar Deuda</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group">
@@ -83,27 +82,14 @@ if(!isset($debt) && empty($debt)){
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label for="category" class="control-label">Categoria: </label>
-                                    <select class="form-control  style="width: 100%" name="category" id="category" >
-                                    <?php
-                                        foreach($category as $cat){
-                                    ?>
-                                        <option <?php if($debt->category_id==$cat->id){echo"selected";} ?> value="<?php echo $cat->id; ?>"><?php echo $cat->name; ?></option>
-                                    <?php 
-                                        }
-                                    ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="type_debt" class="control-label">Tipo: </label>
                                     <select class="form-control  style="width: 100%" name="type_debt" id="type_debt" >
                                     <?php
                                         //Se carga datos de tipos de egreso en modal
+                                        $entity_debt = EntityData::getById($debt->entidad);
                                         foreach($types as $type){
                                     ?>
-                                        <option <?php if($debt->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
+                                        <option <?php if($entity_debt->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
                                     <?php 
                                         }
                                     ?>
@@ -168,10 +154,7 @@ if(!isset($debt) && empty($debt)){
                                                 <input type="checkbox" id="paid_out" name="paid_out" class="col-md-1 col-sm-1 col-xs-1" <?php if($debt->pagado){echo "checked";} ?> onchange="change_payment_status(this.checked)"> 
                                                 <label for="paid_out" class="col-md-2 col-sm-4 col-xs-4">Pagado</label>
                                                 <div class="col-md-9 col-sm-7 col-xs-7">
-                                                    <div id="div_pay_with" style="display:none;" class="row">
-                                                        <label for="pay_with"  class="col-md-1 col-sm-1 col-xs-1">con</label>
-                                                        <input type="text" class="col-md-9 col-sm-9 col-xs-9"  style="float:right;" name="pay_with" id="pay_with" placeholder="Tipo de Pago" value="<?php echo $debt->pagado_con; ?>">
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                             
@@ -253,7 +236,7 @@ if(!isset($debt) && empty($debt)){
         event.preventDefault();
         window.setTimeout(function(){
             if (result){
-                window.location.href="./?view=debts";
+                window.location.href="./?view=debt";
             }
         }, 2000);                                                                                                               
     })

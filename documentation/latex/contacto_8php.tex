@@ -1,0 +1,198 @@
+\hypertarget{contacto_8php}{}\doxysection{Referencia del Archivo core/controller/send-\/email/contacto.php}
+\label{contacto_8php}\index{core/controller/send-\/email/contacto.php@{core/controller/send-\/email/contacto.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(!isset(\$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}nombre\char`\"{}\mbox{]})$\vert$$\vert$!isset(\$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}email\char`\"{}\mbox{]})$\vert$$\vert$!isset(\$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}mensaje\char`\"{}\mbox{]})) \mbox{\hyperlink{contacto_8php_a4d65b9ad495e971b60785368436170bf}{\$nombre}} = \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}nombre\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{contacto_8php_ad634f418b20382e2802f80532d76d3cd}{\$email}} = \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}email\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{contacto_8php_a0eb3db09c2634a632fc6f0e97f40b7f5}{\$mensaje}} = \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}mensaje\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{contacto_8php_a188906f2b274316de99ddea7c1d419f1}{\$smtp\+Host}} = \char`\"{}dm000397.\+ferozo.\+com\char`\"{}
+\item 
+\mbox{\hyperlink{contacto_8php_abc9378a6bf334c6636ee1495380c51ea}{\$smtp\+Usuario}} = \char`\"{}no-\/reply@dm000397.\+ferozo.\+com\char`\"{}
+\item 
+\mbox{\hyperlink{contacto_8php_a7e59cbe73b025bcfa10d317b34e80643}{\$smtp\+Clave}} = \char`\"{}A@zf29\+Me\+K\+Vfa\char`\"{}
+\item 
+\mbox{\hyperlink{contacto_8php_a4b006490b4c25db6865ae83298824cc1}{\$email\+Destino}} = \char`\"{}correo\+\_\+destinatario@su\+Dominio.\+com\char`\"{}
+\item 
+\mbox{\hyperlink{contacto_8php_ac409786c163a1974d1e24a6767a95166}{\$mail}} = new \mbox{\hyperlink{class_p_h_p_mailer}{P\+H\+P\+Mailer}}()
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_ade0e27026bbf88bca46c0868cc91fee7}{S\+M\+T\+P\+Auth}} = true
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_aad3e79adeed9c6a965ba49a35e922ba4}{Port}} = 465
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_a2f8d1507d5bc89e70a62441d67603a3c}{S\+M\+T\+P\+Secure}} = \textquotesingle{}ssl\textquotesingle{}
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_a1b34d2724e6453835afe8dd7a004c15b}{Char\+Set}} = \char`\"{}utf-\/8\char`\"{}
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_a92f144f746f497fb1de5ac3d693c6608}{Host}} = \$smtp\+Host
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_a9a8679ff3c39b048e1c5fd32cd552d76}{Username}} = \$smtp\+Usuario
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_a21f975d7845bab063b482a87cc2e59cd}{Password}} = \$smtp\+Clave
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_a27e928a831946596e1b91e83d4abe6e7}{From}} = \$email
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_aa8e9d97f10c520030a63e8c93ba09c66}{From\+Name}} = \$nombre
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_a0e9638a8d3ac1704b1f52a0238ba4666}{Subject}} = \char`\"{}Don\+Web -\/ Ejemplo de formulario de contacto\char`\"{}
+\item 
+\mbox{\hyperlink{contacto_8php_aff5b41c1265d7829a8ad17ed3c7ff9c0}{\$mensaje\+Html}} = nl2br(\$mensaje)
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_ae8ffc366362affca3652a437ff4dbd04}{Body}} = \char`\"{}\{\$mensaje\+Html\} $<$br /$>$$<$br /$>$Formulario de ejemplo. By Don\+Web$<$br /$>$\char`\"{}
+\item 
+\$mail \mbox{\hyperlink{contacto_8php_a8ac3f05567502242fc7ea9b88eb39f03}{Alt\+Body}} = \char`\"{}\{\$mensaje\} \textbackslash{}n\textbackslash{}n Formulario de ejemplo By Don\+Web\char`\"{}
+\item 
+\mbox{\hyperlink{contacto_8php_a37899868fc7cf475214e34be9a7489c7}{\$estado\+Envio}} = \$mail-\/$>$Send()
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(\$estado\+Envio) \mbox{\hyperlink{contacto_8php_a26a7de25d643bcce906a15878c86d018}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{contacto_8php_ad634f418b20382e2802f80532d76d3cd}\label{contacto_8php_ad634f418b20382e2802f80532d76d3cd}} 
+\index{contacto.php@{contacto.php}!\$email@{\$email}}
+\index{\$email@{\$email}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$email}{$email}}
+{\footnotesize\ttfamily \$email = \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}email\char`\"{}\mbox{]}}
+
+\mbox{\Hypertarget{contacto_8php_a4b006490b4c25db6865ae83298824cc1}\label{contacto_8php_a4b006490b4c25db6865ae83298824cc1}} 
+\index{contacto.php@{contacto.php}!\$emailDestino@{\$emailDestino}}
+\index{\$emailDestino@{\$emailDestino}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$emailDestino}{$emailDestino}}
+{\footnotesize\ttfamily \$email\+Destino = \char`\"{}correo\+\_\+destinatario@su\+Dominio.\+com\char`\"{}}
+
+\mbox{\Hypertarget{contacto_8php_a37899868fc7cf475214e34be9a7489c7}\label{contacto_8php_a37899868fc7cf475214e34be9a7489c7}} 
+\index{contacto.php@{contacto.php}!\$estadoEnvio@{\$estadoEnvio}}
+\index{\$estadoEnvio@{\$estadoEnvio}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$estadoEnvio}{$estadoEnvio}}
+{\footnotesize\ttfamily \$estado\+Envio = \$mail-\/$>$Send()}
+
+\mbox{\Hypertarget{contacto_8php_ac409786c163a1974d1e24a6767a95166}\label{contacto_8php_ac409786c163a1974d1e24a6767a95166}} 
+\index{contacto.php@{contacto.php}!\$mail@{\$mail}}
+\index{\$mail@{\$mail}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$mail}{$mail}}
+{\footnotesize\ttfamily \$mail = new \mbox{\hyperlink{class_p_h_p_mailer}{P\+H\+P\+Mailer}}()}
+
+\mbox{\Hypertarget{contacto_8php_a0eb3db09c2634a632fc6f0e97f40b7f5}\label{contacto_8php_a0eb3db09c2634a632fc6f0e97f40b7f5}} 
+\index{contacto.php@{contacto.php}!\$mensaje@{\$mensaje}}
+\index{\$mensaje@{\$mensaje}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$mensaje}{$mensaje}}
+{\footnotesize\ttfamily \$mensaje = \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}mensaje\char`\"{}\mbox{]}}
+
+\mbox{\Hypertarget{contacto_8php_aff5b41c1265d7829a8ad17ed3c7ff9c0}\label{contacto_8php_aff5b41c1265d7829a8ad17ed3c7ff9c0}} 
+\index{contacto.php@{contacto.php}!\$mensajeHtml@{\$mensajeHtml}}
+\index{\$mensajeHtml@{\$mensajeHtml}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$mensajeHtml}{$mensajeHtml}}
+{\footnotesize\ttfamily \$mensaje\+Html = nl2br(\$mensaje)}
+
+\mbox{\Hypertarget{contacto_8php_a4d65b9ad495e971b60785368436170bf}\label{contacto_8php_a4d65b9ad495e971b60785368436170bf}} 
+\index{contacto.php@{contacto.php}!\$nombre@{\$nombre}}
+\index{\$nombre@{\$nombre}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$nombre}{$nombre}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (!isset( \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}nombre\char`\"{}\mbox{]})$\vert$$\vert$!isset( \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}email\char`\"{}\mbox{]})$\vert$$\vert$!isset( \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}mensaje\char`\"{}\mbox{]})) \$nombre = \$\+\_\+\+P\+O\+ST\mbox{[}\char`\"{}nombre\char`\"{}\mbox{]}}
+
+\mbox{\Hypertarget{contacto_8php_a7e59cbe73b025bcfa10d317b34e80643}\label{contacto_8php_a7e59cbe73b025bcfa10d317b34e80643}} 
+\index{contacto.php@{contacto.php}!\$smtpClave@{\$smtpClave}}
+\index{\$smtpClave@{\$smtpClave}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$smtpClave}{$smtpClave}}
+{\footnotesize\ttfamily \$smtp\+Clave = \char`\"{}A@zf29\+Me\+K\+Vfa\char`\"{}}
+
+\mbox{\Hypertarget{contacto_8php_a188906f2b274316de99ddea7c1d419f1}\label{contacto_8php_a188906f2b274316de99ddea7c1d419f1}} 
+\index{contacto.php@{contacto.php}!\$smtpHost@{\$smtpHost}}
+\index{\$smtpHost@{\$smtpHost}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$smtpHost}{$smtpHost}}
+{\footnotesize\ttfamily \$smtp\+Host = \char`\"{}dm000397.\+ferozo.\+com\char`\"{}}
+
+\mbox{\Hypertarget{contacto_8php_abc9378a6bf334c6636ee1495380c51ea}\label{contacto_8php_abc9378a6bf334c6636ee1495380c51ea}} 
+\index{contacto.php@{contacto.php}!\$smtpUsuario@{\$smtpUsuario}}
+\index{\$smtpUsuario@{\$smtpUsuario}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{\$smtpUsuario}{$smtpUsuario}}
+{\footnotesize\ttfamily \$smtp\+Usuario = \char`\"{}no-\/reply@dm000397.\+ferozo.\+com\char`\"{}}
+
+\mbox{\Hypertarget{contacto_8php_a8ac3f05567502242fc7ea9b88eb39f03}\label{contacto_8php_a8ac3f05567502242fc7ea9b88eb39f03}} 
+\index{contacto.php@{contacto.php}!AltBody@{AltBody}}
+\index{AltBody@{AltBody}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{AltBody}{AltBody}}
+{\footnotesize\ttfamily \$mail Alt\+Body = \char`\"{}\{\$mensaje\} \textbackslash{}n\textbackslash{}n Formulario de ejemplo By Don\+Web\char`\"{}}
+
+\mbox{\Hypertarget{contacto_8php_ae8ffc366362affca3652a437ff4dbd04}\label{contacto_8php_ae8ffc366362affca3652a437ff4dbd04}} 
+\index{contacto.php@{contacto.php}!Body@{Body}}
+\index{Body@{Body}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{Body}{Body}}
+{\footnotesize\ttfamily \$mail Body = \char`\"{}\{\$mensaje\+Html\} $<$br /$>$$<$br /$>$Formulario de ejemplo. By Don\+Web$<$br /$>$\char`\"{}}
+
+\mbox{\Hypertarget{contacto_8php_a1b34d2724e6453835afe8dd7a004c15b}\label{contacto_8php_a1b34d2724e6453835afe8dd7a004c15b}} 
+\index{contacto.php@{contacto.php}!CharSet@{CharSet}}
+\index{CharSet@{CharSet}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{CharSet}{CharSet}}
+{\footnotesize\ttfamily \$mail Char\+Set = \char`\"{}utf-\/8\char`\"{}}
+
+\mbox{\Hypertarget{contacto_8php_a26a7de25d643bcce906a15878c86d018}\label{contacto_8php_a26a7de25d643bcce906a15878c86d018}} 
+\index{contacto.php@{contacto.php}!else@{else}}
+\index{else@{else}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} ( \$estado\+Envio) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    echo \textcolor{stringliteral}{"Ocurrió un error inesperado."}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{contacto_8php_a27e928a831946596e1b91e83d4abe6e7}\label{contacto_8php_a27e928a831946596e1b91e83d4abe6e7}} 
+\index{contacto.php@{contacto.php}!From@{From}}
+\index{From@{From}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{From}{From}}
+{\footnotesize\ttfamily \$mail From = \$email}
+
+\mbox{\Hypertarget{contacto_8php_aa8e9d97f10c520030a63e8c93ba09c66}\label{contacto_8php_aa8e9d97f10c520030a63e8c93ba09c66}} 
+\index{contacto.php@{contacto.php}!FromName@{FromName}}
+\index{FromName@{FromName}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{FromName}{FromName}}
+{\footnotesize\ttfamily \$mail From\+Name = \$nombre}
+
+\mbox{\Hypertarget{contacto_8php_a92f144f746f497fb1de5ac3d693c6608}\label{contacto_8php_a92f144f746f497fb1de5ac3d693c6608}} 
+\index{contacto.php@{contacto.php}!Host@{Host}}
+\index{Host@{Host}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{Host}{Host}}
+{\footnotesize\ttfamily \$mail Host = \$smtp\+Host}
+
+\mbox{\Hypertarget{contacto_8php_a21f975d7845bab063b482a87cc2e59cd}\label{contacto_8php_a21f975d7845bab063b482a87cc2e59cd}} 
+\index{contacto.php@{contacto.php}!Password@{Password}}
+\index{Password@{Password}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{Password}{Password}}
+{\footnotesize\ttfamily \$mail Password = \$smtp\+Clave}
+
+\mbox{\Hypertarget{contacto_8php_aad3e79adeed9c6a965ba49a35e922ba4}\label{contacto_8php_aad3e79adeed9c6a965ba49a35e922ba4}} 
+\index{contacto.php@{contacto.php}!Port@{Port}}
+\index{Port@{Port}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{Port}{Port}}
+{\footnotesize\ttfamily \$mail Port = 465}
+
+\mbox{\Hypertarget{contacto_8php_ade0e27026bbf88bca46c0868cc91fee7}\label{contacto_8php_ade0e27026bbf88bca46c0868cc91fee7}} 
+\index{contacto.php@{contacto.php}!SMTPAuth@{SMTPAuth}}
+\index{SMTPAuth@{SMTPAuth}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{SMTPAuth}{SMTPAuth}}
+{\footnotesize\ttfamily \$mail S\+M\+T\+P\+Auth = true}
+
+\mbox{\Hypertarget{contacto_8php_a2f8d1507d5bc89e70a62441d67603a3c}\label{contacto_8php_a2f8d1507d5bc89e70a62441d67603a3c}} 
+\index{contacto.php@{contacto.php}!SMTPSecure@{SMTPSecure}}
+\index{SMTPSecure@{SMTPSecure}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{SMTPSecure}{SMTPSecure}}
+{\footnotesize\ttfamily \$mail S\+M\+T\+P\+Secure = \textquotesingle{}ssl\textquotesingle{}}
+
+\mbox{\Hypertarget{contacto_8php_a0e9638a8d3ac1704b1f52a0238ba4666}\label{contacto_8php_a0e9638a8d3ac1704b1f52a0238ba4666}} 
+\index{contacto.php@{contacto.php}!Subject@{Subject}}
+\index{Subject@{Subject}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{Subject}{Subject}}
+{\footnotesize\ttfamily \$mail Subject = \char`\"{}Don\+Web -\/ Ejemplo de formulario de contacto\char`\"{}}
+
+\mbox{\Hypertarget{contacto_8php_a9a8679ff3c39b048e1c5fd32cd552d76}\label{contacto_8php_a9a8679ff3c39b048e1c5fd32cd552d76}} 
+\index{contacto.php@{contacto.php}!Username@{Username}}
+\index{Username@{Username}!contacto.php@{contacto.php}}
+\doxysubsubsection{\texorpdfstring{Username}{Username}}
+{\footnotesize\ttfamily \$mail Username = \$smtp\+Usuario}
+

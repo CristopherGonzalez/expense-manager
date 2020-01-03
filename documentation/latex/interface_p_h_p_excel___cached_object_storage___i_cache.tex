@@ -1,0 +1,216 @@
+\hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache}{}\doxysection{Referencia de la Interfaz P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+I\+Cache}
+\label{interface_p_h_p_excel___cached_object_storage___i_cache}\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+Diagrama de herencias de P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+I\+Cache\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.599369cm]{interface_p_h_p_excel___cached_object_storage___i_cache}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_ad67d427e919ac13624188bcbebc4a1df}{add\+Cache\+Data}} (\$p\+Coord, \mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} \$cell)
+\item 
+\mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_aaafcb8e07935301a37c47bfc463dc705}{update\+Cache\+Data}} (\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} \$cell)
+\item 
+\mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_a7c7ab4b1ed71d38b5d4581f738af52ef}{get\+Cache\+Data}} (\$p\+Coord)
+\item 
+\mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_ac667a16a9911448f38dd87a65edb5938}{delete\+Cache\+Data}} (\$p\+Coord)
+\item 
+\mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_a2e02b8609e589b44981eefd10ddb1dc0}{is\+Data\+Set}} (\$p\+Coord)
+\item 
+\mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_adebf78f21c01b7615cfdcaf2821120f5}{get\+Cell\+List}} ()
+\item 
+\mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_ae2280d20c26e5ec7903d26e34a25c95b}{get\+Sorted\+Cell\+List}} ()
+\item 
+\mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_a51058a2727b1b9ed29e90d69442b61c1}{copy\+Cell\+Collection}} (\mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}} \$parent)
+\end{DoxyCompactItemize}
+\doxysubsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache_aabe032d4401949830fb2df63de941004}{cache\+Method\+Is\+Available}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_ad67d427e919ac13624188bcbebc4a1df}\label{interface_p_h_p_excel___cached_object_storage___i_cache_ad67d427e919ac13624188bcbebc4a1df}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!addCacheData@{addCacheData}}
+\index{addCacheData@{addCacheData}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{addCacheData()}{addCacheData()}}
+{\footnotesize\ttfamily add\+Cache\+Data (\begin{DoxyParamCaption}\item[{}]{\$p\+Coord,  }\item[{\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}}}]{\$cell }\end{DoxyParamCaption})}
+
+Add or Update a cell in cache identified by coordinate address
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Coord} & Coordinate address of the cell to update \\
+\hline
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} & {\em \$cell} & Cell to update \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___exception}{P\+H\+P\+Excel\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementado en \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite3_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite3}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memcache_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memcache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___wincache_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Wincache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___disc_i_s_a_m_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Disc\+I\+S\+AM}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___a_p_c_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+A\+PC}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___p_h_p_temp_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+P\+H\+P\+Temp}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___igbinary_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Igbinary}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_g_zip_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory\+G\+Zip}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_serialized_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory\+Serialized}} y \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_ad67d427e919ac13624188bcbebc4a1df}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory}}.
+
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_aabe032d4401949830fb2df63de941004}\label{interface_p_h_p_excel___cached_object_storage___i_cache_aabe032d4401949830fb2df63de941004}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!cacheMethodIsAvailable@{cacheMethodIsAvailable}}
+\index{cacheMethodIsAvailable@{cacheMethodIsAvailable}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{cacheMethodIsAvailable()}{cacheMethodIsAvailable()}}
+{\footnotesize\ttfamily static cache\+Method\+Is\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Identify whether the caching method is currently available Some methods are dependent on the availability of certain extensions being enabled in the P\+HP build
+
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite3_aabe032d4401949830fb2df63de941004}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite3}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memcache_aabe032d4401949830fb2df63de941004}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memcache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite_aabe032d4401949830fb2df63de941004}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___wincache_aabe032d4401949830fb2df63de941004}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Wincache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___a_p_c_aabe032d4401949830fb2df63de941004}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+A\+PC}} y \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___igbinary_aabe032d4401949830fb2df63de941004}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Igbinary}}.
+
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_a51058a2727b1b9ed29e90d69442b61c1}\label{interface_p_h_p_excel___cached_object_storage___i_cache_a51058a2727b1b9ed29e90d69442b61c1}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!copyCellCollection@{copyCellCollection}}
+\index{copyCellCollection@{copyCellCollection}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{copyCellCollection()}{copyCellCollection()}}
+{\footnotesize\ttfamily copy\+Cell\+Collection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}}}]{\$parent }\end{DoxyParamCaption})}
+
+Clone the cell collection
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\hyperlink{class_p_h_p_excel___worksheet}{P\+H\+P\+Excel\+\_\+\+Worksheet}} & {\em \$parent} & The new worksheet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+void 
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite3_a51058a2727b1b9ed29e90d69442b61c1}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite3}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite_a51058a2727b1b9ed29e90d69442b61c1}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memcache_a51058a2727b1b9ed29e90d69442b61c1}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memcache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___a_p_c_a51058a2727b1b9ed29e90d69442b61c1}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+A\+PC}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___wincache_a51058a2727b1b9ed29e90d69442b61c1}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Wincache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___disc_i_s_a_m_a51058a2727b1b9ed29e90d69442b61c1}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Disc\+I\+S\+AM}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___p_h_p_temp_a51058a2727b1b9ed29e90d69442b61c1}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+P\+H\+P\+Temp}} y \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_a51058a2727b1b9ed29e90d69442b61c1}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory}}.
+
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_ac667a16a9911448f38dd87a65edb5938}\label{interface_p_h_p_excel___cached_object_storage___i_cache_ac667a16a9911448f38dd87a65edb5938}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!deleteCacheData@{deleteCacheData}}
+\index{deleteCacheData@{deleteCacheData}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{deleteCacheData()}{deleteCacheData()}}
+{\footnotesize\ttfamily delete\+Cache\+Data (\begin{DoxyParamCaption}\item[{}]{\$p\+Coord }\end{DoxyParamCaption})}
+
+Delete a cell in cache identified by coordinate address
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Coord} & Coordinate address of the cell to delete \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___exception}{P\+H\+P\+Excel\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementado en \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memcache_ac667a16a9911448f38dd87a65edb5938}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memcache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___wincache_ac667a16a9911448f38dd87a65edb5938}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Wincache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___a_p_c_ac667a16a9911448f38dd87a65edb5938}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+A\+PC}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite3_ac667a16a9911448f38dd87a65edb5938}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite3}} y \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite_ac667a16a9911448f38dd87a65edb5938}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite}}.
+
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_a7c7ab4b1ed71d38b5d4581f738af52ef}\label{interface_p_h_p_excel___cached_object_storage___i_cache_a7c7ab4b1ed71d38b5d4581f738af52ef}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!getCacheData@{getCacheData}}
+\index{getCacheData@{getCacheData}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{getCacheData()}{getCacheData()}}
+{\footnotesize\ttfamily get\+Cache\+Data (\begin{DoxyParamCaption}\item[{}]{\$p\+Coord }\end{DoxyParamCaption})}
+
+Fetch a cell from cache identified by coordinate address
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Coord} & Coordinate address of the cell to retrieve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} Cell that was found, or null if not found 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___exception}{P\+H\+P\+Excel\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implementado en \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memcache_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memcache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___a_p_c_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+A\+PC}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___wincache_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Wincache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite3_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite3}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___disc_i_s_a_m_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Disc\+I\+S\+AM}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___p_h_p_temp_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+P\+H\+P\+Temp}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___igbinary_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Igbinary}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_g_zip_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory\+G\+Zip}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_serialized_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory\+Serialized}} y \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_a7c7ab4b1ed71d38b5d4581f738af52ef}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory}}.
+
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_adebf78f21c01b7615cfdcaf2821120f5}\label{interface_p_h_p_excel___cached_object_storage___i_cache_adebf78f21c01b7615cfdcaf2821120f5}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!getCellList@{getCellList}}
+\index{getCellList@{getCellList}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{getCellList()}{getCellList()}}
+{\footnotesize\ttfamily get\+Cell\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} a list of all cell addresses currently held in cache
+
+\begin{DoxyReturn}{Devuelve}
+string\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite3_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite3}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memcache_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memcache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___wincache_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Wincache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___a_p_c_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+A\+PC}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___disc_i_s_a_m_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Disc\+I\+S\+AM}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___p_h_p_temp_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+P\+H\+P\+Temp}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___igbinary_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Igbinary}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_g_zip_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory\+G\+Zip}} y \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memory_serialized_adebf78f21c01b7615cfdcaf2821120f5}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memory\+Serialized}}.
+
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_ae2280d20c26e5ec7903d26e34a25c95b}\label{interface_p_h_p_excel___cached_object_storage___i_cache_ae2280d20c26e5ec7903d26e34a25c95b}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!getSortedCellList@{getSortedCellList}}
+\index{getSortedCellList@{getSortedCellList}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{getSortedCellList()}{getSortedCellList()}}
+{\footnotesize\ttfamily get\+Sorted\+Cell\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_get}{Get}} the list of all cell addresses currently held in cache sorted by column and row
+
+\begin{DoxyReturn}{Devuelve}
+string\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_a2e02b8609e589b44981eefd10ddb1dc0}\label{interface_p_h_p_excel___cached_object_storage___i_cache_a2e02b8609e589b44981eefd10ddb1dc0}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!isDataSet@{isDataSet}}
+\index{isDataSet@{isDataSet}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{isDataSet()}{isDataSet()}}
+{\footnotesize\ttfamily is\+Data\+Set (\begin{DoxyParamCaption}\item[{}]{\$p\+Coord }\end{DoxyParamCaption})}
+
+Is a value set in the current \mbox{\hyperlink{interface_p_h_p_excel___cached_object_storage___i_cache}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+I\+Cache}} for an indexed cell?
+
+
+\begin{DoxyParams}[1]{Parámetros}
+string & {\em \$p\+Coord} & Coordinate address of the cell to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+boolean 
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite3_a2e02b8609e589b44981eefd10ddb1dc0}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite3}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___s_q_lite_a2e02b8609e589b44981eefd10ddb1dc0}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+S\+Q\+Lite}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___memcache_a2e02b8609e589b44981eefd10ddb1dc0}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Memcache}}, \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___a_p_c_a2e02b8609e589b44981eefd10ddb1dc0}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+A\+PC}} y \mbox{\hyperlink{class_p_h_p_excel___cached_object_storage___wincache_a2e02b8609e589b44981eefd10ddb1dc0}{P\+H\+P\+Excel\+\_\+\+Cached\+Object\+Storage\+\_\+\+Wincache}}.
+
+\mbox{\Hypertarget{interface_p_h_p_excel___cached_object_storage___i_cache_aaafcb8e07935301a37c47bfc463dc705}\label{interface_p_h_p_excel___cached_object_storage___i_cache_aaafcb8e07935301a37c47bfc463dc705}} 
+\index{PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}!updateCacheData@{updateCacheData}}
+\index{updateCacheData@{updateCacheData}!PHPExcel\_CachedObjectStorage\_ICache@{PHPExcel\_CachedObjectStorage\_ICache}}
+\doxysubsubsection{\texorpdfstring{updateCacheData()}{updateCacheData()}}
+{\footnotesize\ttfamily update\+Cache\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}}}]{\$cell }\end{DoxyParamCaption})}
+
+Add or Update a cell in cache
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} & {\em \$cell} & Cell to update \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+\mbox{\hyperlink{class_p_h_p_excel___cell}{P\+H\+P\+Excel\+\_\+\+Cell}} 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Excepciones}
+{\em \mbox{\hyperlink{class_p_h_p_excel___exception}{P\+H\+P\+Excel\+\_\+\+Exception}}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+La documentación para este interfaz fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+reports/\+Classes/\+P\+H\+P\+Excel/\+Cached\+Object\+Storage/I\+Cache.\+php\end{DoxyCompactItemize}

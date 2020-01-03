@@ -1,0 +1,31 @@
+When making use of Data\+Tables\textquotesingle{} x-\/axis scrolling feature ({\ttfamily scrollX}), you may wish to fix the left or right most columns in place. This plug-\/in for Data\+Tables provides exactly this option (for non-\/scrolling tables, please use the Fixed\+Header plug-\/in, which can fix headers, footers and columns). Key features include\+:
+
+
+\begin{DoxyItemize}
+\item Freezes the left most column to the side of the table
+\item Option to freeze two or more columns
+\item Full integration with Data\+Tables\textquotesingle{} scrolling options
+\end{DoxyItemize}\hypertarget{md_res_plugins_datatables_extensions__fixed_columns__readme_autotoc_md74}{}\doxysection{Installation}\label{md_res_plugins_datatables_extensions__fixed_columns__readme_autotoc_md74}
+To use Fixed\+Columns, first download Data\+Tables ( \href{http://datatables.net/download}{\texttt{ http\+://datatables.\+net/download}} ) and place the unzipped Fixed\+Columns package into a {\ttfamily extensions} directory in the Data\+Tables package. This will allow the pages in the examples to operate correctly. To see the examples running, open the {\ttfamily examples} directory in your web-\/browser.\hypertarget{md_res_plugins_datatables_extensions__fixed_columns__readme_autotoc_md75}{}\doxysection{Basic usage}\label{md_res_plugins_datatables_extensions__fixed_columns__readme_autotoc_md75}
+Fixed\+Columns is initialised using the {\ttfamily \$.fn.\+data\+Table.\+Fixed\+Columns()} constructor. For example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$(document).ready(function() \{}
+\DoxyCodeLine{    var table = \$('\#example').DataTable( \{}
+\DoxyCodeLine{        scrollY:        "300px",}
+\DoxyCodeLine{        scrollX:        true,}
+\DoxyCodeLine{        scrollCollapse: true,}
+\DoxyCodeLine{        paging:         false}
+\DoxyCodeLine{    \} );}
+\DoxyCodeLine{}
+\DoxyCodeLine{    new \$.fn.dataTable.FixedColumns( table );}
+\DoxyCodeLine{\} );}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_datatables_extensions__fixed_columns__readme_autotoc_md76}{}\doxysection{Documentation / support}\label{md_res_plugins_datatables_extensions__fixed_columns__readme_autotoc_md76}
+
+\begin{DoxyItemize}
+\item Documentation\+: \href{http://datatables.net/extensions/FixedColumns/}{\texttt{ http\+://datatables.\+net/extensions/\+Fixed\+Columns/}}
+\item Data\+Tables support forums\+: \href{http://datatables.net/forums}{\texttt{ http\+://datatables.\+net/forums}}
+\end{DoxyItemize}\hypertarget{md_res_plugins_datatables_extensions__fixed_columns__readme_autotoc_md77}{}\doxysection{Git\+Hub}\label{md_res_plugins_datatables_extensions__fixed_columns__readme_autotoc_md77}
+If you fancy getting involved with the development of Fixed\+Columns and help make it better, please refer to its Git\+Hub repo\+: \href{https://github.com/DataTables/FixedColumns}{\texttt{ https\+://github.\+com/\+Data\+Tables/\+Fixed\+Columns}} 

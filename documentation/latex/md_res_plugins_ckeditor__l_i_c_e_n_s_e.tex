@@ -1,0 +1,1390 @@
+C\+K\+Editor -\/ The text editor for Internet -\/ \href{http://ckeditor.com}{\texttt{ http\+://ckeditor.\+com}} Copyright (c) 2003-\/2016, C\+K\+Source -\/ Frederico Knabben. All rights reserved.
+
+Licensed under the terms of any of the following licenses at your choice\+:
+
+
+\begin{DoxyItemize}
+\item G\+NU General Public License Version 2 or later (the \char`\"{}\+G\+P\+L\char`\"{}) \href{http://www.gnu.org/licenses/gpl.html}{\texttt{ http\+://www.\+gnu.\+org/licenses/gpl.\+html}} (See Appendix A)
+\item G\+NU Lesser General Public License Version 2.\+1 or later (the \char`\"{}\+L\+G\+P\+L\char`\"{}) \href{http://www.gnu.org/licenses/lgpl.html}{\texttt{ http\+://www.\+gnu.\+org/licenses/lgpl.\+html}} (See Appendix B)
+\item Mozilla Public License Version 1.\+1 or later (the \char`\"{}\+M\+P\+L\char`\"{}) \href{http://www.mozilla.org/MPL/MPL-1.1.html}{\texttt{ http\+://www.\+mozilla.\+org/\+M\+P\+L/\+M\+P\+L-\/1.\+1.\+html}} (See Appendix C)
+\end{DoxyItemize}
+
+You are not required to, but if you want to explicitly declare the license you have chosen to be bound to when using, reproducing, modifying and distributing this software, just include a text file titled \char`\"{}legal.\+txt\char`\"{} in your version of this software, indicating your license choice. In any case, your choice will not restrict any recipient of your version of this software to use, reproduce, modify and distribute this software under any of the above licenses.\hypertarget{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md39}{}\doxysection{Sources of Intellectual Property Included in C\+K\+Editor}\label{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md39}
+Where not otherwise indicated, all C\+K\+Editor content is authored by C\+K\+Source engineers and consists of C\+K\+Source-\/owned intellectual property. In some specific instances, C\+K\+Editor will incorporate work done by developers outside of C\+K\+Source with their express permission.
+
+The following libraries are included in C\+K\+Editor under the M\+IT license (see Appendix D)\+:
+
+
+\begin{DoxyItemize}
+\item C\+K\+Source Samples Framework (included in the samples) -\/ Copyright (c) 2014-\/2016, C\+K\+Source -\/ Frederico Knabben.
+\item Pico\+Modal (included in {\ttfamily samples/js/sf.\+js}) -\/ Copyright (c) 2012 James Frasca.
+\item Code\+Mirror (included in the samples) -\/ Copyright (C) 2014 by Marijn Haverbeke \href{mailto:marijnh@gmail.com}{\texttt{ marijnh@gmail.\+com}} and others.
+\end{DoxyItemize}
+
+Parts of code taken from the following libraries are included in C\+K\+Editor under the M\+IT license (see Appendix D)\+:
+
+
+\begin{DoxyItemize}
+\item j\+Query (inspired the dom\+Ready function, ckeditor\+\_\+base.\+js) -\/ Copyright (c) 2011 John Resig, \href{http://jquery.com/}{\texttt{ http\+://jquery.\+com/}}
+\end{DoxyItemize}
+
+The following libraries are included in C\+K\+Editor under the S\+IL Open Font License, Version 1.\+1 (see Appendix E)\+:
+
+
+\begin{DoxyItemize}
+\item Font Awesome (included in the toolbar configurator) -\/ Copyright (C) 2012 by Dave Gandy.
+\end{DoxyItemize}
+
+The following libraries are included in C\+K\+Editor under the B\+S\+D-\/3 License (see Appendix F)\+:
+
+
+\begin{DoxyItemize}
+\item highlight.\+js (included in the {\ttfamily codesnippet} plugin) -\/ Copyright (c) 2006, Ivan Sagalaev.
+\item Y\+UI Library (included in the {\ttfamily uicolor} plugin) -\/ Copyright (c) 2009, Yahoo! Inc.
+\end{DoxyItemize}\hypertarget{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md40}{}\doxysection{Trademarks}\label{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md40}
+C\+K\+Editor is a trademark of C\+K\+Source -\/ Frederico Knabben. All other brand and product names are trademarks, registered trademarks or service marks of their respective holders.
+
+\DoxyHorRuler{0}
+\hypertarget{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md42}{}\doxysection{Appendix A\+: The G\+P\+L License}\label{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md42}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GNU GENERAL PUBLIC LICENSE}
+\DoxyCodeLine{Version 2, June 1991}
+\DoxyCodeLine{}
+\DoxyCodeLine{ Copyright (C) 1989, 1991 Free Software Foundation, Inc.,}
+\DoxyCodeLine{ 51 Franklin Street, Fifth Floor, Boston, MA 02110-\/1301 USA}
+\DoxyCodeLine{ Everyone is permitted to copy and distribute verbatim copies}
+\DoxyCodeLine{ of this license document, but changing it is not allowed.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Preamble}
+\DoxyCodeLine{}
+\DoxyCodeLine{  The licenses for most software are designed to take away your}
+\DoxyCodeLine{freedom to share and change it.  By contrast, the GNU General Public}
+\DoxyCodeLine{License is intended to guarantee your freedom to share and change free}
+\DoxyCodeLine{software-\/to make sure the software is free for all its users.  This}
+\DoxyCodeLine{General Public License applies to most of the Free Software}
+\DoxyCodeLine{Foundation's software and to any other program whose authors commit to}
+\DoxyCodeLine{using it.  (Some other Free Software Foundation software is covered by}
+\DoxyCodeLine{the GNU Lesser General Public License instead.)  You can apply it to}
+\DoxyCodeLine{your programs, too.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  When we speak of free software, we are referring to freedom, not}
+\DoxyCodeLine{price.  Our General Public Licenses are designed to make sure that you}
+\DoxyCodeLine{have the freedom to distribute copies of free software (and charge for}
+\DoxyCodeLine{this service if you wish), that you receive source code or can get it}
+\DoxyCodeLine{if you want it, that you can change the software or use pieces of it}
+\DoxyCodeLine{in new free programs; and that you know you can do these things.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  To protect your rights, we need to make restrictions that forbid}
+\DoxyCodeLine{anyone to deny you these rights or to ask you to surrender the rights.}
+\DoxyCodeLine{These restrictions translate to certain responsibilities for you if you}
+\DoxyCodeLine{distribute copies of the software, or if you modify it.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  For example, if you distribute copies of such a program, whether}
+\DoxyCodeLine{gratis or for a fee, you must give the recipients all the rights that}
+\DoxyCodeLine{you have.  You must make sure that they, too, receive or can get the}
+\DoxyCodeLine{source code.  And you must show them these terms so they know their}
+\DoxyCodeLine{rights.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  We protect your rights with two steps: (1) copyright the software, and}
+\DoxyCodeLine{(2) offer you this license which gives you legal permission to copy,}
+\DoxyCodeLine{distribute and/or modify the software.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Also, for each author's protection and ours, we want to make certain}
+\DoxyCodeLine{that everyone understands that there is no warranty for this free}
+\DoxyCodeLine{software.  If the software is modified by someone else and passed on, we}
+\DoxyCodeLine{want its recipients to know that what they have is not the original, so}
+\DoxyCodeLine{that any problems introduced by others will not reflect on the original}
+\DoxyCodeLine{authors' reputations.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Finally, any free program is threatened constantly by software}
+\DoxyCodeLine{patents.  We wish to avoid the danger that redistributors of a free}
+\DoxyCodeLine{program will individually obtain patent licenses, in effect making the}
+\DoxyCodeLine{program proprietary.  To prevent this, we have made it clear that any}
+\DoxyCodeLine{patent must be licensed for everyone's free use or not licensed at all.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  The precise terms and conditions for copying, distribution and}
+\DoxyCodeLine{modification follow.}
+\DoxyCodeLine{}
+\DoxyCodeLine{GNU GENERAL PUBLIC LICENSE}
+\DoxyCodeLine{TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION}
+\DoxyCodeLine{}
+\DoxyCodeLine{  0. This License applies to any program or other work which contains}
+\DoxyCodeLine{a notice placed by the copyright holder saying it may be distributed}
+\DoxyCodeLine{under the terms of this General Public License.  The "Program", below,}
+\DoxyCodeLine{refers to any such program or work, and a "work based on the Program"}
+\DoxyCodeLine{means either the Program or any derivative work under copyright law:}
+\DoxyCodeLine{that is to say, a work containing the Program or a portion of it,}
+\DoxyCodeLine{either verbatim or with modifications and/or translated into another}
+\DoxyCodeLine{language.  (Hereinafter, translation is included without limitation in}
+\DoxyCodeLine{the term "modification".)  Each licensee is addressed as "you".}
+\DoxyCodeLine{}
+\DoxyCodeLine{Activities other than copying, distribution and modification are not}
+\DoxyCodeLine{covered by this License; they are outside its scope.  The act of}
+\DoxyCodeLine{running the Program is not restricted, and the output from the Program}
+\DoxyCodeLine{is covered only if its contents constitute a work based on the}
+\DoxyCodeLine{Program (independent of having been made by running the Program).}
+\DoxyCodeLine{Whether that is true depends on what the Program does.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  1. You may copy and distribute verbatim copies of the Program's}
+\DoxyCodeLine{source code as you receive it, in any medium, provided that you}
+\DoxyCodeLine{conspicuously and appropriately publish on each copy an appropriate}
+\DoxyCodeLine{copyright notice and disclaimer of warranty; keep intact all the}
+\DoxyCodeLine{notices that refer to this License and to the absence of any warranty;}
+\DoxyCodeLine{and give any other recipients of the Program a copy of this License}
+\DoxyCodeLine{along with the Program.}
+\DoxyCodeLine{}
+\DoxyCodeLine{You may charge a fee for the physical act of transferring a copy, and}
+\DoxyCodeLine{you may at your option offer warranty protection in exchange for a fee.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  2. You may modify your copy or copies of the Program or any portion}
+\DoxyCodeLine{of it, thus forming a work based on the Program, and copy and}
+\DoxyCodeLine{distribute such modifications or work under the terms of Section 1}
+\DoxyCodeLine{above, provided that you also meet all of these conditions:}
+\DoxyCodeLine{}
+\DoxyCodeLine{    a) You must cause the modified files to carry prominent notices}
+\DoxyCodeLine{    stating that you changed the files and the date of any change.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    b) You must cause any work that you distribute or publish, that in}
+\DoxyCodeLine{    whole or in part contains or is derived from the Program or any}
+\DoxyCodeLine{    part thereof, to be licensed as a whole at no charge to all third}
+\DoxyCodeLine{    parties under the terms of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    c) If the modified program normally reads commands interactively}
+\DoxyCodeLine{    when run, you must cause it, when started running for such}
+\DoxyCodeLine{    interactive use in the most ordinary way, to print or display an}
+\DoxyCodeLine{    announcement including an appropriate copyright notice and a}
+\DoxyCodeLine{    notice that there is no warranty (or else, saying that you provide}
+\DoxyCodeLine{    a warranty) and that users may redistribute the program under}
+\DoxyCodeLine{    these conditions, and telling the user how to view a copy of this}
+\DoxyCodeLine{    License.  (Exception: if the Program itself is interactive but}
+\DoxyCodeLine{    does not normally print such an announcement, your work based on}
+\DoxyCodeLine{    the Program is not required to print an announcement.)}
+\DoxyCodeLine{}
+\DoxyCodeLine{These requirements apply to the modified work as a whole.  If}
+\DoxyCodeLine{identifiable sections of that work are not derived from the Program,}
+\DoxyCodeLine{and can be reasonably considered independent and separate works in}
+\DoxyCodeLine{themselves, then this License, and its terms, do not apply to those}
+\DoxyCodeLine{sections when you distribute them as separate works.  But when you}
+\DoxyCodeLine{distribute the same sections as part of a whole which is a work based}
+\DoxyCodeLine{on the Program, the distribution of the whole must be on the terms of}
+\DoxyCodeLine{this License, whose permissions for other licensees extend to the}
+\DoxyCodeLine{entire whole, and thus to each and every part regardless of who wrote it.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Thus, it is not the intent of this section to claim rights or contest}
+\DoxyCodeLine{your rights to work written entirely by you; rather, the intent is to}
+\DoxyCodeLine{exercise the right to control the distribution of derivative or}
+\DoxyCodeLine{collective works based on the Program.}
+\DoxyCodeLine{}
+\DoxyCodeLine{In addition, mere aggregation of another work not based on the Program}
+\DoxyCodeLine{with the Program (or with a work based on the Program) on a volume of}
+\DoxyCodeLine{a storage or distribution medium does not bring the other work under}
+\DoxyCodeLine{the scope of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  3. You may copy and distribute the Program (or a work based on it,}
+\DoxyCodeLine{under Section 2) in object code or executable form under the terms of}
+\DoxyCodeLine{Sections 1 and 2 above provided that you also do one of the following:}
+\DoxyCodeLine{}
+\DoxyCodeLine{    a) Accompany it with the complete corresponding machine-\/readable}
+\DoxyCodeLine{    source code, which must be distributed under the terms of Sections}
+\DoxyCodeLine{    1 and 2 above on a medium customarily used for software interchange; or,}
+\DoxyCodeLine{}
+\DoxyCodeLine{    b) Accompany it with a written offer, valid for at least three}
+\DoxyCodeLine{    years, to give any third party, for a charge no more than your}
+\DoxyCodeLine{    cost of physically performing source distribution, a complete}
+\DoxyCodeLine{    machine-\/readable copy of the corresponding source code, to be}
+\DoxyCodeLine{    distributed under the terms of Sections 1 and 2 above on a medium}
+\DoxyCodeLine{    customarily used for software interchange; or,}
+\DoxyCodeLine{}
+\DoxyCodeLine{    c) Accompany it with the information you received as to the offer}
+\DoxyCodeLine{    to distribute corresponding source code.  (This alternative is}
+\DoxyCodeLine{    allowed only for noncommercial distribution and only if you}
+\DoxyCodeLine{    received the program in object code or executable form with such}
+\DoxyCodeLine{    an offer, in accord with Subsection b above.)}
+\DoxyCodeLine{}
+\DoxyCodeLine{The source code for a work means the preferred form of the work for}
+\DoxyCodeLine{making modifications to it.  For an executable work, complete source}
+\DoxyCodeLine{code means all the source code for all modules it contains, plus any}
+\DoxyCodeLine{associated interface definition files, plus the scripts used to}
+\DoxyCodeLine{control compilation and installation of the executable.  However, as a}
+\DoxyCodeLine{special exception, the source code distributed need not include}
+\DoxyCodeLine{anything that is normally distributed (in either source or binary}
+\DoxyCodeLine{form) with the major components (compiler, kernel, and so on) of the}
+\DoxyCodeLine{operating system on which the executable runs, unless that component}
+\DoxyCodeLine{itself accompanies the executable.}
+\DoxyCodeLine{}
+\DoxyCodeLine{If distribution of executable or object code is made by offering}
+\DoxyCodeLine{access to copy from a designated place, then offering equivalent}
+\DoxyCodeLine{access to copy the source code from the same place counts as}
+\DoxyCodeLine{distribution of the source code, even though third parties are not}
+\DoxyCodeLine{compelled to copy the source along with the object code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  4. You may not copy, modify, sublicense, or distribute the Program}
+\DoxyCodeLine{except as expressly provided under this License.  Any attempt}
+\DoxyCodeLine{otherwise to copy, modify, sublicense or distribute the Program is}
+\DoxyCodeLine{void, and will automatically terminate your rights under this License.}
+\DoxyCodeLine{However, parties who have received copies, or rights, from you under}
+\DoxyCodeLine{this License will not have their licenses terminated so long as such}
+\DoxyCodeLine{parties remain in full compliance.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  5. You are not required to accept this License, since you have not}
+\DoxyCodeLine{signed it.  However, nothing else grants you permission to modify or}
+\DoxyCodeLine{distribute the Program or its derivative works.  These actions are}
+\DoxyCodeLine{prohibited by law if you do not accept this License.  Therefore, by}
+\DoxyCodeLine{modifying or distributing the Program (or any work based on the}
+\DoxyCodeLine{Program), you indicate your acceptance of this License to do so, and}
+\DoxyCodeLine{all its terms and conditions for copying, distributing or modifying}
+\DoxyCodeLine{the Program or works based on it.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  6. Each time you redistribute the Program (or any work based on the}
+\DoxyCodeLine{Program), the recipient automatically receives a license from the}
+\DoxyCodeLine{original licensor to copy, distribute or modify the Program subject to}
+\DoxyCodeLine{these terms and conditions.  You may not impose any further}
+\DoxyCodeLine{restrictions on the recipients' exercise of the rights granted herein.}
+\DoxyCodeLine{You are not responsible for enforcing compliance by third parties to}
+\DoxyCodeLine{this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  7. If, as a consequence of a court judgment or allegation of patent}
+\DoxyCodeLine{infringement or for any other reason (not limited to patent issues),}
+\DoxyCodeLine{conditions are imposed on you (whether by court order, agreement or}
+\DoxyCodeLine{otherwise) that contradict the conditions of this License, they do not}
+\DoxyCodeLine{excuse you from the conditions of this License.  If you cannot}
+\DoxyCodeLine{distribute so as to satisfy simultaneously your obligations under this}
+\DoxyCodeLine{License and any other pertinent obligations, then as a consequence you}
+\DoxyCodeLine{may not distribute the Program at all.  For example, if a patent}
+\DoxyCodeLine{license would not permit royalty-\/free redistribution of the Program by}
+\DoxyCodeLine{all those who receive copies directly or indirectly through you, then}
+\DoxyCodeLine{the only way you could satisfy both it and this License would be to}
+\DoxyCodeLine{refrain entirely from distribution of the Program.}
+\DoxyCodeLine{}
+\DoxyCodeLine{If any portion of this section is held invalid or unenforceable under}
+\DoxyCodeLine{any particular circumstance, the balance of the section is intended to}
+\DoxyCodeLine{apply and the section as a whole is intended to apply in other}
+\DoxyCodeLine{circumstances.}
+\DoxyCodeLine{}
+\DoxyCodeLine{It is not the purpose of this section to induce you to infringe any}
+\DoxyCodeLine{patents or other property right claims or to contest validity of any}
+\DoxyCodeLine{such claims; this section has the sole purpose of protecting the}
+\DoxyCodeLine{integrity of the free software distribution system, which is}
+\DoxyCodeLine{implemented by public license practices.  Many people have made}
+\DoxyCodeLine{generous contributions to the wide range of software distributed}
+\DoxyCodeLine{through that system in reliance on consistent application of that}
+\DoxyCodeLine{system; it is up to the author/donor to decide if he or she is willing}
+\DoxyCodeLine{to distribute software through any other system and a licensee cannot}
+\DoxyCodeLine{impose that choice.}
+\DoxyCodeLine{}
+\DoxyCodeLine{This section is intended to make thoroughly clear what is believed to}
+\DoxyCodeLine{be a consequence of the rest of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  8. If the distribution and/or use of the Program is restricted in}
+\DoxyCodeLine{certain countries either by patents or by copyrighted interfaces, the}
+\DoxyCodeLine{original copyright holder who places the Program under this License}
+\DoxyCodeLine{may add an explicit geographical distribution limitation excluding}
+\DoxyCodeLine{those countries, so that distribution is permitted only in or among}
+\DoxyCodeLine{countries not thus excluded.  In such case, this License incorporates}
+\DoxyCodeLine{the limitation as if written in the body of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  9. The Free Software Foundation may publish revised and/or new versions}
+\DoxyCodeLine{of the General Public License from time to time.  Such new versions will}
+\DoxyCodeLine{be similar in spirit to the present version, but may differ in detail to}
+\DoxyCodeLine{address new problems or concerns.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Each version is given a distinguishing version number.  If the Program}
+\DoxyCodeLine{specifies a version number of this License which applies to it and "any}
+\DoxyCodeLine{later version", you have the option of following the terms and conditions}
+\DoxyCodeLine{either of that version or of any later version published by the Free}
+\DoxyCodeLine{Software Foundation.  If the Program does not specify a version number of}
+\DoxyCodeLine{this License, you may choose any version ever published by the Free Software}
+\DoxyCodeLine{Foundation.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  10. If you wish to incorporate parts of the Program into other free}
+\DoxyCodeLine{programs whose distribution conditions are different, write to the author}
+\DoxyCodeLine{to ask for permission.  For software which is copyrighted by the Free}
+\DoxyCodeLine{Software Foundation, write to the Free Software Foundation; we sometimes}
+\DoxyCodeLine{make exceptions for this.  Our decision will be guided by the two goals}
+\DoxyCodeLine{of preserving the free status of all derivatives of our free software and}
+\DoxyCodeLine{of promoting the sharing and reuse of software generally.}
+\DoxyCodeLine{}
+\DoxyCodeLine{NO WARRANTY}
+\DoxyCodeLine{}
+\DoxyCodeLine{  11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY}
+\DoxyCodeLine{FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN}
+\DoxyCodeLine{OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES}
+\DoxyCodeLine{PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED}
+\DoxyCodeLine{OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}
+\DoxyCodeLine{MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS}
+\DoxyCodeLine{TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE}
+\DoxyCodeLine{PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,}
+\DoxyCodeLine{REPAIR OR CORRECTION.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING}
+\DoxyCodeLine{WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR}
+\DoxyCodeLine{REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,}
+\DoxyCodeLine{INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING}
+\DoxyCodeLine{OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED}
+\DoxyCodeLine{TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY}
+\DoxyCodeLine{YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER}
+\DoxyCodeLine{PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE}
+\DoxyCodeLine{POSSIBILITY OF SUCH DAMAGES.}
+\DoxyCodeLine{}
+\DoxyCodeLine{END OF TERMS AND CONDITIONS}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md43}{}\doxysection{Appendix B\+: The L\+G\+P\+L License}\label{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md43}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GNU LESSER GENERAL PUBLIC LICENSE}
+\DoxyCodeLine{Version 2.1, February 1999}
+\DoxyCodeLine{}
+\DoxyCodeLine{ Copyright (C) 1991, 1999 Free Software Foundation, Inc.}
+\DoxyCodeLine{     59 Temple Place, Suite 330, Boston, MA  02111-\/1307  USA}
+\DoxyCodeLine{ Everyone is permitted to copy and distribute verbatim copies}
+\DoxyCodeLine{ of this license document, but changing it is not allowed.}
+\DoxyCodeLine{}
+\DoxyCodeLine{[This is the first released version of the Lesser GPL.  It also counts}
+\DoxyCodeLine{ as the successor of the GNU Library Public License, version 2, hence}
+\DoxyCodeLine{ the version number 2.1.]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Preamble}
+\DoxyCodeLine{}
+\DoxyCodeLine{  The licenses for most software are designed to take away your}
+\DoxyCodeLine{freedom to share and change it.  By contrast, the GNU General Public}
+\DoxyCodeLine{Licenses are intended to guarantee your freedom to share and change}
+\DoxyCodeLine{free software-\/to make sure the software is free for all its users.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  This license, the Lesser General Public License, applies to some}
+\DoxyCodeLine{specially designated software packages-\/typically libraries-\/of the}
+\DoxyCodeLine{Free Software Foundation and other authors who decide to use it.  You}
+\DoxyCodeLine{can use it too, but we suggest you first think carefully about whether}
+\DoxyCodeLine{this license or the ordinary General Public License is the better}
+\DoxyCodeLine{strategy to use in any particular case, based on the explanations below.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  When we speak of free software, we are referring to freedom of use,}
+\DoxyCodeLine{not price.  Our General Public Licenses are designed to make sure that}
+\DoxyCodeLine{you have the freedom to distribute copies of free software (and charge}
+\DoxyCodeLine{for this service if you wish); that you receive source code or can get}
+\DoxyCodeLine{it if you want it; that you can change the software and use pieces of}
+\DoxyCodeLine{it in new free programs; and that you are informed that you can do}
+\DoxyCodeLine{these things.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  To protect your rights, we need to make restrictions that forbid}
+\DoxyCodeLine{distributors to deny you these rights or to ask you to surrender these}
+\DoxyCodeLine{rights.  These restrictions translate to certain responsibilities for}
+\DoxyCodeLine{you if you distribute copies of the library or if you modify it.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  For example, if you distribute copies of the library, whether gratis}
+\DoxyCodeLine{or for a fee, you must give the recipients all the rights that we gave}
+\DoxyCodeLine{you.  You must make sure that they, too, receive or can get the source}
+\DoxyCodeLine{code.  If you link other code with the library, you must provide}
+\DoxyCodeLine{complete object files to the recipients, so that they can relink them}
+\DoxyCodeLine{with the library after making changes to the library and recompiling}
+\DoxyCodeLine{it.  And you must show them these terms so they know their rights.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  We protect your rights with a two-\/step method: (1) we copyright the}
+\DoxyCodeLine{library, and (2) we offer you this license, which gives you legal}
+\DoxyCodeLine{permission to copy, distribute and/or modify the library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  To protect each distributor, we want to make it very clear that}
+\DoxyCodeLine{there is no warranty for the free library.  Also, if the library is}
+\DoxyCodeLine{modified by someone else and passed on, the recipients should know}
+\DoxyCodeLine{that what they have is not the original version, so that the original}
+\DoxyCodeLine{author's reputation will not be affected by problems that might be}
+\DoxyCodeLine{introduced by others.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Finally, software patents pose a constant threat to the existence of}
+\DoxyCodeLine{any free program.  We wish to make sure that a company cannot}
+\DoxyCodeLine{effectively restrict the users of a free program by obtaining a}
+\DoxyCodeLine{restrictive license from a patent holder.  Therefore, we insist that}
+\DoxyCodeLine{any patent license obtained for a version of the library must be}
+\DoxyCodeLine{consistent with the full freedom of use specified in this license.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Most GNU software, including some libraries, is covered by the}
+\DoxyCodeLine{ordinary GNU General Public License.  This license, the GNU Lesser}
+\DoxyCodeLine{General Public License, applies to certain designated libraries, and}
+\DoxyCodeLine{is quite different from the ordinary General Public License.  We use}
+\DoxyCodeLine{this license for certain libraries in order to permit linking those}
+\DoxyCodeLine{libraries into non-\/free programs.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  When a program is linked with a library, whether statically or using}
+\DoxyCodeLine{a shared library, the combination of the two is legally speaking a}
+\DoxyCodeLine{combined work, a derivative of the original library.  The ordinary}
+\DoxyCodeLine{General Public License therefore permits such linking only if the}
+\DoxyCodeLine{entire combination fits its criteria of freedom.  The Lesser General}
+\DoxyCodeLine{Public License permits more lax criteria for linking other code with}
+\DoxyCodeLine{the library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  We call this license the "Lesser" General Public License because it}
+\DoxyCodeLine{does Less to protect the user's freedom than the ordinary General}
+\DoxyCodeLine{Public License.  It also provides other free software developers Less}
+\DoxyCodeLine{of an advantage over competing non-\/free programs.  These disadvantages}
+\DoxyCodeLine{are the reason we use the ordinary General Public License for many}
+\DoxyCodeLine{libraries.  However, the Lesser license provides advantages in certain}
+\DoxyCodeLine{special circumstances.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  For example, on rare occasions, there may be a special need to}
+\DoxyCodeLine{encourage the widest possible use of a certain library, so that it becomes}
+\DoxyCodeLine{a de-\/facto standard.  To achieve this, non-\/free programs must be}
+\DoxyCodeLine{allowed to use the library.  A more frequent case is that a free}
+\DoxyCodeLine{library does the same job as widely used non-\/free libraries.  In this}
+\DoxyCodeLine{case, there is little to gain by limiting the free library to free}
+\DoxyCodeLine{software only, so we use the Lesser General Public License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  In other cases, permission to use a particular library in non-\/free}
+\DoxyCodeLine{programs enables a greater number of people to use a large body of}
+\DoxyCodeLine{free software.  For example, permission to use the GNU C Library in}
+\DoxyCodeLine{non-\/free programs enables many more people to use the whole GNU}
+\DoxyCodeLine{operating system, as well as its variant, the GNU/Linux operating}
+\DoxyCodeLine{system.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Although the Lesser General Public License is Less protective of the}
+\DoxyCodeLine{users' freedom, it does ensure that the user of a program that is}
+\DoxyCodeLine{linked with the Library has the freedom and the wherewithal to run}
+\DoxyCodeLine{that program using a modified version of the Library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  The precise terms and conditions for copying, distribution and}
+\DoxyCodeLine{modification follow.  Pay close attention to the difference between a}
+\DoxyCodeLine{"work based on the library" and a "work that uses the library".  The}
+\DoxyCodeLine{former contains code derived from the library, whereas the latter must}
+\DoxyCodeLine{be combined with the library in order to run.}
+\DoxyCodeLine{}
+\DoxyCodeLine{GNU LESSER GENERAL PUBLIC LICENSE}
+\DoxyCodeLine{TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION}
+\DoxyCodeLine{}
+\DoxyCodeLine{  0. This License Agreement applies to any software library or other}
+\DoxyCodeLine{program which contains a notice placed by the copyright holder or}
+\DoxyCodeLine{other authorized party saying it may be distributed under the terms of}
+\DoxyCodeLine{this Lesser General Public License (also called "this License").}
+\DoxyCodeLine{Each licensee is addressed as "you".}
+\DoxyCodeLine{}
+\DoxyCodeLine{  A "library" means a collection of software functions and/or data}
+\DoxyCodeLine{prepared so as to be conveniently linked with application programs}
+\DoxyCodeLine{(which use some of those functions and data) to form executables.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  The "Library", below, refers to any such software library or work}
+\DoxyCodeLine{which has been distributed under these terms.  A "work based on the}
+\DoxyCodeLine{Library" means either the Library or any derivative work under}
+\DoxyCodeLine{copyright law: that is to say, a work containing the Library or a}
+\DoxyCodeLine{portion of it, either verbatim or with modifications and/or translated}
+\DoxyCodeLine{straightforwardly into another language.  (Hereinafter, translation is}
+\DoxyCodeLine{included without limitation in the term "modification".)}
+\DoxyCodeLine{}
+\DoxyCodeLine{  "Source code" for a work means the preferred form of the work for}
+\DoxyCodeLine{making modifications to it.  For a library, complete source code means}
+\DoxyCodeLine{all the source code for all modules it contains, plus any associated}
+\DoxyCodeLine{interface definition files, plus the scripts used to control compilation}
+\DoxyCodeLine{and installation of the library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Activities other than copying, distribution and modification are not}
+\DoxyCodeLine{covered by this License; they are outside its scope.  The act of}
+\DoxyCodeLine{running a program using the Library is not restricted, and output from}
+\DoxyCodeLine{such a program is covered only if its contents constitute a work based}
+\DoxyCodeLine{on the Library (independent of the use of the Library in a tool for}
+\DoxyCodeLine{writing it).  Whether that is true depends on what the Library does}
+\DoxyCodeLine{and what the program that uses the Library does.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  1. You may copy and distribute verbatim copies of the Library's}
+\DoxyCodeLine{complete source code as you receive it, in any medium, provided that}
+\DoxyCodeLine{you conspicuously and appropriately publish on each copy an}
+\DoxyCodeLine{appropriate copyright notice and disclaimer of warranty; keep intact}
+\DoxyCodeLine{all the notices that refer to this License and to the absence of any}
+\DoxyCodeLine{warranty; and distribute a copy of this License along with the}
+\DoxyCodeLine{Library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  You may charge a fee for the physical act of transferring a copy,}
+\DoxyCodeLine{and you may at your option offer warranty protection in exchange for a}
+\DoxyCodeLine{fee.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  2. You may modify your copy or copies of the Library or any portion}
+\DoxyCodeLine{of it, thus forming a work based on the Library, and copy and}
+\DoxyCodeLine{distribute such modifications or work under the terms of Section 1}
+\DoxyCodeLine{above, provided that you also meet all of these conditions:}
+\DoxyCodeLine{}
+\DoxyCodeLine{    a) The modified work must itself be a software library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    b) You must cause the files modified to carry prominent notices}
+\DoxyCodeLine{    stating that you changed the files and the date of any change.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    c) You must cause the whole of the work to be licensed at no}
+\DoxyCodeLine{    charge to all third parties under the terms of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    d) If a facility in the modified Library refers to a function or a}
+\DoxyCodeLine{    table of data to be supplied by an application program that uses}
+\DoxyCodeLine{    the facility, other than as an argument passed when the facility}
+\DoxyCodeLine{    is invoked, then you must make a good faith effort to ensure that,}
+\DoxyCodeLine{    in the event an application does not supply such function or}
+\DoxyCodeLine{    table, the facility still operates, and performs whatever part of}
+\DoxyCodeLine{    its purpose remains meaningful.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    (For example, a function in a library to compute square roots has}
+\DoxyCodeLine{    a purpose that is entirely well-\/defined independent of the}
+\DoxyCodeLine{    application.  Therefore, Subsection 2d requires that any}
+\DoxyCodeLine{    application-\/supplied function or table used by this function must}
+\DoxyCodeLine{    be optional: if the application does not supply it, the square}
+\DoxyCodeLine{    root function must still compute square roots.)}
+\DoxyCodeLine{}
+\DoxyCodeLine{These requirements apply to the modified work as a whole.  If}
+\DoxyCodeLine{identifiable sections of that work are not derived from the Library,}
+\DoxyCodeLine{and can be reasonably considered independent and separate works in}
+\DoxyCodeLine{themselves, then this License, and its terms, do not apply to those}
+\DoxyCodeLine{sections when you distribute them as separate works.  But when you}
+\DoxyCodeLine{distribute the same sections as part of a whole which is a work based}
+\DoxyCodeLine{on the Library, the distribution of the whole must be on the terms of}
+\DoxyCodeLine{this License, whose permissions for other licensees extend to the}
+\DoxyCodeLine{entire whole, and thus to each and every part regardless of who wrote}
+\DoxyCodeLine{it.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Thus, it is not the intent of this section to claim rights or contest}
+\DoxyCodeLine{your rights to work written entirely by you; rather, the intent is to}
+\DoxyCodeLine{exercise the right to control the distribution of derivative or}
+\DoxyCodeLine{collective works based on the Library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{In addition, mere aggregation of another work not based on the Library}
+\DoxyCodeLine{with the Library (or with a work based on the Library) on a volume of}
+\DoxyCodeLine{a storage or distribution medium does not bring the other work under}
+\DoxyCodeLine{the scope of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  3. You may opt to apply the terms of the ordinary GNU General Public}
+\DoxyCodeLine{License instead of this License to a given copy of the Library.  To do}
+\DoxyCodeLine{this, you must alter all the notices that refer to this License, so}
+\DoxyCodeLine{that they refer to the ordinary GNU General Public License, version 2,}
+\DoxyCodeLine{instead of to this License.  (If a newer version than version 2 of the}
+\DoxyCodeLine{ordinary GNU General Public License has appeared, then you can specify}
+\DoxyCodeLine{that version instead if you wish.)  Do not make any other change in}
+\DoxyCodeLine{these notices.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Once this change is made in a given copy, it is irreversible for}
+\DoxyCodeLine{that copy, so the ordinary GNU General Public License applies to all}
+\DoxyCodeLine{subsequent copies and derivative works made from that copy.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  This option is useful when you wish to copy part of the code of}
+\DoxyCodeLine{the Library into a program that is not a library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  4. You may copy and distribute the Library (or a portion or}
+\DoxyCodeLine{derivative of it, under Section 2) in object code or executable form}
+\DoxyCodeLine{under the terms of Sections 1 and 2 above provided that you accompany}
+\DoxyCodeLine{it with the complete corresponding machine-\/readable source code, which}
+\DoxyCodeLine{must be distributed under the terms of Sections 1 and 2 above on a}
+\DoxyCodeLine{medium customarily used for software interchange.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  If distribution of object code is made by offering access to copy}
+\DoxyCodeLine{from a designated place, then offering equivalent access to copy the}
+\DoxyCodeLine{source code from the same place satisfies the requirement to}
+\DoxyCodeLine{distribute the source code, even though third parties are not}
+\DoxyCodeLine{compelled to copy the source along with the object code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  5. A program that contains no derivative of any portion of the}
+\DoxyCodeLine{Library, but is designed to work with the Library by being compiled or}
+\DoxyCodeLine{linked with it, is called a "work that uses the Library".  Such a}
+\DoxyCodeLine{work, in isolation, is not a derivative work of the Library, and}
+\DoxyCodeLine{therefore falls outside the scope of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  However, linking a "work that uses the Library" with the Library}
+\DoxyCodeLine{creates an executable that is a derivative of the Library (because it}
+\DoxyCodeLine{contains portions of the Library), rather than a "work that uses the}
+\DoxyCodeLine{library".  The executable is therefore covered by this License.}
+\DoxyCodeLine{Section 6 states terms for distribution of such executables.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  When a "work that uses the Library" uses material from a header file}
+\DoxyCodeLine{that is part of the Library, the object code for the work may be a}
+\DoxyCodeLine{derivative work of the Library even though the source code is not.}
+\DoxyCodeLine{Whether this is true is especially significant if the work can be}
+\DoxyCodeLine{linked without the Library, or if the work is itself a library.  The}
+\DoxyCodeLine{threshold for this to be true is not precisely defined by law.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  If such an object file uses only numerical parameters, data}
+\DoxyCodeLine{structure layouts and accessors, and small macros and small inline}
+\DoxyCodeLine{functions (ten lines or less in length), then the use of the object}
+\DoxyCodeLine{file is unrestricted, regardless of whether it is legally a derivative}
+\DoxyCodeLine{work.  (Executables containing this object code plus portions of the}
+\DoxyCodeLine{Library will still fall under Section 6.)}
+\DoxyCodeLine{}
+\DoxyCodeLine{  Otherwise, if the work is a derivative of the Library, you may}
+\DoxyCodeLine{distribute the object code for the work under the terms of Section 6.}
+\DoxyCodeLine{Any executables containing that work also fall under Section 6,}
+\DoxyCodeLine{whether or not they are linked directly with the Library itself.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  6. As an exception to the Sections above, you may also combine or}
+\DoxyCodeLine{link a "work that uses the Library" with the Library to produce a}
+\DoxyCodeLine{work containing portions of the Library, and distribute that work}
+\DoxyCodeLine{under terms of your choice, provided that the terms permit}
+\DoxyCodeLine{modification of the work for the customer's own use and reverse}
+\DoxyCodeLine{engineering for debugging such modifications.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  You must give prominent notice with each copy of the work that the}
+\DoxyCodeLine{Library is used in it and that the Library and its use are covered by}
+\DoxyCodeLine{this License.  You must supply a copy of this License.  If the work}
+\DoxyCodeLine{during execution displays copyright notices, you must include the}
+\DoxyCodeLine{copyright notice for the Library among them, as well as a reference}
+\DoxyCodeLine{directing the user to the copy of this License.  Also, you must do one}
+\DoxyCodeLine{of these things:}
+\DoxyCodeLine{}
+\DoxyCodeLine{    a) Accompany the work with the complete corresponding}
+\DoxyCodeLine{    machine-\/readable source code for the Library including whatever}
+\DoxyCodeLine{    changes were used in the work (which must be distributed under}
+\DoxyCodeLine{    Sections 1 and 2 above); and, if the work is an executable linked}
+\DoxyCodeLine{    with the Library, with the complete machine-\/readable "work that}
+\DoxyCodeLine{    uses the Library", as object code and/or source code, so that the}
+\DoxyCodeLine{    user can modify the Library and then relink to produce a modified}
+\DoxyCodeLine{    executable containing the modified Library.  (It is understood}
+\DoxyCodeLine{    that the user who changes the contents of definitions files in the}
+\DoxyCodeLine{    Library will not necessarily be able to recompile the application}
+\DoxyCodeLine{    to use the modified definitions.)}
+\DoxyCodeLine{}
+\DoxyCodeLine{    b) Use a suitable shared library mechanism for linking with the}
+\DoxyCodeLine{    Library.  A suitable mechanism is one that (1) uses at run time a}
+\DoxyCodeLine{    copy of the library already present on the user's computer system,}
+\DoxyCodeLine{    rather than copying library functions into the executable, and (2)}
+\DoxyCodeLine{    will operate properly with a modified version of the library, if}
+\DoxyCodeLine{    the user installs one, as long as the modified version is}
+\DoxyCodeLine{    interface-\/compatible with the version that the work was made with.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    c) Accompany the work with a written offer, valid for at}
+\DoxyCodeLine{    least three years, to give the same user the materials}
+\DoxyCodeLine{    specified in Subsection 6a, above, for a charge no more}
+\DoxyCodeLine{    than the cost of performing this distribution.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    d) If distribution of the work is made by offering access to copy}
+\DoxyCodeLine{    from a designated place, offer equivalent access to copy the above}
+\DoxyCodeLine{    specified materials from the same place.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    e) Verify that the user has already received a copy of these}
+\DoxyCodeLine{    materials or that you have already sent this user a copy.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  For an executable, the required form of the "work that uses the}
+\DoxyCodeLine{Library" must include any data and utility programs needed for}
+\DoxyCodeLine{reproducing the executable from it.  However, as a special exception,}
+\DoxyCodeLine{the materials to be distributed need not include anything that is}
+\DoxyCodeLine{normally distributed (in either source or binary form) with the major}
+\DoxyCodeLine{components (compiler, kernel, and so on) of the operating system on}
+\DoxyCodeLine{which the executable runs, unless that component itself accompanies}
+\DoxyCodeLine{the executable.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  It may happen that this requirement contradicts the license}
+\DoxyCodeLine{restrictions of other proprietary libraries that do not normally}
+\DoxyCodeLine{accompany the operating system.  Such a contradiction means you cannot}
+\DoxyCodeLine{use both them and the Library together in an executable that you}
+\DoxyCodeLine{distribute.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  7. You may place library facilities that are a work based on the}
+\DoxyCodeLine{Library side-\/by-\/side in a single library together with other library}
+\DoxyCodeLine{facilities not covered by this License, and distribute such a combined}
+\DoxyCodeLine{library, provided that the separate distribution of the work based on}
+\DoxyCodeLine{the Library and of the other library facilities is otherwise}
+\DoxyCodeLine{permitted, and provided that you do these two things:}
+\DoxyCodeLine{}
+\DoxyCodeLine{    a) Accompany the combined library with a copy of the same work}
+\DoxyCodeLine{    based on the Library, uncombined with any other library}
+\DoxyCodeLine{    facilities.  This must be distributed under the terms of the}
+\DoxyCodeLine{    Sections above.}
+\DoxyCodeLine{}
+\DoxyCodeLine{    b) Give prominent notice with the combined library of the fact}
+\DoxyCodeLine{    that part of it is a work based on the Library, and explaining}
+\DoxyCodeLine{    where to find the accompanying uncombined form of the same work.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  8. You may not copy, modify, sublicense, link with, or distribute}
+\DoxyCodeLine{the Library except as expressly provided under this License.  Any}
+\DoxyCodeLine{attempt otherwise to copy, modify, sublicense, link with, or}
+\DoxyCodeLine{distribute the Library is void, and will automatically terminate your}
+\DoxyCodeLine{rights under this License.  However, parties who have received copies,}
+\DoxyCodeLine{or rights, from you under this License will not have their licenses}
+\DoxyCodeLine{terminated so long as such parties remain in full compliance.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  9. You are not required to accept this License, since you have not}
+\DoxyCodeLine{signed it.  However, nothing else grants you permission to modify or}
+\DoxyCodeLine{distribute the Library or its derivative works.  These actions are}
+\DoxyCodeLine{prohibited by law if you do not accept this License.  Therefore, by}
+\DoxyCodeLine{modifying or distributing the Library (or any work based on the}
+\DoxyCodeLine{Library), you indicate your acceptance of this License to do so, and}
+\DoxyCodeLine{all its terms and conditions for copying, distributing or modifying}
+\DoxyCodeLine{the Library or works based on it.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  10. Each time you redistribute the Library (or any work based on the}
+\DoxyCodeLine{Library), the recipient automatically receives a license from the}
+\DoxyCodeLine{original licensor to copy, distribute, link with or modify the Library}
+\DoxyCodeLine{subject to these terms and conditions.  You may not impose any further}
+\DoxyCodeLine{restrictions on the recipients' exercise of the rights granted herein.}
+\DoxyCodeLine{You are not responsible for enforcing compliance by third parties with}
+\DoxyCodeLine{this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  11. If, as a consequence of a court judgment or allegation of patent}
+\DoxyCodeLine{infringement or for any other reason (not limited to patent issues),}
+\DoxyCodeLine{conditions are imposed on you (whether by court order, agreement or}
+\DoxyCodeLine{otherwise) that contradict the conditions of this License, they do not}
+\DoxyCodeLine{excuse you from the conditions of this License.  If you cannot}
+\DoxyCodeLine{distribute so as to satisfy simultaneously your obligations under this}
+\DoxyCodeLine{License and any other pertinent obligations, then as a consequence you}
+\DoxyCodeLine{may not distribute the Library at all.  For example, if a patent}
+\DoxyCodeLine{license would not permit royalty-\/free redistribution of the Library by}
+\DoxyCodeLine{all those who receive copies directly or indirectly through you, then}
+\DoxyCodeLine{the only way you could satisfy both it and this License would be to}
+\DoxyCodeLine{refrain entirely from distribution of the Library.}
+\DoxyCodeLine{}
+\DoxyCodeLine{If any portion of this section is held invalid or unenforceable under any}
+\DoxyCodeLine{particular circumstance, the balance of the section is intended to apply,}
+\DoxyCodeLine{and the section as a whole is intended to apply in other circumstances.}
+\DoxyCodeLine{}
+\DoxyCodeLine{It is not the purpose of this section to induce you to infringe any}
+\DoxyCodeLine{patents or other property right claims or to contest validity of any}
+\DoxyCodeLine{such claims; this section has the sole purpose of protecting the}
+\DoxyCodeLine{integrity of the free software distribution system which is}
+\DoxyCodeLine{implemented by public license practices.  Many people have made}
+\DoxyCodeLine{generous contributions to the wide range of software distributed}
+\DoxyCodeLine{through that system in reliance on consistent application of that}
+\DoxyCodeLine{system; it is up to the author/donor to decide if he or she is willing}
+\DoxyCodeLine{to distribute software through any other system and a licensee cannot}
+\DoxyCodeLine{impose that choice.}
+\DoxyCodeLine{}
+\DoxyCodeLine{This section is intended to make thoroughly clear what is believed to}
+\DoxyCodeLine{be a consequence of the rest of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  12. If the distribution and/or use of the Library is restricted in}
+\DoxyCodeLine{certain countries either by patents or by copyrighted interfaces, the}
+\DoxyCodeLine{original copyright holder who places the Library under this License may add}
+\DoxyCodeLine{an explicit geographical distribution limitation excluding those countries,}
+\DoxyCodeLine{so that distribution is permitted only in or among countries not thus}
+\DoxyCodeLine{excluded.  In such case, this License incorporates the limitation as if}
+\DoxyCodeLine{written in the body of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  13. The Free Software Foundation may publish revised and/or new}
+\DoxyCodeLine{versions of the Lesser General Public License from time to time.}
+\DoxyCodeLine{Such new versions will be similar in spirit to the present version,}
+\DoxyCodeLine{but may differ in detail to address new problems or concerns.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Each version is given a distinguishing version number.  If the Library}
+\DoxyCodeLine{specifies a version number of this License which applies to it and}
+\DoxyCodeLine{"any later version", you have the option of following the terms and}
+\DoxyCodeLine{conditions either of that version or of any later version published by}
+\DoxyCodeLine{the Free Software Foundation.  If the Library does not specify a}
+\DoxyCodeLine{license version number, you may choose any version ever published by}
+\DoxyCodeLine{the Free Software Foundation.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  14. If you wish to incorporate parts of the Library into other free}
+\DoxyCodeLine{programs whose distribution conditions are incompatible with these,}
+\DoxyCodeLine{write to the author to ask for permission.  For software which is}
+\DoxyCodeLine{copyrighted by the Free Software Foundation, write to the Free}
+\DoxyCodeLine{Software Foundation; we sometimes make exceptions for this.  Our}
+\DoxyCodeLine{decision will be guided by the two goals of preserving the free status}
+\DoxyCodeLine{of all derivatives of our free software and of promoting the sharing}
+\DoxyCodeLine{and reuse of software generally.}
+\DoxyCodeLine{}
+\DoxyCodeLine{NO WARRANTY}
+\DoxyCodeLine{}
+\DoxyCodeLine{  15. BECAUSE THE LIBRARY IS LICENSED FREE OF CHARGE, THERE IS NO}
+\DoxyCodeLine{WARRANTY FOR THE LIBRARY, TO THE EXTENT PERMITTED BY APPLICABLE LAW.}
+\DoxyCodeLine{EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR}
+\DoxyCodeLine{OTHER PARTIES PROVIDE THE LIBRARY "AS IS" WITHOUT WARRANTY OF ANY}
+\DoxyCodeLine{KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE}
+\DoxyCodeLine{IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR}
+\DoxyCodeLine{PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE}
+\DoxyCodeLine{LIBRARY IS WITH YOU.  SHOULD THE LIBRARY PROVE DEFECTIVE, YOU ASSUME}
+\DoxyCodeLine{THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.}
+\DoxyCodeLine{}
+\DoxyCodeLine{  16. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN}
+\DoxyCodeLine{WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY}
+\DoxyCodeLine{AND/OR REDISTRIBUTE THE LIBRARY AS PERMITTED ABOVE, BE LIABLE TO YOU}
+\DoxyCodeLine{FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR}
+\DoxyCodeLine{CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE}
+\DoxyCodeLine{LIBRARY (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING}
+\DoxyCodeLine{RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A}
+\DoxyCodeLine{FAILURE OF THE LIBRARY TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF}
+\DoxyCodeLine{SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH}
+\DoxyCodeLine{DAMAGES.}
+\DoxyCodeLine{}
+\DoxyCodeLine{END OF TERMS AND CONDITIONS}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md44}{}\doxysection{Appendix C\+: The M\+P\+L License}\label{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md44}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MOZILLA PUBLIC LICENSE}
+\DoxyCodeLine{Version 1.1}
+\DoxyCodeLine{}
+\DoxyCodeLine{1. Definitions.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.0.1. "Commercial Use" means distribution or otherwise making the}
+\DoxyCodeLine{     Covered Code available to a third party.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.1. "Contributor" means each entity that creates or contributes to}
+\DoxyCodeLine{     the creation of Modifications.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.2. "Contributor Version" means the combination of the Original}
+\DoxyCodeLine{     Code, prior Modifications used by a Contributor, and the Modifications}
+\DoxyCodeLine{     made by that particular Contributor.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.3. "Covered Code" means the Original Code or Modifications or the}
+\DoxyCodeLine{     combination of the Original Code and Modifications, in each case}
+\DoxyCodeLine{     including portions thereof.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.4. "Electronic Distribution Mechanism" means a mechanism generally}
+\DoxyCodeLine{     accepted in the software development community for the electronic}
+\DoxyCodeLine{     transfer of data.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.5. "Executable" means Covered Code in any form other than Source}
+\DoxyCodeLine{     Code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.6. "Initial Developer" means the individual or entity identified}
+\DoxyCodeLine{     as the Initial Developer in the Source Code notice required by Exhibit}
+\DoxyCodeLine{     A.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.7. "Larger Work" means a work which combines Covered Code or}
+\DoxyCodeLine{     portions thereof with code not governed by the terms of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.8. "License" means this document.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.8.1. "Licensable" means having the right to grant, to the maximum}
+\DoxyCodeLine{     extent possible, whether at the time of the initial grant or}
+\DoxyCodeLine{     subsequently acquired, any and all of the rights conveyed herein.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.9. "Modifications" means any addition to or deletion from the}
+\DoxyCodeLine{     substance or structure of either the Original Code or any previous}
+\DoxyCodeLine{     Modifications. When Covered Code is released as a series of files, a}
+\DoxyCodeLine{     Modification is:}
+\DoxyCodeLine{          A. Any addition to or deletion from the contents of a file}
+\DoxyCodeLine{          containing Original Code or previous Modifications.}
+\DoxyCodeLine{}
+\DoxyCodeLine{          B. Any new file that contains any part of the Original Code or}
+\DoxyCodeLine{          previous Modifications.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.10. "Original Code" means Source Code of computer software code}
+\DoxyCodeLine{     which is described in the Source Code notice required by Exhibit A as}
+\DoxyCodeLine{     Original Code, and which, at the time of its release under this}
+\DoxyCodeLine{     License is not already Covered Code governed by this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.10.1. "Patent Claims" means any patent claim(s), now owned or}
+\DoxyCodeLine{     hereafter acquired, including without limitation,  method, process,}
+\DoxyCodeLine{     and apparatus claims, in any patent Licensable by grantor.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.11. "Source Code" means the preferred form of the Covered Code for}
+\DoxyCodeLine{     making modifications to it, including all modules it contains, plus}
+\DoxyCodeLine{     any associated interface definition files, scripts used to control}
+\DoxyCodeLine{     compilation and installation of an Executable, or source code}
+\DoxyCodeLine{     differential comparisons against either the Original Code or another}
+\DoxyCodeLine{     well known, available Covered Code of the Contributor's choice. The}
+\DoxyCodeLine{     Source Code can be in a compressed or archival form, provided the}
+\DoxyCodeLine{     appropriate decompression or de-\/archiving software is widely available}
+\DoxyCodeLine{     for no charge.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     1.12. "You" (or "Your")  means an individual or a legal entity}
+\DoxyCodeLine{     exercising rights under, and complying with all of the terms of, this}
+\DoxyCodeLine{     License or a future version of this License issued under Section 6.1.}
+\DoxyCodeLine{     For legal entities, "You" includes any entity which controls, is}
+\DoxyCodeLine{     controlled by, or is under common control with You. For purposes of}
+\DoxyCodeLine{     this definition, "control" means (a) the power, direct or indirect,}
+\DoxyCodeLine{     to cause the direction or management of such entity, whether by}
+\DoxyCodeLine{     contract or otherwise, or (b) ownership of more than fifty percent}
+\DoxyCodeLine{     (50\%) of the outstanding shares or beneficial ownership of such}
+\DoxyCodeLine{     entity.}
+\DoxyCodeLine{}
+\DoxyCodeLine{2. Source Code License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     2.1. The Initial Developer Grant.}
+\DoxyCodeLine{     The Initial Developer hereby grants You a world-\/wide, royalty-\/free,}
+\DoxyCodeLine{     non-\/exclusive license, subject to third party intellectual property}
+\DoxyCodeLine{     claims:}
+\DoxyCodeLine{          (a)  under intellectual property rights (other than patent or}
+\DoxyCodeLine{          trademark) Licensable by Initial Developer to use, reproduce,}
+\DoxyCodeLine{          modify, display, perform, sublicense and distribute the Original}
+\DoxyCodeLine{          Code (or portions thereof) with or without Modifications, and/or}
+\DoxyCodeLine{          as part of a Larger Work; and}
+\DoxyCodeLine{}
+\DoxyCodeLine{          (b) under Patents Claims infringed by the making, using or}
+\DoxyCodeLine{          selling of Original Code, to make, have made, use, practice,}
+\DoxyCodeLine{          sell, and offer for sale, and/or otherwise dispose of the}
+\DoxyCodeLine{          Original Code (or portions thereof).}
+\DoxyCodeLine{}
+\DoxyCodeLine{          (c) the licenses granted in this Section 2.1(a) and (b) are}
+\DoxyCodeLine{          effective on the date Initial Developer first distributes}
+\DoxyCodeLine{          Original Code under the terms of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{          (d) Notwithstanding Section 2.1(b) above, no patent license is}
+\DoxyCodeLine{          granted: 1) for code that You delete from the Original Code; 2)}
+\DoxyCodeLine{          separate from the Original Code;  or 3) for infringements caused}
+\DoxyCodeLine{          by: i) the modification of the Original Code or ii) the}
+\DoxyCodeLine{          combination of the Original Code with other software or devices.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     2.2. Contributor Grant.}
+\DoxyCodeLine{     Subject to third party intellectual property claims, each Contributor}
+\DoxyCodeLine{     hereby grants You a world-\/wide, royalty-\/free, non-\/exclusive license}
+\DoxyCodeLine{}
+\DoxyCodeLine{          (a)  under intellectual property rights (other than patent or}
+\DoxyCodeLine{          trademark) Licensable by Contributor, to use, reproduce, modify,}
+\DoxyCodeLine{          display, perform, sublicense and distribute the Modifications}
+\DoxyCodeLine{          created by such Contributor (or portions thereof) either on an}
+\DoxyCodeLine{          unmodified basis, with other Modifications, as Covered Code}
+\DoxyCodeLine{          and/or as part of a Larger Work; and}
+\DoxyCodeLine{}
+\DoxyCodeLine{          (b) under Patent Claims infringed by the making, using, or}
+\DoxyCodeLine{          selling of  Modifications made by that Contributor either alone}
+\DoxyCodeLine{          and/or in combination with its Contributor Version (or portions}
+\DoxyCodeLine{          of such combination), to make, use, sell, offer for sale, have}
+\DoxyCodeLine{          made, and/or otherwise dispose of: 1) Modifications made by that}
+\DoxyCodeLine{          Contributor (or portions thereof); and 2) the combination of}
+\DoxyCodeLine{          Modifications made by that Contributor with its Contributor}
+\DoxyCodeLine{          Version (or portions of such combination).}
+\DoxyCodeLine{}
+\DoxyCodeLine{          (c) the licenses granted in Sections 2.2(a) and 2.2(b) are}
+\DoxyCodeLine{          effective on the date Contributor first makes Commercial Use of}
+\DoxyCodeLine{          the Covered Code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{          (d)    Notwithstanding Section 2.2(b) above, no patent license is}
+\DoxyCodeLine{          granted: 1) for any code that Contributor has deleted from the}
+\DoxyCodeLine{          Contributor Version; 2)  separate from the Contributor Version;}
+\DoxyCodeLine{          3)  for infringements caused by: i) third party modifications of}
+\DoxyCodeLine{          Contributor Version or ii)  the combination of Modifications made}
+\DoxyCodeLine{          by that Contributor with other software  (except as part of the}
+\DoxyCodeLine{          Contributor Version) or other devices; or 4) under Patent Claims}
+\DoxyCodeLine{          infringed by Covered Code in the absence of Modifications made by}
+\DoxyCodeLine{          that Contributor.}
+\DoxyCodeLine{}
+\DoxyCodeLine{3. Distribution Obligations.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     3.1. Application of License.}
+\DoxyCodeLine{     The Modifications which You create or to which You contribute are}
+\DoxyCodeLine{     governed by the terms of this License, including without limitation}
+\DoxyCodeLine{     Section 2.2. The Source Code version of Covered Code may be}
+\DoxyCodeLine{     distributed only under the terms of this License or a future version}
+\DoxyCodeLine{     of this License released under Section 6.1, and You must include a}
+\DoxyCodeLine{     copy of this License with every copy of the Source Code You}
+\DoxyCodeLine{     distribute. You may not offer or impose any terms on any Source Code}
+\DoxyCodeLine{     version that alters or restricts the applicable version of this}
+\DoxyCodeLine{     License or the recipients' rights hereunder. However, You may include}
+\DoxyCodeLine{     an additional document offering the additional rights described in}
+\DoxyCodeLine{     Section 3.5.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     3.2. Availability of Source Code.}
+\DoxyCodeLine{     Any Modification which You create or to which You contribute must be}
+\DoxyCodeLine{     made available in Source Code form under the terms of this License}
+\DoxyCodeLine{     either on the same media as an Executable version or via an accepted}
+\DoxyCodeLine{     Electronic Distribution Mechanism to anyone to whom you made an}
+\DoxyCodeLine{     Executable version available; and if made available via Electronic}
+\DoxyCodeLine{     Distribution Mechanism, must remain available for at least twelve (12)}
+\DoxyCodeLine{     months after the date it initially became available, or at least six}
+\DoxyCodeLine{     (6) months after a subsequent version of that particular Modification}
+\DoxyCodeLine{     has been made available to such recipients. You are responsible for}
+\DoxyCodeLine{     ensuring that the Source Code version remains available even if the}
+\DoxyCodeLine{     Electronic Distribution Mechanism is maintained by a third party.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     3.3. Description of Modifications.}
+\DoxyCodeLine{     You must cause all Covered Code to which You contribute to contain a}
+\DoxyCodeLine{     file documenting the changes You made to create that Covered Code and}
+\DoxyCodeLine{     the date of any change. You must include a prominent statement that}
+\DoxyCodeLine{     the Modification is derived, directly or indirectly, from Original}
+\DoxyCodeLine{     Code provided by the Initial Developer and including the name of the}
+\DoxyCodeLine{     Initial Developer in (a) the Source Code, and (b) in any notice in an}
+\DoxyCodeLine{     Executable version or related documentation in which You describe the}
+\DoxyCodeLine{     origin or ownership of the Covered Code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     3.4. Intellectual Property Matters}
+\DoxyCodeLine{          (a) Third Party Claims.}
+\DoxyCodeLine{          If Contributor has knowledge that a license under a third party's}
+\DoxyCodeLine{          intellectual property rights is required to exercise the rights}
+\DoxyCodeLine{          granted by such Contributor under Sections 2.1 or 2.2,}
+\DoxyCodeLine{          Contributor must include a text file with the Source Code}
+\DoxyCodeLine{          distribution titled "LEGAL" which describes the claim and the}
+\DoxyCodeLine{          party making the claim in sufficient detail that a recipient will}
+\DoxyCodeLine{          know whom to contact. If Contributor obtains such knowledge after}
+\DoxyCodeLine{          the Modification is made available as described in Section 3.2,}
+\DoxyCodeLine{          Contributor shall promptly modify the LEGAL file in all copies}
+\DoxyCodeLine{          Contributor makes available thereafter and shall take other steps}
+\DoxyCodeLine{          (such as notifying appropriate mailing lists or newsgroups)}
+\DoxyCodeLine{          reasonably calculated to inform those who received the Covered}
+\DoxyCodeLine{          Code that new knowledge has been obtained.}
+\DoxyCodeLine{}
+\DoxyCodeLine{          (b) Contributor APIs.}
+\DoxyCodeLine{          If Contributor's Modifications include an application programming}
+\DoxyCodeLine{          interface and Contributor has knowledge of patent licenses which}
+\DoxyCodeLine{          are reasonably necessary to implement that API, Contributor must}
+\DoxyCodeLine{          also include this information in the LEGAL file.}
+\DoxyCodeLine{}
+\DoxyCodeLine{               (c)    Representations.}
+\DoxyCodeLine{          Contributor represents that, except as disclosed pursuant to}
+\DoxyCodeLine{          Section 3.4(a) above, Contributor believes that Contributor's}
+\DoxyCodeLine{          Modifications are Contributor's original creation(s) and/or}
+\DoxyCodeLine{          Contributor has sufficient rights to grant the rights conveyed by}
+\DoxyCodeLine{          this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     3.5. Required Notices.}
+\DoxyCodeLine{     You must duplicate the notice in Exhibit A in each file of the Source}
+\DoxyCodeLine{     Code.  If it is not possible to put such notice in a particular Source}
+\DoxyCodeLine{     Code file due to its structure, then You must include such notice in a}
+\DoxyCodeLine{     location (such as a relevant directory) where a user would be likely}
+\DoxyCodeLine{     to look for such a notice.  If You created one or more Modification(s)}
+\DoxyCodeLine{     You may add your name as a Contributor to the notice described in}
+\DoxyCodeLine{     Exhibit A.  You must also duplicate this License in any documentation}
+\DoxyCodeLine{     for the Source Code where You describe recipients' rights or ownership}
+\DoxyCodeLine{     rights relating to Covered Code.  You may choose to offer, and to}
+\DoxyCodeLine{     charge a fee for, warranty, support, indemnity or liability}
+\DoxyCodeLine{     obligations to one or more recipients of Covered Code. However, You}
+\DoxyCodeLine{     may do so only on Your own behalf, and not on behalf of the Initial}
+\DoxyCodeLine{     Developer or any Contributor. You must make it absolutely clear than}
+\DoxyCodeLine{     any such warranty, support, indemnity or liability obligation is}
+\DoxyCodeLine{     offered by You alone, and You hereby agree to indemnify the Initial}
+\DoxyCodeLine{     Developer and every Contributor for any liability incurred by the}
+\DoxyCodeLine{     Initial Developer or such Contributor as a result of warranty,}
+\DoxyCodeLine{     support, indemnity or liability terms You offer.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     3.6. Distribution of Executable Versions.}
+\DoxyCodeLine{     You may distribute Covered Code in Executable form only if the}
+\DoxyCodeLine{     requirements of Section 3.1-\/3.5 have been met for that Covered Code,}
+\DoxyCodeLine{     and if You include a notice stating that the Source Code version of}
+\DoxyCodeLine{     the Covered Code is available under the terms of this License,}
+\DoxyCodeLine{     including a description of how and where You have fulfilled the}
+\DoxyCodeLine{     obligations of Section 3.2. The notice must be conspicuously included}
+\DoxyCodeLine{     in any notice in an Executable version, related documentation or}
+\DoxyCodeLine{     collateral in which You describe recipients' rights relating to the}
+\DoxyCodeLine{     Covered Code. You may distribute the Executable version of Covered}
+\DoxyCodeLine{     Code or ownership rights under a license of Your choice, which may}
+\DoxyCodeLine{     contain terms different from this License, provided that You are in}
+\DoxyCodeLine{     compliance with the terms of this License and that the license for the}
+\DoxyCodeLine{     Executable version does not attempt to limit or alter the recipient's}
+\DoxyCodeLine{     rights in the Source Code version from the rights set forth in this}
+\DoxyCodeLine{     License. If You distribute the Executable version under a different}
+\DoxyCodeLine{     license You must make it absolutely clear that any terms which differ}
+\DoxyCodeLine{     from this License are offered by You alone, not by the Initial}
+\DoxyCodeLine{     Developer or any Contributor. You hereby agree to indemnify the}
+\DoxyCodeLine{     Initial Developer and every Contributor for any liability incurred by}
+\DoxyCodeLine{     the Initial Developer or such Contributor as a result of any such}
+\DoxyCodeLine{     terms You offer.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     3.7. Larger Works.}
+\DoxyCodeLine{     You may create a Larger Work by combining Covered Code with other code}
+\DoxyCodeLine{     not governed by the terms of this License and distribute the Larger}
+\DoxyCodeLine{     Work as a single product. In such a case, You must make sure the}
+\DoxyCodeLine{     requirements of this License are fulfilled for the Covered Code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{4. Inability to Comply Due to Statute or Regulation.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     If it is impossible for You to comply with any of the terms of this}
+\DoxyCodeLine{     License with respect to some or all of the Covered Code due to}
+\DoxyCodeLine{     statute, judicial order, or regulation then You must: (a) comply with}
+\DoxyCodeLine{     the terms of this License to the maximum extent possible; and (b)}
+\DoxyCodeLine{     describe the limitations and the code they affect. Such description}
+\DoxyCodeLine{     must be included in the LEGAL file described in Section 3.4 and must}
+\DoxyCodeLine{     be included with all distributions of the Source Code. Except to the}
+\DoxyCodeLine{     extent prohibited by statute or regulation, such description must be}
+\DoxyCodeLine{     sufficiently detailed for a recipient of ordinary skill to be able to}
+\DoxyCodeLine{     understand it.}
+\DoxyCodeLine{}
+\DoxyCodeLine{5. Application of this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     This License applies to code to which the Initial Developer has}
+\DoxyCodeLine{     attached the notice in Exhibit A and to related Covered Code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{6. Versions of the License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     6.1. New Versions.}
+\DoxyCodeLine{     Netscape Communications Corporation ("Netscape") may publish revised}
+\DoxyCodeLine{     and/or new versions of the License from time to time. Each version}
+\DoxyCodeLine{     will be given a distinguishing version number.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     6.2. Effect of New Versions.}
+\DoxyCodeLine{     Once Covered Code has been published under a particular version of the}
+\DoxyCodeLine{     License, You may always continue to use it under the terms of that}
+\DoxyCodeLine{     version. You may also choose to use such Covered Code under the terms}
+\DoxyCodeLine{     of any subsequent version of the License published by Netscape. No one}
+\DoxyCodeLine{     other than Netscape has the right to modify the terms applicable to}
+\DoxyCodeLine{     Covered Code created under this License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     6.3. Derivative Works.}
+\DoxyCodeLine{     If You create or use a modified version of this License (which you may}
+\DoxyCodeLine{     only do in order to apply it to code which is not already Covered Code}
+\DoxyCodeLine{     governed by this License), You must (a) rename Your license so that}
+\DoxyCodeLine{     the phrases "Mozilla", "MOZILLAPL", "MOZPL", "Netscape",}
+\DoxyCodeLine{     "MPL", "NPL" or any confusingly similar phrase do not appear in your}
+\DoxyCodeLine{     license (except to note that your license differs from this License)}
+\DoxyCodeLine{     and (b) otherwise make it clear that Your version of the license}
+\DoxyCodeLine{     contains terms which differ from the Mozilla Public License and}
+\DoxyCodeLine{     Netscape Public License. (Filling in the name of the Initial}
+\DoxyCodeLine{     Developer, Original Code or Contributor in the notice described in}
+\DoxyCodeLine{     Exhibit A shall not of themselves be deemed to be modifications of}
+\DoxyCodeLine{     this License.)}
+\DoxyCodeLine{}
+\DoxyCodeLine{7. DISCLAIMER OF WARRANTY.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     COVERED CODE IS PROVIDED UNDER THIS LICENSE ON AN "AS IS" BASIS,}
+\DoxyCodeLine{     WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,}
+\DoxyCodeLine{     WITHOUT LIMITATION, WARRANTIES THAT THE COVERED CODE IS FREE OF}
+\DoxyCodeLine{     DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-\/INFRINGING.}
+\DoxyCodeLine{     THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE COVERED CODE}
+\DoxyCodeLine{     IS WITH YOU. SHOULD ANY COVERED CODE PROVE DEFECTIVE IN ANY RESPECT,}
+\DoxyCodeLine{     YOU (NOT THE INITIAL DEVELOPER OR ANY OTHER CONTRIBUTOR) ASSUME THE}
+\DoxyCodeLine{     COST OF ANY NECESSARY SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER}
+\DoxyCodeLine{     OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS LICENSE. NO USE OF}
+\DoxyCodeLine{     ANY COVERED CODE IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER.}
+\DoxyCodeLine{}
+\DoxyCodeLine{8. TERMINATION.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     8.1.  This License and the rights granted hereunder will terminate}
+\DoxyCodeLine{     automatically if You fail to comply with terms herein and fail to cure}
+\DoxyCodeLine{     such breach within 30 days of becoming aware of the breach. All}
+\DoxyCodeLine{     sublicenses to the Covered Code which are properly granted shall}
+\DoxyCodeLine{     survive any termination of this License. Provisions which, by their}
+\DoxyCodeLine{     nature, must remain in effect beyond the termination of this License}
+\DoxyCodeLine{     shall survive.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     8.2.  If You initiate litigation by asserting a patent infringement}
+\DoxyCodeLine{     claim (excluding declatory judgment actions) against Initial Developer}
+\DoxyCodeLine{     or a Contributor (the Initial Developer or Contributor against whom}
+\DoxyCodeLine{     You file such action is referred to as "Participant")  alleging that:}
+\DoxyCodeLine{}
+\DoxyCodeLine{     (a)  such Participant's Contributor Version directly or indirectly}
+\DoxyCodeLine{     infringes any patent, then any and all rights granted by such}
+\DoxyCodeLine{     Participant to You under Sections 2.1 and/or 2.2 of this License}
+\DoxyCodeLine{     shall, upon 60 days notice from Participant terminate prospectively,}
+\DoxyCodeLine{     unless if within 60 days after receipt of notice You either: (i)}
+\DoxyCodeLine{     agree in writing to pay Participant a mutually agreeable reasonable}
+\DoxyCodeLine{     royalty for Your past and future use of Modifications made by such}
+\DoxyCodeLine{     Participant, or (ii) withdraw Your litigation claim with respect to}
+\DoxyCodeLine{     the Contributor Version against such Participant.  If within 60 days}
+\DoxyCodeLine{     of notice, a reasonable royalty and payment arrangement are not}
+\DoxyCodeLine{     mutually agreed upon in writing by the parties or the litigation claim}
+\DoxyCodeLine{     is not withdrawn, the rights granted by Participant to You under}
+\DoxyCodeLine{     Sections 2.1 and/or 2.2 automatically terminate at the expiration of}
+\DoxyCodeLine{     the 60 day notice period specified above.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     (b)  any software, hardware, or device, other than such Participant's}
+\DoxyCodeLine{     Contributor Version, directly or indirectly infringes any patent, then}
+\DoxyCodeLine{     any rights granted to You by such Participant under Sections 2.1(b)}
+\DoxyCodeLine{     and 2.2(b) are revoked effective as of the date You first made, used,}
+\DoxyCodeLine{     sold, distributed, or had made, Modifications made by that}
+\DoxyCodeLine{     Participant.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     8.3.  If You assert a patent infringement claim against Participant}
+\DoxyCodeLine{     alleging that such Participant's Contributor Version directly or}
+\DoxyCodeLine{     indirectly infringes any patent where such claim is resolved (such as}
+\DoxyCodeLine{     by license or settlement) prior to the initiation of patent}
+\DoxyCodeLine{     infringement litigation, then the reasonable value of the licenses}
+\DoxyCodeLine{     granted by such Participant under Sections 2.1 or 2.2 shall be taken}
+\DoxyCodeLine{     into account in determining the amount or value of any payment or}
+\DoxyCodeLine{     license.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     8.4.  In the event of termination under Sections 8.1 or 8.2 above,}
+\DoxyCodeLine{     all end user license agreements (excluding distributors and resellers)}
+\DoxyCodeLine{     which have been validly granted by You or any distributor hereunder}
+\DoxyCodeLine{     prior to termination shall survive termination.}
+\DoxyCodeLine{}
+\DoxyCodeLine{9. LIMITATION OF LIABILITY.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER TORT}
+\DoxyCodeLine{     (INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL YOU, THE INITIAL}
+\DoxyCodeLine{     DEVELOPER, ANY OTHER CONTRIBUTOR, OR ANY DISTRIBUTOR OF COVERED CODE,}
+\DoxyCodeLine{     OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON FOR}
+\DoxyCodeLine{     ANY INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY}
+\DoxyCodeLine{     CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL,}
+\DoxyCodeLine{     WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER}
+\DoxyCodeLine{     COMMERCIAL DAMAGES OR LOSSES, EVEN IF SUCH PARTY SHALL HAVE BEEN}
+\DoxyCodeLine{     INFORMED OF THE POSSIBILITY OF SUCH DAMAGES. THIS LIMITATION OF}
+\DoxyCodeLine{     LIABILITY SHALL NOT APPLY TO LIABILITY FOR DEATH OR PERSONAL INJURY}
+\DoxyCodeLine{     RESULTING FROM SUCH PARTY'S NEGLIGENCE TO THE EXTENT APPLICABLE LAW}
+\DoxyCodeLine{     PROHIBITS SUCH LIMITATION. SOME JURISDICTIONS DO NOT ALLOW THE}
+\DoxyCodeLine{     EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO}
+\DoxyCodeLine{     THIS EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU.}
+\DoxyCodeLine{}
+\DoxyCodeLine{10. U.S. GOVERNMENT END USERS.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     The Covered Code is a "commercial item," as that term is defined in}
+\DoxyCodeLine{     48 C.F.R. 2.101 (Oct. 1995), consisting of "commercial computer}
+\DoxyCodeLine{     software" and "commercial computer software documentation," as such}
+\DoxyCodeLine{     terms are used in 48 C.F.R. 12.212 (Sept. 1995). Consistent with 48}
+\DoxyCodeLine{     C.F.R. 12.212 and 48 C.F.R. 227.7202-\/1 through 227.7202-\/4 (June 1995),}
+\DoxyCodeLine{     all U.S. Government End Users acquire Covered Code with only those}
+\DoxyCodeLine{     rights set forth herein.}
+\DoxyCodeLine{}
+\DoxyCodeLine{11. MISCELLANEOUS.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     This License represents the complete agreement concerning subject}
+\DoxyCodeLine{     matter hereof. If any provision of this License is held to be}
+\DoxyCodeLine{     unenforceable, such provision shall be reformed only to the extent}
+\DoxyCodeLine{     necessary to make it enforceable. This License shall be governed by}
+\DoxyCodeLine{     California law provisions (except to the extent applicable law, if}
+\DoxyCodeLine{     any, provides otherwise), excluding its conflict-\/of-\/law provisions.}
+\DoxyCodeLine{     With respect to disputes in which at least one party is a citizen of,}
+\DoxyCodeLine{     or an entity chartered or registered to do business in the United}
+\DoxyCodeLine{     States of America, any litigation relating to this License shall be}
+\DoxyCodeLine{     subject to the jurisdiction of the Federal Courts of the Northern}
+\DoxyCodeLine{     District of California, with venue lying in Santa Clara County,}
+\DoxyCodeLine{     California, with the losing party responsible for costs, including}
+\DoxyCodeLine{     without limitation, court costs and reasonable attorneys' fees and}
+\DoxyCodeLine{     expenses. The application of the United Nations Convention on}
+\DoxyCodeLine{     Contracts for the International Sale of Goods is expressly excluded.}
+\DoxyCodeLine{     Any law or regulation which provides that the language of a contract}
+\DoxyCodeLine{     shall be construed against the drafter shall not apply to this}
+\DoxyCodeLine{     License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{12. RESPONSIBILITY FOR CLAIMS.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     As between Initial Developer and the Contributors, each party is}
+\DoxyCodeLine{     responsible for claims and damages arising, directly or indirectly,}
+\DoxyCodeLine{     out of its utilization of rights under this License and You agree to}
+\DoxyCodeLine{     work with Initial Developer and Contributors to distribute such}
+\DoxyCodeLine{     responsibility on an equitable basis. Nothing herein is intended or}
+\DoxyCodeLine{     shall be deemed to constitute any admission of liability.}
+\DoxyCodeLine{}
+\DoxyCodeLine{13. MULTIPLE-\/LICENSED CODE.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     Initial Developer may designate portions of the Covered Code as}
+\DoxyCodeLine{     "Multiple-\/Licensed".  "Multiple-\/Licensed" means that the Initial}
+\DoxyCodeLine{     Developer permits you to utilize portions of the Covered Code under}
+\DoxyCodeLine{     Your choice of the NPL or the alternative licenses, if any, specified}
+\DoxyCodeLine{     by the Initial Developer in the file described in Exhibit A.}
+\DoxyCodeLine{}
+\DoxyCodeLine{EXHIBIT A -\/Mozilla Public License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     ``The contents of this file are subject to the Mozilla Public License}
+\DoxyCodeLine{     Version 1.1 (the "License"); you may not use this file except in}
+\DoxyCodeLine{     compliance with the License. You may obtain a copy of the License at}
+\DoxyCodeLine{     http://www.mozilla.org/MPL/}
+\DoxyCodeLine{}
+\DoxyCodeLine{     Software distributed under the License is distributed on an "AS IS"}
+\DoxyCodeLine{     basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the}
+\DoxyCodeLine{     License for the specific language governing rights and limitations}
+\DoxyCodeLine{     under the License.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     The Original Code is \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     The Initial Developer of the Original Code is \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.}
+\DoxyCodeLine{     Portions created by \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ are Copyright (C) \_\_\_\_\_\_}
+\DoxyCodeLine{     \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_. All Rights Reserved.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     Contributor(s): \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.}
+\DoxyCodeLine{}
+\DoxyCodeLine{     Alternatively, the contents of this file may be used under the terms}
+\DoxyCodeLine{     of the \_\_\_\_\_ license (the  "[\_\_\_] License"), in which case the}
+\DoxyCodeLine{     provisions of [\_\_\_\_\_\_] License are applicable instead of those}
+\DoxyCodeLine{     above.  If you wish to allow use of your version of this file only}
+\DoxyCodeLine{     under the terms of the [\_\_\_\_] License and not to allow others to use}
+\DoxyCodeLine{     your version of this file under the MPL, indicate your decision by}
+\DoxyCodeLine{     deleting  the provisions above and replace  them with the notice and}
+\DoxyCodeLine{     other provisions required by the [\_\_\_] License.  If you do not delete}
+\DoxyCodeLine{     the provisions above, a recipient may use your version of this file}
+\DoxyCodeLine{     under either the MPL or the [\_\_\_] License."}
+\DoxyCodeLine{}
+\DoxyCodeLine{     [NOTE: The text of this Exhibit A may differ slightly from the text of}
+\DoxyCodeLine{     the notices in the Source Code files of the Original Code. You should}
+\DoxyCodeLine{     use the text of this Exhibit A rather than the text found in the}
+\DoxyCodeLine{     Original Code Source Code for Your Modifications.]}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md45}{}\doxysection{Appendix D\+: The M\+I\+T License}\label{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md45}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{The MIT License (MIT)}
+\DoxyCodeLine{}
+\DoxyCodeLine{Permission is hereby granted, free of charge, to any person obtaining a copy}
+\DoxyCodeLine{of this software and associated documentation files (the "Software"), to deal}
+\DoxyCodeLine{in the Software without restriction, including without limitation the rights}
+\DoxyCodeLine{to use, copy, modify, merge, publish, distribute, sublicense, and/or sell}
+\DoxyCodeLine{copies of the Software, and to permit persons to whom the Software is}
+\DoxyCodeLine{furnished to do so, subject to the following conditions:}
+\DoxyCodeLine{}
+\DoxyCodeLine{The above copyright notice and this permission notice shall be included in}
+\DoxyCodeLine{all copies or substantial portions of the Software.}
+\DoxyCodeLine{}
+\DoxyCodeLine{THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR}
+\DoxyCodeLine{IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,}
+\DoxyCodeLine{FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE}
+\DoxyCodeLine{AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER}
+\DoxyCodeLine{LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,}
+\DoxyCodeLine{OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN}
+\DoxyCodeLine{THE SOFTWARE.}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md46}{}\doxysection{Appendix E\+: The S\+I\+L Open Font License Version 1.\+1}\label{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md46}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SIL OPEN FONT LICENSE Version 1.1 -\/ 26 February 2007}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{}
+\DoxyCodeLine{PREAMBLE}
+\DoxyCodeLine{The goals of the Open Font License (OFL) are to stimulate worldwide}
+\DoxyCodeLine{development of collaborative font projects, to support the font creation}
+\DoxyCodeLine{efforts of academic and linguistic communities, and to provide a free and}
+\DoxyCodeLine{open framework in which fonts may be shared and improved in partnership}
+\DoxyCodeLine{with others.}
+\DoxyCodeLine{}
+\DoxyCodeLine{The OFL allows the licensed fonts to be used, studied, modified and}
+\DoxyCodeLine{redistributed freely as long as they are not sold by themselves. The}
+\DoxyCodeLine{fonts, including any derivative works, can be bundled, embedded,}
+\DoxyCodeLine{redistributed and/or sold with any software provided that any reserved}
+\DoxyCodeLine{names are not used by derivative works. The fonts and derivatives,}
+\DoxyCodeLine{however, cannot be released under any other type of license. The}
+\DoxyCodeLine{requirement for fonts to remain under this license does not apply}
+\DoxyCodeLine{to any document created using the fonts or their derivatives.}
+\DoxyCodeLine{}
+\DoxyCodeLine{DEFINITIONS}
+\DoxyCodeLine{"Font Software" refers to the set of files released by the Copyright}
+\DoxyCodeLine{Holder(s) under this license and clearly marked as such. This may}
+\DoxyCodeLine{include source files, build scripts and documentation.}
+\DoxyCodeLine{}
+\DoxyCodeLine{"Reserved Font Name" refers to any names specified as such after the}
+\DoxyCodeLine{copyright statement(s).}
+\DoxyCodeLine{}
+\DoxyCodeLine{"Original Version" refers to the collection of Font Software components as}
+\DoxyCodeLine{distributed by the Copyright Holder(s).}
+\DoxyCodeLine{}
+\DoxyCodeLine{"Modified Version" refers to any derivative made by adding to, deleting,}
+\DoxyCodeLine{or substituting -\/-\/ in part or in whole -\/-\/ any of the components of the}
+\DoxyCodeLine{Original Version, by changing formats or by porting the Font Software to a}
+\DoxyCodeLine{new environment.}
+\DoxyCodeLine{}
+\DoxyCodeLine{"Author" refers to any designer, engineer, programmer, technical}
+\DoxyCodeLine{writer or other person who contributed to the Font Software.}
+\DoxyCodeLine{}
+\DoxyCodeLine{PERMISSION \& CONDITIONS}
+\DoxyCodeLine{Permission is hereby granted, free of charge, to any person obtaining}
+\DoxyCodeLine{a copy of the Font Software, to use, study, copy, merge, embed, modify,}
+\DoxyCodeLine{redistribute, and sell modified and unmodified copies of the Font}
+\DoxyCodeLine{Software, subject to the following conditions:}
+\DoxyCodeLine{}
+\DoxyCodeLine{1) Neither the Font Software nor any of its individual components,}
+\DoxyCodeLine{in Original or Modified Versions, may be sold by itself.}
+\DoxyCodeLine{}
+\DoxyCodeLine{2) Original or Modified Versions of the Font Software may be bundled,}
+\DoxyCodeLine{redistributed and/or sold with any software, provided that each copy}
+\DoxyCodeLine{contains the above copyright notice and this license. These can be}
+\DoxyCodeLine{included either as stand-\/alone text files, human-\/readable headers or}
+\DoxyCodeLine{in the appropriate machine-\/readable metadata fields within text or}
+\DoxyCodeLine{binary files as long as those fields can be easily viewed by the user.}
+\DoxyCodeLine{}
+\DoxyCodeLine{3) No Modified Version of the Font Software may use the Reserved Font}
+\DoxyCodeLine{Name(s) unless explicit written permission is granted by the corresponding}
+\DoxyCodeLine{Copyright Holder. This restriction only applies to the primary font name as}
+\DoxyCodeLine{presented to the users.}
+\DoxyCodeLine{}
+\DoxyCodeLine{4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font}
+\DoxyCodeLine{Software shall not be used to promote, endorse or advertise any}
+\DoxyCodeLine{Modified Version, except to acknowledge the contribution(s) of the}
+\DoxyCodeLine{Copyright Holder(s) and the Author(s) or with their explicit written}
+\DoxyCodeLine{permission.}
+\DoxyCodeLine{}
+\DoxyCodeLine{5) The Font Software, modified or unmodified, in part or in whole,}
+\DoxyCodeLine{must be distributed entirely under this license, and must not be}
+\DoxyCodeLine{distributed under any other license. The requirement for fonts to}
+\DoxyCodeLine{remain under this license does not apply to any document created}
+\DoxyCodeLine{using the Font Software.}
+\DoxyCodeLine{}
+\DoxyCodeLine{TERMINATION}
+\DoxyCodeLine{This license becomes null and void if any of the above conditions are}
+\DoxyCodeLine{not met.}
+\DoxyCodeLine{}
+\DoxyCodeLine{DISCLAIMER}
+\DoxyCodeLine{THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,}
+\DoxyCodeLine{EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF}
+\DoxyCodeLine{MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT}
+\DoxyCodeLine{OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE}
+\DoxyCodeLine{COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,}
+\DoxyCodeLine{INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL}
+\DoxyCodeLine{DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING}
+\DoxyCodeLine{FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM}
+\DoxyCodeLine{OTHER DEALINGS IN THE FONT SOFTWARE.}
+\end{DoxyCode}
+\hypertarget{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md47}{}\doxysection{Appendix F\+: The B\+S\+D-\/3 License}\label{md_res_plugins_ckeditor__l_i_c_e_n_s_e_autotoc_md47}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:}
+\DoxyCodeLine{}
+\DoxyCodeLine{1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.}
+\DoxyCodeLine{}
+\DoxyCodeLine{2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.}
+\DoxyCodeLine{}
+\DoxyCodeLine{3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.}
+\DoxyCodeLine{}
+\DoxyCodeLine{THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.}
+\end{DoxyCode}
+ 

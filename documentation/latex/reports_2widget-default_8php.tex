@@ -1,0 +1,78 @@
+\hypertarget{reports_2widget-default_8php}{}\doxysection{Referencia del Archivo core/modules/index/view/reports/widget-\/default.php}
+\label{reports_2widget-default_8php}\index{core/modules/index/view/reports/widget-\/default.php@{core/modules/index/view/reports/widget-\/default.php}}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{reports_2widget-default_8php_a6fc9f808fdc634a3e18f649fca5a5279}{sum\+\_\+incomes\+\_\+month}} (\$month)
+\item 
+\mbox{\hyperlink{reports_2widget-default_8php_a6a01c87e55af99e1623b53e8e2c4aca5}{sum\+\_\+expenses\+\_\+month}} (\$month)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}}(isset( \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]}))(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}==\char`\"{}1\char`\"{}) \mbox{\hyperlink{reports_2widget-default_8php_a0f31d6ff6a04b0fb5cfb2f24ea6cbee3}{\$sum\+Income}} = \mbox{\hyperlink{class_income_data_ab305b569ccb099d2e7ae8846da08f87b}{Income\+Data\+::sum\+Income}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{reports_2widget-default_8php_ae857ead58c424dd8fe4a50960fb08843}{\$sum\+Expenses}} = \mbox{\hyperlink{class_expenses_data_ac332662ae38bb5786c2578938886efaa}{Expenses\+Data\+::sum\+Expenses}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})
+\item 
+\mbox{\hyperlink{reports_2widget-default_8php_a88a8980708982166840708b055e335b8}{\$months}} = array(\char`\"{}Enero\char`\"{}, \char`\"{}Febrero\char`\"{}, \char`\"{}Marzo\char`\"{}, \char`\"{}Abril\char`\"{}, \char`\"{}Mayo\char`\"{}, \char`\"{}Junio\char`\"{}, \char`\"{}Julio\char`\"{}, \char`\"{}Agosto\char`\"{}, \char`\"{}Septiembre\char`\"{}, \char`\"{}Octubre\char`\"{}, \char`\"{}Noviembre\char`\"{}, \char`\"{}Diciembre\char`\"{})
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$months as \$index=$>$ \$month) \mbox{\hyperlink{reports_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}{\$years}} = array(2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025)
+\item 
+\mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}}(\$years as \$year) \mbox{\hyperlink{reports_2widget-default_8php_a86e8c592eaac45adc180779a4163db70}{else}}
+\item 
+\mbox{\hyperlink{reports_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}{endif}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{reports_2widget-default_8php_a6a01c87e55af99e1623b53e8e2c4aca5}\label{reports_2widget-default_8php_a6a01c87e55af99e1623b53e8e2c4aca5}} 
+\index{widget-\/default.php@{widget-\/default.php}!sum\_expenses\_month@{sum\_expenses\_month}}
+\index{sum\_expenses\_month@{sum\_expenses\_month}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{sum\_expenses\_month()}{sum\_expenses\_month()}}
+{\footnotesize\ttfamily sum\+\_\+expenses\+\_\+month (\begin{DoxyParamCaption}\item[{}]{\$month }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{reports_2widget-default_8php_a6fc9f808fdc634a3e18f649fca5a5279}\label{reports_2widget-default_8php_a6fc9f808fdc634a3e18f649fca5a5279}} 
+\index{widget-\/default.php@{widget-\/default.php}!sum\_incomes\_month@{sum\_incomes\_month}}
+\index{sum\_incomes\_month@{sum\_incomes\_month}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{sum\_incomes\_month()}{sum\_incomes\_month()}}
+{\footnotesize\ttfamily sum\+\_\+incomes\+\_\+month (\begin{DoxyParamCaption}\item[{}]{\$month }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{reports_2widget-default_8php_a88a8980708982166840708b055e335b8}\label{reports_2widget-default_8php_a88a8980708982166840708b055e335b8}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$months@{\$months}}
+\index{\$months@{\$months}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$months}{$months}}
+{\footnotesize\ttfamily \$months = array(\char`\"{}Enero\char`\"{}, \char`\"{}Febrero\char`\"{}, \char`\"{}Marzo\char`\"{}, \char`\"{}Abril\char`\"{}, \char`\"{}Mayo\char`\"{}, \char`\"{}Junio\char`\"{}, \char`\"{}Julio\char`\"{}, \char`\"{}Agosto\char`\"{}, \char`\"{}Septiembre\char`\"{}, \char`\"{}Octubre\char`\"{}, \char`\"{}Noviembre\char`\"{}, \char`\"{}Diciembre\char`\"{})}
+
+\mbox{\Hypertarget{reports_2widget-default_8php_ae857ead58c424dd8fe4a50960fb08843}\label{reports_2widget-default_8php_ae857ead58c424dd8fe4a50960fb08843}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$sumExpenses@{\$sumExpenses}}
+\index{\$sumExpenses@{\$sumExpenses}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$sumExpenses}{$sumExpenses}}
+{\footnotesize\ttfamily \$sum\+Expenses = \mbox{\hyperlink{class_expenses_data_ac332662ae38bb5786c2578938886efaa}{Expenses\+Data\+::sum\+Expenses}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{reports_2widget-default_8php_a0f31d6ff6a04b0fb5cfb2f24ea6cbee3}\label{reports_2widget-default_8php_a0f31d6ff6a04b0fb5cfb2f24ea6cbee3}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$sumIncome@{\$sumIncome}}
+\index{\$sumIncome@{\$sumIncome}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$sumIncome}{$sumIncome}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_acffeccb328611def2b209bd4d4a842a7}{if}} (isset(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}user\+\_\+id\char`\"{}\mbox{]})) ( \$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[} \textquotesingle{}\mbox{\hyperlink{logs_8txt_a096cdcbe0f1dd2d5bb245e0eba60a728}{user\+\_\+id}}\textquotesingle{}\mbox{]}==\char`\"{}1\char`\"{}) \$sum\+Income = \mbox{\hyperlink{class_income_data_ab305b569ccb099d2e7ae8846da08f87b}{Income\+Data\+::sum\+Income}}(\$\+\_\+\+S\+E\+S\+S\+I\+ON\mbox{[}\char`\"{}company\+\_\+id\char`\"{}\mbox{]})}
+
+\mbox{\Hypertarget{reports_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}\label{reports_2widget-default_8php_a31f6d8a2bc04eaea6211a486278b1ae5}} 
+\index{widget-\/default.php@{widget-\/default.php}!\$years@{\$years}}
+\index{\$years@{\$years}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{\$years}{$years}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$months as \$index=$>$ \$month) \$years = array(2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025)}
+
+\mbox{\Hypertarget{reports_2widget-default_8php_a86e8c592eaac45adc180779a4163db70}\label{reports_2widget-default_8php_a86e8c592eaac45adc180779a4163db70}} 
+\index{widget-\/default.php@{widget-\/default.php}!else@{else}}
+\index{else@{else}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stock_2widget-default_8php_a2cb3f89524f2cf1414980e6cf4e8ee74}{foreach}} ( \$years as \$year) else}
+
+\mbox{\Hypertarget{reports_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}\label{reports_2widget-default_8php_a82cd33ca97ff99f2fcc5e9c81d65251b}} 
+\index{widget-\/default.php@{widget-\/default.php}!endif@{endif}}
+\index{endif@{endif}!widget-\/default.php@{widget-\/default.php}}
+\doxysubsubsection{\texorpdfstring{endif}{endif}}
+{\footnotesize\ttfamily endif}
+
