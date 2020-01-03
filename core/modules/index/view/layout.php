@@ -101,8 +101,8 @@
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='partners' ){echo "active";}?>">
                                 <a href="?view=partners"><i class="fa fa-users"></i> <span>Socios</span></a>
                             </li>
-                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='stock' ){echo "active";}?>">
-                                <a href="?view=stock"><i class="fa fa-bank"></i> <span>Valores</span></a>
+                            <li class="<?php if(isset($_GET['view']) and $_GET['view']=='stocks' ){echo "active";}?>">
+                                <a href="?view=stocks"><i class="fa fa-bank"></i> <span>Valores</span></a>
                             </li>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='debt' ){echo "active";}?>">
                                 <a href="?view=debt"><i class="fa fa-money"></i> <span>Deudas</span></a>

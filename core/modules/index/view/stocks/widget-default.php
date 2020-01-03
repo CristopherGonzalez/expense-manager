@@ -51,7 +51,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         <select name="type_stock_find" id="type_stock_find" class="form-control" style="width: 100%;" onchange="load(1);">
                             <option value="0">Tipos de Valores</option>
                             <?php
-                                //Se carga con tipos de Valoress
+                                //Se carga con tipos de Valores
                                 foreach($types as $type_stock){
                             ?>
                                 <option value="<?php echo $type_stock->id; ?>"><?php echo $type_stock->name; ?></option>
@@ -92,36 +92,37 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                 <form class="form-horizontal" role="form" method="post" id="add_register" name="add_register" enctype="multipart/form-data"> 
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title" id="myModalLabel"> Nuevo Valor</h4>
+                                        <h4 class="modal-title" id="myModalLabel"> Nueva Valor</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="date" class="col-sm-2 control-label">Fecha</label>
                                             <div class="col-sm-10">
-                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha "  value="<?php echo date("Y-m-d");?>">
+                                                <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha " required value="<?php echo date("Y-m-d");?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="document_number" class="col-sm-2 control-label" style="padding-top:0px !important;">Numero de Documento </label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento">
+                                                <input type="text" class="form-control" id="document_number" name="document_number" required placeholder="Numero de Documento">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="description" class="col-sm-2 control-label">Descripción </label>
                                             <div class="col-sm-10">
-                                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción "></textarea>
+                                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción" required></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="amount" class="col-sm-2 control-label">Importe </label>
                                             <div class="col-sm-10">
-                                                <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                                <input type="number" required class="form-control" id="amount" name="amount" placeholder="Importe" pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <?php 
                                                 $entity_select = new SelectList("entity","Entidad",$entities);
+                                                $entity_select->funjs = "onchange=\"change_entity('type_stock','category');\"";
                                                 echo $entity_select->renderLabel('col-sm-2');
                                             ?>
                                             <div class="col-sm-10">
@@ -165,21 +166,10 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                                 <input type="checkbox" id="paid_out" name="paid_out" value="paid_out" onchange="change_payment_status(this.checked)"> Pagado
                                             </label>
                                             <div id="div_pay_with" style="display:none;">
-                                                <span class="col-md-1 col-sm-1 col-xs-1">
-                                                    <label for="pay_with"> con </label>
+                                                <span class="col-md-3 col-sm-3 col-xs-3">
+                                                    <label for="payment_date" style="float:right;">Fecha de Pago</label>
                                                 </span>
-                                                <span class="col-md-6 col-sm-6 col-xs-6">
-                                                    <input type="text"  class="form-control"  name="pay_with" id="pay_with" placeholder="Tipo de Pago">
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div id="div_pay_date" style="display:none;">
-                                                <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                                <span class="col-md-3 col-sm-3 col-xs-12">
-                                                    <label for="payment_date">Fecha de Pago</label>
-                                                </span>
-                                                <span class="col-md-4 col-sm-4 col-xs-6">
+                                                <span class="col-md-5 col-sm-5 col-xs-5">
                                                     <input type="date" class="form-control" id="payment_date" name="payment_date" value="<?php echo date("Y-m-d");?>">
                                                 </span>
                                             </div>
@@ -266,7 +256,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var month_find = $('#month_find option:selected').val();
         var year_find = $('#year_find option:selected').val();
         var type_stock_find = $('#type_stock_find option:selected').val();
-        var category_find = $('#category_find option:selected').val();
         var find_text = $('#find_text').val();
         var not_paid = $('#not_paid').is(":checked");
         var inactive = $('#inactive').is(":checked");
@@ -277,7 +266,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             'month':month_find,
             'year':year_find,
             'type_stock':type_stock_find,
-            'category':category_find,
             'text':find_text,
             'payment':not_paid,
             'inactive':inactive,
@@ -308,7 +296,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             var month_find = $('#month_find option:selected').val();
             var year_find = $('#year_find option:selected').val();
             var type_stock_find = $('#type_stock_find option:selected').val();
-            var category_find = $('#category_find option:selected').val();
             var find_text = $('#find_text').val();
             var not_paid = $('#not_paid').is(":checked");
             var inactive = $('#inactive').is(":checked");
@@ -321,7 +308,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 'month':month_find,
                 'year':year_find,
                 'type_stock':type_stock_find,
-                'category':category_find,
                 'text':find_text,
                 'payment':not_paid,
                 'inactive':inactive,
