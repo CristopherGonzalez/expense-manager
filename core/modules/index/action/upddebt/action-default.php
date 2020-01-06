@@ -50,12 +50,12 @@ if (!isset($_SESSION['user_id'])){
 
 		if ($query_update){
 			$messages[] = "La deuda ha sido actualizada satisfactoriamente.";
-			//print("<script>window.location='./?view=debts'</script>");
+			//print("<script>window.location='./?view=debt'</script>");
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";
 		}
 		$change_log = new ChangeLogData();
-		$change_log->tabla = "deudas";
+		$change_log->tabla = "debts";
 		$change_log->registro_id = $debt->id;
 		$change_log->description = $debt->description;
 		$change_log->amount = $debt->amount;

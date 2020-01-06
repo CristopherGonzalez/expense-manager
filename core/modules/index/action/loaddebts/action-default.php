@@ -2,13 +2,32 @@
 if (isset($_REQUEST["id"])){//codigo para eliminar 
 	$id=$_REQUEST["id"];
 	$id=intval($id);
-
-	$delete=DebtsData::delete($id);
+	$debt=DebtsData::getById($id);
+	$delete=DebtsData::updateStatus($id,0);
 	if($delete==1){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
 		$classM="alert alert-success";
 		$times="&times;";	
+		$change_log = new ChangeLogData();
+		$change_log->tabla = "debts";
+		$change_log->registro_id = $id;
+		$change_log->description = $debt->description;
+		$change_log->amount = $debt->amount;
+		$change_log->entidad = $debt->entidad;
+		$change_log->fecha = $debt->fecha;
+		$change_log->pagado = $debt->pagado;
+		$change_log->active = 0;
+		$change_log->document_number = $debt->document_number;
+		$change_log->user_id = $debt->user_id;
+		$change_log->payment_date = $debt->fecha_pago;
+
+		$result = $change_log->add();
+		if (isset($result) && !empty($result) && $result[0]){
+			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente";
+		} else{
+			$errors []= " Lo siento algo ha salido mal en el registro de errores.";
+		}
 	}else{
 		$aviso="Aviso!";
 		$msj="Error al eliminar los datos ";
@@ -58,7 +77,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	if(!$not_paid){
 		$sWhere.=" and pagado = ".$not_paid;
 	}
-	$sWhere.=" and active = $inactive ";
+	if($inactive==1){
+		$sWhere.=" and active = $inactive ";
+	}
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	$per_page = intval($_REQUEST['per_page']); //how much records you want to show
@@ -68,7 +89,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$count_query=DebtsData::countQuery($sWhere);
 	$numrows = $count_query->numrows;
 	$total_pages = ceil($numrows/$per_page);
-	$reload = './?view=debts';
+	$reload = './?view=debt';
 	$query=DebtsData::query($sWhere, $offset,$per_page);
 ?>
 <?php 
@@ -107,7 +128,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 
 			$finales++;
 		?>
-		<tr>
+		<tr <?php if($debt->active==0 || !$debt->active ){echo "style='background-color:pink;'"; }?>>
 			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
 			<td><?php if($debt->entidad!=null){echo EntityData::getById($debt->entidad)->name;}else{ echo "<center>----</center>"; }  ?></td>

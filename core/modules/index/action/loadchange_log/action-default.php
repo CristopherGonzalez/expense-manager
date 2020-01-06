@@ -39,6 +39,7 @@
 		<th>Usuario</th>
 		<th>Estado Pago</th>
 		<?php if($table_name !="result"){echo"<th>Documento</th>";} ?>
+		<th>Estado</th>
 		<th>Fecha modificacion</th>
 	</thead>
 	<tbody>
@@ -64,6 +65,7 @@
 			<?php if($table_name !="result"){ ?>
 				<td><?php if(isset($log->document_number) && !empty($log->document_number)){echo $log->document_number; }else{ echo "<center>----</center>"; }  ?></td>
 			<?php } ?>
+			<td><?php if($log->active=="1"){ echo "Activo"; } else { echo "Eliminado"; } ?></td>
 			<td><?php if($log->created_at!=null && isset($log->created_at)){echo $log->created_at; }else{ echo "<center>----</center>"; }  ?></td>
 		</tr>
 		<?php } ?>

@@ -97,6 +97,15 @@ class IncomeData {
 		return Model::one($query[0],new IncomeData());
 
 	}
+	public function updateStatus($id,$status){
+		$sql = "update ".self::$tablename." set active=$status";
+		$sql.=" where id=$id";
+		if (Executor::doit($sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public static function getByEntityId($id){
 		$sql = "select * from ".self::$tablename." where entidad=$id";
 		$query = Executor::doit($sql);

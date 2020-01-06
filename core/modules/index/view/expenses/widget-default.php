@@ -81,7 +81,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     </div>
                     <div class="col-md-4 form-group">
                         <input type="checkbox" id="inactive" name="inactive" onchange="load(1);"> 
-                        <label for="inactive">Ver inactivos</label>
+                        <label for="inactive"><b>Ver eliminados</b></label>
                     </div>
                 </div>
             </div>

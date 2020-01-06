@@ -2,13 +2,32 @@
 if (isset($_REQUEST["id"])){//codigo para eliminar 
 	$id=$_REQUEST["id"];
 	$id=intval($id);
-
-	$delete=ResultData::delete($id);
+	$partner=ResultData::getById($id);
+	$delete=ResultData::updateStatus($id,0);
 	if($delete==1){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
 		$classM="alert alert-success";
 		$times="&times;";	
+		$change_log = new ChangeLogData();
+		$change_log->tabla = "result";
+		$change_log->registro_id = $id;
+		$change_log->description = $partner->description;
+		$change_log->amount = $partner->amount;
+		$change_log->entidad = $partner->entidad;
+		$change_log->fecha = $partner->fecha;
+		$change_log->pagado = $partner->pagado;
+		$change_log->active = 0;
+		$change_log->document_number = $partner->document_number;
+		$change_log->user_id = $partner->user_id;
+		$change_log->payment_date = $partner->payment_date;
+
+		$result = $change_log->add();
+		if (isset($result) && !empty($result) && $result[0]){
+			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente";
+		} else{
+			$errors []= " Lo siento algo ha salido mal en el registro de errores.";
+		}
 	}else{
 		$aviso="Aviso!";
 		$msj="Error al eliminar los datos ";
@@ -41,7 +60,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	if(!$not_paid){
 		$sWhere.=" and pagado = ".$not_paid;
 	}
-	$sWhere.=" and active = $inactive ";
+	if($inactive==1){
+		$sWhere.=" and active = $inactive ";
+	}
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	$per_page = intval($_REQUEST['per_page']); //how much records you want to show
@@ -90,7 +111,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 
 			$finales++;
 		?>
-		<tr>
+		<tr <?php if($partner->active==0 || !$partner->active ){echo "style='background-color:pink;'"; }?>>
 			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
 			<td><?php echo $partner->description; ?></td>

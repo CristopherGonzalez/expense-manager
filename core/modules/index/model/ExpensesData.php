@@ -94,6 +94,15 @@ class ExpensesData {
 			return false;
 		}
 	}
+	public function updateStatus($id,$status){
+		$sql = "update ".self::$tablename." set active=$status";
+		$sql.=" where id=$id";
+		if (Executor::doit($sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public static function getAllCount($u){
 		$sql = "select COUNT(id) as count from ".self::$tablename." where empresa=$u";
 		$query = Executor::doit($sql);

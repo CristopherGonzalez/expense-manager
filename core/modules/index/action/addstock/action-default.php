@@ -32,6 +32,7 @@ if (!isset($_SESSION['user_id'])){
 				'documento' => $_POST["document_image"],
 				'pago' => $_POST["payment_image"],
 				'empresa' => $_SESSION['company_id'],
+				'user_id' => $_SESSION['user_id'],
 				'active' => true);
 			$date_stock = strtotime($_POST['date']);
 			$month = date('m',$date_stock);
@@ -46,25 +47,20 @@ if (!isset($_SESSION['user_id'])){
 			if(isset($entity) && !empty($entity)){
 				$sWhere.=" and entidad = ".$entity;
 			}
-			echo json_encode($object);
-
-
 			$exist_stock = StockData::dinamycQuery($sWhere);
 			if(isset($exist_stock) && !empty($exist_stock)){
-				$object['id']=intval($exist_stock->id);
-				$stock = StockData::getById($id);
-				$query_update=$stock->update();
+				$object['id']=$exist_stock->id;
+				$stock = StockData::getById($object['id']);
 			}else{
-				$con = Database::getCon(); 
 				$stock = new StockData();
-				$query_new=$stock->add();
 			}
-			
-			if (isset($query_new) && is_array($query_new) && $query_new[0]) {
+			$query=$stock->addOrUpdate($object);
+
+			if (isset($query) && is_array($query) && $query[0]) {
 				$messages[] = "El valor ha sido agregada con éxito.\n";
 				$change_log = new ChangeLogData();
 				$change_log->tabla = "stocks";
-				$change_log->registro_id = $query_new[1];
+				$change_log->registro_id = $query[1];
 				$change_log->description = $stock->description;
 				$change_log->amount = $stock->amount;
 				$change_log->entidad = $stock->entidad;
@@ -73,6 +69,7 @@ if (!isset($_SESSION['user_id'])){
 				$change_log->active = $stock->active;
 				$change_log->document_number = $stock->document_number;
 				$change_log->user_id = $stock->user_id;
+				$change_log->payment_date = $stock->fecha_pago;
 				$result = $change_log->add();
 				if (isset($result) && !empty($result) && $result[0]){
 					$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente";

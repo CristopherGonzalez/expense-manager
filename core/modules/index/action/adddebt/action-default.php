@@ -63,6 +63,7 @@ if (!isset($_SESSION['user_id'])){
 					$change_log->active = $debt->active;
 					$change_log->document_number = $debt->document_number;
 					$change_log->user_id = $debt->user_id;
+					$change_log->payment_date = $debt->fecha_pago;
 					$result = $change_log->add();
 					if (isset($result) && !empty($result) && $result[0]){
 						$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente para la cuota ".($i+1).".\n";

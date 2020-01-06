@@ -3,7 +3,8 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$id=$_REQUEST["id"];
 	$id=intval($id);
 
-	$delete=ExpensesData::delete($id);
+	$expense=ExpensesData::getById($id);
+	$delete=ExpensesData::updateStatus($id,0);
 	if($delete==1){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
@@ -14,6 +15,24 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		$msj="Error al eliminar los datos ";
 		$classM="alert alert-danger";
 		$times="&times;";					
+	}
+	$change_log = new ChangeLogData();
+	$change_log->tabla = "expenses";
+	$change_log->registro_id = $id;
+	$change_log->description = $expense->description;
+	$change_log->amount = $expense->amount;
+	$change_log->entidad = $expense->entidad;
+	$change_log->fecha = $expense->fecha;
+	$change_log->pagado = $expense->pagado;
+	$change_log->active = 0;
+	$change_log->document_number = $expense->document_number;
+	$change_log->user_id = $expense->user_id;
+	$change_log->payment_date = $expense->payment_date;
+	$result = $change_log->add();
+	if (isset($result) && !empty($result) && $result[0]){
+		$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente";
+	} else{
+		$errors []= " Lo siento algo ha salido mal en el registro de errores.";
 	}
 }
 ?>
@@ -50,7 +69,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	if(!$not_paid){
 		$sWhere.=" and pagado = ".$not_paid;
 	}
-	$sWhere.=" and active = $inactive ";
+	if($inactive==1){
+		$sWhere.=" and active = $inactive ";
+	}
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	$per_page = intval($_REQUEST['per_page']); //how much records you want to show
@@ -100,7 +121,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 
 			$finales++;
 		?>
-		<tr>
+		<tr <?php if($exp->active==0 || !$exp->active ){echo "style='background-color:pink;'"; }?>>
 			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
 			<td><?php if($exp->entidad!=null){echo $exp->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>

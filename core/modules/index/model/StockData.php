@@ -41,7 +41,7 @@ class StockData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago'";
+		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\",fecha_pago=\"$this->fecha_pago\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago'";
 		if(isset($this->documento) && !empty($this->documento)){
 			$sql.=", documento = '$this->documento' ";
 		}
@@ -49,13 +49,30 @@ class StockData {
 			$sql.=", pago = '$this->pago' ";
 		}
 		$sql.=" where id=$this->id";
-		if (Executor::doit($sql)){
-			return true;
-		}else{
-			return false;
-		}
+		return Executor::doit($sql);
 	}
-
+	public function addOrUpdate($object){
+		$response = false;
+		$this->description = $object['description'];
+		$this->amount = $object['amount'];
+		$this->user_id = $object['user_id'];
+		$this->entidad = $object['entidad'];
+		$this->fecha = $object['date'];
+		$this->fecha_pago = $object['payment_date'];
+		$this->pagado = $object['pagado'];
+		$this->document_number = $object['document_number'];
+		$this->documento = $object['documento'];
+		$this->pago = $object['pago'];
+		$this->empresa = $object['empresa'];
+		$this->active = $object['active'];
+		if($object['id']==0){
+			$response = $this->add($object);
+		}else{
+			$this->id=$object['id'];
+			$response = $this->update();
+		}
+		return $response;
+	}
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
@@ -87,7 +104,15 @@ class StockData {
 		return Model::one($query[0],new StockData());
 
 	}
-	
+	public function updateStatus($id,$status){
+		$sql = "update ".self::$tablename." set active=$status";
+		$sql.=" where id=$id";
+		if (Executor::doit($sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);

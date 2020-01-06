@@ -3,12 +3,32 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$id=$_REQUEST["id"];
 	$id=intval($id);
 
-	$delete= StockData::delete($id);
+	$stock=StockData::getById($id);
+	$delete=StockData::updateStatus($id,0);
 	if($delete==1){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
 		$classM="alert alert-success";
 		$times="&times;";	
+		$change_log = new ChangeLogData();
+		$change_log->tabla = "stocks";
+		$change_log->registro_id = $id;
+		$change_log->description = $stock->description;
+		$change_log->amount = $stock->amount;
+		$change_log->entidad = $stock->entidad;
+		$change_log->fecha = $stock->fecha;
+		$change_log->pagado = $stock->pagado;
+		$change_log->active = 0;
+		$change_log->document_number = $stock->document_number;
+		$change_log->user_id = $stock->user_id;
+		$change_log->payment_date = $stock->fecha_pago;
+
+		$result = $change_log->add();
+		if (isset($result) && !empty($result) && $result[0]){
+			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente";
+		} else{
+			$errors []= " Lo siento algo ha salido mal en el registro de errores.";
+		}
 	}else{
 		$aviso="Aviso!";
 		$msj="Error al eliminar los datos ";
@@ -58,7 +78,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	if(!$not_paid){
 		$sWhere.=" and pagado = ".$not_paid;
 	}
-	$sWhere.=" and active = $inactive ";
+	if($inactive==1){
+		$sWhere.=" and active = $inactive ";
+	}
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	$per_page = intval($_REQUEST['per_page']); //how much records you want to show
@@ -107,7 +129,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 
 			$finales++;
 		?>
-		<tr>
+		<tr <?php if($stock->active==0 || !$stock->active ){echo "style='background-color:pink;'"; }?>>
 			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
 			<td><?php if($stock->entidad!=null){echo EntityData::getById($stock->entidad)->name;}else{ echo "<center>----</center>"; }  ?></td>

@@ -39,7 +39,15 @@ class DebtsData {
 		$sql = "delete from ".self::$tablename." where id=$this->id";
 		Executor::doit($sql);
 	}
-
+	public function updateStatus($id,$status){
+		$sql = "update ".self::$tablename." set active=$status";
+		$sql.=" where id=$id";
+		if (Executor::doit($sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public function update(){
 		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago'";
 		if(isset($this->documento) && !empty($this->documento)){

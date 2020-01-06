@@ -2,13 +2,31 @@
 if (isset($_REQUEST["id"])){//codigo para eliminar 
 	$id=$_REQUEST["id"];
 	$id=intval($id);
-
-	$delete=IncomeData::delete($id);
+	$income=IncomeData::getById($id);
+	$delete=IncomeData::updateStatus($id,0);
 	if($delete==1){
 		$aviso="Bien hecho!";
 		$msj="Datos eliminados satisfactoriamente.";
 		$classM="alert alert-success";
 		$times="&times;";	
+		$change_log = new ChangeLogData();
+		$change_log->tabla = "income";
+		$change_log->registro_id = $id;
+		$change_log->description = $income->description;
+		$change_log->amount = $income->amount;
+		$change_log->entidad = $income->entidad;
+		$change_log->fecha = $income->fecha;
+		$change_log->pagado = $income->pagado;
+		$change_log->active = 0;
+		$change_log->document_number = $income->document_number;
+		$change_log->payment_date = $income->payment_date;
+		$change_log->user_id = $income->user_id;
+		$result = $change_log->add();
+		if (isset($result) && !empty($result) && $result[0]){
+			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente";
+		} else{
+			$errors []= " Lo siento algo ha salido mal en el registro de errores.";
+		}
 	}else{
 		$aviso="Aviso!";
 		$msj="Error al eliminar los datos ";
@@ -51,7 +69,9 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	if(!$not_paid){
 		$sWhere.=" and pagado = ".$not_paid;
 	}
-	$sWhere.=" and active = $inactive ";
+	if($inactive==1){
+		$sWhere.=" and active = $inactive ";
+	}
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
 	$per_page = intval($_REQUEST['per_page']); //how much records you want to show
@@ -101,7 +121,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 
 			$finales++;
 		?>
-		<tr>
+		<tr <?php if($inc->active==0 || !$inc->active ){echo "style='background-color:pink;'"; }?>>
 			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
 			<td><?php if($inc->entidad!=null){echo $inc->getEntity()->name;}else{ echo "<center>----</center>"; }  ?></td>

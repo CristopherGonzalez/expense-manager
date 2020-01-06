@@ -4,7 +4,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     if (isset($_GET['id']) && !empty($_GET['id'])){
         $id=$_GET["id"];
     }else{
-        Core::redir("./?view=debts");
+        Core::redir("./?view=debt");
     }
 
     //query
@@ -14,7 +14,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     $entities=EntityData::getByType('Deudas', $_SESSION["company_id"]);
     
 if(!isset($debt) && empty($debt)){
-        Core::redir("./?view=debts");
+        Core::redir("./?view=debt");
     }
     if(isset($debt->pago) && !empty($debt->pago)){ 
         $img_pago = $debt->pago;
@@ -182,7 +182,7 @@ if(!isset($debt) && empty($debt)){
                         <div class="box-footer text-right">
                             <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($debt->user_id); echo $creator_user->name  ?> el <?php echo $debt->created_at;  ?></label>
                             <span style="margin-left:10px;">
-                                <a href="./?view=debts" class="btn btn-default" >Volver</a>
+                                <a href="./?view=debt" class="btn btn-default" >Volver</a>
                                 <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>
                         </div>
