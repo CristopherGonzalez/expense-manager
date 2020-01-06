@@ -21,36 +21,66 @@
 			$license = mysqli_real_escape_string($con,(strip_tags($_POST["license"],ENT_QUOTES)));
 			$company =  CompanyData::getByLicense($license);
 			$query_new = "";
-			if($company==null || empty($company)){ 
-				$errors[] = "Lo sentimos, la licencia no es valida o no esta registrada a ninguna empresa";
-			}else{
-				$user->empresa = $company->id;
-				$query_new=$user->add();
-				if (!empty($query_new) && is_array($query_new) && $query_new[0] ) {
-					$messages[] = "Registro con éxito! Pero debes esperar la activacion por parte de la empresa.";
-					$codes = array(
-						'user_id'=>$query_new[1],
-						'step'=>1
-					);
-					$code = Core::encrypt_decrypt('encrypt', serialize($codes));
-					$mail = new Mail($company->email,1);
-					
-					$mail->message= "\r\n"."Licencia : ".$company->licenciaMRC;
-					$mail->message.= "\r\n"."Nombre de Empresa : ".$company->name;
-					$mail->message.= "\r\n"."Nombre de Usuario : ".$user->name;
-					$mail->message.=  "\r\n"."Link para activacion de nueva cuenta.";
-					$mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
-					$resp_send = $mail->send();
-					if($resp_send){
-						$messages[] = " Se envía correo exitosamente";
-					}else{
-						$error[] = $resp_send;
+
+			$recaptcha = $_POST["g-recaptcha-response"];
+		
+			$url = 'https://www.google.com/recaptcha/api/siteverify';
+			$data = array(
+				'secret' => '6Lfvy8wUAAAAAGeoAlCgRqOQPBF-mAsgNcK-2Q4j',
+				'response' => $recaptcha
+			);
+			$query = http_build_query($data);
+			$options = array(
+				'http' => array (
+					'header' => "Content-Type: application/x-www-form-urlencoded\r\n".
+						"Content-Length: ".strlen($query)."\r\n".
+						"User-Agent:MyAgent/1.0\r\n",
+					'method' => 'POST',
+					'content' => $query,
+				)
+			);
+			$context  = stream_context_create($options);
+			$verify = file_get_contents($url, false, $context);
+			$captcha_success = json_decode($verify);
+			if ($captcha_success->success) {
+				if($company==null || empty($company)){ 
+					$errors[] = "Lo sentimos, la licencia no es valida o no esta registrada a ninguna empresa";
+				}else{
+					$user->empresa = $company->id;
+					$query_new=$user->add();
+					if (!empty($query_new) && is_array($query_new) && $query_new[0] ) {
+						$messages[] = "Registro con éxito! Pero debes esperar la activacion por parte de la empresa.";
+						$codes = array(
+							'user_id'=>$query_new[1],
+							'step'=>1
+						);
+						$code = Core::encrypt_decrypt('encrypt', serialize($codes));
+						$mail = new Mail($company->email,1);
+						
+						$mail->message= "\r\n"."Licencia : ".$company->licenciaMRC;
+						$mail->message.= "\r\n"."Nombre de Empresa : ".$company->name;
+						$mail->message.= "\r\n"."Nombre de Usuario : ".$user->name;
+						$mail->message.=  "\r\n"."Link para activacion de nueva cuenta.";
+						$mail->message.= "\r\n".'http://'.$_SERVER['HTTP_HOST'].'/MiNegocio/?view=activateaccount&id='.$code;
+						$resp_send = $mail->send();
+						if($resp_send){
+							$messages[] = " Se envía correo exitosamente";
+						}else{
+							$error[] = $resp_send;
+						}
+						//$messages[] = $mail->message;
+					} else {
+						$errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
 					}
-					//$messages[] = $mail->message;
-				} else {
-					$errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
 				}
+			} else {
+				$errors[] = "Eres un Robot, intenta nuevamente la validacion.";
+
 			}
+			
+			
+			
+			
 		} else {
 			$errors[] = "desconocido.";	
 		}

@@ -4,6 +4,8 @@ if(isset($_SESSION["user_id"])):
     Core::redir("./?view=home");
 endif;
 ?>
+
+	
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
@@ -32,6 +34,10 @@ endif;
                 <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
+            <div class="form-group has-feedback">
+                <div class="g-recaptcha" data-sitekey="6Lfvy8wUAAAAAAc-YnGTbn2uoMTfD4FKtb7cgfTG
+"></div>
+            </div>
             <div class="row">
                 <div class="col-xs-12">
                     <button type="submit" id="save_data" class="btn btn-primary btn-block btn-flat">Registrarme</button>
@@ -41,3 +47,4 @@ endif;
         </form>
     </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
+<script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
