@@ -26,10 +26,11 @@ if (isset($_SESSION["user_id"])) :
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1> Informes</h1>
+      <h1> Informes de Gestión</h1>
       <ol class="breadcrumb">
         <li><a href="?view=home"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Informes</li>
+        <li>Informes</li>
+        <li class="active">Gestion</li>
       </ol>
     </section>
 

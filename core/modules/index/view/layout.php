@@ -119,7 +119,12 @@
                             </li>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='reports' ){echo "active";}?>">
                                 <!--a href="?view=informes"><i class="fa fa-home"></i> <span>Informes</span></a>-->
-                                <a href="?view=reports"><i class="fa fa-pie-chart"></i> <span>Informes</span></a>
+                                <a href=""><i class="fa fa-pie-chart"></i> <span>Informes</span></a>
+                                <ul id="TypesReports">
+                                    <li class="<?php if(isset($_GET['view']) and $_GET['view']=='reports' ){echo "active";}?>"> <a href="?view=reports"><span>Gestión</span></a></li>
+                                    <li> <a href="#"><span>Pagos</span></a></li>
+                                    <li> <a href="#"><span>Vencimientos</span></a></li>
+                                </ul>
                             </li>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='profile' ){echo "active";}?>">
                                 <a href="?view=profile"><i class="fa fa-user"></i> <span>Mi cuenta</span></a>
@@ -155,6 +160,7 @@
     <script src="res/bootstrap/js/bootstrap.min.js"></script>
     <!-- script register -->
     <script>
+    
     $( "#add" ).submit(function( event ) {
         $('#save_data').attr("disabled", true);
         var result = false;
