@@ -70,7 +70,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 										$<?php echo $sumIncomePayment->amount; ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										<?php echo round(($sumIncomePayment->amount*100)/$sumIncomeMonth->total,2); ?>%
+										<?php echo round(($sumIncomePayment->amount*100)/($sumIncomeMonth->total==0?1:$sumIncomeMonth->total),2); ?>%
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -96,7 +96,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 														<div class="col-md-2 col-sm-2 col-xs-2">
 															<button type="button" class="btn" style="color:#f5f5f5;background-color:<?php echo  $colors[$i]; $i++; ?>;" >
 																<?php 
-																echo round(($sumIncomeType/$sumIncomeMonth->total)*100, 2); ?>%
+																echo round(($sumIncomeType/($sumIncomeMonth->total==0?1:$sumIncomeMonth->total))*100, 2); ?>%
 															</button>
 														</div>
 														<div class="col-md-4 col-sm-4 col-xs-4">
@@ -165,6 +165,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																			echo round(($incomeAmountPayment*100)/$sumIncomeTypep, 2); ?>%
 																	</div>
 																	<div class="col-md-1 col-sm-1 col-xs-1">
+
 																	</div>
 																</div>
 															<?php }
@@ -258,7 +259,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																		"color"=>$colors[$i-1],
 																		"label"=>$type->name
 																	];
-																	echo round(($sumExpensesType/$sumIncomeMonth->total)*100, 2); ?>%
+																	echo round(($sumExpensesType/($sumIncomeMonth->total==0?1:$sumIncomeMonth->total))*100, 2); ?>%
 
 															</div>
 															<div class="col-md-1 col-sm-1 col-xs-1">
@@ -295,7 +296,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																			$<?php echo $ExpenseByType->amount; ?>
 																		</div>
 																		<div class="col-md-1 col-sm-1 col-xs-1">
-																			<?php echo round(($ExpenseByType->amount/$sumIncomeMonth->total)*100, 2); ?>%
+																			<?php echo round(($ExpenseByType->amount/($sumIncomeMonth->total==0?1:$sumIncomeMonth))*100, 2); ?>%
 																		</div>
 																		<div class="col-md-1 col-sm-1 col-xs-1">
 																			<?php echo round(($ExpenseByType->amount/$sumExpensesType)*100, 2); ?>%
@@ -314,6 +315,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																				echo round(($ExpensesAmountPayment*100)/$sumExpensesTypep, 2); ?>%
 																		</div>
 																		<div class="col-md-1 col-sm-1 col-xs-1">
+																			<i class='fa fa-plus' onclick="changeIcon(this)" data-toggle="collapse" data-parent="#accordion" href="#collapseExp<?php echo $i-1;?>"></i>
 																		</div>
 																	</div>
 																<?php }
