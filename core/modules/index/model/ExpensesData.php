@@ -137,8 +137,13 @@ class ExpensesData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 	}
-	public static function ExpensesByTypeAndDate($u, $type,$month,$year){
-		$sql = "select * from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month'";
+	public static function ExpensesByTypeAndDate($company_id, $type,$month,$year){
+		$sql = "select * from ".self::$tablename." where empresa=$company_id and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month'";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new ExpensesData());
+	}
+	public static function ExpensesByCategoryIdAndDate($company_id, $category_id,$month,$year){
+		$sql = "select * from ".self::$tablename." where empresa=$company_id and category_id=$category_id and year(fecha) = '$year' and month(fecha)= '$month'";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 	}
