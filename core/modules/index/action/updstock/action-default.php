@@ -49,7 +49,7 @@ if (!isset($_SESSION['user_id'])){
 		$query_update=$stock->update();
 
 		if ($query_update){
-			$messages[] = "La deuda ha sido actualizada satisfactoriamente.";
+			$messages[] = "El valor ha sido actualizado satisfactoriamente.";
 			//print("<script>window.location='./?view=stocks'</script>");
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";

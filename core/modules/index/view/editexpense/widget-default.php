@@ -231,6 +231,8 @@ if(!isset($expense) && empty($expense)){
         fd.append("pay_out",pay_out);
         fd.append("document_image", $('#document_image').attr('src'));
         fd.append("payment_image",$('#payment_image').attr('src'));
+        fd.append("type_expense",$('#type_expense').val());
+        fd.append("category",$('#category').val());
         var result = false;
         $.ajax({
             type: "POST",

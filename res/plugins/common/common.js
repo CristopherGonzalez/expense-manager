@@ -203,9 +203,7 @@ function change_entity(type, category) {
                 if (datos != "" && datos != null && datos != " " && datos != undefined) {
                     var options = datos.split(",");
                     $("#" + type).val(options[0]);
-                    $("#" + type).attr('disabled', false);
                     $("#" + category).val(options[1]);
-                    $("#" + category).attr('disabled', false);
                 }
             }
         });

@@ -7,7 +7,7 @@ if (isset($_POST["id"])){//codigo para eliminar
 	$ocuped_entity=Core::getQuantityLinkageElements(EntityData::getById($id));
 
 	if(!$ocuped_entity){
-		$delete=EntityData::delete($id);
+		$delete=EntityData::updateStatus($id,0);
 		if($delete==1){
 			$aviso="Bien hecho!";
 			$msj="Datos eliminados satisfactoriamente.";

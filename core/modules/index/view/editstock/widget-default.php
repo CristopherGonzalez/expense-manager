@@ -4,23 +4,23 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     if (isset($_GET['id']) && !empty($_GET['id'])){
         $id=$_GET["id"];
     }else{
-        Core::redir("./?view=debt");
+        Core::redir("./?view=stocks");
     }
 
     //query
-    $debt=debtsData::getById($id);
+    $stock=StockData::getById($id);
     //Se obtienen datos para llenado de desplegables
-    $types=TypeData::getAllDebts();
-    $entities=EntityData::getByType('Deudas', $_SESSION["company_id"]);
+    $types=TypeData::getAllStocks();
+    $entities=EntityData::getByType('Valores', $_SESSION["company_id"]);
     
-if(!isset($debt) && empty($debt)){
-        Core::redir("./?view=debt");
+if(!isset($stock) && empty($stock)){
+        Core::redir("./?view=stocks");
     }
-    if(isset($debt->pago) && !empty($debt->pago)){ 
-        $img_pago = $debt->pago;
+    if(isset($stock->pago) && !empty($stock->pago)){ 
+        $img_pago = $stock->pago;
     }
-    if(isset($debt->documento) && !empty($debt->documento)){ 
-        $img_doc = $debt->documento;
+    if(isset($stock->documento) && !empty($stock->documento)){ 
+        $img_doc = $stock->documento;
     }
 ?> 
 
@@ -28,7 +28,7 @@ if(!isset($debt) && empty($debt)){
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1><i class="fa fa-edit"></i>Editar Deuda</h1>
+        <h1><i class="fa fa-edit"></i>Editar Valor</h1>
     </section>
 
     <!-- Main content -->
@@ -38,42 +38,42 @@ if(!isset($debt) && empty($debt)){
                 <form role="form" method="post" name="upd" id="upd"><!-- form start -->
                     <div class="box box-primary"> <!-- general form elements -->
                         <div class="box-header with-border">
-                            <h3 class="box-title">Editar Deuda</h3>
+                            <h3 class="box-title">Editar Valor</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="date">Fecha: </label>
-                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $debt->fecha; ?>">
+                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $stock->fecha; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="date">Numero Documento: </label>
-                                    <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero Documento" value="<?php echo $debt->document_number; ?>">
+                                    <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero Documento" value="<?php echo $stock->document_number; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="description" class="control-label">Descripción: </label>
-                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $debt->description ?></textarea>
+                                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción: "><?php echo $stock->description ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="amount" class="control-label">Importe: </label>
-                                    <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,10}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $debt->amount ?>">
+                                    <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,10}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $stock->amount ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="entidad" class="control-label">Entidad: </label>
-                                    <select class="form-control  style="width: 100%" name="entity" id="entity" onchange="change_entity('type_debt','category');">
+                                    <select class="form-control  style="width: 100%" name="entity" id="entity" onchange="change_entity('type_stock','category');">
                                     <?php
                                         //Se carga datos de entidades en modal
                                         foreach($entities as $entity){
                                     ?>
-                                        <option <?php if($debt->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
+                                        <option <?php if($stock->entidad==$entity->id){echo"selected";} ?> value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
                                     <?php 
                                         }
                                     ?>
@@ -82,14 +82,14 @@ if(!isset($debt) && empty($debt)){
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <label for="type_debt" class="control-label">Tipo: </label>
-                                    <select class="form-control  style="width: 100%" name="type_debt" id="type_debt" >
+                                    <label for="type_stock" class="control-label">Tipo: </label>
+                                    <select class="form-control  style="width: 100%" name="type_stock" id="type_stock" >
                                     <?php
                                         //Se carga datos de tipos de egreso en modal
-                                        $entity_debt = EntityData::getById($debt->entidad);
+                                        $entity_stock = EntityData::getById($stock->entidad);
                                         foreach($types as $type){
                                     ?>
-                                        <option <?php if($entity_debt->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
+                                        <option <?php if($entity_stock->tipo==$type->id){echo"selected";} ?> value="<?php echo $type->id; ?>"><?php echo $type->name; ?></option>
                                     <?php 
                                         }
                                     ?>
@@ -143,7 +143,7 @@ if(!isset($debt) && empty($debt)){
                             <div class="form-group">
                                 <div id="div_pay_date" style="display:none;" class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="payment_date">Fecha de Pago</label>
-                                    <input type="date" class="form-control" id="payment_date" style="width:100%; margin-bottom:5px;" name="payment_date" value="<?php echo isset($debt->payment_date) && !empty($debt->payment_date) && strtotime($debt->payment_date) > 0 ? $debt->payment_date : date('Y-m-d') ;?>">
+                                    <input type="date" class="form-control" id="payment_date" style="width:100%; margin-bottom:5px;" name="payment_date" value="<?php echo isset($stock->payment_date) && !empty($stock->payment_date) && strtotime($stock->payment_date) > 0 ? $stock->payment_date : date('Y-m-d') ;?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -151,7 +151,7 @@ if(!isset($debt) && empty($debt)){
                                     <div class="form-group justify-content-between">
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <div class="form-group">
-                                                <input type="checkbox" id="paid_out" name="paid_out" class="col-md-1 col-sm-1 col-xs-1" <?php if($debt->pagado){echo "checked";} ?> onchange="change_payment_status(this.checked)"> 
+                                                <input type="checkbox" id="paid_out" name="paid_out" class="col-md-1 col-sm-1 col-xs-1" <?php if($stock->pagado){echo "checked";} ?> onchange="change_payment_status(this.checked)"> 
                                                 <label for="paid_out" class="col-md-2 col-sm-4 col-xs-4">Pagado</label>
                                                 <div class="col-md-9 col-sm-7 col-xs-7">
                                                     
@@ -162,9 +162,9 @@ if(!isset($debt) && empty($debt)){
                                         <div class="col-md-3 col-sm-3 col-xs-12">
                                             <span style="float:right;">
                                                 <?php 
-                                                    $lblchange_log = new lblChangeLog($debt->id, "debts");
+                                                    $lblchange_log = new lblChangeLog($stock->id, "stocks");
                                                     echo $lblchange_log->renderLabel();
-                                                    $modal_content = new Modal("Listado de Cambios","frmdebts",UserData::getById($_SESSION['user_id']));
+                                                    $modal_content = new Modal("Listado de Cambios","frmstocks",UserData::getById($_SESSION['user_id']));
                                                     echo $modal_content->renderInit();
                                                 ?>
                                                     <div class="form-group table-responsive">
@@ -177,12 +177,12 @@ if(!isset($debt) && empty($debt)){
                                 </div>
                             </div>
                             <!-- mod id -->
-                            <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $debt->id; ?>">
+                            <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $stock->id; ?>">
                         </div><!-- /.box-body -->
                         <div class="box-footer text-right">
-                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($debt->user_id); echo $creator_user->name  ?> el <?php echo $debt->created_at;  ?></label>
+                            <label style="color:#999; font-weight:normal;">Registrado por  <?php $creator_user=UserData::getById($stock->user_id); echo $creator_user->name  ?> el <?php echo $stock->created_at;  ?></label>
                             <span style="margin-left:10px;">
-                                <a href="./?view=debt" class="btn btn-default" >Volver</a>
+                                <a href="./?view=stocks" class="btn btn-default" >Volver</a>
                                 <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
                             </span>
                         </div>
@@ -205,7 +205,7 @@ if(!isset($debt) && empty($debt)){
 
 <script>
     $(function(){
-        load_change_log('<?php echo $debt->id; ?>', "debts", "chn_log");
+        load_change_log('<?php echo $stock->id; ?>', "stocks", "chn_log");
         change_payment_status($('#paid_out').is(":checked"));
     });
     $( "#upd" ).submit(function( event ) {
@@ -214,12 +214,12 @@ if(!isset($debt) && empty($debt)){
         fd.append("pay_out",pay_out);
         fd.append("document_image", $('#document_image').attr('src'));
         fd.append("payment_image",$('#payment_image').attr('src'));
-        fd.append("type_debt",$('#type_debt').val());
+        fd.append("type_stock",$('#type_stock').val());
         
         var result = false;
         $.ajax({
             type: "POST",
-            url: "./?action=upddebt",
+            url: "./?action=addstock",
             data: fd,
             contentType: false,
             processData: false,
@@ -238,7 +238,7 @@ if(!isset($debt) && empty($debt)){
         event.preventDefault();
         window.setTimeout(function(){
             if (result){
-                window.location.href="./?view=debt";
+                window.location.href="./?view=stocks";
             }
         }, 2000);                                                                                                               
     })

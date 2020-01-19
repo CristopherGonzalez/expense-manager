@@ -105,28 +105,28 @@ class ResultData {
 	}
 	public static function sumPartner_Month($month,$u,$year=null){
 		if(!isset($year) || $year==null) { $year = date('Y');}
-		$sql = "select SUM(amount) as total from ".self::$tablename." where year(fecha) = '$year' and month(fecha)= '$month' and empresa=$u ";
+		$sql = "select SUM(amount) as total from ".self::$tablename." where year(fecha) = '$year' and month(fecha)= '$month' and empresa=$u  and active=1 ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ResultData());
 	}
 	public static function sumPartnerByIdAndDate($id,$id_company,$month,$year=null){
 		if(!isset($year) || $year==null) { $year = date('Y');}
-		$sql = "select SUM(amount) as total from ".self::$tablename." where  year(fecha) = '$year' and month(fecha)= '$month' and empresa=$id_company ";
+		$sql = "select SUM(amount) as total from ".self::$tablename." where  year(fecha) = '$year' and month(fecha)= '$month' and empresa=$id_company  and active=1 ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ResultData());
 	}
 	public static function sumPartnerByPaymentStatusByDate($id_company, $paid_out,$month,$year){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month'";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month' and active=1 ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ResultData());
 	}
 	public static function sumPartnerByPaymenStatusAndEntity($id_company, $paid_out,$id_entity, $month,$year){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where entidad = $id_entity and empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month'";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where entidad = $id_entity and empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and active=1  and month(fecha)= '$month'";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ResultData());
 	}
 	public static function partnersByEntityGroup($id_company, $month,$year){
-		$sql = "select entidad, sum(amount)as amount, (select name from entidades where id = entidad) as description, entidad from resultado WHERE empresa=$id_company and  year(fecha) = '".$year."' and month(fecha) = '".$month."' group by entidad";
+		$sql = "select entidad, sum(amount)as amount, (select name from entidades where id = entidad  and active=1 ) as description, entidad from resultado WHERE empresa=$id_company and active=1  and  year(fecha) = '".$year."' and month(fecha) = '".$month."' group by entidad";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 	}

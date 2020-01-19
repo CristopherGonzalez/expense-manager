@@ -6,7 +6,7 @@
     "configurations": [
 
         {
-            "name": "Listen for XDebug",
+             "name": "Listen for XDebug",
             "type": "php",
             "request": "launch",
             "port": 9000

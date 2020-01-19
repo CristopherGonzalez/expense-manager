@@ -231,7 +231,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         fd.append("pay_out",pay_out);
         fd.append("document_image", $('#document_image').attr('src'));
         fd.append("payment_image",$('#payment_image').attr('src'));
-
+        fd.append("type_income",$('#type_income').val());
+        fd.append("category",$('#category').val());
         var result = false;
         $.ajax({
             type: "POST",

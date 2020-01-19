@@ -179,7 +179,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     $(".alert").fadeTo(500, 0).slideUp(500, function(){
                     $(this).remove();});}, 5000);
                 $('#formModal').modal('hide');
-                clear_modal('add_register');
+                clear_modal('add_register_formModal');
             }
         });
         event.preventDefault();

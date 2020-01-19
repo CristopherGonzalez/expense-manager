@@ -60,6 +60,15 @@ class EntityData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 	}
+	public function updateStatus($id,$status){
+		$sql = "update ".self::$tablename." set active=$status";
+		$sql.=" where id=$id";
+		if (Executor::doit($sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public static function getAll($u,$active=false){
 		$sql = "select * from ".self::$tablename." where empresa=$u";
 		if($active){ $sql.=" active=1 "; }

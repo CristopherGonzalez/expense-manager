@@ -41,7 +41,7 @@ class StockData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\",fecha_pago=\"$this->fecha_pago\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago'";
+		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\",fecha_pago=\"$this->fecha_pago\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago', active=$this->active";
 		if(isset($this->documento) && !empty($this->documento)){
 			$sql.=", documento = '$this->documento' ";
 		}
@@ -66,7 +66,7 @@ class StockData {
 		$this->empresa = $object['empresa'];
 		$this->active = $object['active'];
 		if($object['id']==0){
-			$response = $this->add($object);
+			$response = $this->add();
 		}else{
 			$this->id=$object['id'];
 			$response = $this->update();

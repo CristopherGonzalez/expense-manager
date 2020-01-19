@@ -34,6 +34,8 @@ if (!isset($_SESSION['user_id'])){
 				'empresa' => $_SESSION['company_id'],
 				'user_id' => $_SESSION['user_id'],
 				'active' => true);
+			$entity = mysqli_real_escape_string($con,(strip_tags($_POST["entity"],ENT_QUOTES)));
+
 			$date_stock = strtotime($_POST['date']);
 			$month = date('m',$date_stock);
 			$year = date('Y',$date_stock);

@@ -51,7 +51,7 @@ if (!isset($_SESSION['user_id'])){
 				
 				$query_new=$debt->add();
 				if (isset($query_new) && is_array($query_new) && $query_new[0]) {
-					$messages[] = "La cuota ".($i+1)." de la deuda ha sido agregada con éxito.\n";
+					$messages[] = "La cuota ".($i+1)." de la deuda ha sido agregada con éxito y fecha $debt->fecha.\n";
 					$change_log = new ChangeLogData();
 					$change_log->tabla = "debts";
 					$change_log->registro_id = $query_new[1];

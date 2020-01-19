@@ -32,13 +32,12 @@
 			$query = http_build_query($data);
 			$options = array(
 				'http' => array (
-					'header' => "Content-Type: application/x-www-form-urlencoded\r\n".
-						"Content-Length: ".strlen($query)."\r\n".
-						"User-Agent:MyAgent/1.0\r\n",
 					'method' => 'POST',
 					'content' => $query,
+					'header' => 'Content-Type: application/x-www-form-urlencoded'
 				)
 			);
+
 			$context  = stream_context_create($options);
 			$verify = file_get_contents($url, false, $context);
 			$captcha_success = json_decode($verify);

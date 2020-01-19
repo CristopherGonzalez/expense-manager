@@ -120,7 +120,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                         <div class="form-group">
                                             <label for="description" class="col-sm-2 control-label">Descripción </label>
                                             <div class="col-sm-10">
-                                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripción "></textarea>
+                                                <textarea type="text" required class="form-control" id="description" name="description" placeholder="Descripción "></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -442,6 +442,8 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         fd.append("document_image", $('#document_image').attr('src'));
         fd.append("payment_image",$('#payment_image').attr('src'));
    
+        fd.append("type_expense",$('#type_expense').val());
+        fd.append("category",$('#category').val());
         $.ajax({
             type: "POST",
             url: "./?action=addexpense",

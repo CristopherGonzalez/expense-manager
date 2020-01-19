@@ -113,44 +113,44 @@ class IncomeData {
 	}
 	public static function sumIncome_Month($month,$u,$year=null){
 		if(!isset($year) || $year==null) { $year = date('Y');}
-		$sql = "select SUM(amount) as total from ".self::$tablename." where year(fecha) = '$year' and month(fecha)= '$month' and empresa=$u ";
+		$sql = "select SUM(amount) as total from ".self::$tablename." where year(fecha) = '$year' and month(fecha)= '$month' and empresa=$u and active=1";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
 
 	public static function sumIncome($u){
 		$year=date('Y');
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and year(fecha)='$year'";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and year(fecha)='$year' and active=1";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
 	public static function sumIncomeByPaymentStatusByDate($id_company, $paid_out,$month,$year){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month'";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month' and active=1 ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
 	public static function sumIncomeByType($u, $type,$month,$year){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month'";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month' and active=1 ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
 	public static function sumIncomeByTypeAndPayment($u, $type,$month,$year, $paid_out){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month' and pagado=$paid_out ";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month' and pagado=$paid_out  and active=1 ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
 	public static function IncomesByCategoryTypeAndDate($id_company, $type,$month,$year){
-		$sql = "select category_id, sum(amount)as amount, (select name from category_income where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and tipo=$type and year(fecha) = '".$year."' and month(fecha) = '".$month."' group by category_id";
+		$sql = "select category_id, sum(amount)as amount, (select name from category_income where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and active=1  and tipo=$type and year(fecha) = '".$year."' and month(fecha) = '".$month."' group by category_id";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new IncomeData());
 	}
 	public static function IncomesByCategoryIdAndDate($company_id, $category_id,$month,$year){
-		$sql = "select * from ".self::$tablename." where empresa=$company_id and category_id=$category_id and year(fecha) = '$year' and month(fecha)= '$month'";
+		$sql = "select * from ".self::$tablename." where empresa=$company_id and category_id=$category_id and year(fecha) = '$year' and month(fecha)= '$month' and active=1 ";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 	}
 	public static function sumIncomeCategoryByTypeAndPayment($id_company, $type,$category_id,$month,$year, $paid_out){
-		$sql = "select category_id, sum(amount)as amount, (select name from category_income where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and tipo=$type and year(fecha) = '".$year."' and month(fecha) = '".$month."' and pagado=$paid_out and category_id=$category_id group by category_id";
+		$sql = "select category_id, sum(amount)as amount, (select name from category_income where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and active=1  and tipo=$type and year(fecha) = '".$year."' and month(fecha) = '".$month."' and pagado=$paid_out and category_id=$category_id group by category_id";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
