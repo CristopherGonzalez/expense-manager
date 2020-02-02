@@ -114,7 +114,6 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<td><?php echo $date." ".$time; ?></td>
 			<td class="text-right">
                 <a href="./?view=editcategory_income&id=<?php echo $cat->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
-                <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $cat->id;?>')"><i class="fa fa-trash-o"></i></button>
             </td>
 		</tr>
 		<?php } ?>

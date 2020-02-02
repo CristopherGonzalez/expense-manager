@@ -30,6 +30,7 @@ if (!isset($_SESSION['user_id'])){
 			for($i= 0; $i<$payment_fees;$i++){
 				$debt = new DebtsData();
 				$debt->description = mysqli_real_escape_string($con,(strip_tags($_POST["description"],ENT_QUOTES)));
+				$debt->description.= " (cuota ".($i+1)." de ".$payment_fees.")";
 				$debt->amount = $amount;
 				$debt->user_id = $_SESSION['user_id'];
 				$debt->empresa = $_SESSION['company_id'];

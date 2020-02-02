@@ -44,7 +44,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="date">Fecha: </label>
-                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $partner->fecha; ?>">
+                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo date('Y-m-d',  strtotime($partner->fecha));  ?>">
                                 </div>
                             </div>
                             <div class="form-group">

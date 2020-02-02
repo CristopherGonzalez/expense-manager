@@ -34,12 +34,12 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <form role="form" method="post" name="upd" id="upd"><!-- form start -->
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="name" class="control-label">Nombre: </label>
+                                <label for="name" class="control-label">Nombre </label>
                                 <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: " value="<?php echo $category_expense->name; ?>">
                             </div>
                             <!-- Se agrega nueva opcion de egreso-->
                             <div class="form-group">
-                                <label for="egreso" class="control-label">Egreso: </label>
+                                <label for="egreso" class="control-label">Egreso </label>
                                     <select class="form-control" name="egreso" id="egreso" >
                                         <?php
                                             $egreso=TypeData::getAllExpense();

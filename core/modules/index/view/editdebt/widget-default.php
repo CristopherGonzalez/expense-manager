@@ -44,7 +44,7 @@ if(!isset($debt) && empty($debt)){
                             <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <label for="date">Fecha: </label>
-                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo $debt->fecha; ?>">
+                                    <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo date('Y-m-d',  strtotime($debt->fecha));  ?>">
                                 </div>
                             </div>
                             <div class="form-group">

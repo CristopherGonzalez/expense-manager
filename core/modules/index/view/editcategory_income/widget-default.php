@@ -34,16 +34,16 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <form role="form" method="post" name="upd" id="upd"><!-- form start -->
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="name" class="control-label">Nombre: </label>
+                                <label for="name" class="control-label">Nombre </label>
                                 <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre: " value="<?php echo $category_income->name; ?>">
                             </div>
-                             <!-- Se agrega nueva opcion de egreso-->
+                             <!-- Se agrega nueva opcion de ingreso-->
                             <div class="form-group">
-                                <label for="egreso" class="control-label">Egreso: </label>
+                                <label for="ingreso" class="control-label">Ingreso </label>
                                     <select class="form-control" name="type_income" id="type_income" >
                                         <?php
-                                            $egreso=TypeData::getAllIncome();
-                                            foreach($egreso as $cat){
+                                            $ingreso=TypeData::getAllIncome();
+                                            foreach($ingreso as $cat){
                                         ?>
                                             <option value="<?php echo $cat->id; ?>" <?php if($cat->id == $category_income->tipo) echo "selected"; ?>  ><?php echo $cat->name; ?></option>
                                         <?php 

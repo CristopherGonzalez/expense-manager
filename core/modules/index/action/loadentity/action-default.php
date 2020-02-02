@@ -146,7 +146,6 @@ if (isset($_POST["id"])){//codigo para eliminar
 			<td><?php if($ent->tipo!=null){echo $ent->getType($ent->tipo)->name;}else{ echo "<center>----</center>"; }  ?></td>
 			<td class="text-right">
                 <a href="./?view=editentity&id=<?php echo $ent->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
-                <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $ent->id;?>')"><i class="fa fa-trash-o"></i></button>
             </td>
 		</tr>
 		<?php } ?>
