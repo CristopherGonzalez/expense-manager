@@ -477,8 +477,8 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 													</div>
 													<div class="col-md-1 col-sm-1 col-xs-1">
 														<?php
-														$sumPartnerPayment = $sumPartnerPayment == 0 ? 1 : $sumPartnerPayment;
-														echo round(($sumPartnerPayment / $PartnerByEntity->amount) * 100, 2); ?>%
+														$PartnerByEntityAmount = $PartnerByEntity->amount == 0 ? 1 : $PartnerByEntity->amount;
+														echo round(($sumPartnerPayment / $PartnerByEntityAmount) * 100, 2); ?>%
 													</div>
 													<div class="col-md-1 col-sm-1 col-xs-1">
 													</div>

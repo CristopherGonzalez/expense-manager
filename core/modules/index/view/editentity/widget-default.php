@@ -79,6 +79,20 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                      <input type="checkbox" id="active" name="active" <?php echo isset($entity->active) && $entity->active == 1? "checked" : ""; ?>> 
                                 <label for="active">Activo</label>
                             </div>
+                            <div class="form-group">
+                                            <span>
+                                                <?php 
+                                                    $lblchange_log = new lblChangeLog($entity->id, "entity");
+                                                    echo $lblchange_log->renderLabel();
+                                                    $modal_content = new Modal("Listado de Cambios","frmentity",UserData::getById($_SESSION['user_id']));
+                                                    echo $modal_content->renderInit();
+                                                ?>
+                                                    <div class="form-group table-responsive">
+                                                        <div id="chn_log"></div>
+                                                    </div>
+                                                <?php echo $modal_content->renderEnd(false);?>  
+                                            </span>
+                                        </div>
                              <!-- mod id -->
                             <input type="hidden" required class="form-control" id="category_id" name="category_id" value="<?php echo $entity->category_id; ?>">
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $entity->id; ?>">
@@ -102,6 +116,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
 <script>
     $(function() {
         load();
+        load_change_log('<?php echo $entity->id; ?>', "entity", "chn_log");
     });
     $( "#upd" ).submit(function( event ) {
         var result = false;

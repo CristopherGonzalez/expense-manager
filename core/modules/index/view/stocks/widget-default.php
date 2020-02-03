@@ -65,10 +65,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                     <div class="col-md-5 form-group">
                         <input type="text"  class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda"  onkeyup="load(1);">
                     </div>
-                    <div class="col-md-3 form-group">
-                        <input type="checkbox" id="not_paid" name="not_paid" onchange="load(1);"> 
-                        <label for="not_paid">Solo Impagos</label>
-                    </div>
                     <div class="col-md-4 form-group">
                         <input type="checkbox" id="inactive" name="inactive" onchange="load(1);"> 
                         <label for="inactive"><b>Ver eliminados</b></label>
@@ -150,30 +146,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                                                 <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image" height="60" width="75" >
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label for="payment" class="col-sm-6">Pago
-                                                <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
-                                                <input type="button" class="btn btn-default" id="btn_webcam_payment" name="btn_webcam_payment" value="Sacar Foto" data-toggle="modal" href="#frmwebcampayment" onclick="add_parameters_from_webcam('payment')">
-                                            </label>
-                                            <div class="col-sm-4">
-                                                <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image"  height="60" width="75" >
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <span class="col-md-2 col-sm-2 col-xs-12"></span>
-                                            <label for="paid_out" class="col-md-2 col-sm-2 col-xs-2">
-                                                <input type="checkbox" id="paid_out" name="paid_out" value="paid_out" onchange="change_payment_status(this.checked)"> Pagado
-                                            </label>
-                                            <div id="div_pay_with" style="display:none;">
-                                                <span class="col-md-3 col-sm-3 col-xs-3">
-                                                    <label for="payment_date" style="float:right;">Fecha de Pago</label>
-                                                </span>
-                                                <span class="col-md-5 col-sm-5 col-xs-5">
-                                                    <input type="date" class="form-control" id="payment_date" name="payment_date" value="<?php echo date("Y-m-d");?>">
-                                                </span>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                             <div class="form-group">
@@ -193,8 +165,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                         <?php 
                             $webcamdocument = new Webcam('document');
                             echo $webcamdocument->renderModalImageCam();
-                            $webcampayment = new Webcam('payment');
-                            echo $webcampayment->renderModalImageCam();
                         ?>
                         <!-- End Form Modal -->
                         <div class="btn-group">
@@ -257,7 +227,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         var year_find = $('#year_find option:selected').val();
         var type_stock_find = $('#type_stock_find option:selected').val();
         var find_text = $('#find_text').val();
-        var not_paid = $('#not_paid').is(":checked");
         var inactive = $('#inactive').is(":checked");
 
         var per_page=$("#per_page").val();
@@ -267,7 +236,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             'year':year_find,
             'type_stock':type_stock_find,
             'text':find_text,
-            'payment':not_paid,
             'inactive':inactive,
             'per_page':per_page };
         $.get({
@@ -297,7 +265,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
             var year_find = $('#year_find option:selected').val();
             var type_stock_find = $('#type_stock_find option:selected').val();
             var find_text = $('#find_text').val();
-            var not_paid = $('#not_paid').is(":checked");
             var inactive = $('#inactive').is(":checked");
 
             var page=1;
@@ -309,7 +276,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
                 'year':year_find,
                 'type_stock':type_stock_find,
                 'text':find_text,
-                'payment':not_paid,
                 'inactive':inactive,
                 'per_page':per_page,
                 "id":id
@@ -336,10 +302,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
         $('#save_data').attr("disabled", true);
         //Se cambia forma de envio de formulario para soportar envio de imagenes
         var fd = new FormData($(this)[0]);
-        var pay_out = $('#paid_out').is(":checked");
-        fd.append("pay_out",pay_out);
         fd.append("document_image", $('#document_image').attr('src'));
-        fd.append("payment_image",$('#payment_image').attr('src'));
         fd.append("type_stock",$('#type_stock').val());
         $.ajax({
             type: "POST",

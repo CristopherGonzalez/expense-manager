@@ -105,15 +105,6 @@ if(!isset($stock) && empty($stock)){
                                     <img src="<?php echo(isset($img_doc)? $img_doc : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image"  height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="payment" class="col-md-8 col-sm-8 col-xs-12">Pago
-                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
-                                    <input type="button" class="btn btn-default" id="btn_webcam_payment" name="btn_webcam_payment" value="Sacar Foto" data-toggle="modal" href="#frmwebcampayment" onclick="add_parameters_from_webcam('payment')">
-                                </label>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <img src="<?php echo(isset($img_pago)? $img_pago : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image"  height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
-                                </div>
-                            </div>
                             <div class="modal fade" id="formModalImage" tabindex="-1" role="dialog" aria-labelledby="ModalImage" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -141,24 +132,8 @@ if(!isset($stock) && empty($stock)){
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div id="div_pay_date" style="display:none;" class="col-md-12 col-sm-12 col-xs-12">
-                                    <label for="payment_date">Fecha de Pago</label>
-                                    <input type="date" class="form-control" id="payment_date" style="width:100%; margin-bottom:5px;" name="payment_date" value="<?php echo isset($stock->payment_date) && !empty($stock->payment_date) && strtotime($stock->payment_date) > 0 ? $stock->payment_date : date('Y-m-d') ;?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group justify-content-between">
-                                        <div class="col-md-9 col-sm-9 col-xs-12">
-                                            <div class="form-group">
-                                                <input type="checkbox" id="paid_out" name="paid_out" class="col-md-1 col-sm-1 col-xs-1" <?php if($stock->pagado){echo "checked";} ?> onchange="change_payment_status(this.checked)"> 
-                                                <label for="paid_out" class="col-md-2 col-sm-4 col-xs-4">Pagado</label>
-                                                <div class="col-md-9 col-sm-7 col-xs-7">
-                                                    
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
                                         <div class="col-md-3 col-sm-3 col-xs-12">
                                             <span style="float:right;">
                                                 <?php 

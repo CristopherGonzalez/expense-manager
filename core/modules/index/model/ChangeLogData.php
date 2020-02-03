@@ -7,19 +7,20 @@ class ChangeLogData {
 		$this->tabla = "";
 		$this->registro_id = "";
 		$this->description = "";
-		$this->amount = "";
-		$this->entidad = "";
-		$this->fecha = "";
+		$this->amount = "0";
+		$this->entidad = "NULL";
+		$this->fecha = "NULL";
 		$this->pagado = "0";
 		$this->document_number = "";
 		$this->created_at = "NOW()";
 		$this->user_id = "";
 		$this->active = 1;
 		$this->payment_date = "00/00/0000";
+		$this->tipo = null;
 	}
 	public function add(){
-		$sql = "insert into ".self::$tablename." ( tabla, registro_id, description, amount, entidad, fecha, pagado,document_number, created_at, user_id, active, payment_date) ";
-		$sql .= "VALUES ('".$this->tabla."', ".$this->registro_id.", '".$this->description."', ".$this->amount.", ".$this->entidad.", '".$this->fecha."', ".$this->pagado.",'$this->document_number', ".$this->created_at.", ".$this->user_id.", ".$this->active.", ".$this->payment_date.")";
+		$sql = "insert into ".self::$tablename." ( tabla, registro_id, description, amount, entidad, fecha, pagado,document_number, created_at, user_id, active, payment_date, tipo) ";
+		$sql .= "VALUES ('".$this->tabla."', ".$this->registro_id.", '".$this->description."', ".$this->amount.", ".$this->entidad.", '".$this->fecha."', ".$this->pagado.",'$this->document_number', ".$this->created_at.", ".$this->user_id.", ".$this->active.", ".$this->payment_date.", $this->tipo )";
 		return Executor::doit($sql);
 	}
 	public static function delete($id){

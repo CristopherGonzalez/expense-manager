@@ -17,11 +17,11 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		$change_log->amount = $stock->amount;
 		$change_log->entidad = $stock->entidad;
 		$change_log->fecha = $stock->fecha;
-		$change_log->pagado = $stock->pagado;
+		$change_log->pagado = 1;
 		$change_log->active = 0;
 		$change_log->document_number = $stock->document_number;
 		$change_log->user_id = $stock->user_id;
-		$change_log->payment_date = $stock->fecha_pago;
+		$change_log->payment_date = $stock->fecha;
 
 		$result = $change_log->add();
 		if (isset($result) && !empty($result) && $result[0]){
@@ -44,7 +44,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$year = intval($_REQUEST['year']);
 	$type_stock = intval($_REQUEST['type_stock']);
 	$text = mysqli_real_escape_string($con,(strip_tags($_REQUEST['text'], ENT_QUOTES)));
-	$not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
+	$not_paid = 1;
 	$inactive = (isset($_REQUEST['inactive']) && $_REQUEST['inactive'] == "true") ? 0 : 1;
 	$company_id=$_SESSION["company_id"];
 	$sWhere=" empresa=$company_id";
@@ -74,9 +74,6 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	}
 	if($text!=""){
 		$sWhere.=" and description LIKE '%".$text."%' ";
-	}
-	if(!$not_paid){
-		$sWhere.=" and pagado = ".$not_paid;
 	}
 	if($inactive==1){
 		$sWhere.=" and active = $inactive ";
@@ -114,7 +111,6 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		<th>Descripción</th>
 		<th>Importe</th>
 		<th>Documento</th>
-		<th>Pago</th>
 		<th></th>
 	</thead>
 	<tbody>
@@ -136,7 +132,6 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 			<td><?php echo $stock->description; ?></td>
 			<td><?php echo number_format($stock->amount,2); ?></td>
 			<td><?php if($stock->document_number!=null){echo $stock->document_number;}else{ echo "<center>----</center>"; }  ?></td>
-			<td><?php if($stock->pagado!=null && $stock->pagado){echo "<span style='color: #00a65a;'>Pagado</span>"; }else{ echo "<span>Impago</span>"; }  ?></td>
 			<td class="text-right">
                 <a href="./?view=editstock&id=<?php echo $stock->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
                 <button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $stock->id;?>')"><i class="fa fa-trash-o"></i></button>

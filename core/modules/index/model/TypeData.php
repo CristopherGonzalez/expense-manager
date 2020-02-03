@@ -93,6 +93,7 @@ class TypeData {
 
 	}
 
+	
 	public static function countQuery($where){
 		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
 		$query = Executor::doit($sql);

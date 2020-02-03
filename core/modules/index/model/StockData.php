@@ -130,7 +130,12 @@ class StockData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new StockData());
 	}
-	
+	public static function sumStock($u){
+		$year=date('Y');
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and year(fecha)='$year' and active=1";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new StockData());
+	}
 }
 
 ?>

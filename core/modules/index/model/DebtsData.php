@@ -113,7 +113,12 @@ class DebtsData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new DebtsData());
 	}
-	
+	public static function sumDebts($u){
+		$year=date('Y');
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and year(fecha)='$year' and pagado=0 and active=1";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new DebtsData());
+	}
 }
 
 ?>
