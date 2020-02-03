@@ -25,15 +25,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- left column -->
-                    <div class="box box-primary">
-                        <!-- general form elements -->
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Editar Categoria de Egreso</h3>
-                        </div><!-- /.box-header -->
-                        <form role="form" method="post" name="upd" id="upd">
+            <form role="form" method="post" name="upd" id="upd">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- left column -->
+                        <div class="box box-primary">
+                            <!-- general form elements -->
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Editar Categoria de Egreso</h3>
+                            </div><!-- /.box-header -->
                             <!-- form start -->
                             <div class="box-body">
                                 <div class="form-group">
@@ -71,18 +72,19 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             </div>
                             <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $category_expense->id; ?>">
-                    </div><!-- /.box-body -->
-                    <div class="box-footer text-right">
-                        <label style="color:#999; font-weight:normal;">Registrado por <?php $creator_user = UserData::getById($category_expense->user_id);
-                                                                                        echo $creator_user->name  ?> el <?php echo date("Y-d-m", strtotime($category_expense->created_at));  ?></label>
-                        <a href="./?view=category_expense" class="btn btn-default">Volver</a>
-                        <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
-                    </div>
-                    </form>
-                    <div id="result"></div>
-                </div> <!-- /.box -->
-            </div>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer text-right">
+                            <label style="color:#999; font-weight:normal;">Registrado por <?php $creator_user = UserData::getById($category_expense->user_id);
+                                                                                            echo $creator_user->name  ?> el <?php echo date("Y-d-m", strtotime($category_expense->created_at));  ?></label>
+                            <a href="./?view=category_expense" class="btn btn-default">Volver</a>
+                            <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
+                        </div>
+                        <div id="result"></div>
+                    </div> <!-- /.box -->
+                </div>
     </div>
+    </form>
+
     </section>
     </div>
     <!-- /.content-wrapper -->

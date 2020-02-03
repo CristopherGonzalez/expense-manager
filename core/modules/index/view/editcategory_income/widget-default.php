@@ -25,15 +25,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- left column -->
-                    <div class="box box-primary">
-                        <!-- general form elements -->
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Editar Categoria de Ingreso</h3>
-                        </div><!-- /.box-header -->
-                        <form role="form" method="post" name="upd" id="upd">
+            <form role="form" method="post" name="upd_category" id="upd_category">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- left column -->
+                        <div class="box box-primary">
+                            <!-- general form elements -->
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Editar Categoria de Ingreso</h3>
+                            </div><!-- /.box-header -->
                             <!-- form start -->
                             <div class="box-body">
                                 <div class="form-group">
@@ -72,27 +73,30 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             <!-- mod id -->
                             <!-- mod id -->
                             <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $category_income->id; ?>">
-                    </div><!-- /.box-body -->
-                    <div class="box-footer text-right">
-                        <label style="color:#999; font-weight:normal;">Registrado por <?php $creator_user = UserData::getById($category_income->user_id);
-                                                                                        echo $creator_user->name  ?> el <?php echo date("Y-d-m", strtotime($category_income->created_at));  ?></label>
-                        <a href="./?view=category_income" class="btn btn-default">Volver</a>
-                        <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
-                    </div>
-                    </form>
-                    <div id="result"></div>
-                </div> <!-- /.box -->
-            </div>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer text-right">
+                            <label style="color:#999; font-weight:normal;">Registrado por <?php $creator_user = UserData::getById($category_income->user_id);
+                                                                                            echo $creator_user->name  ?> el <?php echo date("Y-d-m", strtotime($category_income->created_at));  ?></label>
+                            <a href="./?view=category_income" class="btn btn-default">Volver</a>
+                            <input type="submit" id="upd_data" class="btn btn-success" value="Actualizar">
+
+                        </div>
+                        <div id="result"></div>
+
+                    </div> <!-- /.box -->
+                </div>
     </div>
+    </form>
+
     </section>
     </div>
     <!-- /.content-wrapper -->
     <?php include "res/resources/js.php"; ?>
     <script>
-        $(function(){
-        load_change_log('<?php echo $category_income->id; ?>', "category_income", "chn_log");
-    });
-        $("#upd").submit(function(event) {
+        $(function() {
+            load_change_log('<?php echo $category_income->id; ?>', "category_income", "chn_log");
+        });
+        $("#upd_category").submit(function(event) {
             $('#upd_data').attr("disabled", true);
             var result = false;
             var parametros = $(this).serialize();

@@ -28,6 +28,9 @@ if (empty($_POST['name_entity'])) {
 		$change_log->registro_id = $query_new[1];
 		$change_log->description = $entity->name;
 		$change_log->user_id = $entity->user_id;
+		$change_log->tipo = $entity->tipo;
+		$change_log->fecha = "NOW()";
+		$change_log->entidad = $entity->category_id;
 		$result = $change_log->add();
 		if (isset($result) && !empty($result) && $result[0]) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";

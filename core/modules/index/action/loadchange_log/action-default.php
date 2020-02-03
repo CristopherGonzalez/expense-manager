@@ -51,6 +51,14 @@ if (count($query) > 0) {
 				<th>Estado</th>
 				<th>Fecha modificacion</th>
 			<?php } ?>
+			<?php if ($table_name == "entity") { ?>
+				<th>Descripción</th>
+				<th>Tipo</th>
+				<th>Estado</th>
+				<th>Usuario</th>
+				<th>Fecha modificacion</th>
+
+			<?php } ?>
 		</thead>
 		<tbody>
 			<?php
@@ -69,8 +77,8 @@ if (count($query) > 0) {
 					<?php if ($table_name == "category_income" || $table_name == "category_expense") { ?>
 						<td><?php echo $log->description; ?></td>
 						<td><?php if ($log->tipo != null && isset($log->tipo)) {
-									echo TypeData::getById($log->tipo)->name;
-								} else {
+								echo TypeData::getById($log->tipo)->name;
+							} else {
 								echo "<center>----</center>";
 							}  ?></td>
 						<td><?php if ($log->user_id != null) {
@@ -84,8 +92,20 @@ if (count($query) > 0) {
 								echo "<center>----</center>";
 							}  ?></td>
 					<?php } ?>
+
+
 					<?php if ($table_name == "entity") { ?>
 						<td><?php echo $log->description; ?></td>
+						<td><?php if ($log->tipo != null && isset($log->tipo)) {
+								echo TypeData::getById($log->tipo)->name;
+							} else {
+								echo "<center>----</center>";
+							}  ?></td>
+						<td><?php if ($log->active == "1") {
+								echo "Activo";
+							} else {
+								echo "Eliminado";
+							} ?></td>
 						<td><?php if ($log->user_id != null) {
 								echo UserData::getById($log->user_id)->name;
 							} else {
@@ -96,6 +116,9 @@ if (count($query) > 0) {
 							} else {
 								echo "<center>----</center>";
 							}  ?></td>
+
+
+
 					<?php } ?>
 					<?php if ($table_name == "income" || $table_name == "expenses" || $table_name == "debts" || $table_name == "stocks" || $table_name == "result") { ?>
 						<td><?php echo $date; ?></td>

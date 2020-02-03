@@ -56,11 +56,7 @@ class CategoryExpenseData {
 	public function update(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\",tipo= $this->tipo,empresa= $this->empresa where id=$this->id";
 		$query = Executor::doit($sql);
-		if (isset($query)){
-			return true;
-		}else{
-			return false;
-		}
+		return $query;
 	}
 	/**
 	 * @brief Funcion para obtener una  categoria de egreso por id

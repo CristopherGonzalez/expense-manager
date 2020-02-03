@@ -24,6 +24,18 @@ if (!isset($_SESSION['user_id'])){
 
 		if ($query_update){
 			$messages[] = "La categoria ha sido actualizada satisfactoriamente.";
+			$change_log = new ChangeLogData();
+			$change_log->tabla = "category_expense";
+			$change_log->registro_id = $category_expense->id;
+			$change_log->description = $category_expense->name;
+			$change_log->tipo = $category_expense->tipo;
+			$change_log->user_id = $category_expense->user_id;
+			$result = $change_log->add();
+			if (isset($result) && !empty($result) && $result[0]) {
+				$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
+			} else {
+				$errors[] = " Lo siento algo ha salido mal en el registro de errores.";
+			}
 			//print("<script>window.location='./?view=expenses'</script>");
 		} else{
 			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";

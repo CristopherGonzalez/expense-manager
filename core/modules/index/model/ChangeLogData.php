@@ -16,7 +16,7 @@ class ChangeLogData {
 		$this->user_id = "";
 		$this->active = 1;
 		$this->payment_date = "00/00/0000";
-		$this->tipo = null;
+		$this->tipo = "NULL";
 	}
 	public function add(){
 		$sql = "insert into ".self::$tablename." ( tabla, registro_id, description, amount, entidad, fecha, pagado,document_number, created_at, user_id, active, payment_date, tipo) ";

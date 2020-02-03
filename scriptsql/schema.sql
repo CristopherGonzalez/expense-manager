@@ -265,6 +265,5 @@ create table entidades (
 		active boolean null,
 		payment_date datetime null,
 		tipo int null,
-		foreign key(user_id) references user(id),
-		foreign key(entidad) references entidades(id)
+		foreign key(user_id) references user(id)
 	) CHARACTER SET = utf8 COLLATE = utf8_bin;

@@ -37,6 +37,21 @@ if (!isset($_SESSION['user_id'])){
 			ExpensesData::updateStatusByEntity($status,$entity->id);
 			IncomeData::updateStatusByEntity($status,$entity->id);
 			ResultData::updateStatusByEntity($status,$entity->id);
+		$change_log = new ChangeLogData();
+		$change_log->tabla = "entity";
+		$change_log->registro_id = $entity->id;
+		$change_log->description = $entity->name;
+		$change_log->user_id = $entity->user_id;
+		$change_log->tipo = $entity->tipo;
+		$change_log->entidad = $entity->category_id;
+		$change_log->active = $entity->active;
+		$change_log->fecha = "NOW()";
+		$result = $change_log->add();
+		if (isset($result) && !empty($result) && $result[0]) {
+			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
+		} else {
+			$errors[] = " Lo siento algo ha salido mal en el registro de errores.";
+		}
 
 			//print("<script>window.location='./?view=expenses'</script>");
 		} else{
