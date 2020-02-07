@@ -122,8 +122,8 @@
                                 <a href=""><i class="fa fa-pie-chart"></i> <span>Informes</span></a>
                                 <ul id="TypesReports">
                                     <li class="<?php if(isset($_GET['view']) and $_GET['view']=='reports' ){echo "active";}?>"> <a href="?view=reports"><span>Gestión</span></a></li>
-                                    <li> <a href="#"><span>Pagos</span></a></li>
-                                    <li> <a href="#"><span>Vencimientos</span></a></li>
+                                    <li class="<?php if(isset($_GET['view']) and $_GET['view']=='paymentreports' ){echo "active";}?>"> <a href="?view=paymentreports"><span>Pagos</span></a></li>
+                                    <li class="<?php if(isset($_GET['view']) and $_GET['view']=='expirationreports' ){echo "active";}?>"> <a href="?view=expirationreports"><span>Vencimientos</span></a></li>
                                 </ul>
                             </li>
                             <li class="<?php if(isset($_GET['view']) and $_GET['view']=='profile' ){echo "active";}?>">

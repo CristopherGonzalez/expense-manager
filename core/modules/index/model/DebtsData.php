@@ -18,6 +18,7 @@ class DebtsData {
 		$this->pago = "";
 		$this->empresa = "";
 		$this->active = 1;
+		$this->payment_specific_date = null;
 	}
 
 	public function add(){

@@ -1,7 +1,7 @@
 
 /*Datos de Ciudades*/
 
-use dm000397_Negocio;
+use dm000397_Negocio2;
 
 INSERT INTO ciudad (name, id_pais) VALUES ('Cape Town', 209);
 INSERT INTO ciudad (name, id_pais) VALUES ('Pretoria', 209);

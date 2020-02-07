@@ -4,33 +4,17 @@ if (isset($_SESSION["user_id"])) :
   if ($_SESSION['user_id'] == "1") {
     Core::redir('?view=company');
   }
-  //$user = UserData::getById($_SESSION["user_id"]);
-
-  $sumIncome = IncomeData::sumIncome($_SESSION["company_id"]);
-  $sumExpenses = ExpensesData::sumExpenses($_SESSION["company_id"]);
 
 ?>
-  <?php
-  function sum_incomes_month($month)
-  {
-    $income = IncomeData::sumIncome_Month($month, $_SESSION["company_id"]);
-    echo $total = number_format($income->total, 2, '.', '');
-  }
-  function sum_expenses_month($month)
-  {
-    $expenses = ExpensesData::sumExpenses_Month($month, $_SESSION["company_id"]);
-    echo $total = number_format($expenses->total, 2, '.', '');
-  }
-  ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1> Informes de Gestión</h1>
+      <h1> Informes de Vencimientos</h1>
       <ol class="breadcrumb">
         <li><a href="?view=home"><i class="fa fa-home"></i> Home</a></li>
         <li>Informes</li>
-        <li class="active">Gestion</li>
+        <li class="active">Vencimientos</li>
       </ol>
     </section>
 

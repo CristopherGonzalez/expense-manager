@@ -17,6 +17,7 @@ class ResultData {
 		$this->empresa = "";
 		$this->active = 1;
 		$this->payment_date = "00/00/0000";
+		$this->payment_specific_date = null;
 	}
 
 	public function add(){

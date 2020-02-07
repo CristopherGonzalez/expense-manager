@@ -1,5 +1,5 @@
 
-use dm000397_Negocio;
+use dm000397_Negocio2;
 INSERT INTO pais (name) VALUES ('AFGHANISTAN');
 INSERT INTO pais (name) VALUES ('ALAND ISLANDS');
 INSERT INTO pais (name) VALUES ('ALBANIA');

@@ -1,7 +1,7 @@
 /*Creacion de base de datos*/
-DROP DATABASE IF EXISTS dm000397_Negocio;
-create database dm000397_Negocio;
-use dm000397_Negocio;
+--DROP DATABASE IF EXISTS dm000397_Negocio;
+create database dm000397_Negocio2;
+use dm000397_Negocio2;
 /**Seccion de ciudades y paises**/
 create table pais (
  id int not null auto_increment primary key,
@@ -159,6 +159,7 @@ create table entidades (
 	empresa int not null,
 	active boolean not null,
 	payment_date datetime null,
+	payment_specific_date datetime null,
 	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_expense(id),
@@ -184,12 +185,15 @@ create table entidades (
 	empresa int not null,
 	active boolean not null,
 	payment_date datetime null,
+	payment_specific_date datetime null,
 	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(category_id) references category_income(id),
   	foreign key(entidad) references entidades(id),
 	foreign key(tipo) references tipos(id)
   ) CHARACTER SET = utf8 COLLATE = utf8_bin;
+
+
   create table resultado (
   	id int not null auto_increment primary key,
   	description text ,
@@ -205,6 +209,7 @@ create table entidades (
 	empresa int not null,
 	active boolean not null,
 	payment_date datetime null,
+	payment_specific_date datetime null,
 	foreign key(empresa) references empresas(id), 
   	foreign key(user_id) references user(id),
   	foreign key(entidad) references entidades(id)
@@ -226,6 +231,7 @@ create table entidades (
 		pago LONGTEXT,
 		empresa int not null,
 		active boolean not null,
+		payment_specific_date datetime null,
 		foreign key(empresa) references empresas(id), 
 		foreign key(user_id) references user(id),
 		foreign key(entidad) references entidades(id)
@@ -246,6 +252,7 @@ create table entidades (
 		pago LONGTEXT,
 		empresa int not null,
 		active boolean not null,
+		payment_specific_date datetime null,
 		foreign key(empresa) references empresas(id), 
 		foreign key(user_id) references user(id),
 		foreign key(entidad) references entidades(id)
@@ -264,6 +271,7 @@ create table entidades (
 		user_id int not null,
 		active boolean null,
 		payment_date datetime null,
+		payment_specific_date datetime null,
 		tipo int null,
 		foreign key(user_id) references user(id)
 	) CHARACTER SET = utf8 COLLATE = utf8_bin;

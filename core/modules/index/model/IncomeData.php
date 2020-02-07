@@ -23,6 +23,7 @@ class IncomeData {
 		$this->empresa = "";
 		$this->active = 1;
 		$this->payment_date = "00/00/0000";
+		$this->payment_specific_date = null;
 	}
 
 	public function getCategory(){ return CategoryIncomeData::getById($this->category_id);}
@@ -121,6 +122,18 @@ class IncomeData {
 	public static function sumIncome($u){
 		$year=date('Y');
 		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and year(fecha)='$year' and active=1";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new IncomeData());
+	}
+	public static function sumIncomeNotPay($u){
+		$year=date('Y');
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and year(fecha)='$year' and active=1 and pagado=0 ";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new IncomeData());
+	}
+	public static function sumIncomeMonthNotPay($company_id,$month){
+		$year=date('Y');
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$company_id and month(fecha)= '$month' and year(fecha)='$year' and active=1 and pagado=0 ";
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
