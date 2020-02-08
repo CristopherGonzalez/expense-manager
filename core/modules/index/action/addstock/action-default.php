@@ -35,7 +35,7 @@ if (!isset($_SESSION['user_id'])){
 				'user_id' => $_SESSION['user_id'],
 				'active' => true);
 			$entity = mysqli_real_escape_string($con,(strip_tags($_POST["entity"],ENT_QUOTES)));
-
+			$object['payment_specific_date'] = $object['pagado'] == 1 ? new DateTime('NOW') : null ;
 			$date_stock = strtotime($_POST['date']);
 			$month = date('m',$date_stock);
 			$year = date('Y',$date_stock);

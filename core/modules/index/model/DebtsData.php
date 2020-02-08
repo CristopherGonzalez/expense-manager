@@ -22,8 +22,8 @@ class DebtsData {
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active) ";
-		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->entidad,$this->created_at,\"$this->fecha\",\"$this->fecha_pago\",$this->pagado,\"$this->document_number\",'$this->documento','$this->pago',$this->empresa,$this->active)";
+		$sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active, payment_specific_date) ";
+		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->entidad,$this->created_at,\"$this->fecha\",\"$this->fecha_pago\",$this->pagado,\"$this->document_number\",'$this->documento','$this->pago',$this->empresa,$this->active, '$this->payment_specific_date')";
 		return Executor::doit($sql);
 	}
 

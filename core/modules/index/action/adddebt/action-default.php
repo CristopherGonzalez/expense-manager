@@ -38,6 +38,11 @@ if (!isset($_SESSION['user_id'])){
 				$debt->tipo = intval($_POST['type_debt']);
 				$debt->fecha = date("Y-m-d H:i:s", strtotime($date_debts."+".$i." month"));
 				$debt->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
+				if($debt->pagado==1){
+					$debt->payment_specific_date = date('Y-m-d');
+				}elseif($debt->pagado==0){
+					$debt->payment_specific_date = null;
+				}
 				//Se realiza guardado de imagenes de pago y documento
 				$debt->documento = "";
 				$debt->document_number = mysqli_real_escape_string($con,(strip_tags($_POST["document_number"],ENT_QUOTES)));
