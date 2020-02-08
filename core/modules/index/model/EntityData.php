@@ -96,7 +96,11 @@ class EntityData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 	}
-
+	public static function getLikeName($name, $company){
+		$sql = "select * from ".self::$tablename." where name like '%$name%' and empresa = ".$company." and active = 1";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new EntityData());
+	}
 }
 
 ?>

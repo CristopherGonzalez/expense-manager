@@ -35,9 +35,12 @@ if (!isset($_SESSION['user_id'])){
 		if($expense->pagado){
 			$expense->pagado_con = mysqli_real_escape_string($con,(strip_tags($_POST["pay_with"],ENT_QUOTES)));
 			$expense->payment_date = mysqli_real_escape_string($con,(strip_tags($_POST["payment_date"],ENT_QUOTES)));
+			$expense->payment_specific_date = date('Y-m-d');
+
 		}else{
 			$expense->pagado_con = "";
 			$expense->payment_date = "00/00/0000";
+			$expense->payment_specific_date = "00/00/0000";
 		}
 		$expense->documento = "";
 		$expense->pago = "";

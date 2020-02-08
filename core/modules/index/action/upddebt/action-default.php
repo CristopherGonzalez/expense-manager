@@ -34,8 +34,12 @@ if (!isset($_SESSION['user_id'])){
 		$debt->document_number = mysqli_real_escape_string($con,(strip_tags($_POST["document_number"],ENT_QUOTES)));
 		if($debt->pagado){
 			$debt->fecha_pago = mysqli_real_escape_string($con,(strip_tags($_POST["payment_date"],ENT_QUOTES)));
+			$debt->payment_specific_date = date('Y-m-d');
+
 		}else{
 			$debt->fecha_pago = "00/00/0000";
+			$debt->payment_specific_date = "00/00/0000";
+
 		}
 		$debt->documento = "";
 		$debt->pago = "";
