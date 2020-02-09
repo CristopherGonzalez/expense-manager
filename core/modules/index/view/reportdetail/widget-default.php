@@ -1,0 +1,275 @@
+<?php
+
+if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
+        $id = $_GET["id"];
+    } else {
+        Core::redir("./?view=paymentreports");
+    }
+    if (isset($_GET['type']) && !empty($_GET['type'])) {
+        $type = $_GET["type"];
+    } else {
+        Core::redir("./?view=paymentreports");
+    }
+    //query
+    $object;
+    switch ($type) {
+        case 'Ingreso':
+            $object = IncomeData::getById($id);
+            $payment_date = $object->payment_date;
+            $pay_with = $object->pagado_con;
+            $form = "income";
+            break;
+        case 'Egreso':
+            $object = ExpensesData::getById($id);
+            $payment_date = $object->payment_date;
+            $pay_with = $object->pagado_con;
+            $form = "expenses";
+            break;
+        case 'Deuda':
+            $object = DebtsData::getById($id);
+            $payment_date = $object->fecha_pago;
+            $pay_with;
+            $form = "debts";
+            break;
+        case 'Socio':
+            $object = ResultData::getById($id);
+            $payment_date = $object->payment_date;
+            $pay_with = $object->pagado_con;
+            $form = "result";
+            break;
+        default:
+            Core::redir("./?view=paymentreports");
+            break;
+    }
+    //Se obtienen datos para llenado de desplegables
+
+    if (!isset($object) && empty($object)) {
+        Core::redir("./?view=paymentreports");
+    }
+    if (isset($object->pago) && !empty($object->pago)) {
+        $img_pago = $object->pago;
+    }
+    if (isset($object->documento) && !empty($object->documento)) {
+        $img_doc = $object->documento;
+    }
+?>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1><i class="fa fa-edit"></i>Editar Egreso</h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- left column -->
+                    <form role="form" method="post" name="upd" id="upd">
+                        <!-- form start -->
+                        <div class="box box-primary">
+                            <!-- general form elements -->
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Detalle de Pago</h3>
+                            </div><!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label for="date">Fecha documento: </label>
+                                        <input type="date" class="form-control" id="date" name="date" disabled value="<?php echo $object->fecha;  ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label for="amount" class="control-label">Importe: </label>
+                                        <input type="text" disabled class="form-control" id="amount" name="amount" placeholder="Importe: " value="<?php echo $object->amount ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label for="entidad" class="control-label">Entidad: </label>
+                                        <input type="text" disabled class="form-control" id="entity" name="entity" value="<?php echo EntityData::getById($object->entidad)->name; ?>">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label for="date">Numero Documento: </label>
+                                        <input type="text" disabled class="form-control" id="document_number" name="document_number" value="<?php echo $object->document_number; ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label for="description" class="control-label">Detalle: </label>
+                                        <input type="text" disabled class="form-control" id="description" name="description" value="<?php echo $object->description ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label for="date">Fecha carga pago: </label>
+                                        <input type="date" disabled class="form-control" id="date" name="date" value="<?php echo $object->payment_specific_date;  ?>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <label for="date">Fecha pago: </label>
+                                        <input type="date" disabled class="form-control" id="date" name="date" value="<?php echo $payment_date;  ?>">
+                                    </div>
+                                </div>
+                                <?php
+                                if (isset($pay_with) && !empty($pay_with)) { ?>
+                                    <div class="form-group">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label for="pay_with">Pagado con: </label>
+                                            <input type="text" class="form-control" name="pay_type" id="pay_type" disabled value="<?php echo $pay_with; ?>">
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+
+                                <div class="form-group" style="text-align: center; margin-top: 10px; margin-bottom:10px;">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label for="document" class="col-12">Imagen documento
+                                        </label>
+                                        <div class="col-12">
+                                            <img src="<?php echo (isset($img_doc) ? $img_doc : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image" height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label for="payment" class="col-12">Imagen pago
+                                        </label>
+                                        <div class="col-12">
+                                            <img src="<?php echo (isset($img_pago) ? $img_pago : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image" height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="formModalImage" tabindex="-1" role="dialog" aria-labelledby="ModalImage" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="ModalImage"> Imagen</h4>
+                                            </div>
+                                            <div class="modal-body" style="display: inline-block;">
+                                                <div class="form-group">
+                                                    <div class="col-md-2 col-sm-2 col-xs-12"></div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12" style="display: inline-block;">
+                                                        <img id="image_modal" style="width: min-content;height: min-content;" class="img-thumbnail" alt="Imagen del documento">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="form-group">
+                                                    <label class="col-md-8 col-sm-8 col-xs-12" style="color:#999; font-weight:normal;">Registrado por <?php $user_session = UserData::getById($_SESSION["user_id"]);
+                                                                                                                                                        echo $user_session->name  ?> el <?php echo date("Y-m-d"); ?></label>
+                                                    <span class="col-md-4 col-sm-4 col-xs-12">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group justify-content-between">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <span>
+                                                    <?php
+                                                    $lblchange_log = new lblChangeLog($object->id, $form);
+                                                    echo $lblchange_log->renderLabel();
+                                                    $modal_content = new Modal("Listado de Cambios", "frm".$form, UserData::getById($_SESSION['user_id']));
+                                                    echo $modal_content->renderInit();
+                                                    ?>
+                                                    <div class="form-group table-responsive">
+                                                        <div id="chn_log"></div>
+                                                    </div>
+                                                    <?php echo $modal_content->renderEnd(false); ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- mod id -->
+                                <input type="hidden" class="form-control" id="mod_id" name="mod_id" value="<?php echo $object->id; ?>">
+                            </div><!-- /.box-body -->
+                            <div class="box-footer text-right">
+                                <label style="color:#999; font-weight:normal;">Registrado por <?php $creator_user = UserData::getById($object->user_id);
+                                                                                                echo $creator_user->name  ?> el <?php echo $object->created_at;  ?></label>
+                                <span style="margin-left:10px;">
+                                    <a href="javascript: history.go(-1)" class="btn btn-default">Volver</a>
+                                </span>
+                            </div>
+                        </div> <!-- /.box -->
+                        <?php
+                        $webcamdocument = new Webcam('document');
+                        echo $webcamdocument->renderModalImageCam();
+                        $webcampayment = new Webcam('payment');
+                        echo $webcampayment->renderModalImageCam();
+                        ?>
+                        <div id="result"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+    <?php include "res/resources/js.php"; ?>
+    <script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
+
+    <script>
+        $(function() {
+            load_change_log('<?php echo $object->id; ?>', '<?php echo $form; ?>', "chn_log");
+
+        });
+
+        //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
+        function image_load(input) {
+            if ((input.files && input.files[0])) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var type_image = "";
+                    if (input.name == "document" || input.name == "doc_image") {
+                        type_image = "doc_image";
+                    }
+                    if (input.name == "payment" || input.name == "pago_image") {
+                        type_image = "pago_image";
+                    }
+                    if (type_image != "") {
+                        $('#' + type_image).attr('style', 'display:block;');
+                        $('#' + type_image).attr('style', 'visibility:visible;');
+                        $('#' + type_image).attr('src', e.target.result);
+                    }
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                var type_image = "";
+                if (input.name == "document" || input.name == "doc_image") {
+                    type_image = "doc_image";
+                }
+                if (input.name == "payment" || input.name == "pago_image") {
+                    type_image = "pago_image";
+                }
+                if (type_image != "" && input.src == "") {
+                    $('#' + type_image).attr('style', 'display:none;');
+                    $('#' + type_image).attr('style', 'visibility:hidden;');
+                    $('#' + type_image).attr('src', "");
+                    $('#image_modal').attr('style', 'visibility:hidden;');
+                    $('#image_modal').attr('style', 'display:none;');
+                    $('#image_modal').attr('src', "");
+                } else {
+                    $('#image_modal').attr('style', 'visibility:visible;');
+                    $('#image_modal').attr('style', 'display:block;');
+                    $('#image_modal').attr('src', input.src);
+                }
+            }
+        }
+    </script>
+<?php else : Core::redir("./");
+endif; ?>

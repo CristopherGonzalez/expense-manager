@@ -100,7 +100,7 @@ class ResultData {
 		return Model::many($query[0],new ResultData());
 	}
 	public static function dinamycQuery($sWhere){
-		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." order by created_at desc";
+		$sql = "SELECT *, ('Socio') as tipo_doc FROM ".self::$tablename." where ".$sWhere." order by created_at desc";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ResultData());
 	}

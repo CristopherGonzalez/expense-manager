@@ -87,17 +87,35 @@ if (isset($_SESSION["user_id"])) :
         </div>
       </div>
       <div id="resultados_ajax">
-        <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        
+      </div><!-- Resultados Ajax -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Pagos</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive">
+          <div class="outer_div">
+          <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           Puedes seleccionar algun filtro de busqueda!
         </div>
-      </div><!-- Resultados Ajax -->
+          </div><!-- Datos ajax Final -->
+        </div>
+        <!-- /.box-body -->
+      </div>
     </section> <!-- /.content -->
   </div><!-- /.content-wrapper -->
 <?php else : Core::redir("./");
 endif; ?>
 <?php include "res/resources/js.php"; ?>
 <script>
-
+  $(function() {
+        load();
+    });
   function load() {
     //Se obtienen filtros de busqueda
     var month_find = $('#month_find option:selected').val();
@@ -122,8 +140,8 @@ endif; ?>
         $("#resultados_ajax").html("Enviando...");
       },
       success: function(datos) {
-        $("#resultados_ajax").html(datos);
-        
+        $("#resultados_ajax").html("");
+        $(".outer_div").html(datos);
       }
     });
 
