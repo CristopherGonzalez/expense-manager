@@ -4,12 +4,12 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     if (isset($_GET['id']) && !empty($_GET['id'])) {
         $id = $_GET["id"];
     } else {
-        Core::redir("./?view=paymentreports");
+        Core::redir("./?view=detailexpiration");
     }
     if (isset($_GET['type']) && !empty($_GET['type'])) {
         $type = $_GET["type"];
     } else {
-        Core::redir("./?view=paymentreports");
+        Core::redir("./?view=detailexpiration");
     }
     //query
     $object;
@@ -39,13 +39,13 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             $form = "result";
             break;
         default:
-            Core::redir("./?view=paymentreports");
+            Core::redir("./?view=detailexpiration");
             break;
     }
     //Se obtienen datos para llenado de desplegables
 
     if (!isset($object) && empty($object)) {
-        Core::redir("./?view=paymentreports");
+        Core::redir("./?view=detailexpiration");
     }
     if (isset($object->pago) && !empty($object->pago)) {
         $img_pago = $object->pago;
@@ -59,7 +59,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1><i class="fa fa-edit"></i>Pago</h1>
+            <h1><i class="fa fa-edit"></i>Vencimiento</h1>
         </section>
 
         <!-- Main content -->
@@ -72,7 +72,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                         <div class="box box-primary">
                             <!-- general form elements -->
                             <div class="box-header with-border">
-                                <h3 class="box-title">Detalle de Pago</h3>
+                                <h3 class="box-title">Detalle del vencimiento</h3>
                             </div><!-- /.box-header -->
                             <div class="box-body">
                                 <div class="form-group">
@@ -106,30 +106,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                         <input type="text" disabled class="form-control" id="description" name="description" value="<?php echo $object->description ?>">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <label for="date">Fecha carga pago: </label>
-                                        <input type="date" disabled class="form-control" id="date" name="date" value="<?php echo $object->payment_specific_date;  ?>">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <label for="date">Fecha pago: </label>
-                                        <input type="date" disabled class="form-control" id="date" name="date" value="<?php echo $payment_date;  ?>">
-                                    </div>
-                                </div>
-                                <?php
-                                if (isset($pay_with) && !empty($pay_with)) { ?>
-                                    <div class="form-group">
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                            <label for="pay_with">Pagado con: </label>
-                                            <input type="text" class="form-control" name="pay_type" id="pay_type" disabled value="<?php echo $pay_with; ?>">
-                                        </div>
-                                    </div>
-                                <?php
-                                }
-                                ?>
+                               
 
                                 <div class="form-group" style="text-align: center; margin-top: 10px; margin-bottom:10px;">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -139,13 +116,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                             <img src="<?php echo (isset($img_doc) ? $img_doc : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image" height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <label for="payment" class="col-12">Imagen pago
-                                        </label>
-                                        <div class="col-12">
-                                            <img src="<?php echo (isset($img_pago) ? $img_pago : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image" height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="modal fade" id="formModalImage" tabindex="-1" role="dialog" aria-labelledby="ModalImage" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -228,7 +199,6 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             load_change_log('<?php echo $object->id; ?>', '<?php echo $form; ?>', "chn_log");
 
         });
-
     </script>
 <?php else : Core::redir("./");
 endif; ?>

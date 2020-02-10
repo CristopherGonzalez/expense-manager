@@ -4,7 +4,6 @@ if (isset($_SESSION["user_id"])) :
   if ($_SESSION['user_id'] == "1") {
     Core::redir('?view=company');
   }
-
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -21,181 +20,132 @@ if (isset($_SESSION["user_id"])) :
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-2 col-sm-2 col-xs-12">
-          <select name="month_find" id="month_find" class="form-control" onchange="load();">
-            <option value="0" selected>Mes</option>
-            <?php
-            //Se crean opciones de meses y se selecciona el actual por defecto
-            $months = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-            foreach ($months as $index => $month) {
-            ?>
-              <option value="<?php echo $index + 1; ?>"><?php echo $month; ?></option>
-            <?php
-            }
-            ?>
-          </select>
+        <div class="col-md-8">
+          <div class="form-group">
+            <!-- Se agregan nuevos filtros de mes, año, tipo de egreso y cambio en categoria del egreso -->
+            <div class="col-md-3 form-group">
+              <select name="month_find" id="month_find" class="form-control" style="width: 100%;" onchange="load(1);">
+                <option value="0">Mes</option>
+                <?php
+                //Se crean opciones de meses y se selecciona el actual por defecto
+                $months = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                foreach ($months as $index => $month) {
+                ?>
+                  <option value="<?php echo $index + 1; ?>"><?php echo $month; ?></option>
+                <?php
+                }
+                ?>
+              </select>
+            </div>
+            <div class="col-md-2 form-group">
+              <select name="year_find" id="year_find" class="form-control" style="width: 100%;" onchange="load(1);">
+                <option value="0">Año</option>
+                <?php
+                //Se crean opciones de años y se selecciona el actual por defecto
+                $years = array(2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025);
+                foreach ($years as $year) {
+                ?>
+                  <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                <?php
+                }
+                ?>
+              </select>
+            </div>
+            <div class="col-md-3 form-group">
+              <select name="type_document_find" id="type_document_find" class="form-control" style="width: 100%;" onchange="load(1);">
+                <option value="0">Todos</option>
+                <option value="income">Ingresos</option>
+                <option value="expense">Egresos</option>
+                <option value="partner">Socios</option>
+                <option value="debt">Deudas</option>
+              </select>
+            </div>
+            <div class="col-md-5 form-group">
+              <input type="text" class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda" onkeyup="load(1);">
+            </div>
+            <div class="col-md-4 form-group">
+              <input type="checkbox" id="inactive" name="inactive" onchange="load(1);">
+              <label for="inactive"><b>Ver eliminados</b></label>
+            </div>
+          </div>
         </div>
-        <div class="col-md-2 col-sm-2 col-xs-12">
-          <select name="year_find" id="year_find" class="form-control" style="width: 100%;" onchange="load();">
-            <option value="0" selected>Año</option>
-            <?php
-            //Se crean opciones de años y se selecciona el actual por defecto
-            $years = array(2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025);
-            foreach ($years as $year) {
-            ?>
-              <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
-            <?php
-            }
-            ?>
-          </select>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <h4 class="col-md-4 col-sm-4 col-xs-12"><b>Resultado : $<label id="mount">0</label></b></h4>
-          <h4 class="col-md-4 col-sm-4 col-xs-12"><label id="mountPercetage">0</label>%</h4>
-          <h4 class="col-md-4 col-sm-4 col-xs-12"> <input type="checkbox" name="chkAnnual" id="chkAnnual" value="anual"> Anual</h4>
-        </div>
-
-        <div class="col-md-2 col-sm-2 col-xs-12">
-
-        </div>
-        <div class="col-md-2 col-sm-2 col-xs-12">
-          <button class="btn btn-default" type="button" onclick='load();'><i class='fa fa-search'></i></button>
-          <label>Calcular</label>
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col-xs-1">
+              <div id="loader" class="text-center"></div>
+            </div>
+            <!-- <div class="col-md-offset-10"> -->
+            <div class=" pull-right">
+              <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
+              <div class="btn-group">
+                <a style="margin-right: 3px" target="_blank" href="reports/reportExpense.php" class="btn btn-default pull-right">
+                  <span class="fa fa-file-excel-o"></span> Descargar
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div id="resultados_ajax">
-        <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          Debes seleccionar un año y un mes!
-        </div>
+        
       </div><!-- Resultados Ajax -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Vencimientos</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive">
+          <div class="outer_div">
+          <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          Puedes seleccionar algun filtro de busqueda!
+        </div>
+          </div><!-- Datos ajax Final -->
+        </div>
+        <!-- /.box-body -->
+      </div>
     </section> <!-- /.content -->
   </div><!-- /.content-wrapper -->
 <?php else : Core::redir("./");
 endif; ?>
 <?php include "res/resources/js.php"; ?>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
   $(function() {
-    load();
-  });
-  $('#chkAnnual').change(function() {
-    $('#month_find').val(0);
-    if ($('#chkAnnual').is(':checked')) {
-      $('#month_find').attr('disabled', true);
-    } else {
-      $('#month_find').attr('disabled', false);
-    }
-  });
-
+        load();
+    });
   function load() {
     //Se obtienen filtros de busqueda
     var month_find = $('#month_find option:selected').val();
     var year_find = $('#year_find option:selected').val();
+    var type_document_find = $('#type_document_find option:selected').val();
+    var find_text = $('#find_text').val();
+    var inactive = $('#inactive').is(":checked");
 
-    if (month_find != "0" && year_find != "0") {
-      var parametros = {
-        'month': month_find,
-        'year': year_find
+    var parametros = {
+      'month': month_find,
+      'year': year_find,
+      'type_doc': type_document_find,
+      'text': find_text,
+      'inactive': inactive
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "./?action=loadreport_expiration",
+      data: parametros,
+      beforeSend: function(objeto) {
+        $("#resultados_ajax").html("Enviando...");
+      },
+      success: function(datos) {
+        $("#resultados_ajax").html("");
+        $(".outer_div").html(datos);
       }
-      $.ajax({
-        type: "POST",
-        url: "./?action=loadreports",
-        data: parametros,
-        beforeSend: function(objeto) {
-          $("#resultados_ajax").html("Enviando...");
-        },
-        success: function(datos) {
-          $("#resultados_ajax").html(datos);
-          $('#mount').html(response.totalSumMonthYear);
-          $('#mountPercetage').html(response.percentageSumMonthYear);
-
-          if (document.getElementById('doughnutIncome') != null && document.getElementById('doughnutIncome') != undefined) {
-            var ctx = document.getElementById('doughnutIncome').getContext('2d');
-            var config = {
-              type: 'doughnut',
-              data: {
-                datasets: [],
-                labels: []
-              },
-              options: {
-                responsive: true,
-                legend: {
-                  position: false
-                },
-                title: {
-                  display: true,
-                  text: 'Ingresos'
-                },
-                animation: {
-                  animateScale: true,
-                  animateRotate: true
-                }
-              }
-            };
-            var newDataset = {
-              backgroundColor: [],
-              data: [],
-              label: 'New dataset ',
-            };
-            var results = response.resultIncomeType;
-            for (var index = 0; index < results.length; ++index) {
-              newDataset.data.push(results[index]['value']);
-              newDataset.backgroundColor.push(results[index]['color']);
-              config.data.labels.push(results[index]['label']);
-            }
-            config.data.datasets.push(newDataset);
-            window.myDoughnut = new Chart(ctx, config);
-          }
-          if (document.getElementById('doughnutExpenses') != null && document.getElementById('doughnutExpenses') != undefined) {
-            var ctx = document.getElementById('doughnutExpenses').getContext('2d');
-            var config2 = {
-              type: 'doughnut',
-              data: {
-                datasets: [],
-                labels: []
-              },
-              options: {
-                responsive: true,
-                legend: {
-                  position: false
-                },
-                title: {
-                  display: true,
-                  text: 'Egresos'
-                },
-                animation: {
-                  animateScale: true,
-                  animateRotate: true
-                }
-              }
-            };
-            var newDataset = {
-              backgroundColor: [],
-              data: [],
-              label: 'New dataset ',
-            };
-            var results = response.resultExpensesType;
-            for (var index = 0; index < results.length; ++index) {
-              newDataset.data.push(results[index]['value']);
-              newDataset.backgroundColor.push(results[index]['color']);
-              config2.data.labels.push(results[index]['label']);
-            }
-            config2.data.datasets.push(newDataset);
-            window.myDoughnut2 = new Chart(ctx, config2);
-          }
-          window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function() {
-              $(this).remove();
-            });
-          }, 5000);
-        }
-      });
+    });
 
 
-    } else {
-      $("#resultados_ajax").html("<div class='alert alert-info alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><strong>Debes seleccionar un año y un mes!</strong></div>");
-      $('#mount').html(0);
-      $('#mountPercetage').html(0);
-    }
+
   }
 </script>
