@@ -5,6 +5,9 @@ class EntityData {
 
 	public function __construct(){
 		$this->name = "";
+		$this->document_number = "";
+		$this->description = "";
+		$this->document = "";
 		$this->user_id = "";
 		$this->created_at = "NOW()";
 		$this->tipo = "";
@@ -21,8 +24,9 @@ class EntityData {
 	public function getType($id){ return TypeData::getById($id);}
 
 	public function add(){
-		$sql = "insert into entidades (name,user_id,created_at,tipo,category_id,empresa, active) ";
-		$sql .= "value (\"$this->name\",$this->user_id,$this->created_at,$this->tipo,$this->category_id,$this->empresa, $this->active)";
+		$sql = "insert into entidades (name,document_number,description, user_id,created_at,tipo,category_id,empresa, active) ";
+		$sql .= "value (\"$this->name\",\"$this->document_number\",\"$this->description\",$this->user_id,$this->created_at,$this->tipo,$this->category_id,$this->empresa, $this->active)";
+		var_dump($sql);
 		return Executor::doit($sql);
 	}
 
@@ -102,5 +106,3 @@ class EntityData {
 		return Model::many($query[0],new EntityData());
 	}
 }
-
-?>

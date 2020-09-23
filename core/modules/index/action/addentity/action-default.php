@@ -15,6 +15,8 @@ if (empty($_POST['name_entity'])) {
 	$con = Database::getCon();
 	$entity = new EntityData();
 	$entity->name = mysqli_real_escape_string($con, (strip_tags($_POST["name_entity"], ENT_QUOTES)));
+	$entity->document_number = mysqli_real_escape_string($con, (strip_tags($_POST["document_number"], ENT_QUOTES)));
+	$entity->description = mysqli_real_escape_string($con, (strip_tags($_POST["description"], ENT_QUOTES)));
 	$entity->tipo = intval($_POST['type']);
 	$entity->user_id = $_SESSION['user_id'];
 	$entity->empresa = $_SESSION['company_id'];
@@ -32,7 +34,7 @@ if (empty($_POST['name_entity'])) {
 		$change_log->fecha = "NOW()";
 		$change_log->entidad = $entity->category_id;
 		$result = $change_log->add();
-		if (isset($result) && !empty($result) && $result[0]) {
+		if (isset($result) && !empty($result) && $result) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
 		} else {
 			$errors[] = " Lo siento algo ha salido mal en el registro de errores.";

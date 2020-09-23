@@ -24,7 +24,7 @@ if (empty($_POST['name']) && empty($_POST['type_income'])) {
 		$change_log->user_id = $income->user_id;
 		$change_log->tipo = $income->tipo;
 		$result = $change_log->add();
-		if (isset($result) && !empty($result) && $result[0]) {
+		if (isset($result) && !empty($result) && $result) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
 		} else {
 			$errors[] = " Lo siento algo ha salido mal en el registro de errores.";

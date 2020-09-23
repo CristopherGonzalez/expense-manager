@@ -1,7 +1,7 @@
 /*Creacion de base de datos*/
 --DROP DATABASE IF EXISTS dm000397_Negocio;
-create database dm000397_Negocio2;
-use dm000397_Negocio2;
+create database minegocio;
+use minegocio;
 /**Seccion de ciudades y paises**/
 create table pais (
  id int not null auto_increment primary key,
@@ -131,6 +131,9 @@ create table entidades (
 	tipo int not null,
 	category_id int not null,
 	empresa int not null,
+	description text ,
+	document_number text ,
+	documento LONGTEXT,
 	active boolean not null,
 	foreign key(empresa) references empresas(id), 
 	foreign key(user_id) references user(id),

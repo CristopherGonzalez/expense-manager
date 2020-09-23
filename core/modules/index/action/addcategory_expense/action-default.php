@@ -24,7 +24,7 @@ if (empty($_POST['name']) && empty($_POST['type_expense'])) {
 		$change_log->tipo = $expense->tipo;
 		$change_log->user_id = $expense->user_id;
 		$result = $change_log->add();
-		if (isset($result) && !empty($result) && $result[0]) {
+		if (isset($result) && !empty($result) && $result) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
 		} else {
 			$errors[] = " Lo siento algo ha salido mal en el registro de errores.";
@@ -38,28 +38,28 @@ if (empty($_POST['name']) && empty($_POST['type_expense'])) {
 
 if (isset($errors)) {
 ?>
-	<div class="alert alert-danger" role="alert">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<strong>Error!</strong>
-		<?php
+<div class="alert alert-danger" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Error!</strong>
+    <?php
 		foreach ($errors as $error) {
 			echo $error;
 		}
 		?>
-	</div>
+</div>
 <?php
 }
 if (isset($messages)) {
 ?>
-	<div class="alert alert-success" role="alert">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<strong>¡Bien hecho!</strong>
-		<?php
+<div class="alert alert-success" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>¡Bien hecho!</strong>
+    <?php
 		foreach ($messages as $message) {
 			echo $message;
 		}
 		?>
-	</div>
+</div>
 <?php
 }
 ?>
