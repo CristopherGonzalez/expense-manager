@@ -1,6 +1,6 @@
 /*Creacion de base de datos*/
-/*DROP DATABASE IF EXISTS dm000397_Negocio;
-create database dm000397_Negocio;*/
+DROP DATABASE IF EXISTS dm000397_Negocio;
+create database dm000397_Negocio;
 use dm000397_Negocio;
 /**Seccion de ciudades y paises**/
 create table pais (
@@ -59,11 +59,7 @@ create table empresas(
   email varchar(255) not null,
   profile_pic LONGTEXT,
   skin int not null,
-  created_at datetime not null,
-  foreign key(skin) references skins(id),
-  foreign key(pais) references pais(id),
-  foreign key(ciudad) references ciudad(id),
-  foreign key(tipo_negocio) references tipo_negocios(id)
+  created_at datetime not null
 ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
@@ -80,9 +76,7 @@ create table user(
   skin int not null,
   empresa int,
   is_admin boolean not null default 0,
-  created_at datetime not null,
-  foreign key(skin) references skins(id),
-  foreign key(empresa) references empresas(id)
+  created_at datetime not null
 ) CHARACTER SET = utf8 COLLATE = utf8_bin;
   ALTER TABLE `user` ADD UNIQUE( `email`, `empresa`);
 
@@ -102,10 +96,7 @@ create table category_expense (
 	user_id int not null,
 	created_at datetime not null,
 	tipo int not null,
-	empresa int not null,
-	foreign key(empresa) references empresas(id), 
-	foreign key(user_id) references user(id),
-	foreign key(tipo) references tipos(id)
+	empresa int not null
 ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 create table category_income (
@@ -114,10 +105,7 @@ create table category_income (
 	user_id int not null,
 	created_at datetime not null,
 	tipo int not null,
-	empresa int not null,
-	foreign key(empresa) references empresas(id), 
-	foreign key(tipo) references tipos(id),
-	foreign key(user_id) references user(id)
+	empresa int not null
 ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
@@ -134,10 +122,7 @@ create table entidades (
 	description text ,
 	document_number text ,
 	documento LONGTEXT,
-	active boolean not null,
-	foreign key(empresa) references empresas(id), 
-	foreign key(user_id) references user(id),
-	foreign key(tipo) references tipos(id)
+	active boolean not null
 ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
@@ -163,11 +148,7 @@ create table entidades (
 	active boolean not null,
 	payment_date date null,
 	payment_specific_date date null,
-	foreign key(empresa) references empresas(id), 
-  	foreign key(user_id) references user(id),
-  	foreign key(category_id) references category_expense(id),
-  	foreign key(entidad) references entidades(id),
-	foreign key(tipo) references tipos(id)
+	deuda_id int null
   ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
   create table income (
@@ -188,12 +169,7 @@ create table entidades (
 	empresa int not null,
 	active boolean not null,
 	payment_date date null,
-	payment_specific_date date null,
-	foreign key(empresa) references empresas(id), 
-  	foreign key(user_id) references user(id),
-  	foreign key(category_id) references category_income(id),
-  	foreign key(entidad) references entidades(id),
-	foreign key(tipo) references tipos(id)
+	payment_specific_date date null
   ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
 
@@ -213,9 +189,7 @@ create table entidades (
 	active boolean not null,
 	payment_date date null,
 	payment_specific_date date null,
-	foreign key(empresa) references empresas(id), 
-  	foreign key(user_id) references user(id),
-  	foreign key(entidad) references entidades(id)
+	deuda_id int null
 
   ) CHARACTER SET = utf8 COLLATE = utf8_bin;
 	create table deudas (
@@ -235,10 +209,11 @@ create table entidades (
 		empresa int not null,
 		active boolean not null,
 		payment_specific_date date null,
-		foreign key(empresa) references empresas(id), 
-		foreign key(user_id) references user(id),
-		foreign key(entidad) references entidades(id)
-	);
+		egreso_id int null,
+		socio_id int null
+	)CHARACTER
+SET = utf8
+COLLATE = utf8_bin;
 	create table valores (
 		id int not null auto_increment primary key,
 		description text ,
@@ -255,11 +230,10 @@ create table entidades (
 		pago LONGTEXT,
 		empresa int not null,
 		active boolean not null,
-		payment_specific_date date null,
-		foreign key(empresa) references empresas(id), 
-		foreign key(user_id) references user(id),
-		foreign key(entidad) references entidades(id)
-	);
+		payment_specific_date date null
+	)CHARACTER
+SET = utf8
+COLLATE = utf8_bin;
 	create table logcambios (
 		id int not null auto_increment primary key,
 		tabla varchar(50) not null,
@@ -278,3 +252,192 @@ create table entidades (
 		tipo int null,
 		foreign key(user_id) references user(id)
 	) CHARACTER SET = utf8 COLLATE = utf8_bin;
+
+/*Foreign key empresas*/
+ALTER TABLE empresas
+ADD foreign key
+(skin) references skins
+(id);
+ALTER TABLE empresas
+ADD foreign key
+(pais) references pais
+(id);
+ALTER TABLE empresas
+ADD foreign key
+(ciudad) references ciudad
+(id);
+ALTER TABLE empresas
+ADD foreign key
+(tipo_negocio) references tipo_negocios
+(id);
+
+  /*Foreign key usuarios*/
+ALTER TABLE user
+ADD foreign key
+(skin) references skins
+(id);
+ALTER TABLE user
+ADD foreign key
+(empresa) references empresas
+(id);
+
+
+/*Foreign key category_expense*/
+ALTER TABLE category_expense
+ADD foreign key
+(empresa) references empresas
+(id);
+ALTER TABLE category_expense
+ADD foreign key
+(user_id) references user
+(id);
+ALTER TABLE category_expense
+ADD foreign key
+(tipo) references tipos
+(id);
+
+/*Foreign key category_income*/
+ALTER TABLE category_income
+ADD foreign key
+(empresa) references empresas
+(id);
+ALTER TABLE category_income
+ADD foreign key
+(user_id) references user
+(id);
+ALTER TABLE category_income
+ADD foreign key
+(tipo) references tipos
+(id);
+
+/*Foreign key entidades*/
+ALTER TABLE entidades
+ADD foreign key
+(empresa) references empresas
+(id);
+ALTER TABLE entidades
+ADD foreign key
+(user_id) references user
+(id);
+ALTER TABLE entidades
+ADD foreign key
+(tipo) references tipos
+(id);
+
+/*Foreign key expenses*/
+ALTER TABLE expenses
+ADD foreign key
+(empresa) references empresas
+(id);
+ALTER TABLE expenses
+ADD foreign key
+(user_id) references user
+(id);
+ALTER TABLE expenses
+ADD foreign key
+(tipo) references tipos
+(id);
+ALTER TABLE expenses
+ADD foreign key
+(deuda_id) references deudas
+(id);
+ALTER TABLE expenses
+ADD foreign key
+(category_id) references category_expense
+(id);
+ALTER TABLE expenses
+ADD foreign key
+(entidad) references entidades
+(id);
+
+/*Foreign key income*/
+ALTER TABLE income
+ADD foreign key
+(empresa) references empresas
+(id);
+ALTER TABLE income
+ADD foreign key
+(user_id) references user
+(id);
+ALTER TABLE income
+ADD foreign key
+(tipo) references tipos
+(id);
+
+ALTER TABLE income
+ADD foreign key
+(category_id) references category_income
+(id);
+ALTER TABLE income
+ADD foreign key
+(entidad) references entidades
+(id);
+
+
+
+/*Foreign key resultado*/
+ALTER TABLE resultado
+ADD foreign key
+(empresa) references empresas
+(id);
+ALTER TABLE resultado
+ADD foreign key
+(user_id) references user
+(id);
+ALTER TABLE resultado
+ADD foreign key
+(deuda_id) references deudas
+(id);
+
+ALTER TABLE resultado
+ADD foreign key
+(entidad) references entidades
+(id);
+
+
+/*Foreign key deudas*/
+ALTER TABLE deudas
+ADD foreign key
+(empresa) references empresas
+(id);
+ALTER TABLE deudas
+ADD foreign key
+(user_id) references user
+(id);
+ALTER TABLE deudas
+ADD foreign key
+(egreso_id) references expenses
+(id);
+
+ALTER TABLE deudas
+ADD foreign key
+(socio_id) references resultado
+(id);
+ALTER TABLE deudas
+ADD foreign key
+(entidad) references entidades
+(id);
+
+
+
+/*Foreign key valores*/
+ALTER TABLE valores
+ADD foreign key
+(empresa) references empresas
+(id);
+ALTER TABLE valores
+ADD foreign key
+(user_id) references user
+(id);
+
+ALTER TABLE valores
+ADD foreign key
+(entidad) references entidades
+(id);
+
+/*Foreign key logcambios*/
+
+ALTER TABLE logcambios
+ADD foreign key
+(user_id) references user
+(id);

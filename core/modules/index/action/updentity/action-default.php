@@ -1,42 +1,42 @@
 <?php
-if (!isset($_SESSION['user_id'])){
-	Core::redir("./");//Redirecciona 
+if (!isset($_SESSION['user_id'])) {
+	Core::redir("./"); //Redirecciona 
 	exit;
 }
-	if (empty($_POST['mod_id'])) {
-		$errors[] = "ID vacío";
-	}else if (empty($_POST['origin'])) {
-		$errors[] = "Debes seleccionar un origen.";
-	}else if (empty($_POST['type'])) {
-		$errors[] = "Debes seleccionar el tipo ";
-		}else if (empty($_POST['name_entity'])) {
-		$errors[] = "Debes ingresar un nombre";
-		}else if (
-		!empty($_POST['mod_id'])
-		&& !empty($_POST['origin'])
-		&& !empty($_POST['type'])
-		&& !empty($_POST['name_entity'])
-	){
+if (empty($_POST['mod_id'])) {
+	$errors[] = "ID vacío";
+} else if (empty($_POST['origin'])) {
+	$errors[] = "Debes seleccionar un origen.";
+} else if (empty($_POST['type'])) {
+	$errors[] = "Debes seleccionar el tipo ";
+} else if (empty($_POST['name_entity'])) {
+	$errors[] = "Debes ingresar un nombre";
+} else if (
+	!empty($_POST['mod_id'])
+	&& !empty($_POST['origin'])
+	&& !empty($_POST['type'])
+	&& !empty($_POST['name_entity'])
+) {
 
-		$con = Database::getCon(); 
-		$id=intval($_POST['mod_id']);
-		$entity = EntityData::getById($id);
-		$entity->name = mysqli_real_escape_string($con,(strip_tags($_POST["name_entity"],ENT_QUOTES)));
-		$entity->tipo = intval($_POST['type']);
-		$entity->category_id = intval($_POST['category_id']);
-		$entity->active = (isset($_POST['active']) && $_POST['active']=='on')? 1 : 0 ;
-		$query_update=$entity->update();
-		
-		if ($query_update){
-			$messages[] = "La entidad ha sido actualizada satisfactoriamente.";
-			if(boolval($entity->active)){
-				$status = 1;
-			}else{
-				$status = 0;
-			}
-			ExpensesData::updateStatusByEntity($status,$entity->id);
-			IncomeData::updateStatusByEntity($status,$entity->id);
-			ResultData::updateStatusByEntity($status,$entity->id);
+	$con = Database::getCon();
+	$id = intval($_POST['mod_id']);
+	$entity = EntityData::getById($id);
+	$entity->name = mysqli_real_escape_string($con, (strip_tags($_POST["name_entity"], ENT_QUOTES)));
+	$entity->tipo = intval($_POST['type']);
+	$entity->category_id = intval($_POST['category_id']);
+	$entity->active = (isset($_POST['active']) && $_POST['active'] == 'on') ? 1 : 0;
+	$query_update = $entity->update();
+
+	if ($query_update) {
+		$messages[] = "La entidad ha sido actualizada satisfactoriamente.";
+		if (boolval($entity->active)) {
+			$status = 1;
+		} else {
+			$status = 0;
+		}
+		ExpensesData::updateStatusByEntity($status, $entity->id);
+		IncomeData::updateStatusByEntity($status, $entity->id);
+		ResultData::updateStatusByEntity($status, $entity->id);
 		$change_log = new ChangeLogData();
 		$change_log->tabla = "entity";
 		$change_log->registro_id = $entity->id;
@@ -47,44 +47,44 @@ if (!isset($_SESSION['user_id'])){
 		$change_log->active = $entity->active;
 		$change_log->fecha = "NOW()";
 		$result = $change_log->add();
-		if (isset($result) && !empty($result) && $result[0]) {
+		if (isset($result) && !empty($result) && is_array($result) && count($result) > 1 && $result[1] > 0) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
 		} else {
 			$errors[] = " Lo siento algo ha salido mal en el registro de errores.";
 		}
 
-			//print("<script>window.location='./?view=expenses'</script>");
-		} else{
-			$errors []= "Lo siento algo ha salido mal intenta nuevamente.";
-		}
+		//print("<script>window.location='./?view=expenses'</script>");
 	} else {
-		$errors []= "Error desconocido.";
+		$errors[] = "Lo siento algo ha salido mal intenta nuevamente.";
 	}
-	if (isset($errors)){
-			
+} else {
+	$errors[] = "Error desconocido.";
+}
+if (isset($errors)) {
+
 ?>
-<div class="alert alert-danger" role="alert">
-	<button type="button" class="close" data-dismiss="alert">&times;</button>
-	<strong>Error!</strong> 
-	<?php
+	<div class="alert alert-danger" role="alert">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<strong>Error!</strong>
+		<?php
 		foreach ($errors as $error) {
 			echo $error;
 		}
-	?>
-</div>
+		?>
+	</div>
 <?php
-	}
-	if (isset($messages)){
+}
+if (isset($messages)) {
 ?>
 	<div class="alert alert-success" role="alert">
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
 		<strong>¡Bien hecho!</strong>
 		<?php
-			foreach ($messages as $message) {
-				echo $message;
-			}
+		foreach ($messages as $message) {
+			echo $message;
+		}
 		?>
 	</div>
 <?php
-	}
+}
 ?>

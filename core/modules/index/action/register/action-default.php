@@ -65,7 +65,7 @@
 						if($resp_send){
 							$messages[] = " Se envía correo exitosamente";
 						}else{
-							$error[] = $resp_send;
+							$errors[] = "Lo sentimos, hubo un error al enviar el correo";
 						}
 						//$messages[] = $mail->message;
 					} else {
@@ -73,30 +73,15 @@
 					}
 				}
 			} else {
-				$errors[] = "Eres un Robot, intenta nuevamente la validacion.";
+				$errors[] = "Eres un Robot?, recarga e intenta nuevamente la validacion.";
 
 			}
-			
-			
-			
 			
 		} else {
 			$errors[] = "desconocido.";	
 		}
 
-	if (isset($errors)){		
-?>
-	<div class="alert alert-danger" role="alert">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<strong>Error!</strong> 
-		<?php
-			foreach ($errors as $error) {
-				echo $error;
-			}
-		?>
-	</div>
-<?php
-	}
+	
 	if (isset($messages)){
 ?>
 		<div class="alert alert-success" role="alert">
@@ -109,5 +94,17 @@
 			?>
 		</div>
 <?php
+	}	
+if (isset($errors)){		
+?>
+	<div class="alert alert-danger" role="alert">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<strong>Error!</strong> 
+		<?php
+			foreach ($errors as $error) {
+				echo $error;
+			}
+		?>
+	</div>
+<?php
 	}
-?>			

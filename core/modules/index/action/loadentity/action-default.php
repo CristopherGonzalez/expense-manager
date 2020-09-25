@@ -120,11 +120,13 @@ if (isset($_POST["id"])){//codigo para eliminar
             $date=$d."-".$m."-".$Y;
 
 			$finales++;
+			$name_document_number = $ent->name;
+			$ent->document_number? $name_document_number.= " - " . $ent->document_number : false; 
 		?>
 		<tr>
 			<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 			<td><?php echo $date; ?></td>
-			<td><?php echo $ent->name; ?></td>
+			<td><?php echo $name_document_number; ?></td>
 			<td><?php echo $ent->getType($ent->tipo)->tipo ?></td>
 			<td>
 				<?php 

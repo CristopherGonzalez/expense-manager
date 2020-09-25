@@ -1,5 +1,5 @@
 
-use dm000397_Negocio2;
+use dm000397_Negocio;
 /*Datos de Paises*/
 
 /*Datos de tipos de negocio*/

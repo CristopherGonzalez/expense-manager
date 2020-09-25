@@ -50,20 +50,20 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                 <div class="form-group">
                                     <label for="type" class="control-label">Tipo: </label>
                                     <select class="form-control" name="type" id="type" onchange="change_categories(this);" required disabled>
-                                        <option value="">---SELECCIONA---</option>
+                                        <option value="">Selecciona una Opcion</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="category_expense" class="control-label">Categoria de egresos: </label>
                                     <select class="form-control " name="category_expense" id="category_expense" disabled>
-                                        <option value="">---SELECCIONA---</option>
+                                        <option value="">Selecciona una Opcion</option>
 
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="category_income" class="control-label">Categoria de ingreso: </label>
                                     <select class="form-control " name="category_income" id="category_income" disabled>
-                                        <option value="">---SELECCIONA---</option>
+                                        <option value="">Selecciona una Opcion</option>
 
                                     </select>
                                 </div>
@@ -71,13 +71,29 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                 <div class="form-group">
                                     <label for="category_partner" class="control-label">Categoria socio: </label>
                                     <select class="form-control" name="category_partner" id="category_partner" disabled>
-                                        <option value=0>---SELECCIONA---</option>
+                                        <option value=0>Selecciona una Opcion</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="name_entity" class="control-label">Nombre: </label>
                                     <input type="text" class="form-control" id="name_entity" name="name_entity" placeholder="Nombre: " value="<?php echo $entity->name; ?>">
                                 </div>
+                                <div class="form-group">
+                                    <label for="document_number" class="control-label">Numero de Documento </label>
+                                    <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description" class="control-label">Descripción </label>
+                                    <textarea type="text" class="form-control" id="description" name="description" required placeholder="Descripción "></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description" class="control-label">Documento </label>
+                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
+                                    <input type="button" class="btn btn-default" id="btn_webcam_payment" name="btn_webcam_payment" value="Sacar Foto" data-toggle="modal" href="#frmwebcampayment" onclick="add_parameters_from_webcam('payment')">
+                                    <img src="<?php echo (isset($img_pago) ? $img_pago : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image" height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
+
+                                </div>
+
                                 <div class="form-group">
                                     <input type="checkbox" id="active" name="active" <?php echo isset($entity->active) && $entity->active == 1 ? "checked" : ""; ?>>
                                     <label for="active">Activo</label>
@@ -216,19 +232,19 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             $('#type option').each(function() {
                 $(this).remove()
             });
-            $('#type').append($('<option></option>').text("---SELECCIONA---").attr("value", ""));
+            $('#type').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_expense option').each(function() {
                 $(this).remove()
             });
-            $('#category_expense').append($('<option></option>').text("---SELECCIONA---").attr("value", ""));
+            $('#category_expense').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_income option').each(function() {
                 $(this).remove()
             });
-            $('#category_income').append($('<option></option>').text("---SELECCIONA---").attr("value", ""));
+            $('#category_income').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_partner option').each(function() {
                 $(this).remove()
             });
-            $('#category_partner').append($('<option></option>').text("---SELECCIONA---").attr("value", ""));
+            $('#category_partner').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_partner').prop('disabled', true);
             $('#category_income').prop('disabled', true);
             $('#category_expense').prop('disabled', true);
@@ -326,9 +342,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             $('#category_partner option').each(function() {
                 $(this).remove()
             });
-            $('#category_expense').append($('<option></option>').text("---SELECCIONA---").attr("value", ""));
-            $('#category_income').append($('<option></option>').text("---SELECCIONA---").attr("value", ""));
-            $('#category_partner').append($('<option></option>').text("---SELECCIONA---").attr("value", ""));
+            $('#category_expense').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+            $('#category_income').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+            $('#category_partner').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_partner').prop('disabled', true);
             $('#category_income').prop('disabled', true);
             $('#category_expense').prop('disabled', true);
