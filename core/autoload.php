@@ -12,6 +12,7 @@
 	include "controller/forms/lblChangeLog.php";
 	include "controller/forms/SelectList.php";
 	include "controller/forms/Modal.php";
+	include "controller/forms/MdDebt.php";
 	include "controller/forms/lbInputPassword.php";
 	include "controller/forms/Webcam.php";
 	include "controller/forms/lbValidator.php";

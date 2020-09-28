@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 ?>
     <?php
@@ -207,7 +209,15 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                 <div class="form-group">
                                                     <label class="col-sm-2"></label>
                                                     <div class="col-sm-10">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-plus"></i> <i class="fa fa-money"></i> Generar deuda documentada</button>
+                                                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-plus"></i> <i class="fa fa-money"></i> Generar deuda documentada</button> -->
+                                                        <button type="button" class="btn btn-default" id="btn_new_debt" name="btn_new_debt" data-toggle="modal" href="#frmdebt"><i class="fa fa-money"></i> Generar deuda documentada</button>
+
+                                                        <?php
+                                                        // $modalDebt = new MdDebt();
+                                                        // var_dump($modalDebt);
+                                                        // echo $modalDebt->renderFormulario();
+
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -230,6 +240,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             <?php
                             $webcamdocument = new Webcam('document');
                             echo $webcamdocument->renderModalImageCam();
+                            $modalDebt = new MdDebt('debt');
+                            echo $modalDebt->renderFormulario();
                             $webcampayment = new Webcam('payment');
                             echo $webcampayment->renderModalImageCam();
                             ?>

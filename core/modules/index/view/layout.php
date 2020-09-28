@@ -34,7 +34,7 @@
             <header class="main-header">
                 <a href="?view=home" class="logo">
                     <!-- Logo -->
-                    <span class="logo-mini"><b>MRC</b>MiNegocio</span>
+                    <span class="logo-mini"><b>MRC</b></span>
                     <span class="logo-lg">MRC <b>MiNegocio</b></span>
                 </a>
                 <nav class="navbar navbar-static-top">
@@ -97,6 +97,14 @@
                                         } ?>">
                                 <a href="?view=profile"><i class="fa fa-user"></i> <span>Mi cuenta</span></a>
                             </li>
+                            <?php if ($user_session->is_admin == "1") : //si hay session 
+                            ?>
+                                <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'users') {
+                                                echo "active";
+                                            } ?>">
+                                    <a href="?view=users"><i class="fa fa-users"></i> <span>Usuarios</span></a>
+                                </li>
+                            <?php endif; ?>
                             <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'home') {
                                             echo "active";
                                         } ?>">
@@ -167,14 +175,7 @@
 
                             </li>
 
-                            <?php if ($user_session->is_admin == "1") : //si hay session 
-                            ?>
-                                <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'users') {
-                                                echo "active";
-                                            } ?>">
-                                    <a href="?view=users"><i class="fa fa-users"></i> <span>Usuarios</span></a>
-                                </li>
-                            <?php endif; ?>
+
                         <?php else : ?>
                             <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'company') {
                                             echo "active";
