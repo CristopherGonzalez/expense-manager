@@ -1,4 +1,5 @@
 <?php
+
 if (!isset($_SESSION['user_id'])) {
 	Core::redir("./"); //Redirecciona 
 	exit;
@@ -14,16 +15,17 @@ if (empty($_POST['name_entity'])) {
 ) {
 	$con = Database::getCon();
 	$entity = new EntityData();
-	$entity->name = mysqli_real_escape_string($con, (strip_tags($_POST[
-	"name_entity"], ENT_QUOTES)));
-	$entity->name = mysqli_real_escape_string($con, (strip_tags($_POST[
-	"name_entity"], ENT_QUOTES)));
 	$entity->name = mysqli_real_escape_string($con, (strip_tags($_POST["name_entity"], ENT_QUOTES)));
+	$entity->document_number = mysqli_real_escape_string($con, (strip_tags($_POST["document_number"], ENT_QUOTES)));
+	$entity->description = mysqli_real_escape_string($con, (strip_tags($_POST["description"], ENT_QUOTES)));
 	$entity->tipo = intval($_POST['type']);
 	$entity->user_id = $_SESSION['user_id'];
 	$entity->empresa = $_SESSION['company_id'];
 	$entity->category_id = intval($_POST['category']);
 	//Se capturan los nuevos datos de los egresos
+	if (isset($_POST["document_image"]) && !empty($_POST["document_image"])) {
+		$entity->documento = $_POST["document_image"];
+	}
 	$query_new = $entity->add();
 	if ($query_new) {
 		$messages[] = "La entidad ha sido agregada con éxito.";
@@ -34,6 +36,7 @@ if (empty($_POST['name_entity'])) {
 		$change_log->user_id = $entity->user_id;
 		$change_log->tipo = $entity->tipo;
 		$change_log->fecha = "NOW()";
+		$change_log->document_number = $entity->document_number;
 		$change_log->entidad = $entity->category_id;
 		$result = $change_log->add();
 		if (isset($result) && !empty($result) && is_array($result) && count($result)>1 && $result[1]>0) {

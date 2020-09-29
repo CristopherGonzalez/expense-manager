@@ -23,6 +23,11 @@ if (empty($_POST['mod_id'])) {
 	$entity = EntityData::getById($id);
 	$entity->name = mysqli_real_escape_string($con, (strip_tags($_POST["name_entity"], ENT_QUOTES)));
 	$entity->tipo = intval($_POST['type']);
+	$entity->document_number = mysqli_real_escape_string($con, (strip_tags($_POST["document_number"], ENT_QUOTES)));
+	$entity->description = mysqli_real_escape_string($con, (strip_tags($_POST["description"], ENT_QUOTES)));
+	if (isset($_POST["document_image"]) && !empty($_POST["document_image"])) {
+		$entity->documento = $_POST["document_image"];
+	}
 	$entity->category_id = intval($_POST['category_id']);
 	$entity->active = (isset($_POST['active']) && $_POST['active'] == 'on') ? 1 : 0;
 	$query_update = $entity->update();
@@ -44,6 +49,8 @@ if (empty($_POST['mod_id'])) {
 		$change_log->user_id = $entity->user_id;
 		$change_log->tipo = $entity->tipo;
 		$change_log->entidad = $entity->category_id;
+		$change_log->document_number =
+		$entity->document_number;
 		$change_log->active = $entity->active;
 		$change_log->fecha = "NOW()";
 		$result = $change_log->add();

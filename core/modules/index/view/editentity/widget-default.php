@@ -7,7 +7,6 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     }
 
     $entity = EntityData::getById($id);
-    //Se obtienen datos para llenado de desplegables
     $categories_expense = CategoryExpenseData::getAll($_SESSION["company_id"]);
     $categories_income = CategoryIncomeData::getAll($_SESSION["company_id"]);
     $types = TypeData::getAllType();
@@ -15,6 +14,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
         Core::redir("./?view=entities");
     }
     $type_entity = EntityData::getType($entity->tipo);
+    if (isset($entity->documento) && !empty($entity->documento)) {
+        $img_doc = $entity->documento;
+    }
 ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -80,20 +82,46 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                 </div>
                                 <div class="form-group">
                                     <label for="document_number" class="control-label">Numero de Documento </label>
-                                    <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento">
+                                    <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento" value="<?php echo $entity->document_number; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="description" class="control-label">Descripción </label>
-                                    <textarea type="text" class="form-control" id="description" name="description" required placeholder="Descripción "></textarea>
+                                    <textarea type="text" class="form-control" id="description" name="description" required placeholder="Descripción "><?php echo $entity->description; ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="description" class="control-label">Documento </label>
-                                    <input type="file" class="form-control" accept="image/*" id="payment" name="payment" onchange="load_image(this);">
-                                    <input type="button" class="btn btn-default" id="btn_webcam_payment" name="btn_webcam_payment" value="Sacar Foto" data-toggle="modal" href="#frmwebcampayment" onclick="add_parameters_from_webcam('payment')">
-                                    <img src="<?php echo (isset($img_pago) ? $img_pago : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="payment_image" height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
+                                    <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
+                                    <input type="button" class="btn btn-default" id="btn_webcam_document" name="btn_webcam_document" value="Sacar Foto" data-toggle="modal" href="#frmwebcamdocument" onclick="add_parameters_from_webcam('document')">
+                                    <img src="<?php echo (isset($img_doc) ? $img_doc : "res/images/default_image.jpg"); ?>" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image" height="60" width="75" data-toggle="modal" data-target="#formModalImage" onclick="image_load(this);">
 
                                 </div>
-
+                                <div class="modal fade" id="formModalImage" tabindex="-1" role="dialog" aria-labelledby="ModalImage" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="ModalImage"> Imagen</h4>
+                                            </div>
+                                            <div class="modal-body" style="display: inline-block;">
+                                                <div class="form-group">
+                                                    <div class="col-md-2 col-sm-2 col-xs-12"></div>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12" style="display: inline-block;">
+                                                        <img id="image_modal" style="width: min-content;height: min-content;" class="img-thumbnail" alt="Imagen del documento">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="form-group">
+                                                    <label class="col-md-8 col-sm-8 col-xs-12" style="color:#999; font-weight:normal;">Registrado por <?php $user_session = UserData::getById($_SESSION["user_id"]);
+                                                                                                                                                        echo $user_session->name  ?> el <?php echo date("Y-m-d"); ?></label>
+                                                    <span class="col-md-4 col-sm-4 col-xs-12">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <input type="checkbox" id="active" name="active" <?php echo isset($entity->active) && $entity->active == 1 ? "checked" : ""; ?>>
                                     <label for="active">Activo</label>
@@ -125,6 +153,10 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                 </span>
                             </div>
                         </div> <!-- /.box -->
+                        <?php
+                        $webcamdocument = new Webcam('document');
+                        echo $webcamdocument->renderModalImageCam();
+                        ?>
                         <div id="result"></div>
                     </div>
                 </div>
@@ -133,6 +165,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     </div>
     <!-- /.content-wrapper -->
     <?php include "res/resources/js.php"; ?>
+    <script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
+
     <script>
         $(function() {
             load();
@@ -161,6 +195,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             }
             var parametros = new FormData($(this)[0]);
             parametros.append('category_id', category);
+            parametros.append("document_image", $('#document_image').attr('src'));
             $.ajax({
                 type: "POST",
                 url: "./?action=updentity",
@@ -184,7 +219,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             event.preventDefault();
             window.setTimeout(function() {
                 if (result) {
-                    window.location.href = "./?view=entities";
+                   window.location.href = "./?view=entities";
                 }
             }, 2000);
         })
@@ -223,6 +258,47 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 $('#category_partner option[value=1]').attr("selected", "selected");
             }
             $('#type option[value=<?php echo $entity->tipo ?>]').attr("selected", "selected");
+        }
+        //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
+        function image_load(input) {
+            if ((input.files && input.files[0])) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var type_image = "";
+                    if (input.name == "document" || input.name == "doc_image") {
+                        type_image = "doc_image";
+                    }
+                    if (input.name == "payment" || input.name == "pago_image") {
+                        type_image = "pago_image";
+                    }
+                    if (type_image != "") {
+                        $('#' + type_image).attr('style', 'display:block;');
+                        $('#' + type_image).attr('style', 'visibility:visible;');
+                        $('#' + type_image).attr('src', e.target.result);
+                    }
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                var type_image = "";
+                if (input.name == "document" || input.name == "doc_image") {
+                    type_image = "doc_image";
+                }
+                if (input.name == "payment" || input.name == "pago_image") {
+                    type_image = "pago_image";
+                }
+                if (type_image != "" && input.src == "") {
+                    $('#' + type_image).attr('style', 'display:none;');
+                    $('#' + type_image).attr('style', 'visibility:hidden;');
+                    $('#' + type_image).attr('src', "");
+                    $('#image_modal').attr('style', 'visibility:hidden;');
+                    $('#image_modal').attr('style', 'display:none;');
+                    $('#image_modal').attr('src', "");
+                } else {
+                    $('#image_modal').attr('style', 'visibility:visible;');
+                    $('#image_modal').attr('style', 'display:block;');
+                    $('#image_modal').attr('src', input.src);
+                }
+            }
         }
         //Funcion para cambiar visibilidad dependiendo de la opcion de origin
         function change_origin(event) {

@@ -182,15 +182,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <span class="col-sm-4 col-xs-12"></span>
-                                                    <label for="document" class="col-sm-6">Documento
+                                                    <label for="document" class="col-sm-4 control-label">Documento </label>
+                                                    <div class="col-sm-6">
                                                         <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
                                                         <input type="button" class="btn btn-default" id="btn_webcam_document" name="btn_webcam_document" value="Sacar Foto" data-toggle="modal" href="#frmwebcamdocument" onclick="add_parameters_from_webcam('document')">
-                                                    </label>
+                                                    </div>
                                                     <div class="col-sm-2">
                                                         <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image" height="60" width="75">
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group">
                                                     <div class="col-md-12 col-sm-12 col-xs-12" id="alert_add" style="border:5px;"></div>
                                                 </div>
@@ -211,6 +212,10 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $webcamdocument = new Webcam('document');
+                            echo $webcamdocument->renderModalImageCam();
+                            ?>
                             <!-- End Form Modal -->
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -258,26 +263,27 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     </div>
     <!-- /.content-wrapper -->
     <?php include "res/resources/js.php"; ?>
-
+    <script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
+    <script type="text/javascript" src="res/plugins/multimodal/multimodal.js"></script>
     <script>
         $(function() {
             load(1);
-            var date = new Date();
+            let date = new Date();
             date.getMonth()
             date.getFullYear()
         });
 
         function load(page) {
             //Se obtienen filtros de busqueda
-            var category_find = $('#category_find option:selected');
-            var category_type = category_find.closest('optgroup').attr('label');
-            var type_find = $('#type_find option:selected').val();
-            var find_text = $('#find_text').val();
-            var inactive = $('#inactive').is(":checked");
+            let category_find = $('#category_find option:selected');
+            let category_type = category_find.closest('optgroup').attr('label');
+            let type_find = $('#type_find option:selected').val();
+            let find_text = $('#find_text').val();
+            let inactive = $('#inactive').is(":checked");
 
 
-            var per_page = $("#per_page").val();
-            var parametros = {
+            let per_page = $("#per_page").val();
+            let parametros = {
                 "page": page,
                 'type': type_find,
                 'category_type': (category_type == undefined ? "" : category_type),
@@ -312,14 +318,14 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
         function eliminar(id) {
             if (confirm('Esta acción  eliminará de forma permanente la entidad \n\n Desea continuar?')) {
                 //Se obtienen filtros de busqueda para recarga y por estandar
-                var category_find = $('#category_find option:selected').val();
-                var type_find = $('#type_find option:selected').val();
-                var find_text = $('#find_text').val();
-                var page = 1;
-                var inactive = $('#inactive').is(":checked");
+                let category_find = $('#category_find option:selected').val();
+                let type_find = $('#type_find option:selected').val();
+                let find_text = $('#find_text').val();
+                let page = 1;
+                let inactive = $('#inactive').is(":checked");
 
-                var per_page = $("#per_page").val();
-                var parametros = {
+                let per_page = $("#per_page").val();
+                let parametros = {
                     "page": page,
                     'type': type_find,
                     'category': category_find,
@@ -355,11 +361,11 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
         $("#add_register").submit(function(event) {
 
             $('#save_data').attr("disabled", true);
-            var category_expense = $('#category_expense option:selected').val();
-            var category_income = $('#category_income option:selected').val();
-            var category_partner = $('#category_partner option:selected').val();
-            var category = (category_expense > 0 || category_expense > "") ? category_expense : (category_income > 0 || category_income > "") ? category_income : category_partner;;
-            var origin_type = $('#origin option:selected').val();
+            let category_expense = $('#category_expense option:selected').val();
+            let category_income = $('#category_income option:selected').val();
+            let category_partner = $('#category_partner option:selected').val();
+            let category = (category_expense > 0 || category_expense > "") ? category_expense : (category_income > 0 || category_income > "") ? category_income : category_partner;;
+            let origin_type = $('#origin option:selected').val();
             if (origin_type != "origin_debt" && origin_type != "origin_stock") {
                 if ((category == "" || category == null || category == undefined || category == 0)) {
                     $('#alert_add').html("");
@@ -374,8 +380,10 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 category = 0;
             }
             //Se cambia forma de envio de formulario para soportar envio de imagenes
-            var fd = new FormData($(this)[0]);
+            let fd = new FormData($(this)[0]);
             fd.append('category', category);
+            fd.append("document_image", $('#document_image').attr('src'));
+
             $.ajax({
                 type: "POST",
                 url: "./?action=addentity",
@@ -407,9 +415,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
         })
 
         function change_categories(event) {
-            var type_value = event.value;
-            var origin_type = $('#origin').val();
-            var categories = '';
+            let type_value = event.value;
+            let origin_type = $('#origin').val();
+            let categories = '';
             $('#category_expense option').each(function() {
                 $(this).remove()
             });
@@ -428,7 +436,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             $('#category_partner').prop('required', false);
             $('#category_income').prop('required', false);
             $('#category_expense').prop('required', false);
-            var exists_category = 0;
+            let exists_category = 0;
             if (origin_type === "origin_expense") {
                 categories = 'category_expense';
                 <?php foreach ($categories_expense as $cat) { ?>
@@ -458,7 +466,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
         }
         //Funcion para cambiar visibilidad dependiendo de la opcion de origin
         function change_origin(event) {
-            var origin_type = event.value;
+            let origin_type = event.value;
             $('#type option').each(function() {
                 $(this).remove()
             });
