@@ -128,7 +128,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                 <div class="form-group">
                                                     <label for="amount" class="col-sm-2 control-label">Importe </label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                                        <input type="number" required class="form-control" id="amount" name="amount" placeholder="Importe " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -201,17 +201,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                         <span class="col-md-3 col-sm-3 col-xs-12">
                                                             <label for="payment_date">Fecha de Pago</label>
                                                         </span>
-                                                        <span class="col-md-4 col-sm-4 col-xs-6">
+                                                        <span class="col-xs-6">
                                                             <input type="date" class="form-control" id="payment_date" name="payment_date" value="<?php echo date("Y-m-d"); ?>">
                                                         </span>
+                                                        <span class="col-md-2 col-sm-2 col-xs-12"></span>
+                                                        <div class="col-sm-10 col-xs-12 pull-right" style="margin-top:5px;">
+                                                            <button type="button" class="btn btn-default" id="btn_new_debt" name="btn_new_debt" data-toggle="modal" href="#frmdebt" onclick="cargaDatosDeuda();"><i class="fa fa-money"></i> Generar deuda documentada</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2"></label>
-                                                    <div class="col-sm-10">
-                                                        <button type="button" class="btn btn-default" id="btn_new_debt" name="btn_new_debt" data-toggle="modal" href="#frmdebt"><i class="fa fa-money"></i> Generar deuda documentada</button>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <div class="form-group">
@@ -354,6 +353,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     <?php include "res/resources/js.php"; ?>
     <script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
     <script type="text/javascript" src="res/plugins/multimodal/multimodal.js"></script>
+    <script type="text/javascript" src="res/plugins/common/generateDebt.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
 
     <script>
         $(function() {
@@ -362,16 +363,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 
         function load(page) {
             //Se obtienen filtros de busqueda
-            var month_find = $('#month_find option:selected').val();
-            var year_find = $('#year_find option:selected').val();
-            var type_expense_find = $('#type_expense_find option:selected').val();
-            var category_find = $('#category_find option:selected').val();
-            var find_text = $('#find_text').val();
-            var not_paid = $('#not_paid').is(":checked");
-            var inactive = $('#inactive').is(":checked");
+            let month_find = $('#month_find option:selected').val();
+            let year_find = $('#year_find option:selected').val();
+            let type_expense_find = $('#type_expense_find option:selected').val();
+            let category_find = $('#category_find option:selected').val();
+            let find_text = $('#find_text').val();
+            let not_paid = $('#not_paid').is(":checked");
+            let inactive = $('#inactive').is(":checked");
 
-            var per_page = $("#per_page").val();
-            var parametros = {
+            let per_page = $("#per_page").val();
+            let parametros = {
                 "page": page,
                 'month': month_find,
                 'year': year_find,
@@ -407,18 +408,18 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
         function eliminar(id) {
             if (confirm('Esta acción  eliminará de forma permanente el egreso \n\n Desea continuar?')) {
                 //Se obtienen filtros de busqueda para recarga y por estandar
-                var month_find = $('#month_find option:selected').val();
-                var year_find = $('#year_find option:selected').val();
-                var type_expense_find = $('#type_expense_find option:selected').val();
-                var category_find = $('#category_find option:selected').val();
-                var find_text = $('#find_text').val();
-                var not_paid = $('#not_paid').is(":checked");
-                var inactive = $('#inactive').is(":checked");
+                let month_find = $('#month_find option:selected').val();
+                let year_find = $('#year_find option:selected').val();
+                let type_expense_find = $('#type_expense_find option:selected').val();
+                let category_find = $('#category_find option:selected').val();
+                let find_text = $('#find_text').val();
+                let not_paid = $('#not_paid').is(":checked");
+                let inactive = $('#inactive').is(":checked");
 
-                var page = 1;
+                let page = 1;
 
-                var per_page = $("#per_page").val();
-                var parametros = {
+                let per_page = $("#per_page").val();
+                let parametros = {
                     "page": page,
                     'month': month_find,
                     'year': year_find,
@@ -450,17 +451,21 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 })
             }
         }
+
+
         $("#add_register").submit(function(event) {
             $('#save_data').attr("disabled", true);
             //Se cambia forma de envio de formulario para soportar envio de imagenes
-            var fd = new FormData($(this)[0]);
-            var pay_out = $('#paid_out').is(":checked");
+            let fd = new FormData($(this)[0]);
+            let pay_out = $('#paid_out').is(":checked");
             fd.append("pay_out", pay_out);
             fd.append("document_image", $('#document_image').attr('src'));
             fd.append("payment_image", $('#payment_image').attr('src'));
 
             fd.append("type_expense", $('#type_expense').val());
             fd.append("category", $('#category').val());
+            console.log(window.new_debt);
+            fd.append("debt", window.new_debt??null);
             $.ajax({
                 type: "POST",
                 url: "./?action=addexpense",

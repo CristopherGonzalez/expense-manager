@@ -18,6 +18,7 @@ class ResultData {
 		$this->active = 1;
 		$this->payment_date = "00/00/0000";
 		$this->payment_specific_date = null;
+		$this->deuda_id = null;
 	}
 
 	public function add(){
@@ -62,6 +63,16 @@ class ResultData {
 		if (Executor::doit($sql)){
 			return true;
 		}else{
+			return false;
+		}
+	}
+	public function updateDebt($id, $debt_id)
+	{
+		$sql = "update " . self::$tablename . " set deuda_id=$debt_id";
+		$sql .= " where id=$id";
+		if (Executor::doit($sql)) {
+			return true;
+		} else {
 			return false;
 		}
 	}

@@ -151,7 +151,10 @@ if (count($query) > 0) {
 						}  ?></td>
 					<td class="text-right">
 						<a href="./?view=editdebt&id=<?php echo $debt->id ?>" class="btn btn-warning btn-square btn-xs"><i class="fa fa-edit"></i></a>
-						<button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $debt->id; ?>')"><i class="fa fa-trash-o"></i></button>
+						<?php if ($debt->active == 1 || $debt->active) { ?>
+							<button type="button" class="btn btn-danger btn-square btn-xs" onclick="eliminar('<?php echo $debt->id; ?>')"><i class="fa fa-trash-o"></i></button>
+						<?php } ?>
+
 					</td>
 				</tr>
 			<?php } ?>

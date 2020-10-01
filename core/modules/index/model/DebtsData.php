@@ -19,11 +19,29 @@ class DebtsData {
 		$this->empresa = "";
 		$this->active = 1;
 		$this->payment_specific_date = null;
+		$this->egreso_id = null;
+		$this->socio_id = null;
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active, payment_specific_date) ";
-		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->entidad,$this->created_at,\"$this->fecha\",\"$this->fecha_pago\",$this->pagado,\"$this->document_number\",'$this->documento','$this->pago',$this->empresa,$this->active, '$this->payment_specific_date')";
+		$sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active, payment_specific_date,egreso_id,socio_id) ";
+		$sql .= "value (\"$this->description\",
+		$this->amount,
+		\"$this->upload_receipt\",
+		$this->user_id,
+		$this->entidad,
+		$this->created_at,
+		\"$this->fecha\",
+		\"$this->fecha_pago\",
+		$this->pagado,
+		\"$this->document_number\",
+		'$this->documento',
+		'$this->pago',
+		$this->empresa,
+		$this->active,
+		'$this->payment_specific_date',".
+		(isset($this->egreso_id)? $this->egreso_id : 'null').",".
+		(isset($this->socio_id) ? $this->socio_id : 'null') . ")";
 		return Executor::doit($sql);
 	}
 
@@ -46,6 +64,26 @@ class DebtsData {
 		if (Executor::doit($sql)){
 			return true;
 		}else{
+			return false;
+		}
+	}
+	public function updateExpense($id, $expense_id)
+	{
+		$sql = "update " . self::$tablename . " set egreso_id=$expense_id";
+		$sql .= " where id=$id";
+		if (Executor::doit($sql)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function updatePartner($id, $partner_id)
+	{
+		$sql = "update " . self::$tablename . " set socio_id=$partner_id";
+		$sql .= " where id=$id";
+		if (Executor::doit($sql)) {
+			return true;
+		} else {
 			return false;
 		}
 	}
