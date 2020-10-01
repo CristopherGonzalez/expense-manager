@@ -82,7 +82,6 @@ if (empty($_POST['amount'])) {
 			}
 
 			$query_response = $debt->add();
-			var_dump($query_response);
 			if (isset($query_response) && is_array($query_response) && $query_response[0]) {
 				$messages[] = "La cuota " . ($i + 1) . " de la deuda ha sido agregada con éxito y fecha $debt->fecha.\n";
 				$change_log = new ChangeLogData();
@@ -97,6 +96,7 @@ if (empty($_POST['amount'])) {
 				$change_log->document_number = $debt->document_number;
 				$change_log->user_id = $debt->user_id;
 				$change_log->payment_date = $debt->fecha_pago;
+				$partner->updateDebt($query_new[1], $query_response[1]);
 				$result = $change_log->add();
 				if (isset($result) && !empty($result) && is_array($result) && count($result) > 1 && $result[1] > 0) {
 					$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente para la cuota " . ($i + 1) . ".\n";

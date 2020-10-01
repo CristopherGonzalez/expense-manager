@@ -342,7 +342,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             fd.append("document_image", $('#document_image').attr('src'));
             fd.append("payment_image", $('#payment_image').attr('src'));
             fd.append("debt", window.new_debt ? JSON.stringify(window.new_debt) : null);
-            
+
             $.ajax({
                 type: "POST",
                 url: "./?action=addpartner",
@@ -364,6 +364,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                     $('#formModal').modal('hide');
                     clear_modal('add_register');
                     clear_modal('add_register_modal');
+                    clear_modal('generate_debt');
                     $("#btn_new_debt").removeClass('btn-success');
                     $("#btn_new_debt i").removeClass('fa-check');
                     $("#btn_new_debt").addClass('btn-default');

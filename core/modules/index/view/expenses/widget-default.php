@@ -464,8 +464,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 
             fd.append("type_expense", $('#type_expense').val());
             fd.append("category", $('#category').val());
-            console.log(window.new_debt);
-            fd.append("debt", window.new_debt??null);
+            fd.append("debt", window.new_debt ? JSON.stringify(window.new_debt) : null);
+
             $.ajax({
                 type: "POST",
                 url: "./?action=addexpense",
@@ -487,6 +487,13 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                     $('#formModal').modal('hide');
                     clear_modal('add_register');
                     change_payment_status(false);
+                    clear_modal('generate_debt');
+                    $("#btn_new_debt").removeClass('btn-success');
+                    $("#btn_new_debt i").removeClass('fa-check');
+                    $("#btn_new_debt").addClass('btn-default');
+                    $("#btn_new_debt i").addClass('fa-money');
+                    $('#debt_result').css('display', 'none');
+
                 }
             });
             event.preventDefault();
