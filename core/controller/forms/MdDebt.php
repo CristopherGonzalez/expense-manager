@@ -5,8 +5,7 @@ class MdDebt
 	public function __construct($name)
 	{
 		$this->name = $name;
-		$this->funjs = "";
-		$this->tag = "";
+		$this->disabled = "";
 	}
 
 	public function renderFormulario()
@@ -21,30 +20,30 @@ class MdDebt
 				<div class='form-group'>
 					<label for='date' class='col-sm-3 control-label'>Fecha (*)</label>
 					<div class='col-sm-9'>
-						<input type='date' required class='form-control' id='debt_date' name='debt_date' placeholder='Fecha' required value='" . date("Y-m-d") .
+						<input type='date' " . $this->disabled . " required class='form-control' id='debt_date' name='debt_date' placeholder='Fecha' required value='" . date("Y-m-d") .
 			"'>
 					</div>
 				</div>
 				<div class='form-group'>
 					<label for='document_number' class='col-sm-3 control-label' style='padding-top:0px !important;'>Numero de Documento (*)</label>
 					<div class='col-sm-9'>
-						<input type='text' class='form-control' id='debt_document_number' name='debt_document_number' required placeholder='Numero de Documento'>
+						<input type='text' " . $this->disabled . "  class='form-control' id='debt_document_number' name='debt_document_number' required placeholder='Numero de Documento'>
 					</div>
 				</div>
 				<div class='form-group'>
 					<label for='description' class='col-sm-3 control-label'>Descripción (*)</label>
 					<div class='col-sm-9'>
-						<textarea type='text' class='form-control' id='debt_description' name='debt_description' placeholder='Descripción' required></textarea>
+						<textarea type='text' " . $this->disabled . "  class='form-control' id='debt_description' name='debt_description' placeholder='Descripción' required></textarea>
 					</div>
 				</div>
 				<div class='form-group'>
 					<label for='amount' class='col-sm-3 control-label'>Importe (*)</label>
 					<div class='col-sm-5'>
-						<input type='number' required class='form-control' id='debt_amount' name='debt_amount' placeholder='Importe' pattern='^[0-9]{1,9}(\.[0-9]{0,2})?$' title='Ingresa sólo números con 0 ó 2 decimales' maxlength='8'>
+						<input type='number' " . $this->disabled . "  required class='form-control' id='debt_amount' name='debt_amount' placeholder='Importe' pattern='^[0-9]{1,9}(\.[0-9]{0,2})?$' title='Ingresa sólo números con 0 ó 2 decimales' maxlength='8'>
 					</div>
 					<label for='amount' class='col-sm-2 control-label'>Cuotas (*)</label>
 					<div class='col-sm-2'>
-						<input type='number' required class='form-control' id='debt_payment_fees' name='debt_payment_fees' placeholder='Cuotas' min='1' max='60' title='Ingresa sólo números entre el 1 y 60' value='1'>
+						<input type='number' " . $this->disabled . "  required class='form-control' id='debt_payment_fees' name='debt_payment_fees' placeholder='Cuotas' min='1' max='60' title='Ingresa sólo números entre el 1 y 60' value='1'>
 					</div>
 				</div>
 
@@ -52,7 +51,7 @@ class MdDebt
 					<label for='debt_entity' class='col-sm-3 control-label'>Entidad (*)</label>
 				
 					<div class='col-sm-9'>
-						<select  required='required' class='form-control' style='width: 100%' id='debt_entity' name='debt_entity' onchange='updateSelects();'>
+						<select  required='required' " . $this->disabled . "  class='form-control' style='width: 100%' id='debt_entity' name='debt_entity' onchange='updateSelects();'>
 							<option value=''>Selecciona una Entidad </option>";
 		foreach ($entities as $entity) {
 			$html .= "<option  value=" . $entity->id . ">" . $entity->name . "</option>";
@@ -75,7 +74,7 @@ class MdDebt
 				<div class='form-group'>
 					<label for='document' class='col-sm-3 text-right'>Documento</label>
 					<div class='col-sm-5'>
-						<input type='file' class='form-control' accept='image/*' id='debt_document' name='debt_document' onchange='load_image(this);'>
+						<input type='file' " . $this->disabled . "  class='form-control' accept='image/*' id='debt_document' name='debt_document' onchange='load_image(this);'>
 					</div>
 					
 					<div class='col-sm-4'>
@@ -85,7 +84,7 @@ class MdDebt
 				<div class='form-group'>
 					<label for='payment' class='col-sm-3  text-right'>Pago</label>
 					<div class='col-sm-5'>
-						<input type='file' class='form-control' accept='image/*' id='debt_payment' name='debt_payment' onchange='load_image(this);'>
+						<input type='file' " . $this->disabled . "  class='form-control' accept='image/*' id='debt_payment' name='debt_payment' onchange='load_image(this);'>
 					</div>
 					<div class='col-sm-4'>
 						<img src='res/images/default_image.jpg' alt='Imagen en blanco a la espera de que carga de documento' class='img-thumbnail' id='debt_payment_image'  height='60' width='75' >
@@ -102,7 +101,7 @@ class MdDebt
 						<label class='col-md-7 col-sm-7' style='color:#999; font-weight:normal;'>Registrado por " . $user_session->name . " el " . date('Y-m-d') . "</label>
 						<span class='col-md-4 col-sm-4 col-xs-12'>
 							<button type='button' id='btn_close_debt' name='btn_close_debt' class='btn btn-default' data-dismiss='modal'>Cerrar</button>
-							<button type='button' id='btn_save_debt' name='btn_save_debt' class='btn btn-primary'>Agregar</button>
+							<button type='button' id='btn_save_debt' name='btn_save_debt' class='btn btn-primary " . ($this->disabled == 'disabled' ? 'hidden' : '') . "'>Agregar</button>
 						</span>
 					</div>
 				</div>

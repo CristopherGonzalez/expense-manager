@@ -21,7 +21,7 @@ class ExpensesData {
 		$this->empresa = "";
 		$this->active = 1;
 		$this->payment_date = "00/00/0000";
-		$this->payment_specific_date = null;
+		$this->payment_specific_date = "00/00/0000";
 		$this->deuda_id = null;
 	}
 

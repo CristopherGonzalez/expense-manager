@@ -1,4 +1,4 @@
-var new_debt = {}
+var new_debt = '';
 function addGenerateDebt() {
     $("#btn_new_debt").removeClass('btn-default');
     $("#btn_new_debt i").removeClass('fa-money');
@@ -42,7 +42,7 @@ function updateSelects() {
 $(document).ready(function () {
 
     $("#btn_close_debt").click(function () {
-        window.new_debt = {}
+        window.new_debt = '';
     });
 
     $("#btn_save_debt").click(function (event) {

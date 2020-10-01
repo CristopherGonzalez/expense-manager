@@ -44,8 +44,8 @@ if (empty($_POST['amount'])) {
 	}
 
 	$query_new = $partner->add();
-	if (isset($_POST["debt"]) && !empty($_POST["debt"])) {
-		$new_debt = json_decode($_POST["debt"]);
+	$new_debt = json_decode($_POST["debt"]);
+	if (isset($new_debt) && !empty($new_debt)) {
 		$payment_fees = intval($new_debt->payment_fees);
 		$payment_fees = $payment_fees == 0 ? 1 : $payment_fees;
 		$amount = intval(mysqli_real_escape_string($con, (strip_tags($new_debt->amount, ENT_QUOTES))));

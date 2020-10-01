@@ -43,7 +43,6 @@ if (empty($_POST['amount'])) {
 		$expense->payment_date = mysqli_real_escape_string($con, (strip_tags($_POST["payment_date"], ENT_QUOTES)));
 		$expense->payment_specific_date = date('Y-m-d');
 	} else {
-		$expense->payment_specific_date = null;
 		$expense->pagado_con = "";
 	}
 	if (isset($_POST["document_image"]) && !empty($_POST["document_image"])) {
@@ -56,9 +55,8 @@ if (empty($_POST['amount'])) {
 
 	$query_new = $expense->add();
 
-
-	if (isset($_POST["debt"]) && !empty($_POST["debt"])) {
-		$new_debt = json_decode($_POST["debt"]);
+	$new_debt = json_decode($_POST["debt"]);
+	if (isset($new_debt) && !empty($new_debt)) {
 		$payment_fees = intval($new_debt->payment_fees);
 		$payment_fees = $payment_fees == 0 ? 1 : $payment_fees;
 		$amount = intval(mysqli_real_escape_string($con, (strip_tags($new_debt->amount, ENT_QUOTES))));
@@ -111,6 +109,7 @@ if (empty($_POST['amount'])) {
 				$change_log->payment_date = $debt->fecha_pago;
 				$expense->updateDebt($query_new[1], $query_response[1]);
 				$result = $change_log->add();
+
 				if (isset($result) && !empty($result) && is_array($result) && count($result) > 1 && $result[1] > 0) {
 					$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente para la cuota " . ($i + 1) . ".\n";
 				} else {
