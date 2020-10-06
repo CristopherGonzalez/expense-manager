@@ -53,6 +53,9 @@
 .skin-yellow .main-header li.user-header {
   background-color: #f39c12;
 }
+.skin-yellow li.user-footer {
+  background-color: #f39c12;
+}
 .skin-yellow .content-header {
   background: transparent;
 }

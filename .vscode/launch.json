@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
 
+
         {
              "name": "Listen for XDebug",
             "type": "php",
@@ -18,6 +19,7 @@
             "program": "${file}",
             "cwd": "${fileDirname}",
             "port": 9000
+            
         }
     ]
 }

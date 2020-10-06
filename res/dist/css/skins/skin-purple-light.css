@@ -53,6 +53,9 @@
 .skin-purple-light .main-header li.user-header {
   background-color: #605ca8;
 }
+.skin-purple-light li.user-footer {
+  background-color: #605ca8;
+}
 .skin-purple-light .content-header {
   background: transparent;
 }

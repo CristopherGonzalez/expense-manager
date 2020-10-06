@@ -12,7 +12,7 @@
 			if($company==null  || empty($company)){ 
 				Core::redir("./?view=index&alert=1"); 
 			}else{
-				$user = UserData::getLogin($email,$password);
+				$user = UserData::getLogin($email,$password,$company->id);
 				if($user!=null && ($user->empresa == $company->id)){
 					if(strcmp($company->licenciaMRC,$license) == 0 && strcmp($company->password,$password) ==0 && strcmp($company->email,$email)==0){
 						$_SESSION["user_id"]=$user->id;
