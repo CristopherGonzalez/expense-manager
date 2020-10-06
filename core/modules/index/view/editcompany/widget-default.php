@@ -41,10 +41,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] == "1"):
                                 <input type="text" required class="form-control" id="name" name="name" placeholder="Nombre" value="<?php echo $company->name; ?>">
                             </div>
                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                <label for="name" class="control-label">Contraseña</label>
-                                <input type="text" required class="form-control" id="password" name="password" placeholder="Constraseña" value="<?php echo Core::encrypt_decrypt('decrypt',$company->password); ?>">
-                            </div>
-                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                 <?php 
                                     $country_select = new SelectList("country_company","Pais",$countries);
                                     $country_select->funjs = "onchange=load_cities(this.value,'city_company','cities_response')";

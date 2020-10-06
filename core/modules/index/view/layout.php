@@ -48,7 +48,7 @@
                         <ul class="nav navbar-nav">
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="res/images/users/<?php echo $user_session->profile_pic ?>" class="user-image" alt="User Image">
+                                    <!-- <img src="res/images/users/<?php echo $user_session->profile_pic ?>" class="user-image" alt="User Image"> -->
                                     <span class="hidden-xs"><?php echo $user_session->name ?></span>
                                 </a>
                                 <ul class="dropdown-menu">

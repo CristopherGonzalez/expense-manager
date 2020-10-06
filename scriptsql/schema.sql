@@ -55,7 +55,6 @@ create table empresas(
   ciudad int not null,
   tipo_negocio int not null,
   name varchar(255) not null,
-  password varchar(100) not null,
   email varchar(255) not null,
   profile_pic LONGTEXT,
   skin int not null,

@@ -5,9 +5,7 @@ if (!isset($_SESSION['user_id'])){
 }
 	if (empty($_POST['name'])){
 			$errors[] = "No ha ingresado un nombre.";
-		}  elseif (empty($_POST['password'])) {
-            $errors[] = "No ha ingresado la contraseña.";
-        }  elseif (empty($_POST['country_company'])) {
+		}  elseif (empty($_POST['country_company'])) {
             $errors[] = "No ha seleccionado un pais.";
         }  elseif (empty($_POST['city_company'])) {
             $errors[] = "No ha seleccionado una ciudad.";
@@ -19,7 +17,6 @@ if (!isset($_SESSION['user_id'])){
             $errors[] = "No ha ingresado una licencia MRC.";
         }	elseif (
         	!empty($_POST['name'])
-        	&& !empty($_POST['password'])
         	&& !empty($_POST['country_company'])
         	&& !empty($_POST['city_company'])
 			&& !empty($_POST['types_bussiness'])
@@ -29,7 +26,6 @@ if (!isset($_SESSION['user_id'])){
         	$con = Database::getCon(); 
 			$company = new CompanyData();
 			$company->name = mysqli_real_escape_string($con,(strip_tags($_POST["name"],ENT_QUOTES)));
-			$company->password = Core::encrypt_decrypt('encrypt',mysqli_real_escape_string($con,(strip_tags($_POST["password"],ENT_QUOTES))));
 			$company->email = mysqli_real_escape_string($con,(strip_tags($_POST["email"],ENT_QUOTES)));
 			$company->licenciaMRC = mysqli_real_escape_string($con,(strip_tags($_POST["license"],ENT_QUOTES)));
 			$company_license = CompanyData::getByLicense($company->licenciaMRC);

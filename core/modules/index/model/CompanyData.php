@@ -11,7 +11,6 @@ class CompanyData {
 		$this->ciudad = "";
 		$this->tipo_negocio = "";
 		$this->name = "";
-		$this->password = "";
 		$this->email = "";
 		$this->profile_pic = "res/images/companies/default.jpg";
 		$this->skin = 1;
@@ -20,8 +19,8 @@ class CompanyData {
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at) ";
-		$sql .= "value ($this->status,$this->is_deleted,'".$this->licenciaMRC."',".$this->pais.",".$this->ciudad.",".$this->tipo_negocio.",'".$this->name."','".$this->password."','".$this->email."','$this->profile_pic',".$this->skin.",".$this->created_at.")";
+		$sql = "insert into ".self::$tablename." (status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name,  email, profile_pic, skin, created_at) ";
+		$sql .= "value ($this->status,$this->is_deleted,'".$this->licenciaMRC."',".$this->pais.",".$this->ciudad.",".$this->tipo_negocio.",'".$this->name."','".$this->email."','$this->profile_pic',".$this->skin.",".$this->created_at.")";
 		return Executor::doit($sql);
 	}
 
@@ -40,7 +39,7 @@ class CompanyData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name='".$this->name."', status=".$this->status.", is_deleted=".$this->is_deleted.", licenciaMRC='".$this->licenciaMRC."', pais=".$this->pais.", ciudad=".$this->ciudad.", tipo_negocio=".$this->tipo_negocio.", password='".$this->password."',email='".$this->email."',profile_pic='".$this->profile_pic."' where id=$this->id";
+		$sql = "update ".self::$tablename." set name='".$this->name."', status=".$this->status.", is_deleted=".$this->is_deleted.", licenciaMRC='".$this->licenciaMRC."', pais=".$this->pais.", ciudad=".$this->ciudad.", tipo_negocio=".$this->tipo_negocio.", email='".$this->email."',profile_pic='".$this->profile_pic."' where id=$this->id";
 		if (Executor::doit($sql)){
 			return true;
 		}else{

@@ -92,9 +92,9 @@ values
 /*Prueba de empresa*/
 
 INSERT INTO empresas
-    (status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
+    (status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name,  email, profile_pic, skin, created_at)
 VALUES
-    ('1', '0', 'minegocio', '2', '34', '2', 'MRComanda', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.jpg', '1', NOW());
+    ('1', '0', 'minegocio', '2', '34', '2', 'MRComanda', 'info@mrcomanda.com', 'default.jpg', '1', NOW());
 
 /*Prueba de usuario*/
 INSERT INTO user

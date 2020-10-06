@@ -58,15 +58,6 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']== "1"):
                             </div>
                             <div class="form-group">
                                 <?php 
-                                    $pass_text = new InputText("password","Contraseña");
-                                    echo $pass_text->renderLabel('col-sm-2');
-                                ?>
-                                <div class="col-sm-10">
-                                    <?php echo $pass_text->render(); ?>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <?php 
                                     $country_select = new SelectList("country_company","Pais",$countries);
                                     $country_select->funjs = "onchange=load_cities(this.value,'city_company','cities_response','modal')";
                                     $country_select->tag="required";
