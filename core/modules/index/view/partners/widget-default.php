@@ -95,7 +95,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                     <label for="amount" class="col-sm-2 control-label">Importe </label>
                                                     <div class="col-sm-10">
                                                         <input type="number" required class="form-control" id="amount" name="amount" placeholder="Importe " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+                                                        <span><em>(-) negativo retiro, (+) positivo aporte</em></span>
                                                     </div>
+
                                                 </div>
 
                                                 <div class="form-group">

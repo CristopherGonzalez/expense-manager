@@ -97,6 +97,7 @@ class EntityData {
 	public static function query($sWhere, $offset,$per_page){
 		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." LIMIT $offset,$per_page";
 		$query = Executor::doit($sql);
+		//var_dump($sql);
 		return Model::many($query[0],new EntityData());
 	}
 	public static function getLikeName($name, $company){

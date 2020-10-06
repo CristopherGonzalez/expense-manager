@@ -462,69 +462,70 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 $('#' + categories).prop('required', true);
                 $('#' + categories).prop('disabled', false);
                 $('#' + categories).append($('<option></option>').attr("value", 1).text("Socio"));
+                $('#' + categories).val('1').change();
+                }
             }
-        }
-        //Funcion para cambiar visibilidad dependiendo de la opcion de origin
-        function change_origin(event) {
-            let origin_type = event.value;
-            $('#type option').each(function() {
-                $(this).remove()
-            });
-            $('#type').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
-            $('#category_expense option').each(function() {
-                $(this).remove()
-            });
-            $('#category_expense').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
-            $('#category_income option').each(function() {
-                $(this).remove()
-            });
-            $('#category_income').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
-            $('#category_partner option').each(function() {
-                $(this).remove()
-            });
-            $('#category_partner').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
-            $('#category_partner').prop('disabled', true);
-            $('#category_income').prop('disabled', true);
-            $('#category_expense').prop('disabled', true);
-            $('#type').prop('disabled', true);
-            $('#type').prop('required', true);
-            type_category = "";
-            //Se carga datos dependiendo de la opcion de origen de la modal
-            switch (origin_type) {
-                case "origin_default":
-                    type_category = "";
-                    break;
-                case "origin_expense":
-                    $('#type').prop('disabled', false);
-                    type_category = "Egreso";
-                    break;
-                case "origin_income":
-                    $('#type').prop('disabled', false);
-                    type_category = "Ingreso";
-                    break;
-                case "origin_partner":
-                    $('#type').prop('disabled', false);
-                    type_category = "Socio";
-                    break;
-                case "origin_debt":
-                    $('#type').prop('disabled', false);
-                    type_category = "Deudas";
-                    break;
-                case "origin_stock":
-                    $('#type').prop('disabled', false);
-                    type_category = "Valores";
-                    break;
-            }
+            //Funcion para cambiar visibilidad dependiendo de la opcion de origin
+            function change_origin(event) {
+                let origin_type = event.value;
+                $('#type option').each(function() {
+                    $(this).remove()
+                });
+                $('#type').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+                $('#category_expense option').each(function() {
+                    $(this).remove()
+                });
+                $('#category_expense').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+                $('#category_income option').each(function() {
+                    $(this).remove()
+                });
+                $('#category_income').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+                $('#category_partner option').each(function() {
+                    $(this).remove()
+                });
+                $('#category_partner').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+                $('#category_partner').prop('disabled', true);
+                $('#category_income').prop('disabled', true);
+                $('#category_expense').prop('disabled', true);
+                $('#type').prop('disabled', true);
+                $('#type').prop('required', true);
+                type_category = "";
+                //Se carga datos dependiendo de la opcion de origen de la modal
+                switch (origin_type) {
+                    case "origin_default":
+                        type_category = "";
+                        break;
+                    case "origin_expense":
+                        $('#type').prop('disabled', false);
+                        type_category = "Egreso";
+                        break;
+                    case "origin_income":
+                        $('#type').prop('disabled', false);
+                        type_category = "Ingreso";
+                        break;
+                    case "origin_partner":
+                        $('#type').prop('disabled', false);
+                        type_category = "Socio";
+                        break;
+                    case "origin_debt":
+                        $('#type').prop('disabled', false);
+                        type_category = "Deudas";
+                        break;
+                    case "origin_stock":
+                        $('#type').prop('disabled', false);
+                        type_category = "Valores";
+                        break;
+                }
 
-            if (type_category != "") {
-                <?php foreach ($types as $type) { ?>
-                    if ("<?php echo $type->tipo; ?>" == type_category) {
-                        $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
-                    }
-                <?php } ?>
-            }
+                if (type_category != "") {
+                    <?php foreach ($types as $type) { ?>
+                        if ("<?php echo $type->tipo; ?>" == type_category) {
+                            $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
+                        }
+                    <?php } ?>
+                }
 
-        }
+            }
     </script>
 <?php else : Core::redir("./");
 endif; ?>

@@ -219,7 +219,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             event.preventDefault();
             window.setTimeout(function() {
                 if (result) {
-                   window.location.href = "./?view=entities";
+                    window.location.href = "./?view=entities";
                 }
             }, 2000);
         })
@@ -382,6 +382,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 ?>
 
                 $('#category_partner').append($('<option></option>').attr("value", 1).text("Socio"));
+                $('#category_partner option: selected ').val(1);
+
             }
             if (origin_type === "origin_debt") {
                 $('#type').prop('disabled', false);
