@@ -138,6 +138,7 @@ create table entidades (
   	entidad int not null,
   	created_at datetime not null,
   	fecha date not null,
+  	fecha_vence date not null,
 	pagado boolean not null default 1,
   	document_number text ,
 	documento LONGTEXT,

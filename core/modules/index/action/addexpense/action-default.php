@@ -31,7 +31,9 @@ if (empty($_POST['amount'])) {
 	//Se capturan los nuevos datos de los egresos
 	$expense->entidad = intval($_POST['entity']);
 	$expense->tipo = intval($_POST['type_expense']);
-	$expense->fecha = mysqli_real_escape_string($con, (strip_tags($_POST["date"], ENT_QUOTES)));
+	$expense->fecha = mysqli_real_escape_string($con, (
+	strip_tags($_POST["date"], ENT_QUOTES)));
+	$expense->fecha_vence = mysqli_real_escape_string($con, (strip_tags($_POST["date_expires"], ENT_QUOTES)));
 	$expense->pagado = (isset($_POST['pay_out']) && $_POST['pay_out'] == "true") ? 1 : 0;
 	//Se realiza guardado de imagenes de pago y documento
 	$expense->documento = "";

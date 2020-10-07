@@ -109,8 +109,12 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label for="date" class="col-sm-2 control-label">Fecha</label>
-                                                    <div class="col-sm-10">
+                                                    <div class="col-sm-4">
                                                         <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha " value="<?php echo date("Y-m-d"); ?>">
+                                                    </div>
+                                                    <label for="date" class="col-sm-2 control-label">Vence</label>
+                                                    <div class="col-sm-4">
+                                                        <input type="date" required class="form-control" id="date_expires" name="date_expires" placeholder="Fecha " value="<?php echo date("Y-m-d"); ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

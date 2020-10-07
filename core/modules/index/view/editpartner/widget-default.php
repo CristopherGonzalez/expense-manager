@@ -58,7 +58,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <label for="amount" class="control-label">Importe: </label>
-                                        <input type="text" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,10}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="10" value="<?php echo $partner->amount ?>">
+                                        <input type="number" required class="form-control" id="amount" name="amount" placeholder="Importe: " pattern="^[0-9]{1,9}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8" value="<?php echo $partner->amount ?>">
                                         <span><em>(-) negativo retiro, (+) positivo aporte</em></span>
 
                                     </div>

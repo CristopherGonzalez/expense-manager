@@ -46,9 +46,13 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             </div><!-- /.box-header -->
                             <div class="box-body">
                                 <div class="form-group">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-xs-12 col-sm-6">
                                         <label for="date">Fecha: </label>
                                         <input type="date" required class="form-control" id="date" name="date" placeholder="Fecha: " value="<?php echo date('Y-m-d',  strtotime($expense->fecha));  ?>">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label for="date">Vence: </label>
+                                        <input type="date" required class="form-control" id="date_expires" name="date_expires" placeholder="Fecha " value="<?php echo date('Y-m-d',  strtotime($expense->fecha_vence));  ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
