@@ -2,11 +2,11 @@
 if (isset($_POST)) {
 	$con = Database::getCon();
 	//Se capturan los datos enviados por ajax
-	$month = $_POST['month'] ?? 0;
-	$year = $_POST['year'] ?? 0;
+	$month = $_POST['month'] ? $_POST['month'] : 0;
+	$year = $_POST['year'] ? $_POST['year'] : 0;
 	$type_doc = $_POST['type_doc'];
 	$text = $_POST['text'];
-	$inactive = $_POST['inactive'] ?? 0;
+	$inactive = $_POST['inactive'] ?  $_POST['inactive'] : 0;
 	$company_id = $_SESSION["company_id"];
 	$sWhere = " empresa=$company_id and pagado=1 ";
 	//Se construye la consulta sql dependiendo de los filtros ingresados

@@ -123,7 +123,10 @@ class ExpensesData {
 	}
 	public static function sumExpenses_Month($month,$u,$year=null){
 		if(!isset($year) || $year==null) { $year = date('Y');}
-		$sql = "select SUM(amount) as total from ".self::$tablename." where year(fecha) = '$year' and month(fecha)= '$month' and empresa=$u and active=1";
+		$sql = "select SUM(amount) as total from ".self::$tablename." where year(fecha) = '$year' and empresa=$u and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 	}
@@ -135,7 +138,10 @@ class ExpensesData {
 	}
 	public static function sumExpenseMonthNotPay($company_id,$month){
 		$year=date('Y');
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$company_id and month(fecha)= '$month' and year(fecha)='$year' and active=1 and pagado=0 ";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$company_id and year(fecha)='$year' and active=1 and pagado=0 ";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new IncomeData());
 	}
@@ -145,28 +151,61 @@ class ExpensesData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 	}
+	public static function sumExpensesAnnual($u, $year){
+		$sql = " select 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='1' and year(fecha)='$year' and active = 1 and  empresa=$u) as enero,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='2' and year(fecha)='$year' and active = 1 and  empresa=$u) as febrero, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='3' and year(fecha)='$year' and active = 1 and  empresa=$u) as marzo, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='4' and year(fecha)='$year' and active = 1 and  empresa=$u) as abril, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='5' and year(fecha)='$year' and active = 1 and  empresa=$u) as mayo, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='6' and year(fecha)='$year' and active = 1 and  empresa=$u) as junio,  
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='7' and year(fecha)='$year' and active = 1 and  empresa=$u) as julio,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='8' and year(fecha)='$year' and active = 1 and  empresa=$u) as agosto, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='9' and year(fecha)='$year' and active = 1 and  empresa=$u) as septiembre,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='10' and year(fecha)='$year' and active = 1 and  empresa=$u) as octubre, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='11' and year(fecha)='$year' and active = 1 and  empresa=$u) as noviembre, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='12' and year(fecha)='$year' and active = 1 and  empresa=$u) as diciembre
+		";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new ExpensesData());
+	}
 	public static function sumExpensesByPaymentStatusByDate($id_company, $paid_out,$month,$year){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and month(fecha)= '$month' and active=1";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 	}
 	public static function sumExpensesByType($u, $type,$month,$year){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month' and active=1";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 	}
 	public static function sumExpensesByTypeAndPayment($u, $type,$month,$year, $paid_out){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month' and pagado=$paid_out and active=1";
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and tipo=$type and year(fecha) = '$year' and pagado=$paid_out and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 	}
 	public static function ExpensesByTypeAndDate($company_id, $type,$month,$year){
-		$sql = "select * from ".self::$tablename." where empresa=$company_id and tipo=$type and year(fecha) = '$year' and month(fecha)= '$month' and active=1";
+		$sql = "select * from ".self::$tablename." where empresa=$company_id and tipo=$type and year(fecha) = '$year' and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 	}
 	public static function ExpensesByCategoryIdAndDate($company_id, $category_id,$month,$year){
-		$sql = "select * from ".self::$tablename." where empresa=$company_id and category_id=$category_id and year(fecha) = '$year' and month(fecha)= '$month' and active=1";
+		$sql = "select * from ".self::$tablename." where empresa=$company_id and category_id=$category_id and year(fecha) = '$year' and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 	}
@@ -188,13 +227,24 @@ class ExpensesData {
 		return Model::many($query[0],new ExpensesData());
 	}
 	public static function expensesByCategoryTypeAndDate($id_company, $type,$month,$year){
-		$sql = "select category_id, sum(amount)as amount, (select name from category_expense where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and tipo=$type and year(fecha) = '".$year."' and month(fecha) = '".$month."' and active=1 group by category_id";
+		$sql = "select category_id, sum(amount)as amount, (select name from category_expense where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and tipo=$type and year(fecha) = '".$year."' and active=1 ";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
+		$sql.='group by category_id';
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ExpensesData());
 	}
 	public static function expensesCategoryByTypeAndPayment($id_company, $type,$category_id,$month,$year, $paid_out){
-		$sql = "select category_id, sum(amount)as amount, (select name from category_expense where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and tipo=$type and year(fecha) = '".$year."' and month(fecha) = '".$month."' and active=1 and pagado=$paid_out and category_id=$category_id group by category_id";
+		$sql = "select category_id, sum(amount)as amount, (select name from category_expense where id = category_id) as description, tipo from ".self::$tablename." WHERE empresa=$id_company and tipo=$type and year(fecha) = '".$year."' and active=1 and pagado=$paid_out and category_id=$category_id ";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
+		$sql.='group by category_id';
+
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ExpensesData());
 	}
 }
+
+?>

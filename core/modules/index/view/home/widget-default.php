@@ -18,7 +18,7 @@ if (isset($_SESSION["user_id"])) :
   <?php
   function sum_incomes_month($month, $return = false)
   {
-    $income = IncomeData::sumIncome_Month($month, $_SESSION["company_id"]);
+    $income = IncomeData::sumIncomeByDate($month, $_SESSION["company_id"]);
     echo $total = number_format($income->total, 2, '.', '');
     if($return){return $total;}
   }

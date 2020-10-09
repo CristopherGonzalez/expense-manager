@@ -158,6 +158,33 @@ class DebtsData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new DebtsData());
 	}
+	public static function sumDebtsByPay($empresa, $year=null, $month, $pay){
+		if(!isset($year) || $year==null) { $year = date('Y');}
+		$sql = "select *, sum(amount) as total from ".self::$tablename." where empresa=$empresa and year(fecha)='$year' and pagado=$pay and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new DebtsData());
+	}
+	public static function sumDebtsAnnual($u, $year){
+		$sql = " select 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='1' and year(fecha)='$year' and active = 1 and  empresa=$u) as enero,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='2' and year(fecha)='$year' and active = 1 and  empresa=$u) as febrero, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='3' and year(fecha)='$year' and active = 1 and  empresa=$u) as marzo, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='4' and year(fecha)='$year' and active = 1 and  empresa=$u) as abril, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='5' and year(fecha)='$year' and active = 1 and  empresa=$u) as mayo, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='6' and year(fecha)='$year' and active = 1 and  empresa=$u) as junio,  
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='7' and year(fecha)='$year' and active = 1 and  empresa=$u) as julio,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='8' and year(fecha)='$year' and active = 1 and  empresa=$u) as agosto, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='9' and year(fecha)='$year' and active = 1 and  empresa=$u) as septiembre,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='10' and year(fecha)='$year' and active = 1 and  empresa=$u) as octubre, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='11' and year(fecha)='$year' and active = 1 and  empresa=$u) as noviembre, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='12' and year(fecha)='$year' and active = 1 and  empresa=$u) as diciembre
+		";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new DebtsData());
+	}
 }
 
 ?>

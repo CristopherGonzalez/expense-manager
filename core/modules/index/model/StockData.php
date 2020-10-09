@@ -137,6 +137,26 @@ class StockData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new StockData());
 	}
+	public static function sumStockByDate($company, $month, $year){
+		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$company and year(fecha)='$year' and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
+		$query = Executor::doit($sql);
+		if(!$query[0]){
+			return 0;
+		}
+		return Model::one($query[0],new StockData());
+	}
+	public static function dinamycAllQuery( $sWhere, $sSelect = "SELECT * ", $all, $sOrder=" order by created_at desc"){
+		$sql = $sSelect." FROM ".self::$tablename." where ".$sWhere.$sOrder;
+		$query = Executor::doit($sql);
+		if($all){
+			return Model::many($query[0],new StockData());
+		}else{
+			return Model::one($query[0],new StockData());
+		}
+	}
 }
 
 ?>
