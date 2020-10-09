@@ -248,10 +248,11 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             if ($income_data->count != 0) :
                             ?>
                                 <div class="btn-group">
-                                    <a style="margin-right: 3px" target="_blank" href="reports/reportIncome.php" class="btn btn-default pull-right">
+                                    <a style="margin-right: 3px" target="_blank" href="./?action=export_excel" class="btn btn-default pull-right">
                                         <span class="fa fa-file-excel-o"></span> Descargar
                                     </a>
                                 </div>
+                                <button class="btn btn-success" type="button" onclick='exportExcel(1);'><i class='fa fa-file-excel-o  margin-r-5'></i>Descargar</button>
 
                             <?php endif; ?>
                         </div>
@@ -311,6 +312,44 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             };
             $.get({
                 url: "./?action=loadincome",
+                data: parametros,
+                beforeSend: function(data) {
+                    $("#loader").html("<img src='res/images/ajax-loader.gif'>");
+                },
+                //console.log(data);
+                success: function(data) {
+                    $(".outer_div").html(data);
+                    $("#loader").html("");
+                }
+
+            });
+        }
+
+        async function exportExcel(page) {
+            //Se obtienen filtros de busqueda
+            var month_find = $('#month_find option:selected').val();
+            var year_find = $('#year_find option:selected').val();
+            var type_income_find = $('#type_income_find option:selected').val();
+            var category_find = $('#category_find option:selected').val();
+            var find_text = $('#find_text').val();
+            var not_paid = $('#not_paid').is(":checked");
+            var inactive = $('#inactive').is(":checked");
+
+            var per_page = $("#per_page").val();
+            var parametros = {
+                "page": page,
+                'month': month_find,
+                'year': year_find,
+                'type_category': type_income_find,
+                'category': category_find,
+                'text': find_text,
+                'inactive': inactive,
+                'payment': not_paid,
+                'per_page': per_page,
+                'type':'income'
+            };
+            await $.get({
+                url: "./?action=export_excel",
                 data: parametros,
                 beforeSend: function(data) {
                     $("#loader").html("<img src='res/images/ajax-loader.gif'>");

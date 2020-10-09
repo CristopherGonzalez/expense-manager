@@ -4,6 +4,7 @@
 	include "controller/View.php";
 	include "controller/Module.php";
 	include "controller/Database.php";
+	include "controller/ExportExcel.php";
 	include "controller/Executor.php";
 	include "controller/forms/lbForm.php";
 	include "controller/forms/lbInputText.php";
