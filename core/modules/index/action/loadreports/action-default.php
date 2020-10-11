@@ -18,7 +18,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 	if ($year != 0) {
 		if ($month != 1 && $month != 0) {
 			$stockWhere .= " and year(fecha) = " . ($year);
-	}
+		}
 	} else {
 		return "Debes seleccionar un año";
 	}
@@ -368,7 +368,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="row panel-title">
 									<div class="col-md-6 col-sm-6 col-xs-6">
-										Ingresos $<?php echo  round($sumIncomeMonth->total,2); ?>
+										Ingresos $<?php echo  round($sumIncomeMonth->total, 2); ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -376,7 +376,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 										<span style="float:right;">Impagos</span>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										$<?php echo  round($sumIncomeImpayment->amount,2); ?>
+										$<?php echo  round($sumIncomeImpayment->amount, 2); ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 										<?php echo round(($sumIncomeImpayment->amount * 100) / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total), 2); ?>%
@@ -460,7 +460,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 																				<?php echo $incomeByType->description; ?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
-																				$<?php echo  round($incomeByType->amount,2); ?>
+																				$<?php echo  round($incomeByType->amount, 2); ?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
 																				<?php echo round(($incomeByType->amount * 100) / $sumIncomeType, 2); ?>%
@@ -471,7 +471,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 																				$<?php
 																					$incomePay = IncomeData::sumIncomeCategoryByTypeAndPayment($_SESSION['company_id'], $type->id, $incomeByType->category_id, $month, $year, 0);
 																					$incomeAmountPayment = isset($incomePay) ? $incomePay->amount : 0;
-																					echo  round($incomeAmountPayment,2);
+																					echo  round($incomeAmountPayment, 2);
 																					?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
@@ -497,7 +497,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 																						<?php echo $IncomeByCategory->description; ?>
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
-																						$<?php echo  round($IncomeByCategory->amount,2); ?>
+																						$<?php echo  round($IncomeByCategory->amount, 2); ?>
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
 																						<?php echo round(($IncomeByCategory->amount / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total)) * 100, 2); ?>%
@@ -552,7 +552,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="row panel-title">
 									<div class="col-md-6 col-sm-6 col-xs-6">
-										Egresos $<?php echo  round($sumExpenseMonth->total,2); ?>
+										Egresos $<?php echo  round($sumExpenseMonth->total, 2); ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -560,7 +560,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 										<span style="float:right;">Impagos</span>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										$<?php echo  round($sumExpensesImpayment->amount,2); ?>
+										$<?php echo  round($sumExpensesImpayment->amount, 2); ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 										<?php echo round(($sumExpensesImpayment->amount * 100) / ($sumExpenseMonth->total == 0 ? 1 : $sumExpenseMonth->total), 2); ?>%
@@ -617,7 +617,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 														$sumExpensesTypePayment =  isset(ExpensesData::sumExpensesByTypeAndPayment($_SESSION['company_id'], $type->id, $month, $year, 0)->amount) ?  ExpensesData::sumExpensesByTypeAndPayment($_SESSION['company_id'], $type->id, $month, $year, 0)->amount : 0;
 														?>
 														<div class="col-md-1 col-sm-1 col-xs-1">
-															$<?php echo  round($sumExpensesTypePayment,2); ?>
+															$<?php echo  round($sumExpensesTypePayment, 2); ?>
 														</div>
 														<div class="col-md-1 col-sm-1 col-xs-1">
 															<?php
@@ -645,7 +645,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 																				<?php echo $ExpenseByType->description; ?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
-																				$<?php echo  round($ExpenseByType->amount,2); ?>
+																				$<?php echo  round($ExpenseByType->amount, 2); ?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
 																				<?php echo round(($ExpenseByType->amount / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total)) * 100, 2); ?>%
@@ -657,7 +657,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 																				$<?php
 																					$ExpensesPay = ExpensesData::expensesCategoryByTypeAndPayment($_SESSION['company_id'], $type->id, $ExpenseByType->category_id, $month, $year, 0);
 																					$ExpensesAmountPayment = isset($ExpensesPay) ? $ExpensesPay->amount : 0;
-																					echo  round($ExpensesAmountPayment,2);
+																					echo  round($ExpensesAmountPayment, 2);
 																					?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
@@ -683,7 +683,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 																						<?php echo $ExpenseByCategory->description; ?>
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
-																						$<?php echo  round($ExpenseByCategory->amount,2); ?>
+																						$<?php echo  round($ExpenseByCategory->amount, 2); ?>
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
 																						<?php echo round(($ExpenseByCategory->amount / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total)) * 100, 2); ?>%
@@ -692,7 +692,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 																						<?php echo round(($ExpenseByCategory->amount / $sumExpensesType) * 100, 2); ?>%
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
-																						$<?php echo  round(($ExpenseByCategory->pagado == "0") ? $ExpenseByCategory->amount : 0,2); ?>
+																						$<?php echo  round(($ExpenseByCategory->pagado == "0") ? $ExpenseByCategory->amount : 0, 2); ?>
 																					</div>
 																					<div class="col-md-2 col-sm-2 col-xs-2">
 																						<a href="./?view=editexpense&id=<?php echo $ExpenseByCategory->id ?>" target="_blank"><span class="glyphicon glyphicon-list-alt"></span></a>
@@ -824,21 +824,18 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 		input.classList.forEach(
 			function(element) {
 				if (element == "fa-plus") {
-					fa_status = "fa-minus";
-				} else if (element == "fa-minus") {
 					fa_status = "fa-plus";
+				} else if (element == "fa-minus") {
+					fa_status = "fa-minus";
 				}
 			}
 		);
 		if (fa_status != null) {
-			var icons = document.getElementById('accordion').getElementsByClassName('fa');
-			for (var i = 0; i < icons.length; i++) {
-				icons[i].className = "fa fa-plus";
-			}
+			input.classList.remove(fa_status);
 			if (fa_status == "fa-plus") {
-				input.className = "fa fa-plus collapsed";
+				input.classList.add("fa-minus");
 			} else if (fa_status == "fa-minus") {
-				input.className = "fa fa-minus";
+				input.classList.add("fa-plus");
 			}
 		}
 	}

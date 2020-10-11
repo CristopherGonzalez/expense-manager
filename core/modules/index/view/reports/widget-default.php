@@ -134,7 +134,9 @@ endif; ?>
                 labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
                 datasets: [{
                     label: 'Ingresos', // Name the series
-                    data: response.annual_incomes.map(function(x){return parseFloat(x);}), // Specify the data values array
+                    data: response.annual_incomes.map(function(x) {
+                      return parseFloat(x);
+                    }), // Specify the data values array
                     fill: false,
                     borderColor: '#28a745', // Add custom color border (Line)
                     backgroundColor: '#28a745', // Add custom color background (Points and Fill)
@@ -142,7 +144,9 @@ endif; ?>
                   },
                   {
                     label: 'Egresos', // Name the series
-                    data: response.annual_expenses.map(function(x){return parseFloat(x);}), // Specify the data values array
+                    data: response.annual_expenses.map(function(x) {
+                      return parseFloat(x);
+                    }), // Specify the data values array
                     fill: false,
                     borderColor: '#2196f3', // Add custom color border (Line)
                     backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
@@ -150,7 +154,9 @@ endif; ?>
                   },
                   {
                     label: 'Deudas', // Name the series
-                    data: response.annual_debts.map(function(x){return parseFloat(x);}), // Specify the data values array
+                    data: response.annual_debts.map(function(x) {
+                      return parseFloat(x);
+                    }), // Specify the data values array
                     fill: false,
                     borderColor: '#dc3545', // Add custom color border (Line)
                     backgroundColor: '#dc3545', // Add custom color background (Points and Fill)
@@ -165,42 +171,7 @@ endif; ?>
             });
           }
 
-          /* var ctx = document.getElementById('LineAnnual').getContext('2d');
 
-          var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-              datasets: [{
-                label: 'Ingresos', // Name the series
-                data: [500, 50, 2424, 14040, 14141, 4111, 4544, 47, 5555, 6811,-1200,-20000], // Specify the data values array
-                fill: false,
-                borderColor: '#28a745', // Add custom color border (Line)
-                backgroundColor: '#28a745', // Add custom color background (Points and Fill)
-                borderWidth: 1 // Specify bar border width
-              },
-              {
-                label: 'Egresos', // Name the series
-                data: [5030, 503, 24234, 1400, 1141, 411, 444, 4733, 555, 611,-13200,-20000], // Specify the data values array
-                fill: false,
-                borderColor: '#2196f3', // Add custom color border (Line)
-                backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
-                borderWidth: 1 // Specify bar border width
-              },
-              {
-                label: 'Deudas', // Name the series
-                data: [600, 560, 244, 1040, 1411, 5111, 7544, 4700, -5555, -6811,-1200,-20000], // Specify the data values array
-                fill: false,
-                borderColor: '#dc3545', // Add custom color border (Line)
-                backgroundColor: '#dc3545', // Add custom color background (Points and Fill)
-                borderWidth: 1 // Specify bar border width
-              }]
-            },
-            options: {
-              responsive: true, // Instruct chart js to respond nicely.
-              maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
-            }
-          });
 
           if (document.getElementById('doughnutIncome') != null && document.getElementById('doughnutIncome') != undefined) {
             var ctx = document.getElementById('doughnutIncome').getContext('2d');

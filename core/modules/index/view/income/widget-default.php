@@ -248,11 +248,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             if ($income_data->count != 0) :
                             ?>
                                 <div class="btn-group">
-                                    <a style="margin-right: 3px" target="_blank" href="./?action=export_excel" class="btn btn-default pull-right">
-                                        <span class="fa fa-file-excel-o"></span> Descargar
-                                    </a>
+                                    <button class="btn btn-success" type="button" onclick='exportExcel(1);'><i class='fa fa-file-excel-o  margin-r-5'></i>Descargar</button>
                                 </div>
-                                <button class="btn btn-success" type="button" onclick='exportExcel(1);'><i class='fa fa-file-excel-o  margin-r-5'></i>Descargar</button>
 
                             <?php endif; ?>
                         </div>
@@ -290,16 +287,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 
         function load(page) {
             //Se obtienen filtros de busqueda
-            var month_find = $('#month_find option:selected').val();
-            var year_find = $('#year_find option:selected').val();
-            var type_income_find = $('#type_income_find option:selected').val();
-            var category_find = $('#category_find option:selected').val();
-            var find_text = $('#find_text').val();
-            var not_paid = $('#not_paid').is(":checked");
-            var inactive = $('#inactive').is(":checked");
+            let month_find = $('#month_find option:selected').val();
+            let year_find = $('#year_find option:selected').val();
+            let type_income_find = $('#type_income_find option:selected').val();
+            let category_find = $('#category_find option:selected').val();
+            let find_text = $('#find_text').val();
+            let not_paid = $('#not_paid').is(":checked");
+            let inactive = $('#inactive').is(":checked");
 
-            var per_page = $("#per_page").val();
-            var parametros = {
+            let per_page = $("#per_page").val();
+            let parametros = {
                 "page": page,
                 'month': month_find,
                 'year': year_find,
@@ -327,16 +324,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 
         async function exportExcel(page) {
             //Se obtienen filtros de busqueda
-            var month_find = $('#month_find option:selected').val();
-            var year_find = $('#year_find option:selected').val();
-            var type_income_find = $('#type_income_find option:selected').val();
-            var category_find = $('#category_find option:selected').val();
-            var find_text = $('#find_text').val();
-            var not_paid = $('#not_paid').is(":checked");
-            var inactive = $('#inactive').is(":checked");
+            let month_find = $('#month_find option:selected').val();
+            let year_find = $('#year_find option:selected').val();
+            let type_income_find = $('#type_income_find option:selected').val();
+            let category_find = $('#category_find option:selected').val();
+            let find_text = $('#find_text').val();
+            let not_paid = $('#not_paid').is(":checked");
+            let inactive = $('#inactive').is(":checked");
 
-            var per_page = $("#per_page").val();
-            var parametros = {
+            let per_page = $("#per_page").val();
+            let parametros = {
                 "page": page,
                 'month': month_find,
                 'year': year_find,
@@ -346,7 +343,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 'inactive': inactive,
                 'payment': not_paid,
                 'per_page': per_page,
-                'type':'income'
+                'type': 'income'
             };
             await $.get({
                 url: "./?action=export_excel",
@@ -356,7 +353,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 },
                 //console.log(data);
                 success: function(data) {
-                    $(".outer_div").html(data);
+                    let today = new Date();
+                    let dd = String(today.getDate()).padStart(2, '0');
+                    let mm = String(today.getMonth() + 1).padStart(2, '0');
+                    let yyyy = today.getFullYear();
+                    today = `${mm}_${dd}_${yyyy}`;
+                    let hiddenElement = document.createElement('a');
+                    hiddenElement.href = 'data:text/csv;charset=utf-8,' + escape(data);
+                    hiddenElement.target = '_blank';
+                    hiddenElement.download = `Ingresos_${today}.csv`;
+                    hiddenElement.click();
                     $("#loader").html("");
                 }
 
@@ -374,17 +380,17 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
         function eliminar(id) {
             if (confirm('Esta acción  eliminará de forma permanente el ingreso \n\n Desea continuar?')) {
                 //Se obtienen filtros de busqueda para recarga y por estandar
-                var month_find = $('#month_find option:selected').val();
-                var year_find = $('#year_find option:selected').val();
-                var type_income_find = $('#type_income_find option:selected').val();
-                var category_find = $('#category_find option:selected').val();
-                var find_text = $('#find_text').val();
-                var inactive = $('#inactive').is(":checked");
-                var not_paid = $('#not_paid').is(":checked");
-                var page = 1;
+                let month_find = $('#month_find option:selected').val();
+                let year_find = $('#year_find option:selected').val();
+                let type_income_find = $('#type_income_find option:selected').val();
+                let category_find = $('#category_find option:selected').val();
+                let find_text = $('#find_text').val();
+                let inactive = $('#inactive').is(":checked");
+                let not_paid = $('#not_paid').is(":checked");
+                let page = 1;
 
-                var per_page = $("#per_page").val();
-                var parametros = {
+                let per_page = $("#per_page").val();
+                let parametros = {
                     "page": page,
                     'month': month_find,
                     'year': year_find,
@@ -422,8 +428,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 
             $('#save_data').attr("disabled", true);
             //Se cambia forma de envio de formulario para soportar envio de imagenes
-            var fd = new FormData($(this)[0]);
-            var pay_out = $('#paid_out').is(":checked");
+            let fd = new FormData($(this)[0]);
+            let pay_out = $('#paid_out').is(":checked");
             fd.append("pay_out", pay_out);
             fd.append("type_income", $('#type_income').val());
             fd.append("category", $('#category').val());

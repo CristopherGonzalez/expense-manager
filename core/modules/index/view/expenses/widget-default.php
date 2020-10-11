@@ -258,9 +258,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             if ($expenses_data->count != 0) :
                             ?>
                                 <div class="btn-group">
-                                    <a style="margin-right: 3px" target="_blank" href="reports/reportExpense.php" class="btn btn-default pull-right">
-                                        <span class="fa fa-file-excel-o"></span> Descargar
-                                    </a>
+                                    <button class="btn btn-success" type="button" onclick='exportExcel(1);'><i class='fa fa-file-excel-o  margin-r-5'></i>Descargar</button>
                                 </div>
                                 <div class="btn-group">
                                     <a style="margin-right: 3px; margin-top: 3px;" data-toggle="modal" data-target="#frmfixedscost" class="btn btn-default pull-right">
@@ -396,6 +394,53 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 //console.log(data);
                 success: function(data) {
                     $(".outer_div").html(data);
+                    $("#loader").html("");
+                }
+
+            });
+        }
+        async function exportExcel(page) {
+            //Se obtienen filtros de busqueda
+            let month_find = $('#month_find option:selected').val();
+            let year_find = $('#year_find option:selected').val();
+            let type_expense_find = $('#type_expense_find option:selected').val();
+            let category_find = $('#category_find option:selected').val();
+            let find_text = $('#find_text').val();
+            let not_paid = $('#not_paid').is(":checked");
+            let inactive = $('#inactive').is(":checked");
+
+            let per_page = $("#per_page").val();
+            let parametros = {
+                "page": page,
+                'month': month_find,
+                'year': year_find,
+                'type_category': type_expense_find,
+                'category': category_find,
+                'text': find_text,
+                'payment': not_paid,
+                'inactive': inactive,
+                'per_page': per_page,
+                'type': 'expense'
+            };
+
+            await $.get({
+                url: "./?action=export_excel",
+                data: parametros,
+                beforeSend: function(data) {
+                    $("#loader").html("<img src='res/images/ajax-loader.gif'>");
+                },
+                //console.log(data);
+                success: function(data) {
+                    let today = new Date();
+                    let dd = String(today.getDate()).padStart(2, '0');
+                    let mm = String(today.getMonth() + 1).padStart(2, '0');
+                    let yyyy = today.getFullYear();
+                    today = `${mm}_${dd}_${yyyy}`;
+                    let hiddenElement = document.createElement('a');
+                    hiddenElement.href = 'data:text/csv;charset=utf-8,' + escape(data);
+                    hiddenElement.target = '_blank';
+                    hiddenElement.download = `Egreso_${today}.csv`;
+                    hiddenElement.click();
                     $("#loader").html("");
                 }
 
