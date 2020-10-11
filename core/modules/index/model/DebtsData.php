@@ -38,9 +38,9 @@ class DebtsData {
 		'$this->documento',
 		'$this->pago',
 		$this->empresa,
-		$this->active,
-		'$this->payment_specific_date',".
-		(isset($this->egreso_id)? $this->egreso_id : 'null').",".
+		$this->active,".
+			(isset($this->payment_specific_date) ? $this->payment_specific_date : 'null') . "," .
+			(isset($this->egreso_id)? $this->egreso_id : 'null').",".
 		(isset($this->socio_id) ? $this->socio_id : 'null') . ")";
 		return Executor::doit($sql);
 	}
@@ -199,5 +199,3 @@ class DebtsData {
 		return Model::many($query[0], new stdClass);
 	}
 }
-
-?>

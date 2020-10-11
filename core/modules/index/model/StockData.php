@@ -18,12 +18,30 @@ class StockData {
 		$this->pago = "";
 		$this->empresa = "";
 		$this->active = 1;
-		$this->payment_specific_date = null;
+		$this->payment_specific_date = NULL;
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active,payment_specific_date) ";
-		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->entidad,$this->created_at,\"$this->fecha\",\"$this->fecha_pago\",$this->pagado,\"$this->document_number\",'$this->documento','$this->pago',$this->empresa,$this->active, '$this->payment_specific_date')";
+		// $sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active,payment_specific_date) ";
+		// $sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->entidad,$this->created_at,\"$this->fecha\",\"$this->fecha_pago\",$this->pagado,\"$this->document_number\",'$this->documento','$this->pago',$this->empresa,$this->active, '$this->payment_specific_date')";
+
+		$sql = "insert into " . self::$tablename . " (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active, payment_specific_date) ";
+		$sql .= "value (\"$this->description\",
+		$this->amount,
+		\"$this->upload_receipt\",
+		$this->user_id,
+		$this->entidad,
+		$this->created_at,
+		\"$this->fecha\",
+		\"$this->fecha_pago\",
+		$this->pagado,
+		\"$this->document_number\",
+		'$this->documento',
+		'$this->pago',
+		$this->empresa,
+		$this->active,".
+		(isset($this->payment_specific_date) ? $this->payment_specific_date : 'null').
+		")";
 		return Executor::doit($sql);
 	}
 
@@ -42,7 +60,7 @@ class StockData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\",fecha_pago=\"$this->fecha_pago\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago', active=$this->active, payment_specific_date='$this->payment_specific_date' ";
+		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\",fecha_pago=\"$this->fecha_pago\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago', active=$this->active";
 		if(isset($this->documento) && !empty($this->documento)){
 			$sql.=", documento = '$this->documento' ";
 		}
