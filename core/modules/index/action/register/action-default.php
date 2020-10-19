@@ -48,7 +48,7 @@
 					$user->empresa = $company->id;
 					$query_new=$user->add();
 					if (!empty($query_new) && is_array($query_new) && $query_new[0] ) {
-						$messages[] = "Registro con éxito! Pero debes esperar la activacion por parte de la empresa.";
+						$messages[] = "Registro con éxito! Ahora debes esperar la activacion por parte de la empresa.";
 						$codes = array(
 							'user_id'=>$query_new[1],
 							'step'=>1

@@ -65,7 +65,7 @@ if ($category != 0) {
 	$sWhere .= " and category_id=" . $category;
 }
 if ($text != "") {
-	$sWhere .= " and (name LIKE '%" . $text . "%' or document_number LIKE '%" . $text . "%' )";
+	$sWhere .= " and (LOWER(name) LIKE LOWER('%" . $text . "%') or LOWER(document_number) LIKE LOWER('%" . $text . "%') )";
 }
 if ($inactive == "true") {
 	$sWhere .= " and active=0";

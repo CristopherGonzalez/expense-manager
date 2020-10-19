@@ -185,7 +185,7 @@
                         <?php endif; ?>
                     </ul>
                 </section>
-                <div class="image center-block" style="bottom:0;">
+                <div class="image" style="margin-left:10px;width:30%;">
                     <img src="res/images/logo_MRC.jpg" class="img-rounded img-responsive  center-block" alt="MRC Image">
                 </div>
             </aside>

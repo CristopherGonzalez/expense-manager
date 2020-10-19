@@ -100,7 +100,7 @@ VALUES
 INSERT INTO user
     (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at)
 VALUES
-    (1, 0, 'MRC Administrador', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.png', 1 , 1, 1, NOW());
+    (3, 0, 'MRC Administrador', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.png', 1 , 1, 1, NOW());
 
 
 /*Datos de seccion de tipos de egresos*/

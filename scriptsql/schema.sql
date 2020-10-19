@@ -1,6 +1,4 @@
 /*Creacion de base de datos*/
-DROP DATABASE IF EXISTS dm000397_Negocio;
-create database dm000397_Negocio;
 use dm000397_Negocio;
 /**Seccion de ciudades y paises**/
 create table pais (

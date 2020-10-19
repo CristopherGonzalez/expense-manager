@@ -78,6 +78,15 @@ class UserData {
 			return false;
 		}
 	}
+	public function update_email()
+	{
+		$sql = "update " . self::$tablename . " set email=\"$this->email\" where id=$this->id";
+		if (Executor::doit($sql)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
