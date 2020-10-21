@@ -50,7 +50,7 @@ class BusinessTypeData {
 	}
 
 	public static function getLike($q){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' ";
+		$sql = "select * from ".self::$tablename. " where  (LOWER(name) LIKE LOWER('%" . $q . "%') )";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new BusinessTypeData());
 	}
@@ -63,7 +63,8 @@ class BusinessTypeData {
 
 	public static function query($sWhere, $offset,$per_page){
 		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." LIMIT $offset,$per_page";
-		$query = Executor::doit($sql);
+		$query
+		= Executor::doit($sql);
 		return Model::many($query[0],new BusinessTypeData());
 	}
 

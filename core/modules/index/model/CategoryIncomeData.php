@@ -52,7 +52,7 @@ class CategoryIncomeData {
 	}
 	
 	public static function getLike($q,$u){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' and empresa=$u";
+		$sql = "select * from ".self::$tablename. " where  (LOWER(name) LIKE LOWER('%" . $q . "%') ) and empresa=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CategoryIncomeData());
 	}

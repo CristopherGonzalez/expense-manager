@@ -51,7 +51,7 @@ class CityData {
 	}
 
 	public static function getLike($q,$u){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' and user_id=$u";
+		$sql = "select * from ".self::$tablename. " where  (LOWER(name) LIKE LOWER('%" . $q . "%'))  and user_id=$u";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CityData());
 	}

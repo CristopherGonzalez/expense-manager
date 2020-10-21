@@ -54,7 +54,6 @@ if (isset($_POST)) {
 		$countResult += count($debt);
 		array_push($result, $debt);
 	}
-	//var_dump($result);
 
 	// si hay registro
 	if ($countResult > 0) {

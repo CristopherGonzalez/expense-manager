@@ -45,7 +45,7 @@ class TypeData {
 	}
 
 	public static function getLike($q,$u){
-		$sql = "select * from ".self::$tablename." where name like '%$q%' and tipo='$u'";
+		$sql = "select * from ".self::$tablename. " where  (LOWER(name) LIKE LOWER('%" . $q . "%') ) and tipo='$u'";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new TypeData());
 	}

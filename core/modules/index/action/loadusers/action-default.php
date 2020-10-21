@@ -25,8 +25,8 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$sWhere=" empresa=$company_id and status in (3,4) ";
 	//Creacion de query por nombre y/o egreso
 	if($name!=""){
-		$sWhere.=" and name LIKE '%".$name."%' ";
-	}
+	$sWhere .= " and (LOWER(name) LIKE LOWER('%" . $name . "%')) ";
+}
 	
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;

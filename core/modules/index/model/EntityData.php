@@ -97,13 +97,31 @@ class EntityData {
 	public static function query($sWhere, $offset,$per_page){
 		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." LIMIT $offset,$per_page";
 		$query = Executor::doit($sql);
-		//var_dump($sql);
 		return Model::many($query[0],new EntityData());
 	}
 	public static function getLikeName($name, $company){
-		$sql = "select * from ".self::$tablename." where name like '%$name%' and empresa = ".$company." and active = 1";
+		$sql = "select * from ".self::$tablename. " where (LOWER(name) LIKE LOWER('%" . $name. "%')) and empresa = ".$company." and active = 1";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
+	}
+	public static function queryExcel($sWhere, $offset, $per_page)
+	{
+		$sql = "SELECT created_at as Fecha, 
+		name as Entidad ,
+		document_number as 'Numero Documento',
+		description as Descripcion,
+		(SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo ) as Origen ,
+		(SELECT name FROM tipos where id = " . self::$tablename . ".tipo ) as Tipo ,
+		CASE
+			WHEN (SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo ) == 'Egreso' THEN
+				(SELECT name FROM category_expense where id = " . self::$tablename . ".category_id )
+			WHEN (SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo ) == 'Egreso' THEN
+				(SELECT name FROM category_income where id = " . self::$tablename . ".category_id )
+			WHEN (SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo )
+		END AS Categoria	
+		FROM " . self::$tablename . " where  " . $sWhere . "  order by created_at desc LIMIT $offset,$per_page";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new stdClass);
 	}
 }
 

@@ -168,7 +168,6 @@ class ResultData {
 		CASE amount when amount<=0 then 'Retiro' When amount>0 Then 'Aporte' else 'Indefinido' end as Tipo_Importe,
 		CASE pagado when 1 then 'Pagado' When 0 Then 'Impago' else 'Impago' end as Pago 
 		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
-		// var_dump($sql);
 		$query = Executor::doit($sql);
 		return Model::many($query[0], new stdClass);
 	}

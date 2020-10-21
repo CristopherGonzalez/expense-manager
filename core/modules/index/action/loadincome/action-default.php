@@ -64,7 +64,7 @@ if ($year != 0) {
 	$sWhere .= " and year(fecha) = " . $year;
 }
 if ($text != "") {
-	$sWhere .= " and description LIKE '%" . $text . "%' ";
+	$sWhere .= " and (LOWER(description) LIKE LOWER('%" . $text . "%')) ";
 }
 if (!$not_paid) {
 	$sWhere .= " and pagado = " . $not_paid;

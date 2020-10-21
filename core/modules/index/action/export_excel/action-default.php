@@ -20,7 +20,8 @@ if ($year != 0) {
 	$sWhere .= " and year(fecha) = " . $year;
 }
 if ($text != "") {
-	$sWhere .= " and description LIKE '%" . $text . "%' ";
+	$sWhere .= " and (LOWER(description) LIKE LOWER('%" . $text . "%')) ";
+	
 }
 if (!$not_paid) {
 	$sWhere .= " and pagado = " . $not_paid;
@@ -73,7 +74,61 @@ switch ($_REQUEST['type']) {
 		$query_sql = DebtsData::queryExcel($sWhere, $offset, $per_page);
 		$name = "Deudas";
 		break;
+	case 'entity':
 
+		$type = intval($_POST['type_category']);
+		$category = intval($_POST['category']);
+		$inactive = $_POST['inactive'];
+		$category_type = mysqli_real_escape_string($con, (strip_tags($_POST['category_type'], ENT_QUOTES)));
+		$text = mysqli_real_escape_string($con, (strip_tags($_POST['text'], ENT_QUOTES)));
+		//$user_id=$_SESSION["user_id"];
+		//$sWhere=" user_id=$user_id ";
+		$company_id = $_SESSION["company_id"];
+		$sWhere = " empresa=$company_id ";
+		//Se construye la consulta sql dependiendo de los filtros ingresados
+		if ($type != 0) {
+			$sWhere .= " and tipo=" . $type;
+		}
+		if ($category_type != "") {
+			//Se busca en tabla tipos para obtener por nombre
+			$result_types = TypeData::getByType($category_type);
+			$count = count($result_types);
+			//Se crea query dependiendo de los resultados
+			$sWhere .= " and  ( ";
+			if ($count > 0) {
+				foreach ($result_types as $index => $type) {
+					$sWhere .= " tipo = $type->id or";
+				}
+				$sWhere = substr($sWhere, 0, -2);
+			} else {
+				//Se envia tipo = 0 para que consulta no de resultado en caso de tener texto en campo de egresos
+				$sWhere .= " tipo = 0 ";
+			}
+			$sWhere .= " ) ";
+		}
+		if ($category != 0) {
+			$sWhere .= " and category_id=" . $category;
+		}
+		if ($text != "") {
+			$sWhere .= " and (LOWER(name) LIKE LOWER('%" . $text . "%') or LOWER(document_number) LIKE LOWER('%" . $text . "%') )";
+		}
+		if ($inactive == "true") {
+			$sWhere .= " and active=0";
+		} else {
+			$sWhere .= " and active=1";
+		}
+		$query_sql = EntityData::queryExcel($sWhere, $offset, $per_page);
+		$name = "Entidades";
+		break;
+	case 'payment':
+		$query_sql = StockData::queryExcel($sWhere, $offset, $per_page);
+		$name = "Valores";
+		break;
+	case 'expiration':
+		$query_sql = StockData::queryExcel($sWhere, $offset, $per_page);
+		$name = "Valores";
+		break;
+	
 	default:
 		$query_sql = array();
 		$name = "Fallo";
