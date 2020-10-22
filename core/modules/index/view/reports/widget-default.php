@@ -13,7 +13,7 @@ if (isset($_SESSION["user_id"])) :
   <?php
   function sum_incomes_month($month)
   {
-    $income = IncomeData::sumIncome_Month($month, $_SESSION["company_id"]);
+    $income = IncomeData::sumIncomeByDate($month, $_SESSION["company_id"]);
     echo $total = number_format($income->total, 2, '.', '');
   }
   function sum_expenses_month($month)
@@ -98,6 +98,7 @@ endif; ?>
     $('#month_find').val(0);
     if ($('#chkAnnual').is(':checked')) {
       $('#month_find').attr('disabled', true);
+      load();
     } else {
       $('#month_find').attr('disabled', false);
     }
@@ -107,11 +108,12 @@ endif; ?>
     //Se obtienen filtros de busqueda
     var month_find = $('#month_find option:selected').val();
     var year_find = $('#year_find option:selected').val();
-
-    if (month_find != "0" && year_find != "0") {
+    var chk_annual = $('#chkAnnual').is(':checked');
+    if (year_find != "0" && (month_find != "0" || chk_annual == true)) {
       var parametros = {
         'month': month_find,
-        'year': year_find
+        'year': year_find,
+        'annual': chk_annual
       }
       $.ajax({
         type: "POST",
@@ -124,6 +126,52 @@ endif; ?>
           $("#resultados_ajax").html(datos);
           $('#mount').html(response.totalSumMonthYear);
           $('#mountPercetage').html(response.percentageSumMonthYear);
+          if (document.getElementById('LineAnnual') != null && document.getElementById('LineAnnual') != undefined) {
+            var ctx = document.getElementById('LineAnnual').getContext('2d');
+            var myChart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                datasets: [{
+                    label: 'Ingresos', // Name the series
+                    data: response.annual_incomes.map(function(x) {
+                      return parseFloat(x);
+                    }), // Specify the data values array
+                    fill: false,
+                    borderColor: '#28a745', // Add custom color border (Line)
+                    backgroundColor: '#28a745', // Add custom color background (Points and Fill)
+                    borderWidth: 1 // Specify bar border width
+                  },
+                  {
+                    label: 'Egresos', // Name the series
+                    data: response.annual_expenses.map(function(x) {
+                      return parseFloat(x);
+                    }), // Specify the data values array
+                    fill: false,
+                    borderColor: '#2196f3', // Add custom color border (Line)
+                    backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+                    borderWidth: 1 // Specify bar border width
+                  },
+                  {
+                    label: 'Deudas', // Name the series
+                    data: response.annual_debts.map(function(x) {
+                      return parseFloat(x);
+                    }), // Specify the data values array
+                    fill: false,
+                    borderColor: '#dc3545', // Add custom color border (Line)
+                    backgroundColor: '#dc3545', // Add custom color background (Points and Fill)
+                    borderWidth: 1 // Specify bar border width
+                  }
+                ]
+              },
+              options: {
+                responsive: true, // Instruct chart js to respond nicely.
+                maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
+              }
+            });
+          }
+
+
 
           if (document.getElementById('doughnutIncome') != null && document.getElementById('doughnutIncome') != undefined) {
             var ctx = document.getElementById('doughnutIncome').getContext('2d');

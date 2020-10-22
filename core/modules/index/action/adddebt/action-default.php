@@ -71,7 +71,7 @@ if (empty($_POST['amount'])) {
 			$change_log->user_id = $debt->user_id;
 			$change_log->payment_date = $debt->fecha_pago;
 			$result = $change_log->add();
-			if (isset($result) && !empty($result) && $result) {
+			if (isset($result) && !empty($result) && is_array($result) && count($result) > 1 && $result[1] > 0) {
 				$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente para la cuota " . ($i + 1) . ".\n";
 			} else {
 				$errors[] = " Lo siento algo ha salido mal en el registro de errores para la cuota " . ($i + 1) . ".\n";

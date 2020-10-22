@@ -8,7 +8,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION['user_id']!= "1"):
     }
 
     //query
-    $debt=debtsData::getById($id);
+    $debt=DebtsData::getById($id);
     //Se obtienen datos para llenado de desplegables
     $types=TypeData::getAllDebts();
     $entities=EntityData::getByType('Deudas', $_SESSION["company_id"]);

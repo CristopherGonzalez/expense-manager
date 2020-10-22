@@ -104,7 +104,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                     <label for="type" class="col-sm-4 control-label">Origen </label>
                                                     <div class="col-sm-8">
                                                         <select class="form-control" style="width: 100%" name="origin" id="origin" onchange="change_origin(this);" required>
-                                                            <option value="">Selecciona una opcion</option>
+                                                            <option value="">Selecciona una Opcion</option>
                                                             <option value="origin_expense">Egresos</option>
                                                             <option value="origin_income">Ingresos</option>
                                                             <option value="origin_partner">Socio</option>
@@ -117,22 +117,20 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                     <label for="type" class="col-sm-4 control-label">Tipo </label>
                                                     <div class="col-sm-8">
                                                         <select class="form-control" style="width: 100%" name="type" id="type" required onchange="change_categories(this);" disabled>
-                                                            <option value=0>Selecciona una opcion</option>
+                                                            <option value=0>Selecciona una Opcion</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="category_expense" class="col-sm-4 control-label">Categoria
-                                                        de egresos </label>
+                                                    <label for="category_expense" class="col-sm-4 control-label">Categoria de egresos </label>
                                                     <div class="col-sm-8">
                                                         <select class="form-control" style="width: 100%" name="category_expense" id="category_expense" disabled>
-                                                            <option value=0>Selecciona una opcion</option>
+                                                            <option value=0>Selecciona una Opcion</option>
                                                             <?php
                                                             //Se carga datos de tipos de categoria por egreso en modal
                                                             foreach ($categories_expense as $category) {
                                                             ?>
-                                                                <option value="<?php echo $category->id; ?>">
-                                                                    <?php echo $category->name; ?></option>
+                                                                <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
                                                             <?php
                                                             }
                                                             ?>
@@ -140,17 +138,15 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="category_income" class="col-sm-4 control-label">Categoria de
-                                                        ingreso </label>
+                                                    <label for="category_income" class="col-sm-4 control-label">Categoria de ingreso </label>
                                                     <div class="col-sm-8">
                                                         <select class="form-control" style="width: 100%" name="category_income" id="category_income" disabled>
-                                                            <option value=0>Selecciona una opcion</option>
+                                                            <option value=0>Selecciona una Opcion</option>
                                                             <?php
                                                             //Se carga datos de tipos de categoria por ingreso en modal
                                                             foreach ($categories_income as $category) {
                                                             ?>
-                                                                <option value="<?php echo $category->id; ?>">
-                                                                    <?php echo $category->name; ?></option>
+                                                                <option value="<?php echo $category->id; ?>"><?php echo $category->name; ?></option>
                                                             <?php
                                                             }
                                                             ?>
@@ -158,11 +154,10 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="category_partner" class="col-sm-4 control-label">Categoria
-                                                        socio </label>
+                                                    <label for="category_partner" class="col-sm-4 control-label">Categoria socio </label>
                                                     <div class="col-sm-8">
                                                         <select class="form-control" style="width: 100%" name="category_partner" id="category_partner" disabled>
-                                                            <option value=0>Selecciona una opcion</option>
+                                                            <option value=0>Selecciona una Opcion</option>
                                                             <option value=1>Socio</option>
                                                         </select>
                                                     </div>
@@ -177,24 +172,35 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                 <div class="form-group">
                                                     <label for="document_number" class="col-sm-4 control-label">Numero de Documento </label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento" required>
+                                                        <input type="text" class="form-control" id="document_number" name="document_number" placeholder="Numero de Documento">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="description" class="col-sm-4 control-label">Descripcion</label>
+                                                    <label for="description" class="col-sm-4 control-label">Descripción </label>
                                                     <div class="col-sm-8">
-                                                        <textarea type="text" class="form-control" id="description" name="description" placeholder="Descripcion" required></textarea>
+                                                        <textarea type="text" class="form-control" id="description" name="description" required placeholder="Descripción "></textarea>
                                                     </div>
                                                 </div>
-                                               
+                                                <div class="form-group">
+                                                    <label for="document" class="col-sm-4 control-label">Documento </label>
+                                                    <div class="col-sm-6">
+                                                        <input type="file" class="form-control" accept="image/*" id="document" name="document" onchange="load_image(this);">
+                                                        <input type="button" class="btn btn-default" id="btn_webcam_document" name="btn_webcam_document" value="Sacar Foto" data-toggle="modal" href="#frmwebcamdocument" onclick="add_parameters_from_webcam('document')">
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <img src="res/images/default_image.jpg" alt="Imagen en blanco a la espera de que carga de documento" class="img-thumbnail" id="document_image" height="60" width="75">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12" id="alert_add" style="border:5px;"></div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <div class="form-group">
                                                     <span class="col-md-1 col-sm-1 col-xs-12"></span>
-                                                    <label class="col-md-7 col-sm-7 col-xs-12" style="color:#999; font-weight:normal;">Registrado por
-                                                        <?php $user_session = UserData::getById($_SESSION["user_id"]);
-                                                        echo $user_session->name  ?>
-                                                        el <?php echo date("Y-m-d");  ?></label>
+                                                    <label class="col-md-7 col-sm-7 col-xs-12" style="color:#999; font-weight:normal;">Registrado por <?php $user_session = UserData::getById($_SESSION["user_id"]);
+                                                                                                                                                        echo $user_session->name  ?> el <?php echo date("Y-m-d");  ?></label>
                                                     <span class="col-md-4 col-sm-4 col-xs-12">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                                         <button type="submit" id="save_data" class="btn btn-primary">Agregar</button>
@@ -206,6 +212,10 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $webcamdocument = new Webcam('document');
+                            echo $webcamdocument->renderModalImageCam();
+                            ?>
                             <!-- End Form Modal -->
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -224,10 +234,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             if (count($entity_data) != 0) :
                             ?>
                                 <div class="btn-group">
-                                    <a style="margin-right: 3px" target="_blank" href="reports/reportExpense.php" class="btn btn-default pull-right">
-                                        <span class="fa fa-file-excel-o"></span> Descargar
-                                    </a>
+                                    <button class="btn btn-success" type="button" onclick='exportExcel(1);'><i class='fa fa-file-excel-o  margin-r-5'></i>Descargar</button>
                                 </div>
+
                             <?php endif; ?>
                         </div>
                     </div>
@@ -253,7 +262,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     </div>
     <!-- /.content-wrapper -->
     <?php include "res/resources/js.php"; ?>
-
+    <script type="text/javascript" src="res/plugins/webcam/webcam.js"></script>
+    <script type="text/javascript" src="res/plugins/multimodal/multimodal.js"></script>
     <script>
         $(function() {
             load(1);
@@ -302,6 +312,48 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             load(1);
             $('.dropdown-menu li').removeClass("active");
             $("#" + valor).addClass("active");
+        }
+        async function exportExcel(page) {
+            let category_find = $('#category_find option:selected');
+            let category_type = category_find.closest('optgroup').attr('label');
+            let type_find = $('#type_find option:selected').val();
+            let find_text = $('#find_text').val();
+            let inactive = $('#inactive').is(":checked");
+
+
+            let per_page = $("#per_page").val();
+            let parametros = {
+                "page": page,
+                'type_category': type_find,
+                'category_type': (category_type == undefined ? "" : category_type),
+                'category': category_find[0].value,
+                'text': find_text,
+                'inactive': inactive,
+                'per_page': per_page,
+                'type': 'entity',
+            };
+            await $.get({
+                url: "./?action=export_excel",
+                data: parametros,
+                beforeSend: function(data) {
+                    $("#loader").html("<img src='res/images/ajax-loader.gif'>");
+                },
+                //console.log(data);
+                success: function(data) {
+                    let today = new Date();
+                    let dd = String(today.getDate()).padStart(2, '0');
+                    let mm = String(today.getMonth() + 1).padStart(2, '0');
+                    let yyyy = today.getFullYear();
+                    today = `${mm}_${dd}_${yyyy}`;
+                    let hiddenElement = document.createElement('a');
+                    hiddenElement.href = 'data:text/csv;charset=utf-8,' + escape(data);
+                    hiddenElement.target = '_blank';
+                    hiddenElement.download = `Entidades_${today}.csv`;
+                    hiddenElement.click();
+                    $("#loader").html("");
+                }
+
+            });
         }
 
         function eliminar(id) {
@@ -353,8 +405,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             let category_expense = $('#category_expense option:selected').val();
             let category_income = $('#category_income option:selected').val();
             let category_partner = $('#category_partner option:selected').val();
-            let category = (category_expense > 0 || category_expense > "") ? category_expense : (category_income > 0 ||
-                category_income > "") ? category_income : category_partner;;
+            let category = (category_expense > 0 || category_expense > "") ? category_expense : (category_income > 0 || category_income > "") ? category_income : category_partner;;
             let origin_type = $('#origin option:selected').val();
             if (origin_type != "origin_debt" && origin_type != "origin_stock") {
                 if ((category == "" || category == null || category == undefined || category == 0)) {
@@ -372,7 +423,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             //Se cambia forma de envio de formulario para soportar envio de imagenes
             let fd = new FormData($(this)[0]);
             fd.append('category', category);
-            console.log(fd);
+            fd.append("document_image", $('#document_image').attr('src'));
+
             $.ajax({
                 type: "POST",
                 url: "./?action=addentity",
@@ -416,9 +468,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             $('#category_partner option').each(function() {
                 $(this).remove()
             });
-            $('#category_expense').append($('<option></option>').text("Selecciona una opcion").attr("value", ""));
-            $('#category_income').append($('<option></option>').text("Selecciona una opcion").attr("value", ""));
-            $('#category_partner').append($('<option></option>').text("Selecciona una opcion").attr("value", ""));
+            $('#category_expense').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+            $('#category_income').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+            $('#category_partner').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_partner').prop('disabled', true);
             $('#category_income').prop('disabled', true);
             $('#category_expense').prop('disabled', true);
@@ -431,11 +483,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 <?php foreach ($categories_expense as $cat) { ?>
                     if ("<?php echo $cat->tipo; ?>" == type_value) {
                         $('#' + categories).prop('disabled', false);
-                        $('#' + categories).append($('<option></option>').attr("value", <?php echo $cat->id; ?>)
-                            .text("<?php echo $cat->name; ?>"));
+                        $('#' + categories).append($('<option></option>').attr("value", <?php echo $cat->id; ?>).text("<?php echo $cat->name; ?>"));
                     }
-                <?php
-                } ?>
+                <?php } ?>
                 $('#' + categories).prop('required', true);
             }
             if (origin_type === "origin_income") {
@@ -444,17 +494,16 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 <?php foreach ($categories_income as $cat) { ?>
                     if ("<?php echo $cat->tipo; ?>" == type_value) {
                         $('#' + categories).prop('disabled', false);
-                        $('#' + categories).append($('<option></option>').attr("value", <?php echo $cat->id; ?>)
-                            .text("<?php echo $cat->name; ?>"));
+                        $('#' + categories).append($('<option></option>').attr("value", <?php echo $cat->id; ?>).text("<?php echo $cat->name; ?>"));
                     }
-                <?php
-                } ?>
+                <?php } ?>
             }
             if (origin_type === "origin_partner") {
                 categories = 'category_partner';
                 $('#' + categories).prop('required', true);
                 $('#' + categories).prop('disabled', false);
                 $('#' + categories).append($('<option></option>').attr("value", 1).text("Socio"));
+                $('#' + categories).val('1').change();
             }
         }
         //Funcion para cambiar visibilidad dependiendo de la opcion de origin
@@ -463,19 +512,19 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             $('#type option').each(function() {
                 $(this).remove()
             });
-            $('#type').append($('<option></option>').text("Selecciona una opcion").attr("value", ""));
+            $('#type').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_expense option').each(function() {
                 $(this).remove()
             });
-            $('#category_expense').append($('<option></option>').text("Selecciona una opcion").attr("value", ""));
+            $('#category_expense').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_income option').each(function() {
                 $(this).remove()
             });
-            $('#category_income').append($('<option></option>').text("Selecciona una opcion").attr("value", ""));
+            $('#category_income').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_partner option').each(function() {
                 $(this).remove()
             });
-            $('#category_partner').append($('<option></option>').text("Selecciona una opcion").attr("value", ""));
+            $('#category_partner').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
             $('#category_partner').prop('disabled', true);
             $('#category_income').prop('disabled', true);
             $('#category_expense').prop('disabled', true);
@@ -512,11 +561,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             if (type_category != "") {
                 <?php foreach ($types as $type) { ?>
                     if ("<?php echo $type->tipo; ?>" == type_category) {
-                        $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text(
-                            "<?php echo $type->name; ?>"));
+                        $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
                     }
-                <?php
-                } ?>
+                <?php } ?>
             }
 
         }

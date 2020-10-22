@@ -1,7 +1,7 @@
 
 /*Datos de Ciudades*/
 
-use minegocio;
+use dm000397_Negocio;
 
 INSERT INTO ciudad
     (name, id_pais)
@@ -358,7 +358,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tétouan', 141);
+    ('T&eacute;touan', 141);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -390,7 +390,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Yaoundé', 42);
+    ('Yaound&eacute;', 42);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -406,7 +406,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Edéa', 42);
+    ('Ed&eacute;a', 42);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -670,7 +670,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saïda', 5);
+    ('Sa&iuml;da', 5);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -698,7 +698,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bejaïa', 5);
+    ('Beja&iuml;a', 5);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -722,7 +722,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Béja', 226);
+    ('B&eacute;ja', 226);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -730,7 +730,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Belvédère', 226);
+    ('Belv&eacute;dère', 226);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -786,7 +786,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guédiawaye', 199);
+    ('Gu&eacute;diawaye', 199);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -830,7 +830,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cambérène', 199);
+    ('Camb&eacute;rène', 199);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -838,7 +838,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Médina', 199);
+    ('M&eacute;dina', 199);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -862,7 +862,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Médéa', 5);
+    ('M&eacute;d&eacute;a', 5);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -874,7 +874,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Béchar', 5);
+    ('B&eacute;char', 5);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -902,7 +902,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ébolowa', 42);
+    ('&Eacute;bolowa', 42);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -1134,7 +1134,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pereybèré', 145);
+    ('Pereybèr&eacute;', 145);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -1194,7 +1194,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Salé', 141);
+    ('Sal&eacute;', 141);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -1370,11 +1370,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sétif', 5);
+    ('S&eacute;tif', 5);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ghardaïa', 5);
+    ('Gharda&iuml;a', 5);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -1390,7 +1390,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('El Beïda', 5);
+    ('El Be&iuml;da', 5);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -1430,11 +1430,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Suës', 63);
+    ('Su&euml;s', 63);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ziftá', 63);
+    ('Zift&aacute;', 63);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -25562,7 +25562,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Norrköping', 212);
+    ('Norrk&ouml;ping', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -25646,7 +25646,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Eslöv', 212);
+    ('Esl&ouml;v', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -25822,7 +25822,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zürich', 213);
+    ('Z&uuml;rich', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -26022,7 +26022,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lévis', 43);
+    ('L&eacute;vis', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -26914,7 +26914,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rüsselsheim', 4);
+    ('R&uuml;sselsheim', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -27506,7 +27506,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bogotá', 49);
+    ('Bogot&aacute;', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -28546,11 +28546,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-léonard', 43);
+    ('Saint-l&eacute;onard', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sainte-thérèse', 43);
+    ('Sainte-th&eacute;rèse', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -28562,7 +28562,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Montréal-nord', 43);
+    ('Montr&eacute;al-nord', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -28634,7 +28634,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-jérôme', 43);
+    ('Saint-j&eacute;rôme', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -28710,7 +28710,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sainte-dorothée', 43);
+    ('Sainte-doroth&eacute;e', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -29194,7 +29194,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Morazán', 99);
+    ('Moraz&aacute;n', 99);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -29222,7 +29222,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San José', 54);
+    ('San Jos&eacute;', 54);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -29234,7 +29234,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Atlántico', 49);
+    ('Atl&aacute;ntico', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -29290,11 +29290,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maturín', 237);
+    ('Matur&iacute;n', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maiquetía', 237);
+    ('Maiquet&iacute;a', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -29346,7 +29346,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Montréal-est', 43);
+    ('Montr&eacute;al-est', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -29494,7 +29494,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Malmö', 212);
+    ('Malm&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -29506,7 +29506,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Reykjavík', 106);
+    ('Reykjav&iacute;k', 106);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -30074,7 +30074,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Córdoba', 13);
+    ('C&oacute;rdoba', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -30206,7 +30206,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Göttingen', 4);
+    ('G&ouml;ttingen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -30646,7 +30646,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Düsseldorf', 4);
+    ('D&uuml;sseldorf', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -30662,7 +30662,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Väja', 212);
+    ('V&auml;ja', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -31202,7 +31202,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Beauséjour', 43);
+    ('Beaus&eacute;jour', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -31598,7 +31598,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lac-mégantic', 43);
+    ('Lac-m&eacute;gantic', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -31750,7 +31750,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mjölby', 212);
+    ('Mj&ouml;lby', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -32542,7 +32542,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bürstadt', 4);
+    ('B&uuml;rstadt', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -32642,7 +32642,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Querétaro', 147);
+    ('Quer&eacute;taro', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -32734,7 +32734,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mérida', 147);
+    ('M&eacute;rida', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -33174,7 +33174,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Viña Del Mar', 45);
+    ('Vi&ntilde;a Del Mar', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -33186,7 +33186,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cancún', 147);
+    ('Canc&uacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -33274,7 +33274,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Nicolás', 147);
+    ('San Nicol&aacute;s', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -33450,7 +33450,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Garza García', 147);
+    ('Garza Garc&iacute;a', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -33458,11 +33458,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Taubaté', 34);
+    ('Taubat&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Höganäs', 212);
+    ('H&ouml;gan&auml;s', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -33738,7 +33738,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-rémi', 43);
+    ('Saint-r&eacute;mi', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -34026,7 +34026,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Fürth', 4);
+    ('F&uuml;rth', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -34050,7 +34050,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rubí', 69);
+    ('Rub&iacute;', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -34326,7 +34326,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sacré-coeur', 43);
+    ('Sacr&eacute;-coeur', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -34430,7 +34430,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ocotlán', 147);
+    ('Ocotl&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -34446,7 +34446,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Korolëv', 188);
+    ('Korol&euml;v', 188);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -34510,7 +34510,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Étampes', 77);
+    ('&Eacute;tampes', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -34682,7 +34682,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kütahya', 229);
+    ('K&uuml;tahya', 229);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -34702,7 +34702,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bécancour', 43);
+    ('B&eacute;cancour', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -35162,7 +35162,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lübeck', 4);
+    ('L&uuml;beck', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -35194,7 +35194,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Urdiáin', 69);
+    ('Urdi&aacute;in', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -35210,7 +35210,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cuauhtémoc', 147);
+    ('Cuauht&eacute;moc', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -35218,7 +35218,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nyköping', 212);
+    ('Nyk&ouml;ping', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -35318,11 +35318,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tocancipá', 49);
+    ('Tocancip&aacute;', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Läufelfingen', 213);
+    ('L&auml;ufelfingen', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -36798,7 +36798,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gräfelfing', 4);
+    ('Gr&auml;felfing', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -37818,7 +37818,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chiriquí', 172);
+    ('Chiriqu&iacute;', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -38206,7 +38206,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Colón', 172);
+    ('Col&oacute;n', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -38294,7 +38294,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Las Piñas', 75);
+    ('Las Pi&ntilde;as', 75);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -38510,7 +38510,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Málaga', 69);
+    ('M&aacute;laga', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -38630,7 +38630,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Asunción', 174);
+    ('Asunci&oacute;n', 174);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -38702,7 +38702,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Söderhamn', 212);
+    ('S&ouml;derhamn', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -39018,7 +39018,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Orléans', 77);
+    ('Orl&eacute;ans', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -39166,7 +39166,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Agustín', 69);
+    ('San Agust&iacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -39634,7 +39634,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pruszków', 177);
+    ('Pruszk&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -39690,11 +39690,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lidköping', 212);
+    ('Lidk&ouml;ping', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lárissa', 85);
+    ('L&aacute;rissa', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -39806,7 +39806,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('La Coruña', 69);
+    ('La Coru&ntilde;a', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -39874,7 +39874,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vallés', 69);
+    ('Vall&eacute;s', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40110,7 +40110,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mülheim', 4);
+    ('M&uuml;lheim', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40174,7 +40174,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nouméa', 166);
+    ('Noum&eacute;a', 166);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40254,7 +40254,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint Médard', 77);
+    ('Saint M&eacute;dard', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40266,7 +40266,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Thessaloníki', 85);
+    ('Thessalon&iacute;ki', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40342,7 +40342,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jávea', 69);
+    ('J&aacute;vea', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40358,7 +40358,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tucumán', 13);
+    ('Tucum&aacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40566,7 +40566,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Valparaíso', 45);
+    ('Valpara&iacute;so', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40590,7 +40590,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mérignac', 77);
+    ('M&eacute;rignac', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40674,7 +40674,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mörrum', 212);
+    ('M&ouml;rrum', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40710,7 +40710,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('München', 4);
+    ('M&uuml;nchen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40730,7 +40730,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mölndal', 212);
+    ('M&ouml;lndal', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40822,7 +40822,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Brasília', 34);
+    ('Bras&iacute;lia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -40882,7 +40882,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jyväskylä', 76);
+    ('Jyv&auml;skyl&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -41442,11 +41442,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nové Mesto Nad Váhom', 67);
+    ('Nov&eacute; Mesto Nad V&aacute;hom', 67);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nové Mesto', 67);
+    ('Nov&eacute; Mesto', 67);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -41578,7 +41578,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Komotiní', 85);
+    ('Komotin&iacute;', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -41598,7 +41598,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mahé', 201);
+    ('Mah&eacute;', 201);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -42554,7 +42554,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Michoacán', 147);
+    ('Michoac&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -42566,7 +42566,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Luis Potosí', 147);
+    ('San Luis Potos&iacute;', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -42578,7 +42578,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('León', 147);
+    ('Le&oacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -42626,7 +42626,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Jerónimo', 147);
+    ('San Jer&oacute;nimo', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -42758,7 +42758,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gélida', 69);
+    ('G&eacute;lida', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -42770,7 +42770,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Péfki', 85);
+    ('P&eacute;fki', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -42814,7 +42814,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sköndal', 212);
+    ('Sk&ouml;ndal', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -43286,7 +43286,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Medellín', 49);
+    ('Medell&iacute;n', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -43410,7 +43410,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('El Paraíso', 99);
+    ('El Para&iacute;so', 99);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -43614,7 +43614,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cuautitlán Izcalli', 147);
+    ('Cuautitl&aacute;n Izcalli', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -43702,7 +43702,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nürnberg', 4);
+    ('N&uuml;rnberg', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -43806,7 +43806,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Móstoles', 69);
+    ('M&oacute;stoles', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -44554,7 +44554,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Glória', 34);
+    ('Gl&oacute;ria', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -44746,7 +44746,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Parañaque', 75);
+    ('Para&ntilde;aque', 75);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -45018,7 +45018,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tyresö', 212);
+    ('Tyres&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -45262,7 +45262,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bolívar', 49);
+    ('Bol&iacute;var', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -45286,7 +45286,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Créteil', 77);
+    ('Cr&eacute;teil', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -45302,7 +45302,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kavála', 85);
+    ('Kav&aacute;la', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -45794,7 +45794,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Río Ceballos', 13);
+    ('R&iacute;o Ceballos', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -46006,7 +46006,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Amaguaña', 62);
+    ('Amagua&ntilde;a', 62);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -46398,7 +46398,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Paraná', 13);
+    ('Paran&aacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -46434,7 +46434,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itagüí', 49);
+    ('Itag&uuml;&iacute;', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -46890,7 +46890,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chapecó', 34);
+    ('Chapec&oacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -46926,7 +46926,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mecidiyeköy', 229);
+    ('Mecidiyek&ouml;y', 229);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -46934,7 +46934,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jönköping', 212);
+    ('J&ouml;nk&ouml;ping', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48278,7 +48278,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-félicien', 43);
+    ('Saint-f&eacute;licien', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48362,7 +48362,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chíos', 85);
+    ('Ch&iacute;os', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48670,7 +48670,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Alexandroúpolis', 85);
+    ('Alexandro&uacute;polis', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48786,7 +48786,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jundiaí', 34);
+    ('Jundia&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48806,11 +48806,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pallíni', 85);
+    ('Pall&iacute;ni', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Florianópolis', 34);
+    ('Florian&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48834,7 +48834,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Castellón', 69);
+    ('Castell&oacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48866,7 +48866,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rzeszów', 177);
+    ('Rzesz&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48874,7 +48874,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Arguineguín', 69);
+    ('Arguinegu&iacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -48894,7 +48894,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bénin', 161);
+    ('B&eacute;nin', 161);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49082,7 +49082,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Encarnación', 174);
+    ('Encarnaci&oacute;n', 174);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49162,7 +49162,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Yucatán', 147);
+    ('Yucat&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49182,7 +49182,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San José', 89);
+    ('San Jos&eacute;', 89);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49206,7 +49206,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bácum', 147);
+    ('B&aacute;cum', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49286,7 +49286,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Córdoba', 147);
+    ('C&oacute;rdoba', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49314,7 +49314,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Escazú', 54);
+    ('Escaz&uacute;', 54);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49322,7 +49322,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Växjö', 212);
+    ('V&auml;xj&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49378,11 +49378,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Luján', 13);
+    ('Luj&aacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Södertälje', 212);
+    ('S&ouml;dert&auml;lje', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49470,7 +49470,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('León', 69);
+    ('Le&oacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49690,7 +49690,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Marília', 34);
+    ('Mar&iacute;lia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49734,7 +49734,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Täby', 212);
+    ('T&auml;by', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -49962,7 +49962,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Graciano Sánchez', 147);
+    ('Graciano S&aacute;nchez', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -50206,7 +50206,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sainte-anne-de-beaupré', 43);
+    ('Sainte-anne-de-beaupr&eacute;', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -50242,7 +50242,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-félix-de-valois', 43);
+    ('Saint-f&eacute;lix-de-valois', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -50958,7 +50958,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zalesie Górne', 177);
+    ('Zalesie G&oacute;rne', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -51262,7 +51262,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tríkala', 85);
+    ('Tr&iacute;kala', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -51310,7 +51310,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Néoules', 77);
+    ('N&eacute;oules', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -51506,7 +51506,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Líndos', 85);
+    ('L&iacute;ndos', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -51670,7 +51670,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sainte-cécile-de-masham', 43);
+    ('Sainte-c&eacute;cile-de-masham', 43);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -51966,7 +51966,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Anáhuac', 147);
+    ('An&aacute;huac', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52114,7 +52114,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Ángel', 147);
+    ('San &Aacute;ngel', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52218,7 +52218,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San José Del Cabo', 147);
+    ('San Jos&eacute; Del Cabo', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52650,7 +52650,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Petrópolis', 34);
+    ('Petr&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52662,7 +52662,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tuxtla Gutiérrez', 147);
+    ('Tuxtla Guti&eacute;rrez', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52682,7 +52682,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Torreón', 147);
+    ('Torre&oacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52698,11 +52698,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mazatlán', 147);
+    ('Mazatl&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Culiacán', 147);
+    ('Culiac&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52762,11 +52762,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Poncitlán', 147);
+    ('Poncitl&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zimapán', 147);
+    ('Zimap&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52798,7 +52798,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cuautitlán', 147);
+    ('Cuautitl&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52818,15 +52818,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Atizapán', 147);
+    ('Atizap&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Boca Del Río', 147);
+    ('Boca Del R&iacute;o', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tehuacán', 147);
+    ('Tehuac&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52874,7 +52874,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Teziutlán', 147);
+    ('Teziutl&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52894,7 +52894,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tultitlán', 147);
+    ('Tultitl&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52930,11 +52930,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nezahualcóyotl', 147);
+    ('Nezahualc&oacute;yotl', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('São José Dos Campos', 34);
+    ('São Jos&eacute; Dos Campos', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52942,7 +52942,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Concepción', 45);
+    ('Concepci&oacute;n', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -52962,7 +52962,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hipólito Yrigoyen', 13);
+    ('Hip&oacute;lito Yrigoyen', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53006,11 +53006,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mérida', 237);
+    ('M&eacute;rida', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cumaná', 237);
+    ('Cuman&aacute;', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53034,11 +53034,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Antiguo Cuscatlán', 64);
+    ('Antiguo Cuscatl&aacute;n', 64);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Popayán', 49);
+    ('Popay&aacute;n', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53050,7 +53050,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Escalón', 64);
+    ('Escal&oacute;n', 64);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53074,7 +53074,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Belém', 34);
+    ('Bel&eacute;m', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53086,7 +53086,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Niterói', 34);
+    ('Niter&oacute;i', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53102,11 +53102,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sangolquí', 62);
+    ('Sangolqu&iacute;', 62);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vitória', 34);
+    ('Vit&oacute;ria', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53146,7 +53146,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maipú', 45);
+    ('Maip&uacute;', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53154,7 +53154,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Martín', 13);
+    ('San Mart&iacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53174,7 +53174,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('São Luís', 34);
+    ('São Lu&iacute;s', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53182,7 +53182,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Roque Sáenz Peña', 13);
+    ('Roque S&aacute;enz Pe&ntilde;a', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53206,7 +53206,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maringá', 34);
+    ('Maring&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53238,7 +53238,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itajaí', 34);
+    ('Itaja&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53246,11 +53246,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rondonópolis', 34);
+    ('Rondon&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cuiabá', 34);
+    ('Cuiab&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53270,7 +53270,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maceió', 34);
+    ('Macei&oacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53334,7 +53334,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ijuí', 34);
+    ('Iju&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53350,7 +53350,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jaraguá Do Sul', 34);
+    ('Jaragu&aacute; Do Sul', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53390,11 +53390,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Junín', 175);
+    ('Jun&iacute;n', 175);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Martín', 175);
+    ('San Mart&iacute;n', 175);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53438,7 +53438,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Huánuco', 175);
+    ('Hu&aacute;nuco', 175);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53458,7 +53458,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Realicó', 13);
+    ('Realic&oacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53466,7 +53466,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Famaillá', 13);
+    ('Famaill&aacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53486,7 +53486,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Río Gallegos', 13);
+    ('R&iacute;o Gallegos', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53522,7 +53522,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Marcos Juárez', 13);
+    ('Marcos Ju&aacute;rez', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53530,7 +53530,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Concepción', 13);
+    ('Concepci&oacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53550,11 +53550,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Seropédica', 34);
+    ('Serop&eacute;dica', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Capitán Bermúdez', 13);
+    ('Capit&aacute;n Berm&uacute;dez', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53586,7 +53586,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Río Abajo', 172);
+    ('R&iacute;o Abajo', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53594,7 +53594,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Neuquén', 13);
+    ('Neuqu&eacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53610,11 +53610,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Río Tercero', 13);
+    ('R&iacute;o Tercero', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gualeguaychú', 13);
+    ('Gualeguaych&uacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53634,7 +53634,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Álamos', 147);
+    ('&Aacute;lamos', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53642,7 +53642,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santa María', 172);
+    ('Santa Mar&iacute;a', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53742,7 +53742,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jacareí', 34);
+    ('Jacare&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53778,11 +53778,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ludgéro', 34);
+    ('Ludg&eacute;ro', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Timbó', 34);
+    ('Timb&oacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53806,7 +53806,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Parnaíba', 34);
+    ('Parna&iacute;ba', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53818,7 +53818,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('São José Dos Pinhais', 34);
+    ('São Jos&eacute; Dos Pinhais', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53874,7 +53874,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Getúlio Vargas', 34);
+    ('Get&uacute;lio Vargas', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53882,7 +53882,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Veranópolis', 34);
+    ('Veran&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53894,7 +53894,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gravataí', 34);
+    ('Gravata&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53938,7 +53938,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pará De Minas', 34);
+    ('Par&aacute; De Minas', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53966,19 +53966,19 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cambará', 34);
+    ('Cambar&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santa Fé Do Sul', 34);
+    ('Santa F&eacute; Do Sul', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tatuí', 34);
+    ('Tatu&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sumaré', 34);
+    ('Sumar&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -53994,7 +53994,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Aguaí', 34);
+    ('Agua&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54006,7 +54006,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jaguariúna', 34);
+    ('Jaguari&uacute;na', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54018,11 +54018,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Anastácio', 34);
+    ('Anast&aacute;cio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santo André', 34);
+    ('Santo Andr&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54050,7 +54050,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itararé', 34);
+    ('Itarar&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54062,7 +54062,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mauá', 34);
+    ('Mau&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54142,7 +54142,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Júlio De Castilhos', 34);
+    ('J&uacute;lio De Castilhos', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54178,7 +54178,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Carapicuíba', 34);
+    ('Carapicu&iacute;ba', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54186,7 +54186,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Avaré', 34);
+    ('Avar&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54206,7 +54206,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Orindiúva', 34);
+    ('Orindi&uacute;va', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54250,7 +54250,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Fernandópolis', 34);
+    ('Fernand&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54270,7 +54270,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itápolis', 34);
+    ('It&aacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54278,7 +54278,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ibirá', 34);
+    ('Ibir&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54302,7 +54302,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Penápolis', 34);
+    ('Pen&aacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54326,7 +54326,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Valparaíso', 34);
+    ('Valpara&iacute;so', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54362,7 +54362,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('São José', 34);
+    ('São Jos&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54374,7 +54374,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maracaí', 34);
+    ('Maraca&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54394,7 +54394,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Olavarría', 13);
+    ('Olavarr&iacute;a', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54478,7 +54478,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Carambeí', 34);
+    ('Carambe&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54490,7 +54490,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Paranavaí', 34);
+    ('Paranava&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54514,7 +54514,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Anápolis', 34);
+    ('An&aacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54526,7 +54526,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Macapá', 34);
+    ('Macap&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54542,7 +54542,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mossoró', 34);
+    ('Mossor&oacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54598,7 +54598,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Júlia', 34);
+    ('J&uacute;lia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54610,7 +54610,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Macaé', 34);
+    ('Maca&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54642,11 +54642,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Elói Mendes', 34);
+    ('El&oacute;i Mendes', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itaguaí', 34);
+    ('Itagua&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54670,7 +54670,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ilhéus', 34);
+    ('Ilh&eacute;us', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54686,7 +54686,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Canário', 34);
+    ('Can&aacute;rio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54702,7 +54702,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pádua', 34);
+    ('P&aacute;dua', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54710,7 +54710,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guamaré', 34);
+    ('Guamar&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54750,11 +54750,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Várzea Grande', 34);
+    ('V&aacute;rzea Grande', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('São Félix', 34);
+    ('São F&eacute;lix', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54774,7 +54774,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itaúna', 34);
+    ('Ita&uacute;na', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54842,15 +54842,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Monte Aprazível', 34);
+    ('Monte Apraz&iacute;vel', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Martinópolis', 34);
+    ('Martin&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Icém', 34);
+    ('Ic&eacute;m', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54858,7 +54858,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guarujá', 34);
+    ('Guaruj&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54866,7 +54866,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Paulínia', 34);
+    ('Paul&iacute;nia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54874,11 +54874,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santa Bárbara', 34);
+    ('Santa B&aacute;rbara', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Iperó', 34);
+    ('Iper&oacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54886,11 +54886,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tremembé', 34);
+    ('Trememb&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mirandópolis', 34);
+    ('Mirand&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54902,7 +54902,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Piabetá', 34);
+    ('Piabet&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54918,7 +54918,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Apiaí', 34);
+    ('Apia&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54926,11 +54926,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('São Cristóvão', 34);
+    ('São Crist&oacute;vão', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itajubá', 34);
+    ('Itajub&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54938,7 +54938,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maracanaú', 34);
+    ('Maracana&uacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54950,7 +54950,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Codó', 34);
+    ('Cod&oacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54962,7 +54962,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Justinópolis', 34);
+    ('Justin&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -54986,7 +54986,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tianguá', 34);
+    ('Tiangu&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55010,7 +55010,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ceará', 34);
+    ('Cear&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55034,7 +55034,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Paraí', 34);
+    ('Para&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55042,7 +55042,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santarém', 34);
+    ('Santar&eacute;m', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55050,7 +55050,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Marabá', 34);
+    ('Marab&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55066,11 +55066,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cabreúva', 34);
+    ('Cabre&uacute;va', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cordeirópolis', 34);
+    ('Cordeir&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55090,7 +55090,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bom Princípio', 34);
+    ('Bom Princ&iacute;pio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55122,7 +55122,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ipeúna', 34);
+    ('Ipe&uacute;na', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55134,11 +55134,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tefé', 34);
+    ('Tef&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Caracaraí', 34);
+    ('Caracara&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55178,11 +55178,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guaratinguetá', 34);
+    ('Guaratinguet&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Carajás', 34);
+    ('Caraj&aacute;s', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55194,7 +55194,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Luís Antônio', 34);
+    ('Lu&iacute;s Antônio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55226,7 +55226,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('José Bonifácio', 34);
+    ('Jos&eacute; Bonif&aacute;cio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55238,7 +55238,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pompéia', 34);
+    ('Pomp&eacute;ia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55270,11 +55270,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Iporá', 34);
+    ('Ipor&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Araguaína', 34);
+    ('Aragua&iacute;na', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55286,7 +55286,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ibirité', 34);
+    ('Ibirit&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55318,7 +55318,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Divinópolis', 34);
+    ('Divin&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55330,7 +55330,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Magé', 34);
+    ('Mag&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55350,7 +55350,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Teresópolis', 34);
+    ('Teres&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55358,7 +55358,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Barra Do Piraí', 34);
+    ('Barra Do Pira&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55386,11 +55386,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Concórdia', 34);
+    ('Conc&oacute;rdia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mondaí', 34);
+    ('Monda&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55406,7 +55406,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chuí', 34);
+    ('Chu&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55442,7 +55442,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Parobé', 34);
+    ('Parob&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55450,7 +55450,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Araranguá', 34);
+    ('Ararangu&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55466,7 +55466,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jataí', 34);
+    ('Jata&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55486,7 +55486,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Caarapó', 34);
+    ('Caarap&oacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55498,7 +55498,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Amambaí', 34);
+    ('Amamba&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55518,7 +55518,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guaíra', 34);
+    ('Gua&iacute;ra', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55558,7 +55558,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guaporé', 34);
+    ('Guapor&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55566,7 +55566,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Criciúma', 34);
+    ('Crici&uacute;ma', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55658,19 +55658,19 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Paranaguá', 34);
+    ('Paranagu&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Corumbá', 34);
+    ('Corumb&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bocaiúva', 34);
+    ('Bocai&uacute;va', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Agua Clará', 34);
+    ('Agua Clar&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55694,7 +55694,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jardinópolis', 34);
+    ('Jardin&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55722,11 +55722,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Arujá', 34);
+    ('Aruj&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Dois Córregos', 34);
+    ('Dois C&oacute;rregos', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55770,7 +55770,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santa Fé', 34);
+    ('Santa F&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55818,7 +55818,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Camboriú', 34);
+    ('Cambori&uacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55838,7 +55838,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Alpinópolis', 34);
+    ('Alpin&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55846,7 +55846,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Céu Azul', 34);
+    ('C&eacute;u Azul', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55866,7 +55866,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Água Verde', 34);
+    ('&Aacute;gua Verde', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55882,7 +55882,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itaguará', 34);
+    ('Itaguar&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55890,7 +55890,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Caeté', 34);
+    ('Caet&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55906,11 +55906,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guaxupé', 34);
+    ('Guaxup&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sapucaí', 34);
+    ('Sapuca&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55930,7 +55930,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Patrocínio', 34);
+    ('Patroc&iacute;nio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55946,11 +55946,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Januária', 34);
+    ('Janu&aacute;ria', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itaú De Minas', 34);
+    ('Ita&uacute; De Minas', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55958,7 +55958,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Muriaé', 34);
+    ('Muria&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -55994,7 +55994,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Paraíso', 34);
+    ('Para&iacute;so', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56002,7 +56002,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Núcleo Bandeirante', 34);
+    ('N&uacute;cleo Bandeirante', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56022,7 +56022,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tocantinópolis', 34);
+    ('Tocantin&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56030,7 +56030,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cornélio Procópio', 34);
+    ('Corn&eacute;lio Proc&oacute;pio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56062,7 +56062,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cláudio', 34);
+    ('Cl&aacute;udio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56074,7 +56074,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Janaúba', 34);
+    ('Jana&uacute;ba', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56086,7 +56086,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Dores Do Indaiá', 34);
+    ('Dores Do Indai&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56114,15 +56114,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Andirá', 34);
+    ('Andir&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Assaí', 34);
+    ('Assa&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sertanópolis', 34);
+    ('Sertan&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56190,7 +56190,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Américo Brasiliense', 34);
+    ('Am&eacute;rico Brasiliense', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56198,7 +56198,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Águas De Lindóia', 34);
+    ('&Aacute;guas De Lind&oacute;ia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56218,11 +56218,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('José', 34);
+    ('Jos&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itanhaém', 34);
+    ('Itanha&eacute;m', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56242,7 +56242,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cosmópolis', 34);
+    ('Cosm&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56258,7 +56258,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mongaguá', 34);
+    ('Mongagu&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56266,7 +56266,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Braúna', 34);
+    ('Bra&uacute;na', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56274,7 +56274,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santa Adélia', 34);
+    ('Santa Ad&eacute;lia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56342,7 +56342,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lucélia', 34);
+    ('Luc&eacute;lia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56394,11 +56394,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Custódia', 34);
+    ('Cust&oacute;dia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Timóteo', 34);
+    ('Tim&oacute;teo', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56414,7 +56414,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Luís', 34);
+    ('Lu&iacute;s', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56426,7 +56426,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lúzia', 34);
+    ('L&uacute;zia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56462,7 +56462,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Regente Feijó', 34);
+    ('Regente Feij&oacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56470,7 +56470,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Presidente Epitácio', 34);
+    ('Presidente Epit&aacute;cio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56478,7 +56478,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Olímpia', 34);
+    ('Ol&iacute;mpia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56530,7 +56530,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ibiúna', 34);
+    ('Ibi&uacute;na', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56538,7 +56538,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('André', 34);
+    ('Andr&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56566,7 +56566,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bagé', 34);
+    ('Bag&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56574,7 +56574,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ibirubá', 34);
+    ('Ibirub&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56650,7 +56650,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Araxá', 34);
+    ('Arax&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56658,23 +56658,23 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bambuí', 34);
+    ('Bambu&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Unaí', 34);
+    ('Una&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ipiaú', 34);
+    ('Ipia&uacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itaboraí', 34);
+    ('Itabora&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maricá', 34);
+    ('Maric&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56686,7 +56686,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('São Fidélis', 34);
+    ('São Fid&eacute;lis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56702,11 +56702,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Conceição Do Coité', 34);
+    ('Conceição Do Coit&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jequié', 34);
+    ('Jequi&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56730,7 +56730,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nazaré', 34);
+    ('Nazar&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56766,7 +56766,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Espírito Santo', 34);
+    ('Esp&iacute;rito Santo', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56774,11 +56774,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tramandaí', 34);
+    ('Tramanda&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Giruá', 34);
+    ('Giru&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56798,7 +56798,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Água Quente', 34);
+    ('&Aacute;gua Quente', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56810,7 +56810,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Itapuí', 34);
+    ('Itapu&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56834,7 +56834,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Topázio', 34);
+    ('Top&aacute;zio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56866,7 +56866,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Cristóbal', 147);
+    ('San Crist&oacute;bal', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56890,7 +56890,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Naviraí', 34);
+    ('Navira&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56914,11 +56914,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Brasiléia', 34);
+    ('Brasil&eacute;ia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Marataízes', 34);
+    ('Marata&iacute;zes', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56930,7 +56930,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ji-paraná', 34);
+    ('Ji-paran&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56942,7 +56942,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guará', 34);
+    ('Guar&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -56954,7 +56954,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tucuruí', 34);
+    ('Tucuru&iacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57018,7 +57018,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Teófilo Otoni', 34);
+    ('Te&oacute;filo Otoni', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57082,7 +57082,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Iracemápolis', 34);
+    ('Iracem&aacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57098,7 +57098,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jundiá', 34);
+    ('Jundi&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57106,7 +57106,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Osório', 34);
+    ('Os&oacute;rio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57162,7 +57162,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santa Cecília', 34);
+    ('Santa Cec&iacute;lia', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57170,7 +57170,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guaíba', 34);
+    ('Gua&iacute;ba', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57242,7 +57242,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Timbaúba', 34);
+    ('Timba&uacute;ba', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57266,11 +57266,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Macaíba', 34);
+    ('Maca&iacute;ba', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pradópolis', 34);
+    ('Prad&oacute;polis', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57282,11 +57282,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Araucária', 34);
+    ('Arauc&aacute;ria', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Café', 34);
+    ('Caf&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57294,11 +57294,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cambé', 34);
+    ('Camb&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Almirante Tamandaré', 34);
+    ('Almirante Tamandar&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57322,7 +57322,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sabará', 34);
+    ('Sabar&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57346,7 +57346,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Humaitá', 34);
+    ('Humait&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57370,11 +57370,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cáceres', 34);
+    ('C&aacute;ceres', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Quixadá', 34);
+    ('Quixad&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57450,7 +57450,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Nicolás', 13);
+    ('San Nicol&aacute;s', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57466,11 +57466,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Quilpué', 45);
+    ('Quilpu&eacute;', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chillán', 45);
+    ('Chill&aacute;n', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57490,7 +57490,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Los Ángeles', 45);
+    ('Los &Aacute;ngeles', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57498,11 +57498,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Copiapó', 45);
+    ('Copiap&oacute;', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ibagué', 49);
+    ('Ibagu&eacute;', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57514,7 +57514,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cúcuta', 49);
+    ('C&uacute;cuta', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57526,7 +57526,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('El Limón', 89);
+    ('El Lim&oacute;n', 89);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57538,7 +57538,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vicente López', 13);
+    ('Vicente L&oacute;pez', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57550,7 +57550,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gobernador Gálvez', 13);
+    ('Gobernador G&aacute;lvez', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57614,7 +57614,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Moroleón', 147);
+    ('Morole&oacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57642,7 +57642,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Cristóbal', 237);
+    ('San Crist&oacute;bal', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57674,7 +57674,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Anzoátegui', 237);
+    ('Anzo&aacute;tegui', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57682,7 +57682,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ciudad Bolívar', 237);
+    ('Ciudad Bol&iacute;var', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57706,7 +57706,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ciudad Guzmán', 147);
+    ('Ciudad Guzm&aacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57722,7 +57722,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zitácuaro', 147);
+    ('Zit&aacute;cuaro', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57786,7 +57786,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Colón', 147);
+    ('Col&oacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57814,15 +57814,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tacuarí', 13);
+    ('Tacuar&iacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Río Grande', 13);
+    ('R&iacute;o Grande', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Río Colorado', 13);
+    ('R&iacute;o Colorado', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57834,7 +57834,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Luis Guillón', 13);
+    ('Luis Guill&oacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57850,7 +57850,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Médanos', 13);
+    ('M&eacute;danos', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57870,7 +57870,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chajarí', 13);
+    ('Chajar&iacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57894,7 +57894,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Purén', 45);
+    ('Pur&eacute;n', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57922,7 +57922,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Santa Lucía', 13);
+    ('Santa Luc&iacute;a', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57934,7 +57934,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Oberá', 13);
+    ('Ober&aacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -57950,7 +57950,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Adelia María', 13);
+    ('Adelia Mar&iacute;a', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58006,11 +58006,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('María', 237);
+    ('Mar&iacute;a', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Joaquín', 237);
+    ('San Joaqu&iacute;n', 237);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58030,19 +58030,19 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Frías', 13);
+    ('Fr&iacute;as', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Apóstoles', 13);
+    ('Ap&oacute;stoles', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Puerto Iguazú', 13);
+    ('Puerto Iguaz&uacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Termas De Río Hondo', 13);
+    ('Termas De R&iacute;o Hondo', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58054,7 +58054,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bolívar', 172);
+    ('Bol&iacute;var', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58070,7 +58070,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ancón', 172);
+    ('Anc&oacute;n', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58094,7 +58094,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Curundú', 172);
+    ('Curund&uacute;', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58126,7 +58126,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pabellón', 147);
+    ('Pabell&oacute;n', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58134,15 +58134,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Agustín', 172);
+    ('San Agust&iacute;n', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('San Cristóbal', 172);
+    ('San Crist&oacute;bal', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Martínez', 13);
+    ('Mart&iacute;nez', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58162,11 +58162,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mar De Ajó', 13);
+    ('Mar De Aj&oacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Batán', 13);
+    ('Bat&aacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58178,7 +58178,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bolívar', 175);
+    ('Bol&iacute;var', 175);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58222,7 +58222,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zárate', 13);
+    ('Z&aacute;rate', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58234,7 +58234,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Río Cuarto', 13);
+    ('R&iacute;o Cuarto', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58250,11 +58250,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bolívar', 13);
+    ('Bol&iacute;var', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bahía Blanca', 13);
+    ('Bah&iacute;a Blanca', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58290,11 +58290,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bartolomé Mitre', 13);
+    ('Bartolom&eacute; Mitre', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Díaz', 13);
+    ('D&iacute;az', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58338,7 +58338,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pinar Del Río', 57);
+    ('Pinar Del R&iacute;o', 57);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58346,7 +58346,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sancti Spíritus', 57);
+    ('Sancti Sp&iacute;ritus', 57);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58354,11 +58354,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Camagüey', 57);
+    ('Camag&uuml;ey', 57);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ciego De Ávila', 57);
+    ('Ciego De &Aacute;vila', 57);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58366,7 +58366,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Holguín', 57);
+    ('Holgu&iacute;n', 57);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58402,7 +58402,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Montería', 49);
+    ('Monter&iacute;a', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58410,7 +58410,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Las Breñas', 13);
+    ('Las Bre&ntilde;as', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58418,7 +58418,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Río Piedras', 13);
+    ('R&iacute;o Piedras', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58458,7 +58458,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tingo María', 175);
+    ('Tingo Mar&iacute;a', 175);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58478,7 +58478,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Camaná', 175);
+    ('Caman&aacute;', 175);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58518,7 +58518,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Galápagos', 62);
+    ('Gal&aacute;pagos', 62);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58530,7 +58530,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tuluá', 49);
+    ('Tulu&aacute;', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58550,11 +58550,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Colón', 13);
+    ('Col&oacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Despeñaderos', 13);
+    ('Despe&ntilde;aderos', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58566,11 +58566,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Junín', 13);
+    ('Jun&iacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pigüé', 13);
+    ('Pig&uuml;&eacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58598,11 +58598,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Peña', 13);
+    ('Pe&ntilde;a', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Banda Del Río Salí', 13);
+    ('Banda Del R&iacute;o Sal&iacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58614,11 +58614,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Peñalolén', 45);
+    ('Pe&ntilde;alol&eacute;n', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chía', 49);
+    ('Ch&iacute;a', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58682,7 +58682,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Satélite', 147);
+    ('Sat&eacute;lite', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58694,11 +58694,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Amenábar', 13);
+    ('Amen&aacute;bar', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guaymallén', 13);
+    ('Guaymall&eacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58706,7 +58706,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pérez Millán', 13);
+    ('P&eacute;rez Mill&aacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58726,7 +58726,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ramírez', 13);
+    ('Ram&iacute;rez', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58742,7 +58742,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Facatativá', 49);
+    ('Facatativ&aacute;', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58762,7 +58762,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Carmópolis De Minas', 34);
+    ('Carm&oacute;polis De Minas', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58774,7 +58774,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tangará', 34);
+    ('Tangar&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58782,7 +58782,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('González', 147);
+    ('Gonz&aacute;lez', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58790,7 +58790,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Manuel Ávila Camacho', 147);
+    ('Manuel &Aacute;vila Camacho', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58814,7 +58814,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Perú', 172);
+    ('Per&uacute;', 172);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58826,7 +58826,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Porteña', 13);
+    ('Porte&ntilde;a', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58854,7 +58854,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Concarán', 13);
+    ('Concar&aacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58898,7 +58898,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Fernández', 13);
+    ('Fern&aacute;ndez', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58946,7 +58946,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guatapará', 34);
+    ('Guatapar&aacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -58982,7 +58982,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Canindé', 34);
+    ('Canind&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59018,7 +59018,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sairé', 34);
+    ('Sair&eacute;', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59038,7 +59038,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cárdenas', 147);
+    ('C&aacute;rdenas', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59066,7 +59066,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Acuña', 147);
+    ('Acu&ntilde;a', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59098,7 +59098,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Crámer', 13);
+    ('Cr&aacute;mer', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59106,7 +59106,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Calderón', 13);
+    ('Calder&oacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59114,7 +59114,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Perón', 13);
+    ('Per&oacute;n', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59138,7 +59138,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Coronel Suárez', 13);
+    ('Coronel Su&aacute;rez', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59154,7 +59154,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kallithéa', 85);
+    ('Kallith&eacute;a', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59226,7 +59226,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kraków', 177);
+    ('Krak&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59326,7 +59326,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tarnów', 177);
+    ('Tarn&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59430,7 +59430,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hämeenlinna', 76);
+    ('H&auml;meenlinna', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59586,7 +59586,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ústí', 183);
+    ('&Uacute;st&iacute;', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59610,7 +59610,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chambésy', 213);
+    ('Chamb&eacute;sy', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59630,19 +59630,19 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('La Vallée', 77);
+    ('La Vall&eacute;e', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Plätz', 4);
+    ('Pl&auml;tz', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Leppävaara', 76);
+    ('Lepp&auml;vaara', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Budaörs', 100);
+    ('Buda&ouml;rs', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59806,11 +59806,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Piotrków', 177);
+    ('Piotrk&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Göteborg', 212);
+    ('G&ouml;teborg', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -59974,7 +59974,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bollnäs', 212);
+    ('Bolln&auml;s', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60130,7 +60130,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gorzów Wielkopolski', 177);
+    ('Gorz&oacute;w Wielkopolski', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60146,7 +60146,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Örebro', 212);
+    ('&Ouml;rebro', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60178,15 +60178,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ähtäri', 76);
+    ('&Auml;ht&auml;ri', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Montévrain', 77);
+    ('Mont&eacute;vrain', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hradec Králové', 183);
+    ('Hradec Kr&aacute;lov&eacute;', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60266,7 +60266,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Riihimäki', 76);
+    ('Riihim&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60274,7 +60274,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Athína', 85);
+    ('Ath&iacute;na', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60310,7 +60310,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gorzów', 177);
+    ('Gorz&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60386,7 +60386,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Miaoúli', 85);
+    ('Miao&uacute;li', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60562,15 +60562,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rezé', 77);
+    ('Rez&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Székesfehérvár', 100);
+    ('Sz&eacute;kesfeh&eacute;rv&aacute;r', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Borlänge', 212);
+    ('Borl&auml;nge', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60590,7 +60590,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vélizy', 77);
+    ('V&eacute;lizy', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60650,7 +60650,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ávila', 69);
+    ('&Aacute;vila', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60710,7 +60710,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Suomusjärvi', 76);
+    ('Suomusj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60862,7 +60862,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pátra', 85);
+    ('P&aacute;tra', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -60878,7 +60878,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Falköping', 212);
+    ('Falk&ouml;ping', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61174,7 +61174,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Évry', 77);
+    ('&Eacute;vry', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61322,7 +61322,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sävedalen', 212);
+    ('S&auml;vedalen', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61330,7 +61330,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Janów Podlaski', 177);
+    ('Jan&oacute;w Podlaski', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61386,7 +61386,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Thorigné', 77);
+    ('Thorign&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61402,7 +61402,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ágios Stéfanos', 85);
+    ('&Aacute;gios St&eacute;fanos', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61414,7 +61414,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Águeda', 178);
+    ('&Aacute;gueda', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61438,7 +61438,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gérard', 77);
+    ('G&eacute;rard', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61678,7 +61678,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Szigetszentmiklós', 100);
+    ('Szigetszentmikl&oacute;s', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61786,7 +61786,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Córdoba', 69);
+    ('C&oacute;rdoba', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61838,7 +61838,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Unterföhring', 4);
+    ('Unterf&ouml;hring', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -61962,7 +61962,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Schönenwerd', 213);
+    ('Sch&ouml;nenwerd', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62042,15 +62042,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Linköping', 212);
+    ('Link&ouml;ping', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vällingby', 212);
+    ('V&auml;llingby', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Västerås', 212);
+    ('V&auml;sterås', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62082,7 +62082,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Écully', 77);
+    ('&Eacute;cully', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62102,7 +62102,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Trollhättan', 212);
+    ('Trollh&auml;ttan', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62158,7 +62158,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Karö', 212);
+    ('Kar&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62190,7 +62190,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Älvsjö', 212);
+    ('&Auml;lvsj&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62210,7 +62210,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sächsenheim', 4);
+    ('S&auml;chsenheim', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62294,7 +62294,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gütersloh', 4);
+    ('G&uuml;tersloh', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62350,7 +62350,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lauda-königshofen', 4);
+    ('Lauda-k&ouml;nigshofen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62582,11 +62582,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hjältevad', 212);
+    ('Hj&auml;ltevad', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chambéry', 77);
+    ('Chamb&eacute;ry', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62746,7 +62746,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lörrach', 4);
+    ('L&ouml;rrach', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62754,7 +62754,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hösbach', 4);
+    ('H&ouml;sbach', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62786,15 +62786,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mäntsälä', 76);
+    ('M&auml;nts&auml;l&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jämsä', 76);
+    ('J&auml;ms&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saarijärvi', 76);
+    ('Saarij&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -62982,7 +62982,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Évora', 178);
+    ('&Eacute;vora', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63154,11 +63154,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Höchst', 4);
+    ('H&ouml;chst', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Seinäjoki', 76);
+    ('Sein&auml;joki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63166,7 +63166,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kokemäki', 76);
+    ('Kokem&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63186,7 +63186,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Perniö', 76);
+    ('Perni&ouml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63398,7 +63398,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Échirolles', 77);
+    ('&Eacute;chirolles', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63426,11 +63426,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Marne-la-vallée', 77);
+    ('Marne-la-vall&eacute;e', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('École', 77);
+    ('&Eacute;cole', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63442,7 +63442,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-mandé', 77);
+    ('Saint-mand&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63674,7 +63674,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cesson-sévigné', 77);
+    ('Cesson-s&eacute;vign&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63770,7 +63770,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-Étienne', 77);
+    ('Saint-&Eacute;tienne', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63794,7 +63794,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hyvinkää', 76);
+    ('Hyvink&auml;&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63838,7 +63838,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ploërmel', 77);
+    ('Plo&euml;rmel', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63910,7 +63910,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Östhammar', 212);
+    ('&Ouml;sthammar', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63930,11 +63930,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Örnsköldsvik', 212);
+    ('&Ouml;rnsk&ouml;ldsvik', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vänersborg', 212);
+    ('V&auml;nersborg', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63942,7 +63942,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Svängsta', 212);
+    ('Sv&auml;ngsta', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63970,7 +63970,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Östrand', 212);
+    ('&Ouml;strand', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -63990,11 +63990,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lidingö', 212);
+    ('Liding&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Strängnäs', 212);
+    ('Str&auml;ngn&auml;s', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64030,11 +64030,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mörfelden-walldorf', 4);
+    ('M&ouml;rfelden-walldorf', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Östersund', 212);
+    ('&Ouml;stersund', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64138,11 +64138,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Skövde', 212);
+    ('Sk&ouml;vde', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Järvenpää', 76);
+    ('J&auml;rvenp&auml;&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64218,7 +64218,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mörfelden', 4);
+    ('M&ouml;rfelden', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64402,7 +64402,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gössen', 4);
+    ('G&ouml;ssen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64590,7 +64590,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nurmijärvi', 76);
+    ('Nurmij&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64714,7 +64714,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Löhne', 4);
+    ('L&ouml;hne', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64758,7 +64758,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Delémont', 213);
+    ('Del&eacute;mont', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64774,7 +64774,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Alcalá De Henares', 69);
+    ('Alcal&aacute; De Henares', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64810,7 +64810,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Schöller', 4);
+    ('Sch&ouml;ller', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64830,7 +64830,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rösrath', 4);
+    ('R&ouml;srath', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64870,7 +64870,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Höhenkirchen', 4);
+    ('H&ouml;henkirchen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -64918,7 +64918,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Schöneck', 4);
+    ('Sch&ouml;neck', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65010,7 +65010,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Stübnitz', 4);
+    ('St&uuml;bnitz', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65074,7 +65074,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saarbrücken', 4);
+    ('Saarbr&uuml;cken', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65198,11 +65198,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Röthenbach', 4);
+    ('R&ouml;thenbach', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Göppingen', 4);
+    ('G&ouml;ppingen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65438,7 +65438,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chaniá', 85);
+    ('Chani&aacute;', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65462,7 +65462,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mönchengladbach', 4);
+    ('M&ouml;nchengladbach', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65494,7 +65494,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maxéville', 77);
+    ('Max&eacute;ville', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65666,7 +65666,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pölten', 18);
+    ('P&ouml;lten', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65674,7 +65674,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ohé En Laak', 97);
+    ('Oh&eacute; En Laak', 97);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65742,7 +65742,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Loudéac', 77);
+    ('Loud&eacute;ac', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65946,7 +65946,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Flörsheim', 4);
+    ('Fl&ouml;rsheim', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -65958,7 +65958,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Liffré', 77);
+    ('Liffr&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66086,7 +66086,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Brättberg', 212);
+    ('Br&auml;ttberg', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66110,7 +66110,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Västra Frölunda', 212);
+    ('V&auml;stra Fr&ouml;lunda', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66130,7 +66130,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tönning', 4);
+    ('T&ouml;nning', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66182,7 +66182,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Dübendorf', 213);
+    ('D&uuml;bendorf', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66314,7 +66314,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Töre', 212);
+    ('T&ouml;re', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66374,7 +66374,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Väsby', 212);
+    ('V&auml;sby', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66446,7 +66446,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hällefors', 212);
+    ('H&auml;llefors', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66466,7 +66466,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hägersten', 212);
+    ('H&auml;gersten', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66490,7 +66490,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Örkelljunga', 212);
+    ('&Ouml;rkelljunga', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66618,7 +66618,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Árgos', 85);
+    ('&Aacute;rgos', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66674,7 +66674,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Placé', 77);
+    ('Plac&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66686,7 +66686,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rödinghausen', 4);
+    ('R&ouml;dinghausen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66742,7 +66742,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nynäshamn', 212);
+    ('Nyn&auml;shamn', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66846,7 +66846,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Évreux', 77);
+    ('&Eacute;vreux', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66918,7 +66918,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Götzis', 18);
+    ('G&ouml;tzis', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -66958,7 +66958,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sodankylä', 76);
+    ('Sodankyl&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67018,7 +67018,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Éragny', 77);
+    ('&Eacute;ragny', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67026,7 +67026,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mäntyharju', 76);
+    ('M&auml;ntyharju', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67034,11 +67034,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Äänekoski', 76);
+    ('&Auml;&auml;nekoski', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rääkkylä', 76);
+    ('R&auml;&auml;kkyl&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67066,7 +67066,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kittilä', 76);
+    ('Kittil&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67074,7 +67074,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vöyri', 76);
+    ('V&ouml;yri', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67082,11 +67082,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pudasjärvi', 76);
+    ('Pudasj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Banská Bystrica', 67);
+    ('Bansk&aacute; Bystrica', 67);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67114,7 +67114,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('La Défense', 77);
+    ('La D&eacute;fense', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67122,11 +67122,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Äetsä', 76);
+    ('&Auml;ets&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Óbuda', 100);
+    ('&Oacute;buda', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67202,7 +67202,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sölvesborg', 212);
+    ('S&ouml;lvesborg', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67314,7 +67314,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tohmajärvi', 76);
+    ('Tohmaj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67430,7 +67430,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Häuser', 4);
+    ('H&auml;user', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67474,7 +67474,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mondragón', 69);
+    ('Mondrag&oacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67530,7 +67530,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lamézia', 113);
+    ('Lam&eacute;zia', 113);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67578,7 +67578,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pécs', 100);
+    ('P&eacute;cs', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67586,11 +67586,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Övertorneå', 212);
+    ('&Ouml;vertorneå', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Älvsbyn', 212);
+    ('&Auml;lvsbyn', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67626,7 +67626,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hénin', 77);
+    ('H&eacute;nin', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67654,7 +67654,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Donát', 100);
+    ('Don&aacute;t', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67682,7 +67682,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ekenäs', 76);
+    ('Eken&auml;s', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67766,7 +67766,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Käsämä', 76);
+    ('K&auml;s&auml;m&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67774,7 +67774,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Färila', 212);
+    ('F&auml;rila', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67814,7 +67814,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Villähde', 76);
+    ('Vill&auml;hde', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67866,7 +67866,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Frýdek-místek', 183);
+    ('Frýdek-m&iacute;stek', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67894,7 +67894,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Neukölln', 4);
+    ('Neuk&ouml;lln', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67930,7 +67930,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Korsnäs', 76);
+    ('Korsn&auml;s', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67938,7 +67938,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Elimäki', 76);
+    ('Elim&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67946,11 +67946,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kungälv', 212);
+    ('Kung&auml;lv', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ylämaa', 76);
+    ('Yl&auml;maa', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -67974,7 +67974,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Svanström', 212);
+    ('Svanstr&ouml;m', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68050,7 +68050,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hümmel', 4);
+    ('H&uuml;mmel', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68370,7 +68370,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kolín', 183);
+    ('Kol&iacute;n', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68442,11 +68442,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bohumín', 183);
+    ('Bohum&iacute;n', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Písek', 183);
+    ('P&iacute;sek', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68578,7 +68578,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mazé', 77);
+    ('Maz&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68662,7 +68662,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kyyjärvi', 76);
+    ('Kyyj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68686,7 +68686,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Röst', 4);
+    ('R&ouml;st', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68774,7 +68774,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Barsebäck', 212);
+    ('Barseb&auml;ck', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68886,7 +68886,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ostrów Wielkopolski', 177);
+    ('Ostr&oacute;w Wielkopolski', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68898,7 +68898,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kungsör', 212);
+    ('Kungs&ouml;r', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -68970,7 +68970,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Karviná', 183);
+    ('Karvin&aacute;', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69002,7 +69002,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Keflavík', 106);
+    ('Keflav&iacute;k', 106);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69070,7 +69070,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mullsjö', 212);
+    ('Mullsj&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69102,7 +69102,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Paraskeví', 85);
+    ('Paraskev&iacute;', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69242,7 +69242,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vrchlabí', 183);
+    ('Vrchlab&iacute;', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69290,7 +69290,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pylkönmäki', 76);
+    ('Pylk&ouml;nm&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69298,7 +69298,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jablonné Nad Orlicí', 183);
+    ('Jablonn&eacute; Nad Orlic&iacute;', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69354,7 +69354,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zamárdi', 100);
+    ('Zam&aacute;rdi', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69366,7 +69366,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hässleholm', 212);
+    ('H&auml;ssleholm', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69430,7 +69430,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Skärholmen', 212);
+    ('Sk&auml;rholmen', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69578,15 +69578,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Börstel', 4);
+    ('B&ouml;rstel', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zlín', 183);
+    ('Zl&iacute;n', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hodonín', 183);
+    ('Hodon&iacute;n', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69650,7 +69650,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Säffle', 212);
+    ('S&auml;ffle', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69666,7 +69666,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vörå', 76);
+    ('V&ouml;rå', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69750,7 +69750,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jelenia Góra', 177);
+    ('Jelenia G&oacute;ra', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69758,7 +69758,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pyhäsalmi', 76);
+    ('Pyh&auml;salmi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69830,7 +69830,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mladá Boleslav', 183);
+    ('Mlad&aacute; Boleslav', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69842,7 +69842,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Säge', 213);
+    ('S&auml;ge', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -69898,11 +69898,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jyskä', 76);
+    ('Jysk&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kylmäkoski', 76);
+    ('Kylm&auml;koski', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70054,7 +70054,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kräft', 4);
+    ('Kr&auml;ft', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70162,7 +70162,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('El Águila', 69);
+    ('El &Aacute;guila', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70310,7 +70310,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Protivín', 183);
+    ('Protiv&iacute;n', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70326,7 +70326,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gävle', 212);
+    ('G&auml;vle', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70406,7 +70406,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vösendorf', 18);
+    ('V&ouml;sendorf', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70454,7 +70454,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-génis', 77);
+    ('Saint-g&eacute;nis', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70574,7 +70574,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Köln', 4);
+    ('K&ouml;ln', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70598,7 +70598,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Büsch', 4);
+    ('B&uuml;sch', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70646,7 +70646,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ostrów', 177);
+    ('Ostr&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70678,7 +70678,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kühn', 4);
+    ('K&uuml;hn', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70766,7 +70766,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mölnlycke', 212);
+    ('M&ouml;lnlycke', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70782,7 +70782,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Alajärvi', 76);
+    ('Alaj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70950,7 +70950,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Köhler', 4);
+    ('K&ouml;hler', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -70998,7 +70998,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Järnforsen', 212);
+    ('J&auml;rnforsen', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71086,7 +71086,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Quércia', 113);
+    ('Qu&eacute;rcia', 113);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71242,7 +71242,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Märien', 4);
+    ('M&auml;rien', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71254,7 +71254,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Göbel', 4);
+    ('G&ouml;bel', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71302,7 +71302,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vitré', 77);
+    ('Vitr&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71530,7 +71530,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Münster', 4);
+    ('M&uuml;nster', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71538,7 +71538,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bönen', 4);
+    ('B&ouml;nen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71578,7 +71578,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Günthersdorf', 4);
+    ('G&uuml;nthersdorf', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71598,7 +71598,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nové Zámky', 67);
+    ('Nov&eacute; Z&aacute;mky', 67);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71666,7 +71666,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Enontekiö', 76);
+    ('Enonteki&ouml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71758,7 +71758,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guárdia', 113);
+    ('Gu&aacute;rdia', 113);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71798,7 +71798,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Brüttisellen', 213);
+    ('Br&uuml;ttisellen', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71822,7 +71822,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sprockhövel', 4);
+    ('Sprockh&ouml;vel', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71842,7 +71842,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lavallée', 77);
+    ('Lavall&eacute;e', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71898,7 +71898,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Norrtälje', 212);
+    ('Norrt&auml;lje', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -71954,7 +71954,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Aabyhöj', 59);
+    ('Aabyh&ouml;j', 59);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72010,7 +72010,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pöls', 18);
+    ('P&ouml;ls', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72022,7 +72022,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('König', 4);
+    ('K&ouml;nig', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72114,7 +72114,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zabierzów', 177);
+    ('Zabierz&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72134,7 +72134,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Szabadegyháza', 100);
+    ('Szabadegyh&aacute;za', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72154,7 +72154,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Türk', 229);
+    ('T&uuml;rk', 229);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72206,7 +72206,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mataró', 69);
+    ('Matar&oacute;', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72270,7 +72270,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Péronnas', 77);
+    ('P&eacute;ronnas', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72374,7 +72374,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Émerainville', 77);
+    ('&Eacute;merainville', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72438,7 +72438,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tatabánya', 100);
+    ('Tatab&aacute;nya', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72458,7 +72458,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Püspökszilágy', 100);
+    ('P&uuml;sp&ouml;kszil&aacute;gy', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72466,7 +72466,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zielona Góra', 177);
+    ('Zielona G&oacute;ra', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72526,7 +72526,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ioánnina', 85);
+    ('Io&aacute;nnina', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72538,7 +72538,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nässjö', 212);
+    ('N&auml;ssj&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72550,7 +72550,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('La Costeña', 147);
+    ('La Coste&ntilde;a', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72626,7 +72626,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cacém', 178);
+    ('Cac&eacute;m', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72790,7 +72790,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Étang', 77);
+    ('&Eacute;tang', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72818,7 +72818,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rör', 212);
+    ('R&ouml;r', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72842,7 +72842,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Markgröningen', 4);
+    ('Markgr&ouml;ningen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -72886,7 +72886,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ämmänsaari', 76);
+    ('&Auml;mm&auml;nsaari', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73074,7 +73074,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Andrychów', 177);
+    ('Andrych&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73258,7 +73258,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lamía', 85);
+    ('Lam&iacute;a', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73346,7 +73346,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Trévoux', 77);
+    ('Tr&eacute;voux', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73382,7 +73382,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kutná Hora', 183);
+    ('Kutn&aacute; Hora', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73406,7 +73406,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rémy', 77);
+    ('R&eacute;my', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73438,7 +73438,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Épinal', 77);
+    ('&Eacute;pinal', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73462,7 +73462,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Härnösand', 212);
+    ('H&auml;rn&ouml;sand', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73602,11 +73602,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Värmland', 212);
+    ('V&auml;rmland', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sjöberg', 212);
+    ('Sj&ouml;berg', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73646,7 +73646,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kaposvár', 100);
+    ('Kaposv&aacute;r', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73662,7 +73662,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bad Tölz', 4);
+    ('Bad T&ouml;lz', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73682,7 +73682,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Concón', 45);
+    ('Conc&oacute;n', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73690,7 +73690,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Skoczów', 177);
+    ('Skocz&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73818,7 +73818,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Élancourt', 77);
+    ('&Eacute;lancourt', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73842,7 +73842,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vénissieux', 77);
+    ('V&eacute;nissieux', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -73950,7 +73950,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Königswinter', 4);
+    ('K&ouml;nigswinter', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74062,7 +74062,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kozáni', 85);
+    ('Koz&aacute;ni', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74070,7 +74070,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Karstädt', 4);
+    ('Karst&auml;dt', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74082,7 +74082,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Haapamäki', 76);
+    ('Haapam&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74326,11 +74326,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Szekszárd', 100);
+    ('Szeksz&aacute;rd', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Västervik', 212);
+    ('V&auml;stervik', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74350,7 +74350,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ciechanów', 177);
+    ('Ciechan&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74434,7 +74434,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kemiö', 76);
+    ('Kemi&ouml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74454,7 +74454,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bytów', 177);
+    ('Byt&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74542,7 +74542,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lehtimäki', 76);
+    ('Lehtim&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74650,7 +74650,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Góra', 177);
+    ('G&oacute;ra', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74726,7 +74726,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hämeenkyrö', 76);
+    ('H&auml;meenkyr&ouml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74798,7 +74798,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lestijärvi', 76);
+    ('Lestij&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74834,7 +74834,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Békéscsaba', 100);
+    ('B&eacute;k&eacute;scsaba', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74894,7 +74894,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lempäälä', 76);
+    ('Lemp&auml;&auml;l&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74934,7 +74934,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Füzesabony', 100);
+    ('F&uuml;zesabony', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74946,7 +74946,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Stará Turá', 67);
+    ('Star&aacute; Tur&aacute;', 67);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74970,7 +74970,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Héricourt', 77);
+    ('H&eacute;ricourt', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -74986,7 +74986,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Münchenstein', 213);
+    ('M&uuml;nchenstein', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -75110,7 +75110,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Loulé', 178);
+    ('Loul&eacute;', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -75334,7 +75334,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Märkt', 4);
+    ('M&auml;rkt', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -75378,7 +75378,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tiszaújváros', 100);
+    ('Tisza&uacute;jv&aacute;ros', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -75474,7 +75474,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gémenos', 77);
+    ('G&eacute;menos', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -75526,7 +75526,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rödental', 4);
+    ('R&ouml;dental', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -75870,7 +75870,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bögenbay', 118);
+    ('B&ouml;genbay', 118);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -75934,7 +75934,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Fréjus', 77);
+    ('Fr&eacute;jus', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76122,7 +76122,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Espírito Santo', 178);
+    ('Esp&iacute;rito Santo', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76254,7 +76254,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sacavém', 178);
+    ('Sacav&eacute;m', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76286,7 +76286,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Almería', 69);
+    ('Almer&iacute;a', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76322,7 +76322,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Görwihl', 4);
+    ('G&ouml;rwihl', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76398,7 +76398,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gafanha Da Nazaré', 178);
+    ('Gafanha Da Nazar&eacute;', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76406,7 +76406,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Algés', 178);
+    ('Alg&eacute;s', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76430,7 +76430,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Heinävesi', 76);
+    ('Hein&auml;vesi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76486,7 +76486,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Loiré', 77);
+    ('Loir&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76522,7 +76522,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Piotrków Trybunalski', 177);
+    ('Piotrk&oacute;w Trybunalski', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76534,7 +76534,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Setúbal', 178);
+    ('Set&uacute;bal', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76554,11 +76554,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Skärhamn', 212);
+    ('Sk&auml;rhamn', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Langgöns', 4);
+    ('Langg&ouml;ns', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76566,7 +76566,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kestilä', 76);
+    ('Kestil&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76602,7 +76602,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sénillé', 77);
+    ('S&eacute;nill&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76734,7 +76734,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Százhalombatta', 100);
+    ('Sz&aacute;zhalombatta', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76794,7 +76794,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Enköping', 212);
+    ('Enk&ouml;ping', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76858,7 +76858,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Póvoa', 178);
+    ('P&oacute;voa', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76918,7 +76918,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kalamáta', 85);
+    ('Kalam&aacute;ta', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76926,7 +76926,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint Léger', 77);
+    ('Saint L&eacute;ger', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -76974,7 +76974,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Beaucouzé', 77);
+    ('Beaucouz&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77022,7 +77022,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Thörishaus', 213);
+    ('Th&ouml;rishaus', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77042,7 +77042,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Alcorcón', 69);
+    ('Alcorc&oacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77106,7 +77106,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Épinay', 77);
+    ('&Eacute;pinay', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77158,7 +77158,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tábor', 183);
+    ('T&aacute;bor', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77202,7 +77202,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Korolëva', 188);
+    ('Korol&euml;va', 188);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77266,7 +77266,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lérida', 69);
+    ('L&eacute;rida', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77338,7 +77338,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Süleyman', 229);
+    ('S&uuml;leyman', 229);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77430,7 +77430,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ylöjärvi', 76);
+    ('Yl&ouml;j&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77462,11 +77462,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Épernay', 77);
+    ('&Eacute;pernay', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jászberény', 100);
+    ('J&aacute;szber&eacute;ny', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77530,7 +77530,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Höchst', 18);
+    ('H&ouml;chst', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77634,7 +77634,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lledó', 69);
+    ('Lled&oacute;', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77694,7 +77694,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Oxelösund', 212);
+    ('Oxel&ouml;sund', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77806,7 +77806,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Steinhöring', 4);
+    ('Steinh&ouml;ring', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77814,7 +77814,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Erkkilä', 76);
+    ('Erkkil&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77890,7 +77890,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Dunaújváros', 100);
+    ('Duna&uacute;jv&aacute;ros', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -77942,7 +77942,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gönnersdorf', 4);
+    ('G&ouml;nnersdorf', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78006,7 +78006,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Waldbröl', 4);
+    ('Waldbr&ouml;l', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78022,7 +78022,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tamási', 100);
+    ('Tam&aacute;si', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78082,7 +78082,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ström', 165);
+    ('Str&ouml;m', 165);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78390,7 +78390,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Brévannes', 77);
+    ('Br&eacute;vannes', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78398,7 +78398,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Dímitra', 85);
+    ('D&iacute;mitra', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78414,7 +78414,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vöcklamarkt', 18);
+    ('V&ouml;cklamarkt', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78498,7 +78498,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kostelec Nad Orlicí', 183);
+    ('Kostelec Nad Orlic&iacute;', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78578,7 +78578,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Köflach', 18);
+    ('K&ouml;flach', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78602,7 +78602,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Anröchte', 4);
+    ('Anr&ouml;chte', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78814,11 +78814,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Svalöf', 212);
+    ('Sval&ouml;f', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Uplands Väsby', 212);
+    ('Uplands V&auml;sby', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78842,7 +78842,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gröbenzell', 4);
+    ('Gr&ouml;benzell', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -78910,7 +78910,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Aigáleo', 85);
+    ('Aig&aacute;leo', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79194,7 +79194,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Knurów', 177);
+    ('Knur&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79334,7 +79334,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hörstel', 4);
+    ('H&ouml;rstel', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79354,7 +79354,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Årjäng', 212);
+    ('Årj&auml;ng', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79538,7 +79538,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tärna', 212);
+    ('T&auml;rna', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79558,7 +79558,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Metsä', 76);
+    ('Mets&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79650,7 +79650,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nyíregyháza', 100);
+    ('Ny&iacute;regyh&aacute;za', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79666,7 +79666,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Königsbrunn', 4);
+    ('K&ouml;nigsbrunn', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79782,7 +79782,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nören', 165);
+    ('N&ouml;ren', 165);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79798,7 +79798,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cran-gévrier', 77);
+    ('Cran-g&eacute;vrier', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79854,7 +79854,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Schönenberg', 213);
+    ('Sch&ouml;nenberg', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79910,7 +79910,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Röttingen', 4);
+    ('R&ouml;ttingen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -79922,7 +79922,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Le Pré', 77);
+    ('Le Pr&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80046,7 +80046,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gríva', 85);
+    ('Gr&iacute;va', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80166,7 +80166,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Filhós', 178);
+    ('Filh&oacute;s', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80234,7 +80234,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Stará Lesná', 67);
+    ('Star&aacute; Lesn&aacute;', 67);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80242,7 +80242,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tatranská Lomnica', 67);
+    ('Tatransk&aacute; Lomnica', 67);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80358,7 +80358,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mödling', 18);
+    ('M&ouml;dling', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80370,7 +80370,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Älmhult', 212);
+    ('&Auml;lmhult', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80418,7 +80418,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Le Mée', 77);
+    ('Le M&eacute;e', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80478,7 +80478,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Camprodón', 69);
+    ('Camprod&oacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80522,7 +80522,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint-péray', 77);
+    ('Saint-p&eacute;ray', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80546,7 +80546,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kifisiá', 85);
+    ('Kifisi&aacute;', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80590,7 +80590,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nagykáta', 100);
+    ('Nagyk&aacute;ta', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80610,7 +80610,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sösdala', 212);
+    ('S&ouml;sdala', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80638,7 +80638,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('La Ferté', 77);
+    ('La Fert&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80666,7 +80666,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Röthis', 18);
+    ('R&ouml;this', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80694,7 +80694,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ródos', 85);
+    ('R&oacute;dos', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80702,7 +80702,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Náousa', 85);
+    ('N&aacute;ousa', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80726,7 +80726,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Frölunda', 212);
+    ('Fr&ouml;lunda', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80758,7 +80758,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Älvsby', 212);
+    ('&Auml;lvsby', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80770,35 +80770,35 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Stournári', 85);
+    ('Stourn&aacute;ri', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sína', 85);
+    ('S&iacute;na', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vasiliká', 85);
+    ('Vasilik&aacute;', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Peristéri', 85);
+    ('Perist&eacute;ri', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kálymnos', 85);
+    ('K&aacute;lymnos', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Alfá', 85);
+    ('Alf&aacute;', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Váris', 85);
+    ('V&aacute;ris', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kryonéri', 85);
+    ('Kryon&eacute;ri', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80814,7 +80814,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Grao De Castellón', 69);
+    ('Grao De Castell&oacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80834,7 +80834,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Délegyháza', 100);
+    ('D&eacute;legyh&aacute;za', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80842,7 +80842,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ängelholm', 212);
+    ('&Auml;ngelholm', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80854,7 +80854,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Trípoli', 85);
+    ('Tr&iacute;poli', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80862,15 +80862,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Trápeza', 85);
+    ('Tr&aacute;peza', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Xánthi', 85);
+    ('X&aacute;nthi', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lárisa', 85);
+    ('L&aacute;risa', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -80946,7 +80946,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Metamórfosi', 85);
+    ('Metam&oacute;rfosi', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81126,7 +81126,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sáles', 113);
+    ('S&aacute;les', 113);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81134,7 +81134,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chorzów', 177);
+    ('Chorz&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81250,7 +81250,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Alessándria', 113);
+    ('Aless&aacute;ndria', 113);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81430,7 +81430,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ostrów Mazowiecka', 177);
+    ('Ostr&oacute;w Mazowiecka', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81438,7 +81438,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Veszprém', 100);
+    ('Veszpr&eacute;m', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81474,11 +81474,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Galdácano', 69);
+    ('Gald&aacute;cano', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Urdúliz', 69);
+    ('Urd&uacute;liz', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81586,7 +81586,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vsetín', 183);
+    ('Vset&iacute;n', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81650,7 +81650,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zumárraga', 69);
+    ('Zum&aacute;rraga', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81662,7 +81662,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rönnäng', 212);
+    ('R&ouml;nn&auml;ng', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81690,7 +81690,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sázava', 183);
+    ('S&aacute;zava', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81730,11 +81730,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kyröskoski', 76);
+    ('Kyr&ouml;skoski', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hrádek', 183);
+    ('Hr&aacute;dek', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81754,7 +81754,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Söderberg', 212);
+    ('S&ouml;derberg', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81846,7 +81846,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Léon', 77);
+    ('L&eacute;on', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -81890,11 +81890,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vinhós', 178);
+    ('Vinh&oacute;s', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Möhlin', 213);
+    ('M&ouml;hlin', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82006,7 +82006,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Árta', 85);
+    ('&Aacute;rta', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82326,7 +82326,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gayá', 69);
+    ('Gay&aacute;', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82338,11 +82338,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vastamäki', 76);
+    ('Vastam&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vinkkilä', 76);
+    ('Vinkkil&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82370,7 +82370,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Öhringen', 4);
+    ('&Ouml;hringen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82430,7 +82430,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pyhäjärvi', 76);
+    ('Pyh&auml;j&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82550,7 +82550,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Saint André', 77);
+    ('Saint Andr&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82726,7 +82726,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Athénes', 85);
+    ('Ath&eacute;nes', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82850,7 +82850,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vieremä', 76);
+    ('Vierem&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82866,7 +82866,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Canéjan', 77);
+    ('Can&eacute;jan', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -82990,11 +82990,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chaintré', 77);
+    ('Chaintr&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Córdova', 178);
+    ('C&oacute;rdova', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83202,7 +83202,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Racibórz', 177);
+    ('Racib&oacute;rz', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83338,7 +83338,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Náchod', 183);
+    ('N&aacute;chod', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83386,11 +83386,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hässle', 212);
+    ('H&auml;ssle', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Höslwang', 4);
+    ('H&ouml;slwang', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83398,7 +83398,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Järpen', 212);
+    ('J&auml;rpen', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83546,7 +83546,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Constitución', 45);
+    ('Constituci&oacute;n', 45);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83582,7 +83582,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Szymanów', 177);
+    ('Szyman&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83614,7 +83614,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kankaanpää', 76);
+    ('Kankaanp&auml;&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83626,7 +83626,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Königs Wusterhausen', 4);
+    ('K&ouml;nigs Wusterhausen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83686,7 +83686,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tórshavn', 73);
+    ('T&oacute;rshavn', 73);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83810,7 +83810,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Rättvik', 212);
+    ('R&auml;ttvik', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83826,15 +83826,15 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Olofström', 212);
+    ('Olofstr&ouml;m', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Svalöv', 212);
+    ('Sval&ouml;v', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Skutskär', 212);
+    ('Skutsk&auml;r', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83842,7 +83842,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mörbylånga', 212);
+    ('M&ouml;rbylånga', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83854,11 +83854,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kungsängen', 212);
+    ('Kungs&auml;ngen', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Österbymo', 212);
+    ('&Ouml;sterbymo', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83874,7 +83874,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Skarpnäck', 212);
+    ('Skarpn&auml;ck', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83918,7 +83918,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Järna', 212);
+    ('J&auml;rna', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83934,7 +83934,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hälleforsnäs', 212);
+    ('H&auml;lleforsn&auml;s', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83946,7 +83946,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Märsta', 212);
+    ('M&auml;rsta', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83958,7 +83958,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kolbäck', 212);
+    ('Kolb&auml;ck', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83966,11 +83966,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Plouédern', 77);
+    ('Plou&eacute;dern', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Liptovský Hrádok', 67);
+    ('Liptovský Hr&aacute;dok', 67);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83982,7 +83982,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ekerö', 212);
+    ('Eker&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -83990,11 +83990,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sjöbo', 212);
+    ('Sj&ouml;bo', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Löddeköpinge', 212);
+    ('L&ouml;ddek&ouml;pinge', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84066,7 +84066,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Comércio', 34);
+    ('Com&eacute;rcio', 34);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84114,7 +84114,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Frösön', 212);
+    ('Fr&ouml;s&ouml;n', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84138,7 +84138,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Energía', 13);
+    ('Energ&iacute;a', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84178,7 +84178,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Louverné', 77);
+    ('Louvern&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84238,7 +84238,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nördlingen', 4);
+    ('N&ouml;rdlingen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84282,7 +84282,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Glifáda', 85);
+    ('Glif&aacute;da', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84298,7 +84298,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Marché', 77);
+    ('March&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84306,7 +84306,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Upplands-väsby', 212);
+    ('Upplands-v&auml;sby', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84358,7 +84358,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ligné', 77);
+    ('Lign&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84714,7 +84714,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Döbern', 4);
+    ('D&ouml;bern', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84766,7 +84766,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Skanör', 212);
+    ('Skan&ouml;r', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -84890,7 +84890,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vallö', 59);
+    ('Vall&ouml;', 59);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85038,7 +85038,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Korsnäs', 212);
+    ('Korsn&auml;s', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85054,11 +85054,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Artés', 69);
+    ('Art&eacute;s', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Logroño', 69);
+    ('Logro&ntilde;o', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85074,7 +85074,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nödinge', 212);
+    ('N&ouml;dinge', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85082,7 +85082,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Luumäki', 76);
+    ('Luum&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85106,7 +85106,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mühldorf', 4);
+    ('M&uuml;hldorf', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85134,7 +85134,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Plön', 4);
+    ('Pl&ouml;n', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85182,7 +85182,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ädelfors', 212);
+    ('&Auml;delfors', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85198,7 +85198,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vännäs', 212);
+    ('V&auml;nn&auml;s', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85298,7 +85298,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Dörth', 4);
+    ('D&ouml;rth', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85314,7 +85314,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Plessé', 77);
+    ('Pless&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85390,7 +85390,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ituzaingó', 13);
+    ('Ituzaing&oacute;', 13);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85478,7 +85478,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ílhavo', 178);
+    ('&Iacute;lhavo', 178);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85630,7 +85630,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gijón', 69);
+    ('Gij&oacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85642,7 +85642,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Höhr-grenzhausen', 4);
+    ('H&ouml;hr-grenzhausen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85658,7 +85658,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Chaussée', 25);
+    ('Chauss&eacute;e', 25);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85706,7 +85706,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Röhrsdorf', 4);
+    ('R&ouml;hrsdorf', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85738,7 +85738,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sélestat', 77);
+    ('S&eacute;lestat', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85850,7 +85850,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Grosshöflein', 18);
+    ('Grossh&ouml;flein', 18);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85938,11 +85938,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bönningstedt', 4);
+    ('B&ouml;nningstedt', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Darnétal', 77);
+    ('Darn&eacute;tal', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -85990,7 +85990,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mönsterås', 212);
+    ('M&ouml;nsterås', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86018,7 +86018,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Béreldange', 132);
+    ('B&eacute;reldange', 132);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86334,7 +86334,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Küssnacht', 213);
+    ('K&uuml;ssnacht', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86490,7 +86490,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tinténiac', 77);
+    ('Tint&eacute;niac', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86618,7 +86618,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Zwönitz', 4);
+    ('Zw&ouml;nitz', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86654,7 +86654,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nézignan', 77);
+    ('N&eacute;zignan', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86686,7 +86686,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cáceres', 69);
+    ('C&aacute;ceres', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86758,11 +86758,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Donauwörth', 4);
+    ('Donauw&ouml;rth', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Harzé', 25);
+    ('Harz&eacute;', 25);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86770,7 +86770,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Álava', 69);
+    ('&Aacute;lava', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86834,7 +86834,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Algemesí', 69);
+    ('Algemes&iacute;', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86878,11 +86878,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ligugé', 77);
+    ('Ligug&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sátoraljaújhely', 100);
+    ('S&aacute;toralja&uacute;jhely', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86898,7 +86898,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Palamós', 69);
+    ('Palam&oacute;s', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -86906,11 +86906,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Iruña', 69);
+    ('Iru&ntilde;a', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Myrskylä', 76);
+    ('Myrskyl&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87030,7 +87030,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Béziers', 77);
+    ('B&eacute;ziers', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87090,11 +87090,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mömbris', 4);
+    ('M&ouml;mbris', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kemijärvi', 76);
+    ('Kemij&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87102,7 +87102,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Höfer', 4);
+    ('H&ouml;fer', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87274,7 +87274,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bräcke', 212);
+    ('Br&auml;cke', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87382,7 +87382,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('A Coruña', 69);
+    ('A Coru&ntilde;a', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87434,7 +87434,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Aytré', 77);
+    ('Aytr&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87442,7 +87442,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lunéville', 77);
+    ('Lun&eacute;ville', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87526,7 +87526,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Candé', 77);
+    ('Cand&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87542,7 +87542,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Moëlan', 77);
+    ('Mo&euml;lan', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87794,7 +87794,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Évron', 77);
+    ('&Eacute;vron', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87842,7 +87842,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Salgótarján', 100);
+    ('Salg&oacute;tarj&aacute;n', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87878,7 +87878,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Méry', 77);
+    ('M&eacute;ry', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87910,7 +87910,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Iráklio', 85);
+    ('Ir&aacute;klio', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87946,7 +87946,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vöhringen', 4);
+    ('V&ouml;hringen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -87982,7 +87982,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bad Wörishofen', 4);
+    ('Bad W&ouml;rishofen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88142,11 +88142,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hérimoncourt', 77);
+    ('H&eacute;rimoncourt', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Markópoulo', 85);
+    ('Mark&oacute;poulo', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88190,7 +88190,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vuohijärvi', 76);
+    ('Vuohij&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88206,7 +88206,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Uhelná', 183);
+    ('Uheln&aacute;', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88234,7 +88234,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sömmerda', 4);
+    ('S&ouml;mmerda', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88278,7 +88278,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Crépy', 77);
+    ('Cr&eacute;py', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88390,11 +88390,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guillén', 69);
+    ('Guill&eacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jaén', 69);
+    ('Ja&eacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88422,7 +88422,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Villagarcía', 69);
+    ('Villagarc&iacute;a', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88438,7 +88438,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vilá', 69);
+    ('Vil&aacute;', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88450,11 +88450,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('García', 69);
+    ('Garc&iacute;a', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Martínez', 69);
+    ('Mart&iacute;nez', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88470,7 +88470,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jiménez', 69);
+    ('Jim&eacute;nez', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88478,7 +88478,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Leganés', 69);
+    ('Legan&eacute;s', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88510,11 +88510,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bánk', 100);
+    ('B&aacute;nk', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pápa', 100);
+    ('P&aacute;pa', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88610,7 +88610,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kópavogur', 106);
+    ('K&oacute;pavogur', 106);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88638,7 +88638,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ober-mörlen', 4);
+    ('Ober-m&ouml;rlen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88658,7 +88658,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Cité', 77);
+    ('Cit&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88718,7 +88718,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tekkeköy', 229);
+    ('Tekkek&ouml;y', 229);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88774,7 +88774,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Büyükçekmece', 229);
+    ('B&uuml;y&uuml;kçekmece', 229);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88830,7 +88830,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Büyükdere', 229);
+    ('B&uuml;y&uuml;kdere', 229);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88838,7 +88838,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lesménils', 77);
+    ('Lesm&eacute;nils', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88870,7 +88870,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Juigné', 77);
+    ('Juign&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88930,7 +88930,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Manán', 69);
+    ('Man&aacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88954,7 +88954,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pieksämäki', 76);
+    ('Pieks&auml;m&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -88970,7 +88970,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Mszczonów', 177);
+    ('Mszczon&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89022,7 +89022,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Schmölln', 4);
+    ('Schm&ouml;lln', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89042,7 +89042,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Oñate', 69);
+    ('O&ntilde;ate', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89054,7 +89054,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Záhony', 100);
+    ('Z&aacute;hony', 100);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89150,7 +89150,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Livré', 77);
+    ('Livr&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89230,7 +89230,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Przygórze', 177);
+    ('Przyg&oacute;rze', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89366,7 +89366,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bremervörde', 4);
+    ('Bremerv&ouml;rde', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89494,7 +89494,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Irún', 69);
+    ('Ir&uacute;n', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89626,7 +89626,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Wieruszów', 177);
+    ('Wierusz&oacute;w', 177);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89658,7 +89658,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Jämsänkoski', 76);
+    ('J&auml;ms&auml;nkoski', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89678,11 +89678,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kortesjärvi', 76);
+    ('Kortesj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lappajärvi', 76);
+    ('Lappaj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89718,7 +89718,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Collégien', 77);
+    ('Coll&eacute;gien', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89798,7 +89798,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Lütz', 4);
+    ('L&uuml;tz', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89914,7 +89914,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Le Vésinet', 77);
+    ('Le V&eacute;sinet', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89958,7 +89958,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Charleville-mézières', 77);
+    ('Charleville-m&eacute;zières', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -89970,7 +89970,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pörsänmäki', 76);
+    ('P&ouml;rs&auml;nm&auml;ki', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90018,7 +90018,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Maantiekylä', 76);
+    ('Maantiekyl&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90178,7 +90178,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Frélinghien', 77);
+    ('Fr&eacute;linghien', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90222,7 +90222,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nürtingen', 4);
+    ('N&uuml;rtingen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90290,11 +90290,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Béthune', 77);
+    ('B&eacute;thune', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pérenchies', 77);
+    ('P&eacute;renchies', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90310,7 +90310,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sablé', 77);
+    ('Sabl&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90334,11 +90334,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Unión', 49);
+    ('Uni&oacute;n', 49);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Fernández', 147);
+    ('Fern&aacute;ndez', 147);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90362,7 +90362,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gavalás', 85);
+    ('Gaval&aacute;s', 85);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90410,7 +90410,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Köping', 212);
+    ('K&ouml;ping', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90506,7 +90506,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Böhl-iggelheim', 4);
+    ('B&ouml;hl-iggelheim', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90634,7 +90634,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tolmachëvo', 188);
+    ('Tolmach&euml;vo', 188);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90710,7 +90710,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Guérande', 77);
+    ('Gu&eacute;rande', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90786,7 +90786,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pontcarré', 77);
+    ('Pontcarr&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90874,7 +90874,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Miñera', 69);
+    ('Mi&ntilde;era', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -90930,7 +90930,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Gévrier', 77);
+    ('G&eacute;vrier', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91106,7 +91106,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Völklingen', 4);
+    ('V&ouml;lklingen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91114,7 +91114,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sköllersta', 212);
+    ('Sk&ouml;llersta', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91138,7 +91138,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Schöppenstedt', 4);
+    ('Sch&ouml;ppenstedt', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91190,7 +91190,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Brézins', 77);
+    ('Br&eacute;zins', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91354,7 +91354,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Elgóibar', 69);
+    ('Elg&oacute;ibar', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91362,7 +91362,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Le Tréport', 77);
+    ('Le Tr&eacute;port', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91486,7 +91486,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Uría', 69);
+    ('Ur&iacute;a', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91506,7 +91506,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Niefern-Öschelbronn', 4);
+    ('Niefern-&Ouml;schelbronn', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91534,7 +91534,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Eckernförde', 4);
+    ('Eckernf&ouml;rde', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91726,7 +91726,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pacé', 77);
+    ('Pac&eacute;', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91734,7 +91734,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Vélizy-villacoublay', 77);
+    ('V&eacute;lizy-villacoublay', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91762,7 +91762,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sémoy', 77);
+    ('S&eacute;moy', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91794,7 +91794,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ceyzériat', 77);
+    ('Ceyz&eacute;riat', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91854,7 +91854,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Tëplyy Stan', 188);
+    ('T&euml;plyy Stan', 188);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91950,7 +91950,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Bromölla', 212);
+    ('Brom&ouml;lla', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91966,7 +91966,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Évian', 77);
+    ('&Eacute;vian', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91978,11 +91978,11 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hémonstoir', 77);
+    ('H&eacute;monstoir', 77);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Västerhaninge', 212);
+    ('V&auml;sterhaninge', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -91990,7 +91990,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Weinböhla', 4);
+    ('Weinb&ouml;hla', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92110,7 +92110,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Alcántara', 69);
+    ('Alc&aacute;ntara', 69);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92218,7 +92218,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sääri', 76);
+    ('S&auml;&auml;ri', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92258,7 +92258,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Siilinjärvi', 76);
+    ('Siilinj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92294,7 +92294,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Hammarö', 212);
+    ('Hammar&ouml;', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92302,7 +92302,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Sonkajärvi', 76);
+    ('Sonkaj&auml;rvi', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92318,7 +92318,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Kesälahti', 76);
+    ('Kes&auml;lahti', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92326,7 +92326,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Härmä', 76);
+    ('H&auml;rm&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92346,7 +92346,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Miehikkälä', 76);
+    ('Miehikk&auml;l&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92402,7 +92402,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Veitshöchheim', 4);
+    ('Veitsh&ouml;chheim', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92414,7 +92414,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Pfäffikon', 213);
+    ('Pf&auml;ffikon', 213);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92426,7 +92426,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Nilsiä', 76);
+    ('Nilsi&auml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92458,7 +92458,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Eckerö', 76);
+    ('Ecker&ouml;', 76);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92494,7 +92494,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Ramnäs', 212);
+    ('Ramn&auml;s', 212);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92542,7 +92542,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Smíchov', 183);
+    ('Sm&iacute;chov', 183);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
@@ -92686,7 +92686,7 @@ VALUES
 INSERT INTO ciudad
     (name, id_pais)
 VALUES
-    ('Schöppingen', 4);
+    ('Sch&ouml;ppingen', 4);
 INSERT INTO ciudad
     (name, id_pais)
 VALUES

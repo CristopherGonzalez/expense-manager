@@ -30,11 +30,11 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 		$sWhere.=" and tipo_negocio=".$type_bussiness;
 	}
 	if($licenseMRC!=""){
-		$sWhere.=" and licenciaMRC LIKE '%".$licenseMRC."%' ";
-	}
+	$sWhere .= " and (LOWER(licenciaMRC) LIKE LOWER('%" . $licenciaMRC . "%')) ";
+}
 	if($text!=""){
-		$sWhere.=" and name LIKE '%".$text."%' ";
-	}
+	$sWhere .= " and (LOWER(name) LIKE LOWER('%" . $text . "%')) ";
+}
 	
 
 	include 'res/resources/pagination.php'; //include pagination file

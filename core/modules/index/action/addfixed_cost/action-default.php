@@ -57,7 +57,7 @@ if (empty($_REQUEST['year'])) {
 			$change_log->document_number = $expense->document_number;
 			$change_log->user_id = $expense->user_id;
 			$result = $change_log->add();
-			if (isset($result) && !empty($result) && $result) {
+			if (isset($result) && !empty($result) && is_array($result) && count($result) > 1 && $result[1] > 0) {
 				$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
 			} else {
 				$errors[] = " Lo siento algo ha salido mal en el registro de errores.";

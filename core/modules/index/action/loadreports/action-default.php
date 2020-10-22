@@ -1,17 +1,28 @@
 <?php
-if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']) && !empty($_POST['year']))) {
+if ((isset($_POST['year']) && !empty($_POST['year']))) {
 	$con = Database::getCon();
 	//Se capturan los datos enviados por ajax
 	$month = intval($_POST['month']);
 	$year = intval($_POST['year']);
 	$company_id = $_SESSION["company_id"];
-	$sWhere = " empresa=$company_id ";
-	if ($month != 0) {
-		$sWhere .= " and month(fecha) =" . $month;
+	$stockWhere = " empresa=$company_id ";
+	$stockSelect = "Select sum(amount) as total_before_month ";
+
+	if ($month != 0 && $month != 1) {
+		$stockWhere .= " and month(fecha) =" . ($month - 1);
+	} else {
+		$stockWhere .= " and month(fecha) =" . 12;
+		$stockWhere .= " and year(fecha) = " . ($year - 1);
 	}
+
 	if ($year != 0) {
-		$sWhere .= " and year(fecha) = " . $year;
+		if ($month != 1 && $month != 0) {
+			$stockWhere .= " and year(fecha) = " . ($year);
+		}
+	} else {
+		return "Debes seleccionar un año";
 	}
+
 	$colors = [
 		"#28a745",
 		"#6c757d",
@@ -23,15 +34,26 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 		"#7952b3",
 		"#e83e8c"
 	];
-	//$incomes = IncomeData::dinamycQuery($sWhere);
-	//$expenses = ExpensesData::dinamycQuery($sWhere);
-	//$partners = ResultData::dinamycQuery($sWhere);
-	$sumIncomeMonth = IncomeData::sumIncome_Month($month, $_SESSION['company_id'], $year);
+	// $incomes = IncomeData::dinamycQuery($sWhere);
+	// $expenses = ExpensesData::dinamycQuery($sWhere);
+	// $partners = ResultData::dinamycQuery($sWhere);
+
+	$sumIncomeMonth = IncomeData::sumIncomeByDate($month, $_SESSION['company_id'], $year);
 	$sumExpenseMonth = ExpensesData::sumExpenses_Month($month, $_SESSION['company_id'], $year);
 	$sumPartnerMonth = ResultData::sumPartner_Month($month, $_SESSION['company_id'], $year);
-	$sumIncomePayment = IncomeData::sumIncomeByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
-	$sumExpensesPayment = ExpensesData::sumExpensesByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
-	$sumPartnersPayment = ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
+	$sumIncomeImpayment = IncomeData::sumIncomeByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
+	$sumExpensesImpayment = ExpensesData::sumExpensesByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
+	$sumPartnersWithdrawal = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true);
+	$sumPartnersContribution = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'],  $month, $year, false);
+	$sumPartnersWithdrawalPayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true, true);
+	$sumPartnersWithdrawalImpayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true,false);
+	$sumPartnersContributionPayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, false, true);
+	$sumPartnersContributionImpayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, false, false);
+	$sumPartnersImpayment = ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
+	$sumPartnersPayment = ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'], 1, $month, $year);
+	$sumStockByDate = StockData::sumStockByDate($_SESSION['company_id'], $month, $year);
+	//$sumStocksBeforeDate = StockData::dinamycQuery($sWhere);
+	$sumStocksBeforeDate = StockData::dinamycAllQuery($stockWhere, $stockSelect, false);
 	$resultSumMonth = (isset($sumIncomeMonth->total) ? $sumIncomeMonth->total : 0) - (isset($sumExpenseMonth->total) ? $sumExpenseMonth->total : 0);
 	$result = array();
 	$types = TypeData::getAllType();
@@ -44,6 +66,80 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 			percentageSumMonthYear: "<?php echo round(($resultSumMonth / (isset($sumIncomeMonth->total) ? $sumIncomeMonth->total : 1)) * 100, 2); ?>"
 		}
 	</script>
+
+
+
+
+
+	<?php if ((isset($_POST["annual"]) && !empty($_POST["annual"]) && $_POST['annual'] == "true") && ((isset($sumIncomeMonth) && $sumIncomeMonth->total > 0) || (isset($sumExpenseMonth) && $sumExpenseMonth->total > 0))) { ?>
+
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">Resultados de la Gestión</h3>
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
+				</div>
+			</div>
+			<?php $sumExpensesAnnual =  ExpensesData::sumExpensesAnnual($_SESSION['company_id'], $year); ?>
+			<?php $sumIncomeAnnual =  IncomeData::sumIncomeAnnual($_SESSION['company_id'], $year); ?>
+			<?php $sumDebtsAnnual =  DebtsData::sumDebtsAnnual($_SESSION['company_id'], $year); ?>
+			<script>
+				response.annual_expenses = [
+					"<?php echo number_format($sumExpensesAnnual->enero ? $sumExpensesAnnual->enero :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->febrero ? $sumExpensesAnnual->febrero :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->marzo ? $sumExpensesAnnual->marzo :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->abril ? $sumExpensesAnnual->abril :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->mayo ? $sumExpensesAnnual->mayo :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->junio ? $sumExpensesAnnual->junio :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->julio ? $sumExpensesAnnual->julio :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->agosto ? $sumExpensesAnnual->agosto :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->septiembre ? $sumExpensesAnnual->septiembre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->octubre ? $sumExpensesAnnual->octubre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->noviembre ? $sumExpensesAnnual->noviembre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumExpensesAnnual->diciembre ? $sumExpensesAnnual->diciembre :  0, 2, ',', ''); ?>"
+				];
+				response.annual_incomes = [
+					"<?php echo number_format($sumIncomeAnnual->enero ? $sumIncomeAnnual->enero : 0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->febrero ? $sumIncomeAnnual->febrero :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->marzo ? $sumIncomeAnnual->marzo :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->abril ? $sumIncomeAnnual->abril :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->mayo ? $sumIncomeAnnual->mayo :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->junio ? $sumIncomeAnnual->junio :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->julio ? $sumIncomeAnnual->julio :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->agosto ? $sumIncomeAnnual->agosto :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->septiembre ? $sumIncomeAnnual->septiembre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->octubre ? $sumIncomeAnnual->octubre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->noviembre ? $sumIncomeAnnual->noviembre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumIncomeAnnual->diciembre ? $sumIncomeAnnual->diciembre :  0, 2, ',', ''); ?>"
+				];
+				response.annual_debts = [
+					"<?php echo number_format($sumDebtsAnnual->enero ? $sumDebtsAnnual->enero :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->febrero ? $sumDebtsAnnual->febrero :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->marzo ? $sumDebtsAnnual->marzo :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->abril ? $sumDebtsAnnual->abril :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->mayo ? $sumDebtsAnnual->mayo :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->junio ? $sumDebtsAnnual->junio :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->julio ? $sumDebtsAnnual->julio :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->agosto ? $sumDebtsAnnual->agosto :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->septiembre ? $sumDebtsAnnual->septiembre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->octubre ? $sumDebtsAnnual->octubre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->noviembre ? $sumDebtsAnnual->noviembre :  0, 2, ',', ''); ?>",
+					"<?php echo number_format($sumDebtsAnnual->diciembre ? $sumDebtsAnnual->diciembre :  0, 2, ',', ''); ?>"
+				];
+				// console.log(response.annual_expenses);
+				// console.log(response.annual_incomes);
+				// console.log(response.annual_debts);
+			</script>
+			<div class="box-body table-responsive">
+				<canvas id="LineAnnual" style="width: 500px; height: 500px;" width="500" height="500"></canvas>
+			</div>
+
+		</div>
+
+	<?php } ?>
+
+
 
 	<?php if (isset($sumIncomeMonth) && $sumIncomeMonth->total > 0) { ?>
 		<div class="box" style="background:#f5f5f5 !important;" id="reportIncome">
@@ -59,7 +155,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="row panel-title">
 									<div class="col-md-6 col-sm-6 col-xs-6">
-										Ingresos $<?php echo $sumIncomeMonth->total; ?>
+										Ingresos $<?php echo  round($sumIncomeMonth->total, 2); ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -67,10 +163,10 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 										<span style="float:right;">Impagos</span>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										$<?php echo $sumIncomePayment->amount; ?>
+										$<?php echo  round($sumIncomeImpayment->amount, 2); ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										<?php echo round(($sumIncomePayment->amount * 100) / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total), 2); ?>%
+										<?php echo round(($sumIncomeImpayment->amount * 100) / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total), 2); ?>%
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -151,7 +247,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																				<?php echo $incomeByType->description; ?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
-																				$<?php echo $incomeByType->amount; ?>
+																				$<?php echo  round($incomeByType->amount, 2); ?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
 																				<?php echo round(($incomeByType->amount * 100) / $sumIncomeType, 2); ?>%
@@ -162,7 +258,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																				$<?php
 																					$incomePay = IncomeData::sumIncomeCategoryByTypeAndPayment($_SESSION['company_id'], $type->id, $incomeByType->category_id, $month, $year, 0);
 																					$incomeAmountPayment = isset($incomePay) ? $incomePay->amount : 0;
-																					echo $incomeAmountPayment;
+																					echo  round($incomeAmountPayment, 2);
 																					?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
@@ -188,7 +284,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																						<?php echo $IncomeByCategory->description; ?>
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
-																						$<?php echo $IncomeByCategory->amount; ?>
+																						$<?php echo  round($IncomeByCategory->amount, 2); ?>
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
 																						<?php echo round(($IncomeByCategory->amount / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total)) * 100, 2); ?>%
@@ -200,6 +296,8 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																						$<?php echo ($IncomeByCategory->pagado == "0") ? $IncomeByCategory->amount : 0; ?>
 																					</div>
 																					<div class="col-md-2 col-sm-2 col-xs-2">
+																						<a href="./?view=editincome&id=<?php echo $IncomeByCategory->id ?>" target="_blank"><span class="glyphicon glyphicon-list-alt"></span></a>
+
 																					</div>
 																				</div>
 																			<?php }
@@ -241,7 +339,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 							<div class="col-md-12 col-sm-12 col-xs-12">
 								<div class="row panel-title">
 									<div class="col-md-6 col-sm-6 col-xs-6">
-										Egresos $<?php echo $sumExpenseMonth->total; ?>
+										Egresos $<?php echo  round($sumExpenseMonth->total, 2); ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -249,10 +347,10 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 										<span style="float:right;">Impagos</span>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										$<?php echo $sumExpensesPayment->amount; ?>
+										$<?php echo  round($sumExpensesImpayment->amount, 2); ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										<?php echo round(($sumExpensesPayment->amount * 100) / ($sumExpenseMonth->total == 0 ? 1 : $sumExpenseMonth->total), 2); ?>%
+										<?php echo round(($sumExpensesImpayment->amount * 100) / ($sumExpenseMonth->total == 0 ? 1 : $sumExpenseMonth->total), 2); ?>%
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -306,7 +404,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 														$sumExpensesTypePayment =  isset(ExpensesData::sumExpensesByTypeAndPayment($_SESSION['company_id'], $type->id, $month, $year, 0)->amount) ?  ExpensesData::sumExpensesByTypeAndPayment($_SESSION['company_id'], $type->id, $month, $year, 0)->amount : 0;
 														?>
 														<div class="col-md-1 col-sm-1 col-xs-1">
-															$<?php echo $sumExpensesTypePayment; ?>
+															$<?php echo  round($sumExpensesTypePayment, 2); ?>
 														</div>
 														<div class="col-md-1 col-sm-1 col-xs-1">
 															<?php
@@ -334,7 +432,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																				<?php echo $ExpenseByType->description; ?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
-																				$<?php echo $ExpenseByType->amount; ?>
+																				$<?php echo  round($ExpenseByType->amount, 2); ?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
 																				<?php echo round(($ExpenseByType->amount / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total)) * 100, 2); ?>%
@@ -346,7 +444,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																				$<?php
 																					$ExpensesPay = ExpensesData::expensesCategoryByTypeAndPayment($_SESSION['company_id'], $type->id, $ExpenseByType->category_id, $month, $year, 0);
 																					$ExpensesAmountPayment = isset($ExpensesPay) ? $ExpensesPay->amount : 0;
-																					echo $ExpensesAmountPayment;
+																					echo  round($ExpensesAmountPayment, 2);
 																					?>
 																			</div>
 																			<div class="col-md-1 col-sm-1 col-xs-1">
@@ -372,7 +470,7 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																						<?php echo $ExpenseByCategory->description; ?>
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
-																						$<?php echo $ExpenseByCategory->amount; ?>
+																						$<?php echo  round($ExpenseByCategory->amount, 2); ?>
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
 																						<?php echo round(($ExpenseByCategory->amount / ($sumIncomeMonth->total == 0 ? 1 : $sumIncomeMonth->total)) * 100, 2); ?>%
@@ -381,9 +479,10 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 																						<?php echo round(($ExpenseByCategory->amount / $sumExpensesType) * 100, 2); ?>%
 																					</div>
 																					<div class="col-md-1 col-sm-1 col-xs-1">
-																						$<?php echo ($ExpenseByCategory->pagado == "0") ? $ExpenseByCategory->amount : 0; ?>
+																						$<?php echo  round(($ExpenseByCategory->pagado == "0") ? $ExpenseByCategory->amount : 0, 2); ?>
 																					</div>
 																					<div class="col-md-2 col-sm-2 col-xs-2">
+																						<a href="./?view=editexpense&id=<?php echo $ExpenseByCategory->id ?>" target="_blank"><span class="glyphicon glyphicon-list-alt"></span></a>
 																					</div>
 																				</div>
 																			<?php }
@@ -432,10 +531,10 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 										<span style="float:right;">Impagos</span>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										$<?php echo $sumPartnersPayment->amount; ?>
+										$<?php echo $sumPartnersImpayment->amount; ?>
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
-										<?php echo round(($sumPartnersPayment->amount / $sumPartnerMonth->total) * 100, 2); ?>%
+										<?php echo round(($sumPartnersImpayment->amount / $sumPartnerMonth->total) * 100, 2); ?>%
 									</div>
 									<div class="col-md-1 col-sm-1 col-xs-1">
 									</div>
@@ -498,6 +597,228 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 			<strong>Sin Resultados de Socios!</strong> No se encontraron resultados en la base de datos!.
 		</div>
 	<?php }
+
+	if ((isset($sumIncomeMonth) && $sumIncomeMonth->total > 0) || (isset($sumExpenseMonth) && $sumExpenseMonth->total > 0)) { ?>
+
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					Resultado de la Gestión
+				</h3>
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>+ Valores Iniciales</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($sumStocksBeforeDate->total_before_month ? $sumStocksBeforeDate->total_before_month : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>+ Aportes Socios</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($sumPartnersContribution->amount ? $sumPartnersContribution->amount : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>- Retiros Socios </strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo  round($sumPartnersWithdrawal->amount ? $sumPartnersWithdrawal->amount : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>+ Ingresos pagados</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<?php $inc = $sumIncomeMonth->total ? $sumIncomeMonth->total : 0 ?>
+						<?php $incp = $sumIncomeImpayment->amount ? $sumIncomeImpayment->amount : 0 ?>
+						<label>$<?php echo round($inc - $incp, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>- Egresos pagados</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<?php $exp = $sumExpenseMonth->total ? $sumExpenseMonth->total : 0 ?>
+						<?php $expp = $sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0 ?>
+						<label>$<?php echo round($exp - $expp, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>+ Deuda generada</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<?php $sumDebImpay = DebtsData::sumDebtsByPay($_SESSION['company_id'], $year, $month, 0) ?>
+						<?php $sumDebPay = DebtsData::sumDebtsByPay($_SESSION['company_id'], $year, $month, 1) ?>
+						<?php $debImp = $sumDebImpay->total ? $sumDebImpay->total : 0 ?>
+						<?php $debPay = $sumDebPay->total ? $sumDebPay->total : 0 ?>
+						<label>$<?php echo round($debImp, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>- Deuda pagada</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($debPay ? $debPay : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>= Valores teorico</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$
+							<?php
+							$valor_inicial = $sumStocksBeforeDate->total_before_month ? $sumStocksBeforeDate->total_before_month : 0;
+							$socio_aporte = $sumPartnersPayment->amount ? $sumPartnersPayment->amount : 0;
+							$socio_retiro = $sumPartnersImpayment->amount ? $sumPartnersImpayment->amount : 0;
+							$saldo_socio = $socio_aporte - $socio_retiro;
+							$ingresos = $sumIncomeMonth->total;
+							$egresos = $sumExpenseMonth->total;
+							$deuda_pagada = $debPay;
+							$deuda_generada = $debImp;
+							$valores_teoricos =  ($valor_inicial + $saldo_socio + $ingresos - $egresos + $deuda_generada - $deuda_pagada);
+							echo round($valores_teoricos, 2);
+							$diferencia =  ($sumStockByDate->amount ? $sumStockByDate->amount : 0) - ($valores_teoricos > 0 ? $valores_teoricos : $valores_teoricos * -1);
+							?>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Valores real</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($sumStockByDate->amount ? $sumStockByDate->amount : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Diferencia</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($diferencia, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<h4 style="float:right;"><strong>Resultado de la gestión</strong></h4>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<h4><strong><?php echo  round(((abs($diferencia) / round($sumStockByDate->amount ? $sumStockByDate->amount : 0, 2)) * 100), 2); ?>%</strong></h4>
+					</div>
+				</div>
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right">
+							<strong>
+								<h4>Impagos</h4>
+							</strong>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>mes/año</label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>total</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Ingresos</strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo round($sumIncomeImpayment->amount ? $sumIncomeImpayment->amount : 0, 2) ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumIncomeMonth->total ? $sumIncomeMonth->total : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Egresos</strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0, 2) ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumExpenseMonth->total ? $sumExpenseMonth->total : 0, 2) ?></label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Socios aportes </strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumPartnersContributionImpayment->amount, 2); ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo round($sumPartnersContribution->amount ? $sumPartnersContribution->amount : 0, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Socios retiros</strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumPartnersWithdrawalImpayment->amount, 2); ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumPartnersWithdrawal->amount ? $sumPartnersWithdrawal->amount : 0, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Deuda</strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($debImp, 2); ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($debPay + $debImp, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong></strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo round(($sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0) + $socio_retiro + $debImp, 2); ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo round(($sumExpenseMonth->total ? $sumExpenseMonth->total : 0) + ($sumPartnerMonth->total ? $sumPartnerMonth->total : 0) + ($debPay + $debImp), 2); ?></label>
+					</div>
+				</div>
+
+			</div>
+			<!-- /.box-body -->
+		</div>
+	<?php } else { ?>
+		<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<strong>Sin Resultados de Ingresos o egreso </strong> No se puede generar el resultado de la gestión!.
+		</div>
+	<?php }
 } else { ?>
 	<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 		<strong>Debes seleccionar un año y un mes!</strong>
@@ -512,21 +833,18 @@ if ((isset($_POST['month']) && !empty($_POST['month'])) && (isset($_POST['year']
 		input.classList.forEach(
 			function(element) {
 				if (element == "fa-plus") {
-					fa_status = "fa-minus";
-				} else if (element == "fa-minus") {
 					fa_status = "fa-plus";
+				} else if (element == "fa-minus") {
+					fa_status = "fa-minus";
 				}
 			}
 		);
 		if (fa_status != null) {
-			var icons = document.getElementById('accordion').getElementsByClassName('fa');
-			for (var i = 0; i < icons.length; i++) {
-				icons[i].className = "fa fa-plus";
-			}
+			input.classList.remove(fa_status);
 			if (fa_status == "fa-plus") {
-				input.className = "fa fa-plus collapsed";
+				input.classList.add("fa-minus");
 			} else if (fa_status == "fa-minus") {
-				input.className = "fa fa-minus";
+				input.classList.add("fa-plus");
 			}
 		}
 	}

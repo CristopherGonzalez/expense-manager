@@ -31,7 +31,7 @@ if (empty($_POST['mod_id'])) {
 		$change_log->tipo = $category_income->tipo;
 		$change_log->user_id = $category_income->user_id;
 		$result = $change_log->add();
-		if (isset($result) && !empty($result) && $result) {
+		if (isset($result) && !empty($result) && is_array($result) && count($result) > 1 && $result[1] > 0) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
 		} else {
 			$errors[] = " Lo siento algo ha salido mal en el registro de errores.";

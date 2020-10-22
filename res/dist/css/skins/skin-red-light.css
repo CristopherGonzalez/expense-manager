@@ -53,6 +53,9 @@
 .skin-red-light .main-header li.user-header {
   background-color: #dd4b39;
 }
+.skin-red-light li.user-footer {
+  background-color: #dd4b39;
+}
 .skin-red-light .content-header {
   background: transparent;
 }

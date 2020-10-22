@@ -53,6 +53,9 @@
 .skin-blue .main-header li.user-header {
   background-color: #3c8dbc;
 }
+.skin-blue li.user-footer {
+  background-color: #3c8dbc;
+}
 .skin-blue .content-header {
   background: transparent;
 }
@@ -190,6 +193,9 @@
   background-color: #3b8ab8;
 }
 .skin-blue-light .main-header li.user-header {
+  background-color: #3c8dbc;
+}
+.skin-blue-light li.user-footer {
   background-color: #3c8dbc;
 }
 .skin-blue-light .content-header {
@@ -375,6 +381,9 @@
 .skin-black .main-header li.user-header {
   background-color: #222;
 }
+.skin-black li.user-footer {
+  background-color: #222;
+}
 .skin-black .content-header {
   background: transparent;
   box-shadow: none;
@@ -533,6 +542,9 @@
 .skin-black-light .main-header li.user-header {
   background-color: #222;
 }
+.skin-black-light li.user-footer {
+  background-color: #222;
+}
 .skin-black-light .content-header {
   background: transparent;
   box-shadow: none;
@@ -687,6 +699,9 @@
 .skin-green .main-header li.user-header {
   background-color: #00a65a;
 }
+.skin-green li.user-footer {
+  background-color: #00a65a;
+}
 .skin-green .content-header {
   background: transparent;
 }
@@ -816,6 +831,9 @@
   background-color: #00a157;
 }
 .skin-green-light .main-header li.user-header {
+  background-color: #00a65a;
+}
+.skin-green-light li.user-footer {
   background-color: #00a65a;
 }
 .skin-green-light .content-header {
@@ -971,6 +989,9 @@
 .skin-red .main-header li.user-header {
   background-color: #dd4b39;
 }
+.skin-red li.user-footer {
+  background-color: #dd4b39;
+}
 .skin-red .content-header {
   background: transparent;
 }
@@ -1100,6 +1121,9 @@
   background-color: #dc4735;
 }
 .skin-red-light .main-header li.user-header {
+  background-color: #dd4b39;
+}
+.skin-red-light li.user-footer {
   background-color: #dd4b39;
 }
 .skin-red-light .content-header {
@@ -1255,6 +1279,9 @@
 .skin-yellow .main-header li.user-header {
   background-color: #f39c12;
 }
+.skin-yellow li.user-footer {
+  background-color: #f39c12;
+}
 .skin-yellow .content-header {
   background: transparent;
 }
@@ -1384,6 +1411,9 @@
   background-color: #f39a0d;
 }
 .skin-yellow-light .main-header li.user-header {
+  background-color: #f39c12;
+}
+.skin-yellow-light li.user-footer {
   background-color: #f39c12;
 }
 .skin-yellow-light .content-header {
@@ -1539,6 +1569,9 @@
 .skin-purple .main-header li.user-header {
   background-color: #605ca8;
 }
+.skin-purple li.user-footer {
+  background-color: #605ca8;
+}
 .skin-purple .content-header {
   background: transparent;
 }
@@ -1668,6 +1701,9 @@
   background-color: #5d59a6;
 }
 .skin-purple-light .main-header li.user-header {
+  background-color: #605ca8;
+}
+.skin-purple-light li.user-footer {
   background-color: #605ca8;
 }
 .skin-purple-light .content-header {

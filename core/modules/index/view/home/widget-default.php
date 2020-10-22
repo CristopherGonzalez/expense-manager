@@ -11,22 +11,26 @@ if (isset($_SESSION["user_id"])) :
   $sumExpenseNotPay = ExpensesData::sumExpenseNotPay($_SESSION['company_id']);
   $sumExpenses = ExpensesData::sumExpenses($_SESSION["company_id"]);
   $sumResult = $sumIncome->amount - $sumExpenses->amount;
-  
+
   $sumIncomeNotPayMonth = IncomeData::sumIncomeMonthNotPay($_SESSION['company_id'], date('m'));
   $sumExpenseNotPayMonth = ExpensesData::sumExpenseMonthNotPay($_SESSION['company_id'], date('m'));
 ?>
   <?php
   function sum_incomes_month($month, $return = false)
   {
-    $income = IncomeData::sumIncome_Month($month, $_SESSION["company_id"]);
+    $income = IncomeData::sumIncomeByDate($month, $_SESSION["company_id"]);
     echo $total = number_format($income->total, 2, '.', '');
-    if($return){return $total;}
+    if ($return) {
+      return $total;
+    }
   }
   function sum_expenses_month($month, $return = false)
   {
     $expenses = ExpensesData::sumExpenses_Month($month, $_SESSION["company_id"]);
     echo $total = number_format($expenses->total, 2, '.', '');
-    if($return){return $total;}
+    if ($return) {
+      return $total;
+    }
   }
   ?>
   <!-- Content Wrapper. Contains page content -->
@@ -51,7 +55,7 @@ if (isset($_SESSION["user_id"])) :
               <span class="info-box-number"><?php echo number_format($sumIncome->amount, 2);  ?></span>
               <span class="info-box-text">Impagos</span>
               <?php $sumIncomeAmount = $sumIncome->amount == 0  ||  $sumIncome->amount == null ? 1 : $sumIncome->amount;  ?>
-              <span class="info-box-text"><?php echo $sumIncomeNotPay->amount;?>  <?php echo number_format(($sumIncomeNotPay->amount*100)/$sumIncomeAmount,2) ?>%</span>
+              <span class="info-box-text"><?php echo $sumIncomeNotPay->amount; ?> <?php echo number_format(($sumIncomeNotPay->amount * 100) / $sumIncomeAmount, 2) ?>%</span>
             </div>
           </div>
         </div>
@@ -64,7 +68,7 @@ if (isset($_SESSION["user_id"])) :
               <span class="info-box-text">Impagos</span>
               <?php $sumExpenseAmount = $sumExpenses->amount == 0  ||  $sumExpenses->amount == null ? 1 : $sumExpenses->amount;  ?>
 
-              <span class="info-box-text"><?php echo $sumExpenseNotPay->amount;?>  <?php echo number_format(($sumExpenseNotPay->amount*100)/$sumExpenseAmount,2) ?>%</span>
+              <span class="info-box-text"><?php echo $sumExpenseNotPay->amount; ?> <?php echo number_format(($sumExpenseNotPay->amount * 100) / $sumExpenseAmount, 2) ?>%</span>
             </div>
           </div>
         </div>
@@ -74,6 +78,8 @@ if (isset($_SESSION["user_id"])) :
             <div class="info-box-content">
               <span class="info-box-text"> Resultados totales</span>
               <span class="info-box-number"><?php echo number_format($sumResult, 2); ?></span>
+              <span class="info-box-text">ds</span>
+              <span class="info-box-text">sds</span>
             </div>
           </div>
         </div>
@@ -81,11 +87,11 @@ if (isset($_SESSION["user_id"])) :
           <div class="info-box">
             <span class="info-box-icon bg-red"><i class="fa fa-usd"></i></span>
             <div class="info-box-content">
-              <span class="info-box-text">Deudas</span>
+              <span class="info-box-text">Deudas Documentada</span>
               <span class="info-box-number">
-                <?php 
-                  $sumDebts = DebtsData::sumDebts($_SESSION['company_id']); 
-                  echo number_format($sumDebts->amount,2);
+                <?php
+                $sumDebts = DebtsData::sumDebts($_SESSION['company_id']);
+                echo number_format($sumDebts->amount, 2);
                 ?>
               </span>
               <span class="info-box-text">solo deuda impaga</span>
@@ -101,12 +107,12 @@ if (isset($_SESSION["user_id"])) :
               <span class="info-box-text">Mis Ingresos este mes</span>
               <span class="info-box-number">
                 <?php
-                $sumIncomeMonth =  sum_incomes_month(date('m'),true);
+                $sumIncomeMonth =  sum_incomes_month(date('m'), true);
                 ?>
               </span>
               <span class="info-box-text">Impago</span>
               <?php $sumIncomeMonth = $sumIncomeMonth == 0  ||  $sumIncomeMonth == null ? 1 : $sumIncomeMonth;  ?>
-              <span class="info-box-text"><?php echo $sumIncomeNotPayMonth->amount;?>  <?php echo number_format(($sumIncomeNotPayMonth->amount*100)/$sumIncomeMonth,2) ?>% </span>
+              <span class="info-box-text"><?php echo $sumIncomeNotPayMonth->amount; ?> <?php echo number_format(($sumIncomeNotPayMonth->amount * 100) / $sumIncomeMonth, 2) ?>% </span>
 
             </div>
           </div>
@@ -118,11 +124,11 @@ if (isset($_SESSION["user_id"])) :
               <span class="info-box-text">Mis Egresos este mes</span>
               <span class="info-box-number">
                 <?php
-                $sumExpenseMonth =  sum_expenses_month(date('m'),true);
+                $sumExpenseMonth =  sum_expenses_month(date('m'), true);
                 ?></span>
-                <span class="info-box-text">Impago</span>
-                <?php $sumExpenseMonth = $sumExpenseMonth == 0  ||  $sumExpenseMonth == null ? 1 : $sumExpenseMonth;  ?>
-              <span class="info-box-text "><?php echo $sumExpenseNotPayMonth->amount;?>  <?php echo number_format(($sumExpenseNotPayMonth->amount*100)/$sumExpenseMonth,2) ?>%  </span>
+              <span class="info-box-text">Impago</span>
+              <?php $sumExpenseMonth = $sumExpenseMonth == 0  ||  $sumExpenseMonth == null ? 1 : $sumExpenseMonth;  ?>
+              <span class="info-box-text "><?php echo $sumExpenseNotPayMonth->amount; ?> <?php echo number_format(($sumExpenseNotPayMonth->amount * 100) / $sumExpenseMonth, 2) ?>% </span>
 
             </div>
           </div>
@@ -132,7 +138,7 @@ if (isset($_SESSION["user_id"])) :
             <span class="info-box-icon bg-green"><i class="fa fa-usd"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Resultados este mes</span>
-              <span class="info-box-number"><?php echo number_format(($sumIncomeMonth - $sumExpenseMonth),2); ?></span>
+              <span class="info-box-number"><?php echo number_format(($sumIncomeMonth - $sumExpenseMonth), 2); ?></span>
             </div>
           </div>
         </div>
@@ -142,9 +148,9 @@ if (isset($_SESSION["user_id"])) :
             <div class="info-box-content">
               <span class="info-box-text">Valores</span>
               <span class="info-box-number">
-              <?php 
-                  $sumStock = StockData::sumStock($_SESSION['company_id']); 
-                  echo number_format($sumStock->amount,2);
+                <?php
+                $sumStock = StockData::sumStock($_SESSION['company_id']);
+                echo number_format($sumStock->amount, 2);
                 ?>
               </span>
             </div>

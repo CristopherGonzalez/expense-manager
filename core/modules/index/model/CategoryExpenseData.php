@@ -86,7 +86,7 @@ class CategoryExpenseData {
 	 * @return array(CategoryExpenseData) Array con Categorias de egreso de la empresa
 	 */
 	public static function getLike($name,$id){
-		$sql = "select * from ".self::$tablename." where name like '%$name%' and empresa=$id" ;
+		$sql = "select * from ".self::$tablename. " where (LOWER(name) LIKE LOWER('%" . $name . "%')) and empresa=$id" ;
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new CategoryExpenseData());
 	}

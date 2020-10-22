@@ -53,6 +53,9 @@
 .skin-green .main-header li.user-header {
   background-color: #00a65a;
 }
+.skin-green li.user-footer {
+  background-color: #00a65a;
+}
 .skin-green .content-header {
   background: transparent;
 }

@@ -72,6 +72,9 @@
 .skin-black-light .main-header li.user-header {
   background-color: #222;
 }
+.skin-black-light li.user-footer {
+  background-color: #222;
+}
 .skin-black-light .content-header {
   background: transparent;
   box-shadow: none;

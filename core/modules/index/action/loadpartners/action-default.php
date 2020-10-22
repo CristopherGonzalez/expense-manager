@@ -23,7 +23,7 @@ if (isset($_REQUEST["id"])) { //codigo para eliminar
 		$change_log->payment_date = $partner->payment_date;
 
 		$result = $change_log->add();
-		if (isset($result) && !empty($result) && $result) {
+		if (isset($result) && !empty($result) && is_array($result) && count($result) > 1 && $result[1] > 0) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente";
 		} else {
 			$errors[] = " Lo siento algo ha salido mal en el registro de errores.";
@@ -55,7 +55,7 @@ if ($year != 0) {
 	$sWhere .= " and year(fecha) = " . $year;
 }
 if ($text != "") {
-	$sWhere .= " and description LIKE '%" . $text . "%' ";
+	$sWhere .= " and (LOWER(description) LIKE LOWER('%" . $text . "%')) ";
 }
 if (!$not_paid) {
 	$sWhere .= " and pagado = " . $not_paid;

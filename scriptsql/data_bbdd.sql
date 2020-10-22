@@ -1,5 +1,5 @@
 
-use minegocio;
+use dm000397_Negocio;
 /*Datos de Paises*/
 
 /*Datos de tipos de negocio*/
@@ -8,22 +8,49 @@ use minegocio;
 INSERT INTO tipo_negocios
     (name)
 VALUES
-    ('Restaurante'),
-    ('FastFood'),
-    ('Delivery'),
-    ('Panaderia'),
-    ('Heladeria'),
-    ('Cafeteria'),
+    ('Cafeteria'
+),
+
+    ('Carniceria'
+),
+
     ('Cerveceria'),
-    ('Vineria'),
-    ('Comedor'),
-    ('MiniMarket'),
-    ('Market'),
-    ('Carniceria'),
-    ('Verduleria'),
-    ('Libreria'),
-    ('Ferreteria'),
-    ('Chocolateria');
+
+    ('Comedor'
+),
+
+    ('Chocolateria'
+),
+
+    ('Delivery'
+),
+
+    ('FastFood'
+),
+
+    ('Ferreteria'
+),
+
+    ('Heladeria'
+),
+
+    ('Libreria'
+),
+
+    ('Market'
+),
+
+    ('MiniMarket'
+),
+
+    ('Panaderia'
+),
+
+    ('Restaurante'),
+    ('Verduleria'
+),
+
+    ('Vineria');
 
 /*Datos de skins*/
 
@@ -65,18 +92,18 @@ values
 /*Prueba de empresa*/
 
 INSERT INTO empresas
-    (status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name, password, email, profile_pic, skin, created_at)
+    (status, is_deleted, licenciaMRC, pais, ciudad, tipo_negocio, name,  email, profile_pic, skin, created_at)
 VALUES
-    ('1', '0', 'minegocio', '2', '34', '2', 'MRComanda', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.jpg', '1', NOW());
+    ('1', '0', 'minegocio', '2', '34', '2', 'MRComanda', 'info@mrcomanda.com', 'default.jpg', '1', NOW());
 
 /*Prueba de usuario*/
 INSERT INTO user
     (status, is_deleted, name, password, email, profile_pic, skin, empresa, is_admin, created_at)
 VALUES
-    (1, 0, 'MRC Administrador', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.png', 1 , 1, 1, NOW());
+    (3, 0, 'MRC Administrador', 'e6a51d1c4b6e2f8ecb19c2bda1521452e02f3aa9', 'info@mrcomanda.com', 'default.png', 1 , 1, 1, NOW());
 
 
-/*Datos de seccion de egresos*/
+/*Datos de seccion de tipos de egresos*/
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
@@ -93,7 +120,6 @@ INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
     ('Egreso', 'Honorarios', 'Profesional' );
-
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
@@ -105,7 +131,8 @@ VALUES
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
-    ('Egreso', 'Publicidad y promocion', 'Medio' );
+    ('Egreso', 'Publicidad y promocion', 'Medio'
+);
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
@@ -118,8 +145,7 @@ INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
     ('Egreso', 'Otros', 'Entidad' );
-/*Datos de seccion de ingresos*/
-
+/*Datos de seccion de tipos de ingreso*/
 
 INSERT INTO tipos
     (tipo, name, entidad)
@@ -128,11 +154,12 @@ VALUES
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
-    ('Ingreso', 'Comisiones', 'Comisión' );
+    ('Ingreso', 'Comisiones', 'Comision' );
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
-    ('Ingreso', 'Publicidad y promoción', 'Marca' );
+    ('Ingreso', 'Publicidad y promocion', 'publicidad' );
+
 
 INSERT INTO tipos
     (tipo, name, entidad)
@@ -142,9 +169,7 @@ INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
     ('Ingreso', 'Otros', 'Entidad' );
-
-/*Datos de seccion de socios*/
-
+/*Datos de seccion de tipos de socios*/
 
 INSERT INTO tipos
     (tipo, name, entidad)
@@ -154,9 +179,7 @@ INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
     ('Socio', 'Otros', 'Entidad' );
-
-
-/*Datos de seccion de valores*/
+/*Datos de seccion de tipos de valores*/
 
 INSERT INTO tipos
     (tipo, name, entidad)
@@ -174,29 +197,29 @@ INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
     ('Valores', 'Tarjeta', 'Entidad' );
-
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
     ('Valores', 'Otros', 'Entidad' );
-
-
-/*Datos de seccion de entidades*/
-
+/*Datos de seccion de tipos de deudas*/
 
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
-    ('Deudas', 'Cheques', 'Entidad' );
+    ('Deudas', 'Cheques', 'Cheque' );
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
-    ('Deudas', 'Impuestos', 'Entidad' );
+    ('Deudas', 'Creditos', 'Credito' );
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
-    ('Deudas', 'Creditos', 'Entidad' );
+    ('Deudas', 'Impuestos', 'Impuesto' );
 INSERT INTO tipos
     (tipo, name, entidad)
 VALUES
-    ('Deudas', 'Otros', 'Entidad' );
+    ('Deudas', 'Proveedores', 'Proveedor' );
+INSERT INTO tipos
+    (tipo, name, entidad)
+VALUES
+    ('Deudas', 'Otros', 'Otro' );

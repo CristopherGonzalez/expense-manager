@@ -48,7 +48,7 @@
 					$user->empresa = $company->id;
 					$query_new=$user->add();
 					if (!empty($query_new) && is_array($query_new) && $query_new[0] ) {
-						$messages[] = "Registro con éxito! Pero debes esperar la activacion por parte de la empresa.";
+						$messages[] = "Registro con éxito! Ahora debes esperar la activacion por parte de la empresa.";
 						$codes = array(
 							'user_id'=>$query_new[1],
 							'step'=>1
@@ -65,7 +65,7 @@
 						if($resp_send){
 							$messages[] = " Se envía correo exitosamente";
 						}else{
-							$error[] = $resp_send;
+							$errors[] = "Lo sentimos, hubo un error al enviar el correo";
 						}
 						//$messages[] = $mail->message;
 					} else {
@@ -73,30 +73,15 @@
 					}
 				}
 			} else {
-				$errors[] = "Eres un Robot, intenta nuevamente la validacion.";
+				$errors[] = "Eres un Robot?, recarga e intenta nuevamente la validacion.";
 
 			}
-			
-			
-			
 			
 		} else {
 			$errors[] = "desconocido.";	
 		}
 
-	if (isset($errors)){		
-?>
-	<div class="alert alert-danger" role="alert">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<strong>Error!</strong> 
-		<?php
-			foreach ($errors as $error) {
-				echo $error;
-			}
-		?>
-	</div>
-<?php
-	}
+	
 	if (isset($messages)){
 ?>
 		<div class="alert alert-success" role="alert">
@@ -109,5 +94,17 @@
 			?>
 		</div>
 <?php
+	}	
+if (isset($errors)){		
+?>
+	<div class="alert alert-danger" role="alert">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<strong>Error!</strong> 
+		<?php
+			foreach ($errors as $error) {
+				echo $error;
+			}
+		?>
+	</div>
+<?php
 	}
-?>			

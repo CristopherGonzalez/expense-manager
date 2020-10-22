@@ -19,11 +19,29 @@ class DebtsData {
 		$this->empresa = "";
 		$this->active = 1;
 		$this->payment_specific_date = null;
+		$this->egreso_id = null;
+		$this->socio_id = null;
 	}
 
 	public function add(){
-		$sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active, payment_specific_date) ";
-		$sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->entidad,$this->created_at,\"$this->fecha\",\"$this->fecha_pago\",$this->pagado,\"$this->document_number\",'$this->documento','$this->pago',$this->empresa,$this->active, '$this->payment_specific_date')";
+		$sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active, payment_specific_date,egreso_id,socio_id) ";
+		$sql .= "value (\"$this->description\",
+		$this->amount,
+		\"$this->upload_receipt\",
+		$this->user_id,
+		$this->entidad,
+		$this->created_at,
+		\"$this->fecha\",
+		\"$this->fecha_pago\",
+		$this->pagado,
+		\"$this->document_number\",
+		'$this->documento',
+		'$this->pago',
+		$this->empresa,
+		$this->active,".
+		(isset($this->payment_specific_date) ? "'".$this->payment_specific_date."'" : 'null') . "," .
+		(isset($this->egreso_id)? $this->egreso_id : 'null').",".
+		(isset($this->socio_id) ? $this->socio_id : 'null') . ")";
 		return Executor::doit($sql);
 	}
 
@@ -46,6 +64,26 @@ class DebtsData {
 		if (Executor::doit($sql)){
 			return true;
 		}else{
+			return false;
+		}
+	}
+	public function updateExpense($id, $expense_id)
+	{
+		$sql = "update " . self::$tablename . " set egreso_id=$expense_id";
+		$sql .= " where id=$id";
+		if (Executor::doit($sql)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function updatePartner($id, $partner_id)
+	{
+		$sql = "update " . self::$tablename . " set socio_id=$partner_id";
+		$sql .= " where id=$id";
+		if (Executor::doit($sql)) {
+			return true;
+		} else {
 			return false;
 		}
 	}
@@ -120,6 +158,51 @@ class DebtsData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new DebtsData());
 	}
+	public static function sumDebtsByPay($empresa, $year=null, $month, $pay){
+		if(!isset($year) || $year==null) { $year = date('Y');}
+		$sql = "select *, sum(amount) as total from ".self::$tablename." where empresa=$empresa and year(fecha)='$year' and pagado=$pay and active=1";
+		if(isset($month) && !empty($month) && $month!=0){
+			$sql.=" and month(fecha)= '$month' ";
+		}
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new DebtsData());
+	}
+	public static function sumDebtsAnnual($u, $year){
+		$sql = " select 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='1' and year(fecha)='$year' and active = 1 and  empresa=$u) as enero,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='2' and year(fecha)='$year' and active = 1 and  empresa=$u) as febrero, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='3' and year(fecha)='$year' and active = 1 and  empresa=$u) as marzo, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='4' and year(fecha)='$year' and active = 1 and  empresa=$u) as abril, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='5' and year(fecha)='$year' and active = 1 and  empresa=$u) as mayo, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='6' and year(fecha)='$year' and active = 1 and  empresa=$u) as junio,  
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='7' and year(fecha)='$year' and active = 1 and  empresa=$u) as julio,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='8' and year(fecha)='$year' and active = 1 and  empresa=$u) as agosto, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='9' and year(fecha)='$year' and active = 1 and  empresa=$u) as septiembre,
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='10' and year(fecha)='$year' and active = 1 and  empresa=$u) as octubre, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='11' and year(fecha)='$year' and active = 1 and  empresa=$u) as noviembre, 
+		(SELECT sum(amount) as monto FROM ".self::$tablename." WHERE month(fecha)='12' and year(fecha)='$year' and active = 1 and  empresa=$u) as diciembre
+		";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new DebtsData());
+	}
+	public static function queryExcel($sWhere, $offset, $per_page)
+	{
+		$sql = "
+		SELECT fecha as Fecha, 
+		(SELECT name FROM entidades where id = " . self::$tablename . ".entidad ) as Entidad ,
+		description as Descripcion,
+		amount as Importe, 
+		document_number as Documento,
+		CASE pagado when 1 then 'Pagado' When 0 Then 'Impago' else 'Impago' end as Pago 
+		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new stdClass);
+	}
+	public static function queryExcelReports($sSelect, $sWhere, $offset, $per_page)
+	{
+		$sql = $sSelect . ", document_number as Documento,(SELECT name FROM entidades where id = " . self::$tablename . ".entidad ) as Entidad
+		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new stdClass);
+	}
 }
-
-?>

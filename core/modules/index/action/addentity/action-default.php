@@ -1,4 +1,5 @@
 <?php
+
 if (!isset($_SESSION['user_id'])) {
 	Core::redir("./"); //Redirecciona 
 	exit;
@@ -22,6 +23,9 @@ if (empty($_POST['name_entity'])) {
 	$entity->empresa = $_SESSION['company_id'];
 	$entity->category_id = intval($_POST['category']);
 	//Se capturan los nuevos datos de los egresos
+	if (isset($_POST["document_image"]) && !empty($_POST["document_image"])) {
+		$entity->documento = $_POST["document_image"];
+	}
 	$query_new = $entity->add();
 	if ($query_new) {
 		$messages[] = "La entidad ha sido agregada con éxito.";
@@ -32,9 +36,10 @@ if (empty($_POST['name_entity'])) {
 		$change_log->user_id = $entity->user_id;
 		$change_log->tipo = $entity->tipo;
 		$change_log->fecha = "NOW()";
+		$change_log->document_number = $entity->document_number;
 		$change_log->entidad = $entity->category_id;
 		$result = $change_log->add();
-		if (isset($result) && !empty($result) && $result) {
+		if (isset($result) && !empty($result) && is_array($result) && count($result)>1 && $result[1]>0) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";
 		} else {
 			$errors[] = " Lo siento algo ha salido mal en el registro de errores.";

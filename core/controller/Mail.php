@@ -9,8 +9,8 @@ class Mail{
 		$this->message = "";
 		$this->additional_parameters = "";
 		$this->smtp_host = "dm000397.ferozo.com";  
-		$this->smtp_usuario = "no-reply@dm000397.ferozo.com";  
-		$this->smtp_clave = "A@zf29MeKVfa";  
+		$this->smtp_usuario = "no-reply@mrcomanda.com.ar";  
+		$this->smtp_clave = "1g7pIbX2HzqO";  
 	}
 	public function send(){
 		try {
@@ -33,8 +33,8 @@ class Mail{
 
 			//$mail->Subject = "DonWeb - Ejemplo de formulario de contacto"; // Este es el titulo del email.
 			$mensajeHtml = nl2br($this->message);
-			$mail->Body = "{$mensajeHtml} <br /><br />Copyright © 2019 mrcomanda.com - Todos los derechos reservados.<br />"; // Texto del email en formato HTML
-			$mail->AltBody = "{$this->message} \n\n Copyright © 2019 mrcomanda.com - Todos los derechos reservados."; // Texto sin formato HTML
+			$mail->Body = "{$mensajeHtml} <br /><br />Copyright © ".date("Y")." mrcomanda.com - Todos los derechos reservados.<br />"; // Texto del email en formato HTML
+			$mail->AltBody = "{$this->message} \n\n Copyright © " . date("Y") . " mrcomanda.com - Todos los derechos reservados."; // Texto sin formato HTML
 			// FIN - VALORES A MODIFICAR //
 
 			if(isset($this->step) && !empty($this->step)){

@@ -4,6 +4,7 @@
 	include "controller/View.php";
 	include "controller/Module.php";
 	include "controller/Database.php";
+	include "controller/ExportExcel.php";
 	include "controller/Executor.php";
 	include "controller/forms/lbForm.php";
 	include "controller/forms/lbInputText.php";
@@ -12,6 +13,7 @@
 	include "controller/forms/lblChangeLog.php";
 	include "controller/forms/SelectList.php";
 	include "controller/forms/Modal.php";
+	include "controller/forms/MdDebt.php";
 	include "controller/forms/lbInputPassword.php";
 	include "controller/forms/Webcam.php";
 	include "controller/forms/lbValidator.php";

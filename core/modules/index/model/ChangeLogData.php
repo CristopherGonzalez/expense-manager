@@ -15,17 +15,13 @@ class ChangeLogData {
 		$this->created_at = "NOW()";
 		$this->user_id = "";
 		$this->active = 1;
-		$this->payment_date = "00/00/0000";
+		$this->payment_date = "NULL";
 		$this->tipo = "NULL";
 	}
 	public function add(){
 		$sql = "insert into ".self::$tablename." ( tabla, registro_id, description, amount, entidad, fecha, pagado,document_number, created_at, user_id, active, payment_date, tipo) ";
-		$sql .= "VALUES ('".$this->tabla."', ".$this->registro_id.", '".$this->description."', ".$this->amount.", ".$this->entidad.", '".$this->fecha."', ".$this->pagado.",'$this->document_number', ".$this->created_at.", ".$this->user_id.", ".$this->active.", ".$this->payment_date.", $this->tipo )";
-		if (Executor::doit($sql)) {
-			return true;
-		} else {
-			return false;
-		}
+		$sql .= "VALUES ('".$this->tabla."', ".$this->registro_id.", '".$this->description."', ".$this->amount.", ".$this->entidad.", '".$this->fecha."', ".$this->pagado.",'$this->document_number', ".$this->created_at.", ".$this->user_id.", ".$this->active.", '".$this->payment_date."', $this->tipo )";
+		return Executor::doit($sql);
 	}
 	public static function delete($id){
 		$sql = "delete from ".self::$tablename." where id=$id";

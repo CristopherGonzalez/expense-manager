@@ -39,7 +39,7 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$sWhere=" empresa=$company_id ";
 	//Creacion de query por nombre y/o egreso
 	if($name!=""){
-		$sWhere.=" and name LIKE '%".$name."%' ";
+		$sWhere.=" and (LOWER(name) LIKE LOWER('%" . $name . "%') )";
 	}
 	if($type_expense!=""){
 		//Se busca en tabla tipos para obtener por nombre

@@ -22,12 +22,11 @@ if (isset($_REQUEST["id"])){//codigo para eliminar
 	$name = mysqli_real_escape_string($con,(strip_tags($_REQUEST['f_name'], ENT_QUOTES)));
 	$company_id=$_SESSION["company_id"];
 	//$sWhere=" user_id>0 ";
-	$sWhere=" empresa=$company_id ";
-	$sWhere=" status in (3,4) ";
+	$sWhere=" empresa=$company_id and status in (3,4) ";
 	//Creacion de query por nombre y/o egreso
 	if($name!=""){
-		$sWhere.=" and name LIKE '%".$name."%' ";
-	}
+	$sWhere .= " and (LOWER(name) LIKE LOWER('%" . $name . "%')) ";
+}
 	
 	include 'res/resources/pagination.php'; //include pagination file
 	$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;

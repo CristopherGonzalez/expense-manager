@@ -65,7 +65,7 @@ if ($category != 0) {
 	$sWhere .= " and category_id=" . $category;
 }
 if ($text != "") {
-	$sWhere .= " and name LIKE '%" . $text . "%' ";
+	$sWhere .= " and (LOWER(name) LIKE LOWER('%" . $text . "%') or LOWER(document_number) LIKE LOWER('%" . $text . "%') )";
 }
 if ($inactive == "true") {
 	$sWhere .= " and active=0";
@@ -119,11 +119,13 @@ if (count($query) > 0) {
 				$date = $d . "-" . $m . "-" . $Y;
 
 				$finales++;
+				$name_document_number = $ent->name;
+				$ent->document_number ? $name_document_number .= " - " . $ent->document_number : false;
 			?>
 				<tr>
 					<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 					<td><?php echo $date; ?></td>
-					<td><?php echo $ent->name . " " . $ent->document_number; ?></td>
+					<td><?php echo $name_document_number; ?></td>
 					<td><?php echo $ent->getType($ent->tipo)->tipo ?></td>
 					<td>
 						<?php
