@@ -61,7 +61,7 @@ if (isset($_SESSION["user_id"])) :
               </select>
             </div>
             <div class="col-md-5 form-group">
-              <input type="text" class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en entidad" title="Ingresa algun texto para realizar la busqueda" onkeyup="load(1);">
+              <input type="text" class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda" onkeyup="load(1);">
             </div>
             <div class="col-md-4 form-group">
               <input type="checkbox" id="inactive" name="inactive" onchange="load(1);">
@@ -81,9 +81,7 @@ if (isset($_SESSION["user_id"])) :
             <div class=" pull-right">
               <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
               <div class="btn-group">
-                <a style="margin-right: 3px" target="_blank" href="reports/reportExpense.php" class="btn btn-default pull-right">
-                  <span class="fa fa-file-excel-o"></span> Descargar
-                </a>
+                <button class="btn btn-success" type="button" onclick='exportExcel(1);'><i class='fa fa-file-excel-o  margin-r-5'></i>Descargar</button>
               </div>
             </div>
           </div>
@@ -149,11 +147,53 @@ endif; ?>
         success: function(datos) {
           $("#resultados_ajax").html("");
           $(".outer_div").html(datos);
-          $("#total_expiration").html("$"+total);
+          $("#total_expiration").html("$" + total);
         }
       });
     }
+  }
 
+  async function exportExcel(page = 1) {
+    //Se obtienen filtros de busqueda
+    let month_find = $('#month_find option:selected').val();
+    let year_find = $('#year_find option:selected').val();
+    let type_document_find = $('#type_document_find option:selected').val();
+    let find_text = $('#find_text').val();
+    let inactive = $('#inactive').is(":checked");
+    let per_page = $("#per_page").val();
+    let parametros = {
+      "page": page,
+      'month': month_find,
+      'year': year_find,
+      'type_doc': type_document_find,
+      'text': find_text,
+      'inactive': inactive,
+      'per_page': 100,
+      'type': 'expiration'
+    };
+    await $.get({
+      url: "./?action=export_excel",
+      data: parametros,
+      beforeSend: function(data) {
+        $("#loader").html("<img src='res/images/ajax-loader.gif'>");
+      },
+      //console.log(data);
+      success: function(data) {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        today = `${mm}_${dd}_${yyyy}`;
+        let hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + escape(data);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = `Vencimientos_${today}.csv`;
+        hiddenElement.click();
+        $("#loader").html("");
+        //$("#resultados_ajax").html(data);
 
+      }
+
+    });
   }
 </script>

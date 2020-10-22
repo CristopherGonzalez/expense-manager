@@ -39,8 +39,8 @@ class DebtsData {
 		'$this->pago',
 		$this->empresa,
 		$this->active,".
-			(isset($this->payment_specific_date) ? $this->payment_specific_date : 'null') . "," .
-			(isset($this->egreso_id)? $this->egreso_id : 'null').",".
+		(isset($this->payment_specific_date) ? "'".$this->payment_specific_date."'" : 'null') . "," .
+		(isset($this->egreso_id)? $this->egreso_id : 'null').",".
 		(isset($this->socio_id) ? $this->socio_id : 'null') . ")";
 		return Executor::doit($sql);
 	}
@@ -194,6 +194,13 @@ class DebtsData {
 		amount as Importe, 
 		document_number as Documento,
 		CASE pagado when 1 then 'Pagado' When 0 Then 'Impago' else 'Impago' end as Pago 
+		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new stdClass);
+	}
+	public static function queryExcelReports($sSelect, $sWhere, $offset, $per_page)
+	{
+		$sql = $sSelect . ", document_number as Documento,(SELECT name FROM entidades where id = " . self::$tablename . ".entidad ) as Entidad
 		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
 		$query = Executor::doit($sql);
 		return Model::many($query[0], new stdClass);

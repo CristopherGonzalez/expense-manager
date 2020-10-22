@@ -1,9 +1,11 @@
 <?php
-class StockData {
+class StockData
+{
 	public static $tablename = "valores";
 
 
-	public function __construct(){
+	public function __construct()
+	{
 		$this->description = "";
 		$this->amount = "";
 		$this->upload_receipt = "";
@@ -21,7 +23,8 @@ class StockData {
 		$this->payment_specific_date = NULL;
 	}
 
-	public function add(){
+	public function add()
+	{
 		// $sql = "insert into ".self::$tablename." (description, amount, upload_receipt, user_id, entidad, created_at, fecha, fecha_pago, pagado, document_number, documento, pago, empresa, active,payment_specific_date) ";
 		// $sql .= "value (\"$this->description\",$this->amount,\"$this->upload_receipt\",$this->user_id,$this->entidad,$this->created_at,\"$this->fecha\",\"$this->fecha_pago\",$this->pagado,\"$this->document_number\",'$this->documento','$this->pago',$this->empresa,$this->active, '$this->payment_specific_date')";
 
@@ -39,38 +42,41 @@ class StockData {
 		'$this->documento',
 		'$this->pago',
 		$this->empresa,
-		$this->active,".
-		(isset($this->payment_specific_date) ? $this->payment_specific_date : 'null').
-		")";
+		$this->active," .
+			(isset($this->payment_specific_date) ? $this->payment_specific_date : 'null') .
+			")";
 		return Executor::doit($sql);
 	}
 
-	public static function delete($id){
-		$sql = "delete from ".self::$tablename." where id=$id";
-		if (Executor::doit($sql)){
+	public static function delete($id)
+	{
+		$sql = "delete from " . self::$tablename . " where id=$id";
+		if (Executor::doit($sql)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
-
 	}
-	public function del(){
-		$sql = "delete from ".self::$tablename." where id=$this->id";
+	public function del()
+	{
+		$sql = "delete from " . self::$tablename . " where id=$this->id";
 		Executor::doit($sql);
 	}
 
-	public function update(){
-		$sql = "update ".self::$tablename." set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\",fecha_pago=\"$this->fecha_pago\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago', active=$this->active";
-		if(isset($this->documento) && !empty($this->documento)){
-			$sql.=", documento = '$this->documento' ";
+	public function update()
+	{
+		$sql = "update " . self::$tablename . " set description=\"$this->description\",amount=\"$this->amount\",fecha=\"$this->fecha\",fecha_pago=\"$this->fecha_pago\", entidad=$this->entidad, pagado='$this->pagado', document_number='$this->document_number', fecha_pago='$this->fecha_pago', active=$this->active";
+		if (isset($this->documento) && !empty($this->documento)) {
+			$sql .= ", documento = '$this->documento' ";
 		}
-		if(isset($this->pago) && !empty($this->pago)){
-			$sql.=", pago = '$this->pago' ";
+		if (isset($this->pago) && !empty($this->pago)) {
+			$sql .= ", pago = '$this->pago' ";
 		}
-		$sql.=" where id=$this->id";
+		$sql .= " where id=$this->id";
 		return Executor::doit($sql);
 	}
-	public function addOrUpdate($object){
+	public function addOrUpdate($object)
+	{
 		$response = false;
 		$this->description = $object['description'];
 		$this->amount = $object['amount'];
@@ -84,95 +90,105 @@ class StockData {
 		$this->pago = $object['pago'];
 		$this->empresa = $object['empresa'];
 		$this->active = $object['active'];
-		if($object['id']==0){
+		if ($object['id'] == 0) {
 			$response = $this->add();
-		}else{
-			$this->id=$object['id'];
+		} else {
+			$this->id = $object['id'];
 			$response = $this->update();
 		}
 		return $response;
 	}
-	public static function getById($id){
-		$sql = "select * from ".self::$tablename." where id=$id";
+	public static function getById($id)
+	{
+		$sql = "select * from " . self::$tablename . " where id=$id";
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new StockData());
+		return Model::one($query[0], new StockData());
 	}
 
-	public static function getByEntityId($id){
-		$sql = "select * from ".self::$tablename." where entidad=$id";
+	public static function getByEntityId($id)
+	{
+		$sql = "select * from " . self::$tablename . " where entidad=$id";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new StockData());
+		return Model::many($query[0], new StockData());
 	}
-	public static function getAll($u){
-		$sql = "select * from ".self::$tablename." where empresa=$u";
+	public static function getAll($u)
+	{
+		$sql = "select * from " . self::$tablename . " where empresa=$u";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new StockData());
-
+		return Model::many($query[0], new StockData());
 	}
-	public static function updateStatusByEntity($status,$entity){
-		$sql = "update ".self::$tablename." set active= ".$status." where entidad=$entity";
-		if (Executor::doit($sql)){
+	public static function updateStatusByEntity($status, $entity)
+	{
+		$sql = "update " . self::$tablename . " set active= " . $status . " where entidad=$entity";
+		if (Executor::doit($sql)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	public static function getAllCount($u){
-		$sql = "select COUNT(id) as count from ".self::$tablename." where empresa=$u";
+	public static function getAllCount($u)
+	{
+		$sql = "select COUNT(id) as count from " . self::$tablename . " where empresa=$u";
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new StockData());
-
+		return Model::one($query[0], new StockData());
 	}
-	public function updateStatus($id,$status){
-		$sql = "update ".self::$tablename." set active=$status";
-		$sql.=" where id=$id";
-		if (Executor::doit($sql)){
+	public function updateStatus($id, $status)
+	{
+		$sql = "update " . self::$tablename . " set active=$status";
+		$sql .= " where id=$id";
+		if (Executor::doit($sql)) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	public static function countQuery($where){
-		$sql = "SELECT count(*) AS numrows FROM ".self::$tablename." where ".$where;
+	public static function countQuery($where)
+	{
+		$sql = "SELECT count(*) AS numrows FROM " . self::$tablename . " where " . $where;
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new StockData());
+		return Model::one($query[0], new StockData());
 	}
 
-	public static function query($sWhere, $offset,$per_page){
-		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." order by created_at desc LIMIT $offset,$per_page ";
+	public static function query($sWhere, $offset, $per_page)
+	{
+		$sql = "SELECT * FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new StockData());
+		return Model::many($query[0], new StockData());
 	}
-	
-	public static function dinamycQuery($sWhere){
-		$sql = "SELECT * FROM ".self::$tablename." where ".$sWhere." order by created_at desc";
+
+	public static function dinamycQuery($sWhere)
+	{
+		$sql = "SELECT * FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc";
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new StockData());
+		return Model::one($query[0], new StockData());
 	}
-	public static function sumStock($u){
-		$year=date('Y');
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$u and year(fecha)='$year' and active=1";
+	public static function sumStock($u)
+	{
+		$year = date('Y');
+		$sql = "select sum(amount) as amount from " . self::$tablename . " where empresa=$u and year(fecha)='$year' and active=1";
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new StockData());
+		return Model::one($query[0], new StockData());
 	}
-	public static function sumStockByDate($company, $month, $year){
-		$sql = "select sum(amount) as amount from ".self::$tablename." where empresa=$company and year(fecha)='$year' and active=1";
-		if(isset($month) && !empty($month) && $month!=0){
-			$sql.=" and month(fecha)= '$month' ";
+	public static function sumStockByDate($company, $month, $year)
+	{
+		$sql = "select sum(amount) as amount from " . self::$tablename . " where empresa=$company and year(fecha)='$year' and active=1";
+		if (isset($month) && !empty($month) && $month != 0) {
+			$sql .= " and month(fecha)= '$month' ";
 		}
 		$query = Executor::doit($sql);
-		if(!$query[0]){
+		if (!$query[0]) {
 			return 0;
 		}
-		return Model::one($query[0],new StockData());
+		return Model::one($query[0], new StockData());
 	}
-	public static function dinamycAllQuery( $sWhere, $sSelect = "SELECT * ", $all, $sOrder=" order by created_at desc"){
-		$sql = $sSelect." FROM ".self::$tablename." where ".$sWhere.$sOrder;
+	public static function dinamycAllQuery($sWhere, $sSelect = "SELECT * ", $all, $sOrder = " order by created_at desc")
+	{
+		$sql = $sSelect . " FROM " . self::$tablename . " where " . $sWhere . $sOrder;
 		$query = Executor::doit($sql);
-		if($all){
-			return Model::many($query[0],new StockData());
-		}else{
-			return Model::one($query[0],new StockData());
+		if ($all) {
+			return Model::many($query[0], new StockData());
+		} else {
+			return Model::one($query[0], new StockData());
 		}
 	}
 	public static function queryExcel($sWhere, $offset, $per_page)
@@ -184,6 +200,13 @@ class StockData {
 		amount as Importe, 
 		document_number as Documento,
 		CASE pagado when 1 then 'Pagado' When 0 Then 'Impago' else 'Impago' end as Pago 
+		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new stdClass);
+	}
+	public static function queryExcelReports($sSelect, $sWhere, $offset, $per_page)
+	{
+		$sql = $sSelect . ",document_number as Documento,(SELECT name FROM entidades where id = " . self::$tablename . ".entidad ) as Entidad
 		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
 		$query = Executor::doit($sql);
 		return Model::many($query[0], new stdClass);

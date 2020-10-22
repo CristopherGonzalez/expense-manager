@@ -11,6 +11,11 @@ $inactive = (isset($_REQUEST['inactive']) && $_REQUEST['inactive'] == "true") ? 
 $not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
 $company_id = $_SESSION["company_id"];
 $sWhere = " empresa=$company_id";
+$sSelect = "
+	SELECT 'Socio' as Origen, 
+	fecha as Fecha, 
+	amount as Importe, 
+	description as Descripcion";
 //Se construye la consulta sql dependiendo de los filtros ingresados
 
 if ($month != 0) {
@@ -36,7 +41,6 @@ $adjacents  = 4; //gap between pages after number of adjacents
 $offset = ($page - 1) * $per_page;
 switch ($_REQUEST['type']) {
 	case 'income':
-
 		$type = intval($_REQUEST['type_category']);
 		$category = intval($_REQUEST['category']);
 		if ($type != 0) {
@@ -45,7 +49,6 @@ switch ($_REQUEST['type']) {
 		if ($category != 0) {
 			$sWhere .= " and category_id=" . $category;
 		}
-
 		$query_sql = IncomeData::queryExcel($sWhere, $offset,$per_page);
 		$name = "Ingresos";
 		break;
@@ -121,12 +124,130 @@ switch ($_REQUEST['type']) {
 		$name = "Entidades";
 		break;
 	case 'payment':
-		$query_sql = StockData::queryExcel($sWhere, $offset, $per_page);
-		$name = "Valores";
+		$month = $_REQUEST['month'] ? $_REQUEST['month'] : 0;
+		$year = $_REQUEST['year'] ? $_REQUEST['year'] : 0;
+		$type_doc = $_REQUEST['type_doc'];
+		$text = $_REQUEST['text'];
+		$inactive = $_REQUEST['inactive'] ?  $_REQUEST['inactive'] : 0;
+		$company_id = $_SESSION["company_id"];
+		$sSelect .= "
+			, payment_specific_date as 'Fecha carga pago'
+			, fecha as 'Fecha documento'";
+		$sWhere = " empresa = $company_id and pagado = 1 ";
+		//Se construye la consulta sql dependiendo de los filtros ingresados
+
+		if ($month != 0) {
+			$sWhere .= " and month(payment_specific_date) =" . $month;
+		}
+		if ($year != 0) {
+			$sWhere .= " and year(payment_specific_date) = " . $year;
+		}
+		if ($inactive == "false") {
+			$sWhere .= " and active = 1 ";
+		}
+
+		if ($text != "") {
+			$sWhere .= " and ((LOWER(description) LIKE LOWER('%" . $text . "%')) ";
+
+			$entities = EntityData::getLikeName($text, $company_id);
+			if (is_array($entities) && count($entities) > 0) {
+				$sWhere .= " or ( ";
+				foreach ($entities as $entity) {
+					$sWhere .= " entidad = $entity->id or";
+				}
+				$sWhere = substr($sWhere, 0, -2);
+				$sWhere .= " ) ";
+			}
+			$sWhere .= " ) ";
+		}
+		$query_sql = [];
+
+		if ($type_doc === "0" || $type_doc === 'partner') {
+			$partner = ResultData::queryExcelReports($sSelect, $sWhere, $offset, $per_page);
+			$query_sql =  array_merge($query_sql, $partner);
+		}
+
+		if ($type_doc === "0" || $type_doc === 'expense') {
+			$expenses = ExpensesData::queryExcelReports($sSelect, $sWhere, $offset, $per_page);
+			$query_sql =  array_merge($query_sql, $expenses);
+			//array_push($query_sql, $expenses);
+		}
+		if ($type_doc === "0" || $type_doc === 'income') {
+			$income = IncomeData::queryExcelReports($sSelect, $sWhere, $offset, $per_page);
+			$query_sql =  array_merge($query_sql, $income);
+			//array_push($query_sql, $income);
+		}
+
+		if ($type_doc === "0" || $type_doc === 'debt') {
+			$debt = DebtsData::queryExcelReports($sSelect, $sWhere, $offset, $per_page);
+			$query_sql =  array_merge($query_sql, $debt);
+			//array_push($query_sql, $debt);
+		}
+
+		$name = "Pagos";
 		break;
 	case 'expiration':
-		$query_sql = StockData::queryExcel($sWhere, $offset, $per_page);
-		$name = "Valores";
+		//Se capturan los datos enviados por ajax
+		$type_doc = $_REQUEST['type_doc'];
+		$text = $_REQUEST['text'];
+		$inactive = $_REQUEST['inactive'] ? $_REQUEST['inactive'] : 0;
+		$company_id = $_SESSION["company_id"];
+		$sWhere = " empresa=$company_id and pagado=0 ";
+		
+
+		if ($month != 0) {
+			$sWhere .= " and month(fecha) =" . $month;
+		}
+		if ($year != 0) {
+			$sWhere .= " and year(fecha) = " . $year;
+		}
+		if ($inactive == "false") {
+			$sWhere .= " and active = 1 ";
+		}
+
+		if ($text != "") {
+			$sWhere .= " and ((LOWER(description) LIKE LOWER('%" . $text . "%')) ";
+
+			$entities = EntityData::getLikeName($text, $company_id);
+			if (is_array($entities) && count($entities) > 0) {
+				$sWhere .= " or ( ";
+				foreach ($entities as $entity) {
+					$sWhere .= " entidad = $entity->id or";
+				}
+				$sWhere = substr($sWhere, 0, -2);
+				$sWhere .= " ) ";
+			}
+			$sWhere .= " ) ";
+		}
+		$query_sql = [];
+
+		if ($type_doc === "0" || $type_doc === 'partner') {
+			$partner = ResultData::queryExcelReports($sSelect, $sWhere,$offset,$per_page);
+			$query_sql =  array_merge($query_sql, $partner);
+		}
+		if ($text != "") {
+			$sWhere = substr($sWhere, 0, -2);
+			$sWhere .= " or (LOWER(document_number) LIKE LOWER('%" . $text . "%'))) ";
+		}
+
+		if ($type_doc === "0" || $type_doc === 'expense') {
+			$expenses = ExpensesData::queryExcelReports($sSelect, $sWhere,$offset,$per_page);
+			$query_sql =  array_merge($query_sql, $expenses);
+			//array_push($query_sql, $expenses);
+		}
+		if ($type_doc === "0" || $type_doc === 'income') {
+			$income = IncomeData::queryExcelReports($sSelect, $sWhere,$offset,$per_page);
+			$query_sql =  array_merge($query_sql, $income);
+			//array_push($query_sql, $income);
+		}
+
+		if ($type_doc === "0" || $type_doc === 'debt') {
+			$debt = DebtsData::queryExcelReports($sSelect, $sWhere,$offset,$per_page);
+			$query_sql =  array_merge($query_sql, $debt);
+			//array_push($query_sql, $debt);
+		}
+
+		$name = "Vencimientos";
 		break;
 	
 	default:
@@ -136,7 +257,6 @@ switch ($_REQUEST['type']) {
 }
 
 $data = $query_sql;
-
 function cleanData(&$str)
 {
 	if ($str == 't') $str = 'TRUE';

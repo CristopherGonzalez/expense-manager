@@ -62,7 +62,7 @@ if (empty($_POST['amount'])) {
 			$debt->entidad = intval($new_debt->entity);
 			$debt->tipo = intval($new_debt->type);
 			$debt->fecha = date("Y-m-d H:i:s", strtotime($date_debts . "+" . $i . " month"));
-			$debt->pagado = 1;
+			$debt->pagado = 0;
 			$debt->socio_id = $query_new[1];
 			if ($debt->pagado == 1) {
 				$debt->payment_specific_date = date('Y-m-d');

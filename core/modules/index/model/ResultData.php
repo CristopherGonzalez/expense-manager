@@ -141,6 +141,27 @@ class ResultData {
 		$query = Executor::doit($sql);
 		return Model::one($query[0],new ResultData());
 	}
+	public static function sumPartnerByPaymentStatusByDateAndAmount($id_company, $month, $year,$withdrawal, $paid_out = null)
+	{
+		$sql = "select sum(amount) as amount from " . self::$tablename . " where empresa=$id_company and  year(fecha) = '$year' and active=1 ";
+		if (isset($month) && !empty($month) && $month != 0) {
+			$sql .= " and month(fecha)= '$month' ";
+		}
+		if (isset($withdrawal) && $withdrawal) {
+			$sql .= " and amount < 0 ";
+		}else{
+			$sql .= " and amount >= 0 ";
+		}
+		if (isset($paid_out)) {
+			if ($paid_out) {
+				$sql .= " and pagado = 1 ";
+			} else {
+				$sql .= " and pagado = 0 ";
+			}
+		}
+		$query = Executor::doit($sql);
+		return Model::one($query[0], new ResultData());
+	}
 	public static function sumPartnerByPaymenStatusAndEntity($id_company, $paid_out,$id_entity, $month,$year){
 		$sql = "select sum(amount) as amount from ".self::$tablename." where entidad = $id_entity and empresa=$id_company and pagado=$paid_out and year(fecha) = '$year' and active=1  ";
 		if(isset($month) && !empty($month) && $month!=0){
@@ -167,6 +188,14 @@ class ResultData {
 		amount as Importe, 
 		CASE amount when amount<=0 then 'Retiro' When amount>0 Then 'Aporte' else 'Indefinido' end as Tipo_Importe,
 		CASE pagado when 1 then 'Pagado' When 0 Then 'Impago' else 'Impago' end as Pago 
+		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new stdClass);
+	}
+	public static function queryExcelReports($sSelect, $sWhere, $offset, $per_page)
+	{
+	
+		$sql = $sSelect . ",'----' as Documento,(SELECT name FROM entidades where id = " . self::$tablename . ".entidad ) as Entidad
 		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
 		$query = Executor::doit($sql);
 		return Model::many($query[0], new stdClass);

@@ -8,7 +8,7 @@ function addGenerateDebt() {
 function cargaDatosDeuda() {
     $("#debt_date").val($('#date').val());
     $("#debt_amount").val($('#amount').val());
-    $("#debt_description").val($('#description').val());
+    $("#debt_description").val(`${$('#entity option:selected').text()} - ${$('#description').val()}`);
     $("#btn_new_debt").removeClass('btn-success');
     $("#btn_new_debt i").removeClass('fa-check');
     $("#btn_new_debt").addClass('btn-default');

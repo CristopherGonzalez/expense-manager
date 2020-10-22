@@ -67,6 +67,9 @@ if (isset($_SESSION["user_id"])) :
               <input type="checkbox" id="inactive" name="inactive" onchange="load(1);">
               <label for="inactive"><b>Ver eliminados</b></label>
             </div>
+            <div class="col-md-3 form-group">
+              <label style="font-size: 24px;" id="total_expiration">$0</label>
+            </div>
           </div>
         </div>
         <div class="col-md-4">
@@ -77,17 +80,20 @@ if (isset($_SESSION["user_id"])) :
             <!-- <div class="col-md-offset-10"> -->
             <div class=" pull-right">
               <button class="btn btn-default" type="button" onclick='load(1);'><i class='fa fa-search'></i></button>
-              <div class="btn-group">
+              <!-- <div class="btn-group">
                 <a style="margin-right: 3px" target="_blank" href="reports/reportExpense.php" class="btn btn-default pull-right">
                   <span class="fa fa-file-excel-o"></span> Descargar
                 </a>
+              </div> -->
+              <div class="btn-group">
+                <button class="btn btn-success" type="button" onclick='exportExcel(1);'><i class='fa fa-file-excel-o  margin-r-5'></i>Descargar</button>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div id="resultados_ajax">
-        
+
       </div><!-- Resultados Ajax -->
       <div class="box">
         <div class="box-header with-border">
@@ -100,9 +106,9 @@ if (isset($_SESSION["user_id"])) :
         <!-- /.box-header -->
         <div class="box-body table-responsive">
           <div class="outer_div">
-          <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          Puedes seleccionar algun filtro de busqueda!
-        </div>
+            <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              Puedes seleccionar algun filtro de busqueda!
+            </div>
           </div><!-- Datos ajax Final -->
         </div>
         <!-- /.box-body -->
@@ -114,8 +120,9 @@ endif; ?>
 <?php include "res/resources/js.php"; ?>
 <script>
   $(function() {
-        load();
-    });
+    load();
+  });
+
   function load() {
     //Se obtienen filtros de busqueda
     var month_find = $('#month_find option:selected').val();
@@ -142,10 +149,52 @@ endif; ?>
       success: function(datos) {
         $("#resultados_ajax").html("");
         $(".outer_div").html(datos);
+        $("#total_expiration").html("$" + total);
       }
     });
 
 
 
+  }
+  async function exportExcel(page = 1) {
+    //Se obtienen filtros de busqueda
+    let month_find = $('#month_find option:selected').val();
+    let year_find = $('#year_find option:selected').val();
+    let type_document_find = $('#type_document_find option:selected').val();
+    let find_text = $('#find_text').val();
+    let inactive = $('#inactive').is(":checked");
+    let per_page = 100;
+    let parametros = {
+      "page": page,
+      'month': month_find,
+      'year': year_find,
+      'type_doc': type_document_find,
+      'text': find_text,
+      'inactive': inactive,
+      'per_page': 100,
+      'type': 'payment'
+    };
+    await $.get({
+      url: "./?action=export_excel",
+      data: parametros,
+      beforeSend: function(data) {
+        $("#loader").html("<img src='res/images/ajax-loader.gif'>");
+      },
+      //console.log(data);
+      success: function(data) {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        today = `${mm}_${dd}_${yyyy}`;
+        let hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + escape(data);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = `Pagos_${today}.csv`;
+        hiddenElement.click();
+        $("#loader").html("");
+      }
+
+    });
   }
 </script>

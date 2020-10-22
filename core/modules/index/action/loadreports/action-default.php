@@ -43,6 +43,12 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 	$sumPartnerMonth = ResultData::sumPartner_Month($month, $_SESSION['company_id'], $year);
 	$sumIncomeImpayment = IncomeData::sumIncomeByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
 	$sumExpensesImpayment = ExpensesData::sumExpensesByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
+	$sumPartnersWithdrawal = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true);
+	$sumPartnersContribution = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'],  $month, $year, false);
+	$sumPartnersWithdrawalPayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true, true);
+	$sumPartnersWithdrawalImpayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true,false);
+	$sumPartnersContributionPayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, false, true);
+	$sumPartnersContributionImpayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, false, false);
 	$sumPartnersImpayment = ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
 	$sumPartnersPayment = ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'], 1, $month, $year);
 	$sumStockByDate = StockData::sumStockByDate($_SESSION['company_id'], $month, $year);
@@ -134,226 +140,7 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 	<?php } ?>
 
 
-	<?php if ((isset($sumIncomeMonth) && $sumIncomeMonth->total > 0) || (isset($sumExpenseMonth) && $sumExpenseMonth->total > 0)) { ?>
 
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title">
-					<center>Resultado de la Gestión</center>
-				</h3>
-				<div class="box-tools pull-right">
-					<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
-					<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
-				</div>
-			</div>
-			<!-- /.box-header -->
-			<div class="box-body">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>+ Valores Iniciales</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label>$<?php echo round($sumStocksBeforeDate->total_before_month ? $sumStocksBeforeDate->total_before_month : 0, 2) ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>+ Aportes Socios</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label>$<?php echo round($sumPartnersPayment->amount ? $sumPartnersPayment->amount : 0, 2) ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>- Retiros Socios </strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label>$<?php echo  round($sumPartnersImpayment->amount ? $sumPartnersImpayment->amount : 0, 2) ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>+ Ingresos pagados</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label><?php $inc = $sumIncomeMonth->total ? $sumIncomeMonth->total : 0 ?></label>
-						<label><?php $incp = $sumIncomeImpayment->amount ? $sumIncomeImpayment->amount : 0 ?></label>
-						<label>$<?php echo round($inc - $incp, 2); ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>- Egresos pagados</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label><?php $exp = $sumExpenseMonth->total ? $sumExpenseMonth->total : 0 ?></label>
-						<label><?php $expp = $sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0 ?></label>
-						<label>$<?php echo round($exp - $expp, 2); ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>+ Deuda generada</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<?php $sumDebImpay = DebtsData::sumDebtsByPay($_SESSION['company_id'], $year, $month, 0) ?>
-						<?php $sumDebPay = DebtsData::sumDebtsByPay($_SESSION['company_id'], $year, $month, 1) ?>
-						<label><?php $debImp = $sumDebImpay->total ? $sumDebImpay->total : 0 ?></label>
-						<label><?php $debPay = $sumDebPay->total ? $sumDebPay->total : 0 ?></label>
-						<label>$<?php echo round($debImp, 2) ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>- Deuda pagada</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label>$<?php echo round($debPay ? $debPay : 0, 2) ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>= Valores teorico</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label>
-							<?php
-							$valor_inicial = $sumStocksBeforeDate->total_before_month ? $sumStocksBeforeDate->total_before_month : 0;
-							$socio_aporte = $sumPartnersPayment->amount ? $sumPartnersPayment->amount : 0;
-							$socio_retiro = $sumPartnersImpayment->amount ? $sumPartnersImpayment->amount : 0;
-							$saldo_socio = $socio_aporte - $socio_retiro;
-							$ingresos = $sumIncomeMonth->total;
-							$egresos = $sumExpenseMonth->total;
-							$deuda_pagada = $debPay;
-							$deuda_generada = $debImp;
-							$valores_teoricos =  ($valor_inicial + $saldo_socio + $ingresos - $egresos + $deuda_generada - $deuda_pagada);
-							echo round($valores_teoricos, 2);
-							$diferencia =  ($sumStockByDate->amount ? $sumStockByDate->amount : 0) - ($valores_teoricos > 0 ? $valores_teoricos : $valores_teoricos * -1);
-							?>
-						</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>Valores real</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label><?php echo round($sumStockByDate->amount ? $sumStockByDate->amount : 0, 2) ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>Diferencia</strong></label>
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label><?php echo round($diferencia, 2) ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label><?php echo  round(100 - ((abs($diferencia) / $valores_teoricos) * 100), 2); ?>%</label>
-					</div>
-				</div>
-			</div>
-			<div class="box-body">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right">
-							<strong>
-								<h4>Impagos</h4>
-							</strong>
-						</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>mes/año</label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>total</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>Ingresos</strong></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo round($sumIncomeImpayment->amount ? $sumIncomeImpayment->amount : 0, 2) ?></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo  round($sumIncomeMonth->total ? $sumIncomeMonth->total : 0, 2) ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>Egresos</strong></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo  round($sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0, 2) ?></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo  round($sumExpenseMonth->total ? $sumExpenseMonth->total : 0, 2) ?></label>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>Socios aportes </strong></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo  round($socio_aporte, 2); ?></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo round($sumPartnerMonth->total ? $sumPartnerMonth->total : 0, 2); ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>Socios retiros</strong></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo  round($socio_retiro, 2); ?></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo  round($sumPartnerMonth->total ? $sumPartnerMonth->total : 0, 2); ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong>Deuda</strong></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo  round($debImp, 2); ?></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo  round($debPay + $debImp, 2); ?></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-6">
-						<label style="float:right"><strong></strong></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo round(($sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0) + $socio_retiro + $debImp, 2); ?></label>
-					</div>
-					<div class="col-md-2 col-sm-2 col-xs-2">
-						<label>$<?php echo round(($sumExpenseMonth->total ? $sumExpenseMonth->total : 0) + ($sumPartnerMonth->total ? $sumPartnerMonth->total : 0) + ($debPay + $debImp), 2); ?></label>
-					</div>
-				</div>
-
-			</div>
-			<!-- /.box-body -->
-		</div>
-	<?php } else { ?>
-		<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-			<strong>Sin Resultados de Ingresos o egreso </strong> No se puede generar el resultado de la gestión!.
-		</div>
-	<?php } ?>
 	<?php if (isset($sumIncomeMonth) && $sumIncomeMonth->total > 0) { ?>
 		<div class="box" style="background:#f5f5f5 !important;" id="reportIncome">
 			<div class="box-header  with-border">
@@ -808,6 +595,228 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 	<?php } else { ?>
 		<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 			<strong>Sin Resultados de Socios!</strong> No se encontraron resultados en la base de datos!.
+		</div>
+	<?php }
+
+	if ((isset($sumIncomeMonth) && $sumIncomeMonth->total > 0) || (isset($sumExpenseMonth) && $sumExpenseMonth->total > 0)) { ?>
+
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					Resultado de la Gestión
+				</h3>
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
+				</div>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>+ Valores Iniciales</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($sumStocksBeforeDate->total_before_month ? $sumStocksBeforeDate->total_before_month : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>+ Aportes Socios</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($sumPartnersContribution->amount ? $sumPartnersContribution->amount : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>- Retiros Socios </strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo  round($sumPartnersWithdrawal->amount ? $sumPartnersWithdrawal->amount : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>+ Ingresos pagados</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<?php $inc = $sumIncomeMonth->total ? $sumIncomeMonth->total : 0 ?>
+						<?php $incp = $sumIncomeImpayment->amount ? $sumIncomeImpayment->amount : 0 ?>
+						<label>$<?php echo round($inc - $incp, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>- Egresos pagados</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<?php $exp = $sumExpenseMonth->total ? $sumExpenseMonth->total : 0 ?>
+						<?php $expp = $sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0 ?>
+						<label>$<?php echo round($exp - $expp, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>+ Deuda generada</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<?php $sumDebImpay = DebtsData::sumDebtsByPay($_SESSION['company_id'], $year, $month, 0) ?>
+						<?php $sumDebPay = DebtsData::sumDebtsByPay($_SESSION['company_id'], $year, $month, 1) ?>
+						<?php $debImp = $sumDebImpay->total ? $sumDebImpay->total : 0 ?>
+						<?php $debPay = $sumDebPay->total ? $sumDebPay->total : 0 ?>
+						<label>$<?php echo round($debImp, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>- Deuda pagada</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($debPay ? $debPay : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>= Valores teorico</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$
+							<?php
+							$valor_inicial = $sumStocksBeforeDate->total_before_month ? $sumStocksBeforeDate->total_before_month : 0;
+							$socio_aporte = $sumPartnersPayment->amount ? $sumPartnersPayment->amount : 0;
+							$socio_retiro = $sumPartnersImpayment->amount ? $sumPartnersImpayment->amount : 0;
+							$saldo_socio = $socio_aporte - $socio_retiro;
+							$ingresos = $sumIncomeMonth->total;
+							$egresos = $sumExpenseMonth->total;
+							$deuda_pagada = $debPay;
+							$deuda_generada = $debImp;
+							$valores_teoricos =  ($valor_inicial + $saldo_socio + $ingresos - $egresos + $deuda_generada - $deuda_pagada);
+							echo round($valores_teoricos, 2);
+							$diferencia =  ($sumStockByDate->amount ? $sumStockByDate->amount : 0) - ($valores_teoricos > 0 ? $valores_teoricos : $valores_teoricos * -1);
+							?>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Valores real</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($sumStockByDate->amount ? $sumStockByDate->amount : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Diferencia</strong></label>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label>$<?php echo round($diferencia, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<h4 style="float:right;"><strong>Resultado de la gestión</strong></h4>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<h4><strong><?php echo  round(((abs($diferencia) / round($sumStockByDate->amount ? $sumStockByDate->amount : 0, 2)) * 100), 2); ?>%</strong></h4>
+					</div>
+				</div>
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right">
+							<strong>
+								<h4>Impagos</h4>
+							</strong>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>mes/año</label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>total</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Ingresos</strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo round($sumIncomeImpayment->amount ? $sumIncomeImpayment->amount : 0, 2) ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumIncomeMonth->total ? $sumIncomeMonth->total : 0, 2) ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Egresos</strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0, 2) ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumExpenseMonth->total ? $sumExpenseMonth->total : 0, 2) ?></label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Socios aportes </strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumPartnersContributionImpayment->amount, 2); ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo round($sumPartnersContribution->amount ? $sumPartnersContribution->amount : 0, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Socios retiros</strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumPartnersWithdrawalImpayment->amount, 2); ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($sumPartnersWithdrawal->amount ? $sumPartnersWithdrawal->amount : 0, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong>Deuda</strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($debImp, 2); ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo  round($debPay + $debImp, 2); ?></label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<label style="float:right"><strong></strong></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo round(($sumExpensesImpayment->amount ? $sumExpensesImpayment->amount : 0) + $socio_retiro + $debImp, 2); ?></label>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						<label>$<?php echo round(($sumExpenseMonth->total ? $sumExpenseMonth->total : 0) + ($sumPartnerMonth->total ? $sumPartnerMonth->total : 0) + ($debPay + $debImp), 2); ?></label>
+					</div>
+				</div>
+
+			</div>
+			<!-- /.box-body -->
+		</div>
+	<?php } else { ?>
+		<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+			<strong>Sin Resultados de Ingresos o egreso </strong> No se puede generar el resultado de la gestión!.
 		</div>
 	<?php }
 } else { ?>

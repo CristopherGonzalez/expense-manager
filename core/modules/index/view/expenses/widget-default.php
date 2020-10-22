@@ -542,6 +542,9 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                     $("#btn_new_debt").addClass('btn-default');
                     $("#btn_new_debt i").addClass('fa-money');
                     $('#debt_result').css('display', 'none');
+                    $("#debt_date").val();
+                    $("#debt_amount").val();
+                    $("#debt_description").val();
 
                 }
             });

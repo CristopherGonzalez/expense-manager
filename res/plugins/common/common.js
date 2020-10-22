@@ -185,6 +185,7 @@ function clear_modal(name_form) {
     $('#' + name_form + ' img').each(function(index) {
         $(this).attr('src', 'res/images/default_image.jpg');
     });
+    
 }
 
 function change_entity(type, category) {

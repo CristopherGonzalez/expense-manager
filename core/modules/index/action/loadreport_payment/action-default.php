@@ -1,3 +1,6 @@
+<script>
+	var total = 0;
+</script>
 <?php
 if (isset($_POST)) {
 	$con = Database::getCon();
@@ -8,7 +11,7 @@ if (isset($_POST)) {
 	$text = $_POST['text'];
 	$inactive = $_POST['inactive'] ?  $_POST['inactive'] : 0;
 	$company_id = $_SESSION["company_id"];
-	$sWhere = " empresa=$company_id and pagado=1 ";
+	$sWhere = " empresa = $company_id and pagado = 1 ";
 	//Se construye la consulta sql dependiendo de los filtros ingresados
 
 	if ($month != 0) {
@@ -17,23 +20,32 @@ if (isset($_POST)) {
 	if ($year != 0) {
 		$sWhere .= " and year(payment_specific_date) = " . $year;
 	}
-	if ($inactive=="false") {
+	if ($inactive == "false") {
 		$sWhere .= " and active = 1 ";
 	}
-	
+
 	if ($text != "") {
+		$sWhere .= " and ((LOWER(description) LIKE LOWER('%" . $text . "%')) ";
+
 		$entities = EntityData::getLikeName($text, $company_id);
 		if (is_array($entities) && count($entities) > 0) {
-			$sWhere .= " and ( ";
+			$sWhere .= " or ( ";
 			foreach ($entities as $entity) {
 				$sWhere .= " entidad = $entity->id or";
 			}
 			$sWhere = substr($sWhere, 0, -2);
 			$sWhere .= " ) ";
-		} 
+		}
+		$sWhere .= " ) ";
 	}
 	$result = [];
 	$countResult = 0;
+	if ($type_doc === "0" || $type_doc === 'partner') {
+
+		$partner = ResultData::dinamycQuery($sWhere);
+		$countResult += count($partner);
+		array_push($result, $partner);
+	}
 	if ($type_doc === "0" || $type_doc === 'expense') {
 		$expenses = ExpensesData::dinamycQuery($sWhere);
 		$countResult += count($expenses);
@@ -44,11 +56,7 @@ if (isset($_POST)) {
 		$countResult += count($income);
 		array_push($result, $income);
 	}
-	if ($type_doc === "0" || $type_doc === 'partner') {
-		$partner = ResultData::dinamycQuery($sWhere);
-		$countResult += count($partner);
-		array_push($result, $partner);
-	}
+
 	if ($type_doc === "0" || $type_doc === 'debt') {
 		$debt = DebtsData::dinamycQuery($sWhere);
 		$countResult += count($debt);
@@ -58,6 +66,7 @@ if (isset($_POST)) {
 	// si hay registro
 	if ($countResult > 0) {
 ?>
+
 		<table class="table table-bordered table-hover">
 			<thead>
 				<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los egresos -->
@@ -67,26 +76,29 @@ if (isset($_POST)) {
 				<th>Entidad</th>
 				<th>Importe</th>
 				<th>Fecha documento</th>
-				<th>Documento</th>
+				<th>Descripcion</th>
 				<th>Ver</th>
 			</thead>
 			<tbody>
 				<?php foreach ($result as $res) {
 					foreach ($res as $doc) { ?>
+						<script>
+							total += <?php echo $doc->amount ?>;
+						</script>
 						<tr <?php if ($doc->active == 0 || !$doc->active) {
 								echo "style='background-color:pink;'";
 							} ?>>
 							<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 							<td><?php if ($doc->payment_specific_date != null) {
-									echo $doc->payment_specific_date;
+									echo date("d/m/Y", strtotime($doc->payment_specific_date));
 								} else {
 									echo "<center>----</center>";
 								}  ?></td>
 							<td><?php
 								if ($doc->tipo_doc != null && $doc->tipo_doc === 'Deuda') {
-									echo $doc->fecha_pago;
+									echo date("d/m/Y", strtotime($doc->fecha_pago));
 								} else {
-									echo $doc->payment_date;
+									echo date("d/m/Y", strtotime($doc->payment_date));
 								}
 								?></td>
 							<td><?php echo $doc->tipo_doc; ?></td>
@@ -96,7 +108,7 @@ if (isset($_POST)) {
 									echo "<center>----</center>";
 								}  ?></td>
 							<td><?php echo number_format($doc->amount, 2); ?></td>
-							<td><?php echo $doc->fecha; ?></td>
+							<td><?php echo date("d/m/Y", strtotime($doc->fecha)); ?></td>
 							<td><?php if ($doc->description != null) {
 									echo $doc->description;
 								} else {

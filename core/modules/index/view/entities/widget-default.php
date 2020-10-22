@@ -234,11 +234,6 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             if (count($entity_data) != 0) :
                             ?>
                                 <div class="btn-group">
-                                    <a style="margin-right: 3px" target="_blank" href="reports/reportExpense.php" class="btn btn-default pull-right">
-                                        <span class="fa fa-file-excel-o"></span> Descargar
-                                    </a>
-                                </div>
-                                <div class="btn-group">
                                     <button class="btn btn-success" type="button" onclick='exportExcel(1);'><i class='fa fa-file-excel-o  margin-r-5'></i>Descargar</button>
                                 </div>
 

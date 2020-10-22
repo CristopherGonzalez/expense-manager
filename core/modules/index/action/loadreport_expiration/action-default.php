@@ -1,3 +1,6 @@
+<script>
+	var total = 0;
+</script>
 <?php
 if (isset($_POST)) {
 	$con = Database::getCon();
@@ -22,20 +25,32 @@ if (isset($_POST)) {
 	}
 
 	if ($text != "") {
+		$sWhere .= " and ((LOWER(description) LIKE LOWER('%" . $text . "%')) ";
+
 		$entities = EntityData::getLikeName($text, $company_id);
 		if (is_array($entities) && count($entities) > 0) {
-			$sWhere .= " and ( ";
+			$sWhere .= " or ( ";
 			foreach ($entities as $entity) {
 				$sWhere .= " entidad = $entity->id or";
 			}
 			$sWhere = substr($sWhere, 0, -2);
 			$sWhere .= " ) ";
-		} else {
-			$sWhere .= " and entidad = 0 ";
 		}
+		$sWhere .= " ) ";
 	}
 	$result = [];
 	$countResult = 0;
+
+	if ($type_doc === "0" || $type_doc === 'partner') {
+		$partner = ResultData::dinamycQuery($sWhere);
+		$countResult += count($partner);
+		array_push($result, $partner);
+	}
+	if ($text != "") {
+		$sWhere = substr($sWhere, 0, -2);
+		$sWhere .= " or (LOWER(document_number) LIKE LOWER('%" . $text . "%'))) ";
+	}
+
 	if ($type_doc === "0" || $type_doc === 'expense') {
 		$expenses = ExpensesData::dinamycQuery($sWhere);
 		$countResult += count($expenses);
@@ -46,11 +61,7 @@ if (isset($_POST)) {
 		$countResult += count($income);
 		array_push($result, $income);
 	}
-	if ($type_doc === "0" || $type_doc === 'partner') {
-		$partner = ResultData::dinamycQuery($sWhere);
-		$countResult += count($partner);
-		array_push($result, $partner);
-	}
+
 	if ($type_doc === "0" || $type_doc === 'debt') {
 		$debt = DebtsData::dinamycQuery($sWhere);
 		$countResult += count($debt);
@@ -60,9 +71,6 @@ if (isset($_POST)) {
 	// si hay registro
 	if ($countResult > 0) {
 ?>
-		<script>
-			var total = 0;
-		</script>
 		<table class="table table-bordered table-hover">
 			<thead>
 				<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los egresos -->
@@ -78,7 +86,7 @@ if (isset($_POST)) {
 				<?php foreach ($result as $res) {
 					foreach ($res as $doc) { ?>
 						<script>
-							total += <?php echo $doc->amount?>;
+							total += <?php echo $doc->amount ?>;
 						</script>
 
 						<tr <?php if ($doc->active == 0 || !$doc->active) {

@@ -229,15 +229,22 @@ class IncomeData {
 		$sql = "
 		SELECT fecha as Fecha, 
 		(SELECT name FROM entidades where id = ".self::$tablename. ".entidad ) as Entidad ,
-		(SELECT name FROM category_income where id = " . self::$tablename . ".category_id ) as Categoria ,
-		(SELECT name FROM tipos where id = " . self::$tablename . ".tipo ) as Tipo ,
 		description as Descripcion,
 		amount as Importe, 
+		(SELECT name FROM category_income where id = " . self::$tablename . ".category_id ) as Categoria ,
+		(SELECT name FROM tipos where id = " . self::$tablename . ".tipo ) as Tipo ,
 		document_number as Documento,
 		CASE pagado when 1 then 'Pagado' When 0 Then 'Impago' else 'Impago' end as Pago 
 		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
 		$query = Executor::doit($sql);
 		return Model::many($query[0], new stdClass );
+	}
+	public static function queryExcelReports($sSelect, $sWhere, $offset, $per_page)
+	{
+		$sql = $sSelect . ", document_number as Documento, (SELECT name FROM entidades where id = " . self::$tablename . ".entidad ) as Entidad
+		FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc LIMIT $offset,$per_page ";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new stdClass);
 	}
 	public static function dinamycQuery($sWhere){
 		$sql = "SELECT *, ('Ingreso') as tipo_doc FROM ".self::$tablename." where ".$sWhere." order by created_at desc";
