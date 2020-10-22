@@ -4,8 +4,8 @@
 // Please acknowledge use of this code by including this header.
 $con = Database::getCon();
 //Se capturan los datos enviados por ajax
-$month = intval($_REQUEST['month']);
-$year = intval($_REQUEST['year']);
+$month = intval($_REQUEST['month']??0);
+$year = intval($_REQUEST['year']??0);
 $text = mysqli_real_escape_string($con, (strip_tags($_REQUEST['text'], ENT_QUOTES)));
 $inactive = (isset($_REQUEST['inactive']) && $_REQUEST['inactive'] == "true") ? 0 : 1;
 $not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
@@ -76,11 +76,11 @@ switch ($_REQUEST['type']) {
 		break;
 	case 'entity':
 
-		$type = intval($_POST['type_category']);
-		$category = intval($_POST['category']);
-		$inactive = $_POST['inactive'];
-		$category_type = mysqli_real_escape_string($con, (strip_tags($_POST['category_type'], ENT_QUOTES)));
-		$text = mysqli_real_escape_string($con, (strip_tags($_POST['text'], ENT_QUOTES)));
+		$type = intval($_REQUEST['type_category']);
+		$category = intval($_REQUEST['category']);
+		$inactive = $_REQUEST['inactive'];
+		$category_type = mysqli_real_escape_string($con, (strip_tags($_REQUEST['category_type'], ENT_QUOTES)));
+		$text = mysqli_real_escape_string($con, (strip_tags($_REQUEST['text'], ENT_QUOTES)));
 		//$user_id=$_SESSION["user_id"];
 		//$sWhere=" user_id=$user_id ";
 		$company_id = $_SESSION["company_id"];

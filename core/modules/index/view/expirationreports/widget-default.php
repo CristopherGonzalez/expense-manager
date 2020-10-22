@@ -61,11 +61,14 @@ if (isset($_SESSION["user_id"])) :
               </select>
             </div>
             <div class="col-md-5 form-group">
-              <input type="text" class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda" onkeyup="load(1);">
+              <input type="text" class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en entidad" title="Ingresa algun texto para realizar la busqueda" onkeyup="load(1);">
             </div>
             <div class="col-md-4 form-group">
               <input type="checkbox" id="inactive" name="inactive" onchange="load(1);">
               <label for="inactive"><b>Ver eliminados</b></label>
+            </div>
+            <div class="col-md-3 form-group">
+              <label style="font-size: 24px;" id="total_expiration">$0</label>
             </div>
           </div>
         </div>
@@ -87,7 +90,7 @@ if (isset($_SESSION["user_id"])) :
         </div>
       </div>
       <div id="resultados_ajax">
-        
+
       </div><!-- Resultados Ajax -->
       <div class="box">
         <div class="box-header with-border">
@@ -100,9 +103,9 @@ if (isset($_SESSION["user_id"])) :
         <!-- /.box-header -->
         <div class="box-body table-responsive">
           <div class="outer_div">
-          <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          Puedes seleccionar algun filtro de busqueda!
-        </div>
+            <div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              Puedes seleccionar algun filtro de busqueda!
+            </div>
           </div><!-- Datos ajax Final -->
         </div>
         <!-- /.box-body -->
@@ -114,37 +117,42 @@ endif; ?>
 <?php include "res/resources/js.php"; ?>
 <script>
   $(function() {
-        load();
-    });
+    load();
+  });
+
   function load() {
     //Se obtienen filtros de busqueda
-    var month_find = $('#month_find option:selected').val();
-    var year_find = $('#year_find option:selected').val();
-    var type_document_find = $('#type_document_find option:selected').val();
-    var find_text = $('#find_text').val();
-    var inactive = $('#inactive').is(":checked");
+    let month_find = $('#month_find option:selected').val();
+    let year_find = $('#year_find option:selected').val();
+    let type_document_find = $('#type_document_find option:selected').val();
+    let find_text = $('#find_text').val();
+    let inactive = $('#inactive').is(":checked");
 
-    var parametros = {
+    let parametros = {
       'month': month_find,
       'year': year_find,
       'type_doc': type_document_find,
-      'text': find_text,
+      'text': find_text.trim(),
       'inactive': inactive
     };
-
-    $.ajax({
-      type: "POST",
-      url: "./?action=loadreport_expiration",
-      data: parametros,
-      beforeSend: function(objeto) {
-        $("#resultados_ajax").html("Enviando...");
-      },
-      success: function(datos) {
-        $("#resultados_ajax").html("");
-        $(".outer_div").html(datos);
-      }
-    });
-
+    if (month_find == "0" && year_find == "0" && type_document_find == "0" && find_text == "") {
+      parametros = {};
+      $(".outer_div").html('<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Puedes seleccionar algun filtro de busqueda!</div>');
+    } else {
+      $.ajax({
+        type: "POST",
+        url: "./?action=loadreport_expiration",
+        data: parametros,
+        beforeSend: function(objeto) {
+          $("#resultados_ajax").html("Enviando...");
+        },
+        success: function(datos) {
+          $("#resultados_ajax").html("");
+          $(".outer_div").html(datos);
+          $("#total_expiration").html("$"+total);
+        }
+      });
+    }
 
 
   }

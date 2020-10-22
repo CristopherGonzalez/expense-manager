@@ -17,10 +17,10 @@ if (isset($_POST)) {
 	if ($year != 0) {
 		$sWhere .= " and year(fecha) = " . $year;
 	}
-	if ($inactive=="false") {
+	if ($inactive == "false") {
 		$sWhere .= " and active = 1 ";
 	}
-	
+
 	if ($text != "") {
 		$entities = EntityData::getLikeName($text, $company_id);
 		if (is_array($entities) && count($entities) > 0) {
@@ -30,7 +30,9 @@ if (isset($_POST)) {
 			}
 			$sWhere = substr($sWhere, 0, -2);
 			$sWhere .= " ) ";
-		} 
+		} else {
+			$sWhere .= " and entidad = 0 ";
+		}
 	}
 	$result = [];
 	$countResult = 0;
@@ -58,6 +60,9 @@ if (isset($_POST)) {
 	// si hay registro
 	if ($countResult > 0) {
 ?>
+		<script>
+			var total = 0;
+		</script>
 		<table class="table table-bordered table-hover">
 			<thead>
 				<!-- Se cambia estructura de la tabla para mostrar nuevos parametros en los egresos -->
@@ -72,6 +77,10 @@ if (isset($_POST)) {
 			<tbody>
 				<?php foreach ($result as $res) {
 					foreach ($res as $doc) { ?>
+						<script>
+							total += <?php echo $doc->amount?>;
+						</script>
+
 						<tr <?php if ($doc->active == 0 || !$doc->active) {
 								echo "style='background-color:pink;'";
 							} ?>>
@@ -82,7 +91,7 @@ if (isset($_POST)) {
 								} else {
 									echo "<center>----</center>";
 								}  ?></td>
-							<td><?php echo $doc->fecha; ?></td>
+							<td><?php echo date("d/m/Y", strtotime($doc->fecha)); ?></td>
 							<td><?php if (isset($doc->document_number) && !empty($doc->document_number) && $doc->document_number != null) {
 									echo $doc->document_number;
 								} else {

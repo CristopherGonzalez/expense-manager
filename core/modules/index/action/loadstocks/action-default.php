@@ -72,7 +72,7 @@ if ($year != 0) {
 	$sWhere .= " and year(fecha) = " . $year;
 }
 if ($text != "") {
-	$sWhere .= " and (LOWER(description) LIKE LOWER('%" . $text . "%') )";
+	$sWhere .= " and (LOWER(description) LIKE LOWER('%" . $text . "%') or LOWER(document_number) LIKE LOWER('%" . $text . "%')  )";
 }
 if ($inactive == 1) {
 	$sWhere .= " and active = $inactive ";

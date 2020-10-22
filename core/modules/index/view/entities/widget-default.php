@@ -353,7 +353,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                     let hiddenElement = document.createElement('a');
                     hiddenElement.href = 'data:text/csv;charset=utf-8,' + escape(data);
                     hiddenElement.target = '_blank';
-                    hiddenElement.download = `Deudas_${today}.csv`;
+                    hiddenElement.download = `Entidades_${today}.csv`;
                     hiddenElement.click();
                     $("#loader").html("");
                 }

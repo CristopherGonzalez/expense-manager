@@ -113,11 +113,11 @@ class EntityData {
 		(SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo ) as Origen ,
 		(SELECT name FROM tipos where id = " . self::$tablename . ".tipo ) as Tipo ,
 		CASE
-			WHEN (SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo ) == 'Egreso' THEN
+			WHEN (SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo ) = 'Egreso' THEN
 				(SELECT name FROM category_expense where id = " . self::$tablename . ".category_id )
-			WHEN (SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo ) == 'Egreso' THEN
+			WHEN (SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo ) = 'Ingreso' THEN
 				(SELECT name FROM category_income where id = " . self::$tablename . ".category_id )
-			WHEN (SELECT tipo FROM tipos where id = " . self::$tablename . ".tipo )
+			ELSE '---'
 		END AS Categoria	
 		FROM " . self::$tablename . " where  " . $sWhere . "  order by created_at desc LIMIT $offset,$per_page";
 		$query = Executor::doit($sql);
