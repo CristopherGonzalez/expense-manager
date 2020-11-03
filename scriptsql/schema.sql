@@ -251,6 +251,18 @@ COLLATE = utf8_bin;
 		foreign key(user_id) references user(id)
 	) CHARACTER SET = utf8 COLLATE = utf8_bin;
 
+
+create table task
+(
+	id int not null	auto_increment primary key,
+	user_id int not null,
+	empresa int not null,
+  	tarea LONGTEXT not null,
+	hecho boolean not null
+) CHARACTER
+	SET = utf8
+	COLLATE = utf8_bin;
+
 /*Foreign key empresas*/
 ALTER TABLE empresas
 ADD foreign key
@@ -438,4 +450,16 @@ ADD foreign key
 ALTER TABLE logcambios
 ADD foreign key
 (user_id) references user
+(id);
+
+
+/*Foreign key task*/
+
+ALTER TABLE task
+ADD foreign key
+(user_id) references user
+(id);
+ALTER TABLE task
+ADD foreign key
+(empresa) references empresas
 (id);

@@ -10,7 +10,7 @@
 			if($company==null  || empty($company)){ 
 				Core::redir("./?view=index&alert=1"); 
 			}else{
-				$user = UserData::getLogin($email,$password);
+				$user = UserData::getLogin($email,$password, $company->id);
 				if($user!=null && ($user->empresa == $company->id)){
 					$_SESSION["user_id"]=$user->id;
 					$_SESSION["company_id"]=$user->empresa;

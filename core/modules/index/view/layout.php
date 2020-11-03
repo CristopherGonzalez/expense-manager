@@ -8,12 +8,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="res/images/logo_MRC_original.jpg" />
-    <?php if (isset($_SESSION["user_id"])) : //si hay session 
+    <?php if (isset($_SESSION["user_id"])) {
     ?>
         <title>MRC Mi Negocio</title>
-    <?php else : ?>
+    <?php } else { ?>
         <title>Iniciar Sesión</title><!-- si no hay session -->
-    <?php endif; ?>
+    <?php } ?>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="res/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="res/css/font-awesome/css/font-awesome.min.css">
@@ -26,6 +26,7 @@
     <?php
     //i am data
     $user_session = UserData::getById($_SESSION["user_id"]);
+    $task_pendings = TaskData::countPending($_SESSION["company_id"]); //si hay session 
     ?>
 
     <body class="hold-transition <?php echo $user_session->getSkin()->value; ?> sidebar-mini">
@@ -45,10 +46,32 @@
                         <span class="icon-bar"></span>
                     </a>
                     <div class="navbar-custom-menu">
+                        <?php if (isset($_GET['view']) and $_GET['view'] != 'company' and $user_session->id <> 1) : ?>
+                            <ul class="nav navbar-nav">
+                                <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'task') {
+                                                echo "active";
+                                            } ?>">
+                                    <a href="?view=profile" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="hidden-xs">
+                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class=" nav navbar-nav">
+                                <li class="hidden-xs <?php if (isset($_GET['view']) and $_GET['view'] == 'task') {
+                                                            echo "active";
+                                                        } ?>">
+                                    <a href="?view=task">
+                                        <span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="badge"><?php echo $task_pendings->numrows; ?></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        <?php endif; ?>
+
                         <ul class="nav navbar-nav">
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <!-- <img src="res/images/users/<?php echo $user_session->profile_pic ?>" class="user-image" alt="User Image"> -->
                                     <span class="hidden-xs"><?php echo $user_session->name ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
