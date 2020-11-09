@@ -48,10 +48,10 @@
                     <div class="navbar-custom-menu">
                         <?php if (isset($_GET['view']) and $_GET['view'] != 'company' and $user_session->id <> 1) : ?>
                             <ul class="nav navbar-nav">
-                                <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'task') {
+                                <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'status') {
                                                 echo "active";
                                             } ?>">
-                                    <a href="?view=profile" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="?view=status">
                                         <span class="hidden-xs">
                                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                         </span>

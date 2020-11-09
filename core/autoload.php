@@ -16,6 +16,7 @@
 	include "controller/forms/MdDebt.php";
 	include "controller/forms/lbInputPassword.php";
 	include "controller/forms/Webcam.php";
+	include "controller/forms/MdStatus.php";
 	include "controller/forms/lbValidator.php";
 	include "controller/Model.php";
 	include "controller/Bootload.php";

@@ -156,11 +156,17 @@ class StockData
 		return Model::many($query[0], new StockData());
 	}
 
-	public static function dinamycQuery($sWhere)
+	public static function dynamicQuery($sWhere)
 	{
 		$sql = "SELECT * FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc";
 		$query = Executor::doit($sql);
 		return Model::one($query[0], new StockData());
+	}
+	public static function dynamicQueryArray($sWhere)
+	{
+		$sql = "SELECT * FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new StockData());
 	}
 	public static function sumStock($u)
 	{
@@ -181,7 +187,7 @@ class StockData
 		}
 		return Model::one($query[0], new StockData());
 	}
-	public static function dinamycAllQuery($sWhere, $sSelect = "SELECT * ", $all, $sOrder = " order by created_at desc")
+	public static function dynamicAllQuery($sWhere, $sSelect = "SELECT * ", $all, $sOrder = " order by created_at desc")
 	{
 		$sql = $sSelect . " FROM " . self::$tablename . " where " . $sWhere . $sOrder;
 		$query = Executor::doit($sql);
@@ -212,5 +218,3 @@ class StockData
 		return Model::many($query[0], new stdClass);
 	}
 }
-
-?>

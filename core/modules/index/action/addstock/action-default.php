@@ -50,7 +50,7 @@ if (empty($_POST['amount'])) {
 	if (isset($entity) && !empty($entity)) {
 		$sWhere .= " and entidad = " . $entity;
 	}
-	$exist_stock = StockData::dinamycQuery($sWhere);
+	$exist_stock = StockData::dynamicQuery($sWhere);
 	if (isset($exist_stock) && !empty($exist_stock)) {
 		$object['id'] = $exist_stock->id;
 		$stock = StockData::getById($object['id']);

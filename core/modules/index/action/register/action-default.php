@@ -51,10 +51,10 @@
 						$messages[] = "Registro con éxito! Ahora debes esperar la activacion por parte de la empresa.";
 						$codes = array(
 							'user_id'=>$query_new[1],
-							'step'=>1
+							'step'=>2
 						);
 						$code = Core::encrypt_decrypt('encrypt', serialize($codes));
-						$mail = new Mail($company->email,1);
+						$mail = new Mail($company->email,2);
 						
 						$mail->message= "\r\n"."Licencia : ".$company->licenciaMRC;
 						$mail->message.= "\r\n"."Nombre de Empresa : ".$company->name;

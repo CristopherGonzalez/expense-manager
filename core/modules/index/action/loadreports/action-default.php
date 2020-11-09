@@ -34,9 +34,9 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 		"#7952b3",
 		"#e83e8c"
 	];
-	// $incomes = IncomeData::dinamycQuery($sWhere);
-	// $expenses = ExpensesData::dinamycQuery($sWhere);
-	// $partners = ResultData::dinamycQuery($sWhere);
+	// $incomes = IncomeData::dynamicQuery($sWhere);
+	// $expenses = ExpensesData::dynamicQuery($sWhere);
+	// $partners = ResultData::dynamicQuery($sWhere);
 
 	$sumIncomeMonth = IncomeData::sumIncomeByDate($month, $_SESSION['company_id'], $year);
 	$sumExpenseMonth = ExpensesData::sumExpenses_Month($month, $_SESSION['company_id'], $year);
@@ -46,14 +46,14 @@ if ((isset($_POST['year']) && !empty($_POST['year']))) {
 	$sumPartnersWithdrawal = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true);
 	$sumPartnersContribution = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'],  $month, $year, false);
 	$sumPartnersWithdrawalPayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true, true);
-	$sumPartnersWithdrawalImpayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true,false);
+	$sumPartnersWithdrawalImpayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, true, false);
 	$sumPartnersContributionPayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, false, true);
 	$sumPartnersContributionImpayment = ResultData::sumPartnerByPaymentStatusByDateAndAmount($_SESSION['company_id'], $month, $year, false, false);
 	$sumPartnersImpayment = ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'], 0, $month, $year);
 	$sumPartnersPayment = ResultData::sumPartnerByPaymentStatusByDate($_SESSION['company_id'], 1, $month, $year);
 	$sumStockByDate = StockData::sumStockByDate($_SESSION['company_id'], $month, $year);
-	//$sumStocksBeforeDate = StockData::dinamycQuery($sWhere);
-	$sumStocksBeforeDate = StockData::dinamycAllQuery($stockWhere, $stockSelect, false);
+	//$sumStocksBeforeDate = StockData::dynamicQuery($sWhere);
+	$sumStocksBeforeDate = StockData::dynamicAllQuery($stockWhere, $stockSelect, false);
 	$resultSumMonth = (isset($sumIncomeMonth->total) ? $sumIncomeMonth->total : 0) - (isset($sumExpenseMonth->total) ? $sumExpenseMonth->total : 0);
 	$result = array();
 	$types = TypeData::getAllType();

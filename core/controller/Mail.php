@@ -2,7 +2,7 @@
 require("send-email/class.phpmailer.php");
 require("send-email/class.smtp.php");
 class Mail{
-	public function __construct($email,$step){
+	public function __construct($email,$step=5){
 		$this->email_to = $email;
 		$this->step = $step;
 		$this->subject = "";
@@ -47,6 +47,7 @@ class Mail{
 				if($this->step == 3){
 					$this->subject = "Desactivacion de cuenta";
 				}
+
 				$mail->Subject = $this->subject;
 				$estadoEnvio = $mail->Send(); 
 				if($estadoEnvio){
@@ -56,6 +57,7 @@ class Mail{
 				}
 
 			}
+
 			return false;
 		} catch (Exception $e) {
 			return $e->getMessage();

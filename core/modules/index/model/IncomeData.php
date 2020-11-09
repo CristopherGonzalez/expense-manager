@@ -246,11 +246,15 @@ class IncomeData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0], new stdClass);
 	}
-	public static function dinamycQuery($sWhere){
+	public static function dynamicQuery($sWhere){
 		$sql = "SELECT *, ('Ingreso') as tipo_doc FROM ".self::$tablename." where ".$sWhere." order by created_at desc";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new IncomeData());
 	}
+	public static function dynamicQueryArray($sWhere)
+	{
+		$sql = "SELECT * FROM " . self::$tablename . " where " . $sWhere . " order by created_at desc";
+		$query = Executor::doit($sql);
+		return Model::many($query[0], new IncomeData());
+	}
 }
-
-?>

@@ -24,6 +24,7 @@ if (empty($_POST['amount'])) {
 	$con = Database::getCon();
 	$income = new IncomeData();
 	$income->description = mysqli_real_escape_string($con, (strip_tags($_POST["description"], ENT_QUOTES)));
+	$income->fecha_vence = mysqli_real_escape_string($con, (strip_tags($_POST["date_expires"], ENT_QUOTES)));
 	$income->amount = mysqli_real_escape_string($con, (strip_tags($_POST["amount"], ENT_QUOTES)));
 	$income->user_id = $_SESSION['user_id'];
 	$income->empresa = $_SESSION['company_id'];

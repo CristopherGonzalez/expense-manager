@@ -110,7 +110,7 @@ class ResultData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ResultData());
 	}
-	public static function dinamycQuery($sWhere){
+	public static function dynamicQuery($sWhere){
 		$sql = "SELECT *, ('Socio') as tipo_doc FROM ".self::$tablename." where ".$sWhere." order by created_at desc";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ResultData());
@@ -201,5 +201,3 @@ class ResultData {
 		return Model::many($query[0], new stdClass);
 	}
 }
-
-?>

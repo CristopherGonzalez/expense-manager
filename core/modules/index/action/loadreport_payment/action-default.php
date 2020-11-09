@@ -42,23 +42,23 @@ if (isset($_POST)) {
 	$countResult = 0;
 	if ($type_doc === "0" || $type_doc === 'partner') {
 
-		$partner = ResultData::dinamycQuery($sWhere);
+		$partner = ResultData::dynamicQuery($sWhere);
 		$countResult += count($partner);
 		array_push($result, $partner);
 	}
 	if ($type_doc === "0" || $type_doc === 'expense') {
-		$expenses = ExpensesData::dinamycQuery($sWhere);
+		$expenses = ExpensesData::dynamicQuery($sWhere);
 		$countResult += count($expenses);
 		array_push($result, $expenses);
 	}
 	if ($type_doc === "0" || $type_doc === 'income') {
-		$income = IncomeData::dinamycQuery($sWhere);
+		$income = IncomeData::dynamicQuery($sWhere);
 		$countResult += count($income);
 		array_push($result, $income);
 	}
 
 	if ($type_doc === "0" || $type_doc === 'debt') {
-		$debt = DebtsData::dinamycQuery($sWhere);
+		$debt = DebtsData::dynamicQuery($sWhere);
 		$countResult += count($debt);
 		array_push($result, $debt);
 	}
