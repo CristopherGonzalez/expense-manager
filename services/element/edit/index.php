@@ -21,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $response[] = "El id de la entidad no esta informado.";
     } elseif (empty($_POST['date']) || !isset($_POST['date'])) {
         $response[] = "La fecha no esta informada.";
+    } elseif (empty($_POST['date_expires']) || !isset($_POST['date_expires'])) {
+        $response[] = "La fecha de expiración no esta informada.";
     } elseif (empty($_POST['document_number']) || !isset($_POST['document_number'])) {
         $response[] = "El numero de documento no esta informado.";
     } elseif (empty($_POST['description']) || !isset($_POST['description'])) {
@@ -34,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         && !empty($_POST['id_entity'])
         && !empty($_POST['date'])
         && !empty($_POST['document_number'])
+        && !empty($_POST['date_expires'])
         && !empty($_POST['amount'])
         && !empty($_POST['description'])
         && !empty($_POST['paid'])
@@ -58,13 +61,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $element->entidad = intval($_POST['id_entity']);
             $entity = EntityData::getById($element->entidad);
             $element->fecha = $_POST['date'];
+            $element->fecha_vence = mysqli_real_escape_string($con, (strip_tags($_POST["date_expires"], ENT_QUOTES)));
             $element->document_number = $_POST['document_number'];
-            $element->pagado =  $_POST['paid'];
+            $element->pagado =  $_POST['paid'] == "true" ?"1":"0";
             $element->documento = "";
-            $element->pagado_con = "";
             $element->pago = "";
-            if ($element->pagado) {
-                $element->payment_date = $_POST['date'];
+            if ($element->pagado && !empty($_POST['pay_with']) && isset($_POST['pay_with']) && !empty($_POST['payment_date']) && isset($_POST['payment_date'])) {
+                $element->pagado_con = $_POST['pay_with'];
+                $element->payment_date = $_POST['payment_date'];
+            } else {
+                $element->pagado =  '0';
+                $element->pagado_con = '';
+                $element->payment_date = '00/00/0000';
             }
             $element->category_id = $entity->category_id;
             $element->tipo = $entity->tipo;
@@ -116,21 +124,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo json_encode($response);
     exit();
 }
-// Crear un nuevo get
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    header("HTTP/1.1 400 OK");
-    echo json_encode($response);
-    exit();
-}
-//Borrar
-if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-    header("HTTP/1.1 400 OK");
-    exit();
-}
-//Actualizar
-if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-    header("HTTP/1.1 400 OK");
-    exit();
-}
+
 //En caso de que ninguna de las opciones anteriores se haya ejecutado
 header("HTTP/1.1 400 Bad Request");

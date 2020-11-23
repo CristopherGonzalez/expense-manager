@@ -65,7 +65,7 @@ class ExpensesData
 
 	public function update()
 	{
-		$sql = "update " . self::$tablename . " set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\",fecha_vence=\"$this->fecha_vence\", tipo=$this->tipo, entidad=$this->entidad, pagado='$this->pagado',pagado_con='$this->pagado_con', document_number='$this->document_number', payment_date='$this->payment_date' , payment_specific_date='$this->payment_specific_date' ";
+		$sql = "update " . self::$tablename . " set description=\"$this->description\",amount=\"$this->amount\",category_id=\"$this->category_id\",fecha=\"$this->fecha\",fecha_vence=\"$this->fecha_vence\", tipo=$this->tipo, entidad=$this->entidad, pagado=$this->pagado,pagado_con='$this->pagado_con', document_number='$this->document_number', payment_date='$this->payment_date' , payment_specific_date='$this->payment_specific_date' ";
 		if (isset($this->documento) && !empty($this->documento)) {
 			$sql .= ", documento = '$this->documento' ";
 		}

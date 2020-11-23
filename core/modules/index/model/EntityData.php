@@ -74,7 +74,7 @@ class EntityData {
 	}
 	public static function getAll($u,$active=false){
 		$sql = "select * from ".self::$tablename." where empresa=$u";
-		if($active){ $sql.=" active=1 "; }
+		if($active){ $sql.=" and  active=1 "; }
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new EntityData());
 	}

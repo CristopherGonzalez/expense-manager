@@ -11,10 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 }
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
+{   
+    
     if(isset($_POST['id_company']) && !empty($_POST['id_company'])){
         $id_company = $_POST['id_company'];
         $entities = EntityData::getAll($id_company,true);
+        //return ($entities);
         header("HTTP/1.1 200 OK");
         $response = array();
         foreach($entities as $index=>$entity){
