@@ -9,8 +9,8 @@ class Mail{
 		$this->message = "";
 		$this->additional_parameters = "";
 		$this->smtp_host = "dm000397.ferozo.com";  
-		$this->smtp_usuario = "no-reply@mrcomanda.com.ar";  
-		$this->smtp_clave = "1g7pIbX2HzqO";  
+		$this->smtp_usuario = "avisos@dm000397.ferozo.com";  
+		$this->smtp_clave = "Rl9*YAF6cW";  
 	}
 	public function send(){
 		try {
@@ -32,8 +32,8 @@ class Mail{
 			$mail->AddAddress($this->email_to); // Esta es la dirección a donde enviamos los datos del formulario
 
 			//$mail->Subject = "DonWeb - Ejemplo de formulario de contacto"; // Este es el titulo del email.
-			$mensajeHtml = nl2br($this->message);
-			$mail->Body = "{$mensajeHtml} <br /><br />Copyright © ".date("Y")." mrcomanda.com - Todos los derechos reservados.<br />"; // Texto del email en formato HTML
+			//$mensajeHtml = nl2br($this->message);
+			$mail->Body = "{$this->message} <br /><br />Copyright © ".date("Y")." mrcomanda.com - Todos los derechos reservados.<br />"; // Texto del email en formato HTML
 			$mail->AltBody = "{$this->message} \n\n Copyright © " . date("Y") . " mrcomanda.com - Todos los derechos reservados."; // Texto sin formato HTML
 			// FIN - VALORES A MODIFICAR //
 
@@ -49,6 +49,11 @@ class Mail{
 				}
 
 				$mail->Subject = $this->subject;
+
+				if(isset($this->additional_parameteres)){
+					$mail->addCustomHeader($this->additional_parameteres);
+				}
+
 				$estadoEnvio = $mail->Send(); 
 				if($estadoEnvio){
 					return true;

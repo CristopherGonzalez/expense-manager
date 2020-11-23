@@ -108,7 +108,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                 <!-- Se  muestran los nombres de los campos dependiendo de los id's -->
                                                 <td><?php echo $income->description; ?></td>
                                                 <td><?php echo $income->getCategory()->name; ?></td>
-                                                <td><?php echo number_format($stock->amount, 2); ?></td>
+                                                <td><?php echo number_format($income->amount, 2); ?></td>
 
                                             </tr>
                                         <?php } ?>
@@ -282,8 +282,10 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     <script>
         $("#sendEmail").submit(function(event) {
             $('#send_status').attr("disabled", true);
+            debugger;
             let parametros = {
-                email : $('#email_from').val()
+                email: $('#email_from').val(),
+                arbol: $(this)
             }
             let result = false;
             $.ajax({

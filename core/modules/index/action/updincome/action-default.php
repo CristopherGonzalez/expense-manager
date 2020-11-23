@@ -30,6 +30,7 @@ if (empty($_POST['mod_id'])) {
 	$income->description = mysqli_real_escape_string($con, (strip_tags($_POST["description"], ENT_QUOTES)));
 	$income->amount = mysqli_real_escape_string($con, (strip_tags($_POST["amount"], ENT_QUOTES)));
 	$income->category_id = intval($_POST['category']);
+	$income->fecha_vence = mysqli_real_escape_string($con, (strip_tags($_POST["date_expires"], ENT_QUOTES)));
 	$income->created_at = mysqli_real_escape_string($con, (strip_tags($_POST["date"], ENT_QUOTES)));
 	//Se capturan los nuevos datos de los egresos
 	$income->entidad = intval($_POST['entity']);

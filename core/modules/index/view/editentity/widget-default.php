@@ -19,12 +19,12 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     }
 ?>
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1><i class="fa fa-edit"></i>Editar entidad</h1>
-    </section>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1><i class="fa fa-edit"></i>Editar entidad</h1>
+        </section>
 
         <!-- Main content -->
         <section class="content">
@@ -67,8 +67,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                     <select class="form-control " name="category_income" id="category_income" disabled>
                                         <option value="">Selecciona una Opcion</option>
 
-                                </select>
-                            </div>
+                                    </select>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="category_partner" class="control-label">Categoria socio: </label>
@@ -134,20 +134,20 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                         $modal_content = new Modal("Listado de Cambios", "frmentity", UserData::getById($_SESSION['user_id']));
                                         echo $modal_content->renderInit();
                                         ?>
-                                    <div class="form-group table-responsive">
-                                        <div id="chn_log"></div>
-                                    </div>
-                                    <?php echo $modal_content->renderEnd(false); ?>
-                                </span>
-                            </div>
-                        </div> <!-- /.box -->
-                        <?php
-                        $webcamdocument = new Webcam('document');
-                        echo $webcamdocument->renderModalImageCam();
-                        ?>
-                        <div id="result"></div>
+                                        <div class="form-group table-responsive">
+                                            <div id="chn_log"></div>
+                                        </div>
+                                        <?php echo $modal_content->renderEnd(false); ?>
+                                    </span>
+                                </div>
+                            </div> <!-- /.box -->
+                            <?php
+                            $webcamdocument = new Webcam('document');
+                            echo $webcamdocument->renderModalImageCam();
+                            ?>
+                            <div id="result"></div>
+                        </div>
                     </div>
-                </div>
             </form>
         </section>
     </div>
@@ -206,18 +206,11 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             });
             event.preventDefault();
             window.setTimeout(function() {
-                $(".alert").fadeTo(500, 0).slideUp(500, function() {
-                    $(this).remove();
-                });
-            }, 2000);
-            result = true;
-        }
-    });
-    event.preventDefault();
-    window.setTimeout(function() {
-        if (result) {
-            window.location.href = "./?view=entities";
-        }
+                if (result) {
+                    window.location.href = "./?view=entities";
+                }
+            });
+        });
         //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
         function image_load(input) {
             if ((input.files && input.files[0])) {
@@ -286,94 +279,75 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             $('#type').prop('disabled', true);
             $('#type').prop('required', true);
 
-    //Se carga datos dependiendo de la opcion de origen de la modal
-    if (origin_type === "origin_default") {
-        $('#category_expense').prop('disabled', 'disabled');
-        $('#category_income').prop('disabled', 'disabled');
-        $('#category_partner').prop('disabled', 'disabled');
-        $('#category_expense option[value=0]').attr("selected", "selected");
-        $('#category_income option[value=0]').attr("selected", "selected");
-        $('#category_partner option[value=0]').attr("selected", "selected");
-    }
-    if (origin_type === "origin_expense") {
-        $('#type').prop('disabled', false);
 
-        <
-        ?
-        php
-        foreach($types as $type) {
-            if (!strcmp($type - > tipo, "Egreso")) {
-                ?
-                >
-                $('#type').append($('<option></option>').attr("value", < ? php echo $type - > id; ? > ).text(
-                    "<?php echo $type->name; ?>")); <
-                ?
-                php
+
+
+            //Se carga datos dependiendo de la opcion de origen de la modal
+            if (origin_type === "origin_default") {
+                $('#category_expense').prop('disabled', 'disabled');
+                $('#category_income').prop('disabled', 'disabled');
+                $('#category_partner').prop('disabled', 'disabled');
+                $('#category_expense option[value=0]').attr("selected", "selected");
+                $('#category_income option[value=0]').attr("selected", "selected");
+                $('#category_partner option[value=0]').attr("selected", "selected");
             }
-        }
+            if (origin_type === "origin_expense") {
+                $('#type').prop('disabled', false);
 
-        foreach($categories_expense as $category) {
-                if ($category - > tipo == $entity - > tipo) {
-                    ?
-                    >
-                    $('#category_expense').append($('<option></option>').attr("value", < ? php echo $category - > id; ?
-                        >
-                    ).text("<?php echo $category->name; ?>")); <
-                    ?
-                    php
+                <?php
+                foreach ($types as $type) {
+                    if (!strcmp($type->tipo, "Egreso")) {
+                ?>
+                        $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text(
+                            "<?php echo $type->name; ?>"));
+                    <?php
+                    }
                 }
-            } ?
-            >
 
-    }
-    if (origin_type === "origin_income") {
-        $('#type').prop('disabled', false);
+                foreach ($categories_expense as $category) {
+                    if ($category->tipo == $entity->tipo) {
+                    ?>
+                        $('#category_expense').append($('<option></option>').attr("value", <?php echo $category->id; ?>).text("<?php echo $category->name; ?>"));
+                <?php
+                    }
+                } ?>
 
-        <
-        ?
-        php
-        foreach($types as $type) {
-            if (!strcmp($type - > tipo, "Ingreso")) {
-                ?
-                >
-                $('#type').append($('<option></option>').attr("value", < ? php echo $type - > id; ? > ).text(
-                    "<?php echo $type->name; ?>")); <
-                ?
-                php
             }
-        }
+            if (origin_type === "origin_income") {
+                $('#type').prop('disabled', false);
 
-        foreach($categories_income as $category) {
-                if ($category - > tipo == $entity - > tipo) {
-                    ?
-                    >
-                    $('#category_income').append($('<option></option>').attr("value", < ? php echo $category - > id; ? >
-                        ).text("<?php echo $category->name; ?>")); <
-                    ?
-                    php
+                <?php
+                foreach ($types as $type) {
+                    if (!strcmp($type->tipo, "Ingreso")) {
+                ?>
+                        $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text(
+                            "<?php echo $type->name; ?>"));
+                    <?php
+                    }
                 }
-            } ?
-            >
-    }
-    if (origin_type === "origin_partner") {
-        $('#type').prop('disabled', false); <
-        ?
-        php
-        foreach($types as $type) {
-                if (!strcmp($type - > tipo, "Socio")) {
-                    ?
-                    >
-                    $('#type').append($('<option></option>').attr("value", < ? php echo $type - > id; ? > ).text(
-                        "<?php echo $type->name; ?>")); <
-                    ?
-                    php
-                }
-            } ?
-            >
 
+                foreach ($categories_income as $category) {
+                    if ($category->tipo == $entity->tipo) {
+                    ?>
+                        $('#category_income').append($('<option></option>').attr("value", <?php echo $category->id; ?>).text("<?php echo $category->name; ?>"));
+                <?php
+                    }
+                } ?>
+            }
+            if (origin_type === "origin_partner") {
+                $('#type').prop('disabled', false);
+                <?php
+                foreach ($types as $type) {
+                    if (!strcmp($type->tipo, "Socio")) {
+                ?>
+                        $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text(
+                            "<?php echo $type->name; ?>"));
+                <?php
+                    }
+                }
+                ?>
                 $('#category_partner').append($('<option></option>').attr("value", 1).text("Socio"));
                 $('#category_partner option: selected ').val(1);
-
             }
             if (origin_type === "origin_debt") {
                 $('#type').prop('disabled', false);
@@ -382,27 +356,21 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                     if (!strcmp($type->tipo, "Deudas")) { ?>
                         $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text("<?php echo $type->name; ?>"));
                 <?php }
-                }
-            } ?
-            >
-    }
-    if (origin_type === "origin_stock") {
-        $('#type').prop('disabled', false); <
-        ?
-        php
-        foreach($types as $type) {
-                if (!strcmp($type - > tipo, "Valores")) {
-                    ?
-                    >
-                    $('#type').append($('<option></option>').attr("value", < ? php echo $type - > id; ? > ).text(
-                        "<?php echo $type->name; ?>")); <
-                    ?
-                    php
-                }
-            } ?
-            >
-    }
-}
+                } ?>
+            }
+            if (origin_type === "origin_stock") {
+                $('#type').prop('disabled', false);
+                <?php
+                foreach ($types as $type) {
+                    if (!strcmp($type->tipo, "Valores")) {
+                ?>
+                        $('#type').append($('<option></option>').attr("value", <?php echo $type->id; ?>).text(
+                            "<?php echo $type->name; ?>"));
+                <?php
+                    }
+                } ?>
+            }
+        }
 
         function change_categories(event) {
             var type_value = event.value;
@@ -451,26 +419,10 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 categories = 'category_partner';
                 $('#' + categories).prop('required', true);
                 $('#' + categories).prop('disabled', false);
-                $('#' + categories).append($('<option></option>').attr("value", < ? php echo $cat - > id; ? > )
+                $('#' + categories).append($('<option></option>').attr("value", <?php echo $cat->id; ?>)
                     .text("<?php echo $cat->name; ?>"));
-            } <
-            ?
-            php
-        } ? >
-    }
-    if (origin_type === "origin_partner") {
-        categories = 'category_partner';
-        $('#' + categories).prop('required', true);
-        $('#' + categories).prop('disabled', false);
-        $('#' + categories).append($('<option></option>').attr("value", 1).text("Socio"));
-    }
-
-
-
-
-
-
-}
-</script>
+            }
+        }
+    </script>
 <?php else : Core::redir("./");
 endif; ?>
