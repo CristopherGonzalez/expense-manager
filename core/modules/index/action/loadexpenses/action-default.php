@@ -46,6 +46,8 @@ $category = intval($_REQUEST['category']);
 $text = mysqli_real_escape_string($con, (strip_tags($_REQUEST['text'], ENT_QUOTES)));
 $not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
 $inactive = (isset($_REQUEST['inactive']) && $_REQUEST['inactive'] == "true") ? 0 : 1;
+$entity = (isset($_REQUEST['entity'])) ? intval($_REQUEST['entity']) : 0;
+//entity_find
 //$user_id=$_SESSION["user_id"];
 //$sWhere=" user_id=$user_id ";
 $company_id = $_SESSION["company_id"];
@@ -62,6 +64,9 @@ if ($month != 0) {
 }
 if ($year != 0) {
 	$sWhere .= " and year(fecha) = " . $year;
+}
+if ($entity != 0) {
+	$sWhere .= " and entidad = " . $entity;
 }
 if ($text != "") {
 	$sWhere .= " and (LOWER(description) LIKE LOWER('%" . $text . "%') or LOWER(document_number) LIKE LOWER('%" . $text . "%')  )";
@@ -96,6 +101,8 @@ if (isset($_REQUEST["id"])) {
 <?php
 }
 // si hay registro
+$mount = 0;
+
 if (count($query) > 0) {
 ?>
 	<table class="table table-bordered table-hover">
@@ -112,6 +119,7 @@ if (count($query) > 0) {
 		<tbody>
 			<?php
 			$finales = 0;
+
 			foreach ($query as $exp) {
 
 				$created_at = $exp->fecha;
@@ -132,7 +140,8 @@ if (count($query) > 0) {
 							echo "<center>----</center>";
 						}  ?></td>
 					<td><?php echo $exp->description; ?></td>
-					<td><?php echo number_format($exp->amount, 2); ?></td>
+					<td><?php echo number_format($exp->amount, 2);
+						$mount += floatval($exp->amount); ?></td>
 					<td><?php if ($exp->document_number != null) {
 							echo $exp->document_number;
 						} else {
@@ -149,6 +158,7 @@ if (count($query) > 0) {
 					</td>
 				</tr>
 			<?php } ?>
+
 		</tbody>
 		<tfoot>
 			<tr>
@@ -169,3 +179,6 @@ if (count($query) > 0) {
 	    <strong>Sin Resultados!</strong> No se encontraron resultados en la base de datos!.</div>';
 }
 ?>
+<script type="text/javascript">
+	var response = "<?php echo $mount; ?>";
+</script>

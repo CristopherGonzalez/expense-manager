@@ -46,13 +46,17 @@ if (empty($_POST['mod_id'])) {
 		$change_log->tabla = "entity";
 		$change_log->registro_id = $entity->id;
 		$change_log->description = $entity->name;
+		$change_log->amount = 1;
 		$change_log->user_id = $entity->user_id;
 		$change_log->tipo = $entity->tipo;
 		$change_log->entidad = $entity->category_id;
 		$change_log->document_number =
 		$entity->document_number;
 		$change_log->active = $entity->active;
-		$change_log->fecha = "NOW()";
+		$change_log->fecha = "00/00/0000";
+		$change_log->payment_date =  "00/00/0000";
+		$change_log->pagado =1;
+
 		$result = $change_log->add();
 		if (isset($result) && !empty($result) && is_array($result) && count($result) > 1 && $result[1] > 0) {
 			$messages[] = " El registro de cambios ha sido actualizado satisfactoriamente.";

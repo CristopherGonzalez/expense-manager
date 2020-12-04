@@ -77,6 +77,21 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                             <input type="text" class="form-control" name="find_text" id="find_text" style="width: 100%;" placeholder="Buscar en texto" title="Ingresa algun texto para realizar la busqueda" onkeyup="load(1);">
                         </div>
                         <div class="col-md-3 form-group">
+                            <select name="entity_find" id="entity_find" class="form-control" style="width: 100%;" onchange="load(1);">
+                                <option value="0">Entidad</option>
+                                <?php
+                                foreach ($entities as $entity) {
+                                ?>
+                                    <option value="<?php echo $entity->id; ?>"><?php echo $entity->name; ?></option>
+                                <?php } ?>
+                            </select>
+
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <h4><b>$<label id="mount">0</label></b></h4>
+
+                        </div>
+                        <div class="col-md-3 form-group">
                             <input type="checkbox" id="not_paid" name="not_paid" onchange="load(1);">
                             <label for="not_paid">Solo Impagos</label>
                         </div>
@@ -295,6 +310,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             let year_find = $('#year_find option:selected').val();
             let type_income_find = $('#type_income_find option:selected').val();
             let category_find = $('#category_find option:selected').val();
+            let entity_find = $('#entity_find option:selected').val();
             let find_text = $('#find_text').val();
             let not_paid = $('#not_paid').is(":checked");
             let inactive = $('#inactive').is(":checked");
@@ -307,6 +323,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 'type_income': type_income_find,
                 'category': category_find,
                 'text': find_text,
+                'entity': entity_find,
                 'inactive': inactive,
                 'payment': not_paid,
                 'per_page': per_page
@@ -321,8 +338,10 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 success: function(data) {
                     $(".outer_div").html(data);
                     $("#loader").html("");
+                    if (typeof response !== 'undefined') {
+                        $('#mount').html(response);
+                    }
                 }
-
             });
         }
 

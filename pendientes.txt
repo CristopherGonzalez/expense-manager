@@ -1,0 +1,6 @@
+Arreglar vista de edicion de entidad,
+Agregar generar deuda documentada.
+Al editar valores se agrega uno nuevo, no se editar
+Agregar totales en secciones,
+Revisar edicion en valores,
+Agrega filtro de entidad en secciones

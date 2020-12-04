@@ -45,6 +45,7 @@ $category = intval($_REQUEST['category']);
 $text = mysqli_real_escape_string($con, (strip_tags($_REQUEST['text'], ENT_QUOTES)));
 $inactive = (isset($_REQUEST['inactive']) && $_REQUEST['inactive'] == "true") ? 0 : 1;
 $not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
+$entity = (isset($_REQUEST['entity'])) ? intval($_REQUEST['entity']) : 0;
 //$user_id=$_SESSION["user_id"];
 //$sWhere=" user_id>0 ";
 //$sWhere=" user_id=$user_id ";
@@ -62,6 +63,9 @@ if ($month != 0) {
 }
 if ($year != 0) {
 	$sWhere .= " and year(fecha) = " . $year;
+}
+if ($entity != 0) {
+	$sWhere .= " and entidad = " . $entity;
 }
 if ($text != "") {
 	$sWhere .= " and (LOWER(description) LIKE LOWER('%" . $text . "%') or LOWER(document_number) LIKE LOWER('%" . $text . "%') ) ";
@@ -96,6 +100,8 @@ if (isset($_REQUEST["id"])) {
 <?php
 }
 // si hay registro
+$mount = 0;
+
 if (count($query_sql) > 0) {
 ?>
 	<table class="table table-bordered table-hover">
@@ -132,7 +138,8 @@ if (count($query_sql) > 0) {
 							echo "<center>----</center>";
 						}  ?></td>
 					<td><?php echo $inc->description; ?></td>
-					<td><?php echo number_format($inc->amount, 2); ?></td>
+					<td><?php echo number_format($inc->amount, 2);
+						$mount += floatval($inc->amount); ?></td>
 					<td><?php if ($inc->document_number != null) {
 							echo $inc->document_number;
 						} else {
@@ -149,6 +156,7 @@ if (count($query_sql) > 0) {
 					</td>
 				</tr>
 			<?php } ?>
+
 		</tbody>
 		<tfoot>
 			<tr>
@@ -169,3 +177,6 @@ if (count($query_sql) > 0) {
 	    <strong>Sin Resultados!</strong> No se encontraron resultados en la base de datos!.</div>';
 }
 ?>
+<script type="text/javascript">
+	var response = "<?php echo $mount; ?>";
+</script>

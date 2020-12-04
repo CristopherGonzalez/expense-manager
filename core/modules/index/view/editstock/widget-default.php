@@ -194,7 +194,7 @@ if(!isset($stock) && empty($stock)){
         var result = false;
         $.ajax({
             type: "POST",
-            url: "./?action=addstock",
+            url: "./?action=updstock",
             data: fd,
             contentType: false,
             processData: false,

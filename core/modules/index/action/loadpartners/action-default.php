@@ -45,6 +45,7 @@ $text = mysqli_real_escape_string($con, (strip_tags($_REQUEST['text'], ENT_QUOTE
 $inactive = (isset($_REQUEST['inactive']) && $_REQUEST['inactive'] == "true") ? 0 : 1;
 $not_paid = (isset($_REQUEST['payment']) && $_REQUEST['payment'] == "true") ? 0 : 1;
 //$user_id=$_SESSION["user_id"];
+$entity = (isset($_REQUEST['entity'])) ? intval($_REQUEST['entity']) : 0;
 $company_id = $_SESSION["company_id"];
 $sWhere = " empresa=$company_id";
 //Se construye la consulta sql dependiendo de los filtros ingresados
@@ -62,6 +63,9 @@ if (!$not_paid) {
 }
 if ($inactive == 1) {
 	$sWhere .= " and active = $inactive ";
+}
+if ($entity != 0) {
+	$sWhere .= " and entidad = " . $entity;
 }
 include 'res/resources/pagination.php'; //include pagination file
 $page = (isset($_REQUEST['page']) && !empty($_REQUEST['page'])) ? $_REQUEST['page'] : 1;
@@ -86,6 +90,7 @@ if (isset($_REQUEST["id"])) {
 	</div>
 <?php
 }
+$mount = 0;
 // si hay registro
 if (count($partners) > 0) {
 ?>
@@ -102,6 +107,7 @@ if (count($partners) > 0) {
 		<tbody>
 			<?php
 			$finales = 0;
+
 			foreach ($partners as $partner) {
 
 				$created_at = $partner->fecha;
@@ -117,7 +123,8 @@ if (count($partners) > 0) {
 					<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 					<td><?php echo $date; ?></td>
 					<td><?php echo $partner->description; ?></td>
-					<td><?php echo number_format($partner->amount, 2); ?></td>
+					<td><?php echo number_format($partner->amount, 2);
+						$mount += floatval($partner->amount); ?></td>
 					<td><?php if ($partner->entidad != null) {
 							echo EntityData::getById($partner->entidad)->name;
 						} else {
@@ -134,6 +141,7 @@ if (count($partners) > 0) {
 					</td>
 				</tr>
 			<?php } ?>
+
 		</tbody>
 		<tfoot>
 			<tr>
@@ -154,3 +162,6 @@ if (count($partners) > 0) {
 	    <strong>Sin Resultados!</strong> No se encontraron resultados en la base de datos!.</div>';
 }
 ?>
+<script type="text/javascript">
+	var response = "<?php echo $mount; ?>";
+</script>

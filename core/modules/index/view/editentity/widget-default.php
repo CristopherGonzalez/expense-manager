@@ -126,6 +126,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                     <input type="checkbox" id="active" name="active" <?php echo isset($entity->active) && $entity->active == 1 ? "checked" : ""; ?>>
                                     <label for="active">Activo</label>
                                 </div>
+                                <input type="hidden" required class="form-control" id="mod_id" name="mod_id" value="<?php echo $entity->id; ?>">
+
                                 <div class="form-group">
                                     <span>
                                         <?php
@@ -141,13 +143,23 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                     </span>
                                 </div>
                             </div> <!-- /.box -->
+                            <div class="box-footer text-right">
+                                <label style="color:#999; font-weight:normal;">Registrado por <?php $creator_user = UserData::getById($entity->user_id);
+                                                                                                echo $creator_user->name  ?> el <?php echo $entity->created_at;  ?></label>
+                                <span style="margin-left:10px;">
+                                    <a href="./?view=entities" class="btn btn-default">Volver</a>
+                                    <button type="submit" id="upd_data" class="btn btn-success">Actualizar</button>
+                                </span>
+                            </div>
                             <?php
                             $webcamdocument = new Webcam('document');
                             echo $webcamdocument->renderModalImageCam();
                             ?>
                             <div id="result"></div>
                         </div>
+
                     </div>
+
             </form>
         </section>
     </div>
@@ -157,6 +169,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
 
     <script>
         $(function() {
+            debugger;
             load();
             load_change_log('<?php echo $entity->id; ?>', "entity", "chn_log");
         });
@@ -209,8 +222,45 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 if (result) {
                     window.location.href = "./?view=entities";
                 }
-            });
+            }, 2000);
+
         });
+
+        function load() {
+            var origin_type = "<?php echo $type_entity->tipo; ?>";
+            if (origin_type == null || origin_type == undefined || origin_type.length == 0) {
+                window.location = './?view=entities';
+            };
+            if (origin_type == "Egreso") {
+                $('#origin option[value=origin_expense]').attr("selected", "selected");
+            }
+            if (origin_type == "Ingreso") {
+                $('#origin option[value=origin_income]').attr("selected", "selected");
+            }
+            if (origin_type == "Socio") {
+                $('#origin option[value=origin_partner]').attr("selected", "selected");
+            }
+            if (origin_type == "Deudas") {
+                $('#origin option[value=origin_debt]').attr("selected", "selected");
+            }
+            if (origin_type == "Valores") {
+                $('#origin option[value=origin_stock]').attr("selected", "selected");
+            }
+            change_origin($('#origin')[0]);
+            if (origin_type == "Egreso") {
+                $('#category_expense').prop('disabled', false);
+                $('#category_expense option[value=<?php echo $entity->category_id ?>]').attr("selected", "selected");
+            }
+            if (origin_type == "Ingreso") {
+                $('#category_income').prop('disabled', false);
+                $('#category_income option[value=<?php echo $entity->category_id ?>]').attr("selected", "selected");
+            }
+            if (origin_type == "Socio") {
+                $('#category_partner').prop('disabled', false);
+                $('#category_partner option[value=1]').attr("selected", "selected");
+            }
+            $('#type option[value=<?php echo $entity->tipo ?>]').attr("selected", "selected");
+        }
         //Funcion para recargar imagen cuando se cambia de valor la imagen del documento o del pago
         function image_load(input) {
             if ((input.files && input.files[0])) {
@@ -273,6 +323,8 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 $(this).remove()
             });
             $('#category_partner').append($('<option></option>').text("Selecciona una Opcion").attr("value", ""));
+
+
             $('#category_partner').prop('disabled', true);
             $('#category_income').prop('disabled', true);
             $('#category_expense').prop('disabled', true);
@@ -347,7 +399,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                 }
                 ?>
                 $('#category_partner').append($('<option></option>').attr("value", 1).text("Socio"));
-                $('#category_partner option: selected ').val(1);
+                $('#category_partner option[value=1]').attr("selected", "selected");
             }
             if (origin_type === "origin_debt") {
                 $('#type').prop('disabled', false);

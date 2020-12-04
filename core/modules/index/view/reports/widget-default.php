@@ -123,6 +123,7 @@ endif; ?>
           $("#resultados_ajax").html("Enviando...");
         },
         success: function(datos) {
+          
           $("#resultados_ajax").html(datos);
           $('#mount').html(response.totalSumMonthYear);
           $('#mountPercetage').html(response.percentageSumMonthYear);

@@ -1,8 +1,12 @@
 <?php
-if (!isset($_SESSION['user_id'])) {
-	Core::redir("./"); //Redirecciona 
-	exit;
-}
+include "../../core/autoload.php";
+
+
+include "../../core/modules/index/model/CompanyData.php";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //echo json_encode($_POST);
+    $response = array();
+    //Se validan nuevos parametros de los ingresos
 
 if (empty($_POST['name'])) {
 	$errors[] = "No ha ingresado un nombre.";
@@ -40,7 +44,10 @@ if (empty($_POST['name'])) {
 	$company_license = CompanyData::getByLicense($company->licenciaMRC);
 
 	if (isset($company_license) && !empty($company_license)) {
-		$errors[] = "Ya existe una empresa asociada a esa licencia MRC.";
+        $response[] = [
+                    "id_transaction" => 0,
+                    "status_transaction" => "Ya existe una empresa asociada a esa licencia MRC."
+                ];
 	} else {
 		$company->pais = intval($_POST['country_company']);
 		$company->ciudad = intval($_POST['city_company']);
@@ -50,39 +57,44 @@ if (empty($_POST['name'])) {
 		}
 		$query_new = $company->add();
 		if ($query_new && is_array($query_new) && $query_new[0]) {
-			$messages[] = "La empresa ha sido agregada con éxito.";
+            $response[] = [
+                    "id_transaction" => $query_new[1],
+                    "status_transaction" => "La empresa ha sido agregada con éxito."
+                ];
+		
 		} else {
-			$errors[] = "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo.";
+            $response[] = [
+                    "id_transaction" => 0,
+                    "status_transaction" => "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo."
+                ];
 		}
 	}
 } else {
-	$errors[] = "desconocido.";
+      $response[] = [
+                    "id_transaction" => 0,
+                    "status_transaction" => "Lo sentimos, el registro falló. Por favor, regrese y vuelva a intentarlo."
+                ];
 }
 
-if (isset($errors)) {
-?>
-	<div class="alert alert-danger" role="alert">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<strong>Error!</strong>
-		<?php
-		foreach ($errors as $error) {
-			echo $error;
-		}
-		?>
-	</div>
-<?php
+
+    header("HTTP/1.1 200 OK");
+    echo json_encode($response);
+    exit();
 }
-if (isset($messages)) {
-?>
-	<div class="alert alert-success" role="alert">
-		<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<strong>¡Bien hecho!</strong>
-		<?php
-		foreach ($messages as $message) {
-			echo $message;
-		}
-		?>
-	</div>
-<?php
+// Crear un nuevo get
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    header("HTTP/1.1 400 OK");
+    exit();
 }
-?>
+//Borrar
+if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+    header("HTTP/1.1 400 OK");
+    exit();
+}
+//Actualizar
+if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
+    header("HTTP/1.1 400 OK");
+    exit();
+}
+//En caso de que ninguna de las opciones anteriores se haya ejecutado
+header("HTTP/1.1 400 Bad Request");
