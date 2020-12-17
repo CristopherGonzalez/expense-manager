@@ -131,6 +131,8 @@ if (count($query) > 0) {
 			?>
 				<tr <?php if ($exp->active == 0 || !$exp->active) {
 						echo "style='background-color:pink;'";
+					}else{
+						$mount += floatval($exp->amount); 
 					} ?>>
 					<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 					<td><?php echo $date; ?></td>
@@ -140,8 +142,7 @@ if (count($query) > 0) {
 							echo "<center>----</center>";
 						}  ?></td>
 					<td><?php echo $exp->description; ?></td>
-					<td><?php echo number_format($exp->amount, 2);
-						$mount += floatval($exp->amount); ?></td>
+					<td><?php echo number_format($exp->amount, 2);?></td>
 					<td><?php if ($exp->document_number != null) {
 							echo $exp->document_number;
 						} else {

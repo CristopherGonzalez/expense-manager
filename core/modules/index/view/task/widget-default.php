@@ -99,7 +99,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             <div id="resultados_ajax"></div><!-- Resultados Ajax -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Historial Categorias de Tareas</h3>
+                    <h3 class="box-title">Historial de Tareas</h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar"><i class="fa fa-minus"></i></button>
                         <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>

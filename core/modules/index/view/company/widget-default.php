@@ -112,6 +112,12 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] == "1") :
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="admin_password" class="col-sm-2 control-label">Clave del Admnistrador</label>
+                                <div class="col-sm-10">
+                                    <input type="password" required class="form-control" autocomplete="new-password" name="admin_password" id="admin_password" placeholder="Clave del Usuario Admnistrador">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <span class="col-md-2 col-sm-2 col-xs-12"></span>
                                 <?php $file_profile = new InputFile('profile_pic', 'Foto', 'image/*');
                                 $file_profile->funjs =  "onchange='load_image(this);'";
@@ -119,7 +125,6 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] == "1") :
                                 echo $file_profile->render('col-sm-6');
                                 echo $file_profile->renderImage('col-sm-4'); ?>
                             </div>
-
                             <?php echo $modal_content->renderEnd(); ?>
                             <!-- End Form Modal -->
                             <div class="btn-group">

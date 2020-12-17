@@ -167,7 +167,7 @@
                                 <!--a href="?view=entidades"><i class="fa fa-home"></i> <span>Informes</span></a>-->
                                 <a href="?view=entities"><i class="fa fa-building"></i> <span>Entidades</span></a>
                             </li>
-                            <li class="header">Categorias</li>
+                            <li class="header">CATEGORIAS</li>
                             <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'category_income' or $_GET['view'] == 'editcategory_income') {
                                             echo "active";
                                         } ?>">
@@ -179,7 +179,7 @@
                                 <a href="?view=category_expense"> <i class="fa fa-folder-open"></i> <span>Egresos</span></a>
                             </li>
 
-                            <li class="header">Informes</li>
+                            <li class="header">INFORMES</li>
 
 
                             <li class="<?php if (isset($_GET['view']) and $_GET['view'] == 'reports') {

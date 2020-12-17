@@ -147,7 +147,7 @@ endif; ?>
         success: function(datos) {
           $("#resultados_ajax").html("");
           $(".outer_div").html(datos);
-          $("#total_expiration").html("$" + total);
+          $("#total_expiration").html("$" + total.toFixed(2));
         }
       });
     }

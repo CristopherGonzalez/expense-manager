@@ -94,7 +94,7 @@ values
 INSERT INTO empresas
     (status, is_deleted, licenciaMRC, pais, ciudad, direccion,documento,telefono, tipo_negocio, name,  email, profile_pic, skin, created_at)
 VALUES
-    ('1', '0', 'minegocio', '2', '34', 'MR.COMANDA SOFTWARE',null,'+54(351)5693065','2', 'MRComanda', 'info@mrcomanda.com', 'default.jpg', '1', NOW());
+    ('1', '0', 'minegocio', '2', '34', 'MR.COMANDA SOFTWARE',null,'+54(351)5693065','2', 'MRComanda', 'info@mrcomanda.com', 'default.jpg', '8', NOW());
 
 /*Prueba de usuario*/
 INSERT INTO user

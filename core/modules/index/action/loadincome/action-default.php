@@ -129,6 +129,8 @@ if (count($query_sql) > 0) {
 			?>
 				<tr <?php if ($inc->active == 0 || !$inc->active) {
 						echo "style='background-color:pink;'";
+					} else {
+						$mount += floatval($inc->amount); 
 					} ?>>
 					<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 					<td><?php echo $date; ?></td>
@@ -138,8 +140,7 @@ if (count($query_sql) > 0) {
 							echo "<center>----</center>";
 						}  ?></td>
 					<td><?php echo $inc->description; ?></td>
-					<td><?php echo number_format($inc->amount, 2);
-						$mount += floatval($inc->amount); ?></td>
+					<td><?php echo number_format($inc->amount, 2);?></td>
 					<td><?php if ($inc->document_number != null) {
 							echo $inc->document_number;
 						} else {

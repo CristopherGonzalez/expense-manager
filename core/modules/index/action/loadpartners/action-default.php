@@ -119,12 +119,13 @@ if (count($partners) > 0) {
 			?>
 				<tr <?php if ($partner->active == 0 || !$partner->active) {
 						echo "style='background-color:pink;'";
+					}else{
+						$mount += floatval($partner->amount); 
 					} ?>>
 					<!-- Se  muestran los nombres de los campos dependiendo de los id's -->
 					<td><?php echo $date; ?></td>
 					<td><?php echo $partner->description; ?></td>
-					<td><?php echo number_format($partner->amount, 2);
-						$mount += floatval($partner->amount); ?></td>
+					<td><?php echo number_format($partner->amount, 2);?></td>
 					<td><?php if ($partner->entidad != null) {
 							echo EntityData::getById($partner->entidad)->name;
 						} else {

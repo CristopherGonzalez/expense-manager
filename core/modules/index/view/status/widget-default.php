@@ -16,6 +16,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
     $last_month_expenses =  ExpensesData::dynamicQueryArray($Where . " and pagado=0 and  date_format(fecha_vence, '%Y-%m') = date_format(now() - interval 1 month, '%Y-%m')");
     $last_month_debts =  DebtsData::dynamicQueryArray($Where . " and pagado=0 and  date_format(fecha, '%Y-%m') = date_format(now() - interval 1 month, '%Y-%m')");
     $user = UserData::getById($_SESSION['user_id']);
+    $company = CompanyData::getById($_SESSION['company_id']);
 ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -30,7 +31,7 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                     <div class="box box-primary">
                         <!-- general form elements -->
                         <div class="box-header with-border">
-                            <h3>Estado Empresa</h3>
+                            <h3>Estado Empresa <b><?php echo $company->name??'Nombre Empresa'; ?></b></h3>
                         </div><!-- /.box-header -->
                         <!-- form start -->
                         <div class="box-body">

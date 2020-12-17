@@ -82,10 +82,10 @@ endif;
             </div> -->
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat"><i class="fa fa-sign-in"></i> Acceder</button>
+                        <a href="./?view=register" class="btn btn-success btn-block btn-flat"> <i class="fa fa-user-plus"></i> Registrarme</a>
                     </div><!-- /.col -->
                     <div class="col-xs-12 col-sm-6">
-                        <a href="./?view=register" class="btn btn-success btn-block btn-flat"> <i class="fa fa-user-plus"></i> Registrarme</a>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat"><i class="fa fa-sign-in"></i> Acceder</button>
                     </div><!-- /.col -->
                 </div>
             </form>

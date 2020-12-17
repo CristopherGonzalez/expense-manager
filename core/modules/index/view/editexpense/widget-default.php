@@ -187,12 +187,17 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
                                                         <div id="div_pay_with" style="display:none;" class="row">
                                                             <label for="pay_with" class="col-md-1 col-sm-1 col-xs-1">con</label>
                                                             <input type="text" class="col-md-9 col-sm-9 col-xs-9" style="float:right;" name="pay_with" id="pay_with" placeholder="Tipo de Pago" value="<?php echo $expense->pagado_con; ?>">
-
+                                                            <div class="col-xs-12 pull-right" style="margin-top:5px;padding:0;">
+                                                                <?php if (isset($expense->deuda_id)) { ?>
+                                                                    <button type="button" class="btn btn-default show pull-right" id="btn_new_debt" name="btn_new_debt" data-toggle="modal" href="#frmdebt" onclick="change_modal_debt('disabled');"><i class="fa fa-money"></i> Ver deuda documentada</button>
+                                                                <?php } else { ?>
+                                                                    <button type="button" class="btn btn-default pull-right" id="btn_generate_debt" name="btn_generate_debt" data-toggle="modal" href="#frmdebt" onclick="change_modal_debt(false);"><i class="fa fa-money"></i> Generar deuda documentada</button>
+                                                                <?php } ?>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-10 col-xs-12 pull-left" style="margin-top:5px;">
-                                                        <button type="button" class="btn btn-default <?php echo $expense->deuda_id == null ? "hidden" : 'show';  ?>" id="btn_new_debt" name="btn_new_debt" data-toggle="modal" href="#frmdebt" onclick="cargaDatosDeuda();"><i class="fa fa-money"></i> Ver deuda documentada</button>
-                                                    </div>
+
+
                                                 </div>
 
                                             </div>
@@ -251,6 +256,22 @@ if (isset($_SESSION["user_id"]) && $_SESSION['user_id'] != "1") :
             load_change_log('<?php echo $expense->id; ?>', "expenses", "chn_log");
             change_payment_status($('#paid_out').is(":checked"));
         });
+
+        function change_modal_debt(disabled) {
+            debugger;
+            $('#debt_date').attr("disabled", disabled);
+            $('#debt_document_number').attr("disabled", disabled);
+            $('#debt_description').attr("disabled", disabled);
+            $('#debt_amount').attr("disabled", disabled);
+            $('#debt_payment_fees').attr("disabled", disabled);
+            $('#debt_entity').attr("disabled", disabled);
+            $('#debt_type').attr("disabled", disabled);
+            $('#debt_document').attr("disabled", disabled);
+            $('#debt_payment').attr("disabled", disabled);
+            $('#btn_save_debt').removeClass(!disabled ? 'hidden' : 'show');
+            $('#btn_save_debt').addClass(disabled ? 'hidden' : 'show');
+            cargaDatosDeuda();
+        }
         $("#upd").submit(function(event) {
             fd = new FormData($(this)[0]);
             var pay_out = $('#paid_out').is(":checked");
